@@ -9,18 +9,16 @@
 - [x] 2026-06-11 — Research: SimplifyJobs repo architecture, ATS public APIs, legal
       landscape (job-board ToS, PH law, copyright-of-facts).
 - [x] 2026-06-11 — Design approved; SPEC.md, CLAUDE.md, TRACKER.md, ROADMAP.md written.
+- [x] 2026-06-11 — Phase 0 scaffolding: pnpm workspace, `pipeline/` (TS strict, vitest,
+      tsx, prettier), `web/` (Next 16 + Tailwind 4, `output: "export"` verified building),
+      CI workflow skeleton (`.github/workflows/ci.yml`).
 
 ## 🔨 In progress
 
-(nothing yet — implementation not started)
+- Phase 1 — pipeline core (TDD).
+- Phase 2 — registry seeding (parallel).
 
 ## ⏭️ Next up (v1 build order — SPEC §16)
-
-### Phase 0 — Scaffolding
-- [ ] pnpm workspace (`pnpm-workspace.yaml`, root package.json with `refresh` script)
-- [ ] `pipeline/` package: TS strict config, test runner, lint/format
-- [ ] `web/` package: Next.js + TS + Tailwind, static export config
-- [ ] `.gitignore`, base CI workflow skeleton
 
 ### Phase 1 — Pipeline core
 - [ ] `Listing` + registry types matching SPEC §6–7 (single shared definition)
