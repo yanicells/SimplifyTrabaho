@@ -1,5 +1,11 @@
 import { describe, expect, it } from "vitest";
-import { parseRegistry, parseListingsFile, emptyListingsFile } from "../src/files.js";
+import {
+  parseRegistry,
+  parseListingsFile,
+  emptyListingsFile,
+  mergeRegistryCompanies,
+} from "../src/files.js";
+import type { RegistryCompany } from "../src/types.js";
 
 const validCompany = {
   name: "Xendit",
@@ -50,5 +56,32 @@ describe("parseListingsFile", () => {
     expect(() => parseListingsFile({ version: 2, updatedAt: "x", listings: [] })).toThrow(
       /version/i,
     );
+  });
+});
+
+describe("mergeRegistryCompanies", () => {
+  const entry = (name: string, ats: RegistryCompany["ats"], slug: string): RegistryCompany => ({
+    name,
+    ats,
+    slug,
+    industry: "",
+    verified: true,
+    added: "2026-06-11",
+  });
+
+  it("keeps existing entries when the same ats+slug is re-added", () => {
+    const existing = { ...entry("Xendit", "greenhouse", "xendit"), notes: "hand-tuned" };
+    const merged = mergeRegistryCompanies([existing], [entry("Xendit2", "greenhouse", "xendit")]);
+    expect(merged).toHaveLength(1);
+    expect(merged[0]!.name).toBe("Xendit");
+    expect(merged[0]!.notes).toBe("hand-tuned");
+  });
+
+  it("adds new entries and keeps the list alphabetized by name", () => {
+    const merged = mergeRegistryCompanies(
+      [entry("Xendit", "greenhouse", "xendit")],
+      [entry("Canva", "smartrecruiters", "Canva"), entry("Hostaway", "recruitee", "hostaway")],
+    );
+    expect(merged.map((c) => c.name)).toEqual(["Canva", "Hostaway", "Xendit"]);
   });
 });

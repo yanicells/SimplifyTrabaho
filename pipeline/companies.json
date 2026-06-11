@@ -2,6 +2,510 @@
   "version": 1,
   "companies": [
     {
+      "name": "1840 & Company",
+      "ats": "lever",
+      "slug": "1840&Company",
+      "industry": "staffing",
+      "verified": true,
+      "added": "2026-06-11",
+      "notes": "auto-verified 2026-06-11: 22 PH postings"
+    },
+    {
+      "name": "3Cloud",
+      "ats": "greenhouse",
+      "slug": "3cloud",
+      "industry": "it-services",
+      "verified": true,
+      "added": "2026-06-11",
+      "notes": "auto-verified 2026-06-11: 15 PH postings"
+    },
+    {
+      "name": "AJAIA",
+      "ats": "workable",
+      "slug": "ajaia",
+      "industry": "ai-data",
+      "verified": true,
+      "added": "2026-06-11",
+      "notes": "auto-verified 2026-06-11: 1 PH postings"
+    },
+    {
+      "name": "Angkas",
+      "ats": "workable",
+      "slug": "angkas",
+      "industry": "transport",
+      "verified": true,
+      "added": "2026-06-11",
+      "notes": "auto-verified 2026-06-11: 63 PH postings"
+    },
+    {
+      "name": "Apollo.io",
+      "ats": "greenhouse",
+      "slug": "apolloio",
+      "industry": "saas",
+      "verified": true,
+      "added": "2026-06-11",
+      "notes": "auto-verified 2026-06-11: 5 PH postings"
+    },
+    {
+      "name": "Aprio",
+      "ats": "lever",
+      "slug": "Aprio",
+      "industry": "accounting",
+      "verified": true,
+      "added": "2026-06-11",
+      "notes": "auto-verified 2026-06-11: 38 PH postings"
+    },
+    {
+      "name": "Arcanys",
+      "ats": "workable",
+      "slug": "arcanys",
+      "industry": "it-services",
+      "verified": true,
+      "added": "2026-06-11",
+      "notes": "auto-verified 2026-06-11: PH-headquartered, 0 open PH roles today"
+    },
+    {
+      "name": "Arch Global Services PH",
+      "ats": "smartrecruiters",
+      "slug": "ArchGlobalServicesPhilippinesInc",
+      "industry": "insurance",
+      "verified": true,
+      "added": "2026-06-11",
+      "notes": "auto-verified 2026-06-11: 66 PH postings"
+    },
+    {
+      "name": "Ashby",
+      "ats": "ashby",
+      "slug": "ashby",
+      "industry": "hr-tech",
+      "verified": true,
+      "added": "2026-06-11",
+      "notes": "auto-verified 2026-06-11: 2 PH postings"
+    },
+    {
+      "name": "Assist World",
+      "ats": "lever",
+      "slug": "assist-world",
+      "industry": "staffing",
+      "verified": true,
+      "added": "2026-06-11",
+      "notes": "auto-verified 2026-06-11: 44 PH postings"
+    },
+    {
+      "name": "Auctane",
+      "ats": "greenhouse",
+      "slug": "auctane",
+      "industry": "logistics-tech",
+      "verified": true,
+      "added": "2026-06-11",
+      "notes": "auto-verified 2026-06-11: 1 PH postings"
+    },
+    {
+      "name": "Autohub Group",
+      "ats": "workable",
+      "slug": "autohub-group-of-companies-inc",
+      "industry": "automotive",
+      "verified": true,
+      "added": "2026-06-11",
+      "notes": "auto-verified 2026-06-11: PH-headquartered, 0 open PH roles today"
+    },
+    {
+      "name": "Azeus Systems",
+      "ats": "smartrecruiters",
+      "slug": "AzeusSystemsPhilippinesLimited",
+      "industry": "software",
+      "verified": true,
+      "added": "2026-06-11",
+      "notes": "auto-verified 2026-06-11: PH-headquartered, 0 open PH roles today"
+    },
+    {
+      "name": "Bosch",
+      "ats": "smartrecruiters",
+      "slug": "BoschGroup",
+      "industry": "manufacturing",
+      "verified": true,
+      "added": "2026-06-11",
+      "notes": "auto-verified 2026-06-11: 26 PH postings"
+    },
+    {
+      "name": "BSA Solutions",
+      "ats": "workable",
+      "slug": "bsa-solutions",
+      "industry": "outsourcing",
+      "verified": true,
+      "added": "2026-06-11",
+      "notes": "auto-verified 2026-06-11: PH-headquartered, 0 open PH roles today"
+    },
+    {
+      "name": "CI&T",
+      "ats": "lever",
+      "slug": "ciandt",
+      "industry": "it-services",
+      "verified": true,
+      "added": "2026-06-11",
+      "notes": "auto-verified 2026-06-11: 4 PH postings"
+    },
+    {
+      "name": "Clipboard Health",
+      "ats": "ashby",
+      "slug": "clipboard",
+      "industry": "healthtech",
+      "verified": true,
+      "added": "2026-06-11",
+      "notes": "auto-verified 2026-06-11: 2 PH postings"
+    },
+    {
+      "name": "Cloud Accountant Staffing",
+      "ats": "ashby",
+      "slug": "cas",
+      "industry": "staffing",
+      "verified": true,
+      "added": "2026-06-11",
+      "notes": "auto-verified 2026-06-11: 14 PH postings"
+    },
+    {
+      "name": "Cloudstaff",
+      "ats": "workable",
+      "slug": "cloudstaff",
+      "industry": "outsourcing",
+      "verified": true,
+      "added": "2026-06-11",
+      "notes": "auto-verified 2026-06-11: PH-headquartered, 0 open PH roles today"
+    },
+    {
+      "name": "Coins.ph",
+      "ats": "lever",
+      "slug": "coins",
+      "industry": "fintech",
+      "verified": true,
+      "added": "2026-06-11",
+      "notes": "auto-verified 2026-06-11: 84 PH postings"
+    },
+    {
+      "name": "CrewBloom",
+      "ats": "workable",
+      "slug": "crewbloom",
+      "industry": "staffing",
+      "verified": true,
+      "added": "2026-06-11",
+      "notes": "auto-verified 2026-06-11: 213 PH postings"
+    },
+    {
+      "name": "Delivery Hero",
+      "ats": "smartrecruiters",
+      "slug": "DeliveryHero",
+      "industry": "delivery",
+      "verified": true,
+      "added": "2026-06-11",
+      "notes": "auto-verified 2026-06-11: 33 PH postings"
+    },
+    {
+      "name": "Delta Capita",
+      "ats": "recruitee",
+      "slug": "careersdeltacapita",
+      "industry": "financial-services",
+      "verified": true,
+      "added": "2026-06-11",
+      "notes": "auto-verified 2026-06-11: 2 PH postings"
+    },
+    {
+      "name": "Dialpad",
+      "ats": "greenhouse",
+      "slug": "dialpad",
+      "industry": "saas",
+      "verified": true,
+      "added": "2026-06-11",
+      "notes": "auto-verified 2026-06-11: 6 PH postings"
+    },
+    {
+      "name": "Double the Donation",
+      "ats": "ashby",
+      "slug": "double-the-donation",
+      "industry": "saas",
+      "verified": true,
+      "added": "2026-06-11",
+      "notes": "auto-verified 2026-06-11: 9 PH postings"
+    },
+    {
+      "name": "DoubleVerify",
+      "ats": "greenhouse",
+      "slug": "doubleverify",
+      "industry": "adtech",
+      "verified": true,
+      "added": "2026-06-11",
+      "notes": "auto-verified 2026-06-11: 1 PH postings"
+    },
+    {
+      "name": "Emapta",
+      "ats": "workable",
+      "slug": "emapta",
+      "industry": "outsourcing",
+      "verified": true,
+      "added": "2026-06-11",
+      "notes": "auto-verified 2026-06-11: PH-headquartered, 0 open PH roles today"
+    },
+    {
+      "name": "Etaily",
+      "ats": "workable",
+      "slug": "etaily",
+      "industry": "ecommerce",
+      "verified": true,
+      "added": "2026-06-11",
+      "notes": "auto-verified 2026-06-11: PH-headquartered, 0 open PH roles today"
+    },
+    {
+      "name": "First Circle",
+      "ats": "workable",
+      "slug": "first-circle",
+      "industry": "fintech",
+      "verified": true,
+      "added": "2026-06-11",
+      "notes": "auto-verified 2026-06-11: 19 PH postings"
+    },
+    {
+      "name": "Fresh Prints",
+      "ats": "greenhouse",
+      "slug": "freshprints",
+      "industry": "ecommerce",
+      "verified": true,
+      "added": "2026-06-11",
+      "notes": "auto-verified 2026-06-11: 22 PH postings"
+    },
+    {
+      "name": "FunGuy Studio",
+      "ats": "smartrecruiters",
+      "slug": "FunGuyStudioPhilippinesInc",
+      "industry": "gaming",
+      "verified": true,
+      "added": "2026-06-11",
+      "notes": "auto-verified 2026-06-11: 5 PH postings"
+    },
+    {
+      "name": "G2i",
+      "ats": "ashby",
+      "slug": "g2i",
+      "industry": "staffing",
+      "verified": true,
+      "added": "2026-06-11",
+      "notes": "auto-verified 2026-06-11: 1 PH postings"
+    },
+    {
+      "name": "Gamigo PH",
+      "ats": "workable",
+      "slug": "mediaandgamesinvest",
+      "industry": "gaming",
+      "verified": true,
+      "added": "2026-06-11",
+      "notes": "auto-verified 2026-06-11: 9 PH postings"
+    },
+    {
+      "name": "Gardenia Bakeries PH",
+      "ats": "smartrecruiters",
+      "slug": "GardeniaBakeriesPhilippinesInc",
+      "industry": "food",
+      "verified": true,
+      "added": "2026-06-11",
+      "notes": "auto-verified 2026-06-11: 10 PH postings"
+    },
+    {
+      "name": "GoTyme Bank",
+      "ats": "workable",
+      "slug": "gotyme-ph-philippines",
+      "industry": "fintech",
+      "verified": true,
+      "added": "2026-06-11",
+      "notes": "auto-verified 2026-06-11: 36 PH postings"
+    },
+    {
+      "name": "Hello Rache",
+      "ats": "workable",
+      "slug": "hello-rache",
+      "industry": "healthtech",
+      "verified": true,
+      "added": "2026-06-11",
+      "notes": "auto-verified 2026-06-11: 1 PH postings"
+    },
+    {
+      "name": "HelloFresh",
+      "ats": "greenhouse",
+      "slug": "hellofresh",
+      "industry": "consumer",
+      "verified": true,
+      "added": "2026-06-11",
+      "notes": "auto-verified 2026-06-11: 32 PH postings"
+    },
+    {
+      "name": "Hire Hangar",
+      "ats": "ashby",
+      "slug": "hirehangar",
+      "industry": "staffing",
+      "verified": true,
+      "added": "2026-06-11",
+      "notes": "auto-verified 2026-06-11: 12 PH postings"
+    },
+    {
+      "name": "Hire Overseas",
+      "ats": "workable",
+      "slug": "hire-overseas",
+      "industry": "staffing",
+      "verified": true,
+      "added": "2026-06-11",
+      "notes": "auto-verified 2026-06-11: 37 PH postings"
+    },
+    {
+      "name": "HireHawk",
+      "ats": "workable",
+      "slug": "hirehawk",
+      "industry": "staffing",
+      "verified": true,
+      "added": "2026-06-11",
+      "notes": "auto-verified 2026-06-11: 136 PH postings"
+    },
+    {
+      "name": "Hopper",
+      "ats": "ashby",
+      "slug": "hopper",
+      "industry": "travel",
+      "verified": true,
+      "added": "2026-06-11",
+      "notes": "auto-verified 2026-06-11: 1 PH postings"
+    },
+    {
+      "name": "Hostaway",
+      "ats": "recruitee",
+      "slug": "hostaway",
+      "industry": "saas",
+      "verified": true,
+      "added": "2026-06-11",
+      "notes": "auto-verified 2026-06-11: 2 PH postings"
+    },
+    {
+      "name": "Human Intelligence",
+      "ats": "workable",
+      "slug": "humanintelligence",
+      "industry": "staffing",
+      "verified": true,
+      "added": "2026-06-11",
+      "notes": "auto-verified 2026-06-11: 24 PH postings"
+    },
+    {
+      "name": "Hunt St",
+      "ats": "workable",
+      "slug": "hunt-st",
+      "industry": "staffing",
+      "verified": true,
+      "added": "2026-06-11",
+      "notes": "auto-verified 2026-06-11: 149 PH postings"
+    },
+    {
+      "name": "Instructure",
+      "ats": "ashby",
+      "slug": "instructure",
+      "industry": "edtech",
+      "verified": true,
+      "added": "2026-06-11",
+      "notes": "auto-verified 2026-06-11: 2 PH postings"
+    },
+    {
+      "name": "iScale Solutions",
+      "ats": "smartrecruiters",
+      "slug": "IScaleSolutions",
+      "industry": "outsourcing",
+      "verified": true,
+      "added": "2026-06-11",
+      "notes": "auto-verified 2026-06-11: 134 PH postings"
+    },
+    {
+      "name": "ISTA Personnel Solutions",
+      "ats": "workable",
+      "slug": "ista-2",
+      "industry": "outsourcing",
+      "verified": true,
+      "added": "2026-06-11",
+      "notes": "auto-verified 2026-06-11: 51 PH postings"
+    },
+    {
+      "name": "Kasa",
+      "ats": "greenhouse",
+      "slug": "kasa",
+      "industry": "hospitality",
+      "verified": true,
+      "added": "2026-06-11",
+      "notes": "auto-verified 2026-06-11: 2 PH postings"
+    },
+    {
+      "name": "KMC Solutions",
+      "ats": "workable",
+      "slug": "kmc-solutions",
+      "industry": "outsourcing",
+      "verified": true,
+      "added": "2026-06-11",
+      "notes": "auto-verified 2026-06-11: PH-headquartered, 0 open PH roles today"
+    },
+    {
+      "name": "Lalamove",
+      "ats": "lever",
+      "slug": "lalamove",
+      "industry": "logistics",
+      "verified": true,
+      "added": "2026-06-11",
+      "notes": "auto-verified 2026-06-11: 13 PH postings"
+    },
+    {
+      "name": "Lennor Metier",
+      "ats": "smartrecruiters",
+      "slug": "LennorMetier",
+      "industry": "recruitment",
+      "verified": true,
+      "added": "2026-06-11",
+      "notes": "auto-verified 2026-06-11: 1 PH postings"
+    },
+    {
+      "name": "Lightspeed Commerce",
+      "ats": "ashby",
+      "slug": "lightspeedhq",
+      "industry": "saas",
+      "verified": true,
+      "added": "2026-06-11",
+      "notes": "auto-verified 2026-06-11: 2 PH postings"
+    },
+    {
+      "name": "Manila Recruitment",
+      "ats": "workable",
+      "slug": "manilarecruitment",
+      "industry": "recruitment",
+      "verified": true,
+      "added": "2026-06-11",
+      "notes": "auto-verified 2026-06-11: 78 PH postings"
+    },
+    {
+      "name": "Mind You",
+      "ats": "smartrecruiters",
+      "slug": "MindYouMentalHealthSystemsInc",
+      "industry": "healthtech",
+      "verified": true,
+      "added": "2026-06-11",
+      "notes": "auto-verified 2026-06-11: 3 PH postings"
+    },
+    {
+      "name": "NeoWork",
+      "ats": "workable",
+      "slug": "neowork",
+      "industry": "outsourcing",
+      "verified": true,
+      "added": "2026-06-11",
+      "notes": "auto-verified 2026-06-11: 31 PH postings"
+    },
+    {
+      "name": "NICE",
+      "ats": "greenhouse",
+      "slug": "nice",
+      "industry": "saas",
+      "verified": true,
+      "added": "2026-06-11",
+      "notes": "auto-verified 2026-06-11: 35 PH postings"
+    },
+    {
       "name": "Ninja Van",
       "ats": "lever",
       "slug": "ninjavan",
@@ -11,6 +515,258 @@
       "notes": "Regional; PH roles in Taguig, Calabarzon, Cagayan de Oro"
     },
     {
+      "name": "Oscilar",
+      "ats": "ashby",
+      "slug": "oscilar",
+      "industry": "fintech",
+      "verified": true,
+      "added": "2026-06-11",
+      "notes": "auto-verified 2026-06-11: 3 PH postings"
+    },
+    {
+      "name": "Outsource Access",
+      "ats": "workable",
+      "slug": "outsource-access",
+      "industry": "outsourcing",
+      "verified": true,
+      "added": "2026-06-11",
+      "notes": "auto-verified 2026-06-11: PH-headquartered, 0 open PH roles today"
+    },
+    {
+      "name": "Outsourced",
+      "ats": "workable",
+      "slug": "outsourced",
+      "industry": "outsourcing",
+      "verified": true,
+      "added": "2026-06-11",
+      "notes": "auto-verified 2026-06-11: PH-headquartered, 0 open PH roles today"
+    },
+    {
+      "name": "Palmetto",
+      "ats": "greenhouse",
+      "slug": "palmettocleantech",
+      "industry": "cleantech",
+      "verified": true,
+      "added": "2026-06-11",
+      "notes": "auto-verified 2026-06-11: 4 PH postings"
+    },
+    {
+      "name": "PenBrothers",
+      "ats": "workable",
+      "slug": "penbrothers",
+      "industry": "staffing",
+      "verified": true,
+      "added": "2026-06-11",
+      "notes": "auto-verified 2026-06-11: PH-headquartered, 0 open PH roles today"
+    },
+    {
+      "name": "Pilmico",
+      "ats": "smartrecruiters",
+      "slug": "PilmicoFoodsCorporation",
+      "industry": "food",
+      "verified": true,
+      "added": "2026-06-11",
+      "notes": "auto-verified 2026-06-11: 95 PH postings"
+    },
+    {
+      "name": "QuickTeam",
+      "ats": "workable",
+      "slug": "quickteam",
+      "industry": "staffing",
+      "verified": true,
+      "added": "2026-06-11",
+      "notes": "auto-verified 2026-06-11: 8 PH postings"
+    },
+    {
+      "name": "Remote",
+      "ats": "greenhouse",
+      "slug": "remotecom",
+      "industry": "hr-tech",
+      "verified": true,
+      "added": "2026-06-11",
+      "notes": "auto-verified 2026-06-11: 1 PH postings"
+    },
+    {
+      "name": "Remote Philippines",
+      "ats": "workable",
+      "slug": "remote-philippines",
+      "industry": "staffing",
+      "verified": true,
+      "added": "2026-06-11",
+      "notes": "auto-verified 2026-06-11: PH-headquartered, 0 open PH roles today"
+    },
+    {
+      "name": "ResultsCX",
+      "ats": "smartrecruiters",
+      "slug": "TheResultsCompanies",
+      "industry": "outsourcing",
+      "verified": true,
+      "added": "2026-06-11",
+      "notes": "auto-verified 2026-06-11: 1 PH postings"
+    },
+    {
+      "name": "Rocket Partners",
+      "ats": "lever",
+      "slug": "rocketpartners",
+      "industry": "accounting",
+      "verified": true,
+      "added": "2026-06-11",
+      "notes": "auto-verified 2026-06-11: 6 PH postings"
+    },
+    {
+      "name": "Rundoo",
+      "ats": "ashby",
+      "slug": "rundoo",
+      "industry": "saas",
+      "verified": true,
+      "added": "2026-06-11",
+      "notes": "auto-verified 2026-06-11: 1 PH postings"
+    },
+    {
+      "name": "SGS",
+      "ats": "smartrecruiters",
+      "slug": "SGS",
+      "industry": "testing-certification",
+      "verified": true,
+      "added": "2026-06-11",
+      "notes": "auto-verified 2026-06-11: 219 PH postings"
+    },
+    {
+      "name": "Sourcefit",
+      "ats": "workable",
+      "slug": "sourcefit",
+      "industry": "outsourcing",
+      "verified": true,
+      "added": "2026-06-11",
+      "notes": "auto-verified 2026-06-11: PH-headquartered, 0 open PH roles today"
+    },
+    {
+      "name": "Sprout Solutions",
+      "ats": "workable",
+      "slug": "sprout-solutions",
+      "industry": "hr-tech",
+      "verified": true,
+      "added": "2026-06-11",
+      "notes": "auto-verified 2026-06-11: PH-headquartered, 0 open PH roles today"
+    },
+    {
+      "name": "SwissTank Media",
+      "ats": "smartrecruiters",
+      "slug": "SwissTankMedia",
+      "industry": "media",
+      "verified": true,
+      "added": "2026-06-11",
+      "notes": "auto-verified 2026-06-11: 5 PH postings"
+    },
+    {
+      "name": "TaxValet",
+      "ats": "greenhouse",
+      "slug": "taxvalet",
+      "industry": "accounting",
+      "verified": true,
+      "added": "2026-06-11",
+      "notes": "auto-verified 2026-06-11: 3 PH postings"
+    },
+    {
+      "name": "Tech Firefly",
+      "ats": "workable",
+      "slug": "techfirefly",
+      "industry": "it-services",
+      "verified": true,
+      "added": "2026-06-11",
+      "notes": "auto-verified 2026-06-11: 6 PH postings"
+    },
+    {
+      "name": "TotalEnergies PH",
+      "ats": "smartrecruiters",
+      "slug": "TOTAL2",
+      "industry": "energy",
+      "verified": true,
+      "added": "2026-06-11",
+      "notes": "auto-verified 2026-06-11: 4 PH postings"
+    },
+    {
+      "name": "Traba",
+      "ats": "ashby",
+      "slug": "traba",
+      "industry": "saas",
+      "verified": true,
+      "added": "2026-06-11",
+      "notes": "auto-verified 2026-06-11: 1 PH postings"
+    },
+    {
+      "name": "Treantly",
+      "ats": "workable",
+      "slug": "treantly",
+      "industry": "staffing",
+      "verified": true,
+      "added": "2026-06-11",
+      "notes": "auto-verified 2026-06-11: 32 PH postings"
+    },
+    {
+      "name": "Trident BPO",
+      "ats": "workable",
+      "slug": "trident-works",
+      "industry": "outsourcing",
+      "verified": true,
+      "added": "2026-06-11",
+      "notes": "auto-verified 2026-06-11: 15 PH postings"
+    },
+    {
+      "name": "Twoconnect",
+      "ats": "workable",
+      "slug": "twoconnect-careers",
+      "industry": "outsourcing",
+      "verified": true,
+      "added": "2026-06-11",
+      "notes": "auto-verified 2026-06-11: 43 PH postings"
+    },
+    {
+      "name": "Virtual Staff 365",
+      "ats": "workable",
+      "slug": "virtual-staff-365",
+      "industry": "staffing",
+      "verified": true,
+      "added": "2026-06-11",
+      "notes": "auto-verified 2026-06-11: 27 PH postings"
+    },
+    {
+      "name": "Welo Global",
+      "ats": "lever",
+      "slug": "weloglobal",
+      "industry": "ai-data",
+      "verified": true,
+      "added": "2026-06-11",
+      "notes": "auto-verified 2026-06-11: 9 PH postings"
+    },
+    {
+      "name": "Wing Assistant",
+      "ats": "lever",
+      "slug": "getwingapp",
+      "industry": "staffing",
+      "verified": true,
+      "added": "2026-06-11",
+      "notes": "auto-verified 2026-06-11: 156 PH postings"
+    },
+    {
+      "name": "WNS Global Services",
+      "ats": "smartrecruiters",
+      "slug": "WNSGlobalServices144",
+      "industry": "outsourcing",
+      "verified": true,
+      "added": "2026-06-11",
+      "notes": "auto-verified 2026-06-11: 51 PH postings"
+    },
+    {
+      "name": "Workstream",
+      "ats": "greenhouse",
+      "slug": "workstream",
+      "industry": "saas",
+      "verified": true,
+      "added": "2026-06-11",
+      "notes": "auto-verified 2026-06-11: 4 PH postings"
+    },
+    {
       "name": "Xendit",
       "ats": "greenhouse",
       "slug": "xendit",
@@ -18,6 +774,24 @@
       "verified": true,
       "added": "2026-06-11",
       "notes": "Regional fintech; Manila roles"
+    },
+    {
+      "name": "Xillium",
+      "ats": "workable",
+      "slug": "jobsxillium",
+      "industry": "healthtech",
+      "verified": true,
+      "added": "2026-06-11",
+      "notes": "auto-verified 2026-06-11: 18 PH postings"
+    },
+    {
+      "name": "Yempo",
+      "ats": "workable",
+      "slug": "yempo",
+      "industry": "outsourcing",
+      "verified": true,
+      "added": "2026-06-11",
+      "notes": "auto-verified 2026-06-11: PH-headquartered, 0 open PH roles today"
     }
   ]
 }

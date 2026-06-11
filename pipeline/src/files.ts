@@ -43,6 +43,21 @@ export function parseRegistry(raw: unknown): Registry {
   return { version: 1, companies };
 }
 
+/** Merge new registry entries in: existing ats+slug pairs win, output stays alphabetized. */
+export function mergeRegistryCompanies(
+  existing: RegistryCompany[],
+  additions: RegistryCompany[],
+): RegistryCompany[] {
+  const byKey = new Map(existing.map((c) => [`${c.ats}:${c.slug}`, c]));
+  for (const company of additions) {
+    const key = `${company.ats}:${company.slug}`;
+    if (!byKey.has(key)) byKey.set(key, company);
+  }
+  return [...byKey.values()].sort(
+    (a, b) => a.name.localeCompare(b.name) || a.ats.localeCompare(b.ats),
+  );
+}
+
 export function emptyListingsFile(updatedAt: string): ListingsFile {
   return { version: 1, updatedAt, listings: [] };
 }
