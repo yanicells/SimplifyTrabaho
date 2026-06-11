@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-06-11T09:25:58.108Z",
+  "updatedAt": "2026-06-11T09:42:04.204Z",
   "listings": [
     {
       "id": "16e8a85575e0",
@@ -25838,6 +25838,24 @@
       "salary": null,
       "datePosted": "2026-02-09T16:27:54.000Z",
       "dateUpdated": "2026-06-11T01:21:12.918Z",
+      "active": true
+    },
+    {
+      "id": "e2223a53f7c2",
+      "company": "Ninja Van",
+      "title": "Senior Operation Analyst",
+      "locations": [
+        "Taguig, Philippines"
+      ],
+      "workSetup": "hybrid",
+      "level": "senior",
+      "function": "other",
+      "url": "https://jobs.lever.co/ninjavan/97f35688-5248-4d48-b42c-d55991240a2e",
+      "source": "lever",
+      "employmentType": "full-time",
+      "salary": null,
+      "datePosted": "2026-06-11T09:40:45.229Z",
+      "dateUpdated": "2026-06-11T09:42:04.204Z",
       "active": true
     },
     {
