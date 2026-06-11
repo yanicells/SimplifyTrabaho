@@ -97,7 +97,7 @@ refreshes once daily.
 
 ---
 
-📊 **2095 active listings** from **101 companies tracked** · last updated 2026-06-11 09:25 UTC
+📊 **2096 active listings** from **101 companies tracked** · last updated 2026-06-11 09:42 UTC
 
 ➡️ Full list with filters (all roles, all levels): **[simplifytrabaho.ycells.com](https://simplifytrabaho.ycells.com)**
 
