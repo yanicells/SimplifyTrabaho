@@ -69,7 +69,12 @@ function contentChanged(a: Listing, b: Listing): boolean {
 }
 
 /** Merge this run's listings into the existing dataset per SPEC §10. */
-export function mergeListings({ existing, current, fetchedCompanies, now }: MergeInput): MergeResult {
+export function mergeListings({
+  existing,
+  current,
+  fetchedCompanies,
+  now,
+}: MergeInput): MergeResult {
   const summary: MergeSummary = { added: 0, updated: 0, unchanged: 0, deactivated: 0 };
   const currentById = new Map(current.map((listing) => [listing.id, listing]));
   const merged: Listing[] = [];

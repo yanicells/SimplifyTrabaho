@@ -106,7 +106,9 @@ async function main(): Promise<void> {
       known.add(`${verifiedEntry.ats}:${verifiedEntry.slug}`);
     } else if (tried.length > 0) {
       const note = liveButNoPH ? `live but no PH roles (${liveButNoPH})` : "all dead";
-      failures.push(`- ${candidate.name} — slugs tried: ${tried.join(", ")} — ${today} — ${note}`);
+      failures.push(
+        `- ${candidate.name} — slugs tried: ${tried.join(", ")} — ${today} — ${note}`,
+      );
     }
   }
 

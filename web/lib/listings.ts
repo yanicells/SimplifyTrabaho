@@ -153,8 +153,7 @@ export function toJobs(file: ListingsFile): JobsPayload {
   const jobs = file.listings
     .filter((l) => l.active)
     .sort(
-      (a, b) =>
-        b.datePosted.localeCompare(a.datePosted) || a.company.localeCompare(b.company),
+      (a, b) => b.datePosted.localeCompare(a.datePosted) || a.company.localeCompare(b.company),
     )
     .map((l) => {
       const job: Job = {

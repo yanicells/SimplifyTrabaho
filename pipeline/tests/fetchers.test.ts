@@ -249,7 +249,13 @@ describe("fetchSmartRecruiters", () => {
     id,
     name: `Role ${id}`,
     releasedDate: "2026-06-01T00:00:00.000Z",
-    location: { city: "Manila", country: "ph", remote: false, hybrid: false, fullLocation: "Manila, Philippines" },
+    location: {
+      city: "Manila",
+      country: "ph",
+      remote: false,
+      hybrid: false,
+      fullLocation: "Manila, Philippines",
+    },
   });
 
   it("paginates with offset until totalFound is reached", async () => {

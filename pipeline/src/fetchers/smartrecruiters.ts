@@ -24,7 +24,11 @@ export async function fetchSmartRecruiters(
   while (offset < totalFound) {
     const outcome = await politeJsonGet(smartRecruitersUrl(company.slug, offset), deps);
     if (outcome.kind === "not-found") {
-      return { ok: false, errorKind: "dead-slug", detail: `company not found: ${company.slug}` };
+      return {
+        ok: false,
+        errorKind: "dead-slug",
+        detail: `company not found: ${company.slug}`,
+      };
     }
     if (outcome.kind === "http") {
       return { ok: false, errorKind: "http", detail: `HTTP ${outcome.status}` };

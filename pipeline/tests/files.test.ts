@@ -30,7 +30,10 @@ describe("parseRegistry", () => {
 
   it("rejects duplicate ats+slug pairs", () => {
     expect(() =>
-      parseRegistry({ version: 1, companies: [validCompany, { ...validCompany, name: "Dupe" }] }),
+      parseRegistry({
+        version: 1,
+        companies: [validCompany, { ...validCompany, name: "Dupe" }],
+      }),
     ).toThrow(/duplicate/i);
   });
 
@@ -60,7 +63,11 @@ describe("parseListingsFile", () => {
 });
 
 describe("mergeRegistryCompanies", () => {
-  const entry = (name: string, ats: RegistryCompany["ats"], slug: string): RegistryCompany => ({
+  const entry = (
+    name: string,
+    ats: RegistryCompany["ats"],
+    slug: string,
+  ): RegistryCompany => ({
     name,
     ats,
     slug,
@@ -71,7 +78,10 @@ describe("mergeRegistryCompanies", () => {
 
   it("keeps existing entries when the same ats+slug is re-added", () => {
     const existing = { ...entry("Xendit", "greenhouse", "xendit"), notes: "hand-tuned" };
-    const merged = mergeRegistryCompanies([existing], [entry("Xendit2", "greenhouse", "xendit")]);
+    const merged = mergeRegistryCompanies(
+      [existing],
+      [entry("Xendit2", "greenhouse", "xendit")],
+    );
     expect(merged).toHaveLength(1);
     expect(merged[0]!.name).toBe("Xendit");
     expect(merged[0]!.notes).toBe("hand-tuned");

@@ -58,7 +58,9 @@ async function main(): Promise<number> {
   const fetchState = loadFetchState();
 
   console.log(`simplifytrabaho refresh — ${now}`);
-  console.log(`registry: ${registry.companies.length} companies, ${verified.length} verified\n`);
+  console.log(
+    `registry: ${registry.companies.length} companies, ${verified.length} verified\n`,
+  );
 
   const allPostings: FetchedPosting[] = [];
   const okByName = new Map<string, boolean>();

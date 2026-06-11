@@ -124,7 +124,12 @@ export function JobBoard({ jobs, updatedAt }: { jobs: Job[]; updatedAt: string }
           className="pointer-events-none absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-faint"
         >
           <circle cx="7" cy="7" r="5" stroke="currentColor" strokeWidth="1.5" />
-          <path d="m11 11 3.5 3.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+          <path
+            d="m11 11 3.5 3.5"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+          />
         </svg>
         <input
           type="search"
@@ -223,7 +228,9 @@ export function JobBoard({ jobs, updatedAt }: { jobs: Job[]; updatedAt: string }
       {/* Result count */}
       <div className="mt-5 flex items-baseline justify-between gap-3">
         <p aria-live="polite" className="text-sm text-faint">
-          <span className="font-semibold text-ink">{filtered.length.toLocaleString("en-US")}</span>{" "}
+          <span className="font-semibold text-ink">
+            {filtered.length.toLocaleString("en-US")}
+          </span>{" "}
           {filtered.length === 1 ? "role" : "roles"}
           {isDefaultView ? " for interns & fresh grads" : ""} · newest first
         </p>
@@ -304,9 +311,7 @@ export function JobBoard({ jobs, updatedAt }: { jobs: Job[]; updatedAt: string }
                         {extraLocations > 0 ? ` +${extraLocations}` : ""}
                       </span>
                     )}
-                    {job.salary && (
-                      <span className="font-medium text-ink">{job.salary}</span>
-                    )}
+                    {job.salary && <span className="font-medium text-ink">{job.salary}</span>}
                   </p>
                 </div>
                 <a

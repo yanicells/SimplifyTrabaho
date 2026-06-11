@@ -2,7 +2,7 @@
 
 > **Status:** Approved design, pre-implementation.
 > **Audience:** The AI agent (or human) implementing this project. This document is the
-> source of truth for *what* to build and *why*. Read [CLAUDE.md](../CLAUDE.md) for
+> source of truth for _what_ to build and _why_. Read [CLAUDE.md](../CLAUDE.md) for
 > operational rules and [TRACKER.md](../TRACKER.md) for current work state.
 > **Last updated:** 2026-06-11
 
@@ -28,21 +28,22 @@ plumbing. Treat the registry as the crown jewel.
 
 Studied 2026-06-11. Their architecture, which we adopt:
 
-| Their pattern | Our adoption |
-|---|---|
-| Single JSON source of truth (`.github/scripts/listings.json`, ~12 MB) | `data/listings.json` |
-| README tables are **generated** from JSON, never hand-edited | Same, via pipeline |
-| Listings sourced from company career pages (ATS), NOT from job boards | Same — public ATS APIs only |
-| Minimal data per listing: company, title, location, link, dates, active flag | Same schema, PH-adapted (see §6) |
-| Inactive listings kept with `active: false`, never deleted | Same |
-| Crowdsourcing via GitHub issues | **Deferred to phase 2** (see ROADMAP.md) — v1 is fully automated |
-| Python `list_updater/` package | Replaced with TypeScript (one language across repo) |
+| Their pattern                                                                | Our adoption                                                     |
+| ---------------------------------------------------------------------------- | ---------------------------------------------------------------- |
+| Single JSON source of truth (`.github/scripts/listings.json`, ~12 MB)        | `data/listings.json`                                             |
+| README tables are **generated** from JSON, never hand-edited                 | Same, via pipeline                                               |
+| Listings sourced from company career pages (ATS), NOT from job boards        | Same — public ATS APIs only                                      |
+| Minimal data per listing: company, title, location, link, dates, active flag | Same schema, PH-adapted (see §6)                                 |
+| Inactive listings kept with `active: false`, never deleted                   | Same                                                             |
+| Crowdsourcing via GitHub issues                                              | **Deferred to phase 2** (see ROADMAP.md) — v1 is fully automated |
+| Python `list_updater/` package                                               | Replaced with TypeScript (one language across repo)              |
 
 Why their approach is legally sound — and ours stays sound by copying it:
-- They pull from **company career pages**, where companies *want* their jobs seen.
+
+- They pull from **company career pages**, where companies _want_ their jobs seen.
 - They store **facts only** (company, title, location, URL, dates). Facts are not
   copyrightable; job-description prose is. They never republish descriptions.
-- They always **link out** to the official application page — driving traffic *to* the
+- They always **link out** to the official application page — driving traffic _to_ the
   company, which is why career-page aggregation has no history of takedowns.
 
 ## 3. Legal rules (NON-NEGOTIABLE)
@@ -60,8 +61,8 @@ rules, the feature changes — not the rules.
    authentication bypass, no session spoofing, no CAPTCHA solving, no robots.txt
    violations, no rate-limit evasion.
 3. **Store facts only:** company name, role title, locations, work setup, application
-   URL, dates, employment type, salary *if the ATS publishes it in the structured
-   feed*. **Never store or republish job-description text.**
+   URL, dates, employment type, salary _if the ATS publishes it in the structured
+   feed_. **Never store or republish job-description text.**
 4. **Always link out** to the company's official application page. We are a directory,
    not a destination.
 5. **Be polite:** ≥1 second delay between requests; identifying User-Agent
@@ -77,6 +78,7 @@ rules, the feature changes — not the rules.
 ## 4. Scope
 
 ### v1 in scope
+
 - All open roles (any level, any function, tech and non-tech) at registered companies.
 - Jobs located in the Philippines **or** remote roles whose published location
   explicitly includes the Philippines (e.g., "Remote — Philippines").
@@ -88,6 +90,7 @@ rules, the feature changes — not the rules.
 - Free hosting (Vercel Hobby tier).
 
 ### v1 explicitly OUT of scope (see ROADMAP.md for futures)
+
 - Crowdsourced submissions (no GitHub-issue intake, no forms).
 - HTML scraping of career pages without a public API (incl. Workday, Taleo,
   SuccessFactors, custom pages).
@@ -136,16 +139,17 @@ One module per ATS. Each takes a registry entry, returns raw postings or a typed
 Known public endpoints (verify exact response shapes against live responses during
 implementation, and save one real sample per ATS as a test fixture):
 
-| ATS | Endpoint (GET, no auth) |
-|---|---|
-| Greenhouse | `https://boards-api.greenhouse.io/v1/boards/{slug}/jobs` |
-| Lever | `https://api.lever.co/v0/postings/{slug}?mode=json` |
-| Ashby | `https://api.ashbyhq.com/posting-api/job-board/{slug}?includeCompensation=true` |
-| Workable | `https://apply.workable.com/api/v1/widget/accounts/{slug}` |
-| SmartRecruiters | `https://api.smartrecruiters.com/v1/companies/{slug}/postings` |
-| Recruitee | `https://{slug}.recruitee.com/api/offers/` |
+| ATS             | Endpoint (GET, no auth)                                                         |
+| --------------- | ------------------------------------------------------------------------------- |
+| Greenhouse      | `https://boards-api.greenhouse.io/v1/boards/{slug}/jobs`                        |
+| Lever           | `https://api.lever.co/v0/postings/{slug}?mode=json`                             |
+| Ashby           | `https://api.ashbyhq.com/posting-api/job-board/{slug}?includeCompensation=true` |
+| Workable        | `https://apply.workable.com/api/v1/widget/accounts/{slug}`                      |
+| SmartRecruiters | `https://api.smartrecruiters.com/v1/companies/{slug}/postings`                  |
+| Recruitee       | `https://{slug}.recruitee.com/api/offers/`                                      |
 
 Useful field notes (to verify at implementation time):
+
 - Lever provides `workplaceType` (on-site/hybrid/remote) and `createdAt` directly.
 - Ashby provides `isRemote`, `publishedAt`, `employmentType`, and structured
   compensation when published.
@@ -154,6 +158,7 @@ Useful field notes (to verify at implementation time):
   **discard** the `content` (description) field immediately after reading dates.
 
 Fetcher behavior requirements:
+
 - 404 / "board not found" → report `dead-slug` error for that company; the run
   continues; the company gets flagged (see §10) — a dead slug must never crash a run.
 - Timeouts and 5xx → retry with backoff (max ~3 tries), then skip with a logged error.
@@ -166,29 +171,31 @@ The unit of data. Stored in `data/listings.json` as:
 ```jsonc
 {
   "version": 1,
-  "updatedAt": "2026-06-11T22:00:00Z",   // last successful pipeline run
-  "listings": [ /* Listing[] */ ]
+  "updatedAt": "2026-06-11T22:00:00Z", // last successful pipeline run
+  "listings": [
+    /* Listing[] */
+  ],
 }
 ```
 
 Each `Listing`:
 
-| Field | Type | Notes |
-|---|---|---|
-| `id` | string | First 12 hex chars of SHA-256 of the canonical application URL. Stable across runs. |
-| `company` | string | Display name from the registry (NOT from the ATS payload — keeps naming consistent). |
-| `title` | string | **The role title as published**, e.g. "Software Engineering Intern", "Sales Manager", "Junior Accountant". Verbatim from the ATS; no rewriting. |
-| `locations` | string[] | Raw location strings as published, e.g. `["Manila, Philippines", "Remote - Philippines"]`. |
-| `workSetup` | enum | `onsite` \| `hybrid` \| `remote` \| `unknown`. From structured ATS fields when available (Lever `workplaceType`, Ashby `isRemote`), else keyword match on location/title, else `unknown`. |
-| `level` | enum | `internship` \| `entry` \| `mid` \| `senior` \| `unknown` (§9). |
-| `function` | enum | `engineering` \| `data` \| `design` \| `product` \| `marketing` \| `sales` \| `finance` \| `hr` \| `operations` \| `customer-support` \| `legal` \| `other` (§9). |
-| `url` | string | Official application URL on the company's ATS. The only outbound link. |
-| `source` | string | ATS name: `greenhouse`, `lever`, `ashby`, `workable`, `smartrecruiters`, `recruitee`. |
-| `employmentType` | enum | `full-time` \| `part-time` \| `contract` \| `internship` \| `unknown` — when the ATS provides it. |
-| `salary` | string \| null | Only if published in the structured feed (e.g., Ashby compensation). Verbatim formatted range. Never inferred. |
-| `datePosted` | string | ISO 8601 UTC. From the ATS published/created field when available; otherwise the date our pipeline first saw it. Never changes after first set. |
-| `dateUpdated` | string | ISO 8601 UTC. Last time we saw this listing change (or its active flag flip). |
-| `active` | boolean | `true` while present in the company's feed; `false` once it disappears. Inactive listings are kept forever (history), never deleted. |
+| Field            | Type           | Notes                                                                                                                                                                                     |
+| ---------------- | -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `id`             | string         | First 12 hex chars of SHA-256 of the canonical application URL. Stable across runs.                                                                                                       |
+| `company`        | string         | Display name from the registry (NOT from the ATS payload — keeps naming consistent).                                                                                                      |
+| `title`          | string         | **The role title as published**, e.g. "Software Engineering Intern", "Sales Manager", "Junior Accountant". Verbatim from the ATS; no rewriting.                                           |
+| `locations`      | string[]       | Raw location strings as published, e.g. `["Manila, Philippines", "Remote - Philippines"]`.                                                                                                |
+| `workSetup`      | enum           | `onsite` \| `hybrid` \| `remote` \| `unknown`. From structured ATS fields when available (Lever `workplaceType`, Ashby `isRemote`), else keyword match on location/title, else `unknown`. |
+| `level`          | enum           | `internship` \| `entry` \| `mid` \| `senior` \| `unknown` (§9).                                                                                                                           |
+| `function`       | enum           | `engineering` \| `data` \| `design` \| `product` \| `marketing` \| `sales` \| `finance` \| `hr` \| `operations` \| `customer-support` \| `legal` \| `other` (§9).                         |
+| `url`            | string         | Official application URL on the company's ATS. The only outbound link.                                                                                                                    |
+| `source`         | string         | ATS name: `greenhouse`, `lever`, `ashby`, `workable`, `smartrecruiters`, `recruitee`.                                                                                                     |
+| `employmentType` | enum           | `full-time` \| `part-time` \| `contract` \| `internship` \| `unknown` — when the ATS provides it.                                                                                         |
+| `salary`         | string \| null | Only if published in the structured feed (e.g., Ashby compensation). Verbatim formatted range. Never inferred.                                                                            |
+| `datePosted`     | string         | ISO 8601 UTC. From the ATS published/created field when available; otherwise the date our pipeline first saw it. Never changes after first set.                                           |
+| `dateUpdated`    | string         | ISO 8601 UTC. Last time we saw this listing change (or its active flag flip).                                                                                                             |
+| `active`         | boolean        | `true` while present in the company's feed; `false` once it disappears. Inactive listings are kept forever (history), never deleted.                                                      |
 
 **Forbidden fields (rule §3.3/§3.6):** description/content text, recruiter names or
 emails, applicant data of any kind.
@@ -200,15 +207,15 @@ emails, applicant data of any kind.
   "version": 1,
   "companies": [
     {
-      "name": "PayMongo",            // display name used in listings
-      "ats": "lever",                // one of the six supported ATS ids
-      "slug": "paymongo",            // the board token/site name in the ATS URL
-      "industry": "fintech",         // free-form lowercase tag
-      "verified": true,              // true = endpoint confirmed live with PH roles
+      "name": "PayMongo", // display name used in listings
+      "ats": "lever", // one of the six supported ATS ids
+      "slug": "paymongo", // the board token/site name in the ATS URL
+      "industry": "fintech", // free-form lowercase tag
+      "verified": true, // true = endpoint confirmed live with PH roles
       "added": "2026-06-11",
-      "notes": ""                    // optional: e.g. "also hires remote APAC"
-    }
-  ]
+      "notes": "", // optional: e.g. "also hires remote APAC"
+    },
+  ],
 }
 ```
 
@@ -232,7 +239,7 @@ The registry starts empty. Build it by **research + verification**, never by gue
      tier) — many won't be on supported ATSs yet; log them as candidates anyway.
    - International remote-friendly companies known to hire in PH (detectable via
      "Remote - Philippines" locations on their boards).
-   - **Note:** every name above is a *candidate*, not a fact — company↔ATS mappings
+   - **Note:** every name above is a _candidate_, not a fact — company↔ATS mappings
      change. Verification (step 2) is what makes an entry real.
 2. **Verify each candidate:** hit each of the six ATS endpoints with plausible slugs
    (company name lowercased, hyphenated variants). An entry is `verified: true` only
@@ -248,6 +255,7 @@ The registry starts empty. Build it by **research + verification**, never by gue
 ## 8. PH location filter
 
 A listing is kept iff at least one location string (case-insensitive) matches:
+
 - Country: `philippines`, `pilipinas`, ` ph` / `(ph)` as a country token (be careful:
   bare "PH" needs word-boundary handling to avoid false positives).
 - Metro/city names: `manila`, `makati`, `taguig`, `bgc`, `bonifacio global city`,
@@ -261,7 +269,7 @@ Excluded by design: bare `remote`, `remote - apac`, `remote - asia`, `remote -
 southeast asia` (can't confirm PH eligibility — revisit in ROADMAP).
 
 Keep the keyword list as a single exported constant so it's easy to extend. Log (to
-console, optionally to TRACKER) a sample of *rejected* location strings per run so
+console, optionally to TRACKER) a sample of _rejected_ location strings per run so
 missing keywords get noticed.
 
 ## 9. Categorization (level + function)
@@ -270,6 +278,7 @@ Keyword heuristics on `title` (case-insensitive), first match wins, `unknown`/`o
 is an acceptable outcome — never guess wildly.
 
 **Level** (check in this order):
+
 1. `internship`: `intern`, `internship`, `ojt`, `on-the-job`, `practicum`, `apprentice`
 2. `entry`: `junior`, `jr.`, `jr `, `entry`, `entry-level`, `fresh grad`, `new grad`,
    `graduate`, `trainee`, `cadet` (PH BPO/airline cadetship programs), `associate`
@@ -301,7 +310,7 @@ These tables WILL be imperfect. Requirements: (a) they live in one file
    → categorize (§9). Result: the "current" set.
 3. For each current listing: if `id` exists, update `dateUpdated` only when a field
    actually changed; if new, add with `datePosted` per §6.
-4. Any existing **active** listing whose company *was fetched successfully this run*
+4. Any existing **active** listing whose company _was fetched successfully this run_
    but which is absent from the current set → `active: false`, `dateUpdated` now.
    **Critical:** if a company's fetch FAILED this run, leave its listings untouched —
    never mass-deactivate because of a transient error.
@@ -317,6 +326,7 @@ README.md is fully generated; a hand-edit will be overwritten (the file carries 
 header comment saying exactly that).
 
 Contents:
+
 1. Project title, one-line pitch, link to the website, link to ROADMAP/SPEC.
 2. "How this works & legal stance" — 3-4 sentences: sourced from public ATS APIs
    companies intentionally publish, facts only, always links to official application
@@ -334,6 +344,7 @@ TypeScript, Tailwind. Static export — no server components needed at runtime, 
 routes, no database.
 
 Requirements:
+
 - Reads listings at build time. **Ship only active listings to the client**, and only
   the fields the UI uses — the payload sent to browsers must stay lean even when the
   full dataset grows (split/trim at build; the 12 MB Simplify file is a cautionary
@@ -343,7 +354,7 @@ Requirements:
   over company+title. All client-side. Default view on load: internships + entry-level
   (the featured audience), with one click to "All roles".
 - Listing rows/cards: company, title, locations, workSetup badge, level badge, posted
-  "Xd ago", Apply button → official `url` (target=_blank, `rel="noopener noreferrer"`).
+  "Xd ago", Apply button → official `url` (target=\_blank, `rel="noopener noreferrer"`).
 - Thousands of rows must stay smooth: paginate or virtualize — implementer's choice.
 - Mobile-first responsive; majority of PH job seekers browse on phones.
 - No tracking/analytics in v1 beyond (optionally) privacy-friendly counts; no cookies.
@@ -353,6 +364,7 @@ Requirements:
 ## 13. Automation, deployment & manual ops
 
 ### GitHub Actions (free tier)
+
 - Workflow `refresh.yml`: cron daily at `0 22 * * *` UTC (6:00 AM PHT) + manual
   `workflow_dispatch`.
 - Steps: checkout → `pnpm/action-setup` → `pnpm install --frozen-lockfile` →
@@ -361,20 +373,24 @@ Requirements:
 - A failed run must fail loudly (red X) — no silent skips.
 
 ### Vercel (free Hobby tier)
+
 - Import the GitHub repo; root directory `web/`; framework Next.js; pnpm detected via
   lockfile. Every push (Actions bot or human) triggers a deploy.
 - Backup documented option: static export to GitHub Pages via a second workflow.
 
 ### Manual update from the maintainer's laptop (explicit requirement)
+
 ```
 git pull
 pnpm install
 pnpm refresh        # runs the full pipeline locally
 git add -A && git commit -m "data: manual refresh" && git push
 ```
+
 Push → Vercel rebuilds. Identical code path to CI — no special casing.
 
 ### Legal references (for the record)
+
 - ATS public APIs overview: https://cavuno.com/blog/ats-platforms-public-job-posting-apis
 - Open-source multi-ATS fetcher (reference, not dependency): https://github.com/plibither8/jobber
 - Facts vs. copyright in postings: https://www.avvo.com/legal-answers/is-aggregating-job-postings-from-employeer-career--1480697.html

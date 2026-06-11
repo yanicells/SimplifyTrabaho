@@ -1,4 +1,10 @@
-import { ATS_SOURCES, type Listing, type ListingsFile, type Registry, type RegistryCompany } from "./types.js";
+import {
+  ATS_SOURCES,
+  type Listing,
+  type ListingsFile,
+  type Registry,
+  type RegistryCompany,
+} from "./types.js";
 
 // Parsing/validation for the two data files. Throws with a clear message on any
 // structural problem — a corrupt registry or dataset must stop the run, not limp on.

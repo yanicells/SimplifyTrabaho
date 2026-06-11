@@ -26,7 +26,11 @@ export async function fetchWorkable(
         };
       }
     case "not-found":
-      return { ok: false, errorKind: "dead-slug", detail: `account not found: ${company.slug}` };
+      return {
+        ok: false,
+        errorKind: "dead-slug",
+        detail: `account not found: ${company.slug}`,
+      };
     case "http":
       return { ok: false, errorKind: "http", detail: `HTTP ${outcome.status}` };
     case "network":

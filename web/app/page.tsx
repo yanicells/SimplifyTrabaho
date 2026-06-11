@@ -34,7 +34,10 @@ export default function Home() {
   return (
     <>
       {/* PH flag strip */}
-      <div aria-hidden className="h-1 bg-gradient-to-r from-[#0038a8] via-[#ce1126] to-[#fcd116]" />
+      <div
+        aria-hidden
+        className="h-1 bg-gradient-to-r from-[#0038a8] via-[#ce1126] to-[#fcd116]"
+      />
 
       <div className="mx-auto w-full max-w-3xl flex-1 px-4 sm:px-6">
         <header className="pt-8 sm:pt-12">
@@ -56,9 +59,9 @@ export default function Home() {
           </div>
 
           <p className="mt-3 max-w-xl text-[15px] leading-relaxed text-faint">
-            Every open role at Philippine companies — interns and fresh grads up front.
-            Pulled daily from official careers pages, always linking you straight to the
-            real application.
+            Every open role at Philippine companies — interns and fresh grads up front. Pulled
+            daily from official careers pages, always linking you straight to the real
+            application.
           </p>
 
           <p className="mt-5 border-y border-line py-2.5 text-xs font-medium uppercase tracking-wider text-faint">
@@ -78,11 +81,10 @@ export default function Home() {
       <footer className="border-t border-line">
         <div className="mx-auto w-full max-w-3xl px-4 py-8 sm:px-6">
           <p className="max-w-xl text-sm leading-relaxed text-faint">
-            Every listing comes straight from the company&apos;s official careers feed —
-            public APIs that companies intentionally publish (Greenhouse, Lever, Ashby,
-            Workable, SmartRecruiters, Recruitee). We store facts only and always send
-            you to the official application page. No accounts, no tracking, no
-            middlemen.
+            Every listing comes straight from the company&apos;s official careers feed — public
+            APIs that companies intentionally publish (Greenhouse, Lever, Ashby, Workable,
+            SmartRecruiters, Recruitee). We store facts only and always send you to the
+            official application page. No accounts, no tracking, no middlemen.
           </p>
           <p className="mt-4 text-sm text-faint">
             <a

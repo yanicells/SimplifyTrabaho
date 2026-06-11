@@ -13,8 +13,7 @@ const ENTRY =
   /\b(?:junior|jr\.?|entry|entry-level|fresh grad|new grad|graduate|trainee|cadet)\b/i;
 const ASSOCIATE = /\bassociate\b/i;
 const SENIOR_ASSOCIATE = /\b(?:senior|sr\.?)\s+associate\b/i;
-const SENIOR =
-  /\b(?:senior|sr\.?|lead|principal|staff|head of|manager|director|vp|chief)\b/i;
+const SENIOR = /\b(?:senior|sr\.?|lead|principal|staff|head of|manager|director|vp|chief)\b/i;
 const MID = /\b(?:mid-level|mid level|intermediate|ii|iii)\b/i;
 
 export function categorizeLevel(title: string): Level {
@@ -38,18 +37,12 @@ const FUNCTION_RULES: ReadonlyArray<readonly [JobFunction, RegExp]> = [
     "finance",
     /\b(?:accountant|accounting|finance|financial|treasury|audit|auditor|payroll|tax)\b/i,
   ],
-  [
-    "hr",
-    /\b(?:recruiter|recruitment|hr|people|talent|human resources|employee relations)\b/i,
-  ],
+  ["hr", /\b(?:recruiter|recruitment|hr|people|talent|human resources|employee relations)\b/i],
   [
     "operations",
     /\b(?:operations|supply chain|logistics|admin|administrative|procurement)\b/i,
   ],
-  [
-    "customer-support",
-    /\b(?:support|customer success|csr|customer service|call center)\b/i,
-  ],
+  ["customer-support", /\b(?:support|customer success|csr|customer service|call center)\b/i],
   ["legal", /\b(?:legal|compliance|counsel|paralegal)\b/i],
 ];
 

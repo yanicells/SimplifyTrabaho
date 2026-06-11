@@ -1,5 +1,9 @@
 import { describe, expect, it } from "vitest";
-import { isPhilippineLocation, filterPhilippines, PH_LOCATION_KEYWORDS } from "../src/filter.js";
+import {
+  isPhilippineLocation,
+  filterPhilippines,
+  PH_LOCATION_KEYWORDS,
+} from "../src/filter.js";
 import type { FetchedPosting } from "../src/types.js";
 
 describe("isPhilippineLocation", () => {
@@ -86,7 +90,10 @@ function posting(locations: string[]): FetchedPosting {
 describe("filterPhilippines", () => {
   it("keeps a posting when at least one location matches", () => {
     const { kept } = filterPhilippines([
-      posting(["Jakarta, Indonesia; Manila, Philippines".split("; ")[0]!, "Manila, Philippines"]),
+      posting([
+        "Jakarta, Indonesia; Manila, Philippines".split("; ")[0]!,
+        "Manila, Philippines",
+      ]),
       posting(["Bangkok, Thailand"]),
     ]);
     expect(kept).toHaveLength(1);

@@ -103,9 +103,9 @@ describe("parseListingsFile", () => {
   });
 
   it("rejects an unparseable datePosted", () => {
-    expect(() =>
-      parseListingsFile(file([listing({ datePosted: "yesterday" })])),
-    ).toThrow(/datePosted/);
+    expect(() => parseListingsFile(file([listing({ datePosted: "yesterday" })]))).toThrow(
+      /datePosted/,
+    );
   });
 });
 
@@ -158,9 +158,21 @@ describe("toJobs", () => {
   it("sorts newest first, then company asc", () => {
     const parsed = parseListingsFile(
       file([
-        listing({ company: "Beta", url: "https://x.co/1", datePosted: "2026-05-01T00:00:00Z" }),
-        listing({ company: "Alpha", url: "https://x.co/2", datePosted: "2026-06-01T00:00:00Z" }),
-        listing({ company: "Alpha", url: "https://x.co/3", datePosted: "2026-05-01T00:00:00Z" }),
+        listing({
+          company: "Beta",
+          url: "https://x.co/1",
+          datePosted: "2026-05-01T00:00:00Z",
+        }),
+        listing({
+          company: "Alpha",
+          url: "https://x.co/2",
+          datePosted: "2026-06-01T00:00:00Z",
+        }),
+        listing({
+          company: "Alpha",
+          url: "https://x.co/3",
+          datePosted: "2026-05-01T00:00:00Z",
+        }),
       ]),
     );
     const { jobs } = toJobs(parsed);

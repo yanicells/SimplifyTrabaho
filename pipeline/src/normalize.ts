@@ -1,9 +1,4 @@
-import type {
-  EmploymentType,
-  FetchedPosting,
-  RegistryCompany,
-  WorkSetup,
-} from "./types.js";
+import type { EmploymentType, FetchedPosting, RegistryCompany, WorkSetup } from "./types.js";
 
 // Raw ATS payload → FetchedPosting. Only the whitelisted fact fields below are ever
 // read — job-description text, compliance blobs, and anything resembling personal
@@ -30,10 +25,7 @@ interface GreenhouseJob {
   first_published?: unknown;
 }
 
-export function normalizeGreenhouse(
-  company: RegistryCompany,
-  raw: unknown,
-): FetchedPosting[] {
+export function normalizeGreenhouse(company: RegistryCompany, raw: unknown): FetchedPosting[] {
   const jobs = (raw as { jobs?: unknown })?.jobs;
   if (!Array.isArray(jobs)) {
     throw new Error(`greenhouse payload for ${company.slug} has no jobs array`);
@@ -230,7 +222,9 @@ export function normalizeSmartRecruiters(
       .join(", ");
     const fallback = [
       String(location.city ?? "").trim(),
-      String(location.country ?? "").trim().toUpperCase(),
+      String(location.country ?? "")
+        .trim()
+        .toUpperCase(),
     ]
       .filter(Boolean)
       .join(", ");
@@ -276,7 +270,11 @@ function formatRecruiteeSalary(salary: RecruiteeOffer["salary"]): string | null 
   const min = Number(salary.min);
   const max = Number(salary.max);
   if (!Number.isFinite(min) || !Number.isFinite(max) || salary.min === null) return null;
-  return [`${min}–${max}`, String(salary.currency ?? "").trim(), String(salary.period ?? "").trim()]
+  return [
+    `${min}–${max}`,
+    String(salary.currency ?? "").trim(),
+    String(salary.period ?? "").trim(),
+  ]
     .filter(Boolean)
     .join(" ");
 }
@@ -337,7 +335,8 @@ export function normalizeLever(company: RegistryCompany, raw: unknown): FetchedP
     const all = Array.isArray(categories.allLocations)
       ? categories.allLocations.map(String)
       : [];
-    const locations = all.length > 0 ? all : [String(categories.location ?? "")].filter(Boolean);
+    const locations =
+      all.length > 0 ? all : [String(categories.location ?? "")].filter(Boolean);
     return {
       company: company.name,
       source: "lever",

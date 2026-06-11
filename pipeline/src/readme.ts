@@ -36,7 +36,12 @@ const WORK_SETUP_LABEL: Record<Listing["workSetup"], string> = {
   unknown: "—",
 };
 
-export function generateReadme({ listings, companiesTracked, updatedAt, now }: ReadmeInput): string {
+export function generateReadme({
+  listings,
+  companiesTracked,
+  updatedAt,
+  now,
+}: ReadmeInput): string {
   const nowMs = Date.parse(now ?? updatedAt);
   const activeCount = listings.filter((l) => l.active).length;
 

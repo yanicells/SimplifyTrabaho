@@ -74,9 +74,7 @@ describe("normalizeGreenhouse", () => {
   });
 
   it("splits multi-location strings on semicolons", () => {
-    const multi = postings.find((p) =>
-      p.title.startsWith("Customer Success Generalist"),
-    )!;
+    const multi = postings.find((p) => p.title.startsWith("Customer Success Generalist"))!;
     expect(multi.locations).toEqual(["Jakarta, Indonesia", "Manila, Philippines"]);
   });
 
@@ -210,9 +208,7 @@ describe("normalizeWorkable", () => {
         },
       ],
     };
-    expect(normalizeWorkable(crewBloom, raw)[0]!.locations).toEqual([
-      "Makati, Philippines",
-    ]);
+    expect(normalizeWorkable(crewBloom, raw)[0]!.locations).toEqual(["Makati, Philippines"]);
   });
 
   it("maps published employment types", () => {
@@ -248,7 +244,13 @@ describe("normalizeSmartRecruiters", () => {
           name: "Analyst",
           releasedDate: "2026-06-01T00:00:00.000Z",
           company: { identifier: "Canva" },
-          location: { city: "Makati", country: "ph", remote: false, hybrid: true, fullLocation: "Makati, Philippines" },
+          location: {
+            city: "Makati",
+            country: "ph",
+            remote: false,
+            hybrid: true,
+            fullLocation: "Makati, Philippines",
+          },
         },
       ],
     };
