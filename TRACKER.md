@@ -144,7 +144,7 @@ PH city strings → add slugs to `pipeline/candidates.json` → `pnpm --filter p
 verify-registry`. Also recheck the live-but-0-PH boards listed below — several
 (Deel, Kraken, Reddit, ClickUp-style remote employers) post PH roles periodically.
 
-## ⏭️ Next up (v1 build order — SPEC §16)
+## ✅ v1 build order (SPEC §16) — complete except repo publish
 
 ### Phase 5 — Automation
 
@@ -164,6 +164,72 @@ verify-registry`. Also recheck the live-but-0-PH boards listed below — several
 - [x] Acceptance-criteria sweep (SPEC §15) — see sweep section above
 - [x] README copy/badges review — badges added, copy reviewed (legal section kept)
 - [ ] Publish repo — **maintainer action**, see launch checklist above
+
+## ⏭️ Next up (v2 build order — SPEC §18, approved 2026-06-12)
+
+### Phase 7 — Rename to SimplifyTrabaho
+
+- [ ] `readme.ts`: README title/copy → SimplifyTrabaho (regenerate via `pnpm refresh`)
+- [ ] Site UI + metadata/OG (`layout.tsx`, header component) → SimplifyTrabaho
+- [ ] Docs prose sweep (SPEC/TRACKER/ROADMAP headings done 2026-06-12; verify rest)
+- [ ] Keep identifiers lowercase: domain, package names, User-Agent, paths
+
+### Phase 8 — Taxonomy v2 + filters
+
+- [ ] Schema v2 in SPEC §6 order: `function` → 18 SEEK-aligned values, add
+      `industry` (from registry) + `metro` (derived), bump listings.json `version` to 2
+- [ ] Categorizer v2 tables (SPEC §9: healthcare, education, hospitality,
+      manufacturing, retail, construction) — TDD, conservative disambiguation
+- [ ] `pnpm --filter pipeline eval-categorizer` (coverage % + top-50 uncategorized)
+- [ ] `pnpm --filter pipeline recategorize` (full-dataset backfill incl. inactive;
+      preserves datePosted, doesn't bump dateUpdated for category-only changes)
+- [ ] Web: multi-select level/function chips, metro + industry + employer-type
+      filters, sticky filter bar, full filter state in URL params
+- [ ] Web build schema validation updated same commit; payload still lean
+- [ ] Coverage targets: level unknown <25%, function other <15% (active) — or gap
+      explained here
+
+### Phase 9 — Coverage, Tier A + registry rebalance
+
+- [ ] Freshteam fetcher + fixture + tests → Thinking Machines PH
+      (thinkingmachines.freshteam.com — closes the v1 graveyard entry)
+- [ ] Probe candidate ATSs (SPEC §5.1): BambooHR, Breezy, Personio, Manatal,
+      Teamtailor, Jobvite, Zoho Recruit — add fetchers only for truly public feeds
+- [ ] Registry: add `type: direct|agency` to every entry
+- [ ] README featured table → direct employers only (SPEC §11)
+- [ ] Registry round 3: target ≥25 new direct employers (or document the dry well)
+
+### Phase 10 — Coverage, Workday tier (SPEC §17)
+
+- [ ] Workday fetcher with ALL §17.1 guardrails (robots.txt gate, stop-on-block
+      with TRACKER flag, ≥2s politeness, pagination cap, location facets for
+      global tenants, jobs-list only — never job detail pages)
+- [ ] Guardrails proven by tests (blocked-response fixtures → permanent skip)
+- [ ] Wave 1 via individual PRs with §17.2 evidence: Globe (GLB_Careers),
+      Mynt/GCash (Globe tenant, site Mynt), Accenture (wd103, PH facet),
+      P&G (wd5, PH facet)
+- [ ] Wave 2 candidates from the PH-corporates graveyard below (UnionBank, Cebu
+      Pacific, PAL, San Miguel, URC, Security Bank…) — tenant-by-tenant
+
+### Phase 11 — Web product features (client-side only)
+
+- [ ] Application tracker: Track button, status flow (saved → applied → interview →
+      offer/rejected), "My applications" view, localStorage, JSON export
+- [ ] Preferences: persisted default filters, one-tap reset
+- [ ] Support & feedback: navbar button (GitHub issues + donate link), dismissible
+      prompt at most every ~5 Apply clicks with permanent opt-out — UX co-designed
+      with maintainer in-phase
+- [ ] PWA baseline: manifest + icons, installable
+- [ ] No accounts, no backend, no third-party trackers; core flow regression-free
+
+### Phase 12 — Reach & SEO (maintainer-led; agents prepare, maintainer publishes)
+
+- [ ] RSS feed(s) from the pipeline
+- [ ] OG share images; sitemap; per-page metadata
+- [ ] "Copy link to this view" affordance (builds on Phase 8 URL params)
+- [ ] Google Search Console — **maintainer**
+- [ ] Newsletter bridge evaluation (e.g., Buttondown over RSS) — recommend, don't build
+- [ ] Launch/distribution posts (r/phcareers, FB groups, university orgs) — **maintainer**
 
 ## 🐞 Issues & blockers
 
@@ -377,3 +443,30 @@ not a real employer. Kalibrr — job-board company, fetching prohibited by rule 
   triggers the daily Vercel redeploy, and carries `data/fetch-state.json` along so
   dead-slug streak counts (3-strikes rule, SPEC §10.5) persist across CI runs.
   Don't "optimize" the timestamp away without rethinking all three.
+- 2026-06-12 — **v2 approved** (maintainer + planning session; SPEC §18). Driving
+  insight: registry is agency-heavy (45/101 outsourcing/staffing) and the
+  credibility-defining employers (Globe, GCash, Accenture, P&G, big corporates) are
+  on Workday — coverage credibility, not plumbing, is the gap.
+- 2026-06-12 — Product name is **SimplifyTrabaho** (capital S/T) in all user-facing
+  copy; lowercase stays for identifiers (domain, package names, User-Agent, paths).
+- 2026-06-12 — **Workday greenlit as Tier B** with SPEC §17 guardrails: robots.txt
+  gate per tenant, instant permanent stop on any block, zero evasion ever, ≥2s
+  politeness, jobs-list only (never job detail pages — that's where JD text lives),
+  companies enter via PR only. Research: Globe = globe.wd3/GLB_Careers, GCash =
+  same tenant /Mynt, Accenture = accenture.wd103, P&G = pg.wd5 (global tenants need
+  PH location facets).
+- 2026-06-12 — Thinking Machines PH found on **Freshteam**
+  (thinkingmachines.freshteam.com/jobs) — first Phase 9 target; v1's correct
+  rejection of greenhouse:thinkingmachines (US AI lab) stands.
+- 2026-06-12 — Taxonomy v2: `function` expands to 18 SEEK/JobStreet-aligned values
+  (+healthcare, education, hospitality, manufacturing, retail, construction);
+  levels unchanged. New listing fields `industry` (from registry) and `metro`
+  (normalized region tags). Schema version → 2 when Phase 8 lands.
+- 2026-06-12 — Registry rebalance: add `type: direct|agency`; agencies stay listed
+  and filterable, but featured surfaces (README table) show direct employers only.
+- 2026-06-12 — Web product features approved for Phase 11 (tracker, preferences,
+  support/feedback prompts, PWA baseline) — all client-side/localStorage, no
+  accounts/backend. Email updates deferred: RSS first (Phase 12), free newsletter
+  bridge evaluated then; full email infra stays ROADMAP.
+- 2026-06-12 — Reach & SEO is Phase 12 and **maintainer-led** (user wants direct
+  involvement); agents prepare artifacts, maintainer publishes.

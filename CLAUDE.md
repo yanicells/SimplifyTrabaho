@@ -1,8 +1,11 @@
-# CLAUDE.md — simplifytrabaho
+# CLAUDE.md — SimplifyTrabaho
 
 A free, open, auto-updated list of jobs at Philippine companies (all roles, all levels,
 internships & entry-level featured). PH counterpart of SimplifyJobs/Summer2026-Internships.
-Data comes ONLY from public ATS APIs that companies intentionally publish.
+Data comes ONLY from public endpoints companies themselves expose (SPEC §5.1 + §17).
+
+Naming: **SimplifyTrabaho** in all user-facing copy (README, site UI, docs prose);
+lowercase `simplifytrabaho` only as identifier (domain, package names, User-Agent).
 
 **Read before building:** [docs/SPEC.md](docs/SPEC.md) is the full PRD — schemas,
 pipeline stages, endpoints, acceptance criteria. [TRACKER.md](TRACKER.md) is the live
@@ -12,9 +15,12 @@ work log. [ROADMAP.md](ROADMAP.md) is future scope (don't build it yet).
 
 1. NEVER fetch from LinkedIn, JobStreet, Indeed, Kalibrr, Glassdoor, or any job
    board/aggregator. Their ToS prohibit it.
-2. Only the six documented public ATS endpoints in SPEC §5.1 (Greenhouse, Lever,
-   Ashby, Workable, SmartRecruiters, Recruitee). No auth bypass, no robots.txt
-   violations, no rate-limit evasion.
+2. Only public, unauthenticated endpoints the companies' own careers pages call:
+   Tier A = documented ATS APIs in SPEC §5.1; Tier B = Workday, ONLY under the SPEC
+   §17 guardrails (robots.txt check first, instant permanent stop on any block,
+   never evade — no IP/UA rotation, no headless browsers; companies enter via PR
+   only). No auth bypass, no robots.txt violations, no rate-limit or bot-detection
+   evasion, ever, on any tier.
 3. Store facts only: company, title, locations, URL, dates, work setup, structured
    salary. NEVER store job-description text. NEVER store personal data (drop
    recruiter names/emails at normalization).
@@ -54,13 +60,16 @@ Script-naming rule: never name a script `update` or `fetch` — both are pnpm bu
   reviewable git diffs.
 - Registry entries need `verified: true` (endpoint confirmed live, per SPEC §7.1)
   before the pipeline uses them.
+- Registry governance: Tier-A companies may land direct to main; Workday (Tier-B)
+  companies enter ONLY via pull request with SPEC §17.2 evidence.
 - Schema changes require updating SPEC §6 first, in the same commit.
 
 ## Working agreement
 
 - Keep TRACKER.md current every session: move items between sections, log issues
   (e.g., dead slugs, misclassified titles), record decisions with dates.
-- Follow the build order in SPEC §16 unless TRACKER says otherwise.
+- Follow the build order in SPEC §16 (v1, shipped) and §18 (v2) unless TRACKER says
+  otherwise.
 - Use TDD (superpowers:test-driven-development) for pipeline logic; fixtures from
   real ATS responses.
 - When building the website: use the frontend-design skill and

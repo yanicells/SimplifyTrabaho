@@ -1,10 +1,17 @@
-# simplifytrabaho — Product Spec & Implementation Guide
+# SimplifyTrabaho — Product Spec & Implementation Guide
 
-> **Status:** Approved design, pre-implementation.
+> **Status:** v1 shipped (Phases 0–6 done, site live). v2 approved — see §18 for
+> Phases 7–12.
 > **Audience:** The AI agent (or human) implementing this project. This document is the
 > source of truth for _what_ to build and _why_. Read [CLAUDE.md](../CLAUDE.md) for
 > operational rules and [TRACKER.md](../TRACKER.md) for current work state.
-> **Last updated:** 2026-06-11
+> **Last updated:** 2026-06-12
+
+**Naming convention:** the product/display name is **SimplifyTrabaho** (capital S, capital
+T) — use it in all user-facing copy: README title, site UI and metadata, docs prose, repo
+description. Lowercase `simplifytrabaho` remains correct wherever it is an _identifier_:
+the domain (`simplifytrabaho.ycells.com`), package names (npm forbids capitals), the
+User-Agent string, folder/repo paths.
 
 ---
 
@@ -56,10 +63,13 @@ rules, the feature changes — not the rules.
    job board / aggregator.** Their ToS explicitly prohibit it (verified 2026-06).
    JobStreet/SEEK has no public API or open partner program. This includes "just one
    request" and "just for testing."
-2. **Only fetch from documented public ATS endpoints** (§5) — the same unauthenticated
-   JSON endpoints the companies' own careers pages call from a browser. No
-   authentication bypass, no session spoofing, no CAPTCHA solving, no robots.txt
-   violations, no rate-limit evasion.
+2. **Only fetch from public, unauthenticated endpoints that the companies' own careers
+   pages call from a browser.** Two tiers (see §17): **Tier A** — documented public ATS
+   APIs (§5.1), default and unrestricted; **Tier B** — unofficial-but-public endpoints
+   (currently Workday only), allowed solely under the §17 guardrails with per-company
+   PR review. For both tiers: no authentication bypass, no session spoofing, no CAPTCHA
+   solving, no robots.txt violations, no rate-limit or bot-detection evasion of any
+   kind. If a host blocks us, we stop — we never work around a block.
 3. **Store facts only:** company name, role title, locations, work setup, application
    URL, dates, employment type, salary _if the ATS publishes it in the structured
    feed_. **Never store or republish job-description text.**
@@ -98,6 +108,21 @@ rules, the feature changes — not the rules.
 - Accounts, saved searches, alerts, emails, applications-through-us.
 - Job description storage or display.
 - A database or server backend — everything is static files + git.
+
+### v2 scope (approved 2026-06-12 — see §18 for the phase breakdown)
+
+v2 promotes two things out of the v1 exclusion list, with conditions:
+
+- **Workday** moves in scope as a Tier-B source under the §17 guardrails (it is the
+  platform of Globe, GCash/Mynt, Accenture, P&G, and most large PH corporates).
+  HTML scraping of custom pages stays out of scope.
+- The website grows **client-side product features** (localStorage application
+  tracker, saved preferences, support/feedback affordances) — still no accounts, no
+  database, no server backend. Anything needing a server (e.g., sending email) stays
+  in ROADMAP.md.
+
+Plus: taxonomy v2 (§6/§9), more Tier-A ATSs (§5.1), registry rebalance toward direct
+employers (§7), and a maintainer-led reach phase.
 
 ## 5. Architecture & repo layout
 
@@ -148,6 +173,16 @@ implementation, and save one real sample per ATS as a test fixture):
 | SmartRecruiters | `https://api.smartrecruiters.com/v1/companies/{slug}/postings`                  |
 | Recruitee       | `https://{slug}.recruitee.com/api/offers/`                                      |
 
+**Tier-A candidates to evaluate in Phase 9** (each qualifies only if it has a truly
+public, unauthenticated jobs feed — confirm with a live probe and save a fixture,
+exactly like the six above): Freshteam (`thinkingmachines.freshteam.com/jobs` is the
+known first target — Thinking Machines PH), BambooHR, Breezy, Personio, Manatal
+(SEA-focused, popular with PH companies), Teamtailor, Jobvite, Zoho Recruit. Any
+platform whose feed requires an API key is out (that's the company's private API, not
+a published board).
+
+**Workday is NOT Tier A** — it has its own rules in §17.
+
 Useful field notes (to verify at implementation time):
 
 - Lever provides `workplaceType` (on-site/hybrid/remote) and `createdAt` directly.
@@ -170,7 +205,7 @@ The unit of data. Stored in `data/listings.json` as:
 
 ```jsonc
 {
-  "version": 1,
+  "version": 2, // bumped from 1 when the Phase 8 schema lands (function v2, industry, metro)
   "updatedAt": "2026-06-11T22:00:00Z", // last successful pipeline run
   "listings": [
     /* Listing[] */
@@ -188,7 +223,9 @@ Each `Listing`:
 | `locations`      | string[]       | Raw location strings as published, e.g. `["Manila, Philippines", "Remote - Philippines"]`.                                                                                                |
 | `workSetup`      | enum           | `onsite` \| `hybrid` \| `remote` \| `unknown`. From structured ATS fields when available (Lever `workplaceType`, Ashby `isRemote`), else keyword match on location/title, else `unknown`. |
 | `level`          | enum           | `internship` \| `entry` \| `mid` \| `senior` \| `unknown` (§9).                                                                                                                           |
-| `function`       | enum           | `engineering` \| `data` \| `design` \| `product` \| `marketing` \| `sales` \| `finance` \| `hr` \| `operations` \| `customer-support` \| `legal` \| `other` (§9).                         |
+| `function`       | enum           | **Schema v2 (Phase 8), 18 SEEK-aligned values:** `engineering` \| `data` \| `design` \| `product` \| `marketing` \| `sales` \| `finance` \| `hr` \| `operations` \| `customer-support` \| `legal` \| `healthcare` \| `education` \| `hospitality` \| `manufacturing` \| `retail` \| `construction` \| `other` (§9). _(Schema v1 had the first 11 + other.)_ |
+| `industry`       | string         | **Schema v2 (Phase 8).** Copied from the company's registry entry at normalization (e.g., `fintech`, `outsourcing`). Company-level fact, denormalized for filtering.                      |
+| `metro`          | string[]       | **Schema v2 (Phase 8).** Normalized PH region tags derived from `locations`: `ncr`, `cebu`, `davao`, `clark-pampanga`, `calabarzon`, `iloilo`, `bacolod`, `baguio`, `cdo`, `remote-ph`, `other-ph`. Keyword map lives next to the PH filter (§8); extend the value list as real locations demand, spec update in the same commit. |
 | `url`            | string         | Official application URL on the company's ATS. The only outbound link.                                                                                                                    |
 | `source`         | string         | ATS name: `greenhouse`, `lever`, `ashby`, `workable`, `smartrecruiters`, `recruitee`.                                                                                                     |
 | `employmentType` | enum           | `full-time` \| `part-time` \| `contract` \| `internship` \| `unknown` — when the ATS provides it.                                                                                         |
@@ -208,9 +245,10 @@ emails, applicant data of any kind.
   "companies": [
     {
       "name": "PayMongo", // display name used in listings
-      "ats": "lever", // one of the six supported ATS ids
+      "ats": "lever", // a supported ATS id (§5.1) or "workday" (§17)
       "slug": "paymongo", // the board token/site name in the ATS URL
       "industry": "fintech", // free-form lowercase tag
+      "type": "direct", // v2 (Phase 9): "direct" employer | "agency" (staffing/outsourcing/recruitment)
       "verified": true, // true = endpoint confirmed live with PH roles
       "added": "2026-06-11",
       "notes": "", // optional: e.g. "also hires remote APAC"
@@ -223,6 +261,15 @@ emails, applicant data of any kind.
 - `verified: false` entries are skipped by the pipeline (they're candidates pending
   verification).
 - Registry is the ONLY hand-edited data file. Keep it alphabetized by `name`.
+- **`type` (v2, Phase 9):** `agency` = staffing/outsourcing/recruitment firms hiring on
+  behalf of clients; `direct` = everyone else. Agencies stay fully listed and
+  filterable — their jobs are real — but the README featured table and any "featured"
+  surface shows **direct employers only** (§11). When in doubt, check what the company
+  sells: if its product is staffing, it's an agency.
+- **Governance (v2, Phase 10):** Tier-A companies (documented ATSs) may be added
+  directly to main, as today. **Tier-B companies (`ats: "workday"`) enter ONLY via a
+  pull request** carrying the §17 verification evidence — never direct to main, even
+  by the maintainer's own agent sessions. The PR is the review gate.
 
 ### 7.1 Seeding procedure (the first major implementation task)
 
@@ -289,19 +336,45 @@ is an acceptable outcome — never guess wildly.
    `ii`/`iii`). Titles matching none of the above default to `unknown` — never
    assume mid-level from the absence of markers.
 
-**Function:** keyword table mapping title terms → function, e.g. `engineer`,
-`developer`, `devops`, `qa`, `sre` → `engineering`; `data`, `analytics`, `machine
-learning`, `ai ` → `data`; `designer`, `ux`, `ui` → `design`; `product manager`,
-`product owner` → `product`; `marketing`, `seo`, `content`, `social media` →
-`marketing`; `sales`, `account executive`, `business development` → `sales`;
-`accountant`, `finance`, `treasury`, `audit` → `finance`; `recruiter`, `hr`, `people`,
-`talent` → `hr`; `operations`, `supply chain`, `logistics`, `admin` → `operations`;
-`support`, `customer success`, `csr` → `customer-support`; `legal`, `compliance`,
-`counsel` → `legal`; else `other`.
+**Function (schema v2, Phase 8): 18 values aligned with the SEEK/JobStreet
+classification** (<https://developer.seek.com/use-cases/job-posting/job-categories>) —
+the taxonomy PH job seekers already know. The 11 v1 functions keep their existing
+keyword rules; the 6 new ones cover what `other` was swallowing:
+
+| New function    | Keyword seeds (extend by mining real titles)                                                                  |
+| --------------- | ------------------------------------------------------------------------------------------------------------- |
+| `healthcare`    | nurse, doctor, physician, medical, clinical, pharmacist, dental, caregiver, midwife, med tech, utilization review |
+| `education`     | teacher, tutor, instructor, professor, ESL, curriculum, registrar, trainer (academic context)                   |
+| `hospitality`   | chef, cook, barista, waiter, bartender, kitchen, housekeeping, front desk, hotel, restaurant, travel, tour      |
+| `manufacturing` | production, machine operator, assembler, quality assurance inspector, plant, welder, technician (plant context), maintenance |
+| `retail`        | cashier, store, merchandiser, branch (retail context), shopkeeper, visual merchandising                         |
+| `construction`  | civil works, foreman, carpenter, electrician, plumber, mason, site engineer disambiguation note below, surveyor, property, real estate |
+
+Disambiguation rules stay conservative and live with the tables: e.g. "Site Engineer"
+and "Civil Engineer" → `construction` only via explicit multi-word rules (bare
+`engineer` keeps matching `engineering` first per table order — reorder/special-case
+only with a test proving the fix).
 
 These tables WILL be imperfect. Requirements: (a) they live in one file
 (`categorize.ts`) as data, not scattered logic; (b) unit tests cover PH-specific cases
 (e.g., "OJT", "cadet"); (c) misclassification is a tracker backlog item, not a crash.
+
+**Categorizer tooling (v2, Phase 8) — keywords are an ongoing process, not a one-shot:**
+
+- `pnpm --filter pipeline eval-categorizer`: prints coverage (% of active listings
+  with known level / known function) and the top ~50 uncategorized titles by
+  frequency. Run it in every refresh summary so drift is visible; keyword additions
+  are mined from this output, never invented.
+- `pnpm --filter pipeline recategorize`: re-runs categorization (and metro
+  derivation) over the ENTIRE existing dataset — including inactive listings — and
+  rewrites `listings.json`. Required because the daily merge only touches listings
+  present in feeds; without a backfill, improved tables leave history stale. Must
+  preserve `datePosted` and not touch `dateUpdated` for category-only changes
+  (re-tagging is our metadata, not a change in the listing itself — document this
+  in the command's tests).
+- **Coverage targets (active listings):** `level: unknown` < 25%, `function: other`
+  < 15%. Targets, not laws — never trade accuracy for coverage; `unknown` stays
+  better than a wrong guess.
 
 ## 10. Merge & lifecycle (each pipeline run)
 
@@ -334,6 +407,9 @@ Contents:
 3. **Featured table: internships + entry-level**, active, `datePosted` within the last
    30 days, sorted newest first, capped at 200 rows. Columns: Company | Role (the
    `title`) | Location | Work Setup | Apply (link) | Posted (e.g. "3d ago").
+   **v2 (Phase 9): featured = `type: "direct"` companies only.** Agency listings stay
+   in the data and on the site (filterable), but the README's first impression leads
+   with recognizable direct employers, not staffing posts.
 4. Counts line: total active listings, total companies tracked, last-updated stamp.
 5. Pointer: "Full list with filters → website".
 
@@ -349,10 +425,29 @@ Requirements:
   the fields the UI uses — the payload sent to browsers must stay lean even when the
   full dataset grows (split/trim at build; the 12 MB Simplify file is a cautionary
   tale, not a target).
-- Header: name, one-line pitch, GitHub link, last-updated stamp.
+- Header: name ("SimplifyTrabaho"), one-line pitch, GitHub link, last-updated stamp.
 - Filter bar: level, function, work setup, location (text contains), free-text search
   over company+title. All client-side. Default view on load: internships + entry-level
   (the featured audience), with one click to "All roles".
+- **v2 filter upgrades (Phase 8):** add metro, industry, and employer-type
+  (direct/agency) filters; level and function become **multi-select**; the
+  search/filter bar is **sticky** while scrolling results; full filter state is
+  encoded in **URL query params** (shareable links — pasting a URL reproduces the
+  view; also the groundwork for the Phase 12 reach work).
+- **v2 product features (Phase 11) — all client-side, localStorage, no accounts:**
+  - **Application tracker:** a "Track" affordance beside Apply; tracked listings get a
+    status the user can advance (saved → applied → interview → offer / rejected) and a
+    "My applications" view. Keyed by listing `id` (stable URL hash). localStorage
+    only — device-local, exportable as JSON for portability.
+  - **Preferences:** persist the user's default filters (e.g., preferred functions,
+    metro, level) so returning visitors land on their view. localStorage; a one-tap
+    reset.
+  - **Support & feedback:** a navbar button (GitHub issues for feedback + a
+    donate/support link) and a gentle, dismissible prompt shown at most after every
+    ~5 Apply clicks — with a permanent "don't show again". Exact UX decided in-phase
+    with the maintainer; never block the primary job-hunting flow.
+  - **PWA baseline:** web manifest + icons so the site is installable; offline
+    support is a nice-to-have, not required.
 - Listing rows/cards: company, title, locations, workSetup badge, level badge, posted
   "Xd ago", Apply button → official `url` (target=\_blank, `rel="noopener noreferrer"`).
 - Thousands of rows must stay smooth: paginate or virtualize — implementer's choice.
@@ -424,7 +519,7 @@ Push → Vercel rebuilds. Identical code path to CI — no special casing.
 7. Manual laptop flow (§13) verified once end-to-end.
 8. TRACKER.md reflects reality: done items checked, known issues listed.
 
-## 16. Suggested build order
+## 16. Suggested build order (v1 — SHIPPED 2026-06-11)
 
 Phases for the implementing agent (track in TRACKER.md):
 
@@ -440,3 +535,100 @@ Phases for the implementing agent (track in TRACKER.md):
 - **Phase 4 — Website:** build against the real listings.json.
 - **Phase 5 — Automation:** GitHub Actions, Vercel hookup, end-to-end verification.
 - **Phase 6 — Polish & launch:** README copy, badges, acceptance-criteria sweep.
+
+## 17. Workday tier (Tier B — unofficial-but-public, guardrailed)
+
+**Why:** Workday is where the credibility-defining PH employers live — Globe
+(`globe.wd3.myworkdayjobs.com/GLB_Careers`), GCash/Mynt (same tenant, site `Mynt`),
+Accenture (`accenture.wd103.myworkdayjobs.com/AccentureCareers`), P&G
+(`pg.wd5.myworkdayjobs.com/1000`), and most large PH corporates (banks, airlines,
+conglomerates — see the TRACKER candidate graveyard).
+
+**What it is:** every public Workday career site is rendered by a JSON endpoint:
+`POST https://{tenant}.wd{n}.myworkdayjobs.com/wday/cxs/{tenant}/{site}/jobs` with a
+body like `{"appliedFacets":{},"limit":20,"offset":0,"searchText":""}` — the exact
+call the page itself makes, no auth. It is **unofficial**: undocumented, tenants can
+disable it (401/422), and Workday fronts it with Akamai bot management. That makes it
+Tier B: usable, but only under these rules.
+
+### 17.1 Guardrails (non-negotiable, additions to §3)
+
+1. **robots.txt first:** before the first fetch of any tenant, check
+   `https://{tenant}.wd{n}.myworkdayjobs.com/robots.txt`. If the jobs paths are
+   disallowed for our User-Agent (or `*`), the company is OFF the table — record it
+   in TRACKER and move on.
+2. **Instant, permanent stop on any block:** a 401/403/422/429 or an Akamai
+   challenge page → mark the company `blocked` in TRACKER, skip it for the rest of
+   the run and all future runs until a human reviews. NEVER retry around a block:
+   no IP rotation, no User-Agent changes, no headless browsers, no cookie replay,
+   no third-party "unblocker" services. We are guests; a closed door means no.
+3. **Extra politeness:** ≥2s between requests to any Workday host (stricter than
+   the ≥1s Tier-A rule), sequential only, pagination capped (stop after the last
+   page or 1,000 postings, whichever first), same identifying User-Agent.
+4. **Global tenants get location-filtered at the source where possible:** for
+   Accenture/P&G-scale tenants, apply the Philippines location facet in
+   `appliedFacets` (discover the facet id from the page's own first request) so we
+   never bulk-pull a 10,000-job global feed. If faceting fails, cap pages and
+   PH-filter locally (§8) as usual.
+5. **Same data rules:** facts only (§3.3) — the jobs list response already carries
+   title/locations/postedOn/externalPath; **do not** fetch per-job detail pages
+   (that's where JD text lives, and it multiplies request volume).
+6. **CI degradation is acceptable:** if GitHub Actions runner IPs get blocked but
+   local runs work, Workday companies refresh only on the maintainer's manual runs.
+   The merge layer (§10.4) already protects their listings from mass-deactivation
+   on failed fetches. Never "fix" CI blocking with evasion (see rule 2).
+
+### 17.2 Governance
+
+- Workday companies enter the registry **only via pull request** (§7), one PR per
+  company or tenant, carrying: tenant + site id, robots.txt verdict, a trimmed
+  sample response (facts only), identity confirmation (it's really that company),
+  and the PH posting count found. Direct-to-main additions are forbidden for Tier B.
+- Wave 1 (Phase 10): Globe, Mynt/GCash, Accenture (PH facet), P&G (PH facet).
+  Wave 2 candidates: the "PH corporates" graveyard in TRACKER (UnionBank, Cebu
+  Pacific, Philippine Airlines, San Miguel, URC, Security Bank…) — verify each
+  tenant individually.
+- If Workday (the vendor) or any tenant company objects or blocks: comply
+  immediately, log it, and fall back to ROADMAP partnership routes. Rule §3.7
+  (removal requests) applies with zero friction.
+
+## 18. v2 build order (approved 2026-06-12)
+
+Same working agreement as v1: one phase per session/chat, TDD for pipeline logic,
+TRACKER.md kept current, verify before claiming done. Phases in order:
+
+- **Phase 7 — Rename:** product name is **SimplifyTrabaho** everywhere user-facing
+  (README via `readme.ts`, site UI + metadata/OG, docs prose, SPEC/TRACKER/ROADMAP
+  headings). Identifiers stay lowercase (domain, package names, User-Agent, paths).
+  Acceptance: grep finds no user-facing lowercase brand usage; site + README render
+  the new name; tests green.
+- **Phase 8 — Taxonomy v2 + filters:** schema v2 (§6: 18 functions, `industry`,
+  `metro`; bump `version` to 2) → categorizer v2 tables (§9) → `eval-categorizer` +
+  `recategorize` tools → web filter upgrades (§12: multi-select, metro/industry/
+  employer-type, sticky bar, URL params). Web build's schema validation updated in
+  the same commit. Acceptance: coverage targets met or gap explained in TRACKER;
+  shareable URLs reproduce filter state; payload still lean.
+- **Phase 9 — Coverage, Tier A:** Freshteam fetcher first (Thinking Machines PH —
+  closes the v1 graveyard entry), then probe/add the §5.1 candidate ATSs that prove
+  truly public (fixture + tests each). Registry round 3 targeting **direct
+  employers** (rebalance away from the 45-agency skew); add `type` to every
+  registry entry; README featured goes direct-only (§11). Acceptance: ≥25 new
+  direct employers OR documented evidence the well is dry; agency/direct mix
+  reported in TRACKER.
+- **Phase 10 — Coverage, Workday tier:** the §17 adapter + guardrails (robots
+  check, stop-on-block, facet filtering, politeness), wave-1 companies via
+  individual PRs with evidence. Acceptance: Globe + GCash + Accenture-PH + P&G-PH
+  listings live (or a documented blocker per company), zero guardrail violations,
+  merge protections proven by tests.
+- **Phase 11 — Web product features:** §12 v2 product features — tracker,
+  preferences, support/feedback affordances, PWA baseline. All client-side; no
+  accounts, no backend, no third-party trackers. Acceptance: features work after a
+  hard refresh (persistence proven), zero regressions in the core browse→apply
+  flow, mobile-first verified via playwright.
+- **Phase 12 — Reach & SEO (maintainer-led):** RSS feed(s) generated by the
+  pipeline, OG share images, sitemap + per-page metadata, Google Search Console
+  setup (maintainer), "copy link to this view" affordance, launch/distribution
+  posts (maintainer: r/phcareers, FB groups, university orgs). Email digest:
+  start with RSS; evaluate a free newsletter bridge (e.g., Buttondown) — full
+  email infrastructure stays in ROADMAP. **The maintainer drives this phase;
+  agents prepare, maintainers publish.**
