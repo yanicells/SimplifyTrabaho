@@ -43,9 +43,27 @@
       with Unicode lookaround boundaries. Dataset rebuilt clean (37 false positives
       removed; everything was first-seen same day, so the rebuild lost nothing).
 
+- [x] 2026-06-11 — **Phase 4 COMPLETE — website built and verified** (112 tests green
+      across workspace):
+  - [x] Data layer (TDD, 23 tests): `web/lib/listings.ts` reads `data/listings.json`
+        at build, schema-validates (missing file / bad JSON / bad enum all verified
+        to fail `next build` with a named field), ships active listings only with 9
+        UI fields, day-precision dates, PH locations ordered first. Payload: 691 KB
+        raw / ~91 KB gzipped at 2,097 listings.
+  - [x] One-page UI per SPEC §12: Fraunces/Instrument Sans "broadsheet" look, PH
+        flag strip + sun-yellow accents, level chips (default = interns & fresh
+        grads, one tap to All roles), function/work-setup selects, location-contains + tokenized free-text search (all client-side), Show more pagination with
+        `content-visibility` rows, Apply → official URL with `target=_blank
+    rel="noopener noreferrer"`, last-updated dateline, GitHub links.
+  - [x] Playwright-verified on the built static export, desktop + 390px mobile:
+        default featured view (208 roles), every filter, multi-word search, empty
+        state + reset, Show more (60→120 of 2,097), apply link opened the official
+        SmartRecruiters posting in a new tab; no console errors; no horizontal
+        overflow on mobile.
+
 ## 🔨 In progress
 
-(nothing — Phases 0–3 done; next session starts Phase 4, the website)
+(nothing — Phases 0–4 done; next session starts Phase 5, automation)
 
 Registry growth is continuous (SPEC §7.1): web-search the six ATS-hosted domains for
 PH city strings → add slugs to `pipeline/candidates.json` → `pnpm --filter pipeline
@@ -54,18 +72,15 @@ verify-registry`. Also recheck the live-but-0-PH boards listed below — several
 
 ## ⏭️ Next up (v1 build order — SPEC §16)
 
-### Phase 4 — Website
-- [ ] One-page UI per SPEC §12 (filters, featured default view, mobile-first)
-- [ ] Lean client payload (active listings only, trimmed fields)
-- [ ] Build-time schema validation of listings.json
-
 ### Phase 5 — Automation
+
 - [ ] GitHub Actions `refresh.yml` (daily cron 22:00 UTC, workflow_dispatch, pnpm,
       commit-if-changed, contents: write)
 - [ ] Vercel project hookup (root `web/`)
 - [ ] Verify manual laptop flow (SPEC §13) once end-to-end
 
 ### Phase 6 — Polish & launch
+
 - [ ] Acceptance-criteria sweep (SPEC §15)
 - [ ] README copy/badges review · publish repo
 
@@ -95,6 +110,7 @@ are marked ➜✅. PH corporates (banks, conglomerates, airlines, food) are most
 Workday/custom portals — none of the guessed SmartRecruiters identifiers existed.
 
 **Live board, 0 PH roles today — recheck periodically (companies known to hire PH):**
+
 - Deel — deel (ashby) · Pearl Talent — pearl (ashby) · Persona — persona (ashby) ·
   Catena — catena (ashby) · Kraken — kraken.com (ashby) · Kittl — kittl (ashby) ·
   Pareto.AI — pareto-ai (ashby) · Flagright — flagright.com (ashby) ·
@@ -116,6 +132,7 @@ Workday/custom portals — none of the guessed SmartRecruiters identifiers exist
   bgc-group-1, cos (ConnectOS), pineapple-staffing, quickteam ➜✅ later run
 
 **Dead slugs (404 / unknown identifier):**
+
 - Canva — canva, canvacareers (greenhouse); canva (lever) ➜✅ smartrecruiters:Canva
 - PayMongo — paymongo (lever, greenhouse, workable, ashby) — no public board found
 - Mynt/GCash — mynt, gcash (greenhouse); mynt (lever, ashby)
@@ -209,8 +226,7 @@ not a real employer. Kalibrr — job-board company, fetching prohibited by rule 
   company's listings instead of mass-deactivating them. Cost: a real company with
   temporarily zero postings also freezes — acceptable trade-off.
 - 2026-06-11 — Workable widget API: live accounts with no published widget jobs
-  return 200 + `jobs: []` (a successful empty fetch); unknown accounts get a real
-  404. Several PH-HQ outsourcing firms sit in this empty state — kept as verified
+  return 200 + `jobs: []` (a successful empty fetch); unknown accounts get a real 404. Several PH-HQ outsourcing firms sit in this empty state — kept as verified
   per SPEC §7.1 (PH-HQ rule) so their future postings flow in automatically.
 - 2026-06-11 — Identity rule added after the lever:maya incident: a PH-HQ
   verification with 0 PH postings requires manually confirming the board belongs to
@@ -222,3 +238,22 @@ not a real employer. Kalibrr — job-board company, fetching prohibited by rule 
 - 2026-06-11 — SR posting URLs are constructed as
   `jobs.smartrecruiters.com/{identifier}/{postingId}` (verified live, returns 200) —
   the postings API itself has no public job-ad URL field.
+- 2026-06-11 — Web payload approach: trimmed jobs inlined as RSC props at build
+  (no client fetch); 9 fields, day-precision `posted`, salary omitted when null.
+  691 KB raw / ~91 KB gzipped at 2,097 listings — revisit (e.g. client-side fetch of
+  a split JSON) only if the dataset grows several-fold.
+- 2026-06-11 — Level filter UI = single-select chips; the default "Interns & fresh
+  grads" chip is internship ∪ entry, satisfying SPEC §12's featured default with
+  one-tap "All roles". Mid/Senior/Internships/Entry reachable individually;
+  unknown-level rows appear only under "All roles".
+- 2026-06-11 — Pagination ("Show more", 60/page) + `content-visibility: auto` rows
+  instead of virtualization — simpler, SSR-friendly, smooth at 2k rows.
+- 2026-06-11 — Free-text search is tokenized AND-match over company+title (multi-word
+  queries like "software intern" failed as a single substring — caught by playwright
+  verification).
+- 2026-06-11 — Display-only reorder of `locations`: PH locations first (reusing
+  pipeline `isPhilippineLocation`) so they never hide behind the "+N" truncation on
+  multi-country roles. Facts unchanged, order only.
+- 2026-06-11 — Relative "Xd ago" stamps are computed against the dataset's
+  `updatedAt`, not `Date.now()`, so the static export renders identically on server
+  and client (no hydration mismatch) and never goes stale mid-day.
