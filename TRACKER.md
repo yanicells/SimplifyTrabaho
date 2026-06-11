@@ -78,8 +78,7 @@ rel="noopener noreferrer"`, last-updated dateline, GitHub links.
 
 ## 🔨 In progress
 
-(Phase 5 repo side done — remaining Phase 5 items below need the maintainer's
-GitHub/Vercel dashboards and a pushed workflow; see open checkboxes.)
+(nothing — Phases 0–5 done and live-verified; next is Phase 6, polish & launch)
 
 Registry growth is continuous (SPEC §7.1): web-search the six ATS-hosted domains for
 PH city strings → add slugs to `pipeline/candidates.json` → `pnpm --filter pipeline
@@ -94,12 +93,12 @@ verify-registry`. Also recheck the live-but-0-PH boards listed below — several
       commit-if-changed, contents: write) — see Done
 - [x] Vercel project hookup (root `web/`) — maintainer deployed; custom domain
       <https://simplifytrabaho.ycells.com> live with DNS (2026-06-11)
-- [ ] First live Actions run verified green (push, then trigger "Refresh listings"
-      via Run workflow; confirm bot commit lands and the red-X-on-failure behavior)
-- [ ] Verify a bot data commit (changes outside `web/`) still triggers a Vercel
-      production deploy — check the project's Root Directory / Ignored Build Step
-      settings don't skip it
-- [ ] Verify manual laptop flow (SPEC §13) once end-to-end
+- [x] First live Actions run verified green — maintainer confirmed 2026-06-11
+      (run surfaced a Node 20 deprecation warning; fixed, see Issues)
+- [x] Bot data commit triggers a Vercel production deploy — maintainer confirmed
+      2026-06-11
+- [x] Manual laptop flow (SPEC §13) verified once end-to-end — maintainer
+      confirmed 2026-06-11
 
 ### Phase 6 — Polish & launch
 
@@ -119,6 +118,12 @@ verify-registry`. Also recheck the live-but-0-PH boards listed below — several
   `workable:atticus` (unconfirmable vs US legal-tech Atticus). All four removed.
   verify-registry now prints a CONFIRM-IDENTITY warning for any PH-HQ verification
   with 0 PH postings.
+- 2026-06-11 — [resolved] First live "Refresh listings" run warned: "Node.js 20
+  actions are deprecated" (GitHub forces Node 24 on runners starting 2026-06-16,
+  removes Node 20 2026-09-16). Bumped `actions/checkout`, `actions/setup-node`,
+  `pnpm/action-setup` from @v4 to @v6 in both workflows — all three v6 majors
+  declare `node24`, and checkout v6 still defaults `persist-credentials: true`
+  (the bot push in refresh.yml relies on it).
 - 2026-06-11 — [open] `level: unknown` on 1,332/2,040 listings (by design — SPEC §9
   never guesses) and `function: other` on 829. Backlog: extend keyword tables from
   real titles (e.g., PH BPO vocabulary: "CSR", "TSR", "Team Leader", "Workforce").
