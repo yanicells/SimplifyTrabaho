@@ -96,7 +96,7 @@ refreshes once daily.
 
 ---
 
-📊 **2040 active listings** from **88 companies tracked** · last updated 2026-06-11 01:21 UTC
+📊 **2097 active listings** from **101 companies tracked** · last updated 2026-06-11 01:34 UTC
 
 ➡️ Full list with filters (all roles, all levels): **[simplifytrabaho.vercel.app](https://simplifytrabaho.vercel.app)**
 

@@ -30,12 +30,14 @@
       green). SR fetcher paginates (limit 100) and treats empty results as dead-slug
       (SR returns 200 for unknown companies). Workable live-account-with-0-jobs =
       successful empty fetch.
-- [x] 2026-06-11 — Phase 2 (bulk): `verify-registry` tool (candidates.json → probe →
-      PH-check → merge into companies.json + TRACKER-format failure lines).
-      ~150 candidates probed across 9 rounds; **88 verified companies** spanning all
-      six ATSs. Full `pnpm refresh`: 88/88 fetched, 0 failures, 17k postings →
-      **2,040 PH listings** committed. Sources: workable 847, smartrecruiters ~650,
-      lever 385, greenhouse 137, ashby 50, recruitee 4.
+- [x] 2026-06-11 — **Phase 2 COMPLETE — 101 verified companies (≥100 launch bar
+      met)**, spanning all six ATSs. Built `verify-registry` tool (candidates.json →
+      probe → PH-check → merge into companies.json + TRACKER-format failure lines);
+      ~200 candidates probed across 13 rounds. Final `pnpm refresh`: 101/101
+      fetched, 0 failures, ~17.5k postings → **2,097 PH listings** committed.
+      Sources: workable ~900, smartrecruiters ~650, lever 385, greenhouse 137,
+      ashby 50, recruitee 4. Every PH-HQ zero-posting entry identity-confirmed via
+      the Workable account-name field.
 - [x] 2026-06-11 — Filter bug found via real data & fixed (TDD): Vietnamese "Thành
       phố" matched bare-PH token because JS `\b` mistreats accented letters; replaced
       with Unicode lookaround boundaries. Dataset rebuilt clean (37 false positives
@@ -43,11 +45,12 @@
 
 ## 🔨 In progress
 
-- Phase 2 — grow registry 88 → 100+ verified (SPEC §7.1 launch bar). Process that
-  works: web-search the six ATS-hosted domains for PH city/“Philippines” strings →
-  drop found slugs into `pipeline/candidates.json` → `pnpm --filter pipeline
-  verify-registry`. Search engines were the bottleneck today (result saturation),
-  not the tooling — fresh queries on another day will surface new boards.
+(nothing — Phases 0–3 done; next session starts Phase 4, the website)
+
+Registry growth is continuous (SPEC §7.1): web-search the six ATS-hosted domains for
+PH city strings → add slugs to `pipeline/candidates.json` → `pnpm --filter pipeline
+verify-registry`. Also recheck the live-but-0-PH boards listed below — several
+(Deel, Kraken, Reddit, ClickUp-style remote employers) post PH roles periodically.
 
 ## ⏭️ Next up (v1 build order — SPEC §16)
 
@@ -162,6 +165,15 @@ Workday/custom portals — none of the guessed SmartRecruiters identifiers exist
   Robina, Monde Nissin, NutriAsia, Alaska Milk, Century Pacific, Del Monte PH,
   Robinsons Land, JG Summit, Filinvest · SecurityBank, Zalora, Transcom, Ubiquity,
   TOA Global (smartrecruiters — 200-empty, unknown identifiers)
+
+- Rounds 10–13 (PH BPO slug guessing): dead — MicroSourcing, Select VoiceCom,
+  SixEleven, VirtualStaff.ph, Boomering, Frontline Accounting, Tahche, The Virtual
+  Hub, Vault Outsourcing, Intogreat, Payreto, The Back Room, TOA Global (lever),
+  Limitlessli, Remote Staff, MCVO Talent, OfficePartners360 (op360 ×2), OneCoreDev,
+  Awesome CX, PartnerHero (gh), Carousell (lever), ClickUp (lever) · live-but-0-PH —
+  DCX, Premier Media, Probe Group, WeAssist, TaskBullet, Sagan, Remote Workmate,
+  Peak Support, Gear Inc, Elevate and Delegate, Bold Business, Connext, CloudTask,
+  Extenteam, Anytime Mailbox
 
 **Skipped on quality grounds:** usasurveyjob / TowardJobs (lever) — survey-gig mill,
 not a real employer. Kalibrr — job-board company, fetching prohibited by rule §1.

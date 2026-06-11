@@ -1,6 +1,13 @@
 {
   "candidates": [
-    { "name": "Easyship", "industry": "logistics-tech", "tries": [{ "ats": "workable", "slug": "easyship-4" }] },
-    { "name": "Hello Rache", "industry": "healthtech", "tries": [{ "ats": "workable", "slug": "hello-rache" }] }
+    { "name": "Awesome CX", "industry": "customer-support", "tries": [{ "ats": "workable", "slug": "awesomecx" }] },
+    { "name": "Bold Business", "industry": "outsourcing", "tries": [{ "ats": "workable", "slug": "bold-business" }] },
+    { "name": "Connext Global Solutions", "industry": "outsourcing", "tries": [{ "ats": "workable", "slug": "connext" }, { "ats": "workable", "slug": "connext-global" }] },
+    { "name": "MCVO Talent", "industry": "accounting", "phHq": true, "tries": [{ "ats": "workable", "slug": "mcvo-talent" }] },
+    { "name": "OfficePartners360", "industry": "outsourcing", "tries": [{ "ats": "workable", "slug": "op360" }, { "ats": "workable", "slug": "officepartners360" }] },
+    { "name": "OneCoreDev IT", "industry": "it-services", "phHq": true, "tries": [{ "ats": "workable", "slug": "onecoredev" }] },
+    { "name": "STAFFVIRTUAL", "industry": "outsourcing", "phHq": true, "tries": [{ "ats": "workable", "slug": "staffvirtual" }] },
+    { "name": "Telework PH", "industry": "outsourcing", "phHq": true, "tries": [{ "ats": "workable", "slug": "teleworkph" }] },
+    { "name": "iSupport Worldwide", "industry": "outsourcing", "phHq": true, "tries": [{ "ats": "workable", "slug": "isupport-worldwide" }] }
   ]
 }
