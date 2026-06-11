@@ -118,5 +118,11 @@ ${table}
 
 Want your company listed? Your jobs just need to be on a supported ATS with a public
 board — open an issue at [${REPO_URL.replace("https://github.com/", "")}](${REPO_URL}).
+
+## License
+
+Code is [MIT](LICENSE). The dataset (\`data/listings.json\`, \`pipeline/companies.json\`)
+is [CC0 1.0](data/LICENSE) — public domain. Attribution with a link back to this repo
+is appreciated but not required.
 `;
 }

@@ -46,6 +46,14 @@ describe("generateReadme", () => {
     );
   });
 
+  it("carries a License section: MIT code, CC0 data, attribution optional", () => {
+    const md = generateReadme({ ...base, listings: [listing()] });
+    expect(md).toContain("## License");
+    expect(md).toContain("[MIT](LICENSE)");
+    expect(md).toContain("[CC0 1.0](data/LICENSE)");
+    expect(md).toMatch(/appreciated but not required/);
+  });
+
   it("renders featured internships and entry-level rows with relative dates", () => {
     const md = generateReadme({
       ...base,

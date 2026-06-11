@@ -49,8 +49,8 @@ refreshes once daily.
 | **Pilmico** | Procurement Associate | Iligan City, Lanao del Norte, Philippines | On-site | [Apply](https://jobs.smartrecruiters.com/PilmicoFoodsCorporation/744000130351349) | 6d ago |
 | **Angkas** | Operations Admin Associate | Makati City, Philippines | — | [Apply](https://apply.workable.com/j/0AB0816AA0) | 6d ago |
 | **Angkas** | Admin & Onboarding Associate-Cavite | Dasmariñas, Philippines | — | [Apply](https://apply.workable.com/j/A402F3E771) | 6d ago |
-| **Fresh Prints** | Jr. HR Associate | India, Philippines | — | [Apply](https://job-boards.greenhouse.io/freshprints/jobs/6013875004) | 6d ago |
-| **Fresh Prints** | HR Associate | Hyderabad, Telangana, India, Manila, Manila, Philippines | — | [Apply](https://job-boards.greenhouse.io/freshprints/jobs/6013851004) | 6d ago |
+| **Fresh Prints** | Jr. HR Associate | India, Philippines | — | [Apply](https://job-boards.greenhouse.io/freshprints/jobs/6013875004) | 7d ago |
+| **Fresh Prints** | HR Associate | Hyderabad, Telangana, India, Manila, Manila, Philippines | — | [Apply](https://job-boards.greenhouse.io/freshprints/jobs/6013851004) | 7d ago |
 | **SGS** | Management System Associate | Makati City, NCR, Philippines | Hybrid | [Apply](https://jobs.smartrecruiters.com/SGS/744000130170089) | 7d ago |
 | **Aprio** | Aprio PH - Senior Accounting Onboarding Associate (QBO, Xero, Accounting Clean-ups) | Clark, Pampanga; Makati City, Metro Manila | Hybrid | [Apply](https://jobs.lever.co/Aprio/bc5d13b6-1688-4e82-9b62-bbadad9281b2) | 7d ago |
 | **SGS** | ADMINISTRATIVE AND CUSTOMER EXCELLENCE SUPPORT (ACES) ASSOCIATE | Davao City, Davao Region, Philippines | On-site | [Apply](https://jobs.smartrecruiters.com/SGS/744000130105901) | 7d ago |
@@ -80,7 +80,7 @@ refreshes once daily.
 | **Twoconnect** | Junior Graphic Designer - Work from Home / Dayshift | Philippines | Remote | [Apply](https://apply.workable.com/j/D23AD7C9DB) | 16d ago |
 | **Arch Global Services PH** | 2026-7960 Billing Specialist-Junior | Makati City, NCR, Philippines | Hybrid | [Apply](https://jobs.smartrecruiters.com/ArchGlobalServicesPhilippinesInc/744000128244349) | 16d ago |
 | **Arch Global Services PH** | 2026-7957 Jr. Finance Analyst - US Tax (Nightshift) | Bonifacio Global City, Philippines | Remote | [Apply](https://jobs.smartrecruiters.com/ArchGlobalServicesPhilippinesInc/744000128202039) | 17d ago |
-| **Aprio** | Aprio PH-Accounting Associate (Outsourcing 1) | Makati City, Metro Manila | Hybrid | [Apply](https://jobs.lever.co/Aprio/6565391e-af1b-4dd5-89e2-409350b3efcd) | 17d ago |
+| **Aprio** | Aprio PH-Accounting Associate (Outsourcing 1) | Clark, Pampanga | Hybrid | [Apply](https://jobs.lever.co/Aprio/6565391e-af1b-4dd5-89e2-409350b3efcd) | 17d ago |
 | **Aprio** | Aprio PH - Accounting Associate (Professional Services CAS) | Clark, Pampanga; Makati City, Metro Manila | Hybrid | [Apply](https://jobs.lever.co/Aprio/c6c2d730-d74e-4c30-abb4-99f5503fce45) | 17d ago |
 | **Aprio** | Aprio PH - Accounting Associate (Real Estate) | Clark, Pampanga; Makati City, Metro Manila | Hybrid | [Apply](https://jobs.lever.co/Aprio/457ca4ed-f292-4a36-98dc-d78dc62f1895) | 17d ago |
 | **ISTA Personnel Solutions** | Back-Office Associate \| Healthcare Account \| Get a 21K Signing Bonus | Mandaluyong, Philippines | — | [Apply](https://apply.workable.com/j/A8BF231200) | 17d ago |
@@ -104,16 +104,22 @@ refreshes once daily.
 | **Angkas** | Customer Experience Associate-Cebu | Cebu City, Philippines | — | [Apply](https://apply.workable.com/j/D9907A7F30) | 27d ago |
 | **GoTyme Bank** | Operations Associate | Quezon City, Philippines | — | [Apply](https://apply.workable.com/j/DABE870D1D) | 27d ago |
 | **Aprio** | Aprio PH – Associate, Information Assurance Services, SOC | Makati City, Metro Manila | Remote | [Apply](https://jobs.lever.co/Aprio/4bee4c82-317a-4e00-a755-4d7b7034a858) | 28d ago |
-| **Aprio** | Aprio PH – Senior Accounting Associate (Restaurant, Franchise and Hospitality) | Makati City, Metro Manila | Hybrid | [Apply](https://jobs.lever.co/Aprio/2de5b53f-fe07-4cb9-876b-650131e34b2d) | 28d ago |
+| **Aprio** | Aprio PH – Senior Accounting Associate (Restaurant, Franchise and Hospitality) | Clark, Pampanga | Hybrid | [Apply](https://jobs.lever.co/Aprio/2de5b53f-fe07-4cb9-876b-650131e34b2d) | 28d ago |
 | **Aprio** | Aprio PH - Finance and Accounting Associate | Makati City, Metro Manila | Hybrid | [Apply](https://jobs.lever.co/Aprio/46c2c6a9-3df9-4bdf-beb5-7fd837b982ff) | 28d ago |
 | **Aprio** | Aprio PH - Associate, Property Tax | Makati City, Metro Manila; Clark, Pampanga | Hybrid | [Apply](https://jobs.lever.co/Aprio/d1b1f205-a827-499f-bf48-6803c7485ed4) | 29d ago |
 | **ISTA Personnel Solutions** | Accounts Receivable Associate \| Get a 21K Signing Bonus | Mandaluyong, Philippines | — | [Apply](https://apply.workable.com/j/54486F9C1B) | 29d ago |
 
 ---
 
-📊 **2097 active listings** from **101 companies tracked** · last updated 2026-06-11 12:33 UTC
+📊 **2096 active listings** from **101 companies tracked** · last updated 2026-06-11 13:22 UTC
 
 ➡️ Full list with filters (all roles, all levels): **[simplifytrabaho.ycells.com](https://simplifytrabaho.ycells.com)**
 
 Want your company listed? Your jobs just need to be on a supported ATS with a public
 board — open an issue at [yanicells/SimplifyTrabaho](https://github.com/yanicells/SimplifyTrabaho).
+
+## License
+
+Code is [MIT](LICENSE). The dataset (`data/listings.json`, `pipeline/companies.json`)
+is [CC0 1.0](data/LICENSE) — public domain. Attribution with a link back to this repo
+is appreciated but not required.

@@ -138,7 +138,6 @@ maintainer)
 3. Set **topics**, e.g.: `philippines`, `jobs`, `internships`, `entry-level`,
    `fresh-graduates`, `job-search`, `careers`, `job-listings`, `open-data`,
    `typescript`, `nextjs`.
-4. Decide **data licensing** (see Issues).
 
 Registry growth is continuous (SPEC §7.1): web-search the six ATS-hosted domains for
 PH city strings → add slugs to `pipeline/candidates.json` → `pnpm --filter pipeline
@@ -192,10 +191,11 @@ verify-registry`. Also recheck the live-but-0-PH boards listed below — several
   SPEC §9 (never guess). Future tuning is continuous work, driven by new titles.
 - 2026-06-11 — [open] **Repo is still private** — publishing it is the last launch
   step (maintainer-only). Badges/GitHub links 404 for visitors until flipped.
-- 2026-06-11 — [open] **Data licensing decision** (maintainer): LICENSE (MIT) covers
-  the code; `data/listings.json` is factual data with no separate license stated.
-  Options to consider: CC0 / CC BY 4.0 / ODbL, or explicitly state that facts carry
-  no copyright. Not chosen unilaterally — affects downstream reuse of the dataset.
+- 2026-06-11 — [resolved] **Data licensing decision**: maintainer chose CC0 1.0 for
+  the datasets (`data/listings.json`, `pipeline/companies.json`); MIT stays for the
+  code. `data/LICENSE` added with the CC0 text + a preamble (compilation of public
+  facts; postings remain the companies' property/responsibility; attribution
+  appreciated, not required). README now carries a License section.
 
 <!-- Format: - 2026-06-12 — [open|resolved] Short description. Context/link. -->
 
@@ -367,8 +367,10 @@ not a real employer. Kalibrr — job-board company, fetching prohibited by rule 
   roles); "Project Manager" deliberately stays `other` (no PM bucket in the enum —
   guessing operations would be wrong).
 - 2026-06-11 — License: MIT for code (maintainer pre-approved "likely MIT").
-  Listings-data licensing deliberately left undecided — maintainer decision logged
-  as an open issue.
+- 2026-06-11 — Data licensing: CC0 1.0 for the datasets, MIT for the code
+  (maintainer decision). Rationale: this is a facts-only dataset — claiming
+  attribution rights over facts would contradict our own legal stance that facts
+  carry no copyright. Attribution requested informally, never required.
 - 2026-06-11 — `refresh.yml` commit guard checks `data/listings.json`/`README.md`
   per SPEC §13, but every successful run rewrites `updatedAt` in both, so a green
   run always commits. Intentional: the daily commit keeps the site dateline fresh,
