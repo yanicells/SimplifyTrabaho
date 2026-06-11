@@ -100,6 +100,225 @@ function formatLeverSalary(range: LeverSalaryRange | null | undefined): string |
   return [`${range.min}–${range.max}`, currency, interval].filter(Boolean).join(" ");
 }
 
+interface AshbyJob {
+  title?: unknown;
+  location?: unknown;
+  secondaryLocations?: Array<{ location?: unknown }>;
+  publishedAt?: unknown;
+  isListed?: unknown;
+  isRemote?: unknown;
+  workplaceType?: unknown;
+  employmentType?: unknown;
+  jobUrl?: unknown;
+  compensation?: {
+    scrapeableCompensationSalarySummary?: unknown;
+    compensationTierSummary?: unknown;
+  } | null;
+}
+
+export function normalizeAshby(company: RegistryCompany, raw: unknown): FetchedPosting[] {
+  const jobs = (raw as { jobs?: unknown })?.jobs;
+  if (!Array.isArray(jobs)) {
+    throw new Error(`ashby payload for ${company.slug} has no jobs array`);
+  }
+  return jobs
+    .filter((job: AshbyJob) => job.isListed !== false)
+    .map((job: AshbyJob) => {
+      const locations = [
+        String(job.location ?? ""),
+        ...(job.secondaryLocations ?? []).map((s) => String(s.location ?? "")),
+      ].filter(Boolean);
+      const workplace = String(job.workplaceType ?? "").toLowerCase();
+      const workSetup =
+        workplace === "remote" || job.isRemote === true
+          ? "remote"
+          : workplace === "hybrid"
+            ? "hybrid"
+            : workplace === "onsite" || workplace === "on-site"
+              ? "onsite"
+              : "unknown";
+      const summary =
+        job.compensation?.scrapeableCompensationSalarySummary ??
+        job.compensation?.compensationTierSummary;
+      return {
+        company: company.name,
+        source: "ashby",
+        title: String(job.title ?? ""),
+        locations,
+        url: String(job.jobUrl ?? ""),
+        workSetup,
+        employmentType: mapCommitment(job.employmentType),
+        salary: typeof summary === "string" && summary !== "" ? summary : null,
+        publishedAt: toIsoUtc(job.publishedAt as string | null | undefined),
+      } satisfies FetchedPosting;
+    });
+}
+
+interface WorkableJob {
+  title?: unknown;
+  url?: unknown;
+  telecommuting?: unknown;
+  employment_type?: unknown;
+  published_on?: unknown;
+  created_at?: unknown;
+  country?: unknown;
+  city?: unknown;
+  locations?: Array<{ country?: unknown; city?: unknown }>;
+}
+
+export function normalizeWorkable(company: RegistryCompany, raw: unknown): FetchedPosting[] {
+  const jobs = (raw as { jobs?: unknown })?.jobs;
+  if (!Array.isArray(jobs)) {
+    throw new Error(`workable payload for ${company.slug} has no jobs array`);
+  }
+  return jobs.map((job: WorkableJob) => {
+    const fromList = (job.locations ?? [])
+      .map((entry) => {
+        const city = String(entry.city ?? "").trim();
+        const country = String(entry.country ?? "").trim();
+        return city && country ? `${city}, ${country}` : country || city;
+      })
+      .filter(Boolean);
+    const fallback = [String(job.city ?? "").trim(), String(job.country ?? "").trim()]
+      .filter(Boolean)
+      .join(", ");
+    const locations = fromList.length > 0 ? fromList : fallback ? [fallback] : [];
+    return {
+      company: company.name,
+      source: "workable",
+      title: String(job.title ?? ""),
+      locations,
+      url: String(job.url ?? ""),
+      workSetup: job.telecommuting === true ? "remote" : "unknown",
+      employmentType: mapCommitment(job.employment_type),
+      salary: null,
+      publishedAt: toIsoUtc((job.published_on ?? job.created_at) as string | null | undefined),
+    } satisfies FetchedPosting;
+  });
+}
+
+interface SmartRecruitersPosting {
+  id?: unknown;
+  name?: unknown;
+  releasedDate?: unknown;
+  typeOfEmployment?: { label?: unknown };
+  location?: {
+    city?: unknown;
+    region?: unknown;
+    country?: unknown;
+    remote?: unknown;
+    hybrid?: unknown;
+    fullLocation?: unknown;
+  };
+}
+
+export function normalizeSmartRecruiters(
+  company: RegistryCompany,
+  raw: unknown,
+): FetchedPosting[] {
+  const content = (raw as { content?: unknown })?.content;
+  if (!Array.isArray(content)) {
+    throw new Error(`smartrecruiters payload for ${company.slug} has no content array`);
+  }
+  return content.map((posting: SmartRecruitersPosting) => {
+    const location = posting.location ?? {};
+    // fullLocation can contain empty segments ("Manila, , Philippines") — clean them
+    const full = String(location.fullLocation ?? "")
+      .split(",")
+      .map((s) => s.trim())
+      .filter(Boolean)
+      .join(", ");
+    const fallback = [
+      String(location.city ?? "").trim(),
+      String(location.country ?? "").trim().toUpperCase(),
+    ]
+      .filter(Boolean)
+      .join(", ");
+    const workSetup =
+      location.remote === true ? "remote" : location.hybrid === true ? "hybrid" : "onsite";
+    return {
+      company: company.name,
+      source: "smartrecruiters",
+      title: String(posting.name ?? ""),
+      locations: [full || fallback].filter(Boolean),
+      url: `https://jobs.smartrecruiters.com/${encodeURIComponent(company.slug)}/${String(posting.id ?? "")}`,
+      workSetup,
+      employmentType: mapCommitment(posting.typeOfEmployment?.label),
+      salary: null,
+      publishedAt: toIsoUtc(posting.releasedDate as string | null | undefined),
+    } satisfies FetchedPosting;
+  });
+}
+
+/** Recruitee dates look like "2026-04-23 18:30:57 UTC" — convert to ISO before parsing. */
+function recruiteeDate(value: unknown): string | null {
+  if (typeof value !== "string" || value === "") return null;
+  return toIsoUtc(value.replace(" UTC", "Z").replace(" ", "T"));
+}
+
+interface RecruiteeOffer {
+  title?: unknown;
+  careers_url?: unknown;
+  published_at?: unknown;
+  created_at?: unknown;
+  remote?: unknown;
+  hybrid?: unknown;
+  on_site?: unknown;
+  employment_type_code?: unknown;
+  country?: unknown;
+  city?: unknown;
+  salary?: { min?: unknown; max?: unknown; currency?: unknown; period?: unknown } | null;
+  locations?: Array<{ city?: unknown; country?: unknown }>;
+}
+
+function formatRecruiteeSalary(salary: RecruiteeOffer["salary"]): string | null {
+  if (!salary) return null;
+  const min = Number(salary.min);
+  const max = Number(salary.max);
+  if (!Number.isFinite(min) || !Number.isFinite(max) || salary.min === null) return null;
+  return [`${min}–${max}`, String(salary.currency ?? "").trim(), String(salary.period ?? "").trim()]
+    .filter(Boolean)
+    .join(" ");
+}
+
+export function normalizeRecruitee(company: RegistryCompany, raw: unknown): FetchedPosting[] {
+  const offers = (raw as { offers?: unknown })?.offers;
+  if (!Array.isArray(offers)) {
+    throw new Error(`recruitee payload for ${company.slug} has no offers array`);
+  }
+  return offers.map((offer: RecruiteeOffer) => {
+    const fromList = (offer.locations ?? [])
+      .map((entry) => {
+        const city = String(entry.city ?? "").trim();
+        const country = String(entry.country ?? "").trim();
+        return city && country ? `${city}, ${country}` : country || city;
+      })
+      .filter(Boolean);
+    const fallback = [String(offer.city ?? "").trim(), String(offer.country ?? "").trim()]
+      .filter(Boolean)
+      .join(", ");
+    const workSetup =
+      offer.remote === true
+        ? "remote"
+        : offer.hybrid === true
+          ? "hybrid"
+          : offer.on_site === true
+            ? "onsite"
+            : "unknown";
+    return {
+      company: company.name,
+      source: "recruitee",
+      title: String(offer.title ?? ""),
+      locations: fromList.length > 0 ? fromList : fallback ? [fallback] : [],
+      url: String(offer.careers_url ?? ""),
+      workSetup,
+      employmentType: mapCommitment(offer.employment_type_code),
+      salary: formatRecruiteeSalary(offer.salary),
+      publishedAt: recruiteeDate(offer.published_at ?? offer.created_at),
+    } satisfies FetchedPosting;
+  });
+}
+
 interface LeverPosting {
   text?: unknown;
   hostedUrl?: unknown;

@@ -1,0 +1,1103 @@
+{
+  "offset": 0,
+  "limit": 100,
+  "totalFound": 252,
+  "content": [
+    {
+      "id": "6000000001130371",
+      "name": "Print Ops Specialist",
+      "uuid": "ddf191d1-3359-400a-997e-29dd986d17bd",
+      "jobAdId": "b6d9bf79-428c-4558-a7da-bef12bd21cfd",
+      "defaultJobAd": true,
+      "refNumber": "REF4541F",
+      "company": {
+        "identifier": "Canva",
+        "name": "Canva"
+      },
+      "releasedDate": "2026-06-04T00:51:34.497Z",
+      "location": {
+        "city": "Manila",
+        "country": "ph",
+        "remote": true,
+        "hybrid": false,
+        "fullLocation": "Manila, , Philippines"
+      },
+      "industry": {
+        "id": "computer_software",
+        "label": "Computer Software"
+      },
+      "department": {},
+      "function": {
+        "id": "general_business",
+        "label": "General Business"
+      },
+      "typeOfEmployment": {
+        "id": "contract",
+        "label": "Contract"
+      },
+      "experienceLevel": {
+        "id": "not_applicable",
+        "label": "Not Applicable"
+      },
+      "customField": [
+        {
+          "fieldId": "651ba0114967807d2e86fe5a",
+          "fieldLabel": "Team",
+          "valueId": "26309e367c8710009b85d3e4fe210000",
+          "valueLabel": "Print Systems Operations"
+        },
+        {
+          "fieldId": "651ba508aac0da4b9cbd91cb",
+          "fieldLabel": "Worker type",
+          "valueId": "d588c334446c11de98360015c5e6daf6",
+          "valueLabel": "Contingent Worker"
+        },
+        {
+          "fieldId": "67db425d21ec03315da962cb",
+          "fieldLabel": "Org",
+          "valueId": "552b243cafd4100169ad324f7a890000",
+          "valueLabel": "Growth"
+        },
+        {
+          "fieldId": "651ba0b93066d20abe11145b",
+          "fieldLabel": "Specialty",
+          "valueId": "220b5c7e743d01c7acafdaa7b8008513",
+          "valueLabel": "Sales & Success"
+        },
+        {
+          "fieldId": "651ba626aac0da4b9cbd91cc",
+          "fieldLabel": "Contingent Worker Type",
+          "valueId": "765a07ed-569d-4833-971d-bc3752c6d970",
+          "valueLabel": "Contractor"
+        },
+        {
+          "fieldId": "651b8bc23066d20abe111459",
+          "fieldLabel": "Supergroup",
+          "valueId": "9f6a496bd4e71001ccdd359700d40000",
+          "valueLabel": "Print"
+        },
+        {
+          "fieldId": "651ba1c7aac0da4b9cbd91ca",
+          "fieldLabel": "Role level",
+          "valueId": "B1",
+          "valueLabel": "B1"
+        },
+        {
+          "fieldId": "651b99e25ddc3c31d9224321",
+          "fieldLabel": "Group",
+          "valueId": "37687a384ad20101909ae26588520000",
+          "valueLabel": "Specialist Operations"
+        },
+        {
+          "fieldId": "651ba171eec5b66729429433",
+          "fieldLabel": "Subspecialty",
+          "valueId": "220b5c7e743d01f2788115f4b7000f13",
+          "valueLabel": "Print Ops"
+        },
+        {
+          "fieldId": "COUNTRY",
+          "fieldLabel": "Country/Region",
+          "valueId": "ph",
+          "valueLabel": "Philippines"
+        },
+        {
+          "fieldId": "6514d94a9c140e09b2e649f5",
+          "fieldLabel": "Brands",
+          "valueId": "default",
+          "valueLabel": "Canva"
+        },
+        {
+          "fieldId": "651b8e51da1ddb62f488492c",
+          "fieldLabel": "Subgroup",
+          "valueId": "220b5c7e743d013078cde1cd97005d07",
+          "valueLabel": "Print Operations"
+        }
+      ],
+      "visibility": "PUBLIC",
+      "ref": "https://api.smartrecruiters.com/v1/companies/Canva/postings/6000000001130371",
+      "creator": {
+        "name": "Cassandra Sanchez"
+      },
+      "language": {
+        "code": "en",
+        "label": "English",
+        "labelNative": "English (US)"
+      }
+    },
+    {
+      "id": "6000000001121216",
+      "name": "Program Manager - Customer Experience",
+      "uuid": "27a0ba86-67b9-4e4b-a626-59995b0f3187",
+      "jobAdId": "4f3eaee4-23cb-43e2-bbc2-bbbc9d7ba25d",
+      "defaultJobAd": true,
+      "refNumber": "R101430",
+      "company": {
+        "identifier": "Canva",
+        "name": "Canva"
+      },
+      "releasedDate": "2026-06-01T10:08:21.488Z",
+      "location": {
+        "city": "Makati",
+        "country": "ph",
+        "remote": false,
+        "hybrid": false,
+        "fullLocation": "Makati, , Philippines"
+      },
+      "industry": {
+        "id": "computer_software",
+        "label": "Computer Software"
+      },
+      "department": {},
+      "function": {
+        "id": "administrative",
+        "label": "Administrative"
+      },
+      "typeOfEmployment": {
+        "id": "permanent",
+        "label": "Full-time"
+      },
+      "experienceLevel": {
+        "id": "mid_senior_level",
+        "label": "Mid-Senior Level"
+      },
+      "customField": [
+        {
+          "fieldId": "651ba508aac0da4b9cbd91cb",
+          "fieldLabel": "Worker type",
+          "valueId": "d588c41a446c11de98360015c5e6daf6",
+          "valueLabel": "Employee"
+        },
+        {
+          "fieldId": "67db425d21ec03315da962cb",
+          "fieldLabel": "Org",
+          "valueId": "552b243cafd4100169ad384f50320000",
+          "valueLabel": "User Voice"
+        },
+        {
+          "fieldId": "651b8b8aaac0da4b9cbd91c9",
+          "fieldLabel": "Recruitment type",
+          "valueId": "2c2d396a-3d34-4286-8196-61a215221fd5",
+          "valueLabel": "Permanent"
+        },
+        {
+          "fieldId": "651ba0b93066d20abe11145b",
+          "fieldLabel": "Specialty",
+          "valueId": "220b5c7e743d0190003cdca7b8008d13",
+          "valueLabel": "Operations"
+        },
+        {
+          "fieldId": "651b8bc23066d20abe111459",
+          "fieldLabel": "Supergroup",
+          "valueId": "220b5c7e743d01dd569da1cd97000706",
+          "valueLabel": "User Voice"
+        },
+        {
+          "fieldId": "651ba1c7aac0da4b9cbd91ca",
+          "fieldLabel": "Role level",
+          "valueId": "B2",
+          "valueLabel": "B2"
+        },
+        {
+          "fieldId": "651b99e25ddc3c31d9224321",
+          "fieldLabel": "Group",
+          "valueId": "c1fb9328aabf100187a93b99a1490000",
+          "valueLabel": "Service Design & Delivery"
+        },
+        {
+          "fieldId": "651ba171eec5b66729429433",
+          "fieldLabel": "Subspecialty",
+          "valueId": "220b5c7e743d017fd8021af4b7002d13",
+          "valueLabel": "Program Management (Operations)"
+        },
+        {
+          "fieldId": "COUNTRY",
+          "fieldLabel": "Country/Region",
+          "valueId": "ph",
+          "valueLabel": "Philippines"
+        },
+        {
+          "fieldId": "6514d94a9c140e09b2e649f5",
+          "fieldLabel": "Brands",
+          "valueId": "default",
+          "valueLabel": "Canva"
+        },
+        {
+          "fieldId": "651b8a7b58759b40ab8abd45",
+          "fieldLabel": "Employment type",
+          "valueId": "01ca83be4eaa01d34208432ca5005301",
+          "valueLabel": "Permanent"
+        },
+        {
+          "fieldId": "651ba22058759b40ab8abd46",
+          "fieldLabel": "Time type",
+          "valueId": "2ca83e80de45013371c1658ff3029500",
+          "valueLabel": "Full time"
+        }
+      ],
+      "visibility": "PUBLIC",
+      "ref": "https://api.smartrecruiters.com/v1/companies/Canva/postings/6000000001121216",
+      "language": {
+        "code": "en",
+        "label": "English",
+        "labelNative": "English (US)"
+      }
+    },
+    {
+      "id": "6000000001119771",
+      "name": "Customer Insights Analyst",
+      "uuid": "066ec4b5-01cb-4bbd-a9bc-2c2444eca738",
+      "jobAdId": "03f648f3-7244-4ce5-a4b4-eb8c55ec4aba",
+      "defaultJobAd": true,
+      "refNumber": "R100556",
+      "company": {
+        "identifier": "Canva",
+        "name": "Canva"
+      },
+      "releasedDate": "2026-06-01T02:09:19.143Z",
+      "location": {
+        "city": "Makati",
+        "country": "ph",
+        "remote": false,
+        "hybrid": true,
+        "fullLocation": "Makati, , Philippines"
+      },
+      "industry": {
+        "id": "computer_software",
+        "label": "Computer Software"
+      },
+      "department": {},
+      "function": {
+        "id": "customer_service",
+        "label": "Customer Service"
+      },
+      "typeOfEmployment": {
+        "id": "permanent",
+        "label": "Full-time"
+      },
+      "experienceLevel": {
+        "id": "mid_senior_level",
+        "label": "Mid-Senior Level"
+      },
+      "customField": [
+        {
+          "fieldId": "651ba508aac0da4b9cbd91cb",
+          "fieldLabel": "Worker type",
+          "valueId": "d588c41a446c11de98360015c5e6daf6",
+          "valueLabel": "Employee"
+        },
+        {
+          "fieldId": "651b8b8aaac0da4b9cbd91c9",
+          "fieldLabel": "Recruitment type",
+          "valueId": "2c2d396a-3d34-4286-8196-61a215221fd5",
+          "valueLabel": "Permanent"
+        },
+        {
+          "fieldId": "651ba0b93066d20abe11145b",
+          "fieldLabel": "Specialty",
+          "valueId": "220b5c7e743d011f5058dba7b8008913",
+          "valueLabel": "Customer Service"
+        },
+        {
+          "fieldId": "651ba1c7aac0da4b9cbd91ca",
+          "fieldLabel": "Role level",
+          "valueId": "B2",
+          "valueLabel": "B2"
+        },
+        {
+          "fieldId": "651ba171eec5b66729429433",
+          "fieldLabel": "Subspecialty",
+          "valueId": "220b5c7e743d01dea0d016f4b7001713",
+          "valueLabel": "Service Operations"
+        },
+        {
+          "fieldId": "COUNTRY",
+          "fieldLabel": "Country/Region",
+          "valueId": "ph",
+          "valueLabel": "Philippines"
+        },
+        {
+          "fieldId": "6514d94a9c140e09b2e649f5",
+          "fieldLabel": "Brands",
+          "valueId": "default",
+          "valueLabel": "Canva"
+        },
+        {
+          "fieldId": "651b8a7b58759b40ab8abd45",
+          "fieldLabel": "Employment type",
+          "valueId": "01ca83be4eaa01d34208432ca5005301",
+          "valueLabel": "Permanent"
+        },
+        {
+          "fieldId": "651ba22058759b40ab8abd46",
+          "fieldLabel": "Time type",
+          "valueId": "2ca83e80de45013371c1658ff3029500",
+          "valueLabel": "Full time"
+        }
+      ],
+      "visibility": "PUBLIC",
+      "ref": "https://api.smartrecruiters.com/v1/companies/Canva/postings/6000000001119771",
+      "language": {
+        "code": "en",
+        "label": "English",
+        "labelNative": "English (US)"
+      }
+    },
+    {
+      "id": "6000000001116082",
+      "name": "Senior Social Media Operations Lead",
+      "uuid": "faa73c98-3eda-4634-939d-7fc78c09461f",
+      "jobAdId": "eb74b754-f583-4813-a94b-780178004294",
+      "defaultJobAd": true,
+      "refNumber": "REF4543Y",
+      "company": {
+        "identifier": "Canva",
+        "name": "Canva"
+      },
+      "releasedDate": "2026-05-29T02:58:58.560Z",
+      "location": {
+        "city": "Makati City",
+        "region": "NCR",
+        "country": "ph",
+        "remote": true,
+        "hybrid": false,
+        "latitude": "14.5573752",
+        "longitude": "121.0227371",
+        "fullLocation": "Makati City, NCR, Philippines"
+      },
+      "industry": {
+        "id": "computer_software",
+        "label": "Computer Software"
+      },
+      "department": {},
+      "function": {
+        "id": "customer_service",
+        "label": "Customer Service"
+      },
+      "typeOfEmployment": {
+        "id": "permanent",
+        "label": "Full-time"
+      },
+      "experienceLevel": {
+        "id": "associate",
+        "label": "Associate"
+      },
+      "customField": [
+        {
+          "fieldId": "67db425d21ec03315da962cb",
+          "fieldLabel": "Org",
+          "valueId": "552b243cafd4100169ad384f50320000",
+          "valueLabel": "User Voice"
+        },
+        {
+          "fieldId": "651ba171eec5b66729429433",
+          "fieldLabel": "Subspecialty",
+          "valueId": "220b5c7e743d01dea0d016f4b7001713",
+          "valueLabel": "Service Operations"
+        },
+        {
+          "fieldId": "COUNTRY",
+          "fieldLabel": "Country/Region",
+          "valueId": "ph",
+          "valueLabel": "Philippines"
+        },
+        {
+          "fieldId": "6514d94a9c140e09b2e649f5",
+          "fieldLabel": "Brands",
+          "valueId": "default",
+          "valueLabel": "Canva"
+        },
+        {
+          "fieldId": "651ba0b93066d20abe11145b",
+          "fieldLabel": "Specialty",
+          "valueId": "220b5c7e743d011f5058dba7b8008913",
+          "valueLabel": "Customer Service"
+        },
+        {
+          "fieldId": "651b8bc23066d20abe111459",
+          "fieldLabel": "Supergroup",
+          "valueId": "220b5c7e743d01dd569da1cd97000706",
+          "valueLabel": "User Voice"
+        },
+        {
+          "fieldId": "651ba1c7aac0da4b9cbd91ca",
+          "fieldLabel": "Role level",
+          "valueId": "C1",
+          "valueLabel": "C1"
+        }
+      ],
+      "visibility": "PUBLIC",
+      "ref": "https://api.smartrecruiters.com/v1/companies/Canva/postings/6000000001116082",
+      "language": {
+        "code": "en",
+        "label": "English",
+        "labelNative": "English (US)"
+      }
+    },
+    {
+      "id": "6000000001144725",
+      "name": "Marketing Operations Specialist (Event & Email MarTech) - 6 month contract",
+      "uuid": "4cd501c9-9fe9-4da6-ba0a-4e5089c2ef20",
+      "jobAdId": "fe8603b5-b1be-4a8d-903a-6c9faeca27bf",
+      "defaultJobAd": true,
+      "refNumber": "REF4540H",
+      "company": {
+        "identifier": "Canva",
+        "name": "Canva"
+      },
+      "releasedDate": "2026-06-10T15:41:57.577Z",
+      "location": {
+        "city": "London",
+        "region": "England",
+        "country": "gb",
+        "remote": false,
+        "hybrid": true,
+        "latitude": "51.5072178",
+        "longitude": "-0.1275862",
+        "fullLocation": "London, England, United Kingdom"
+      },
+      "industry": {
+        "id": "marketing_and_advertising",
+        "label": "Marketing And Advertising"
+      },
+      "department": {},
+      "function": {
+        "id": "marketing",
+        "label": "Marketing"
+      },
+      "typeOfEmployment": {
+        "id": "contract",
+        "label": "Contract"
+      },
+      "experienceLevel": {
+        "id": "mid_senior_level",
+        "label": "Mid-Senior Level"
+      },
+      "customField": [
+        {
+          "fieldId": "651ba508aac0da4b9cbd91cb",
+          "fieldLabel": "Worker type",
+          "valueId": "d588c334446c11de98360015c5e6daf6",
+          "valueLabel": "Contingent Worker"
+        },
+        {
+          "fieldId": "67db425d21ec03315da962cb",
+          "fieldLabel": "Org",
+          "valueId": "d7055559fd68100169ccd13e5b330000",
+          "valueLabel": "Marketing"
+        },
+        {
+          "fieldId": "651ba0b93066d20abe11145b",
+          "fieldLabel": "Specialty",
+          "valueId": "220b5c7e743d010fb0f1d9a7b8008113",
+          "valueLabel": "Marketing"
+        },
+        {
+          "fieldId": "651ba626aac0da4b9cbd91cc",
+          "fieldLabel": "Contingent Worker Type",
+          "valueId": "765a07ed-569d-4833-971d-bc3752c6d970",
+          "valueLabel": "Contractor"
+        },
+        {
+          "fieldId": "651b8bc23066d20abe111459",
+          "fieldLabel": "Supergroup",
+          "valueId": "220b5c7e743d012a647a9ecd9700f505",
+          "valueLabel": "Marketing"
+        },
+        {
+          "fieldId": "651ba1c7aac0da4b9cbd91ca",
+          "fieldLabel": "Role level",
+          "valueId": "B2",
+          "valueLabel": "B2"
+        },
+        {
+          "fieldId": "651b99e25ddc3c31d9224321",
+          "fieldLabel": "Group",
+          "valueId": "e182d44603b101148b6c380dce011003",
+          "valueLabel": "Marketing Technology"
+        },
+        {
+          "fieldId": "651ba171eec5b66729429433",
+          "fieldLabel": "Subspecialty",
+          "valueId": "220b5c7e743d01d3c8d913f4b7000313",
+          "valueLabel": "Marketing Operations"
+        },
+        {
+          "fieldId": "COUNTRY",
+          "fieldLabel": "Country/Region",
+          "valueId": "gb",
+          "valueLabel": "United Kingdom"
+        },
+        {
+          "fieldId": "6514d94a9c140e09b2e649f5",
+          "fieldLabel": "Brands",
+          "valueId": "default",
+          "valueLabel": "Canva"
+        }
+      ],
+      "visibility": "PUBLIC",
+      "ref": "https://api.smartrecruiters.com/v1/companies/Canva/postings/6000000001144725",
+      "language": {
+        "code": "en",
+        "label": "English",
+        "labelNative": "English (US)"
+      }
+    },
+    {
+      "id": "6000000001144644",
+      "name": "Staff Production Engineer",
+      "uuid": "59aeea65-26f2-442b-bbf6-278314ce810a",
+      "jobAdId": "a7f646df-47ed-4f7d-856c-1141afb4b6da",
+      "defaultJobAd": false,
+      "refNumber": "R101105",
+      "company": {
+        "identifier": "Canva",
+        "name": "Canva"
+      },
+      "releasedDate": "2026-06-10T12:34:31.795Z",
+      "location": {
+        "city": "Melbourne",
+        "region": "VIC",
+        "country": "au",
+        "remote": false,
+        "hybrid": true,
+        "latitude": "-37.8136276",
+        "longitude": "144.9630576",
+        "fullLocation": "Melbourne, VIC, Australia"
+      },
+      "industry": {
+        "id": "computer_software",
+        "label": "Computer Software"
+      },
+      "department": {},
+      "function": {
+        "id": "information_technology",
+        "label": "Information Technology"
+      },
+      "typeOfEmployment": {
+        "id": "permanent",
+        "label": "Full-time"
+      },
+      "experienceLevel": {
+        "id": "mid_senior_level",
+        "label": "Mid-Senior Level"
+      },
+      "customField": [
+        {
+          "fieldId": "651ba508aac0da4b9cbd91cb",
+          "fieldLabel": "Worker type",
+          "valueId": "d588c41a446c11de98360015c5e6daf6",
+          "valueLabel": "Employee"
+        },
+        {
+          "fieldId": "67db425d21ec03315da962cb",
+          "fieldLabel": "Org",
+          "valueId": "552b243cafd4100169ad16b6882a0000",
+          "valueLabel": "Platform"
+        },
+        {
+          "fieldId": "651b8b8aaac0da4b9cbd91c9",
+          "fieldLabel": "Recruitment type",
+          "valueId": "2c2d396a-3d34-4286-8196-61a215221fd5",
+          "valueLabel": "Permanent"
+        },
+        {
+          "fieldId": "651ba0b93066d20abe11145b",
+          "fieldLabel": "Specialty",
+          "valueId": "220b5c7e743d0198d58fd8a7b8007b13",
+          "valueLabel": "Technology"
+        },
+        {
+          "fieldId": "651ba1c7aac0da4b9cbd91ca",
+          "fieldLabel": "Role level",
+          "valueId": "B4",
+          "valueLabel": "B4"
+        },
+        {
+          "fieldId": "651ba171eec5b66729429433",
+          "fieldLabel": "Subspecialty",
+          "valueId": "220b5c7e743d0114a6cbfdf3b7009b12",
+          "valueLabel": "Software Engineering"
+        },
+        {
+          "fieldId": "COUNTRY",
+          "fieldLabel": "Country/Region",
+          "valueId": "au",
+          "valueLabel": "Australia"
+        },
+        {
+          "fieldId": "6514d94a9c140e09b2e649f5",
+          "fieldLabel": "Brands",
+          "valueId": "default",
+          "valueLabel": "Canva"
+        },
+        {
+          "fieldId": "651b8a7b58759b40ab8abd45",
+          "fieldLabel": "Employment type",
+          "valueId": "01ca83be4eaa01d34208432ca5005301",
+          "valueLabel": "Permanent"
+        },
+        {
+          "fieldId": "651ba22058759b40ab8abd46",
+          "fieldLabel": "Time type",
+          "valueId": "2ca83e80de45013371c1658ff3029500",
+          "valueLabel": "Full time"
+        }
+      ],
+      "visibility": "PUBLIC",
+      "ref": "https://api.smartrecruiters.com/v1/companies/Canva/postings/6000000001144644",
+      "language": {
+        "code": "en",
+        "label": "English",
+        "labelNative": "English (US)"
+      }
+    },
+    {
+      "id": "6000000001144621",
+      "name": "Staff Production Engineer",
+      "uuid": "4622f918-2eb8-4e64-b7dd-44b048ffaf63",
+      "jobAdId": "62871530-86cb-4535-a65b-f5a484ea0b97",
+      "defaultJobAd": true,
+      "refNumber": "R101105",
+      "company": {
+        "identifier": "Canva",
+        "name": "Canva"
+      },
+      "releasedDate": "2026-06-10T12:33:42.864Z",
+      "location": {
+        "city": "Sydney",
+        "country": "au",
+        "remote": false,
+        "hybrid": true,
+        "fullLocation": "Sydney, , Australia"
+      },
+      "industry": {
+        "id": "computer_software",
+        "label": "Computer Software"
+      },
+      "department": {},
+      "function": {
+        "id": "information_technology",
+        "label": "Information Technology"
+      },
+      "typeOfEmployment": {
+        "id": "permanent",
+        "label": "Full-time"
+      },
+      "experienceLevel": {
+        "id": "mid_senior_level",
+        "label": "Mid-Senior Level"
+      },
+      "customField": [
+        {
+          "fieldId": "651ba508aac0da4b9cbd91cb",
+          "fieldLabel": "Worker type",
+          "valueId": "d588c41a446c11de98360015c5e6daf6",
+          "valueLabel": "Employee"
+        },
+        {
+          "fieldId": "67db425d21ec03315da962cb",
+          "fieldLabel": "Org",
+          "valueId": "552b243cafd4100169ad16b6882a0000",
+          "valueLabel": "Platform"
+        },
+        {
+          "fieldId": "651b8b8aaac0da4b9cbd91c9",
+          "fieldLabel": "Recruitment type",
+          "valueId": "2c2d396a-3d34-4286-8196-61a215221fd5",
+          "valueLabel": "Permanent"
+        },
+        {
+          "fieldId": "651ba0b93066d20abe11145b",
+          "fieldLabel": "Specialty",
+          "valueId": "220b5c7e743d0198d58fd8a7b8007b13",
+          "valueLabel": "Technology"
+        },
+        {
+          "fieldId": "651ba1c7aac0da4b9cbd91ca",
+          "fieldLabel": "Role level",
+          "valueId": "B4",
+          "valueLabel": "B4"
+        },
+        {
+          "fieldId": "651ba171eec5b66729429433",
+          "fieldLabel": "Subspecialty",
+          "valueId": "220b5c7e743d0114a6cbfdf3b7009b12",
+          "valueLabel": "Software Engineering"
+        },
+        {
+          "fieldId": "COUNTRY",
+          "fieldLabel": "Country/Region",
+          "valueId": "au",
+          "valueLabel": "Australia"
+        },
+        {
+          "fieldId": "6514d94a9c140e09b2e649f5",
+          "fieldLabel": "Brands",
+          "valueId": "default",
+          "valueLabel": "Canva"
+        },
+        {
+          "fieldId": "651b8a7b58759b40ab8abd45",
+          "fieldLabel": "Employment type",
+          "valueId": "01ca83be4eaa01d34208432ca5005301",
+          "valueLabel": "Permanent"
+        },
+        {
+          "fieldId": "651ba22058759b40ab8abd46",
+          "fieldLabel": "Time type",
+          "valueId": "2ca83e80de45013371c1658ff3029500",
+          "valueLabel": "Full time"
+        }
+      ],
+      "visibility": "PUBLIC",
+      "ref": "https://api.smartrecruiters.com/v1/companies/Canva/postings/6000000001144621",
+      "language": {
+        "code": "en",
+        "label": "English",
+        "labelNative": "English (US)"
+      }
+    },
+    {
+      "id": "6000000001144436",
+      "name": "Principal Production Engineer ",
+      "uuid": "492cec04-fc61-49de-b493-55b71200124c",
+      "jobAdId": "63b753c3-84dd-45b9-9222-32669e8b6e11",
+      "defaultJobAd": false,
+      "refNumber": "R101104",
+      "company": {
+        "identifier": "Canva",
+        "name": "Canva"
+      },
+      "releasedDate": "2026-06-10T12:00:21.887Z",
+      "location": {
+        "city": "Melbourne",
+        "region": "VIC",
+        "country": "au",
+        "remote": false,
+        "hybrid": true,
+        "latitude": "-37.8136276",
+        "longitude": "144.9630576",
+        "fullLocation": "Melbourne, VIC, Australia"
+      },
+      "industry": {
+        "id": "computer_software",
+        "label": "Computer Software"
+      },
+      "department": {},
+      "function": {
+        "id": "information_technology",
+        "label": "Information Technology"
+      },
+      "typeOfEmployment": {
+        "id": "permanent",
+        "label": "Full-time"
+      },
+      "experienceLevel": {
+        "id": "mid_senior_level",
+        "label": "Mid-Senior Level"
+      },
+      "customField": [
+        {
+          "fieldId": "651ba508aac0da4b9cbd91cb",
+          "fieldLabel": "Worker type",
+          "valueId": "d588c41a446c11de98360015c5e6daf6",
+          "valueLabel": "Employee"
+        },
+        {
+          "fieldId": "67db425d21ec03315da962cb",
+          "fieldLabel": "Org",
+          "valueId": "552b243cafd4100169ad16b6882a0000",
+          "valueLabel": "Platform"
+        },
+        {
+          "fieldId": "651b8b8aaac0da4b9cbd91c9",
+          "fieldLabel": "Recruitment type",
+          "valueId": "2c2d396a-3d34-4286-8196-61a215221fd5",
+          "valueLabel": "Permanent"
+        },
+        {
+          "fieldId": "651ba0b93066d20abe11145b",
+          "fieldLabel": "Specialty",
+          "valueId": "220b5c7e743d0198d58fd8a7b8007b13",
+          "valueLabel": "Technology"
+        },
+        {
+          "fieldId": "651ba1c7aac0da4b9cbd91ca",
+          "fieldLabel": "Role level",
+          "valueId": "B4",
+          "valueLabel": "B4"
+        },
+        {
+          "fieldId": "651ba171eec5b66729429433",
+          "fieldLabel": "Subspecialty",
+          "valueId": "220b5c7e743d0114a6cbfdf3b7009b12",
+          "valueLabel": "Software Engineering"
+        },
+        {
+          "fieldId": "COUNTRY",
+          "fieldLabel": "Country/Region",
+          "valueId": "au",
+          "valueLabel": "Australia"
+        },
+        {
+          "fieldId": "6514d94a9c140e09b2e649f5",
+          "fieldLabel": "Brands",
+          "valueId": "default",
+          "valueLabel": "Canva"
+        },
+        {
+          "fieldId": "651b8a7b58759b40ab8abd45",
+          "fieldLabel": "Employment type",
+          "valueId": "01ca83be4eaa01d34208432ca5005301",
+          "valueLabel": "Permanent"
+        },
+        {
+          "fieldId": "651ba22058759b40ab8abd46",
+          "fieldLabel": "Time type",
+          "valueId": "2ca83e80de45013371c1658ff3029500",
+          "valueLabel": "Full time"
+        }
+      ],
+      "visibility": "PUBLIC",
+      "ref": "https://api.smartrecruiters.com/v1/companies/Canva/postings/6000000001144436",
+      "language": {
+        "code": "en",
+        "label": "English",
+        "labelNative": "English (US)"
+      }
+    },
+    {
+      "id": "6000000001144367",
+      "name": "Principal Production Engineer ",
+      "uuid": "040277ad-eb68-4f72-84d6-c43f09055a51",
+      "jobAdId": "af96e5f9-5b76-4e5e-b551-3e922b41f151",
+      "defaultJobAd": true,
+      "refNumber": "R101104",
+      "company": {
+        "identifier": "Canva",
+        "name": "Canva"
+      },
+      "releasedDate": "2026-06-10T11:55:53.765Z",
+      "location": {
+        "city": "Sydney",
+        "country": "au",
+        "remote": false,
+        "hybrid": true,
+        "fullLocation": "Sydney, , Australia"
+      },
+      "industry": {
+        "id": "computer_software",
+        "label": "Computer Software"
+      },
+      "department": {},
+      "function": {
+        "id": "information_technology",
+        "label": "Information Technology"
+      },
+      "typeOfEmployment": {
+        "id": "permanent",
+        "label": "Full-time"
+      },
+      "experienceLevel": {
+        "id": "mid_senior_level",
+        "label": "Mid-Senior Level"
+      },
+      "customField": [
+        {
+          "fieldId": "651ba508aac0da4b9cbd91cb",
+          "fieldLabel": "Worker type",
+          "valueId": "d588c41a446c11de98360015c5e6daf6",
+          "valueLabel": "Employee"
+        },
+        {
+          "fieldId": "67db425d21ec03315da962cb",
+          "fieldLabel": "Org",
+          "valueId": "552b243cafd4100169ad16b6882a0000",
+          "valueLabel": "Platform"
+        },
+        {
+          "fieldId": "651b8b8aaac0da4b9cbd91c9",
+          "fieldLabel": "Recruitment type",
+          "valueId": "2c2d396a-3d34-4286-8196-61a215221fd5",
+          "valueLabel": "Permanent"
+        },
+        {
+          "fieldId": "651ba0b93066d20abe11145b",
+          "fieldLabel": "Specialty",
+          "valueId": "220b5c7e743d0198d58fd8a7b8007b13",
+          "valueLabel": "Technology"
+        },
+        {
+          "fieldId": "651ba1c7aac0da4b9cbd91ca",
+          "fieldLabel": "Role level",
+          "valueId": "B4",
+          "valueLabel": "B4"
+        },
+        {
+          "fieldId": "651ba171eec5b66729429433",
+          "fieldLabel": "Subspecialty",
+          "valueId": "220b5c7e743d0114a6cbfdf3b7009b12",
+          "valueLabel": "Software Engineering"
+        },
+        {
+          "fieldId": "COUNTRY",
+          "fieldLabel": "Country/Region",
+          "valueId": "au",
+          "valueLabel": "Australia"
+        },
+        {
+          "fieldId": "6514d94a9c140e09b2e649f5",
+          "fieldLabel": "Brands",
+          "valueId": "default",
+          "valueLabel": "Canva"
+        },
+        {
+          "fieldId": "651b8a7b58759b40ab8abd45",
+          "fieldLabel": "Employment type",
+          "valueId": "01ca83be4eaa01d34208432ca5005301",
+          "valueLabel": "Permanent"
+        },
+        {
+          "fieldId": "651ba22058759b40ab8abd46",
+          "fieldLabel": "Time type",
+          "valueId": "2ca83e80de45013371c1658ff3029500",
+          "valueLabel": "Full time"
+        }
+      ],
+      "visibility": "PUBLIC",
+      "ref": "https://api.smartrecruiters.com/v1/companies/Canva/postings/6000000001144367",
+      "language": {
+        "code": "en",
+        "label": "English",
+        "labelNative": "English (US)"
+      }
+    },
+    {
+      "id": "6000000001143662",
+      "name": "Social Content Videographer",
+      "uuid": "acf15247-4ed4-4e98-b558-9b2bad162f5d",
+      "jobAdId": "71d87e3f-72eb-44bb-a573-7d6dc4b4e9d0",
+      "defaultJobAd": true,
+      "refNumber": "R102401",
+      "company": {
+        "identifier": "Canva",
+        "name": "Canva"
+      },
+      "releasedDate": "2026-06-10T05:48:36.747Z",
+      "location": {
+        "city": "Los Angeles",
+        "region": "CA",
+        "country": "us",
+        "remote": true,
+        "hybrid": false,
+        "latitude": "34.0549076",
+        "longitude": "-118.242643",
+        "fullLocation": "Los Angeles, CA, United States"
+      },
+      "industry": {
+        "id": "computer_software",
+        "label": "Computer Software"
+      },
+      "department": {},
+      "function": {
+        "id": "design",
+        "label": "Design"
+      },
+      "typeOfEmployment": {
+        "id": "permanent",
+        "label": "Full-time"
+      },
+      "experienceLevel": {
+        "id": "mid_senior_level",
+        "label": "Mid-Senior Level"
+      },
+      "customField": [
+        {
+          "fieldId": "651ba0114967807d2e86fe5a",
+          "fieldLabel": "Team",
+          "valueId": "0143dc39624e1001761dae9c46290000",
+          "valueLabel": "North America Social Creative"
+        },
+        {
+          "fieldId": "651ba508aac0da4b9cbd91cb",
+          "fieldLabel": "Worker type",
+          "valueId": "d588c41a446c11de98360015c5e6daf6",
+          "valueLabel": "Employee"
+        },
+        {
+          "fieldId": "67db425d21ec03315da962cb",
+          "fieldLabel": "Org",
+          "valueId": "d7055559fd68100169ccd13e5b330000",
+          "valueLabel": "Marketing"
+        },
+        {
+          "fieldId": "651b8b8aaac0da4b9cbd91c9",
+          "fieldLabel": "Recruitment type",
+          "valueId": "ebb715ae-0c50-4bc4-b6b9-d3613ed950d5",
+          "valueLabel": "Fixed Term"
+        },
+        {
+          "fieldId": "651ba0b93066d20abe11145b",
+          "fieldLabel": "Specialty",
+          "valueId": "220b5c7e743d011e6984d9a7b8007f13",
+          "valueLabel": "Design"
+        },
+        {
+          "fieldId": "651b8bc23066d20abe111459",
+          "fieldLabel": "Supergroup",
+          "valueId": "220b5c7e743d012a647a9ecd9700f505",
+          "valueLabel": "Marketing"
+        },
+        {
+          "fieldId": "651ba1c7aac0da4b9cbd91ca",
+          "fieldLabel": "Role level",
+          "valueId": "B3",
+          "valueLabel": "B3"
+        },
+        {
+          "fieldId": "651b99e25ddc3c31d9224321",
+          "fieldLabel": "Group",
+          "valueId": "024a9ed5200f01a51febf8a382017f17",
+          "valueLabel": "Marketing Creative"
+        },
+        {
+          "fieldId": "651ba171eec5b66729429433",
+          "fieldLabel": "Subspecialty",
+          "valueId": "220b5c7e743d01db143807f4b700d912",
+          "valueLabel": "Video & Photo"
+        },
+        {
+          "fieldId": "COUNTRY",
+          "fieldLabel": "Country/Region",
+          "valueId": "us",
+          "valueLabel": "United States"
+        },
+        {
+          "fieldId": "6514d94a9c140e09b2e649f5",
+          "fieldLabel": "Brands",
+          "valueId": "default",
+          "valueLabel": "Canva"
+        },
+        {
+          "fieldId": "651b8a7b58759b40ab8abd45",
+          "fieldLabel": "Employment type",
+          "valueId": "01ca83be4eaa01d34208432ca5005301",
+          "valueLabel": "Permanent"
+        },
+        {
+          "fieldId": "651ba22058759b40ab8abd46",
+          "fieldLabel": "Time type",
+          "valueId": "2ca83e80de45013371c1658ff3029500",
+          "valueLabel": "Full time"
+        }
+      ],
+      "visibility": "PUBLIC",
+      "ref": "https://api.smartrecruiters.com/v1/companies/Canva/postings/6000000001143662",
+      "language": {
+        "code": "en",
+        "label": "English",
+        "labelNative": "English (US)"
+      }
+    }
+  ]
+}

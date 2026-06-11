@@ -43,9 +43,12 @@ function escapeRegExp(s: string): string {
   return s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 }
 
+// Unicode-aware word boundaries instead of \b: JS \b treats accented letters as
+// non-word chars, so the "ph" in Vietnamese "Thành phố" would otherwise match the
+// bare-PH country token (real bug, caught 2026-06-11 via Bosch Vietnam listings).
 const PH_PATTERN = new RegExp(
-  `\\b(?:${PH_LOCATION_KEYWORDS.map(escapeRegExp).join("|")})\\b`,
-  "i",
+  `(?<![\\p{L}\\p{N}])(?:${PH_LOCATION_KEYWORDS.map(escapeRegExp).join("|")})(?![\\p{L}\\p{N}])`,
+  "iu",
 );
 
 /** True iff the location string ties the role to the Philippines (SPEC §8). */

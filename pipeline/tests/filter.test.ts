@@ -35,6 +35,13 @@ describe("isPhilippineLocation", () => {
     expect(isPhilippineLocation("Phoenix, AZ")).toBe(false);
   });
 
+  it("does not treat 'ph' inside accented words as a PH token (Vietnamese cities)", () => {
+    // "phố" tricked ASCII \b: ố is a non-word char to JS regex, giving "ph" a boundary
+    expect(isPhilippineLocation("Thành phố Hồ Chí Minh, Hồ Chí Minh, Vietnam")).toBe(false);
+    expect(isPhilippineLocation("Tân Bình, Thành phố Hồ Chí Minh, Vietnam")).toBe(false);
+    expect(isPhilippineLocation("Hải Phòng, Vietnam")).toBe(false);
+  });
+
   it("rejects broad remote regions (cannot confirm PH eligibility)", () => {
     expect(isPhilippineLocation("Remote")).toBe(false);
     expect(isPhilippineLocation("Remote - APAC")).toBe(false);

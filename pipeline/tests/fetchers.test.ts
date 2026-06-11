@@ -1,6 +1,10 @@
 import { describe, expect, it } from "vitest";
+import { fetchAshby } from "../src/fetchers/ashby.js";
 import { fetchGreenhouse } from "../src/fetchers/greenhouse.js";
 import { fetchLever } from "../src/fetchers/lever.js";
+import { fetchRecruitee } from "../src/fetchers/recruitee.js";
+import { fetchSmartRecruiters } from "../src/fetchers/smartrecruiters.js";
+import { fetchWorkable } from "../src/fetchers/workable.js";
 import { USER_AGENT } from "../src/fetchers/http.js";
 import type { RegistryCompany } from "../src/types.js";
 
@@ -153,5 +157,162 @@ describe("fetchLever", () => {
     const http = fakeHttp([{ status: 404, body: { ok: false, error: "Document not found" } }]);
     const result = await fetchLever(ninjaVan, http);
     expect(result).toMatchObject({ ok: false, errorKind: "dead-slug" });
+  });
+});
+
+function registryCompany(overrides: Partial<RegistryCompany>): RegistryCompany {
+  return {
+    name: "Test Co",
+    ats: "greenhouse",
+    slug: "test",
+    industry: "",
+    verified: true,
+    added: "2026-06-11",
+    ...overrides,
+  };
+}
+
+describe("fetchAshby", () => {
+  const deel = registryCompany({ name: "Deel", ats: "ashby", slug: "deel" });
+
+  it("hits the documented endpoint and normalizes", async () => {
+    const http = fakeHttp([
+      {
+        status: 200,
+        body: {
+          jobs: [
+            {
+              title: "Engineer",
+              location: "Manila, Philippines",
+              isListed: true,
+              jobUrl: "https://jobs.ashbyhq.com/deel/x",
+              publishedAt: "2026-06-01T00:00:00.000Z",
+            },
+          ],
+        },
+      },
+    ]);
+    const result = await fetchAshby(deel, http);
+    expect(http.calls[0]!.url).toBe(
+      "https://api.ashbyhq.com/posting-api/job-board/deel?includeCompensation=true",
+    );
+    expect(result.ok).toBe(true);
+    if (result.ok) expect(result.postings).toHaveLength(1);
+  });
+
+  it("reports dead-slug on 404", async () => {
+    const http = fakeHttp([{ status: 404 }]);
+    expect(await fetchAshby(deel, http)).toMatchObject({ ok: false, errorKind: "dead-slug" });
+  });
+});
+
+describe("fetchWorkable", () => {
+  const crewBloom = registryCompany({ name: "CrewBloom", ats: "workable", slug: "crewbloom" });
+
+  it("hits the documented endpoint and normalizes", async () => {
+    const http = fakeHttp([
+      {
+        status: 200,
+        body: {
+          name: "CrewBloom",
+          jobs: [{ title: "VA", url: "https://apply.workable.com/j/X", telecommuting: true }],
+        },
+      },
+    ]);
+    const result = await fetchWorkable(crewBloom, http);
+    expect(http.calls[0]!.url).toBe(
+      "https://apply.workable.com/api/v1/widget/accounts/crewbloom",
+    );
+    expect(result.ok).toBe(true);
+  });
+
+  it("treats a live account with zero jobs as a successful empty fetch", async () => {
+    const http = fakeHttp([{ status: 200, body: { name: "PenBrothers", jobs: [] } }]);
+    const result = await fetchWorkable(crewBloom, http);
+    expect(result.ok).toBe(true);
+    if (result.ok) expect(result.postings).toHaveLength(0);
+  });
+
+  it("reports dead-slug on 404", async () => {
+    const http = fakeHttp([{ status: 404 }]);
+    expect(await fetchWorkable(crewBloom, http)).toMatchObject({
+      ok: false,
+      errorKind: "dead-slug",
+    });
+  });
+});
+
+describe("fetchSmartRecruiters", () => {
+  const canva = registryCompany({ name: "Canva", ats: "smartrecruiters", slug: "Canva" });
+
+  const srPosting = (id: string) => ({
+    id,
+    name: `Role ${id}`,
+    releasedDate: "2026-06-01T00:00:00.000Z",
+    location: { city: "Manila", country: "ph", remote: false, hybrid: false, fullLocation: "Manila, Philippines" },
+  });
+
+  it("paginates with offset until totalFound is reached", async () => {
+    const page = (offset: number, n: number, total: number) => ({
+      status: 200,
+      body: {
+        offset,
+        limit: 100,
+        totalFound: total,
+        content: Array.from({ length: n }, (_, i) => srPosting(`${offset + i}`)),
+      },
+    });
+    const http = fakeHttp([page(0, 100, 250), page(100, 100, 250), page(200, 50, 250)]);
+    const result = await fetchSmartRecruiters(canva, http);
+    expect(http.calls.map((c) => c.url)).toEqual([
+      "https://api.smartrecruiters.com/v1/companies/Canva/postings?limit=100&offset=0",
+      "https://api.smartrecruiters.com/v1/companies/Canva/postings?limit=100&offset=100",
+      "https://api.smartrecruiters.com/v1/companies/Canva/postings?limit=100&offset=200",
+    ]);
+    expect(result.ok).toBe(true);
+    if (result.ok) expect(result.postings).toHaveLength(250);
+  });
+
+  it("treats an empty company as a dead slug (SR returns 200 for unknown companies)", async () => {
+    const http = fakeHttp([
+      { status: 200, body: { offset: 0, limit: 100, totalFound: 0, content: [] } },
+    ]);
+    expect(await fetchSmartRecruiters(canva, http)).toMatchObject({
+      ok: false,
+      errorKind: "dead-slug",
+    });
+  });
+});
+
+describe("fetchRecruitee", () => {
+  const hostaway = registryCompany({ name: "Hostaway", ats: "recruitee", slug: "hostaway" });
+
+  it("hits the documented endpoint and normalizes", async () => {
+    const http = fakeHttp([
+      {
+        status: 200,
+        body: {
+          offers: [
+            {
+              title: "Engineer",
+              careers_url: "https://careers.hostaway.com/o/engineer",
+              remote: true,
+              published_at: "2026-06-01 08:00:00 UTC",
+            },
+          ],
+        },
+      },
+    ]);
+    const result = await fetchRecruitee(hostaway, http);
+    expect(http.calls[0]!.url).toBe("https://hostaway.recruitee.com/api/offers/");
+    expect(result.ok).toBe(true);
+  });
+
+  it("reports dead-slug on 404", async () => {
+    const http = fakeHttp([{ status: 404 }]);
+    expect(await fetchRecruitee(hostaway, http)).toMatchObject({
+      ok: false,
+      errorKind: "dead-slug",
+    });
   });
 });

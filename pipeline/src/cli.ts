@@ -1,8 +1,12 @@
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
+import { fetchAshby } from "./fetchers/ashby.js";
 import { fetchGreenhouse } from "./fetchers/greenhouse.js";
 import { fetchLever } from "./fetchers/lever.js";
+import { fetchRecruitee } from "./fetchers/recruitee.js";
+import { fetchSmartRecruiters } from "./fetchers/smartrecruiters.js";
+import { fetchWorkable } from "./fetchers/workable.js";
 import { emptyListingsFile, parseListingsFile, parseRegistry } from "./files.js";
 import { filterPhilippines } from "./filter.js";
 import { buildListing, mergeListings } from "./merge.js";
@@ -24,9 +28,13 @@ const DEAD_SLUG_ALERT_AFTER = 3;
 
 type Fetcher = (company: RegistryCompany) => Promise<FetchResult>;
 
-const FETCHERS: Partial<Record<RegistryCompany["ats"], Fetcher>> = {
+const FETCHERS: Record<RegistryCompany["ats"], Fetcher> = {
   greenhouse: fetchGreenhouse,
   lever: fetchLever,
+  ashby: fetchAshby,
+  workable: fetchWorkable,
+  smartrecruiters: fetchSmartRecruiters,
+  recruitee: fetchRecruitee,
 };
 
 interface FetchState {
