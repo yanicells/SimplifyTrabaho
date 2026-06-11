@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-06-11T08:57:26.102Z",
+  "updatedAt": "2026-06-11T09:25:58.108Z",
   "listings": [
     {
       "id": "16e8a85575e0",
@@ -11811,6 +11811,24 @@
       "active": true
     },
     {
+      "id": "5a749416bd9a",
+      "company": "Fresh Prints",
+      "title": "Artist (Project-based)",
+      "locations": [
+        "The Philippines (Remote)"
+      ],
+      "workSetup": "remote",
+      "level": "unknown",
+      "function": "other",
+      "url": "https://job-boards.greenhouse.io/freshprints/jobs/6019558004",
+      "source": "greenhouse",
+      "employmentType": "unknown",
+      "salary": null,
+      "datePosted": "2026-06-11T09:15:00.000Z",
+      "dateUpdated": "2026-06-11T09:25:58.108Z",
+      "active": true
+    },
+    {
       "id": "3abcef56d233",
       "company": "Fresh Prints",
       "title": "Digital Artist (Contract)",
@@ -16856,6 +16874,24 @@
       "salary": null,
       "datePosted": "2025-11-18T00:00:00.000Z",
       "dateUpdated": "2026-06-11T01:21:12.918Z",
+      "active": true
+    },
+    {
+      "id": "02b4385e65cc",
+      "company": "Hunt St",
+      "title": "Digital Marketing Manager (020-965)",
+      "locations": [
+        "Philippines"
+      ],
+      "workSetup": "remote",
+      "level": "senior",
+      "function": "marketing",
+      "url": "https://apply.workable.com/j/6BE2F1024E",
+      "source": "workable",
+      "employmentType": "full-time",
+      "salary": null,
+      "datePosted": "2026-06-11T00:00:00.000Z",
+      "dateUpdated": "2026-06-11T09:25:58.108Z",
       "active": true
     },
     {
@@ -23065,8 +23101,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-05-26T13:57:04.851Z",
-      "dateUpdated": "2026-06-11T01:21:12.918Z",
-      "active": true
+      "dateUpdated": "2026-06-11T09:25:58.108Z",
+      "active": false
     },
     {
       "id": "e7bc29568a82",
