@@ -65,7 +65,7 @@ refreshes once daily.
 | **First Circle** | Junior Finance Associate (2025/2026 Accountancy & Finance Graduates) | Taguig, Philippines | — | [Apply](https://apply.workable.com/j/5536530F9B) | 16d ago |
 | **Twoconnect** | Junior Graphic Designer - Work from Home / Dayshift | Philippines | Remote | [Apply](https://apply.workable.com/j/D23AD7C9DB) | 16d ago |
 | **Arch Global Services PH** | 2026-7960 Billing Specialist-Junior | Makati City, NCR, Philippines | Hybrid | [Apply](https://jobs.smartrecruiters.com/ArchGlobalServicesPhilippinesInc/744000128244349) | 16d ago |
-| **Arch Global Services PH** | 2026-7957 Jr. Finance Analyst - US Tax (Nightshift) | Bonifacio Global City, Philippines | Remote | [Apply](https://jobs.smartrecruiters.com/ArchGlobalServicesPhilippinesInc/744000128202039) | 16d ago |
+| **Arch Global Services PH** | 2026-7957 Jr. Finance Analyst - US Tax (Nightshift) | Bonifacio Global City, Philippines | Remote | [Apply](https://jobs.smartrecruiters.com/ArchGlobalServicesPhilippinesInc/744000128202039) | 17d ago |
 | **Aprio** | Aprio PH-Accounting Associate (Outsourcing 1) | Makati City, Metro Manila | Hybrid | [Apply](https://jobs.lever.co/Aprio/6565391e-af1b-4dd5-89e2-409350b3efcd) | 17d ago |
 | **Aprio** | Aprio PH - Accounting Associate (Professional Services CAS) | Clark, Pampanga; Makati City, Metro Manila | Hybrid | [Apply](https://jobs.lever.co/Aprio/c6c2d730-d74e-4c30-abb4-99f5503fce45) | 17d ago |
 | **Aprio** | Aprio PH - Accounting Associate (Real Estate) | Clark, Pampanga; Makati City, Metro Manila | Hybrid | [Apply](https://jobs.lever.co/Aprio/457ca4ed-f292-4a36-98dc-d78dc62f1895) | 17d ago |
@@ -86,7 +86,7 @@ refreshes once daily.
 | **Twoconnect** | Junior Document Controller (Construction) - Work from Home (MIDSHIFT - UK) | Philippines | Remote | [Apply](https://apply.workable.com/j/E6FFD493DB) | 24d ago |
 | **Angkas** | Customer Experience Associate-Cebu | Cebu City, Philippines | — | [Apply](https://apply.workable.com/j/D9907A7F30) | 27d ago |
 | **GoTyme Bank** | Operations Associate | Quezon City, Philippines | — | [Apply](https://apply.workable.com/j/DABE870D1D) | 27d ago |
-| **Aprio** | Aprio PH – Associate, Information Assurance Services, SOC | Makati City, Metro Manila | Remote | [Apply](https://jobs.lever.co/Aprio/4bee4c82-317a-4e00-a755-4d7b7034a858) | 27d ago |
+| **Aprio** | Aprio PH – Associate, Information Assurance Services, SOC | Makati City, Metro Manila | Remote | [Apply](https://jobs.lever.co/Aprio/4bee4c82-317a-4e00-a755-4d7b7034a858) | 28d ago |
 | **Aprio** | Aprio PH – Senior Accounting Associate (Restaurant, Franchise and Hospitality) | Makati City, Metro Manila | Hybrid | [Apply](https://jobs.lever.co/Aprio/2de5b53f-fe07-4cb9-876b-650131e34b2d) | 28d ago |
 | **Aprio** | Aprio PH - Finance and Accounting Associate | Makati City, Metro Manila | Hybrid | [Apply](https://jobs.lever.co/Aprio/46c2c6a9-3df9-4bdf-beb5-7fd837b982ff) | 28d ago |
 | **Aprio** | Aprio PH - Associate, Property Tax | Makati City, Metro Manila; Clark, Pampanga | Hybrid | [Apply](https://jobs.lever.co/Aprio/d1b1f205-a827-499f-bf48-6803c7485ed4) | 29d ago |
@@ -97,7 +97,7 @@ refreshes once daily.
 
 ---
 
-📊 **2094 active listings** from **101 companies tracked** · last updated 2026-06-11 08:57 UTC
+📊 **2095 active listings** from **101 companies tracked** · last updated 2026-06-11 09:25 UTC
 
 ➡️ Full list with filters (all roles, all levels): **[simplifytrabaho.ycells.com](https://simplifytrabaho.ycells.com)**
 
