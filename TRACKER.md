@@ -77,9 +77,68 @@
   - [x] Verified end-to-end: `pnpm refresh` 101/101 fetched 0 failed (2,115
         listings, 2,094 active) · 112 tests green · `pnpm --filter web build` green.
 
+- [x] 2026-06-11 — **Phase 6 (code side) — polish & acceptance sweep done** (124
+      tests green):
+  - [x] Categorizer extended with PH vocabulary mined from the live dataset (TDD,
+        9 new tests): supervisor/team leader → senior; CSR/TSR/SDR frontline reps →
+        entry (checked after senior/mid markers); VA/exec assistant, workforce,
+        warehouse, dispatcher → operations; bookkeeping, AP/AR, billing, R2R/P2P,
+        fixed asset, estimator → finance; account manager → sales; CX/client
+        success → customer-support; sysadmin → engineering; trainer/L&D → hr;
+        video editor → design; paid ads/CRM/copywriter → marketing. Active-listing
+        counts: `level: unknown` 1,351 → 1,238, `function: other` 825 → 571.
+  - [x] README badges (Daily refresh + CI workflow status) via `readme.ts`; legal
+        stance copy untouched. Note: badge SVGs 404 for anonymous viewers until
+        the repo is public.
+  - [x] MIT LICENSE added (code). Listings-data licensing intentionally left as a
+        maintainer decision — see Issues.
+  - [x] Acceptance-criteria sweep recorded below; live-site playwright pass green.
+
+## ✅ Acceptance criteria sweep (SPEC §15) — 2026-06-11
+
+- [x] 1. `pnpm refresh` clean run — this session: 101/101 fetched, 0 failed, exit 0;
+      valid listings.json (2,121 total / 2,097 active) + README regenerated. CI runs
+      the same on a clean clone daily (bot commits prove it).
+- [x] 2. Registry 101/101 verified spanning all six ATSs (workable 48, sr 15, gh 14,
+      ashby 12, lever 10, recruitee 2); active listings span internship 27 / entry
+      234 / senior 578 and tech (eng 310, data 104) + non-tech (finance 242, ops 238,
+      sales 172, support 114) functions.
+- [x] 3. Spot-check script over all 2,121 listings: 0 non-ATS sources, 0 forbidden
+      hosts (every URL on official ATS/company career domains), exact schema keys,
+      0 fields >250 chars (no JD text), 0 emails, 0 HTML fragments.
+- [x] 4. README featured table regenerates as valid GFM (82 rows, 30-day window);
+      3 sampled Apply links returned HTTP 200 on official ATS pages; GitHub render
+      confirmed by maintainer on prior commits (same generated format).
+- [x] 5. Live site playwright pass (prod, simplifytrabaho.ycells.com): default view
+      "Interns & fresh grads" (210 roles), All roles → 2,096, multi-word search,
+      location filter, function/setup selects present, Apply links → official ATS
+      pages, 390px mobile no horizontal overflow, 0 console errors/warnings.
+- [x] 6. Daily Actions run green & committing: two `data: daily refresh` commits by
+      github-actions[bot] in git history (scheduled runs succeeded and pushed); the
+      always-commits-when-green behavior is documented in the decision log. (API
+      check not possible anonymously while the repo is private.)
+- [x] 7. Manual laptop flow verified end-to-end — maintainer 2026-06-11; this
+      session repeated pull → refresh → commit → push locally.
+- [x] 8. TRACKER.md reflects reality — this update.
+
 ## 🔨 In progress
 
-(nothing — Phases 0–5 done and live-verified; next is Phase 6, polish & launch)
+(nothing code-side — Phase 6 code work done; launch checklist below is on the
+maintainer)
+
+**Maintainer launch checklist (the only remaining v1 steps):**
+
+1. **Make the repo public** — it is still private (GitHub API 404s it anonymously;
+   it's absent from yanicells's public repo list). README badges and the GitHub
+   links on the site 404 for visitors until then.
+2. Set the repo **description**, e.g.: "🇵🇭 Free, auto-updated list of jobs at
+   Philippine companies — internships & fresh grads featured. Facts only, straight
+   from official company ATS APIs. Refreshed daily." and **website**
+   <https://simplifytrabaho.ycells.com>.
+3. Set **topics**, e.g.: `philippines`, `jobs`, `internships`, `entry-level`,
+   `fresh-graduates`, `job-search`, `careers`, `job-listings`, `open-data`,
+   `typescript`, `nextjs`.
+4. Decide **data licensing** (see Issues).
 
 Registry growth is continuous (SPEC §7.1): web-search the six ATS-hosted domains for
 PH city strings → add slugs to `pipeline/candidates.json` → `pnpm --filter pipeline
@@ -103,8 +162,9 @@ verify-registry`. Also recheck the live-but-0-PH boards listed below — several
 
 ### Phase 6 — Polish & launch
 
-- [ ] Acceptance-criteria sweep (SPEC §15)
-- [ ] README copy/badges review · publish repo
+- [x] Acceptance-criteria sweep (SPEC §15) — see sweep section above
+- [x] README copy/badges review — badges added, copy reviewed (legal section kept)
+- [ ] Publish repo — **maintainer action**, see launch checklist above
 
 ## 🐞 Issues & blockers
 
@@ -125,9 +185,17 @@ verify-registry`. Also recheck the live-but-0-PH boards listed below — several
   `pnpm/action-setup` from @v4 to @v6 in both workflows — all three v6 majors
   declare `node24`, and checkout v6 still defaults `persist-credentials: true`
   (the bot push in refresh.yml relies on it).
-- 2026-06-11 — [open] `level: unknown` on 1,332/2,040 listings (by design — SPEC §9
-  never guesses) and `function: other` on 829. Backlog: extend keyword tables from
-  real titles (e.g., PH BPO vocabulary: "CSR", "TSR", "Team Leader", "Workforce").
+- 2026-06-11 — [resolved] `level: unknown` / `function: other` backlog: keyword
+  tables extended with PH vocabulary mined from the live dataset (frequency-ranked
+  titles). Active listings: unknown 1,351 → 1,238, other 825 → 571. The remaining
+  unknowns are by design — unleveled titles like "PHP Developer" stay unknown per
+  SPEC §9 (never guess). Future tuning is continuous work, driven by new titles.
+- 2026-06-11 — [open] **Repo is still private** — publishing it is the last launch
+  step (maintainer-only). Badges/GitHub links 404 for visitors until flipped.
+- 2026-06-11 — [open] **Data licensing decision** (maintainer): LICENSE (MIT) covers
+  the code; `data/listings.json` is factual data with no separate license stated.
+  Options to consider: CC0 / CC BY 4.0 / ODbL, or explicitly state that facts carry
+  no copyright. Not chosen unilaterally — affects downstream reuse of the dataset.
 
 <!-- Format: - 2026-06-12 — [open|resolved] Short description. Context/link. -->
 
@@ -290,6 +358,17 @@ not a real employer. Kalibrr — job-board company, fetching prohibited by rule 
   on the maintainer's Vercel project); the vercel.app URL is retired. Single source
   in `pipeline/src/readme.ts` (`WEBSITE_URL`) for the README; `web/app/layout.tsx`
   (`SITE_URL`) for canonical/OG metadata.
+- 2026-06-11 — Categorizer PH-vocabulary extension (deviations/judgment calls, all
+  TDD-tested): `supervisor`/`leader` count as senior (PH BPO team-management roles;
+  `\bleader\b` doesn't match "Leadership Development Program"); CSR/TSR/SDR
+  frontline-rep titles are entry by PH market convention, checked AFTER senior/mid
+  so "Senior CSR" → senior and "CSR II" → mid; `account manager` → sales (TAMs
+  included — standard org placement); `estimator` → finance (cost-estimation
+  roles); "Project Manager" deliberately stays `other` (no PM bucket in the enum —
+  guessing operations would be wrong).
+- 2026-06-11 — License: MIT for code (maintainer pre-approved "likely MIT").
+  Listings-data licensing deliberately left undecided — maintainer decision logged
+  as an open issue.
 - 2026-06-11 — `refresh.yml` commit guard checks `data/listings.json`/`README.md`
   per SPEC §13, but every successful run rewrites `updatedAt` in both, so a green
   run always commits. Intentional: the daily commit keeps the site dateline fresh,

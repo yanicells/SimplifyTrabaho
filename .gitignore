@@ -14,3 +14,6 @@ dist/
 # misc
 *.log
 .DS_Store
+
+# playwright MCP session artifacts (site verification)
+.playwright-mcp/
