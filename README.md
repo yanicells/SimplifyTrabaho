@@ -32,8 +32,8 @@ refreshes once daily.
 | **Hireframe** | Sales Development Representative | Philippines | Remote | [Apply](https://apply.workable.com/j/278BE770FB) | 1d ago |
 | **ISTA Personnel Solutions** | Back Office CSR \| Medical Records \| Get a 21K Signing Bonus | Makati City, Philippines | — | [Apply](https://apply.workable.com/j/31B193F8C9) | 1d ago |
 | **ISTA Personnel Solutions** | Back Office Associate \| Healthcare Account \| Get a 21K Signing Bonus | Makati City, Philippines | — | [Apply](https://apply.workable.com/j/2728C5EF7C) | 1d ago |
-| **Hire Hangar** | Growth Marketing Associate | South Africa - Cape Town; Egypt - Cairo; Philippines - Davao City; Chile - Santiago; South Africa - Johannesburg; Manila | Remote | [Apply](https://jobs.ashbyhq.com/hirehangar/bce16a0e-d09d-4753-86c5-9f9536bc563a) | 1d ago |
-| **Hire Hangar** | Growth Marketing Associate (Technical – Python & SQL) | Philippines - Davao City; India - Mumbai; Inida - New Delhi; Manila; Quezon City | — | [Apply](https://jobs.ashbyhq.com/hirehangar/3745c2c0-71a1-4c8a-ba36-aace7d7ff7d8) | 1d ago |
+| **Hire Hangar** | Growth Marketing Associate | South Africa - Cape Town; Egypt - Cairo; Philippines - Davao City; Chile - Santiago; South Africa - Johannesburg; Manila | Remote | [Apply](https://jobs.ashbyhq.com/hirehangar/bce16a0e-d09d-4753-86c5-9f9536bc563a) | 2d ago |
+| **Hire Hangar** | Growth Marketing Associate (Technical – Python & SQL) | Philippines - Davao City; India - Mumbai; Inida - New Delhi; Manila; Quezon City | — | [Apply](https://jobs.ashbyhq.com/hirehangar/3745c2c0-71a1-4c8a-ba36-aace7d7ff7d8) | 2d ago |
 | **Arch Global Services PH** | 2026-7972 Actuarial Analyst-Junior (Mid Shift) | Bonifacio Global City, Philippines | Hybrid | [Apply](https://jobs.smartrecruiters.com/ArchGlobalServicesPhilippinesInc/744000131085639) | 2d ago |
 | **Pilmico** | Associate Animal Nutritionist - Swine | Capas, TARLAC, Philippines | On-site | [Apply](https://jobs.smartrecruiters.com/PilmicoFoodsCorporation/744000130997199) | 2d ago |
 | **Angkas** | CRM Associate | Makati City, Philippines | — | [Apply](https://apply.workable.com/j/C705FCEEF2) | 2d ago |
@@ -86,9 +86,9 @@ refreshes once daily.
 | **ISTA Personnel Solutions** | Back-Office Associate \| Healthcare Account \| Get a 21K Signing Bonus | Mandaluyong, Philippines | — | [Apply](https://apply.workable.com/j/A8BF231200) | 17d ago |
 | **Xillium** | Experienced Virtual Medical Assistant (Associate) | Philippines | Remote | [Apply](https://apply.workable.com/j/4C40864A0F) | 17d ago |
 | **Pilmico** | HR Analytics Intern | Makati, Metro Manila, Philippines | Hybrid | [Apply](https://jobs.smartrecruiters.com/PilmicoFoodsCorporation/744000127814491) | 20d ago |
-| **Wing Assistant** | Customer Service Representative Full time or Part-Time | Philippines | Remote | [Apply](https://jobs.lever.co/getwingapp/3a80fa08-27a4-4672-82e1-b4fef0f1191e) | 20d ago |
-| **Wing Assistant** | Customer Service Representative Full Time (Healthcare Account) | Philippines | Remote | [Apply](https://jobs.lever.co/getwingapp/71bce68e-c3b9-4ab3-b903-53e14a60f7fe) | 20d ago |
-| **Assist World** | Customer Service Representative \| Home Products | South Africa; Philippines | Remote | [Apply](https://jobs.lever.co/assist-world/76702743-8adf-47e6-894d-13d0fd29285b) | 20d ago |
+| **Wing Assistant** | Customer Service Representative Full time or Part-Time | Philippines | Remote | [Apply](https://jobs.lever.co/getwingapp/3a80fa08-27a4-4672-82e1-b4fef0f1191e) | 21d ago |
+| **Wing Assistant** | Customer Service Representative Full Time (Healthcare Account) | Philippines | Remote | [Apply](https://jobs.lever.co/getwingapp/71bce68e-c3b9-4ab3-b903-53e14a60f7fe) | 21d ago |
+| **Assist World** | Customer Service Representative \| Home Products | South Africa; Philippines | Remote | [Apply](https://jobs.lever.co/assist-world/76702743-8adf-47e6-894d-13d0fd29285b) | 21d ago |
 | **HelloFresh** | Community Associate (Project Based - WFH) | Manila, Manila, Philippines | — | [Apply](https://careers.hellofresh.com/global/en/job/7949904?gh_jid=7949904) | 21d ago |
 | **Bosch** | IT Support Intern | Tauig, Philippines | On-site | [Apply](https://jobs.smartrecruiters.com/BoschGroup/744000127586419) | 21d ago |
 | **Pilmico** | Warehouse Associate (Reliever) | Iligan, Lanao del Norte, Philippines | On-site | [Apply](https://jobs.smartrecruiters.com/PilmicoFoodsCorporation/744000127578509) | 21d ago |
@@ -111,7 +111,7 @@ refreshes once daily.
 
 ---
 
-📊 **2093 active listings** from **101 companies tracked** · last updated 2026-06-11 18:23 UTC
+📊 **2094 active listings** from **101 companies tracked** · last updated 2026-06-11 23:13 UTC
 
 ➡️ Full list with filters (all roles, all levels): **[simplifytrabaho.ycells.com](https://simplifytrabaho.ycells.com)**
 

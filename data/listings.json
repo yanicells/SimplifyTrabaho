@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-06-11T18:23:30.568Z",
+  "updatedAt": "2026-06-11T23:13:33.159Z",
   "listings": [
     {
       "id": "16e8a85575e0",
@@ -3893,6 +3893,25 @@
       "active": true
     },
     {
+      "id": "75dcb4d4e094",
+      "company": "Assist World",
+      "title": "Personal Executive Assistant | Operations Coordinator |",
+      "locations": [
+        "South Africa",
+        "Philippines"
+      ],
+      "workSetup": "remote",
+      "level": "unknown",
+      "function": "operations",
+      "url": "https://jobs.lever.co/assist-world/99d39b86-d1d8-4e1e-bc23-1598b0b36a29",
+      "source": "lever",
+      "employmentType": "part-time",
+      "salary": "500–900 USD per month",
+      "datePosted": "2026-06-11T19:35:59.945Z",
+      "dateUpdated": "2026-06-11T23:13:33.159Z",
+      "active": true
+    },
+    {
       "id": "952afc1de98c",
       "company": "Assist World",
       "title": "Senior Accounting Assistant | Accounting & Financial Services Industry",
@@ -4142,8 +4161,8 @@
       "employmentType": "full-time",
       "salary": "1200–1500 USD per month",
       "datePosted": "2026-05-29T22:59:58.358Z",
-      "dateUpdated": "2026-06-11T01:21:12.918Z",
-      "active": true
+      "dateUpdated": "2026-06-11T23:13:33.159Z",
+      "active": false
     },
     {
       "id": "379a75825db9",
@@ -12276,8 +12295,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-03-25T16:32:31.000Z",
-      "dateUpdated": "2026-06-11T01:21:12.918Z",
-      "active": true
+      "dateUpdated": "2026-06-11T23:13:33.159Z",
+      "active": false
     },
     {
       "id": "639b9719cb87",
@@ -14382,6 +14401,47 @@
       "salary": null,
       "datePosted": "2026-06-11T00:00:00.000Z",
       "dateUpdated": "2026-06-11T18:23:30.568Z",
+      "active": true
+    },
+    {
+      "id": "d3a91b1145eb",
+      "company": "Hire Overseas",
+      "title": "Virtual Assistant - Travel Concierge",
+      "locations": [
+        "Philippines"
+      ],
+      "workSetup": "remote",
+      "level": "unknown",
+      "function": "operations",
+      "url": "https://apply.workable.com/j/412C9A031A",
+      "source": "workable",
+      "employmentType": "full-time",
+      "salary": null,
+      "datePosted": "2026-06-11T00:00:00.000Z",
+      "dateUpdated": "2026-06-11T23:13:33.159Z",
+      "active": true
+    },
+    {
+      "id": "f81f16ecd079",
+      "company": "Hire Overseas",
+      "title": "Email Marketing Specialist",
+      "locations": [
+        "Philippines",
+        "Mexico",
+        "South Africa",
+        "Costa Rica",
+        "Argentina",
+        "Brazil"
+      ],
+      "workSetup": "remote",
+      "level": "unknown",
+      "function": "marketing",
+      "url": "https://apply.workable.com/j/A96113C89D",
+      "source": "workable",
+      "employmentType": "full-time",
+      "salary": null,
+      "datePosted": "2026-06-11T00:00:00.000Z",
+      "dateUpdated": "2026-06-11T23:13:33.159Z",
       "active": true
     },
     {
@@ -19124,8 +19184,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-05-06T00:00:00.000Z",
-      "dateUpdated": "2026-06-11T01:21:12.918Z",
-      "active": true
+      "dateUpdated": "2026-06-11T23:13:33.159Z",
+      "active": false
     },
     {
       "id": "0c5cd386cfdf",
@@ -32211,6 +32271,24 @@
       "salary": null,
       "datePosted": "2026-03-26T00:00:00.000Z",
       "dateUpdated": "2026-06-11T01:34:15.640Z",
+      "active": true
+    },
+    {
+      "id": "0d6de5f9308b",
+      "company": "SupportYourApp",
+      "title": "(Fluent English) Cloud Support Engineer (remotely)",
+      "locations": [
+        "Philippines"
+      ],
+      "workSetup": "remote",
+      "level": "unknown",
+      "function": "engineering",
+      "url": "https://apply.workable.com/j/DF61FC3E3F",
+      "source": "workable",
+      "employmentType": "contract",
+      "salary": null,
+      "datePosted": "2026-06-11T00:00:00.000Z",
+      "dateUpdated": "2026-06-11T23:13:33.159Z",
       "active": true
     },
     {
