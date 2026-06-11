@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import type { Listing, ListingsFile } from "../../pipeline/src/types";
+import type { Listing } from "../../pipeline/src/types";
 import { parseListingsFile, timeAgo, toJobs } from "./listings";
 
 function listing(overrides: Partial<Listing> = {}): Listing {
