@@ -87,7 +87,7 @@ export function generateReadme({
   Edit pipeline/src/readme.ts instead. See docs/SPEC.md §11.
 -->
 
-# simplifytrabaho 🇵🇭
+# SimplifyTrabaho 🇵🇭
 
 [![Daily refresh](${REPO_URL}/actions/workflows/refresh.yml/badge.svg)](${REPO_URL}/actions/workflows/refresh.yml) [![CI](${REPO_URL}/actions/workflows/ci.yml/badge.svg)](${REPO_URL}/actions/workflows/ci.yml)
 

@@ -46,6 +46,12 @@ describe("generateReadme", () => {
     );
   });
 
+  it("uses the product display name in generated copy", () => {
+    const md = generateReadme({ ...base, listings: [listing()] });
+    expect(md).toContain("# SimplifyTrabaho 🇵🇭");
+    expect(md).not.toContain("# simplifytrabaho 🇵🇭");
+  });
+
   it("carries a License section: MIT code, CC0 data, attribution optional", () => {
     const md = generateReadme({ ...base, listings: [listing()] });
     expect(md).toContain("## License");

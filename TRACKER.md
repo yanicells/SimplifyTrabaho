@@ -1,4 +1,4 @@
-# TRACKER — simplifytrabaho
+# TRACKER — SimplifyTrabaho
 
 > Live work log. Every working session: update sections, check off items, log issues
 > and decisions with dates. This file is the agent's memory between sessions.
@@ -94,6 +94,17 @@
         maintainer decision — see Issues.
   - [x] Acceptance-criteria sweep recorded below; live-site playwright pass green.
 
+- [x] 2026-06-12 — **Phase 7 COMPLETE — Rename to SimplifyTrabaho** (126 tests
+      green):
+  - [x] README generator updated and regenerated via `pnpm refresh`.
+  - [x] Site header, metadata, OpenGraph, CLI banner, and docs prose now use
+        `SimplifyTrabaho` for the product display name.
+  - [x] Lowercase identifiers intentionally left unchanged: domain, package names,
+        User-Agent, paths, repo URL/slug.
+  - [x] Verified: `pnpm refresh` (101/101 fetched, 0 failed; 2,125 total / 2,093
+        active), `pnpm test` (126 tests), `pnpm --filter web build`, and static
+        export HTML contains the new title/header/OG site name.
+
 ## ✅ Acceptance criteria sweep (SPEC §15) — 2026-06-11
 
 - [x] 1. `pnpm refresh` clean run — this session: 101/101 fetched, 0 failed, exit 0;
@@ -169,10 +180,10 @@ verify-registry`. Also recheck the live-but-0-PH boards listed below — several
 
 ### Phase 7 — Rename to SimplifyTrabaho
 
-- [ ] `readme.ts`: README title/copy → SimplifyTrabaho (regenerate via `pnpm refresh`)
-- [ ] Site UI + metadata/OG (`layout.tsx`, header component) → SimplifyTrabaho
-- [ ] Docs prose sweep (SPEC/TRACKER/ROADMAP headings done 2026-06-12; verify rest)
-- [ ] Keep identifiers lowercase: domain, package names, User-Agent, paths
+- [x] `readme.ts`: README title/copy → SimplifyTrabaho (regenerate via `pnpm refresh`)
+- [x] Site UI + metadata/OG (`layout.tsx`, header component) → SimplifyTrabaho
+- [x] Docs prose sweep (SPEC/TRACKER/ROADMAP headings done 2026-06-12; verify rest)
+- [x] Keep identifiers lowercase: domain, package names, User-Agent, paths
 
 ### Phase 8 — Taxonomy v2 + filters
 

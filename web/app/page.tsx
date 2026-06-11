@@ -43,7 +43,7 @@ export default function Home() {
         <header className="pt-8 sm:pt-12">
           <div className="flex items-baseline justify-between gap-4">
             <h1 className="font-display text-3xl font-semibold tracking-tight sm:text-4xl">
-              simplify<em className="font-medium">trabaho</em>
+              Simplify<em className="font-medium">Trabaho</em>
             </h1>
             <a
               href={REPO_URL}

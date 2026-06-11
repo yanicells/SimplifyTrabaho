@@ -8,7 +8,7 @@ before writing any code. Heed deprecation notices.
 
 <!-- END:nextjs-agent-rules -->
 
-# AGENTS.md — simplifytrabaho
+# AGENTS.md — SimplifyTrabaho
 
 A free, open, auto-updated list of jobs at Philippine companies (all roles, all levels,
 internships & entry-level featured). PH counterpart of SimplifyJobs/Summer2026-Internships.

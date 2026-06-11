@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-06-11T13:22:14.546Z",
+  "updatedAt": "2026-06-11T18:23:30.568Z",
   "listings": [
     {
       "id": "16e8a85575e0",
@@ -3072,8 +3072,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-05-14T16:52:48.012Z",
-      "dateUpdated": "2026-06-11T01:21:12.918Z",
-      "active": true
+      "dateUpdated": "2026-06-11T18:23:30.568Z",
+      "active": false
     },
     {
       "id": "54e3d80108e7",
@@ -3868,8 +3868,8 @@
       "employmentType": "full-time",
       "salary": "A$135,000 - A$189,000",
       "datePosted": "2026-06-05T20:22:03.445Z",
-      "dateUpdated": "2026-06-11T01:21:12.918Z",
-      "active": true
+      "dateUpdated": "2026-06-11T18:23:30.568Z",
+      "active": false
     },
     {
       "id": "a3903f152580",
@@ -3890,6 +3890,25 @@
       "salary": "SGD 80,000 - SGD 96,000",
       "datePosted": "2026-02-20T17:24:56.798Z",
       "dateUpdated": "2026-06-11T01:21:12.918Z",
+      "active": true
+    },
+    {
+      "id": "952afc1de98c",
+      "company": "Assist World",
+      "title": "Senior Accounting Assistant | Accounting & Financial Services Industry",
+      "locations": [
+        "South Africa",
+        "Philippines"
+      ],
+      "workSetup": "remote",
+      "level": "senior",
+      "function": "finance",
+      "url": "https://jobs.lever.co/assist-world/63286b6a-081e-4561-9a43-d8562e61025f",
+      "source": "lever",
+      "employmentType": "part-time",
+      "salary": "600–900 USD per month",
+      "datePosted": "2026-06-11T18:12:48.389Z",
+      "dateUpdated": "2026-06-11T18:23:30.568Z",
       "active": true
     },
     {
@@ -5148,8 +5167,8 @@
       "employmentType": "full-time",
       "salary": "$1.2K – $1.6K per month",
       "datePosted": "2026-05-04T15:50:13.384Z",
-      "dateUpdated": "2026-06-11T01:21:12.918Z",
-      "active": true
+      "dateUpdated": "2026-06-11T18:23:30.568Z",
+      "active": false
     },
     {
       "id": "35042269efea",
@@ -10333,7 +10352,7 @@
     {
       "id": "2da7cd319f85",
       "company": "CrewBloom",
-      "title": "Bookkeeper (Part-Time)",
+      "title": "Bookkeeper",
       "locations": [
         "Philippines",
         "India"
@@ -10346,7 +10365,7 @@
       "employmentType": "part-time",
       "salary": null,
       "datePosted": "2024-06-28T00:00:00.000Z",
-      "dateUpdated": "2026-06-11T12:33:52.706Z",
+      "dateUpdated": "2026-06-11T18:23:30.568Z",
       "active": true
     },
     {
@@ -10566,6 +10585,42 @@
       "salary": null,
       "datePosted": "2023-07-31T00:00:00.000Z",
       "dateUpdated": "2026-06-11T12:33:52.706Z",
+      "active": true
+    },
+    {
+      "id": "e0677543485e",
+      "company": "Delivery Hero",
+      "title": "Specialist, R2R Service Delivery - DMART",
+      "locations": [
+        "Taguig, Philippines"
+      ],
+      "workSetup": "hybrid",
+      "level": "unknown",
+      "function": "other",
+      "url": "https://jobs.smartrecruiters.com/DeliveryHero/744000131730989",
+      "source": "smartrecruiters",
+      "employmentType": "full-time",
+      "salary": null,
+      "datePosted": "2026-06-11T17:19:21.261Z",
+      "dateUpdated": "2026-06-11T18:23:30.568Z",
+      "active": true
+    },
+    {
+      "id": "7cc4be40a2cf",
+      "company": "Delivery Hero",
+      "title": "Specialist, Business Development (Cebu)",
+      "locations": [
+        "Cebu City, Central Visayas, Philippines"
+      ],
+      "workSetup": "hybrid",
+      "level": "unknown",
+      "function": "sales",
+      "url": "https://jobs.smartrecruiters.com/DeliveryHero/744000131719580",
+      "source": "smartrecruiters",
+      "employmentType": "full-time",
+      "salary": null,
+      "datePosted": "2026-06-11T16:16:48.495Z",
+      "dateUpdated": "2026-06-11T18:23:30.568Z",
       "active": true
     },
     {
@@ -10835,8 +10890,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-05-21T03:38:22.438Z",
-      "dateUpdated": "2026-06-11T01:21:12.918Z",
-      "active": true
+      "dateUpdated": "2026-06-11T18:23:30.568Z",
+      "active": false
     },
     {
       "id": "81de07b4c7e7",
@@ -10961,8 +11016,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-04-23T04:29:46.441Z",
-      "dateUpdated": "2026-06-11T01:21:12.918Z",
-      "active": true
+      "dateUpdated": "2026-06-11T18:23:30.568Z",
+      "active": false
     },
     {
       "id": "129255007752",
@@ -12005,8 +12060,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-06-02T18:19:43.000Z",
-      "dateUpdated": "2026-06-11T01:21:12.918Z",
-      "active": true
+      "dateUpdated": "2026-06-11T18:23:30.568Z",
+      "active": false
     },
     {
       "id": "b0bf84b82612",
@@ -14309,6 +14364,24 @@
       "salary": "$800 – $1,300 per month • Multiple Ranges",
       "datePosted": "2026-05-28T20:43:47.883Z",
       "dateUpdated": "2026-06-11T01:21:12.918Z",
+      "active": true
+    },
+    {
+      "id": "3b0dfb8cf125",
+      "company": "Hire Overseas",
+      "title": "Digital Marketing Manager",
+      "locations": [
+        "Philippines"
+      ],
+      "workSetup": "remote",
+      "level": "senior",
+      "function": "marketing",
+      "url": "https://apply.workable.com/j/AFA3D140A2",
+      "source": "workable",
+      "employmentType": "full-time",
+      "salary": null,
+      "datePosted": "2026-06-11T00:00:00.000Z",
+      "dateUpdated": "2026-06-11T18:23:30.568Z",
       "active": true
     },
     {
@@ -18691,8 +18764,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-05-14T00:00:00.000Z",
-      "dateUpdated": "2026-06-11T01:21:12.918Z",
-      "active": true
+      "dateUpdated": "2026-06-11T18:23:30.568Z",
+      "active": false
     },
     {
       "id": "c2913cb5664b",

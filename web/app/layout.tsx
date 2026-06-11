@@ -16,18 +16,18 @@ const SITE_URL = "https://simplifytrabaho.ycells.com";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: "simplifytrabaho — jobs at Philippine companies",
+  title: "SimplifyTrabaho — jobs at Philippine companies",
   description:
     "A free, open, automatically updated list of jobs at Philippine companies — internships and entry-level roles featured. Always links to official application pages.",
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: "simplifytrabaho — jobs at Philippine companies",
+    title: "SimplifyTrabaho — jobs at Philippine companies",
     description:
       "A free, open, automatically updated list of jobs at Philippine companies — internships and entry-level roles featured.",
     url: "/",
-    siteName: "simplifytrabaho",
+    siteName: "SimplifyTrabaho",
     locale: "en_PH",
     type: "website",
   },

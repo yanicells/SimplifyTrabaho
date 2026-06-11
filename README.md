@@ -3,7 +3,7 @@
   Edit pipeline/src/readme.ts instead. See docs/SPEC.md §11.
 -->
 
-# simplifytrabaho 🇵🇭
+# SimplifyTrabaho 🇵🇭
 
 [![Daily refresh](https://github.com/yanicells/SimplifyTrabaho/actions/workflows/refresh.yml/badge.svg)](https://github.com/yanicells/SimplifyTrabaho/actions/workflows/refresh.yml) [![CI](https://github.com/yanicells/SimplifyTrabaho/actions/workflows/ci.yml/badge.svg)](https://github.com/yanicells/SimplifyTrabaho/actions/workflows/ci.yml)
 
@@ -71,14 +71,14 @@ refreshes once daily.
 | **Hire Overseas** | Customer Service Representative (Outbound) | Philippines | Remote | [Apply](https://apply.workable.com/j/6B059B1DEC) | 10d ago |
 | **Angkas** | Junior CRM Associate -PAX | Makati City, Philippines | — | [Apply](https://apply.workable.com/j/175E663130) | 13d ago |
 | **Pilmico** | Copy of HR Talent Attraction Associate | Iligan City, Metro Manila, Philippines | Hybrid | [Apply](https://jobs.smartrecruiters.com/PilmicoFoodsCorporation/744000128946530) | 14d ago |
-| **Fresh Prints** | Order Processing Associate | The Philippines (Remote) | Remote | [Apply](https://job-boards.greenhouse.io/freshprints/jobs/6007307004) | 14d ago |
-| **Delivery Hero** | Category and Commercial Intern | Taguig, Philippines | On-site | [Apply](https://jobs.smartrecruiters.com/DeliveryHero/744000128729128) | 14d ago |
-| **Delivery Hero** | Marketing Intern | Taguig, Philippines | On-site | [Apply](https://jobs.smartrecruiters.com/DeliveryHero/744000128728702) | 14d ago |
-| **Delivery Hero** | Marketing Intern (Campaigns) | Taguig, Philippines | On-site | [Apply](https://jobs.smartrecruiters.com/DeliveryHero/744000128729069) | 14d ago |
+| **Fresh Prints** | Order Processing Associate | The Philippines (Remote) | Remote | [Apply](https://job-boards.greenhouse.io/freshprints/jobs/6007307004) | 15d ago |
+| **Delivery Hero** | Category and Commercial Intern | Taguig, Philippines | On-site | [Apply](https://jobs.smartrecruiters.com/DeliveryHero/744000128729128) | 15d ago |
+| **Delivery Hero** | Marketing Intern | Taguig, Philippines | On-site | [Apply](https://jobs.smartrecruiters.com/DeliveryHero/744000128728702) | 15d ago |
+| **Delivery Hero** | Marketing Intern (Campaigns) | Taguig, Philippines | On-site | [Apply](https://jobs.smartrecruiters.com/DeliveryHero/744000128729069) | 15d ago |
 | **Angkas** | Brand Marketing Associate-CDO | Cagayan De Oro City, Philippines | — | [Apply](https://apply.workable.com/j/33125BF11B) | 16d ago |
 | **First Circle** | Junior Finance Associate (2025/2026 Accountancy & Finance Graduates) | Taguig, Philippines | — | [Apply](https://apply.workable.com/j/5536530F9B) | 16d ago |
 | **Twoconnect** | Junior Graphic Designer - Work from Home / Dayshift | Philippines | Remote | [Apply](https://apply.workable.com/j/D23AD7C9DB) | 16d ago |
-| **Arch Global Services PH** | 2026-7960 Billing Specialist-Junior | Makati City, NCR, Philippines | Hybrid | [Apply](https://jobs.smartrecruiters.com/ArchGlobalServicesPhilippinesInc/744000128244349) | 16d ago |
+| **Arch Global Services PH** | 2026-7960 Billing Specialist-Junior | Makati City, NCR, Philippines | Hybrid | [Apply](https://jobs.smartrecruiters.com/ArchGlobalServicesPhilippinesInc/744000128244349) | 17d ago |
 | **Arch Global Services PH** | 2026-7957 Jr. Finance Analyst - US Tax (Nightshift) | Bonifacio Global City, Philippines | Remote | [Apply](https://jobs.smartrecruiters.com/ArchGlobalServicesPhilippinesInc/744000128202039) | 17d ago |
 | **Aprio** | Aprio PH-Accounting Associate (Outsourcing 1) | Clark, Pampanga | Hybrid | [Apply](https://jobs.lever.co/Aprio/6565391e-af1b-4dd5-89e2-409350b3efcd) | 17d ago |
 | **Aprio** | Aprio PH - Accounting Associate (Professional Services CAS) | Clark, Pampanga; Makati City, Metro Manila | Hybrid | [Apply](https://jobs.lever.co/Aprio/c6c2d730-d74e-4c30-abb4-99f5503fce45) | 17d ago |
@@ -97,7 +97,7 @@ refreshes once daily.
 | **Angkas** | Customer Experience Associate | Makati City, Philippines | — | [Apply](https://apply.workable.com/j/0FC48586ED) | 22d ago |
 | **Arch Global Services PH** | 2026-7953 Underwriting Service Associate (Junior/Night Shift) | Makati City, NCR, Philippines | Hybrid | [Apply](https://jobs.smartrecruiters.com/ArchGlobalServicesPhilippinesInc/744000127131049) | 23d ago |
 | **GoTyme Bank** | AML Transaction Monitoring Associate | Quezon City, Philippines | — | [Apply](https://apply.workable.com/j/AB3874D4F8) | 23d ago |
-| **Arch Global Services PH** | 2026-7881 Reinsurance Operations Associate-Junior (Nightshift) | Taguig, Metro Manila, Philippines | Hybrid | [Apply](https://jobs.smartrecruiters.com/ArchGlobalServicesPhilippinesInc/744000127019278) | 23d ago |
+| **Arch Global Services PH** | 2026-7881 Reinsurance Operations Associate-Junior (Nightshift) | Taguig, Metro Manila, Philippines | Hybrid | [Apply](https://jobs.smartrecruiters.com/ArchGlobalServicesPhilippinesInc/744000127019278) | 24d ago |
 | **Pilmico** | Demand and Supply Planning Associate | Makati City, NCR, Philippines | Hybrid | [Apply](https://jobs.smartrecruiters.com/PilmicoFoodsCorporation/744000126903275) | 24d ago |
 | **Pilmico** | Import Export Associate | Makati, Philippines | On-site | [Apply](https://jobs.smartrecruiters.com/PilmicoFoodsCorporation/744000126900539) | 24d ago |
 | **Twoconnect** | Junior Document Controller (Construction) - Work from Home (MIDSHIFT - UK) | Philippines | Remote | [Apply](https://apply.workable.com/j/E6FFD493DB) | 24d ago |
@@ -111,7 +111,7 @@ refreshes once daily.
 
 ---
 
-📊 **2096 active listings** from **101 companies tracked** · last updated 2026-06-11 13:22 UTC
+📊 **2093 active listings** from **101 companies tracked** · last updated 2026-06-11 18:23 UTC
 
 ➡️ Full list with filters (all roles, all levels): **[simplifytrabaho.ycells.com](https://simplifytrabaho.ycells.com)**
 

@@ -57,7 +57,7 @@ async function main(): Promise<number> {
     : emptyListingsFile(now);
   const fetchState = loadFetchState();
 
-  console.log(`simplifytrabaho refresh — ${now}`);
+  console.log(`SimplifyTrabaho refresh — ${now}`);
   console.log(
     `registry: ${registry.companies.length} companies, ${verified.length} verified\n`,
   );

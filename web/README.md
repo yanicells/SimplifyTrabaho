@@ -1,6 +1,6 @@
 # web
 
-The simplifytrabaho website — a one-page Next.js static export that reads
+The SimplifyTrabaho website — a one-page Next.js static export that reads
 `../data/listings.json` at build time. No server, no database. See
 [docs/SPEC.md §12](../docs/SPEC.md) for requirements.
 
