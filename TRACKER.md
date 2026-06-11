@@ -52,9 +52,10 @@
         raw / ~91 KB gzipped at 2,097 listings.
   - [x] One-page UI per SPEC §12: Fraunces/Instrument Sans "broadsheet" look, PH
         flag strip + sun-yellow accents, level chips (default = interns & fresh
-        grads, one tap to All roles), function/work-setup selects, location-contains + tokenized free-text search (all client-side), Show more pagination with
-        `content-visibility` rows, Apply → official URL with `target=_blank
-rel="noopener noreferrer"`, last-updated dateline, GitHub links.
+        grads, one tap to All roles), function/work-setup selects, 
+        location-contains + tokenized free-text search (all client-side), Show 
+        more pagination with `content-visibility` rows, Apply → official URL with 
+        `target=_blank rel="noopener noreferrer"`, last-updated dateline, GitHub links.
   - [x] Playwright-verified on the built static export, desktop + 390px mobile:
         default featured view (208 roles), every filter, multi-word search, empty
         state + reset, Show more (60→120 of 2,097), apply link opened the official
@@ -253,7 +254,8 @@ not a real employer. Kalibrr — job-board company, fetching prohibited by rule 
   company's listings instead of mass-deactivating them. Cost: a real company with
   temporarily zero postings also freezes — acceptable trade-off.
 - 2026-06-11 — Workable widget API: live accounts with no published widget jobs
-  return 200 + `jobs: []` (a successful empty fetch); unknown accounts get a real 404. Several PH-HQ outsourcing firms sit in this empty state — kept as verified
+  return 200 + `jobs: []` (a successful empty fetch); unknown accounts get a real 404. 
+  Several PH-HQ outsourcing firms sit in this empty state — kept as verified
   per SPEC §7.1 (PH-HQ rule) so their future postings flow in automatically.
 - 2026-06-11 — Identity rule added after the lever:maya incident: a PH-HQ
   verification with 0 PH postings requires manually confirming the board belongs to
