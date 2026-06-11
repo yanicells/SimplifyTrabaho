@@ -36,6 +36,16 @@ describe("generateReadme", () => {
     expect(md).toMatch(/<!--[\s\S]*generated[\s\S]*do not edit[\s\S]*-->/i);
   });
 
+  it("shows daily-refresh and CI status badges linking to the workflow runs", () => {
+    const md = generateReadme({ ...base, listings: [listing()] });
+    expect(md).toContain(
+      "[![Daily refresh](https://github.com/yanicells/SimplifyTrabaho/actions/workflows/refresh.yml/badge.svg)](https://github.com/yanicells/SimplifyTrabaho/actions/workflows/refresh.yml)",
+    );
+    expect(md).toContain(
+      "[![CI](https://github.com/yanicells/SimplifyTrabaho/actions/workflows/ci.yml/badge.svg)](https://github.com/yanicells/SimplifyTrabaho/actions/workflows/ci.yml)",
+    );
+  });
+
   it("renders featured internships and entry-level rows with relative dates", () => {
     const md = generateReadme({
       ...base,

@@ -89,6 +89,8 @@ export function generateReadme({
 
 # simplifytrabaho 🇵🇭
 
+[![Daily refresh](${REPO_URL}/actions/workflows/refresh.yml/badge.svg)](${REPO_URL}/actions/workflows/refresh.yml) [![CI](${REPO_URL}/actions/workflows/ci.yml/badge.svg)](${REPO_URL}/actions/workflows/ci.yml)
+
 A free, open, automatically updated list of jobs at Philippine companies — all roles,
 all levels — with **internships and entry-level roles featured**. Inspired by
 [SimplifyJobs/Summer2026-Internships](https://github.com/SimplifyJobs/Summer2026-Internships),
