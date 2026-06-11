@@ -12,10 +12,25 @@ const instrumentSans = Instrument_Sans({
   variable: "--font-instrument",
 });
 
+const SITE_URL = "https://simplifytrabaho.ycells.com";
+
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
   title: "simplifytrabaho — jobs at Philippine companies",
   description:
     "A free, open, automatically updated list of jobs at Philippine companies — internships and entry-level roles featured. Always links to official application pages.",
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    title: "simplifytrabaho — jobs at Philippine companies",
+    description:
+      "A free, open, automatically updated list of jobs at Philippine companies — internships and entry-level roles featured.",
+    url: "/",
+    siteName: "simplifytrabaho",
+    locale: "en_PH",
+    type: "website",
+  },
 };
 
 export const viewport: Viewport = {

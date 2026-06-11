@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-06-11T01:34:15.640Z",
+  "updatedAt": "2026-06-11T08:57:26.102Z",
   "listings": [
     {
       "id": "16e8a85575e0",
@@ -689,7 +689,7 @@
     {
       "id": "004f28941907",
       "company": "Angkas",
-      "title": "Accounting Specialist",
+      "title": "Treasury & Tax Accountant Specialist",
       "locations": [
         "Makati City, Philippines"
       ],
@@ -701,7 +701,7 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-06-10T00:00:00.000Z",
-      "dateUpdated": "2026-06-11T01:21:12.918Z",
+      "dateUpdated": "2026-06-11T08:57:26.102Z",
       "active": true
     },
     {
@@ -2110,8 +2110,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-05-20T01:12:48.712Z",
-      "dateUpdated": "2026-06-11T01:21:12.918Z",
-      "active": true
+      "dateUpdated": "2026-06-11T08:57:26.102Z",
+      "active": false
     },
     {
       "id": "24378252a0e3",
@@ -2465,19 +2465,19 @@
     {
       "id": "6244a56bdc4d",
       "company": "Aprio",
-      "title": "Aprio PH - Client Relationship Coordinator",
+      "title": "Aprio PH - Administrative Assistant (Client Support and Communication)",
       "locations": [
         "Makati City, Metro Manila"
       ],
       "workSetup": "hybrid",
       "level": "unknown",
-      "function": "other",
+      "function": "operations",
       "url": "https://jobs.lever.co/Aprio/c146fb83-277d-4099-91ee-63f0df077844",
       "source": "lever",
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-02-13T00:12:27.524Z",
-      "dateUpdated": "2026-06-11T01:21:12.918Z",
+      "dateUpdated": "2026-06-11T08:57:26.102Z",
       "active": true
     },
     {
@@ -2495,8 +2495,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-02-10T04:05:19.219Z",
-      "dateUpdated": "2026-06-11T01:21:12.918Z",
-      "active": true
+      "dateUpdated": "2026-06-11T08:57:26.102Z",
+      "active": false
     },
     {
       "id": "7821a9dc872e",
@@ -2605,6 +2605,60 @@
       "salary": null,
       "datePosted": "2025-09-05T07:57:25.865Z",
       "dateUpdated": "2026-06-11T01:21:12.918Z",
+      "active": true
+    },
+    {
+      "id": "13cdde3dc08c",
+      "company": "Arch Global Services PH",
+      "title": "2026-7970 QA Engineer II/III (Night Shift)",
+      "locations": [
+        "Bonifacio Global City, Philippines"
+      ],
+      "workSetup": "remote",
+      "level": "mid",
+      "function": "engineering",
+      "url": "https://jobs.smartrecruiters.com/ArchGlobalServicesPhilippinesInc/744000131615527",
+      "source": "smartrecruiters",
+      "employmentType": "full-time",
+      "salary": null,
+      "datePosted": "2026-06-11T08:53:33.630Z",
+      "dateUpdated": "2026-06-11T08:57:26.102Z",
+      "active": true
+    },
+    {
+      "id": "aa87b2c65ce0",
+      "company": "Arch Global Services PH",
+      "title": "2026-7976 Reinsurance Accountant - Junior (Midshift) ",
+      "locations": [
+        "Bonifacio Global City, Philippines"
+      ],
+      "workSetup": "remote",
+      "level": "entry",
+      "function": "finance",
+      "url": "https://jobs.smartrecruiters.com/ArchGlobalServicesPhilippinesInc/744000131616259",
+      "source": "smartrecruiters",
+      "employmentType": "full-time",
+      "salary": null,
+      "datePosted": "2026-06-11T08:36:00.182Z",
+      "dateUpdated": "2026-06-11T08:57:26.102Z",
+      "active": true
+    },
+    {
+      "id": "412a605d2799",
+      "company": "Arch Global Services PH",
+      "title": "2026-7974 Data Analyst - Senior (Night Shift)",
+      "locations": [
+        "Bonifacio Global City, Philippines"
+      ],
+      "workSetup": "remote",
+      "level": "senior",
+      "function": "data",
+      "url": "https://jobs.smartrecruiters.com/ArchGlobalServicesPhilippinesInc/744000131613290",
+      "source": "smartrecruiters",
+      "employmentType": "full-time",
+      "salary": null,
+      "datePosted": "2026-06-11T08:22:45.823Z",
+      "dateUpdated": "2026-06-11T08:57:26.102Z",
       "active": true
     },
     {
@@ -4861,6 +4915,24 @@
       "salary": null,
       "datePosted": "2026-02-27T06:22:38.639Z",
       "dateUpdated": "2026-06-11T01:21:12.918Z",
+      "active": true
+    },
+    {
+      "id": "3eefd6703dbb",
+      "company": "CI&T",
+      "title": "[Job- 29791] Middle Data Developer",
+      "locations": [
+        "Quezon City, Metro Manila"
+      ],
+      "workSetup": "hybrid",
+      "level": "unknown",
+      "function": "engineering",
+      "url": "https://jobs.lever.co/ciandt/c8f65625-5b7f-4fbb-ba42-0229d3e658bb",
+      "source": "lever",
+      "employmentType": "full-time",
+      "salary": null,
+      "datePosted": "2026-06-11T06:13:24.781Z",
+      "dateUpdated": "2026-06-11T08:57:26.102Z",
       "active": true
     },
     {
@@ -10817,8 +10889,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-04-28T12:48:05.577Z",
-      "dateUpdated": "2026-06-11T01:21:12.918Z",
-      "active": true
+      "dateUpdated": "2026-06-11T08:57:26.102Z",
+      "active": false
     },
     {
       "id": "dc757591ba30",
@@ -11739,6 +11811,24 @@
       "active": true
     },
     {
+      "id": "3abcef56d233",
+      "company": "Fresh Prints",
+      "title": "Digital Artist (Contract)",
+      "locations": [
+        "The Philippines (Remote)"
+      ],
+      "workSetup": "remote",
+      "level": "unknown",
+      "function": "other",
+      "url": "https://job-boards.greenhouse.io/freshprints/jobs/6019489004",
+      "source": "greenhouse",
+      "employmentType": "unknown",
+      "salary": null,
+      "datePosted": "2026-06-11T07:21:36.000Z",
+      "dateUpdated": "2026-06-11T08:57:26.102Z",
+      "active": true
+    },
+    {
       "id": "9b113470e2f8",
       "company": "Fresh Prints",
       "title": "Accounting Manager",
@@ -11951,8 +12041,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-05-13T16:45:53.000Z",
-      "dateUpdated": "2026-06-11T01:21:12.918Z",
-      "active": true
+      "dateUpdated": "2026-06-11T08:57:26.102Z",
+      "active": false
     },
     {
       "id": "2daa410914f3",
@@ -11987,8 +12077,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-04-07T07:53:00.000Z",
-      "dateUpdated": "2026-06-11T01:21:12.918Z",
-      "active": true
+      "dateUpdated": "2026-06-11T08:57:26.102Z",
+      "active": false
     },
     {
       "id": "1a19b8792239",
@@ -13338,8 +13428,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-06-05T03:23:44.000Z",
-      "dateUpdated": "2026-06-11T01:21:12.918Z",
-      "active": true
+      "dateUpdated": "2026-06-11T08:57:26.102Z",
+      "active": false
     },
     {
       "id": "7230e3a69e29",
@@ -13770,8 +13860,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2025-12-26T05:03:06.000Z",
-      "dateUpdated": "2026-06-11T01:21:12.918Z",
-      "active": true
+      "dateUpdated": "2026-06-11T08:57:26.102Z",
+      "active": false
     },
     {
       "id": "9682bd029df8",
@@ -16300,7 +16390,7 @@
     {
       "id": "fe47ee5cf90e",
       "company": "Human Intelligence",
-      "title": "Growth Marketing Specialist (Funnels & AI Automation)",
+      "title": "eMarketing Funnel & Conversion Specialist + Ai & Automations Skills",
       "locations": [
         "Lviv, Ukraine",
         "Iași, Romania",
@@ -16317,7 +16407,7 @@
       "employmentType": "contract",
       "salary": null,
       "datePosted": "2026-03-04T00:00:00.000Z",
-      "dateUpdated": "2026-06-11T01:21:12.918Z",
+      "dateUpdated": "2026-06-11T08:57:26.102Z",
       "active": true
     },
     {
@@ -16766,6 +16856,60 @@
       "salary": null,
       "datePosted": "2025-11-18T00:00:00.000Z",
       "dateUpdated": "2026-06-11T01:21:12.918Z",
+      "active": true
+    },
+    {
+      "id": "1316168dcf44",
+      "company": "Hunt St",
+      "title": "Executive Assistant (025-979)",
+      "locations": [
+        "Philippines"
+      ],
+      "workSetup": "remote",
+      "level": "unknown",
+      "function": "other",
+      "url": "https://apply.workable.com/j/30DBC9D58C",
+      "source": "workable",
+      "employmentType": "full-time",
+      "salary": null,
+      "datePosted": "2026-06-11T00:00:00.000Z",
+      "dateUpdated": "2026-06-11T08:57:26.102Z",
+      "active": true
+    },
+    {
+      "id": "6eb3610a7a2e",
+      "company": "Hunt St",
+      "title": "E-Commerce/Website Coordinator - (011 - 974)",
+      "locations": [
+        "Philippines"
+      ],
+      "workSetup": "remote",
+      "level": "unknown",
+      "function": "other",
+      "url": "https://apply.workable.com/j/95F5F794EA",
+      "source": "workable",
+      "employmentType": "unknown",
+      "salary": null,
+      "datePosted": "2026-06-11T00:00:00.000Z",
+      "dateUpdated": "2026-06-11T08:57:26.102Z",
+      "active": true
+    },
+    {
+      "id": "843f8d4c8705",
+      "company": "Hunt St",
+      "title": "AI Augmented Developer (003 - 00966)",
+      "locations": [
+        "Philippines"
+      ],
+      "workSetup": "remote",
+      "level": "unknown",
+      "function": "engineering",
+      "url": "https://apply.workable.com/j/53439A7BDA",
+      "source": "workable",
+      "employmentType": "contract",
+      "salary": null,
+      "datePosted": "2026-06-11T00:00:00.000Z",
+      "dateUpdated": "2026-06-11T08:57:26.102Z",
       "active": true
     },
     {
@@ -18079,8 +18223,8 @@
       "employmentType": "contract",
       "salary": null,
       "datePosted": "2026-05-22T00:00:00.000Z",
-      "dateUpdated": "2026-06-11T01:21:12.918Z",
-      "active": true
+      "dateUpdated": "2026-06-11T08:57:26.102Z",
+      "active": false
     },
     {
       "id": "ee7017d0d9a8",
@@ -18223,8 +18367,8 @@
       "employmentType": "contract",
       "salary": null,
       "datePosted": "2026-05-20T00:00:00.000Z",
-      "dateUpdated": "2026-06-11T01:21:12.918Z",
-      "active": true
+      "dateUpdated": "2026-06-11T08:57:26.102Z",
+      "active": false
     },
     {
       "id": "b1d62e2d3c1a",
@@ -18565,8 +18709,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-05-13T00:00:00.000Z",
-      "dateUpdated": "2026-06-11T01:21:12.918Z",
-      "active": true
+      "dateUpdated": "2026-06-11T08:57:26.102Z",
+      "active": false
     },
     {
       "id": "00042b3fe5ac",
@@ -19105,8 +19249,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-04-21T00:00:00.000Z",
-      "dateUpdated": "2026-06-11T01:21:12.918Z",
-      "active": true
+      "dateUpdated": "2026-06-11T08:57:26.102Z",
+      "active": false
     },
     {
       "id": "66d866dbf714",
@@ -22889,6 +23033,24 @@
       "active": true
     },
     {
+      "id": "9101ecf358b1",
+      "company": "Lightspeed Commerce",
+      "title": "Junior Implementation Consultant (Permanent Work from home) ",
+      "locations": [
+        "Manila"
+      ],
+      "workSetup": "remote",
+      "level": "entry",
+      "function": "other",
+      "url": "https://jobs.ashbyhq.com/lightspeedhq/bda23566-31f9-40a6-8bc2-0ba97ef982b5",
+      "source": "ashby",
+      "employmentType": "full-time",
+      "salary": null,
+      "datePosted": "2026-06-11T03:19:58.098Z",
+      "dateUpdated": "2026-06-11T08:57:26.102Z",
+      "active": true
+    },
+    {
       "id": "e523d184de99",
       "company": "Lightspeed Commerce",
       "title": "Sales Coordinator (Data Analytics)",
@@ -22922,6 +23084,78 @@
       "salary": null,
       "datePosted": "2026-05-22T01:10:46.960Z",
       "dateUpdated": "2026-06-11T01:21:12.918Z",
+      "active": true
+    },
+    {
+      "id": "1d08d09046da",
+      "company": "Manila Recruitment",
+      "title": "Office Administrator - Onsite - #35133",
+      "locations": [
+        "Malate, Philippines"
+      ],
+      "workSetup": "unknown",
+      "level": "unknown",
+      "function": "other",
+      "url": "https://apply.workable.com/j/BD43E23553",
+      "source": "workable",
+      "employmentType": "full-time",
+      "salary": null,
+      "datePosted": "2026-06-11T00:00:00.000Z",
+      "dateUpdated": "2026-06-11T08:57:26.102Z",
+      "active": true
+    },
+    {
+      "id": "3ee9007cd18b",
+      "company": "Manila Recruitment",
+      "title": "Managerial Roles in Animal Health: Sales, Key Accounts, Finance, Tech. Services",
+      "locations": [
+        "Muntinlupa, Philippines"
+      ],
+      "workSetup": "unknown",
+      "level": "unknown",
+      "function": "sales",
+      "url": "https://apply.workable.com/j/31E6A403C2",
+      "source": "workable",
+      "employmentType": "unknown",
+      "salary": null,
+      "datePosted": "2026-06-11T00:00:00.000Z",
+      "dateUpdated": "2026-06-11T08:57:26.102Z",
+      "active": true
+    },
+    {
+      "id": "8de0bbcfa964",
+      "company": "Manila Recruitment",
+      "title": "WFH Product Manager (Web & Mobile) - #35106",
+      "locations": [
+        "Philippines"
+      ],
+      "workSetup": "remote",
+      "level": "senior",
+      "function": "product",
+      "url": "https://apply.workable.com/j/E83054FEAF",
+      "source": "workable",
+      "employmentType": "full-time",
+      "salary": null,
+      "datePosted": "2026-06-11T00:00:00.000Z",
+      "dateUpdated": "2026-06-11T08:57:26.102Z",
+      "active": true
+    },
+    {
+      "id": "f3c6e7c84b81",
+      "company": "Manila Recruitment",
+      "title": "WFH PR Specialist - #35122",
+      "locations": [
+        "Philippines"
+      ],
+      "workSetup": "remote",
+      "level": "unknown",
+      "function": "other",
+      "url": "https://apply.workable.com/j/11241AAD8E",
+      "source": "workable",
+      "employmentType": "full-time",
+      "salary": null,
+      "datePosted": "2026-06-11T00:00:00.000Z",
+      "dateUpdated": "2026-06-11T08:57:26.102Z",
       "active": true
     },
     {
@@ -23857,8 +24091,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-04-24T00:00:00.000Z",
-      "dateUpdated": "2026-06-11T01:21:12.918Z",
-      "active": true
+      "dateUpdated": "2026-06-11T08:57:26.102Z",
+      "active": false
     },
     {
       "id": "bcb6da767262",
@@ -25571,6 +25805,24 @@
       "active": true
     },
     {
+      "id": "89f0cc19b363",
+      "company": "Ninja Van",
+      "title": "Commercial Analyst",
+      "locations": [
+        "Taguig, Philippines"
+      ],
+      "workSetup": "hybrid",
+      "level": "unknown",
+      "function": "other",
+      "url": "https://jobs.lever.co/ninjavan/fb6e0d10-7bb1-4805-bf5a-a4658632c221",
+      "source": "lever",
+      "employmentType": "full-time",
+      "salary": null,
+      "datePosted": "2026-06-11T01:53:48.959Z",
+      "dateUpdated": "2026-06-11T08:57:26.102Z",
+      "active": true
+    },
+    {
       "id": "087641f39db4",
       "company": "Ninja Van",
       "title": "Senior Finance Manager",
@@ -25603,8 +25855,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-05-04T10:19:44.877Z",
-      "dateUpdated": "2026-06-11T01:21:12.918Z",
-      "active": true
+      "dateUpdated": "2026-06-11T08:57:26.102Z",
+      "active": false
     },
     {
       "id": "c7305741ea09",
@@ -25859,6 +26111,24 @@
       "active": true
     },
     {
+      "id": "315a32a80d51",
+      "company": "Pilmico",
+      "title": "Sales Optimization Supervisor",
+      "locations": [
+        "Cebu City, Central Visayas, Philippines"
+      ],
+      "workSetup": "hybrid",
+      "level": "unknown",
+      "function": "sales",
+      "url": "https://jobs.smartrecruiters.com/PilmicoFoodsCorporation/744000131580809",
+      "source": "smartrecruiters",
+      "employmentType": "full-time",
+      "salary": null,
+      "datePosted": "2026-06-11T02:26:48.368Z",
+      "dateUpdated": "2026-06-11T08:57:26.102Z",
+      "active": true
+    },
+    {
       "id": "9554e1f99b67",
       "company": "Pilmico",
       "title": "Data Management Specialist (Stay In Set Up)",
@@ -26017,8 +26287,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-06-08T01:32:10.887Z",
-      "dateUpdated": "2026-06-11T01:21:12.918Z",
-      "active": true
+      "dateUpdated": "2026-06-11T08:57:26.102Z",
+      "active": false
     },
     {
       "id": "f55021170ed4",
@@ -27893,6 +28163,42 @@
       "active": true
     },
     {
+      "id": "f4206c9018f4",
+      "company": "SGS",
+      "title": "Sales and Business Development Manager",
+      "locations": [
+        "Makati, NCR, Philippines"
+      ],
+      "workSetup": "onsite",
+      "level": "senior",
+      "function": "sales",
+      "url": "https://jobs.smartrecruiters.com/SGS/744000131603510",
+      "source": "smartrecruiters",
+      "employmentType": "full-time",
+      "salary": null,
+      "datePosted": "2026-06-11T07:31:54.555Z",
+      "dateUpdated": "2026-06-11T08:57:26.102Z",
+      "active": true
+    },
+    {
+      "id": "41c7adb848f4",
+      "company": "SGS",
+      "title": "Customer Services Jr. ",
+      "locations": [
+        "Muntinlupa City, Metro Manila, Philippines"
+      ],
+      "workSetup": "onsite",
+      "level": "entry",
+      "function": "other",
+      "url": "https://jobs.smartrecruiters.com/SGS/744000131589100",
+      "source": "smartrecruiters",
+      "employmentType": "full-time",
+      "salary": null,
+      "datePosted": "2026-06-11T05:20:11.680Z",
+      "dateUpdated": "2026-06-11T08:57:26.102Z",
+      "active": true
+    },
+    {
       "id": "d8ecf3d2660d",
       "company": "SGS",
       "title": "SGS GBS OPEN HOUSE | June 2026",
@@ -28321,8 +28627,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-06-01T02:13:42.426Z",
-      "dateUpdated": "2026-06-11T01:21:12.918Z",
-      "active": true
+      "dateUpdated": "2026-06-11T08:57:26.102Z",
+      "active": false
     },
     {
       "id": "b8c0568eb1d9",
@@ -28735,8 +29041,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-05-15T06:47:21.402Z",
-      "dateUpdated": "2026-06-11T01:21:12.918Z",
-      "active": true
+      "dateUpdated": "2026-06-11T08:57:26.102Z",
+      "active": false
     },
     {
       "id": "73f9140c64f7",
@@ -32924,6 +33230,24 @@
       "active": true
     },
     {
+      "id": "5e1c6d22832b",
+      "company": "Twoconnect",
+      "title": "Executive Assistant (Towing & Roadside Operations) - Work from Home / Dayshift",
+      "locations": [
+        "Philippines"
+      ],
+      "workSetup": "remote",
+      "level": "unknown",
+      "function": "operations",
+      "url": "https://apply.workable.com/j/D82F714A90",
+      "source": "workable",
+      "employmentType": "full-time",
+      "salary": null,
+      "datePosted": "2026-06-11T00:00:00.000Z",
+      "dateUpdated": "2026-06-11T08:57:26.102Z",
+      "active": true
+    },
+    {
       "id": "77dd31be5b71",
       "company": "Twoconnect",
       "title": "Dispatch Coordinator - Work From Home",
@@ -32980,7 +33304,7 @@
     {
       "id": "cc4f38fa3b82",
       "company": "Twoconnect",
-      "title": "Content Writer - Dayshift / Pure Onsite Work Setup",
+      "title": "Content Writer - Dayshift / Onsite (Ortigas)",
       "locations": [
         "Quezon City, Philippines"
       ],
@@ -32992,7 +33316,7 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-06-10T00:00:00.000Z",
-      "dateUpdated": "2026-06-11T01:21:12.918Z",
+      "dateUpdated": "2026-06-11T08:57:26.102Z",
       "active": true
     },
     {
@@ -34198,8 +34522,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-06-04T10:59:01.420Z",
-      "dateUpdated": "2026-06-11T01:21:12.918Z",
-      "active": true
+      "dateUpdated": "2026-06-11T08:57:26.102Z",
+      "active": false
     },
     {
       "id": "51d61a0cff79",
@@ -34991,8 +35315,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-04-20T11:16:05.004Z",
-      "dateUpdated": "2026-06-11T01:21:12.918Z",
-      "active": true
+      "dateUpdated": "2026-06-11T08:57:26.102Z",
+      "active": false
     },
     {
       "id": "cd5c3c864c20",
@@ -35081,8 +35405,8 @@
       "employmentType": "full-time",
       "salary": "12500–12500 PHP bi month",
       "datePosted": "2026-04-08T12:31:49.913Z",
-      "dateUpdated": "2026-06-11T01:21:12.918Z",
-      "active": true
+      "dateUpdated": "2026-06-11T08:57:26.102Z",
+      "active": false
     },
     {
       "id": "9735387f5792",
@@ -36379,8 +36703,8 @@
       "employmentType": "full-time",
       "salary": "60000–65000 PHP per month",
       "datePosted": "2026-01-08T07:44:09.516Z",
-      "dateUpdated": "2026-06-11T01:21:12.918Z",
-      "active": true
+      "dateUpdated": "2026-06-11T08:57:26.102Z",
+      "active": false
     },
     {
       "id": "7ad72ed9ea04",
@@ -37099,8 +37423,8 @@
       "employmentType": "full-time",
       "salary": "75000–80000 PHP per month",
       "datePosted": "2024-12-18T11:35:25.623Z",
-      "dateUpdated": "2026-06-11T01:21:12.918Z",
-      "active": true
+      "dateUpdated": "2026-06-11T08:57:26.102Z",
+      "active": false
     },
     {
       "id": "dda3bf3c3239",
@@ -38193,20 +38517,20 @@
     {
       "id": "3c60fd7c11ed",
       "company": "Xendit",
-      "title": "Customer Success Generalist (Daylight)",
+      "title": "Customer Experience Generalist (Daylight)",
       "locations": [
         "Jakarta, Indonesia",
         "Manila, Philippines"
       ],
       "workSetup": "unknown",
       "level": "unknown",
-      "function": "customer-support",
+      "function": "other",
       "url": "https://www.xendit.co/en/careers/job-application/?gh_jid=7698002003",
       "source": "greenhouse",
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-04-13T10:35:42.000Z",
-      "dateUpdated": "2026-06-11T01:21:12.918Z",
+      "dateUpdated": "2026-06-11T08:57:26.102Z",
       "active": true
     },
     {

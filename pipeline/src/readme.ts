@@ -4,7 +4,7 @@ import type { Listing } from "./types.js";
 // comment warns hand-editors, and the pipeline overwrites it on every run.
 
 const REPO_URL = "https://github.com/yanicells/SimplifyTrabaho";
-const WEBSITE_URL = "https://simplifytrabaho.vercel.app";
+const WEBSITE_URL = "https://simplifytrabaho.ycells.com";
 
 const FEATURED_WINDOW_DAYS = 30;
 const FEATURED_CAP = 200;

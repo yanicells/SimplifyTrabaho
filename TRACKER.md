@@ -54,16 +54,32 @@
         flag strip + sun-yellow accents, level chips (default = interns & fresh
         grads, one tap to All roles), function/work-setup selects, location-contains + tokenized free-text search (all client-side), Show more pagination with
         `content-visibility` rows, Apply → official URL with `target=_blank
-    rel="noopener noreferrer"`, last-updated dateline, GitHub links.
+rel="noopener noreferrer"`, last-updated dateline, GitHub links.
   - [x] Playwright-verified on the built static export, desktop + 390px mobile:
         default featured view (208 roles), every filter, multi-word search, empty
         state + reset, Show more (60→120 of 2,097), apply link opened the official
         SmartRecruiters posting in a new tab; no console errors; no horizontal
         overflow on mobile.
 
+- [x] 2026-06-11 — **Phase 5 (repo side) — automation files built and verified**:
+  - [x] `.github/workflows/refresh.yml` per SPEC §13: daily cron `0 22 * * *` UTC
+        (6 AM PHT) + `workflow_dispatch`, `permissions: contents: write`,
+        pnpm/action-setup + Node 22 + `--frozen-lockfile`, `pnpm refresh`,
+        commit-as-github-actions-bot only when `data/listings.json`/`README.md`
+        changed (`data/` staged so `fetch-state.json` rides along), 30-min timeout,
+        concurrency guard, no error suppression (any failed step = red X).
+        YAML parse-validated with js-yaml.
+  - [x] Website URL switched to <https://simplifytrabaho.ycells.com> everywhere:
+        `pipeline/src/readme.ts` (README regenerated via `pnpm refresh`),
+        `web/app/layout.tsx` (`metadataBase` + canonical + OpenGraph, verified
+        present in the static export HTML), SPEC §13 Vercel section.
+  - [x] Verified end-to-end: `pnpm refresh` 101/101 fetched 0 failed (2,115
+        listings, 2,094 active) · 112 tests green · `pnpm --filter web build` green.
+
 ## 🔨 In progress
 
-(nothing — Phases 0–4 done; next session starts Phase 5, automation)
+(Phase 5 repo side done — remaining Phase 5 items below need the maintainer's
+GitHub/Vercel dashboards and a pushed workflow; see open checkboxes.)
 
 Registry growth is continuous (SPEC §7.1): web-search the six ATS-hosted domains for
 PH city strings → add slugs to `pipeline/candidates.json` → `pnpm --filter pipeline
@@ -74,9 +90,15 @@ verify-registry`. Also recheck the live-but-0-PH boards listed below — several
 
 ### Phase 5 — Automation
 
-- [ ] GitHub Actions `refresh.yml` (daily cron 22:00 UTC, workflow_dispatch, pnpm,
-      commit-if-changed, contents: write)
-- [ ] Vercel project hookup (root `web/`)
+- [x] GitHub Actions `refresh.yml` (daily cron 22:00 UTC, workflow_dispatch, pnpm,
+      commit-if-changed, contents: write) — see Done
+- [x] Vercel project hookup (root `web/`) — maintainer deployed; custom domain
+      <https://simplifytrabaho.ycells.com> live with DNS (2026-06-11)
+- [ ] First live Actions run verified green (push, then trigger "Refresh listings"
+      via Run workflow; confirm bot commit lands and the red-X-on-failure behavior)
+- [ ] Verify a bot data commit (changes outside `web/`) still triggers a Vercel
+      production deploy — check the project's Root Directory / Ignored Build Step
+      settings don't skip it
 - [ ] Verify manual laptop flow (SPEC §13) once end-to-end
 
 ### Phase 6 — Polish & launch
@@ -257,3 +279,13 @@ not a real employer. Kalibrr — job-board company, fetching prohibited by rule 
 - 2026-06-11 — Relative "Xd ago" stamps are computed against the dataset's
   `updatedAt`, not `Date.now()`, so the static export renders identically on server
   and client (no hydration mismatch) and never goes stale mid-day.
+- 2026-06-11 — Production URL is <https://simplifytrabaho.ycells.com> (custom domain
+  on the maintainer's Vercel project); the vercel.app URL is retired. Single source
+  in `pipeline/src/readme.ts` (`WEBSITE_URL`) for the README; `web/app/layout.tsx`
+  (`SITE_URL`) for canonical/OG metadata.
+- 2026-06-11 — `refresh.yml` commit guard checks `data/listings.json`/`README.md`
+  per SPEC §13, but every successful run rewrites `updatedAt` in both, so a green
+  run always commits. Intentional: the daily commit keeps the site dateline fresh,
+  triggers the daily Vercel redeploy, and carries `data/fetch-state.json` along so
+  dead-slug streak counts (3-strikes rule, SPEC §10.5) persist across CI runs.
+  Don't "optimize" the timestamp away without rethinking all three.

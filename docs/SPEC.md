@@ -376,6 +376,7 @@ Requirements:
 
 - Import the GitHub repo; root directory `web/`; framework Next.js; pnpm detected via
   lockfile. Every push (Actions bot or human) triggers a deploy.
+- Production URL: <https://simplifytrabaho.ycells.com> (custom domain on Vercel).
 - Backup documented option: static export to GitHub Pages via a second workflow.
 
 ### Manual update from the maintainer's laptop (explicit requirement)
