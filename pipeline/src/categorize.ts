@@ -13,8 +13,13 @@ const ENTRY =
   /\b(?:junior|jr\.?|entry|entry-level|fresh grad|new grad|graduate|trainee|cadet)\b/i;
 const ASSOCIATE = /\bassociate\b/i;
 const SENIOR_ASSOCIATE = /\b(?:senior|sr\.?)\s+associate\b/i;
-const SENIOR = /\b(?:senior|sr\.?|lead|principal|staff|head of|manager|director|vp|chief)\b/i;
+const SENIOR =
+  /\b(?:senior|sr\.?|lead|leader|principal|staff|head of|manager|director|vp|chief|supervisor)\b/i;
 const MID = /\b(?:mid-level|mid level|intermediate|ii|iii)\b/i;
+// PH BPO frontline reps are entry-level by market convention. Checked AFTER the
+// senior/mid markers so "Senior CSR" stays senior and "CSR II" stays mid.
+const FRONTLINE_ENTRY =
+  /\b(?:csr|tsr|(?:customer (?:service|support)|technical support) representative|sales development representative|sdr)\b/i;
 
 export function categorizeLevel(title: string): Level {
   if (INTERNSHIP.test(title)) return "internship";
@@ -22,27 +27,43 @@ export function categorizeLevel(title: string): Level {
   if (ASSOCIATE.test(title) && !SENIOR_ASSOCIATE.test(title)) return "entry";
   if (SENIOR.test(title)) return "senior";
   if (MID.test(title)) return "mid";
+  if (FRONTLINE_ENTRY.test(title)) return "entry";
   return "unknown";
 }
 
 /** Checked in SPEC §9 table order — first match wins (so "Data Engineer" → engineering). */
 const FUNCTION_RULES: ReadonlyArray<readonly [JobFunction, RegExp]> = [
-  ["engineering", /\b(?:engineer|engineering|developer|devops|qa|sre|software)\b/i],
+  [
+    "engineering",
+    /\b(?:engineer|engineering|developer|devops|qa|sre|software|systems? administrator|network administrator|database administrator|sysadmin)\b/i,
+  ],
   ["data", /\b(?:data|analytics|machine learning|ai|business intelligence)\b/i],
-  ["design", /\b(?:designer|design|ux|ui)\b/i],
+  ["design", /\b(?:designer|design|ux|ui|video editor|multimedia)\b/i],
   ["product", /\b(?:product manager|product owner|product management)\b/i],
-  ["marketing", /\b(?:marketing|seo|content|social media|brand)\b/i],
-  ["sales", /\b(?:sales|account executive|business development)\b/i],
+  [
+    "marketing",
+    /\b(?:marketing|seo|content|social media|brand|paid ads|ppc|media buy(?:er|ing)|copywrit(?:er|ing)|crm)\b/i,
+  ],
+  [
+    "sales",
+    /\b(?:sales|account executive|business development|account manage(?:r|ment))\b/i,
+  ],
   [
     "finance",
-    /\b(?:accountant|accounting|finance|financial|treasury|audit|auditor|payroll|tax)\b/i,
+    /\b(?:accountant|accounting|finance|financial|treasury|audit|auditor|payroll|tax|bookkeep(?:er|ing)|accounts (?:payable|receivable)|billing|record to report|procure to pay|requisition to pay|fixed asset|estimator)\b/i,
   ],
-  ["hr", /\b(?:recruiter|recruitment|hr|people|talent|human resources|employee relations)\b/i],
+  [
+    "hr",
+    /\b(?:recruiter|recruitment|hr|people|talent|human resources|employee relations|trainer|training|learning (?:&|and) development)\b/i,
+  ],
   [
     "operations",
-    /\b(?:operations|supply chain|logistics|admin|administrative|procurement)\b/i,
+    /\b(?:operations|supply chain|logistics|admin|administrative|procurement|(?:virtual|executive|personal|office) assistant|workforce|warehouse|purchasing|dispatcher|dispatch)\b/i,
   ],
-  ["customer-support", /\b(?:support|customer success|csr|customer service|call center)\b/i],
+  [
+    "customer-support",
+    /\b(?:support|customer success|csr|tsr|customer service|customer experience|customer care|client success|call center)\b/i,
+  ],
   ["legal", /\b(?:legal|compliance|counsel|paralegal)\b/i],
 ];
 

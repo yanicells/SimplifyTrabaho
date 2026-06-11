@@ -49,6 +49,30 @@ describe("categorizeLevel", () => {
     expect(categorizeLevel("Customer Service Officer")).toBe("unknown");
   });
 
+  it("treats supervisors and team leaders as senior (PH BPO convention)", () => {
+    expect(categorizeLevel("Accounts Payable Supervisor")).toBe("senior");
+    expect(categorizeLevel("Swine Farm Supervisor (Stay-In Set Up)")).toBe("senior");
+    expect(categorizeLevel("Team Leader")).toBe("senior");
+    expect(categorizeLevel("Customer Service Team Leader")).toBe("senior");
+  });
+
+  it("does not treat 'Leadership' program titles as senior", () => {
+    expect(categorizeLevel("Leadership Development Program")).toBe("unknown");
+  });
+
+  it("treats BPO frontline rep titles as entry (CSR/TSR/SDR)", () => {
+    expect(categorizeLevel("Customer Service Representative")).toBe("entry");
+    expect(categorizeLevel("CSR (Voice)")).toBe("entry");
+    expect(categorizeLevel("Technical Support Representative")).toBe("entry");
+    expect(categorizeLevel("Customer Support Representative")).toBe("entry");
+    expect(categorizeLevel("Sales Development Representative (SDR)")).toBe("entry");
+  });
+
+  it("ranks explicit seniority above frontline rep markers", () => {
+    expect(categorizeLevel("Senior Customer Service Representative")).toBe("senior");
+    expect(categorizeLevel("Customer Service Representative II")).toBe("mid");
+  });
+
   it("detects mid level only from explicit markers", () => {
     expect(categorizeLevel("Mid-Level Designer")).toBe("mid");
     expect(categorizeLevel("Intermediate Developer")).toBe("mid");
@@ -84,9 +108,62 @@ describe("categorizeFunction", () => {
     expect(categorizeFunction("Compliance Manager")).toBe("legal");
   });
 
+  it("maps PH back-office finance vocabulary to finance", () => {
+    expect(categorizeFunction("Bookkeeper")).toBe("finance");
+    expect(categorizeFunction("Accounts Payable Specialist")).toBe("finance");
+    expect(categorizeFunction("Accounts Receivable Analyst")).toBe("finance");
+    expect(categorizeFunction("Billing Specialist")).toBe("finance");
+    expect(categorizeFunction("Record To Report Specialist")).toBe("finance");
+    expect(categorizeFunction("Procure to Pay Supervisor (AP/Payments)")).toBe("finance");
+    expect(categorizeFunction("(FA) Fixed Asset Specialist")).toBe("finance");
+    expect(categorizeFunction("Estimator")).toBe("finance");
+  });
+
+  it("maps VA/admin and back-office ops vocabulary to operations", () => {
+    expect(categorizeFunction("Virtual Assistant")).toBe("operations");
+    expect(categorizeFunction("Real Estate Virtual Assistant")).toBe("operations");
+    expect(categorizeFunction("Executive Assistant")).toBe("operations");
+    expect(categorizeFunction("Warehouse Associate")).toBe("operations");
+    expect(categorizeFunction("Workforce Analyst")).toBe("operations");
+    expect(categorizeFunction("Purchasing Coordinator")).toBe("operations");
+    expect(categorizeFunction("Dispatcher")).toBe("operations");
+  });
+
+  it("maps account management to sales", () => {
+    expect(categorizeFunction("Account Manager")).toBe("sales");
+    expect(categorizeFunction("Technical Account Manager")).toBe("sales");
+  });
+
+  it("maps CX vocabulary to customer-support", () => {
+    expect(categorizeFunction("Customer Experience Associate")).toBe("customer-support");
+    expect(categorizeFunction("Client Success Manager")).toBe("customer-support");
+    expect(categorizeFunction("TSR - Day Shift")).toBe("customer-support");
+  });
+
+  it("maps IT administration to engineering", () => {
+    expect(categorizeFunction("L3 Systems Administrator")).toBe("engineering");
+    expect(categorizeFunction("Network Administrator")).toBe("engineering");
+  });
+
+  it("maps creative production and ads vocabulary", () => {
+    expect(categorizeFunction("Video Editor")).toBe("design");
+    expect(categorizeFunction("Paid Ads Specialist")).toBe("marketing");
+    expect(categorizeFunction("Copywriter")).toBe("marketing");
+    expect(categorizeFunction("Junior CRM Specialist")).toBe("marketing");
+  });
+
+  it("maps training/L&D to hr, after earlier rows", () => {
+    expect(categorizeFunction("Safety Trainer")).toBe("hr");
+    expect(categorizeFunction("Training Associate")).toBe("hr");
+    expect(categorizeFunction("Sales Trainer")).toBe("sales");
+  });
+
   it("falls back to other instead of guessing", () => {
     expect(categorizeFunction("Area Manager (Cagayan De Oro)")).toBe("other");
     expect(categorizeFunction("Barista")).toBe("other");
+    // Deliberately unmapped: no project-management bucket in the enum.
+    expect(categorizeFunction("Project Manager")).toBe("other");
+    expect(categorizeFunction("GBS Specialist")).toBe("other");
   });
 
   it("checks the table in SPEC §9 order — engineering before data", () => {
