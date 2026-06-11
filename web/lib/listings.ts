@@ -4,6 +4,7 @@
 
 import { readFileSync } from "node:fs";
 import path from "node:path";
+import { isPhilippineLocation } from "../../pipeline/src/filter";
 import type {
   JobFunction,
   Level,
@@ -159,7 +160,10 @@ export function toJobs(file: ListingsFile): JobsPayload {
       const job: Job = {
         company: l.company,
         title: l.title,
-        locations: l.locations,
+        // PH locations first so they never hide behind the UI's "+N" truncation.
+        locations: [...l.locations].sort(
+          (a, b) => Number(isPhilippineLocation(b)) - Number(isPhilippineLocation(a)),
+        ),
         workSetup: l.workSetup,
         level: l.level,
         function: l.function,

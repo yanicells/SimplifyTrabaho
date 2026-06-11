@@ -171,6 +171,21 @@ describe("toJobs", () => {
     ]);
   });
 
+  it("orders Philippine locations first for multi-country roles", () => {
+    const parsed = parseListingsFile(
+      file([
+        listing({
+          locations: ["Cape Town, South Africa", "Cairo, Egypt", "Davao City, Philippines"],
+        }),
+      ]),
+    );
+    expect(toJobs(parsed).jobs[0].locations).toEqual([
+      "Davao City, Philippines",
+      "Cape Town, South Africa",
+      "Cairo, Egypt",
+    ]);
+  });
+
   it("passes updatedAt through", () => {
     const parsed = parseListingsFile(file([listing()]));
     expect(toJobs(parsed).updatedAt).toBe("2026-06-11T01:34:15.640Z");

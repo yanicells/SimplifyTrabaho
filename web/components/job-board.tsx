@@ -74,7 +74,9 @@ export function JobBoard({ jobs, updatedAt }: { jobs: Job[]; updatedAt: string }
   );
 
   const filtered = useMemo(() => {
-    const q = deferredQuery.trim().toLowerCase();
+    // Every word must match somewhere in company+title, so "software intern"
+    // finds "Software Engineering Intern".
+    const terms = deferredQuery.trim().toLowerCase().split(/\s+/).filter(Boolean);
     const loc = deferredLocation.trim().toLowerCase();
     const out: Job[] = [];
     for (let i = 0; i < jobs.length; i++) {
@@ -87,7 +89,7 @@ export function JobBoard({ jobs, updatedAt }: { jobs: Job[]; updatedAt: string }
       if (fn !== "all" && job.function !== fn) continue;
       if (setup !== "all" && job.workSetup !== setup) continue;
       if (loc !== "" && !locationKeys[i].includes(loc)) continue;
-      if (q !== "" && !searchKeys[i].includes(q)) continue;
+      if (terms.length > 0 && !terms.every((t) => searchKeys[i].includes(t))) continue;
       out.push(job);
     }
     return out;
@@ -141,7 +143,7 @@ export function JobBoard({ jobs, updatedAt }: { jobs: Job[]; updatedAt: string }
       <div
         role="group"
         aria-label="Filter by level"
-        className="-mx-4 mt-3 flex gap-2 overflow-x-auto px-4 pb-1 sm:mx-0 sm:flex-wrap sm:px-0"
+        className="no-scrollbar -mx-4 mt-3 flex gap-2 overflow-x-auto px-4 pb-1 sm:mx-0 sm:flex-wrap sm:px-0"
       >
         {LEVEL_CHIPS.map((chip) => {
           const active = level === chip.id;
