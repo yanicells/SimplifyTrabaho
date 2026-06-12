@@ -30,6 +30,8 @@ function thousands(n: number): string {
 export default function Home() {
   const { updatedAt, jobs } = loadJobs();
   const companyCount = new Set(jobs.map((j) => j.company)).size;
+  // Industry options for the filter, built at build time (30-ish short strings).
+  const industries = [...new Set(jobs.map((j) => j.industry).filter(Boolean))].sort();
 
   return (
     <>
@@ -74,7 +76,7 @@ export default function Home() {
         </header>
 
         <main>
-          <JobBoard jobs={jobs} updatedAt={updatedAt} />
+          <JobBoard jobs={jobs} industries={industries} updatedAt={updatedAt} />
         </main>
       </div>
 
