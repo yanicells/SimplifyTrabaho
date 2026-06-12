@@ -47,6 +47,7 @@ export function normalizeGreenhouse(company: RegistryCompany, raw: unknown): Fet
       employmentType: "unknown",
       salary: null,
       publishedAt: toIsoUtc(job.first_published as string | null | undefined),
+      industry: company.industry,
     } satisfies FetchedPosting;
   });
 }
@@ -142,6 +143,7 @@ export function normalizeAshby(company: RegistryCompany, raw: unknown): FetchedP
         employmentType: mapCommitment(job.employmentType),
         salary: typeof summary === "string" && summary !== "" ? summary : null,
         publishedAt: toIsoUtc(job.publishedAt as string | null | undefined),
+        industry: company.industry,
       } satisfies FetchedPosting;
     });
 }
@@ -185,6 +187,7 @@ export function normalizeWorkable(company: RegistryCompany, raw: unknown): Fetch
       employmentType: mapCommitment(job.employment_type),
       salary: null,
       publishedAt: toIsoUtc((job.published_on ?? job.created_at) as string | null | undefined),
+      industry: company.industry,
     } satisfies FetchedPosting;
   });
 }
@@ -240,6 +243,7 @@ export function normalizeSmartRecruiters(
       employmentType: mapCommitment(posting.typeOfEmployment?.label),
       salary: null,
       publishedAt: toIsoUtc(posting.releasedDate as string | null | undefined),
+      industry: company.industry,
     } satisfies FetchedPosting;
   });
 }
@@ -313,6 +317,7 @@ export function normalizeRecruitee(company: RegistryCompany, raw: unknown): Fetc
       employmentType: mapCommitment(offer.employment_type_code),
       salary: formatRecruiteeSalary(offer.salary),
       publishedAt: recruiteeDate(offer.published_at ?? offer.created_at),
+      industry: company.industry,
     } satisfies FetchedPosting;
   });
 }
@@ -347,6 +352,7 @@ export function normalizeLever(company: RegistryCompany, raw: unknown): FetchedP
       employmentType: mapCommitment(categories.commitment),
       salary: formatLeverSalary(posting.salaryRange),
       publishedAt: toIsoUtc(posting.createdAt as number | null | undefined),
+      industry: company.industry,
     } satisfies FetchedPosting;
   });
 }

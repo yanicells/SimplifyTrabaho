@@ -16,6 +16,7 @@ function posting(overrides: Partial<FetchedPosting> = {}): FetchedPosting {
     employmentType: "unknown",
     salary: null,
     publishedAt: "2026-05-01T00:00:00.000Z",
+    industry: "fintech",
     ...overrides,
   };
 }
@@ -39,6 +40,15 @@ describe("buildListing", () => {
       dateUpdated: NOW,
       active: true,
     });
+  });
+
+  it("carries the registry industry and derives metro tags (schema v2)", () => {
+    const listing = buildListing(
+      posting({ locations: ["Cebu City, Philippines", "Manila, Philippines"] }),
+      NOW,
+    );
+    expect(listing.industry).toBe("fintech");
+    expect(listing.metro).toEqual(["ncr", "cebu"]);
   });
 
   it("falls back to first-seen time when the ATS gives no published date", () => {
@@ -94,6 +104,19 @@ describe("mergeListings", () => {
     expect(listings[0]!.locations).toEqual(["Taguig, Philippines"]);
     expect(listings[0]!.dateUpdated).toBe(NOW);
     expect(listings[0]!.datePosted).toBe(existing.datePosted);
+    expect(summary.updated).toBe(1);
+  });
+
+  it("bumps dateUpdated when the registry industry changes (schema v2 field)", () => {
+    const existing = existingListing();
+    const { listings, summary } = mergeListings({
+      existing: [existing],
+      current: [buildListing(posting({ industry: "payments" }), NOW)],
+      fetchedCompanies: new Set(["Xendit"]),
+      now: NOW,
+    });
+    expect(listings[0]!.industry).toBe("payments");
+    expect(listings[0]!.dateUpdated).toBe(NOW);
     expect(summary.updated).toBe(1);
   });
 

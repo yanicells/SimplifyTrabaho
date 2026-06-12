@@ -70,7 +70,12 @@ describe("normalizeGreenhouse", () => {
       employmentType: "unknown",
       salary: null,
       publishedAt: "2026-04-10T11:41:32.000Z",
+      industry: "fintech",
     });
+  });
+
+  it("copies the registry industry into every posting (schema v2)", () => {
+    expect(postings.every((p) => p.industry === "fintech")).toBe(true);
   });
 
   it("splits multi-location strings on semicolons", () => {
@@ -107,6 +112,7 @@ describe("normalizeLever", () => {
       workSetup: "hybrid",
       employmentType: "internship",
       publishedAt: "2026-04-29T07:39:50.169Z",
+      industry: "logistics",
     });
   });
 
@@ -139,6 +145,7 @@ describe("normalizeAshby", () => {
       employmentType: "full-time",
       publishedAt: "2026-04-18T06:48:10.213Z",
       salary: null,
+      industry: "",
     });
   });
 

@@ -15,6 +15,7 @@ export type WorkSetup = "onsite" | "hybrid" | "remote" | "unknown";
 
 export type Level = "internship" | "entry" | "mid" | "senior" | "unknown";
 
+/** Schema v2 (SPEC §6): 18 values aligned with the SEEK/JobStreet classification. */
 export type JobFunction =
   | "engineering"
   | "data"
@@ -27,9 +28,36 @@ export type JobFunction =
   | "operations"
   | "customer-support"
   | "legal"
+  | "healthcare"
+  | "education"
+  | "hospitality"
+  | "manufacturing"
+  | "retail"
+  | "construction"
   | "other";
 
 export type EmploymentType = "full-time" | "part-time" | "contract" | "internship" | "unknown";
+
+/**
+ * Schema v2 (SPEC §6): the metro/region tag value list, in canonical order.
+ * Extend only as real locations demand, with a SPEC §6 update in the same commit.
+ * Lives here (not metro.ts) so the web build can import it without traversing
+ * NodeNext `.js` imports its bundler can't resolve.
+ */
+export const METRO_TAGS = [
+  "ncr",
+  "cebu",
+  "davao",
+  "clark-pampanga",
+  "calabarzon",
+  "iloilo",
+  "bacolod",
+  "baguio",
+  "cdo",
+  "remote-ph",
+  "other-ph",
+] as const;
+export type MetroTag = (typeof METRO_TAGS)[number];
 
 /** A job listing — facts only, never description text or personal data (SPEC §3). */
 export interface Listing {
@@ -44,6 +72,10 @@ export interface Listing {
   workSetup: WorkSetup;
   level: Level;
   function: JobFunction;
+  /** Schema v2: company-level industry tag copied from the registry at normalization. */
+  industry: string;
+  /** Schema v2: normalized PH region tags derived from `locations` (SPEC §6). */
+  metro: string[];
   /** Official application URL on the company's ATS — the only outbound link. */
   url: string;
   source: AtsSource;
@@ -59,7 +91,7 @@ export interface Listing {
 }
 
 export interface ListingsFile {
-  version: 1;
+  version: 2;
   /** ISO 8601 UTC of the last successful pipeline run. */
   updatedAt: string;
   listings: Listing[];
@@ -98,6 +130,8 @@ export interface FetchedPosting {
   salary: string | null;
   /** ISO 8601 UTC when the ATS publishes a created/published date, else null. */
   publishedAt: string | null;
+  /** Schema v2: the registry entry's industry tag, copied at normalization. */
+  industry: string;
 }
 
 export type FetchErrorKind = "dead-slug" | "http" | "network";

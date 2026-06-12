@@ -6,6 +6,8 @@
   "scripts": {
     "refresh": "tsx src/cli.ts",
     "verify-registry": "tsx src/verify-registry.ts",
+    "eval-categorizer": "tsx src/eval-categorizer.ts",
+    "recategorize": "tsx src/recategorize.ts",
     "test": "vitest run",
     "typecheck": "tsc --noEmit"
   },

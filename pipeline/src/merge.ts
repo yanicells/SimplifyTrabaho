@@ -1,5 +1,6 @@
 import { createHash } from "node:crypto";
 import { categorize } from "./categorize.js";
+import { deriveMetro } from "./metro.js";
 import type { FetchedPosting, Listing } from "./types.js";
 
 /** First 12 hex chars of SHA-256 of the application URL (SPEC §6) — stable across runs. */
@@ -18,6 +19,8 @@ export function buildListing(posting: FetchedPosting, now: string): Listing {
     workSetup: posting.workSetup,
     level,
     function: fn,
+    industry: posting.industry,
+    metro: deriveMetro(posting.locations),
     url: posting.url,
     source: posting.source,
     employmentType: posting.employmentType,
@@ -56,6 +59,8 @@ const COMPARED_FIELDS = [
   "workSetup",
   "level",
   "function",
+  "industry",
+  "metro",
   "url",
   "source",
   "employmentType",

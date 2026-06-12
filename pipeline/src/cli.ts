@@ -7,6 +7,7 @@ import { fetchLever } from "./fetchers/lever.js";
 import { fetchRecruitee } from "./fetchers/recruitee.js";
 import { fetchSmartRecruiters } from "./fetchers/smartrecruiters.js";
 import { fetchWorkable } from "./fetchers/workable.js";
+import { computeCoverage, formatCoverageReport } from "./coverage.js";
 import { emptyListingsFile, parseListingsFile, parseRegistry } from "./files.js";
 import { filterPhilippines } from "./filter.js";
 import { buildListing, mergeListings } from "./merge.js";
@@ -130,7 +131,7 @@ async function main(): Promise<number> {
   mkdirSync(DATA_DIR, { recursive: true });
   writeFileSync(
     LISTINGS_PATH,
-    JSON.stringify({ version: 1, updatedAt: now, listings }, null, 2) + "\n",
+    JSON.stringify({ version: 2, updatedAt: now, listings }, null, 2) + "\n",
   );
   writeFileSync(FETCH_STATE_PATH, JSON.stringify(fetchState, null, 2) + "\n");
 
@@ -143,6 +144,8 @@ async function main(): Promise<number> {
       `${summary.unchanged} unchanged, -${summary.deactivated} deactivated · ` +
       `${listings.length} total listings (${listings.filter((l) => l.active).length} active)`,
   );
+  // SPEC §9: coverage in every refresh summary so categorizer drift stays visible.
+  console.log("\n" + formatCoverageReport(computeCoverage(listings)));
   console.log(`wrote ${LISTINGS_PATH}`);
   console.log(`wrote ${README_PATH}`);
   return 0;

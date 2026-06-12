@@ -13,6 +13,8 @@ function listing(overrides: Partial<Listing> = {}): Listing {
     workSetup: "hybrid",
     level: "internship",
     function: "engineering",
+    industry: "fintech",
+    metro: ["ncr"],
     url: "https://example.com/jobs/1",
     source: "greenhouse",
     employmentType: "internship",

@@ -65,13 +65,14 @@ export function mergeRegistryCompanies(
 }
 
 export function emptyListingsFile(updatedAt: string): ListingsFile {
-  return { version: 1, updatedAt, listings: [] };
+  return { version: 2, updatedAt, listings: [] };
 }
 
 export function parseListingsFile(raw: unknown): ListingsFile {
   const obj = raw as { version?: unknown; updatedAt?: unknown; listings?: unknown };
-  if (obj?.version !== 1) fail("listings file: unsupported version (expected 1)");
+  // v1 files must go through `pnpm --filter pipeline recategorize` (the migration path).
+  if (obj?.version !== 2) fail("listings file: unsupported version (expected 2)");
   if (typeof obj.updatedAt !== "string") fail("listings file: missing updatedAt");
   if (!Array.isArray(obj.listings)) fail("listings file: listings must be an array");
-  return { version: 1, updatedAt: obj.updatedAt, listings: obj.listings as Listing[] };
+  return { version: 2, updatedAt: obj.updatedAt, listings: obj.listings as Listing[] };
 }

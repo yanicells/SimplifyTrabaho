@@ -11,6 +11,8 @@ function listing(overrides: Partial<Listing> = {}): Listing {
     workSetup: "hybrid",
     level: "internship",
     function: "engineering",
+    industry: "fintech",
+    metro: ["ncr"],
     url: "https://boards.greenhouse.io/xendit/jobs/123",
     source: "greenhouse",
     employmentType: "internship",
@@ -25,17 +27,34 @@ function listing(overrides: Partial<Listing> = {}): Listing {
 function file(listings: Listing[]): unknown {
   // Round-trip through JSON so the input is plain parsed data, like at build time.
   return JSON.parse(
-    JSON.stringify({ version: 1, updatedAt: "2026-06-11T01:34:15.640Z", listings }),
+    JSON.stringify({ version: 2, updatedAt: "2026-06-11T01:34:15.640Z", listings }),
   );
 }
 
 describe("parseListingsFile", () => {
-  it("accepts a valid file", () => {
+  it("accepts a valid v2 file", () => {
     const parsed = parseListingsFile(file([listing()]));
-    expect(parsed.version).toBe(1);
+    expect(parsed.version).toBe(2);
     expect(parsed.updatedAt).toBe("2026-06-11T01:34:15.640Z");
     expect(parsed.listings).toHaveLength(1);
     expect(parsed.listings[0].title).toBe("Software Engineering Intern");
+    expect(parsed.listings[0].industry).toBe("fintech");
+    expect(parsed.listings[0].metro).toEqual(["ncr"]);
+  });
+
+  it("accepts all 18 schema-v2 function values", () => {
+    const fns = [
+      "healthcare",
+      "education",
+      "hospitality",
+      "manufacturing",
+      "retail",
+      "construction",
+    ] as const;
+    const parsed = parseListingsFile(
+      file(fns.map((fn, i) => listing({ function: fn, url: `https://x.co/${i}` }))),
+    );
+    expect(parsed.listings.map((l) => l.function)).toEqual([...fns]);
   });
 
   it("accepts a string salary", () => {
@@ -48,15 +67,30 @@ describe("parseListingsFile", () => {
     expect(() => parseListingsFile("[]")).toThrow(/invalid/);
   });
 
-  it("rejects a wrong version", () => {
-    const bad = { ...(file([listing()]) as object), version: 2 };
+  it("rejects a wrong version, including pre-migration v1", () => {
+    const bad = { ...(file([listing()]) as object), version: 1 };
     expect(() => parseListingsFile(bad)).toThrow(/version/);
   });
 
-  it("rejects a missing or unparseable updatedAt", () => {
-    expect(() => parseListingsFile({ version: 1, listings: [] })).toThrow(/updatedAt/);
+  it("rejects a non-string industry", () => {
     expect(() =>
-      parseListingsFile({ version: 1, updatedAt: "not a date", listings: [] }),
+      parseListingsFile(file([listing({ industry: 42 as unknown as string })])),
+    ).toThrow(/industry/);
+  });
+
+  it("rejects unknown metro tags and non-array metro", () => {
+    expect(() =>
+      parseListingsFile(file([listing({ metro: ["atlantis"] })])),
+    ).toThrow(/metro/);
+    expect(() =>
+      parseListingsFile(file([listing({ metro: "ncr" as unknown as string[] })])),
+    ).toThrow(/metro/);
+  });
+
+  it("rejects a missing or unparseable updatedAt", () => {
+    expect(() => parseListingsFile({ version: 2, listings: [] })).toThrow(/updatedAt/);
+    expect(() =>
+      parseListingsFile({ version: 2, updatedAt: "not a date", listings: [] }),
     ).toThrow(/updatedAt/);
   });
 
@@ -127,6 +161,8 @@ describe("toJobs", () => {
       workSetup: "hybrid",
       level: "internship",
       function: "engineering",
+      industry: "fintech",
+      metro: ["ncr"],
       url: "https://boards.greenhouse.io/xendit/jobs/123",
       posted: "2026-06-01",
     });
@@ -134,8 +170,10 @@ describe("toJobs", () => {
     expect(Object.keys(job).sort()).toEqual([
       "company",
       "function",
+      "industry",
       "level",
       "locations",
+      "metro",
       "posted",
       "title",
       "url",

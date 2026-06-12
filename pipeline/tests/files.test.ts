@@ -45,18 +45,21 @@ describe("parseRegistry", () => {
 });
 
 describe("parseListingsFile", () => {
-  it("accepts a valid file and the empty default", () => {
+  it("accepts a valid v2 file and the empty default", () => {
     const file = parseListingsFile(emptyListingsFile("2026-06-11T22:00:00.000Z"));
-    expect(file.version).toBe(1);
+    expect(file.version).toBe(2);
     expect(file.listings).toEqual([]);
   });
 
   it("rejects files without a listings array", () => {
-    expect(() => parseListingsFile({ version: 1, updatedAt: "x" })).toThrow(/listings/i);
+    expect(() => parseListingsFile({ version: 2, updatedAt: "x" })).toThrow(/listings/i);
   });
 
-  it("rejects unsupported versions", () => {
-    expect(() => parseListingsFile({ version: 2, updatedAt: "x", listings: [] })).toThrow(
+  it("rejects unsupported versions, including pre-migration v1", () => {
+    expect(() => parseListingsFile({ version: 1, updatedAt: "x", listings: [] })).toThrow(
+      /version/i,
+    );
+    expect(() => parseListingsFile({ version: 3, updatedAt: "x", listings: [] })).toThrow(
       /version/i,
     );
   });

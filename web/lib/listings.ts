@@ -5,12 +5,14 @@
 import { readFileSync } from "node:fs";
 import path from "node:path";
 import { isPhilippineLocation } from "../../pipeline/src/filter";
-import type {
-  JobFunction,
-  Level,
-  Listing,
-  ListingsFile,
-  WorkSetup,
+import {
+  METRO_TAGS,
+  type JobFunction,
+  type Level,
+  type Listing,
+  type ListingsFile,
+  type MetroTag,
+  type WorkSetup,
 } from "../../pipeline/src/types";
 
 /** One listing as shipped to the browser — nothing more than the UI renders. */
@@ -21,6 +23,10 @@ export interface Job {
   workSetup: WorkSetup;
   level: Level;
   function: JobFunction;
+  /** Company-level industry tag from the registry (schema v2). */
+  industry: string;
+  /** Normalized PH region tags (schema v2). */
+  metro: MetroTag[];
   /** Official application URL — also serves as the React key (unique per listing). */
   url: string;
   /** Verbatim published range; omitted when the ATS doesn't publish one. */
@@ -49,6 +55,12 @@ const FUNCTIONS: readonly JobFunction[] = [
   "operations",
   "customer-support",
   "legal",
+  "healthcare",
+  "education",
+  "hospitality",
+  "manufacturing",
+  "retail",
+  "construction",
   "other",
 ];
 const SOURCES = ["greenhouse", "lever", "ashby", "workable", "smartrecruiters", "recruitee"];
@@ -97,6 +109,16 @@ function parseListing(raw: unknown, index: number): Listing {
   if (!Array.isArray(locations) || locations.some((l) => typeof l !== "string")) {
     fail(`${where}.locations`, "must be an array of strings");
   }
+  if (typeof obj.industry !== "string") {
+    fail(`${where}.industry`, "must be a string");
+  }
+  const metro = obj.metro;
+  if (
+    !Array.isArray(metro) ||
+    metro.some((m) => !(METRO_TAGS as readonly string[]).includes(m as string))
+  ) {
+    fail(`${where}.metro`, `must be an array of known tags (${METRO_TAGS.join(", ")})`);
+  }
   if (obj.salary !== null && typeof obj.salary !== "string") {
     fail(`${where}.salary`, "must be a string or null");
   }
@@ -112,6 +134,8 @@ function parseListing(raw: unknown, index: number): Listing {
     workSetup: requireEnum(obj, where, "workSetup", WORK_SETUPS),
     level: requireEnum(obj, where, "level", LEVELS),
     function: requireEnum(obj, where, "function", FUNCTIONS),
+    industry: obj.industry,
+    metro: metro as MetroTag[],
     url: requireString(obj, where, "url"),
     source: requireEnum(obj, where, "source", SOURCES) as Listing["source"],
     employmentType: requireEnum(obj, where, "employmentType", [
@@ -134,15 +158,15 @@ export function parseListingsFile(raw: unknown): ListingsFile {
     fail("file", "must be a JSON object");
   }
   const obj = raw as Record<string, unknown>;
-  if (obj.version !== 1) {
-    fail("version", "must be 1");
+  if (obj.version !== 2) {
+    fail("version", "must be 2 (run recategorize to migrate v1 data)");
   }
   requireDate(obj, "file", "updatedAt");
   if (!Array.isArray(obj.listings)) {
     fail("listings", "must be an array");
   }
   return {
-    version: 1,
+    version: 2,
     updatedAt: obj.updatedAt as string,
     listings: obj.listings.map(parseListing),
   };
@@ -166,6 +190,8 @@ export function toJobs(file: ListingsFile): JobsPayload {
         workSetup: l.workSetup,
         level: l.level,
         function: l.function,
+        industry: l.industry,
+        metro: l.metro as MetroTag[],
         url: l.url,
         posted: l.datePosted.slice(0, 10),
       };
