@@ -105,6 +105,44 @@
         active), `pnpm test` (126 tests), `pnpm --filter web build`, and static
         export HTML contains the new title/header/OG site name.
 
+- [x] 2026-06-12 — **Phase 8 COMPLETE — Taxonomy v2 + filters** (198 tests green,
+      all pipeline logic TDD):
+  - [x] Schema v2 (SPEC §6): `function` → 18 SEEK-aligned values; new `industry`
+        (copied from registry at normalization) + `metro` (derived region tags,
+        keyword map in `metro.ts` beside the PH filter, mined from the 160 real
+        location strings incl. published "Manilla"/"Tauig" misspellings);
+        listings.json `version` → 2; web schema validation updated same commit.
+  - [x] Categorizer v2 (SPEC §9): six new function tables with conservative
+        disambiguation (site/civil/structural engineer → construction pre-rules;
+        BPO "Healthcare Account" titles excluded from healthcare; bare
+        production/maintenance/technician deliberately unmatched). Two
+        eval-driven mining rounds extended the v1 tables (ads, campaign,
+        territory, appointment setter, partner solutions, renewals, AML/KYC/
+        fraud → legal, risk/underwriting/actuarial/collections/payments →
+        finance, artist/creative → design, MDM/BI → data, service desk/client
+        service → customer-support, back office/VA/driver ops → operations…).
+        Level: `-Mid`/`(MID)` rungs (never "Mid Shift"), trailing roman `I` →
+        entry, "lead generation" no longer a leadership marker.
+  - [x] `pnpm --filter pipeline eval-categorizer` (coverage % + top-50
+        uncategorized, also printed in every refresh summary) and
+        `pnpm --filter pipeline recategorize` (full-dataset backfill incl.
+        inactive; v1→v2 migration path; preserves datePosted; never bumps
+        dateUpdated for category-only changes — all tested).
+  - [x] Backfill run (2,125 listings: 318 function / 46 level changes) +
+        live refresh. **Coverage on actives: function other 27.3% → 13.7%
+        (target <15% MET) · level unknown 59.1% → 58.3% (target <25% NOT met —
+        see Issues; accuracy not loosened).**
+  - [x] Web (SPEC §12 v2): multi-select level/function chips, metro + industry
+        filters, sticky filter rail (advanced panel overlays the list on
+        phones), full filter state in URL query params (codec unit-tested;
+        no params = featured default, `level=all` = unfiltered, junk dropped).
+        Employer-type filter built but hidden until Phase 9 adds registry
+        `type`. Payload 792 KB raw / ~97 KB gzipped at 2,080 actives (+~6 KB
+        gzipped over v1 for the two new fields).
+  - [x] Playwright-verified on the static export, desktop + 390px: all filters,
+        multi-select combos, sticky-on-scroll, reset, no horizontal overflow,
+        0 console errors, pasted URLs reproduce the exact view.
+
 ## ✅ Acceptance criteria sweep (SPEC §15) — 2026-06-11
 
 - [x] 1. `pnpm refresh` clean run — this session: 101/101 fetched, 0 failed, exit 0;
@@ -185,20 +223,21 @@ verify-registry`. Also recheck the live-but-0-PH boards listed below — several
 - [x] Docs prose sweep (SPEC/TRACKER/ROADMAP headings done 2026-06-12; verify rest)
 - [x] Keep identifiers lowercase: domain, package names, User-Agent, paths
 
-### Phase 8 — Taxonomy v2 + filters
+### Phase 8 — Taxonomy v2 + filters — ✅ COMPLETE 2026-06-12 (see Done)
 
-- [ ] Schema v2 in SPEC §6 order: `function` → 18 SEEK-aligned values, add
+- [x] Schema v2 in SPEC §6 order: `function` → 18 SEEK-aligned values, add
       `industry` (from registry) + `metro` (derived), bump listings.json `version` to 2
-- [ ] Categorizer v2 tables (SPEC §9: healthcare, education, hospitality,
+- [x] Categorizer v2 tables (SPEC §9: healthcare, education, hospitality,
       manufacturing, retail, construction) — TDD, conservative disambiguation
-- [ ] `pnpm --filter pipeline eval-categorizer` (coverage % + top-50 uncategorized)
-- [ ] `pnpm --filter pipeline recategorize` (full-dataset backfill incl. inactive;
+- [x] `pnpm --filter pipeline eval-categorizer` (coverage % + top-50 uncategorized)
+- [x] `pnpm --filter pipeline recategorize` (full-dataset backfill incl. inactive;
       preserves datePosted, doesn't bump dateUpdated for category-only changes)
-- [ ] Web: multi-select level/function chips, metro + industry + employer-type
-      filters, sticky filter bar, full filter state in URL params
-- [ ] Web build schema validation updated same commit; payload still lean
-- [ ] Coverage targets: level unknown <25%, function other <15% (active) — or gap
-      explained here
+- [x] Web: multi-select level/function chips, metro + industry filters, sticky
+      filter bar, full filter state in URL params (employer-type filter built but
+      hidden until Phase 9 ships registry `type` — flag in job-board.tsx)
+- [x] Web build schema validation updated same commit; payload still lean
+- [x] Coverage targets: function other <15% met (13.7%); level unknown <25% NOT
+      met (58.3%) — gap explained in Issues, accuracy not traded for coverage
 
 ### Phase 9 — Coverage, Tier A + registry rebalance
 
@@ -273,6 +312,30 @@ verify-registry`. Also recheck the live-but-0-PH boards listed below — several
   code. `data/LICENSE` added with the CC0 text + a preamble (compilation of public
   facts; postings remain the companies' property/responsibility; attribution
   appreciated, not required). README now carries a License section.
+- 2026-06-12 — [open] **Level-unknown coverage is 58.3% vs the <25% Phase 8
+  target — the gap is structural, not a keyword shortfall.** Per eval-categorizer,
+  the unknown mass is dominated by genuinely unleveled titles ("PHP Developer" ×8,
+  "Graphic Designer" ×6, "Bookkeeper" ×4, "Recruiter" ×4 …) that carry no level
+  marker at all; SPEC §9's own rule ("never assume mid-level from the absence of
+  markers") forbids leveling them. Everything minable was mined this phase
+  (`-Mid`/`(MID)` rungs, trailing roman I, lead-generation fix): 59.1% → 58.3%.
+  Closing the remaining ~33 points would require guessing, trading accuracy for
+  coverage — explicitly the wrong trade per SPEC §9. Recommendation: revisit the
+  target itself in a SPEC update, or accept that level-unknown represents
+  "open-to-multiple-levels" titles (the web's All-roles view already surfaces them).
+- 2026-06-12 — [open] Taxonomy backlog from the 13.7% function-other tail (mined,
+  deliberately NOT mapped — no honest bucket in the 18): agriculture/farm roles
+  (Pilmico swine/poultry, ~15 actives), laboratory/science analysts (SGS, ~12),
+  bare "Business Analyst", "Project Manager" (standing decision), BPO
+  quality-systems titles. Revisit if SEEK-alignment ever adds buckets.
+- 2026-06-12 — [open] Metro backlog: Tarlac/Central-Luzon locations (~30 actives)
+  have no metro tag and fall to `other-ph` alongside bare-"Philippines" listings
+  (884 actives). If Central Luzon volume grows, add a tag per SPEC §6 (value-list
+  change requires a SPEC update in the same commit).
+- 2026-06-12 — [open] Level-marker quirk inherited from v1: `staff` is a senior
+  marker (for "Staff Engineer"), so PH rank-and-file titles like "Housekeeping
+  Staff" read as senior. Conservative fix needs a test-proven disambiguation
+  (staff+engineer/scientist only?) — backlog, low volume.
 
 <!-- Format: - 2026-06-12 — [open|resolved] Short description. Context/link. -->
 
@@ -481,3 +544,42 @@ not a real employer. Kalibrr — job-board company, fetching prohibited by rule 
   bridge evaluated then; full email infra stays ROADMAP.
 - 2026-06-12 — Reach & SEO is Phase 12 and **maintainer-led** (user wants direct
   involvement); agents prepare artifacts, maintainer publishes.
+- 2026-06-12 — **Phase 8 schema/tooling decisions:**
+  - `parseListingsFile` (pipeline + web) accepts ONLY v2; `recategorize` is the
+    designated v1→v2 migration path (reads raw v1/v2, rewrites v2). A pre-migration
+    `pnpm refresh` fails loudly instead of limping on mixed schemas.
+  - `METRO_TAGS` lives in `types.ts` (not `metro.ts`): the web bundler can't
+    resolve NodeNext `.js` relative imports, and types.ts has no runtime imports —
+    keyword map + `deriveMetro` stay beside the PH filter in `metro.ts`.
+  - recategorize never bumps per-listing `dateUpdated` NOR file-level `updatedAt`
+    (re-tagging is our metadata; updatedAt = last pipeline run, and a refresh
+    always follows the backfill anyway).
+  - `industry`/`metro` ARE merge-compared fields (a real feed/registry change
+    bumps dateUpdated on daily runs — only the backfill is exempt).
+  - eval-categorizer measures the tables AS CODE (re-runs categorize over active
+    titles) rather than reading stored categories — that's what mining needs, and
+    post-refresh the stored state matches the tables anyway.
+- 2026-06-12 — **Phase 8 categorizer judgment calls** (all test-pinned):
+  veterinarians → healthcare (closest of the 18; SEEK's farming bucket doesn't
+  exist here) · property/real-estate → construction (SPEC §9 seed list) · bank
+  "Branch Manager" → retail (branch is a SPEC seed; defensible either way) ·
+  risk/underwriting/actuarial/collections/payments/trading → finance ·
+  fraud/AML/KYC/transaction monitoring → legal (compliance family; "Fraud Risk"
+  hits finance first by table order — fine) · BPO "Healthcare Account" suffix
+  excluded from healthcare (it names the client's industry, not the role) ·
+  "Medical VA"/"Virtual Nurse" pre-rules beat the operations VA rule.
+- 2026-06-12 — **Phase 8 web decisions:**
+  - URL state contract: no params = featured default; `level=all` marks the
+    unfiltered view; multi-values comma-joined in canonical order; junk values
+    dropped silently (links get mangled by chat apps). Codec in
+    `web/lib/filter-params.ts`, unit-tested.
+  - Static export keeps prerendering the featured default (fast first paint for
+    the majority no-param visit); pasted-URL state applies right after hydration
+    via one mount effect — accepted tradeoff over a Suspense/CSR boundary that
+    would blank the list for everyone. URL writes are debounced
+    `history.replaceState` (Safari rate-limits it; no history spam).
+  - Sticky rail: on phones the advanced panel is an absolute overlay under the
+    rail (rail stays 127px stuck); in-flow on sm+.
+  - Employer-type filter shipped dark behind `EMPLOYER_TYPE_FILTER_ENABLED=false`
+    in job-board.tsx; flip when Phase 9 adds registry `type` (URL param `type`
+    reserved).
