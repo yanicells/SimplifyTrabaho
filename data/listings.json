@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-06-20T22:57:51.472Z",
+  "updatedAt": "2026-06-21T22:59:32.858Z",
   "listings": [
     {
       "id": "16e8a85575e0",
@@ -6603,6 +6603,28 @@
       "salary": null,
       "datePosted": "2026-04-29T16:15:18.000Z",
       "dateUpdated": "2026-06-11T01:21:12.918Z",
+      "active": true
+    },
+    {
+      "id": "72bf120861b2",
+      "company": "Bosch",
+      "title": "Customer Service Associate - Urgent Hiring!",
+      "locations": [
+        "Taguig, Philippines"
+      ],
+      "workSetup": "onsite",
+      "level": "entry",
+      "function": "customer-support",
+      "industry": "manufacturing",
+      "metro": [
+        "ncr"
+      ],
+      "url": "https://jobs.smartrecruiters.com/BoschGroup/744000133222359",
+      "source": "smartrecruiters",
+      "employmentType": "full-time",
+      "salary": null,
+      "datePosted": "2026-06-21T10:34:12.266Z",
+      "dateUpdated": "2026-06-21T22:59:32.858Z",
       "active": true
     },
     {
@@ -23038,7 +23060,7 @@
     {
       "id": "18d388b6a9c6",
       "company": "Human Intelligence",
-      "title": "Senior Digital Designer - Remote (Contractor)",
+      "title": "Ai-First Senior Digital Designer - Remote (Contractor)",
       "locations": [
         "Manilla, Philippines",
         "Jakarta, Indonesia",
@@ -23048,7 +23070,7 @@
       ],
       "workSetup": "remote",
       "level": "senior",
-      "function": "design",
+      "function": "data",
       "industry": "staffing",
       "metro": [
         "ncr"
@@ -23058,7 +23080,7 @@
       "employmentType": "contract",
       "salary": null,
       "datePosted": "2026-01-03T00:00:00.000Z",
-      "dateUpdated": "2026-06-11T01:21:12.918Z",
+      "dateUpdated": "2026-06-21T22:59:32.858Z",
       "active": true
     },
     {
@@ -47234,8 +47256,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-05-15T00:00:00.000Z",
-      "dateUpdated": "2026-06-11T01:21:12.918Z",
-      "active": true
+      "dateUpdated": "2026-06-21T22:59:32.858Z",
+      "active": false
     },
     {
       "id": "b0ecf880ba4d",
