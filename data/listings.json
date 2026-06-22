@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-06-21T22:59:32.858Z",
+  "updatedAt": "2026-06-22T23:11:19.193Z",
   "listings": [
     {
       "id": "16e8a85575e0",
@@ -3133,8 +3133,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-04-16T15:07:35.741Z",
-      "dateUpdated": "2026-06-11T12:33:52.706Z",
-      "active": true
+      "dateUpdated": "2026-06-22T23:11:19.193Z",
+      "active": false
     },
     {
       "id": "5ae3d7efedfb",
@@ -3357,8 +3357,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-02-04T06:42:34.300Z",
-      "dateUpdated": "2026-06-11T01:21:12.918Z",
-      "active": true
+      "dateUpdated": "2026-06-22T23:11:19.193Z",
+      "active": false
     },
     {
       "id": "7003808d5dd8",
@@ -3471,6 +3471,28 @@
       "datePosted": "2025-09-05T07:57:25.865Z",
       "dateUpdated": "2026-06-16T23:17:20.340Z",
       "active": false
+    },
+    {
+      "id": "850c8f744ce2",
+      "company": "Arch Global Services PH",
+      "title": "Finance Analyst (Collections) - Junior",
+      "locations": [
+        "Taguig City, National Capital Region, Philippines"
+      ],
+      "workSetup": "hybrid",
+      "level": "entry",
+      "function": "finance",
+      "industry": "insurance",
+      "metro": [
+        "ncr"
+      ],
+      "url": "https://jobs.smartrecruiters.com/ArchGlobalServicesPhilippinesInc/744000133386041",
+      "source": "smartrecruiters",
+      "employmentType": "full-time",
+      "salary": null,
+      "datePosted": "2026-06-22T14:33:26.865Z",
+      "dateUpdated": "2026-06-22T23:11:19.193Z",
+      "active": true
     },
     {
       "id": "3235ab73d577",
@@ -4459,8 +4481,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-04-30T17:11:01.281Z",
-      "dateUpdated": "2026-06-11T01:21:12.918Z",
-      "active": true
+      "dateUpdated": "2026-06-22T23:11:19.193Z",
+      "active": false
     },
     {
       "id": "ee2c8df3c5ec",
@@ -6257,6 +6279,28 @@
       "active": true
     },
     {
+      "id": "2aefacb89bae",
+      "company": "Assist World",
+      "title": "Executive Assistant (Business Support)",
+      "locations": [
+        "Philippines"
+      ],
+      "workSetup": "remote",
+      "level": "unknown",
+      "function": "operations",
+      "industry": "staffing",
+      "metro": [
+        "other-ph"
+      ],
+      "url": "https://jobs.lever.co/assist-world/a05872cc-57dd-4cc0-8e58-e47718a9a204",
+      "source": "lever",
+      "employmentType": "unknown",
+      "salary": "900–1300 USD per month",
+      "datePosted": "2026-05-06T20:03:56.750Z",
+      "dateUpdated": "2026-06-22T23:11:19.193Z",
+      "active": true
+    },
+    {
       "id": "97e9a569574f",
       "company": "Assist World",
       "title": "Executive Assistant / Operations & Admin VA",
@@ -6938,7 +6982,7 @@
     {
       "id": "f6aa8c816ce5",
       "company": "CI&T",
-      "title": "[Job -29790]  Senior Data Engineer | (Spark + Databricks)",
+      "title": "[Job -29790]  Senior Data Engineer | (Spark + Databricks) Hybrid Setup",
       "locations": [
         "Quezon City, Metro Manila"
       ],
@@ -6954,7 +6998,7 @@
       "employmentType": "unknown",
       "salary": "0–0 PHP per month",
       "datePosted": "2026-06-08T02:13:24.488Z",
-      "dateUpdated": "2026-06-11T01:21:12.918Z",
+      "dateUpdated": "2026-06-22T23:11:19.193Z",
       "active": true
     },
     {
@@ -6998,8 +7042,8 @@
       "employmentType": "full-time",
       "salary": "70000–90000 PHP per month",
       "datePosted": "2026-06-02T09:26:52.032Z",
-      "dateUpdated": "2026-06-11T01:21:12.918Z",
-      "active": true
+      "dateUpdated": "2026-06-22T23:11:19.193Z",
+      "active": false
     },
     {
       "id": "e0d3aa65e522",
@@ -7398,6 +7442,28 @@
       "salary": "$1.4K – $2.4K per month",
       "datePosted": "2025-08-04T19:56:48.671Z",
       "dateUpdated": "2026-06-11T01:21:12.918Z",
+      "active": true
+    },
+    {
+      "id": "68413aeaa6df",
+      "company": "Coins.ph",
+      "title": "Deputy Chief Risk Officer",
+      "locations": [
+        "Taguig City, Metro Manila, Philippines"
+      ],
+      "workSetup": "hybrid",
+      "level": "senior",
+      "function": "finance",
+      "industry": "fintech",
+      "metro": [
+        "ncr"
+      ],
+      "url": "https://jobs.lever.co/coins/ea856a08-8bb3-4966-bb57-1f1cd6b252a7",
+      "source": "lever",
+      "employmentType": "full-time",
+      "salary": null,
+      "datePosted": "2026-06-22T12:07:56.012Z",
+      "dateUpdated": "2026-06-22T23:11:19.193Z",
       "active": true
     },
     {
@@ -8034,8 +8100,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-05-12T03:35:11.086Z",
-      "dateUpdated": "2026-06-19T22:42:55.151Z",
-      "active": false
+      "dateUpdated": "2026-06-22T23:11:19.193Z",
+      "active": true
     },
     {
       "id": "3eab19823692",
@@ -8963,8 +9029,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2025-11-03T10:04:57.797Z",
-      "dateUpdated": "2026-06-11T01:21:12.918Z",
-      "active": true
+      "dateUpdated": "2026-06-22T23:11:19.193Z",
+      "active": false
     },
     {
       "id": "54ff8e21e3df",
@@ -9185,8 +9251,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2025-05-29T09:38:42.389Z",
-      "dateUpdated": "2026-06-19T22:42:55.151Z",
-      "active": false
+      "dateUpdated": "2026-06-22T23:11:19.193Z",
+      "active": true
     },
     {
       "id": "df0a7e8d5598",
@@ -9330,8 +9396,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2024-11-27T03:53:40.269Z",
-      "dateUpdated": "2026-06-11T01:21:12.918Z",
-      "active": true
+      "dateUpdated": "2026-06-22T23:11:19.193Z",
+      "active": false
     },
     {
       "id": "94ca41a7e0ec",
@@ -9528,8 +9594,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2023-01-20T16:32:06.461Z",
-      "dateUpdated": "2026-06-11T01:21:12.918Z",
-      "active": true
+      "dateUpdated": "2026-06-22T23:11:19.193Z",
+      "active": false
     },
     {
       "id": "385472cba298",
@@ -9635,10 +9701,10 @@
       ],
       "url": "https://apply.workable.com/j/56A5371D18",
       "source": "workable",
-      "employmentType": "part-time",
+      "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-05-29T00:00:00.000Z",
-      "dateUpdated": "2026-06-11T01:21:12.918Z",
+      "dateUpdated": "2026-06-22T23:11:19.193Z",
       "active": true
     },
     {
@@ -15535,7 +15601,7 @@
     {
       "id": "20d326130528",
       "company": "First Circle",
-      "title": "Junior Finance Associate (2025/2026 Accountancy & Finance Graduates)",
+      "title": "Junior Finance Associate (2026 Finance/Accountancy Graduates)",
       "locations": [
         "Taguig, Philippines"
       ],
@@ -15551,7 +15617,7 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-05-26T00:00:00.000Z",
-      "dateUpdated": "2026-06-11T01:21:12.918Z",
+      "dateUpdated": "2026-06-22T23:11:19.193Z",
       "active": true
     },
     {
@@ -15881,8 +15947,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-06-17T05:43:14.000Z",
-      "dateUpdated": "2026-06-17T23:16:09.762Z",
-      "active": true
+      "dateUpdated": "2026-06-22T23:11:19.193Z",
+      "active": false
     },
     {
       "id": "77c4e036d2b4",
@@ -15991,8 +16057,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-06-10T12:53:47.000Z",
-      "dateUpdated": "2026-06-11T01:21:12.918Z",
-      "active": true
+      "dateUpdated": "2026-06-22T23:11:19.193Z",
+      "active": false
     },
     {
       "id": "bd49d3b98110",
@@ -16453,8 +16519,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-03-19T13:18:06.000Z",
-      "dateUpdated": "2026-06-12T23:06:32.670Z",
-      "active": true
+      "dateUpdated": "2026-06-22T23:11:19.193Z",
+      "active": false
     },
     {
       "id": "c8f73ce5c918",
@@ -18746,6 +18812,77 @@
       "active": true
     },
     {
+      "id": "73cf2f474c7d",
+      "company": "Hire Hangar",
+      "title": "Growth & Marketing Associate",
+      "locations": [
+        "South Africa - Cape Town",
+        "India - Mumbai",
+        "Inida - New Delhi",
+        "Egypt - Cairo",
+        "Ghana - Accra",
+        "Morocco - Casablanca",
+        "Tanzania - Dar es Salaam",
+        "Lebanon - Beirut",
+        "Yemen - Sana'a",
+        "Chile - Santiago",
+        "South Africa - Johannesburg",
+        "Manila",
+        "Quezon City",
+        "Algeria - Algiers",
+        "Morocco - Rabat",
+        "Tunisia - Tunis"
+      ],
+      "workSetup": "remote",
+      "level": "entry",
+      "function": "marketing",
+      "industry": "staffing",
+      "metro": [
+        "ncr"
+      ],
+      "url": "https://jobs.ashbyhq.com/hirehangar/451d78a1-6cba-4c40-9afc-d50322e5f8f9",
+      "source": "ashby",
+      "employmentType": "contract",
+      "salary": "$1K – $1.2K per month",
+      "datePosted": "2026-06-22T20:04:56.277Z",
+      "dateUpdated": "2026-06-22T23:11:19.193Z",
+      "active": true
+    },
+    {
+      "id": "ca7f31150708",
+      "company": "Hire Hangar",
+      "title": "B2C Content & Lifecycle Coordinator",
+      "locations": [
+        "South Africa - Cape Town",
+        "Chile - Santiago",
+        "South Africa - Johannesburg",
+        "Argentina - Buenos Aires",
+        "Brazil - Rio de Janeiro",
+        "Brazil - São Paulo",
+        "Mexico - Mexico City",
+        "Panama - Panama City",
+        "Peru - Lima",
+        "Columbia - Bogotá",
+        "Columbia - Medellín",
+        "Manila",
+        "Quezon City"
+      ],
+      "workSetup": "remote",
+      "level": "unknown",
+      "function": "marketing",
+      "industry": "staffing",
+      "metro": [
+        "ncr"
+      ],
+      "url": "https://jobs.ashbyhq.com/hirehangar/816c40ed-2463-4707-b411-503a68d9bc7a",
+      "source": "ashby",
+      "employmentType": "contract",
+      "salary": "$1K – $4K per month • Multiple Ranges",
+      "datePosted": "2026-06-22T20:01:55.792Z",
+      "dateUpdated": "2026-06-22T23:11:19.193Z",
+      "active": true
+    },
+    {
       "id": "63984fd12dda",
       "company": "Hire Hangar",
       "title": "Senior Podcast Audio and Video Editor",
@@ -18874,8 +19011,8 @@
       "employmentType": "contract",
       "salary": "$1K – $4K per month • Multiple Ranges",
       "datePosted": "2026-06-18T19:45:56.103Z",
-      "dateUpdated": "2026-06-18T23:28:01.304Z",
-      "active": true
+      "dateUpdated": "2026-06-22T23:11:19.193Z",
+      "active": false
     },
     {
       "id": "19e3cf142bfe",
@@ -19319,8 +19456,8 @@
       "employmentType": "contract",
       "salary": "$1K – $4K per month • Multiple Ranges",
       "datePosted": "2026-06-17T14:53:19.888Z",
-      "dateUpdated": "2026-06-18T23:28:01.304Z",
-      "active": false
+      "dateUpdated": "2026-06-22T23:11:19.193Z",
+      "active": true
     },
     {
       "id": "b710ddcaa33f",
@@ -19583,8 +19720,8 @@
       "employmentType": "contract",
       "salary": "$1K – $4K per month • Multiple Ranges",
       "datePosted": "2026-06-09T21:01:07.657Z",
-      "dateUpdated": "2026-06-18T23:28:01.304Z",
-      "active": true
+      "dateUpdated": "2026-06-22T23:11:19.193Z",
+      "active": false
     },
     {
       "id": "14dffe9c19a6",
@@ -19611,8 +19748,8 @@
       "employmentType": "contract",
       "salary": "$1K – $4K per month • Multiple Ranges",
       "datePosted": "2026-06-09T21:00:53.868Z",
-      "dateUpdated": "2026-06-18T23:28:01.304Z",
-      "active": true
+      "dateUpdated": "2026-06-22T23:11:19.193Z",
+      "active": false
     },
     {
       "id": "798425b799fa",
@@ -19712,8 +19849,8 @@
       "employmentType": "contract",
       "salary": "$900 – $1,800 per month • Multiple Ranges",
       "datePosted": "2026-06-08T19:07:46.705Z",
-      "dateUpdated": "2026-06-18T23:28:01.304Z",
-      "active": true
+      "dateUpdated": "2026-06-22T23:11:19.193Z",
+      "active": false
     },
     {
       "id": "35b6317c7769",
@@ -19816,8 +19953,8 @@
       "employmentType": "contract",
       "salary": "$1K – $4K per month • Multiple Ranges",
       "datePosted": "2026-06-05T21:17:21.335Z",
-      "dateUpdated": "2026-06-18T23:28:01.304Z",
-      "active": true
+      "dateUpdated": "2026-06-22T23:11:19.193Z",
+      "active": false
     },
     {
       "id": "9617f0dad127",
@@ -20025,8 +20162,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-06-11T00:00:00.000Z",
-      "dateUpdated": "2026-06-11T18:23:30.568Z",
-      "active": true
+      "dateUpdated": "2026-06-22T23:11:19.193Z",
+      "active": false
     },
     {
       "id": "d3a91b1145eb",
@@ -20096,8 +20233,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-06-10T00:00:00.000Z",
-      "dateUpdated": "2026-06-11T12:33:52.706Z",
-      "active": true
+      "dateUpdated": "2026-06-22T23:11:19.193Z",
+      "active": false
     },
     {
       "id": "a8726445586d",
@@ -20140,8 +20277,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-06-09T00:00:00.000Z",
-      "dateUpdated": "2026-06-11T12:33:52.706Z",
-      "active": true
+      "dateUpdated": "2026-06-22T23:11:19.193Z",
+      "active": false
     },
     {
       "id": "6a0d5bc815f5",
@@ -20184,8 +20321,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-06-08T00:00:00.000Z",
-      "dateUpdated": "2026-06-11T01:21:12.918Z",
-      "active": true
+      "dateUpdated": "2026-06-22T23:11:19.193Z",
+      "active": false
     },
     {
       "id": "a1aa19f08116",
@@ -20206,8 +20343,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-06-05T00:00:00.000Z",
-      "dateUpdated": "2026-06-11T01:21:12.918Z",
-      "active": true
+      "dateUpdated": "2026-06-22T23:11:19.193Z",
+      "active": false
     },
     {
       "id": "53ab55dad17d",
@@ -20228,8 +20365,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-06-03T00:00:00.000Z",
-      "dateUpdated": "2026-06-11T01:21:12.918Z",
-      "active": true
+      "dateUpdated": "2026-06-22T23:11:19.193Z",
+      "active": false
     },
     {
       "id": "5a5d59e79334",
@@ -20250,8 +20387,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-06-02T00:00:00.000Z",
-      "dateUpdated": "2026-06-11T01:21:12.918Z",
-      "active": true
+      "dateUpdated": "2026-06-22T23:11:19.193Z",
+      "active": false
     },
     {
       "id": "afa02ab578fe",
@@ -20272,8 +20409,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-06-02T00:00:00.000Z",
-      "dateUpdated": "2026-06-11T12:33:52.706Z",
-      "active": true
+      "dateUpdated": "2026-06-22T23:11:19.193Z",
+      "active": false
     },
     {
       "id": "3b38ecc8811a",
@@ -20316,8 +20453,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-06-01T00:00:00.000Z",
-      "dateUpdated": "2026-06-11T01:21:12.918Z",
-      "active": true
+      "dateUpdated": "2026-06-22T23:11:19.193Z",
+      "active": false
     },
     {
       "id": "ae7729e398cd",
@@ -20338,8 +20475,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-06-01T00:00:00.000Z",
-      "dateUpdated": "2026-06-11T12:33:52.706Z",
-      "active": true
+      "dateUpdated": "2026-06-22T23:11:19.193Z",
+      "active": false
     },
     {
       "id": "d6a92370289a",
@@ -20430,8 +20567,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-06-01T00:00:00.000Z",
-      "dateUpdated": "2026-06-11T12:33:52.706Z",
-      "active": true
+      "dateUpdated": "2026-06-22T23:11:19.193Z",
+      "active": false
     },
     {
       "id": "fec4b770ffe4",
@@ -20501,8 +20638,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-05-25T00:00:00.000Z",
-      "dateUpdated": "2026-06-11T01:21:12.918Z",
-      "active": true
+      "dateUpdated": "2026-06-22T23:11:19.193Z",
+      "active": false
     },
     {
       "id": "b03dccf80523",
@@ -20523,7 +20660,29 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-05-21T00:00:00.000Z",
-      "dateUpdated": "2026-06-11T01:21:12.918Z",
+      "dateUpdated": "2026-06-22T23:11:19.193Z",
+      "active": false
+    },
+    {
+      "id": "0b4d42a624e0",
+      "company": "Hire Overseas",
+      "title": "Executive Virtual Assistant (Recruiting & Operations)",
+      "locations": [
+        "Philippines"
+      ],
+      "workSetup": "remote",
+      "level": "unknown",
+      "function": "operations",
+      "industry": "staffing",
+      "metro": [
+        "other-ph"
+      ],
+      "url": "https://apply.workable.com/j/71CB5548EA",
+      "source": "workable",
+      "employmentType": "full-time",
+      "salary": null,
+      "datePosted": "2026-05-20T00:00:00.000Z",
+      "dateUpdated": "2026-06-22T23:11:19.193Z",
       "active": true
     },
     {
@@ -20531,12 +20690,7 @@
       "company": "Hire Overseas",
       "title": "Executive Assistant (Project Management)",
       "locations": [
-        "Sri Lanka",
-        "Philippines",
-        "South Africa",
-        "Colombia",
-        "Argentina",
-        "Mexico"
+        "Philippines"
       ],
       "workSetup": "remote",
       "level": "unknown",
@@ -20550,7 +20704,7 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-05-19T00:00:00.000Z",
-      "dateUpdated": "2026-06-11T12:33:52.706Z",
+      "dateUpdated": "2026-06-22T23:11:19.193Z",
       "active": true
     },
     {
@@ -20594,8 +20748,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-05-12T00:00:00.000Z",
-      "dateUpdated": "2026-06-11T01:21:12.918Z",
-      "active": true
+      "dateUpdated": "2026-06-22T23:11:19.193Z",
+      "active": false
     },
     {
       "id": "e86f34b730c1",
@@ -20638,8 +20792,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-05-08T00:00:00.000Z",
-      "dateUpdated": "2026-06-11T01:21:12.918Z",
-      "active": true
+      "dateUpdated": "2026-06-22T23:11:19.193Z",
+      "active": false
     },
     {
       "id": "85b03d94fff7",
@@ -20692,8 +20846,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-05-08T00:00:00.000Z",
-      "dateUpdated": "2026-06-11T01:21:12.918Z",
-      "active": true
+      "dateUpdated": "2026-06-22T23:11:19.193Z",
+      "active": false
     },
     {
       "id": "f6eb7185e17c",
@@ -20719,8 +20873,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-05-08T00:00:00.000Z",
-      "dateUpdated": "2026-06-11T01:21:12.918Z",
-      "active": true
+      "dateUpdated": "2026-06-22T23:11:19.193Z",
+      "active": false
     },
     {
       "id": "103cf5c24731",
@@ -20741,8 +20895,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-05-05T00:00:00.000Z",
-      "dateUpdated": "2026-06-11T01:21:12.918Z",
-      "active": true
+      "dateUpdated": "2026-06-22T23:11:19.193Z",
+      "active": false
     },
     {
       "id": "bfc75b199b44",
@@ -20763,8 +20917,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-05-05T00:00:00.000Z",
-      "dateUpdated": "2026-06-11T01:21:12.918Z",
-      "active": true
+      "dateUpdated": "2026-06-22T23:11:19.193Z",
+      "active": false
     },
     {
       "id": "79d85b647e68",
@@ -20785,8 +20939,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-04-28T00:00:00.000Z",
-      "dateUpdated": "2026-06-11T01:21:12.918Z",
-      "active": true
+      "dateUpdated": "2026-06-22T23:11:19.193Z",
+      "active": false
     },
     {
       "id": "c5ff00d1cae5",
@@ -20807,8 +20961,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-04-22T00:00:00.000Z",
-      "dateUpdated": "2026-06-11T01:21:12.918Z",
-      "active": true
+      "dateUpdated": "2026-06-22T23:11:19.193Z",
+      "active": false
     },
     {
       "id": "751c3e477c45",
@@ -20829,8 +20983,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-04-21T00:00:00.000Z",
-      "dateUpdated": "2026-06-11T01:21:12.918Z",
-      "active": true
+      "dateUpdated": "2026-06-22T23:11:19.193Z",
+      "active": false
     },
     {
       "id": "af2cbee49f1d",
@@ -20851,8 +21005,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-04-21T00:00:00.000Z",
-      "dateUpdated": "2026-06-11T01:21:12.918Z",
-      "active": true
+      "dateUpdated": "2026-06-22T23:11:19.193Z",
+      "active": false
     },
     {
       "id": "43797a2596b9",
@@ -20878,8 +21032,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-04-10T00:00:00.000Z",
-      "dateUpdated": "2026-06-11T01:21:12.918Z",
-      "active": true
+      "dateUpdated": "2026-06-22T23:11:19.193Z",
+      "active": false
     },
     {
       "id": "c6bb474b8e98",
@@ -20905,8 +21059,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-02-24T00:00:00.000Z",
-      "dateUpdated": "2026-06-11T01:21:12.918Z",
-      "active": true
+      "dateUpdated": "2026-06-22T23:11:19.193Z",
+      "active": false
     },
     {
       "id": "924768f28e3f",
@@ -20932,8 +21086,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-02-11T00:00:00.000Z",
-      "dateUpdated": "2026-06-11T01:21:12.918Z",
-      "active": true
+      "dateUpdated": "2026-06-22T23:11:19.193Z",
+      "active": false
     },
     {
       "id": "10ae22132cd4",
@@ -20976,8 +21130,8 @@
       "employmentType": "part-time",
       "salary": null,
       "datePosted": "2026-06-12T00:00:00.000Z",
-      "dateUpdated": "2026-06-12T23:06:32.670Z",
-      "active": true
+      "dateUpdated": "2026-06-22T23:11:19.193Z",
+      "active": false
     },
     {
       "id": "7df17c650298",
@@ -21838,6 +21992,28 @@
       "active": true
     },
     {
+      "id": "d4239fa440e6",
+      "company": "HireHawk",
+      "title": "Senior Financial Analyst (Cash Flow) - Remote (PH)",
+      "locations": [
+        "Philippines"
+      ],
+      "workSetup": "remote",
+      "level": "senior",
+      "function": "finance",
+      "industry": "staffing",
+      "metro": [
+        "other-ph"
+      ],
+      "url": "https://apply.workable.com/j/9AB5C22557",
+      "source": "workable",
+      "employmentType": "full-time",
+      "salary": null,
+      "datePosted": "2026-06-22T00:00:00.000Z",
+      "dateUpdated": "2026-06-22T23:11:19.193Z",
+      "active": true
+    },
+    {
       "id": "d5e200b6a6f8",
       "company": "HireHawk",
       "title": "Lead Generation & Outreach Specialist (Law Firm) | Philippines",
@@ -21928,13 +22104,13 @@
     {
       "id": "c9f2f6613887",
       "company": "HireHawk",
-      "title": "Finance Director (Remote) | Philippines",
+      "title": "Senior FP&A Lead (Remote) | Philippines",
       "locations": [
         "Philippines"
       ],
       "workSetup": "remote",
       "level": "senior",
-      "function": "finance",
+      "function": "other",
       "industry": "staffing",
       "metro": [
         "other-ph"
@@ -21944,7 +22120,7 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-06-12T00:00:00.000Z",
-      "dateUpdated": "2026-06-15T23:28:31.331Z",
+      "dateUpdated": "2026-06-22T23:11:19.193Z",
       "active": true
     },
     {
@@ -21988,8 +22164,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-05-26T00:00:00.000Z",
-      "dateUpdated": "2026-06-11T01:21:12.918Z",
-      "active": true
+      "dateUpdated": "2026-06-22T23:11:19.193Z",
+      "active": false
     },
     {
       "id": "e9fdec49fe16",
@@ -22252,8 +22428,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-04-21T00:00:00.000Z",
-      "dateUpdated": "2026-06-11T01:21:12.918Z",
-      "active": true
+      "dateUpdated": "2026-06-22T23:11:19.193Z",
+      "active": false
     },
     {
       "id": "71e1dd71dd61",
@@ -23378,6 +23554,204 @@
       "active": true
     },
     {
+      "id": "210bff0a2a0f",
+      "company": "Hunt St",
+      "title": "Revenue Operations Coordinator (024-1019)",
+      "locations": [
+        "Philippines"
+      ],
+      "workSetup": "remote",
+      "level": "unknown",
+      "function": "operations",
+      "industry": "staffing",
+      "metro": [
+        "other-ph"
+      ],
+      "url": "https://apply.workable.com/j/B0C9B82C9A",
+      "source": "workable",
+      "employmentType": "full-time",
+      "salary": null,
+      "datePosted": "2026-06-22T00:00:00.000Z",
+      "dateUpdated": "2026-06-22T23:11:19.193Z",
+      "active": true
+    },
+    {
+      "id": "50f45e02598a",
+      "company": "Hunt St",
+      "title": "Finance Manager (006-1000)",
+      "locations": [
+        "Philippines"
+      ],
+      "workSetup": "remote",
+      "level": "senior",
+      "function": "finance",
+      "industry": "staffing",
+      "metro": [
+        "other-ph"
+      ],
+      "url": "https://apply.workable.com/j/A1F8D6DC4D",
+      "source": "workable",
+      "employmentType": "full-time",
+      "salary": null,
+      "datePosted": "2026-06-22T00:00:00.000Z",
+      "dateUpdated": "2026-06-22T23:11:19.193Z",
+      "active": true
+    },
+    {
+      "id": "52d605ced398",
+      "company": "Hunt St",
+      "title": "Digital Marketing Manager (007-984)",
+      "locations": [
+        "Philippines"
+      ],
+      "workSetup": "remote",
+      "level": "senior",
+      "function": "marketing",
+      "industry": "staffing",
+      "metro": [
+        "other-ph"
+      ],
+      "url": "https://apply.workable.com/j/C7DA99384E",
+      "source": "workable",
+      "employmentType": "full-time",
+      "salary": null,
+      "datePosted": "2026-06-22T00:00:00.000Z",
+      "dateUpdated": "2026-06-22T23:11:19.193Z",
+      "active": true
+    },
+    {
+      "id": "850160cc1848",
+      "company": "Hunt St",
+      "title": "Marketing Specialist & Video Editor (007-571)",
+      "locations": [
+        "Philippines"
+      ],
+      "workSetup": "remote",
+      "level": "unknown",
+      "function": "design",
+      "industry": "staffing",
+      "metro": [
+        "other-ph"
+      ],
+      "url": "https://apply.workable.com/j/A5FDFF0193",
+      "source": "workable",
+      "employmentType": "full-time",
+      "salary": null,
+      "datePosted": "2026-06-22T00:00:00.000Z",
+      "dateUpdated": "2026-06-22T23:11:19.193Z",
+      "active": true
+    },
+    {
+      "id": "ca21a162a64c",
+      "company": "Hunt St",
+      "title": "Service delivery/Care Coordinator (008)",
+      "locations": [
+        "Philippines"
+      ],
+      "workSetup": "remote",
+      "level": "unknown",
+      "function": "operations",
+      "industry": "staffing",
+      "metro": [
+        "other-ph"
+      ],
+      "url": "https://apply.workable.com/j/2E4B445083",
+      "source": "workable",
+      "employmentType": "full-time",
+      "salary": null,
+      "datePosted": "2026-06-22T00:00:00.000Z",
+      "dateUpdated": "2026-06-22T23:11:19.193Z",
+      "active": true
+    },
+    {
+      "id": "dd12df827743",
+      "company": "Hunt St",
+      "title": "Virtual Assistant/Sales Support (0010-0434)",
+      "locations": [
+        "Philippines"
+      ],
+      "workSetup": "remote",
+      "level": "unknown",
+      "function": "sales",
+      "industry": "staffing",
+      "metro": [
+        "other-ph"
+      ],
+      "url": "https://apply.workable.com/j/E03CDD36DE",
+      "source": "workable",
+      "employmentType": "full-time",
+      "salary": null,
+      "datePosted": "2026-06-22T00:00:00.000Z",
+      "dateUpdated": "2026-06-22T23:11:19.193Z",
+      "active": true
+    },
+    {
+      "id": "e0e434c523d0",
+      "company": "Hunt St",
+      "title": "Learning and Development Coordinator (007-1011)",
+      "locations": [
+        "Philippines"
+      ],
+      "workSetup": "remote",
+      "level": "unknown",
+      "function": "hr",
+      "industry": "staffing",
+      "metro": [
+        "other-ph"
+      ],
+      "url": "https://apply.workable.com/j/2AB8AC193D",
+      "source": "workable",
+      "employmentType": "full-time",
+      "salary": null,
+      "datePosted": "2026-06-22T00:00:00.000Z",
+      "dateUpdated": "2026-06-22T23:11:19.193Z",
+      "active": true
+    },
+    {
+      "id": "f0f142259609",
+      "company": "Hunt St",
+      "title": "SEO Manager (005-0443)",
+      "locations": [
+        "Philippines"
+      ],
+      "workSetup": "remote",
+      "level": "senior",
+      "function": "marketing",
+      "industry": "staffing",
+      "metro": [
+        "other-ph"
+      ],
+      "url": "https://apply.workable.com/j/2272FFEE36",
+      "source": "workable",
+      "employmentType": "full-time",
+      "salary": null,
+      "datePosted": "2026-06-22T00:00:00.000Z",
+      "dateUpdated": "2026-06-22T23:11:19.193Z",
+      "active": true
+    },
+    {
+      "id": "f4dcc62f3e32",
+      "company": "Hunt St",
+      "title": "Digital Marketing & Web Specialist (003-01012)",
+      "locations": [
+        "Philippines"
+      ],
+      "workSetup": "remote",
+      "level": "unknown",
+      "function": "marketing",
+      "industry": "staffing",
+      "metro": [
+        "other-ph"
+      ],
+      "url": "https://apply.workable.com/j/8CE0F81343",
+      "source": "workable",
+      "employmentType": "contract",
+      "salary": null,
+      "datePosted": "2026-06-22T00:00:00.000Z",
+      "dateUpdated": "2026-06-22T23:11:19.193Z",
+      "active": true
+    },
+    {
       "id": "028a3ca986dc",
       "company": "Hunt St",
       "title": "Estimator / Draftsman (Mechanical Engineering background) (008-01006)",
@@ -23424,7 +23798,7 @@
     {
       "id": "54bea0517ffb",
       "company": "Hunt St",
-      "title": "Tech & Operations Support VA - 995",
+      "title": "Go High Level & Operations Support VA - 995",
       "locations": [
         "Philippines"
       ],
@@ -23440,7 +23814,7 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-06-19T00:00:00.000Z",
-      "dateUpdated": "2026-06-19T22:42:55.151Z",
+      "dateUpdated": "2026-06-22T23:11:19.193Z",
       "active": true
     },
     {
@@ -23748,8 +24122,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-06-16T00:00:00.000Z",
-      "dateUpdated": "2026-06-16T23:17:20.340Z",
-      "active": true
+      "dateUpdated": "2026-06-22T23:11:19.193Z",
+      "active": false
     },
     {
       "id": "e1fc8f28f859",
@@ -24584,8 +24958,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-06-05T00:00:00.000Z",
-      "dateUpdated": "2026-06-11T12:33:52.706Z",
-      "active": true
+      "dateUpdated": "2026-06-22T23:11:19.193Z",
+      "active": false
     },
     {
       "id": "d7f13dab75c0",
@@ -24958,8 +25332,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-06-02T00:00:00.000Z",
-      "dateUpdated": "2026-06-11T01:21:12.918Z",
-      "active": true
+      "dateUpdated": "2026-06-22T23:11:19.193Z",
+      "active": false
     },
     {
       "id": "3d7e73422f9d",
@@ -25134,8 +25508,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-06-02T00:00:00.000Z",
-      "dateUpdated": "2026-06-11T01:21:12.918Z",
-      "active": true
+      "dateUpdated": "2026-06-22T23:11:19.193Z",
+      "active": false
     },
     {
       "id": "2cfd09827084",
@@ -25376,8 +25750,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-05-29T00:00:00.000Z",
-      "dateUpdated": "2026-06-11T01:21:12.918Z",
-      "active": true
+      "dateUpdated": "2026-06-22T23:11:19.193Z",
+      "active": false
     },
     {
       "id": "da0a1ddb211a",
@@ -25948,8 +26322,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-05-19T00:00:00.000Z",
-      "dateUpdated": "2026-06-11T01:21:12.918Z",
-      "active": true
+      "dateUpdated": "2026-06-22T23:11:19.193Z",
+      "active": false
     },
     {
       "id": "addb440b0420",
@@ -26146,8 +26520,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-05-14T00:00:00.000Z",
-      "dateUpdated": "2026-06-11T01:21:12.918Z",
-      "active": true
+      "dateUpdated": "2026-06-22T23:11:19.193Z",
+      "active": false
     },
     {
       "id": "3ce40d6f1f60",
@@ -26212,8 +26586,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-05-14T00:00:00.000Z",
-      "dateUpdated": "2026-06-11T01:21:12.918Z",
-      "active": true
+      "dateUpdated": "2026-06-22T23:11:19.193Z",
+      "active": false
     },
     {
       "id": "8d03dc884984",
@@ -26762,8 +27136,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-04-28T00:00:00.000Z",
-      "dateUpdated": "2026-06-11T01:21:12.918Z",
-      "active": true
+      "dateUpdated": "2026-06-22T23:11:19.193Z",
+      "active": false
     },
     {
       "id": "bf09cfec5c69",
@@ -27379,6 +27753,28 @@
       "salary": null,
       "datePosted": "2025-08-25T00:00:00.000Z",
       "dateUpdated": "2026-06-11T01:21:12.918Z",
+      "active": true
+    },
+    {
+      "id": "21b355c0178a",
+      "company": "Instructure",
+      "title": "Web Producer",
+      "locations": [
+        "Philippines (remote)"
+      ],
+      "workSetup": "remote",
+      "level": "unknown",
+      "function": "design",
+      "industry": "edtech",
+      "metro": [
+        "remote-ph"
+      ],
+      "url": "https://jobs.ashbyhq.com/instructure/4843488f-74d0-442d-a65c-f7bf5a1a398d",
+      "source": "ashby",
+      "employmentType": "full-time",
+      "salary": null,
+      "datePosted": "2026-06-22T05:59:07.535Z",
+      "dateUpdated": "2026-06-22T23:11:19.193Z",
       "active": true
     },
     {
@@ -31558,8 +31954,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-05-12T07:20:22.763Z",
-      "dateUpdated": "2026-06-11T01:21:12.918Z",
-      "active": true
+      "dateUpdated": "2026-06-22T23:11:19.193Z",
+      "active": false
     },
     {
       "id": "c43f5c278be5",
@@ -31867,6 +32263,94 @@
       "salary": null,
       "datePosted": "2026-05-22T01:10:46.960Z",
       "dateUpdated": "2026-06-11T01:21:12.918Z",
+      "active": true
+    },
+    {
+      "id": "088d45510fc5",
+      "company": "Manila Recruitment",
+      "title": "Junior Business Analyst (Onsite - Taguig) - #35154",
+      "locations": [
+        "Taguig, Philippines"
+      ],
+      "workSetup": "unknown",
+      "level": "entry",
+      "function": "other",
+      "industry": "recruitment",
+      "metro": [
+        "ncr"
+      ],
+      "url": "https://apply.workable.com/j/63515AC222",
+      "source": "workable",
+      "employmentType": "full-time",
+      "salary": null,
+      "datePosted": "2026-06-22T00:00:00.000Z",
+      "dateUpdated": "2026-06-22T23:11:19.193Z",
+      "active": true
+    },
+    {
+      "id": "32986e19d2e4",
+      "company": "Manila Recruitment",
+      "title": "Administrative Coordinator - #35137",
+      "locations": [
+        "Makati City, Philippines"
+      ],
+      "workSetup": "remote",
+      "level": "unknown",
+      "function": "operations",
+      "industry": "recruitment",
+      "metro": [
+        "ncr"
+      ],
+      "url": "https://apply.workable.com/j/45AB58809E",
+      "source": "workable",
+      "employmentType": "full-time",
+      "salary": null,
+      "datePosted": "2026-06-22T00:00:00.000Z",
+      "dateUpdated": "2026-06-22T23:11:19.193Z",
+      "active": true
+    },
+    {
+      "id": "a4ff81d5266f",
+      "company": "Manila Recruitment",
+      "title": "IT GCC General Manager - #35144",
+      "locations": [
+        "Makati City, Philippines"
+      ],
+      "workSetup": "unknown",
+      "level": "senior",
+      "function": "other",
+      "industry": "recruitment",
+      "metro": [
+        "ncr"
+      ],
+      "url": "https://apply.workable.com/j/1235005F3D",
+      "source": "workable",
+      "employmentType": "full-time",
+      "salary": null,
+      "datePosted": "2026-06-22T00:00:00.000Z",
+      "dateUpdated": "2026-06-22T23:11:19.193Z",
+      "active": true
+    },
+    {
+      "id": "e258ae0380ab",
+      "company": "Manila Recruitment",
+      "title": "Associate Technology Officer - #35160",
+      "locations": [
+        "Taguig, Philippines"
+      ],
+      "workSetup": "unknown",
+      "level": "entry",
+      "function": "other",
+      "industry": "recruitment",
+      "metro": [
+        "ncr"
+      ],
+      "url": "https://apply.workable.com/j/43CBD9F83B",
+      "source": "workable",
+      "employmentType": "full-time",
+      "salary": null,
+      "datePosted": "2026-06-22T00:00:00.000Z",
+      "dateUpdated": "2026-06-22T23:11:19.193Z",
       "active": true
     },
     {
@@ -34752,6 +35236,28 @@
       "active": true
     },
     {
+      "id": "9e645d5a588a",
+      "company": "NICE",
+      "title": "Technical Account Manager",
+      "locations": [
+        "Philippines - Manila"
+      ],
+      "workSetup": "unknown",
+      "level": "senior",
+      "function": "sales",
+      "industry": "saas",
+      "metro": [
+        "ncr"
+      ],
+      "url": "https://boards.eu.greenhouse.io/nice/jobs/4899740101?gh_jid=4899740101",
+      "source": "greenhouse",
+      "employmentType": "unknown",
+      "salary": null,
+      "datePosted": "2026-06-22T11:22:41.000Z",
+      "dateUpdated": "2026-06-22T23:11:19.193Z",
+      "active": true
+    },
+    {
       "id": "265a2da7d81f",
       "company": "NICE",
       "title": "Manager Professional Services",
@@ -35298,8 +35804,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-04-15T11:34:31.000Z",
-      "dateUpdated": "2026-06-11T01:21:12.918Z",
-      "active": true
+      "dateUpdated": "2026-06-22T23:11:19.193Z",
+      "active": false
     },
     {
       "id": "9b751ae0b721",
@@ -35474,8 +35980,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-04-10T07:01:43.000Z",
-      "dateUpdated": "2026-06-11T12:33:52.706Z",
-      "active": true
+      "dateUpdated": "2026-06-22T23:11:19.193Z",
+      "active": false
     },
     {
       "id": "a5355833d716",
@@ -35896,6 +36402,72 @@
       "active": true
     },
     {
+      "id": "0a7fff04cd80",
+      "company": "Palmetto",
+      "title": "Customer Success Specialist I (Spanish Bilingual)",
+      "locations": [
+        "Remote - Philippines"
+      ],
+      "workSetup": "remote",
+      "level": "entry",
+      "function": "customer-support",
+      "industry": "cleantech",
+      "metro": [
+        "remote-ph"
+      ],
+      "url": "https://job-boards.greenhouse.io/palmettocleantech/jobs/5272666008",
+      "source": "greenhouse",
+      "employmentType": "unknown",
+      "salary": null,
+      "datePosted": "2026-06-22T19:10:09.000Z",
+      "dateUpdated": "2026-06-22T23:11:19.193Z",
+      "active": true
+    },
+    {
+      "id": "954b9b8eadf6",
+      "company": "Palmetto",
+      "title": "Team Lead, Customer Success (Spanish Bilingual)",
+      "locations": [
+        "Remote - Philippines"
+      ],
+      "workSetup": "remote",
+      "level": "senior",
+      "function": "customer-support",
+      "industry": "cleantech",
+      "metro": [
+        "remote-ph"
+      ],
+      "url": "https://job-boards.greenhouse.io/palmettocleantech/jobs/5272623008",
+      "source": "greenhouse",
+      "employmentType": "unknown",
+      "salary": null,
+      "datePosted": "2026-06-22T18:55:29.000Z",
+      "dateUpdated": "2026-06-22T23:11:19.193Z",
+      "active": true
+    },
+    {
+      "id": "dcf7f51cc415",
+      "company": "Palmetto",
+      "title": "Quality Assurance Specialist (Spanish Bilingual)",
+      "locations": [
+        "Remote - Philippines"
+      ],
+      "workSetup": "remote",
+      "level": "unknown",
+      "function": "other",
+      "industry": "cleantech",
+      "metro": [
+        "remote-ph"
+      ],
+      "url": "https://job-boards.greenhouse.io/palmettocleantech/jobs/5272554008",
+      "source": "greenhouse",
+      "employmentType": "unknown",
+      "salary": null,
+      "datePosted": "2026-06-22T17:38:18.000Z",
+      "dateUpdated": "2026-06-22T23:11:19.193Z",
+      "active": true
+    },
+    {
       "id": "06f636844365",
       "company": "Palmetto",
       "title": "Customer Escalation Specialist II",
@@ -35980,7 +36552,51 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-03-25T22:12:23.000Z",
-      "dateUpdated": "2026-06-11T01:21:12.918Z",
+      "dateUpdated": "2026-06-22T23:11:19.193Z",
+      "active": false
+    },
+    {
+      "id": "cf423e039ba5",
+      "company": "Pilmico",
+      "title": "Warehouse Associate (Fixed Term)",
+      "locations": [
+        "Lipa, Calabarzon, Philippines"
+      ],
+      "workSetup": "onsite",
+      "level": "entry",
+      "function": "operations",
+      "industry": "food",
+      "metro": [
+        "calabarzon"
+      ],
+      "url": "https://jobs.smartrecruiters.com/PilmicoFoodsCorporation/744000133259389",
+      "source": "smartrecruiters",
+      "employmentType": "contract",
+      "salary": null,
+      "datePosted": "2026-06-22T05:05:33.542Z",
+      "dateUpdated": "2026-06-22T23:11:19.193Z",
+      "active": true
+    },
+    {
+      "id": "7c2f2ce67f24",
+      "company": "Pilmico",
+      "title": "Farm Maintenance Specialist",
+      "locations": [
+        "Concepcion, Central Luzon, Philippines"
+      ],
+      "workSetup": "onsite",
+      "level": "unknown",
+      "function": "manufacturing",
+      "industry": "food",
+      "metro": [
+        "other-ph"
+      ],
+      "url": "https://jobs.smartrecruiters.com/PilmicoFoodsCorporation/744000133236709",
+      "source": "smartrecruiters",
+      "employmentType": "full-time",
+      "salary": null,
+      "datePosted": "2026-06-22T00:45:52.210Z",
+      "dateUpdated": "2026-06-22T23:11:19.193Z",
       "active": true
     },
     {
@@ -37212,8 +37828,8 @@
       "employmentType": "contract",
       "salary": null,
       "datePosted": "2026-05-08T01:12:25.086Z",
-      "dateUpdated": "2026-06-11T12:33:52.706Z",
-      "active": true
+      "dateUpdated": "2026-06-22T23:11:19.193Z",
+      "active": false
     },
     {
       "id": "9e251a184aa0",
@@ -38800,6 +39416,94 @@
       "active": true
     },
     {
+      "id": "a8a074b77cfd",
+      "company": "SGS",
+      "title": "Senior BI Developer",
+      "locations": [
+        "Muntinlupa, NCR, Philippines"
+      ],
+      "workSetup": "hybrid",
+      "level": "senior",
+      "function": "engineering",
+      "industry": "testing-certification",
+      "metro": [
+        "ncr"
+      ],
+      "url": "https://jobs.smartrecruiters.com/SGS/744000133343009",
+      "source": "smartrecruiters",
+      "employmentType": "full-time",
+      "salary": null,
+      "datePosted": "2026-06-22T11:49:42.743Z",
+      "dateUpdated": "2026-06-22T23:11:19.193Z",
+      "active": true
+    },
+    {
+      "id": "d88e4d683c43",
+      "company": "SGS",
+      "title": "Senior Azure Middleware Developer",
+      "locations": [
+        "Muntinlupa, NCR, Philippines"
+      ],
+      "workSetup": "hybrid",
+      "level": "senior",
+      "function": "engineering",
+      "industry": "testing-certification",
+      "metro": [
+        "ncr"
+      ],
+      "url": "https://jobs.smartrecruiters.com/SGS/744000133341799",
+      "source": "smartrecruiters",
+      "employmentType": "full-time",
+      "salary": null,
+      "datePosted": "2026-06-22T11:44:42.311Z",
+      "dateUpdated": "2026-06-22T23:11:19.193Z",
+      "active": true
+    },
+    {
+      "id": "d56ba981ec26",
+      "company": "SGS",
+      "title": "Operations Support Office Associate/Operations Coordinator",
+      "locations": [
+        "Makati City, NCR, Philippines"
+      ],
+      "workSetup": "onsite",
+      "level": "entry",
+      "function": "operations",
+      "industry": "testing-certification",
+      "metro": [
+        "ncr"
+      ],
+      "url": "https://jobs.smartrecruiters.com/SGS/744000133255809",
+      "source": "smartrecruiters",
+      "employmentType": "full-time",
+      "salary": null,
+      "datePosted": "2026-06-22T03:57:51.066Z",
+      "dateUpdated": "2026-06-22T23:11:19.193Z",
+      "active": true
+    },
+    {
+      "id": "0a6c745a186b",
+      "company": "SGS",
+      "title": "Laboratory Analyst I (Davao) (Licesed Chemist /Registered Chemical Technician)",
+      "locations": [
+        "Davao City, Davao Region, Philippines"
+      ],
+      "workSetup": "onsite",
+      "level": "entry",
+      "function": "other",
+      "industry": "testing-certification",
+      "metro": [
+        "davao"
+      ],
+      "url": "https://jobs.smartrecruiters.com/SGS/744000133247589",
+      "source": "smartrecruiters",
+      "employmentType": "full-time",
+      "salary": null,
+      "datePosted": "2026-06-22T01:20:09.540Z",
+      "dateUpdated": "2026-06-22T23:11:19.193Z",
+      "active": true
+    },
+    {
       "id": "3babf81e1292",
       "company": "SGS",
       "title": "Operations Coordinator (Supply Chain Services)",
@@ -39170,8 +39874,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-06-15T10:43:18.258Z",
-      "dateUpdated": "2026-06-15T23:28:31.331Z",
-      "active": true
+      "dateUpdated": "2026-06-22T23:11:19.193Z",
+      "active": false
     },
     {
       "id": "2f83208a875d",
@@ -40072,8 +40776,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-05-22T01:25:49.124Z",
-      "dateUpdated": "2026-06-11T01:21:12.918Z",
-      "active": true
+      "dateUpdated": "2026-06-22T23:11:19.193Z",
+      "active": false
     },
     {
       "id": "b975d7bcc1ae",
@@ -44080,6 +44784,28 @@
       "active": true
     },
     {
+      "id": "6b076ae1841b",
+      "company": "SupportYourApp",
+      "title": "(fluent English) Customer Support Consultant, hospitality (Remote)",
+      "locations": [
+        "Philippines"
+      ],
+      "workSetup": "remote",
+      "level": "unknown",
+      "function": "customer-support",
+      "industry": "customer-support",
+      "metro": [
+        "other-ph"
+      ],
+      "url": "https://apply.workable.com/j/908FA4DC73",
+      "source": "workable",
+      "employmentType": "contract",
+      "salary": null,
+      "datePosted": "2026-06-22T00:00:00.000Z",
+      "dateUpdated": "2026-06-22T23:11:19.193Z",
+      "active": true
+    },
+    {
       "id": "7086cb110857",
       "company": "SupportYourApp",
       "title": "(Native Dutch & English C1) Customer Support Specialist (Remote)",
@@ -44142,8 +44868,8 @@
       "employmentType": "contract",
       "salary": null,
       "datePosted": "2026-06-11T00:00:00.000Z",
-      "dateUpdated": "2026-06-15T23:28:31.331Z",
-      "active": false
+      "dateUpdated": "2026-06-22T23:11:19.193Z",
+      "active": true
     },
     {
       "id": "838bb5e444b8",
@@ -45034,8 +45760,8 @@
       "employmentType": "part-time",
       "salary": null,
       "datePosted": "2026-05-07T00:00:00.000Z",
-      "dateUpdated": "2026-06-11T01:21:12.918Z",
-      "active": true
+      "dateUpdated": "2026-06-22T23:11:19.193Z",
+      "active": false
     },
     {
       "id": "7c26e8515e06",
@@ -46184,7 +46910,7 @@
     {
       "id": "415e6544e161",
       "company": "Twoconnect",
-      "title": "Commercial Insurance Underwriter | Work from Home/Midshift",
+      "title": "Commercial Insurance Underwriter (UK) | Work from Home/Midshift",
       "locations": [
         "Philippines"
       ],
@@ -46200,7 +46926,7 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-06-05T00:00:00.000Z",
-      "dateUpdated": "2026-06-19T22:42:55.151Z",
+      "dateUpdated": "2026-06-22T23:11:19.193Z",
       "active": true
     },
     {
@@ -46514,7 +47240,7 @@
     {
       "id": "82adc24816a2",
       "company": "Twoconnect",
-      "title": "Senior Estimator (Hybrid)",
+      "title": "Senior Estimator (Work From Home)",
       "locations": [
         "Pasig, Philippines"
       ],
@@ -46530,7 +47256,7 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-05-21T00:00:00.000Z",
-      "dateUpdated": "2026-06-17T23:16:09.762Z",
+      "dateUpdated": "2026-06-22T23:11:19.193Z",
       "active": true
     },
     {
@@ -46618,8 +47344,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-05-16T00:00:00.000Z",
-      "dateUpdated": "2026-06-11T01:21:12.918Z",
-      "active": true
+      "dateUpdated": "2026-06-22T23:11:19.193Z",
+      "active": false
     },
     {
       "id": "033f01a3db78",
@@ -46927,6 +47653,28 @@
       "salary": null,
       "datePosted": "2026-02-06T00:00:00.000Z",
       "dateUpdated": "2026-06-11T12:33:52.706Z",
+      "active": true
+    },
+    {
+      "id": "025575c4efa0",
+      "company": "Virtual Staff 365",
+      "title": "Accounts Officer (Bookkeeping & Payroll)",
+      "locations": [
+        "Philippines"
+      ],
+      "workSetup": "remote",
+      "level": "unknown",
+      "function": "finance",
+      "industry": "staffing",
+      "metro": [
+        "other-ph"
+      ],
+      "url": "https://apply.workable.com/j/49CE75CAAA",
+      "source": "workable",
+      "employmentType": "full-time",
+      "salary": null,
+      "datePosted": "2026-06-22T00:00:00.000Z",
+      "dateUpdated": "2026-06-22T23:11:19.193Z",
       "active": true
     },
     {
@@ -52950,8 +53698,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2025-12-08T11:58:39.000Z",
-      "dateUpdated": "2026-06-18T23:28:01.304Z",
-      "active": true
+      "dateUpdated": "2026-06-22T23:11:19.193Z",
+      "active": false
     },
     {
       "id": "49ef8f3f0ee4",
