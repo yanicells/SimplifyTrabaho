@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-06-27T22:53:36.501Z",
+  "updatedAt": "2026-06-28T22:53:10.246Z",
   "listings": [
     {
       "id": "16e8a85575e0",
@@ -6148,6 +6148,29 @@
       "active": true
     },
     {
+      "id": "702f0af30b4d",
+      "company": "Assist World",
+      "title": "Executive Assistant to CEO",
+      "locations": [
+        "South Africa",
+        "Philippines"
+      ],
+      "workSetup": "remote",
+      "level": "unknown",
+      "function": "operations",
+      "industry": "staffing",
+      "metro": [
+        "other-ph"
+      ],
+      "url": "https://jobs.lever.co/assist-world/4ecd4141-e9d9-46c9-bd7f-0c733a4b33c7",
+      "source": "lever",
+      "employmentType": "full-time",
+      "salary": "1000–14000 USD per month",
+      "datePosted": "2026-06-28T07:19:57.922Z",
+      "dateUpdated": "2026-06-28T22:53:10.246Z",
+      "active": true
+    },
+    {
       "id": "7f0d7e7a0873",
       "company": "Assist World",
       "title": "Administrative Assistant | Project Support | Landscaping Industry",
@@ -7980,6 +8003,28 @@
       "salary": null,
       "datePosted": "2026-02-27T06:22:38.639Z",
       "dateUpdated": "2026-06-11T01:21:12.918Z",
+      "active": true
+    },
+    {
+      "id": "e182981ca4b9",
+      "company": "CI&T",
+      "title": "Senior DevOps Engineer (Platform Engineering | Azure | Kubernetes | CI/CD)",
+      "locations": [
+        "Quezon City, Metro Manila"
+      ],
+      "workSetup": "hybrid",
+      "level": "senior",
+      "function": "engineering",
+      "industry": "it-services",
+      "metro": [
+        "ncr"
+      ],
+      "url": "https://jobs.lever.co/ciandt/2bd00bb4-c0c3-472e-b4ba-017bb03c79b1",
+      "source": "lever",
+      "employmentType": "unknown",
+      "salary": null,
+      "datePosted": "2026-06-28T15:40:48.079Z",
+      "dateUpdated": "2026-06-28T22:53:10.246Z",
       "active": true
     },
     {
@@ -27221,8 +27266,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-06-05T00:00:00.000Z",
-      "dateUpdated": "2026-06-11T01:21:12.918Z",
-      "active": true
+      "dateUpdated": "2026-06-28T22:53:10.246Z",
+      "active": false
     },
     {
       "id": "7eeacd0b921b",
@@ -29355,8 +29400,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-05-04T00:00:00.000Z",
-      "dateUpdated": "2026-06-11T01:21:12.918Z",
-      "active": true
+      "dateUpdated": "2026-06-28T22:53:10.246Z",
+      "active": false
     },
     {
       "id": "8087827bfb3e",
@@ -29751,8 +29796,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-04-02T00:00:00.000Z",
-      "dateUpdated": "2026-06-11T01:21:12.918Z",
-      "active": true
+      "dateUpdated": "2026-06-28T22:53:10.246Z",
+      "active": false
     },
     {
       "id": "19ffa950576d",
@@ -49344,6 +49389,28 @@
       "salary": null,
       "datePosted": "2026-06-01T20:49:51.482Z",
       "dateUpdated": "2026-06-24T22:58:23.343Z",
+      "active": true
+    },
+    {
+      "id": "d566a5dc7df3",
+      "company": "Treantly",
+      "title": "Customer Service & Administrative Specialist",
+      "locations": [
+        "Philippines"
+      ],
+      "workSetup": "remote",
+      "level": "unknown",
+      "function": "operations",
+      "industry": "staffing",
+      "metro": [
+        "other-ph"
+      ],
+      "url": "https://apply.workable.com/j/ED85986F64",
+      "source": "workable",
+      "employmentType": "full-time",
+      "salary": null,
+      "datePosted": "2026-06-28T00:00:00.000Z",
+      "dateUpdated": "2026-06-28T22:53:10.246Z",
       "active": true
     },
     {
