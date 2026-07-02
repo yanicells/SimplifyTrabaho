@@ -172,14 +172,16 @@ implementation, and save one real sample per ATS as a test fixture):
 | Workable        | `https://apply.workable.com/api/v1/widget/accounts/{slug}`                      |
 | SmartRecruiters | `https://api.smartrecruiters.com/v1/companies/{slug}/postings`                  |
 | Recruitee       | `https://{slug}.recruitee.com/api/offers/`                                      |
+| BambooHR        | `https://{slug}.bamboohr.com/careers/list`                                      |
+| Breezy          | `https://{slug}.breezy.hr/json`                                                 |
+| Manatal         | `https://www.careers-page.com/api/v1.0/c/{slug}/jobs/`                          |
 
-**Tier-A candidates to evaluate in Phase 9** (each qualifies only if it has a truly
-public, unauthenticated jobs feed — confirm with a live probe and save a fixture,
-exactly like the six above): Freshteam (`thinkingmachines.freshteam.com/jobs` is the
-known first target — Thinking Machines PH), BambooHR, Breezy, Personio, Manatal
-(SEA-focused, popular with PH companies), Teamtailor, Jobvite, Zoho Recruit. Any
-platform whose feed requires an API key is out (that's the company's private API, not
-a published board).
+**Phase 9 probe verdicts:** Freshteam is **OUT** (no public feed; auth-gated machine
+paths and HTML-only public jobs page). BambooHR, Breezy, and Manatal are **IN** as
+public, unauthenticated JSON feeds. Personio is **IN but deferred** because its public
+feed is XML-based and currently has approximately zero PH employer coverage. Teamtailor,
+Jobvite, and Zoho Recruit are **OUT** because they require authorization, issued feed
+links, API keys, OAuth, or account-minted credentials.
 
 **Workday is NOT Tier A** — it has its own rules in §17.
 
@@ -205,7 +207,7 @@ The unit of data. Stored in `data/listings.json` as:
 
 ```jsonc
 {
-  "version": 2, // bumped from 1 when the Phase 8 schema lands (function v2, industry, metro)
+  "version": 3, // bumped from 2 when Phase 9 adds companyType
   "updatedAt": "2026-06-11T22:00:00Z", // last successful pipeline run
   "listings": [
     /* Listing[] */
@@ -225,9 +227,10 @@ Each `Listing`:
 | `level`          | enum           | `internship` \| `entry` \| `mid` \| `senior` \| `unknown` (§9).                                                                                                                           |
 | `function`       | enum           | **Schema v2 (Phase 8), 18 SEEK-aligned values:** `engineering` \| `data` \| `design` \| `product` \| `marketing` \| `sales` \| `finance` \| `hr` \| `operations` \| `customer-support` \| `legal` \| `healthcare` \| `education` \| `hospitality` \| `manufacturing` \| `retail` \| `construction` \| `other` (§9). _(Schema v1 had the first 11 + other.)_ |
 | `industry`       | string         | **Schema v2 (Phase 8).** Copied from the company's registry entry at normalization (e.g., `fintech`, `outsourcing`). Company-level fact, denormalized for filtering.                      |
+| `companyType`    | enum           | **Schema v3 (Phase 9).** `direct` \| `agency`, copied from the company's registry entry at normalization (SPEC §7/§11).                                                |
 | `metro`          | string[]       | **Schema v2 (Phase 8).** Normalized PH region tags derived from `locations`: `ncr`, `cebu`, `davao`, `clark-pampanga`, `calabarzon`, `iloilo`, `bacolod`, `baguio`, `cdo`, `remote-ph`, `other-ph`. Keyword map lives next to the PH filter (§8); extend the value list as real locations demand, spec update in the same commit. |
 | `url`            | string         | Official application URL on the company's ATS. The only outbound link.                                                                                                                    |
-| `source`         | string         | ATS name: `greenhouse`, `lever`, `ashby`, `workable`, `smartrecruiters`, `recruitee`.                                                                                                     |
+| `source`         | string         | ATS name: `greenhouse`, `lever`, `ashby`, `workable`, `smartrecruiters`, `recruitee`, `bamboohr`, `breezy`, `manatal`.                                                                     |
 | `employmentType` | enum           | `full-time` \| `part-time` \| `contract` \| `internship` \| `unknown` — when the ATS provides it.                                                                                         |
 | `salary`         | string \| null | Only if published in the structured feed (e.g., Ashby compensation). Verbatim formatted range. Never inferred.                                                                            |
 | `datePosted`     | string         | ISO 8601 UTC. From the ATS published/created field when available; otherwise the date our pipeline first saw it. Never changes after first set.                                           |
@@ -261,6 +264,8 @@ emails, applicant data of any kind.
 - `verified: false` entries are skipped by the pipeline (they're candidates pending
   verification).
 - Registry is the ONLY hand-edited data file. Keep it alphabetized by `name`.
+- `parseRegistry` requires every company entry to include `type`; missing `type` is a
+  registry validation error.
 - **`type` (v2, Phase 9):** `agency` = staffing/outsourcing/recruitment firms hiring on
   behalf of clients; `direct` = everyone else. Agencies stay fully listed and
   filterable — their jobs are real — but the README featured table and any "featured"
