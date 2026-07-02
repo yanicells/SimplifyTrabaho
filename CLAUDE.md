@@ -97,8 +97,11 @@ How to apply:
 - Anything user-facing (UI, copy, API design) needs taste ≥ 7.
 - Reviews of plans/implementations: fable-5 or opus-4.8, optionally gpt-5.5 as an extra independent perspective.
 - Never use Haiku.
-- Mechanics: gpt-5.5 is only reachable through the Codex CLI – `codex exec` / `codex review` (my `~/.codex/config.toml` defaults to gpt-5.5). Use the codex-implementation, codex-review, and codex-computer-use skills; for work they don't cover (investigation, data analysis), run `codex exec -s read-only` directly with a self-contained prompt.
+- Mechanics: gpt-5.5 is only reachable through the Codex CLI – `codex exec` / `codex review` (my `~/.codex/config.toml` defaults to gpt-5.5). Verified working 2026-07-02: use the openai-codex plugin's `codex:codex-rescue` subagent (Agent tool) for substantial delegated tasks, or run `codex exec -s read-only` directly via Bash with a self-contained prompt for investigation/data analysis. (The plugin does NOT ship codex-implementation/codex-review/codex-computer-use skills — those names are stale; don't look for them.)
 - Claude models (sonnet-5, opus-4.8, fable-5) run via the Agent/Workflow model parameter.
 
-Using gpt-5.5 inside workflows and subagents (the model parameter only takes Claude models, so use a wrapper):
-- Spawn a thin Claude wrapper agent with `model: 'sonnet', effort: 'low'` whose prompt instructs it to write a self-contained codex prompt, run `codex exec` via Bash, and return
+Conserving Fable credits (Fable is the scarce resource — orchestrate, don't grind):
+- When Fable is the orchestrator, it should stay high-altitude: dispatch, judge output, integrate. Delegate token-heavy reading (code exploration, commit/diff review, log spelunking) to subagents — Explore/general-purpose on sonnet, or `codex exec -s read-only` for analysis.
+- Implementation of already-planned tasks goes to subagents (gpt-5.5 via codex for mechanical, sonnet for taste-sensitive web work), not to the orchestrator inline.
+- Git mechanics (staging, commit messages, pull --rebase, push) are cheap-model work: do them in a sonnet subagent when part of a delegated task, or inline when the orchestrator already has the context (a one-off inline commit is cheaper than spawning an agent for it).
+- Don't spawn a subagent to do less work than the spawn costs — tiny edits and single-file reads the orchestrator needs first-hand stay inline.
