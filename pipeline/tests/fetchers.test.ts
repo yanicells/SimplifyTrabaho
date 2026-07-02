@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { fetchAshby } from "../src/fetchers/ashby.js";
 import { fetchBambooHr } from "../src/fetchers/bamboohr.js";
+import { fetchBreezy } from "../src/fetchers/breezy.js";
 import { fetchGreenhouse } from "../src/fetchers/greenhouse.js";
 import { fetchLever } from "../src/fetchers/lever.js";
 import { fetchRecruitee } from "../src/fetchers/recruitee.js";
@@ -222,6 +223,34 @@ describe("fetchBambooHr", () => {
     const http = fakeHttp([{ status: 302 }]);
     expect(await fetchBambooHr(kumu, http)).toMatchObject({ ok: false, errorKind: "dead-slug" });
     expect(http.calls).toHaveLength(1);
+  });
+});
+
+describe("fetchBreezy", () => {
+  const co = registryCompany({ name: "Breezy Co", ats: "breezy", slug: "acme", type: "direct" });
+
+  it("hits {slug}.breezy.hr/json and normalizes", async () => {
+    const http = fakeHttp([{
+      status: 200,
+      body: [{ name: "Engineer", url: "https://acme.breezy.hr/p/x",
+        published_date: "2026-06-01T00:00:00.000Z",
+        location: { name: "Manila, Philippines", is_remote: false } }],
+    }]);
+    const result = await fetchBreezy(co, http);
+    expect(http.calls[0]!.url).toBe("https://acme.breezy.hr/json");
+    expect(result.ok).toBe(true);
+  });
+
+  it("treats a redirect (unknown tenant) as dead-slug", async () => {
+    const http = fakeHttp([{ status: 302 }]);
+    expect(await fetchBreezy(co, http)).toMatchObject({ ok: false, errorKind: "dead-slug" });
+  });
+
+  it("treats [] as a successful empty fetch", async () => {
+    const http = fakeHttp([{ status: 200, body: [] }]);
+    const result = await fetchBreezy(co, http);
+    expect(result.ok).toBe(true);
+    if (result.ok) expect(result.postings).toHaveLength(0);
   });
 });
 
