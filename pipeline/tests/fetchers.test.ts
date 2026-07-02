@@ -5,7 +5,7 @@ import { fetchLever } from "../src/fetchers/lever.js";
 import { fetchRecruitee } from "../src/fetchers/recruitee.js";
 import { fetchSmartRecruiters } from "../src/fetchers/smartrecruiters.js";
 import { fetchWorkable } from "../src/fetchers/workable.js";
-import { USER_AGENT } from "../src/fetchers/http.js";
+import { USER_AGENT, politeJsonGet } from "../src/fetchers/http.js";
 import type { RegistryCompany } from "../src/types.js";
 
 const xendit: RegistryCompany = {
@@ -62,6 +62,24 @@ function fakeHttp(responses: Array<{ status: number; body?: unknown } | Error>) 
   };
   return { fetchFn, sleep, calls, sleeps };
 }
+
+describe("politeJsonGet redirectIsNotFound", () => {
+  it("maps a 3xx to not-found when the option is set", async () => {
+    const http = fakeHttp([{ status: 302 }]);
+    const outcome = await politeJsonGet("https://x.example/list", {
+      ...http,
+      redirectIsNotFound: true,
+    });
+    expect(outcome.kind).toBe("not-found");
+    expect(http.calls).toHaveLength(1); // no retry
+  });
+
+  it("still treats 3xx as an http error by default", async () => {
+    const http = fakeHttp([{ status: 302 }]);
+    const outcome = await politeJsonGet("https://x.example/list", http);
+    expect(outcome.kind).toBe("http");
+  });
+});
 
 describe("fetchGreenhouse", () => {
   it("hits the documented endpoint with the identifying User-Agent", async () => {
