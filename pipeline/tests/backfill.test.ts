@@ -13,6 +13,7 @@ const registry: Registry = {
       ats: "greenhouse",
       slug: "xendit",
       industry: "fintech",
+      type: "direct",
       verified: true,
       added: "2026-06-11",
     },

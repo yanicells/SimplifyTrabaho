@@ -85,6 +85,7 @@ function posting(locations: string[]): FetchedPosting {
     salary: null,
     publishedAt: null,
     industry: "",
+    companyType: "direct",
   };
 }
 

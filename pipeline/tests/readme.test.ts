@@ -14,6 +14,7 @@ function listing(overrides: Partial<Listing> = {}): Listing {
     level: "internship",
     function: "engineering",
     industry: "fintech",
+    companyType: "direct",
     metro: ["ncr"],
     url: "https://example.com/jobs/1",
     source: "greenhouse",
