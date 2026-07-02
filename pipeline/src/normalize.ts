@@ -126,6 +126,48 @@ export function normalizeBambooHr(company: RegistryCompany, raw: unknown): Fetch
   });
 }
 
+interface BreezyJob {
+  name?: unknown;
+  url?: unknown;
+  published_date?: unknown;
+  type?: { name?: unknown };
+  salary?: unknown;
+  location?: {
+    name?: unknown;
+    city?: unknown;
+    is_remote?: unknown;
+    country?: { name?: unknown };
+  };
+}
+
+export function normalizeBreezy(company: RegistryCompany, raw: unknown): FetchedPosting[] {
+  if (!Array.isArray(raw)) {
+    throw new Error(`breezy payload for ${company.slug} is not a postings array`);
+  }
+  return raw.map((job: BreezyJob) => {
+    const loc = job.location ?? {};
+    const locationName =
+      String(loc.name ?? "").trim() ||
+      [String(loc.city ?? "").trim(), String(loc.country?.name ?? "").trim()]
+        .filter(Boolean)
+        .join(", ");
+    const salary = typeof job.salary === "string" && job.salary.trim() !== "" ? job.salary.trim() : null;
+    return {
+      company: company.name,
+      source: "breezy",
+      title: String(job.name ?? ""),
+      locations: locationName ? [locationName] : [],
+      url: String(job.url ?? ""),
+      workSetup: loc.is_remote === true ? "remote" : workSetupFromText(locationName),
+      employmentType: mapCommitment(job.type?.name),
+      salary,
+      publishedAt: toIsoUtc(job.published_date as string | null | undefined),
+      industry: company.industry,
+      companyType: company.type,
+    } satisfies FetchedPosting;
+  });
+}
+
 interface LeverSalaryRange {
   min?: unknown;
   max?: unknown;

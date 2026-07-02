@@ -5,6 +5,7 @@ import { describe, expect, it } from "vitest";
 import {
   normalizeAshby,
   normalizeBambooHr,
+  normalizeBreezy,
   normalizeGreenhouse,
   normalizeLever,
   normalizeRecruitee,
@@ -23,6 +24,7 @@ const workableRaw = loadFixture("workable-crewbloom.json");
 const smartRecruitersRaw = loadFixture("smartrecruiters-canva.json");
 const recruiteeRaw = loadFixture("recruitee-hostaway.json");
 const bambooKumu = loadFixture("bamboohr-kumu.json");
+const breezySample = loadFixture("breezy-sample.json");
 
 function company(overrides: Partial<RegistryCompany>): RegistryCompany {
   return {
@@ -62,6 +64,11 @@ const kumu = {
   industry: "consumer", type: "direct" as const, verified: true, added: "2026-06-13",
 };
 
+const breezyCo = {
+  name: "Breezy Sample", ats: "breezy" as const, slug: "breezy",
+  industry: "saas", type: "direct" as const, verified: true, added: "2026-06-13",
+};
+
 describe("normalizeBambooHr", () => {
   it("maps title, constructed apply URL, locations, and employment type", () => {
     const postings = normalizeBambooHr(kumu, bambooKumu);
@@ -73,6 +80,18 @@ describe("normalizeBambooHr", () => {
     expect(intern.source).toBe("bamboohr");
     expect(intern.publishedAt).toBeNull(); // BambooHR list feed has no date
     expect(intern.locations.join(" ")).toMatch(/Makati|Philippines/);
+  });
+});
+
+describe("normalizeBreezy", () => {
+  it("maps title, provided apply URL, published date, location, salary", () => {
+    const postings = normalizeBreezy(breezyCo, breezySample);
+    const p = postings[0]!;
+    expect(p.title).toBe((breezySample as any)[0].name);
+    expect(p.url).toBe((breezySample as any)[0].url);
+    expect(p.publishedAt).toBe(new Date((breezySample as any)[0].published_date).toISOString());
+    expect(p.source).toBe("breezy");
+    expect(p.companyType).toBe("direct");
   });
 });
 
