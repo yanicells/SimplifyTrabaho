@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { fetchAshby } from "../src/fetchers/ashby.js";
+import { fetchBambooHr } from "../src/fetchers/bamboohr.js";
 import { fetchGreenhouse } from "../src/fetchers/greenhouse.js";
 import { fetchLever } from "../src/fetchers/lever.js";
 import { fetchRecruitee } from "../src/fetchers/recruitee.js";
@@ -13,6 +14,7 @@ const xendit: RegistryCompany = {
   ats: "greenhouse",
   slug: "xendit",
   industry: "fintech",
+  type: "direct",
   verified: true,
   added: "2026-06-11",
 };
@@ -22,6 +24,7 @@ const ninjaVan: RegistryCompany = {
   ats: "lever",
   slug: "ninjavan",
   industry: "logistics",
+  type: "direct",
   verified: true,
   added: "2026-06-11",
 };
@@ -180,15 +183,47 @@ describe("fetchLever", () => {
 
 function registryCompany(overrides: Partial<RegistryCompany>): RegistryCompany {
   return {
-    name: "Test Co",
-    ats: "greenhouse",
-    slug: "test",
-    industry: "",
-    verified: true,
-    added: "2026-06-11",
-    ...overrides,
+    name: overrides.name ?? "Test Co",
+    ats: overrides.ats ?? "greenhouse",
+    slug: overrides.slug ?? "test",
+    industry: overrides.industry ?? "",
+    type: overrides.type ?? "direct",
+    verified: overrides.verified ?? true,
+    added: overrides.added ?? "2026-06-11",
   };
 }
+
+describe("fetchBambooHr", () => {
+  const kumu = registryCompany({ name: "Kumu", ats: "bamboohr", slug: "kumu", type: "direct" });
+
+  it("hits {slug}.bamboohr.com/careers/list and normalizes", async () => {
+    const http = fakeHttp([{
+      status: 200,
+      body: { meta: { totalCount: 1 }, result: [
+        { id: "319", jobOpeningName: "Marketing intern",
+          atsLocation: { country: "Philippines", province: "NCR", city: "Makati" },
+          employmentStatusLabel: "Intern", isRemote: null },
+      ] },
+    }]);
+    const result = await fetchBambooHr(kumu, http);
+    expect(http.calls[0]!.url).toBe("https://kumu.bamboohr.com/careers/list");
+    expect(result.ok).toBe(true);
+    if (result.ok) expect(result.postings[0]!.title).toBe("Marketing intern");
+  });
+
+  it("treats a live board with zero jobs as a successful empty fetch", async () => {
+    const http = fakeHttp([{ status: 200, body: { meta: { totalCount: 0 }, result: [] } }]);
+    const result = await fetchBambooHr(kumu, http);
+    expect(result.ok).toBe(true);
+    if (result.ok) expect(result.postings).toHaveLength(0);
+  });
+
+  it("treats a redirect (unknown tenant) as dead-slug", async () => {
+    const http = fakeHttp([{ status: 302 }]);
+    expect(await fetchBambooHr(kumu, http)).toMatchObject({ ok: false, errorKind: "dead-slug" });
+    expect(http.calls).toHaveLength(1);
+  });
+});
 
 describe("fetchAshby", () => {
   const deel = registryCompany({ name: "Deel", ats: "ashby", slug: "deel" });
