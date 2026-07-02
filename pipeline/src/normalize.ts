@@ -168,6 +168,44 @@ export function normalizeBreezy(company: RegistryCompany, raw: unknown): Fetched
   });
 }
 
+interface ManatalJob {
+  hash?: unknown;
+  position_name?: unknown;
+  country?: unknown;
+  state?: unknown;
+  city?: unknown;
+  // `description` (JD HTML) is intentionally NOT in this interface — never read it.
+}
+
+export function normalizeManatal(company: RegistryCompany, raw: unknown): FetchedPosting[] {
+  const results = (raw as { results?: unknown })?.results;
+  if (!Array.isArray(results)) {
+    throw new Error(`manatal payload for ${company.slug} has no results array`);
+  }
+  return results.map((job: ManatalJob) => {
+    const locationParts = [
+      String(job.city ?? "").trim(),
+      String(job.state ?? "").trim(),
+      String(job.country ?? "").trim(),
+    ].filter(Boolean);
+    const locations = locationParts.length > 0 ? [locationParts.join(", ")] : [];
+    const title = String(job.position_name ?? "");
+    return {
+      company: company.name,
+      source: "manatal",
+      title,
+      locations,
+      url: `https://www.careers-page.com/${encodeURIComponent(company.slug)}/job/${String(job.hash ?? "")}`,
+      workSetup: workSetupFromText(`${title} ${locations.join(" ")}`),
+      employmentType: "unknown",
+      salary: null,
+      publishedAt: null, // list feed carries no published date
+      industry: company.industry,
+      companyType: company.type,
+    } satisfies FetchedPosting;
+  });
+}
+
 interface LeverSalaryRange {
   min?: unknown;
   max?: unknown;

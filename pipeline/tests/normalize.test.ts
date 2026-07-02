@@ -8,6 +8,7 @@ import {
   normalizeBreezy,
   normalizeGreenhouse,
   normalizeLever,
+  normalizeManatal,
   normalizeRecruitee,
   normalizeSmartRecruiters,
   normalizeWorkable,
@@ -25,6 +26,7 @@ const smartRecruitersRaw = loadFixture("smartrecruiters-canva.json");
 const recruiteeRaw = loadFixture("recruitee-hostaway.json");
 const bambooKumu = loadFixture("bamboohr-kumu.json");
 const breezySample = loadFixture("breezy-sample.json");
+const manatalSample = loadFixture("manatal-manatal.json");
 
 function company(overrides: Partial<RegistryCompany>): RegistryCompany {
   return {
@@ -69,6 +71,11 @@ const breezyCo = {
   industry: "saas", type: "direct" as const, verified: true, added: "2026-06-13",
 };
 
+const manatalCo = {
+  name: "Manatal", ats: "manatal" as const, slug: "manatal",
+  industry: "hr-tech", type: "direct" as const, verified: true, added: "2026-06-13",
+};
+
 describe("normalizeBambooHr", () => {
   it("maps title, constructed apply URL, locations, and employment type", () => {
     const postings = normalizeBambooHr(kumu, bambooKumu);
@@ -92,6 +99,20 @@ describe("normalizeBreezy", () => {
     expect(p.publishedAt).toBe(new Date((breezySample as any)[0].published_date).toISOString());
     expect(p.source).toBe("breezy");
     expect(p.companyType).toBe("direct");
+  });
+});
+
+describe("normalizeManatal", () => {
+  it("maps title + constructed apply URL and NEVER reads description", () => {
+    const postings = normalizeManatal(manatalCo, manatalSample);
+    const first = (manatalSample as any).results[0];
+    const p = postings[0]!;
+    expect(p.title).toBe(first.position_name);
+    expect(p.url).toBe(`https://www.careers-page.com/manatal/job/${first.hash}`);
+    expect(p.source).toBe("manatal");
+    expect(p.companyType).toBe("direct");
+    // No field should ever carry HTML/JD text.
+    expect(JSON.stringify(p)).not.toMatch(/<p>|<strong>|description/i);
   });
 });
 
