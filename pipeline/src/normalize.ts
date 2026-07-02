@@ -48,6 +48,7 @@ export function normalizeGreenhouse(company: RegistryCompany, raw: unknown): Fet
       salary: null,
       publishedAt: toIsoUtc(job.first_published as string | null | undefined),
       industry: company.industry,
+      companyType: company.type,
     } satisfies FetchedPosting;
   });
 }
@@ -144,6 +145,7 @@ export function normalizeAshby(company: RegistryCompany, raw: unknown): FetchedP
         salary: typeof summary === "string" && summary !== "" ? summary : null,
         publishedAt: toIsoUtc(job.publishedAt as string | null | undefined),
         industry: company.industry,
+        companyType: company.type,
       } satisfies FetchedPosting;
     });
 }
@@ -188,6 +190,7 @@ export function normalizeWorkable(company: RegistryCompany, raw: unknown): Fetch
       salary: null,
       publishedAt: toIsoUtc((job.published_on ?? job.created_at) as string | null | undefined),
       industry: company.industry,
+      companyType: company.type,
     } satisfies FetchedPosting;
   });
 }
@@ -244,6 +247,7 @@ export function normalizeSmartRecruiters(
       salary: null,
       publishedAt: toIsoUtc(posting.releasedDate as string | null | undefined),
       industry: company.industry,
+      companyType: company.type,
     } satisfies FetchedPosting;
   });
 }
@@ -318,6 +322,7 @@ export function normalizeRecruitee(company: RegistryCompany, raw: unknown): Fetc
       salary: formatRecruiteeSalary(offer.salary),
       publishedAt: recruiteeDate(offer.published_at ?? offer.created_at),
       industry: company.industry,
+      companyType: company.type,
     } satisfies FetchedPosting;
   });
 }
@@ -353,6 +358,7 @@ export function normalizeLever(company: RegistryCompany, raw: unknown): FetchedP
       salary: formatLeverSalary(posting.salaryRange),
       publishedAt: toIsoUtc(posting.createdAt as number | null | undefined),
       industry: company.industry,
+      companyType: company.type,
     } satisfies FetchedPosting;
   });
 }

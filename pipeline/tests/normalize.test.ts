@@ -28,6 +28,7 @@ function company(overrides: Partial<RegistryCompany>): RegistryCompany {
     ats: "greenhouse",
     slug: "test",
     industry: "",
+    type: "direct",
     verified: true,
     added: "2026-06-11",
     ...overrides,
@@ -39,6 +40,7 @@ const xendit: RegistryCompany = {
   ats: "greenhouse",
   slug: "xendit",
   industry: "fintech",
+  type: "direct",
   verified: true,
   added: "2026-06-11",
 };
@@ -48,6 +50,7 @@ const ninjaVan: RegistryCompany = {
   ats: "lever",
   slug: "ninjavan",
   industry: "logistics",
+  type: "direct",
   verified: true,
   added: "2026-06-11",
 };
@@ -76,6 +79,12 @@ describe("normalizeGreenhouse", () => {
 
   it("copies the registry industry into every posting (schema v2)", () => {
     expect(postings.every((p) => p.industry === "fintech")).toBe(true);
+  });
+
+  it("copies the registry companyType onto every posting", () => {
+    const agencyCo = { ...xendit, type: "agency" as const };
+    const postings = normalizeGreenhouse(agencyCo, greenhouseRaw);
+    expect(postings.every((p) => p.companyType === "agency")).toBe(true);
   });
 
   it("splits multi-location strings on semicolons", () => {
