@@ -4,6 +4,7 @@ import { fileURLToPath } from "node:url";
 import { describe, expect, it } from "vitest";
 import {
   normalizeAshby,
+  normalizeBambooHr,
   normalizeGreenhouse,
   normalizeLever,
   normalizeRecruitee,
@@ -21,6 +22,7 @@ const ashbyRaw = loadFixture("ashby-deel.json");
 const workableRaw = loadFixture("workable-crewbloom.json");
 const smartRecruitersRaw = loadFixture("smartrecruiters-canva.json");
 const recruiteeRaw = loadFixture("recruitee-hostaway.json");
+const bambooKumu = loadFixture("bamboohr-kumu.json");
 
 function company(overrides: Partial<RegistryCompany>): RegistryCompany {
   return {
@@ -54,6 +56,25 @@ const ninjaVan: RegistryCompany = {
   verified: true,
   added: "2026-06-11",
 };
+
+const kumu = {
+  name: "Kumu", ats: "bamboohr" as const, slug: "kumu",
+  industry: "consumer", type: "direct" as const, verified: true, added: "2026-06-13",
+};
+
+describe("normalizeBambooHr", () => {
+  it("maps title, constructed apply URL, locations, and employment type", () => {
+    const postings = normalizeBambooHr(kumu, bambooKumu);
+    expect(postings.length).toBeGreaterThan(0);
+    const intern = postings.find((p) => /intern/i.test(p.title))!;
+    expect(intern.url).toBe(`https://kumu.bamboohr.com/careers/${(bambooKumu as any).result.find((r:any)=>/intern/i.test(r.jobOpeningName)).id}`);
+    expect(intern.employmentType).toBe("internship");
+    expect(intern.companyType).toBe("direct");
+    expect(intern.source).toBe("bamboohr");
+    expect(intern.publishedAt).toBeNull(); // BambooHR list feed has no date
+    expect(intern.locations.join(" ")).toMatch(/Makati|Philippines/);
+  });
+});
 
 describe("normalizeGreenhouse", () => {
   const postings = normalizeGreenhouse(xendit, greenhouseRaw);

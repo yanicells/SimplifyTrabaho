@@ -76,6 +76,56 @@ function mapCommitment(value: unknown): EmploymentType {
   return "unknown";
 }
 
+interface BambooHrJob {
+  id?: unknown;
+  jobOpeningName?: unknown;
+  employmentStatusLabel?: unknown;
+  isRemote?: unknown;
+  location?: { city?: unknown; state?: unknown };
+  atsLocation?: { country?: unknown; province?: unknown; state?: unknown; city?: unknown };
+}
+
+function mapBambooEmployment(label: string): EmploymentType {
+  const l = label.toLowerCase();
+  if (l.includes("intern")) return "internship";
+  if (l.includes("part")) return "part-time";
+  if (l.includes("contract") || l.includes("contractor")) return "contract";
+  if (l.includes("full") || l.includes("regular") || l.includes("probationary")) return "full-time";
+  return "unknown";
+}
+
+export function normalizeBambooHr(company: RegistryCompany, raw: unknown): FetchedPosting[] {
+  const result = (raw as { result?: unknown })?.result;
+  if (!Array.isArray(result)) {
+    throw new Error(`bamboohr payload for ${company.slug} has no result array`);
+  }
+  return result.map((job: BambooHrJob) => {
+    const ats = job.atsLocation ?? {};
+    const loc = job.location ?? {};
+    // Prefer the structured atsLocation (has country); fall back to location {city,state}.
+    const parts = [
+      String(ats.city ?? loc.city ?? "").trim(),
+      String(ats.province ?? ats.state ?? loc.state ?? "").trim(),
+      String(ats.country ?? "").trim(),
+    ].filter(Boolean);
+    const locations = parts.length > 0 ? [parts.join(", ")] : [];
+    const title = String(job.jobOpeningName ?? "");
+    return {
+      company: company.name,
+      source: "bamboohr",
+      title,
+      locations,
+      url: `https://${company.slug}.bamboohr.com/careers/${String(job.id ?? "")}`,
+      workSetup: job.isRemote === true ? "remote" : workSetupFromText(title),
+      employmentType: mapBambooEmployment(String(job.employmentStatusLabel ?? "")),
+      salary: null,
+      publishedAt: null, // list feed carries no published date (SPEC §6 first-seen fallback)
+      industry: company.industry,
+      companyType: company.type,
+    } satisfies FetchedPosting;
+  });
+}
+
 interface LeverSalaryRange {
   min?: unknown;
   max?: unknown;
