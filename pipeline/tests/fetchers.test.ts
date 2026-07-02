@@ -4,6 +4,7 @@ import { fetchBambooHr } from "../src/fetchers/bamboohr.js";
 import { fetchBreezy } from "../src/fetchers/breezy.js";
 import { fetchGreenhouse } from "../src/fetchers/greenhouse.js";
 import { fetchLever } from "../src/fetchers/lever.js";
+import { fetchManatal } from "../src/fetchers/manatal.js";
 import { fetchRecruitee } from "../src/fetchers/recruitee.js";
 import { fetchSmartRecruiters } from "../src/fetchers/smartrecruiters.js";
 import { fetchWorkable } from "../src/fetchers/workable.js";
@@ -249,6 +250,33 @@ describe("fetchBreezy", () => {
   it("treats [] as a successful empty fetch", async () => {
     const http = fakeHttp([{ status: 200, body: [] }]);
     const result = await fetchBreezy(co, http);
+    expect(result.ok).toBe(true);
+    if (result.ok) expect(result.postings).toHaveLength(0);
+  });
+});
+
+describe("fetchManatal", () => {
+  const co = registryCompany({ name: "Manatal", ats: "manatal", slug: "manatal", type: "direct" });
+
+  it("paginates via the next URL until null", async () => {
+    const http = fakeHttp([
+      { status: 200, body: { count: 2, next: "https://www.careers-page.com/api/v1.0/c/manatal/jobs/?page=2&page_size=1", previous: null, results: [{ hash: "A", position_name: "One", country: "Philippines", city: "Makati" }] } },
+      { status: 200, body: { count: 2, next: null, previous: "x", results: [{ hash: "B", position_name: "Two", country: "Philippines", city: "Cebu" }] } },
+    ]);
+    const result = await fetchManatal(co, http);
+    expect(http.calls[0]!.url).toContain("/api/v1.0/c/manatal/jobs/?page_size=");
+    expect(result.ok).toBe(true);
+    if (result.ok) expect(result.postings.map((p) => p.title)).toEqual(["One", "Two"]);
+  });
+
+  it("reports dead-slug on 404 (unknown client)", async () => {
+    const http = fakeHttp([{ status: 404, body: { detail: "No ClientPortalSettings matches…" } }]);
+    expect(await fetchManatal(co, http)).toMatchObject({ ok: false, errorKind: "dead-slug" });
+  });
+
+  it("treats an empty results page as a successful empty fetch", async () => {
+    const http = fakeHttp([{ status: 200, body: { count: 0, next: null, previous: null, results: [] } }]);
+    const result = await fetchManatal(co, http);
     expect(result.ok).toBe(true);
     if (result.ok) expect(result.postings).toHaveLength(0);
   });
