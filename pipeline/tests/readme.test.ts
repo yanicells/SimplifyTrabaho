@@ -104,6 +104,18 @@ describe("generateReadme", () => {
     expect(md).toContain("Marketing Intern");
   });
 
+  it("excludes agency listings from the featured table", () => {
+    const md = generateReadme({
+      ...base,
+      listings: [
+        listing({ id: "1", company: "Kumu", companyType: "direct" }),
+        listing({ id: "2", company: "Emapta", companyType: "agency" }),
+      ],
+    });
+    expect(md).toContain("Kumu");
+    expect(md).not.toContain("Emapta");
+  });
+
   it("sorts featured rows newest first and caps at 200", () => {
     const many = Array.from({ length: 250 }, (_, i) =>
       listing({
