@@ -5,6 +5,7 @@
 
 import {
   METRO_TAGS,
+  type CompanyType,
   type JobFunction,
   type Level,
   type MetroTag,
@@ -39,6 +40,7 @@ export const SELECTABLE_FUNCTIONS = [
 ] as const satisfies readonly JobFunction[];
 
 const WORK_SETUPS = ["onsite", "hybrid", "remote"] as const;
+const COMPANY_TYPES = ["direct", "agency"] as const satisfies readonly CompanyType[];
 
 export interface Filters {
   /** Empty array = all roles (no level filter). */
@@ -48,6 +50,8 @@ export interface Filters {
   setup: "all" | WorkSetup;
   metro: "all" | MetroTag;
   industry: "all" | string;
+  /** Employer type — direct employers vs staffing/outsourcing agencies (schema v3). */
+  type: "all" | CompanyType;
   location: string;
   query: string;
 }
@@ -59,6 +63,7 @@ export function defaultFilters(): Filters {
     setup: "all",
     metro: "all",
     industry: "all",
+    type: "all",
     location: "",
     query: "",
   };
@@ -85,6 +90,7 @@ export function filtersToSearch(filters: Filters): string {
   if (filters.setup !== "all") params.set("setup", filters.setup);
   if (filters.metro !== "all") params.set("metro", filters.metro);
   if (filters.industry !== "all") params.set("industry", filters.industry);
+  if (filters.type !== "all") params.set("type", filters.type);
   if (filters.location !== "") params.set("loc", filters.location);
   if (filters.query !== "") params.set("q", filters.query);
   return params.toString();
@@ -127,6 +133,11 @@ export function filtersFromSearch(search: string): Filters {
   }
   const industry = params.get("industry");
   if (industry !== null && industry !== "") filters.industry = industry;
+
+  const type = params.get("type");
+  if ((COMPANY_TYPES as readonly string[]).includes(type ?? "")) {
+    filters.type = type as CompanyType;
+  }
 
   filters.location = params.get("loc") ?? "";
   filters.query = params.get("q") ?? "";
