@@ -104,7 +104,7 @@ describe("recategorizeDataset", () => {
   });
 
   it("migrates v2 → v3 and stamps companyType from the registry", () => {
-    const registry = { version: 1 as const, companies: [
+    const v3Registry = { version: 1 as const, companies: [
       { name: "Kumu", ats: "bamboohr" as const, slug: "kumu", industry: "consumer", type: "direct" as const, verified: true, added: "2026-06-13" },
       { name: "Emapta", ats: "workable" as const, slug: "emapta", industry: "outsourcing", type: "agency" as const, verified: true, added: "2026-06-11" },
     ] };
@@ -112,7 +112,7 @@ describe("recategorizeDataset", () => {
       { id: "a", company: "Kumu", title: "Intern", locations: ["Makati, Philippines"], workSetup: "onsite", level: "internship", function: "other", industry: "consumer", metro: ["ncr"], url: "u1", source: "bamboohr", employmentType: "internship", salary: null, datePosted: "2026-06-01T00:00:00.000Z", dateUpdated: "2026-06-01T00:00:00.000Z", active: true },
       { id: "b", company: "Emapta", title: "Agent", locations: ["Manila, Philippines"], workSetup: "onsite", level: "entry", function: "customer-support", industry: "outsourcing", metro: ["ncr"], url: "u2", source: "workable", employmentType: "full-time", salary: null, datePosted: "2026-06-01T00:00:00.000Z", dateUpdated: "2026-06-01T00:00:00.000Z", active: true },
     ] };
-    const { file } = recategorizeDataset(v2, registry as any);
+    const { file } = recategorizeDataset(v2, v3Registry as any);
     expect(file.version).toBe(3);
     expect(file.listings.find((l) => l.company === "Kumu")!.companyType).toBe("direct");
     expect(file.listings.find((l) => l.company === "Emapta")!.companyType).toBe("agency");

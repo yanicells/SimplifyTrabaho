@@ -116,7 +116,8 @@ export function normalizeBambooHr(company: RegistryCompany, raw: unknown): Fetch
       title,
       locations,
       url: `https://${company.slug}.bamboohr.com/careers/${String(job.id ?? "")}`,
-      workSetup: job.isRemote === true ? "remote" : workSetupFromText(title),
+      workSetup:
+        job.isRemote === true ? "remote" : workSetupFromText(`${title} ${locations.join(" ")}`),
       employmentType: mapBambooEmployment(String(job.employmentStatusLabel ?? "")),
       salary: null,
       publishedAt: null, // list feed carries no published date (SPEC §6 first-seen fallback)

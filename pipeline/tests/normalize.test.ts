@@ -88,6 +88,22 @@ describe("normalizeBambooHr", () => {
     expect(intern.publishedAt).toBeNull(); // BambooHR list feed has no date
     expect(intern.locations.join(" ")).toMatch(/Makati|Philippines/);
   });
+
+  it("derives workSetup from the location text, not just the title", () => {
+    const raw = {
+      result: [
+        {
+          id: "77",
+          jobOpeningName: "Community Operations Associate",
+          employmentStatusLabel: "Full-Time",
+          isRemote: null,
+          atsLocation: { city: "Remote", province: "", country: "Philippines" },
+        },
+      ],
+    };
+    const [p] = normalizeBambooHr(kumu, raw);
+    expect(p!.workSetup).toBe("remote");
+  });
 });
 
 describe("normalizeBreezy", () => {

@@ -185,13 +185,14 @@ describe("fetchLever", () => {
 
 function registryCompany(overrides: Partial<RegistryCompany>): RegistryCompany {
   return {
-    name: overrides.name ?? "Test Co",
-    ats: overrides.ats ?? "greenhouse",
-    slug: overrides.slug ?? "test",
-    industry: overrides.industry ?? "",
-    type: overrides.type ?? "direct",
-    verified: overrides.verified ?? true,
-    added: overrides.added ?? "2026-06-11",
+    name: "Test Co",
+    ats: "greenhouse",
+    slug: "test",
+    industry: "",
+    type: "direct",
+    verified: true,
+    added: "2026-06-11",
+    ...overrides,
   };
 }
 
