@@ -12,6 +12,7 @@ function listing(overrides: Partial<Listing> = {}): Listing {
     level: "internship",
     function: "engineering",
     industry: "fintech",
+    companyType: "direct",
     metro: ["ncr"],
     url: "https://boards.greenhouse.io/xendit/jobs/123",
     source: "greenhouse",
@@ -27,19 +28,43 @@ function listing(overrides: Partial<Listing> = {}): Listing {
 function file(listings: Listing[]): unknown {
   // Round-trip through JSON so the input is plain parsed data, like at build time.
   return JSON.parse(
-    JSON.stringify({ version: 2, updatedAt: "2026-06-11T01:34:15.640Z", listings }),
+    JSON.stringify({ version: 3, updatedAt: "2026-06-11T01:34:15.640Z", listings }),
   );
 }
 
 describe("parseListingsFile", () => {
-  it("accepts a valid v2 file", () => {
+  it("accepts a valid v3 file", () => {
     const parsed = parseListingsFile(file([listing()]));
-    expect(parsed.version).toBe(2);
+    expect(parsed.version).toBe(3);
     expect(parsed.updatedAt).toBe("2026-06-11T01:34:15.640Z");
     expect(parsed.listings).toHaveLength(1);
     expect(parsed.listings[0].title).toBe("Software Engineering Intern");
     expect(parsed.listings[0].industry).toBe("fintech");
+    expect(parsed.listings[0].companyType).toBe("direct");
     expect(parsed.listings[0].metro).toEqual(["ncr"]);
+  });
+
+  it("accepts the schema-v3 sources and agency companyType", () => {
+    const parsed = parseListingsFile(
+      file([
+        listing({ source: "bamboohr", companyType: "agency" }),
+        listing({ source: "breezy", url: "https://x.co/2" }),
+        listing({ source: "manatal", url: "https://x.co/3" }),
+      ]),
+    );
+    expect(parsed.listings.map((l) => l.source)).toEqual(["bamboohr", "breezy", "manatal"]);
+    expect(parsed.listings[0].companyType).toBe("agency");
+  });
+
+  it("rejects a missing or invalid companyType", () => {
+    const missing = file([listing()]) as { listings: Record<string, unknown>[] };
+    delete missing.listings[0].companyType;
+    expect(() => parseListingsFile(missing)).toThrow(/companyType/);
+    expect(() =>
+      parseListingsFile(
+        file([listing({ companyType: "franchise" as Listing["companyType"] })]),
+      ),
+    ).toThrow(/companyType/);
   });
 
   it("accepts all 18 schema-v2 function values", () => {
@@ -67,9 +92,11 @@ describe("parseListingsFile", () => {
     expect(() => parseListingsFile("[]")).toThrow(/invalid/);
   });
 
-  it("rejects a wrong version, including pre-migration v1", () => {
-    const bad = { ...(file([listing()]) as object), version: 1 };
-    expect(() => parseListingsFile(bad)).toThrow(/version/);
+  it("rejects a wrong version, including pre-migration v1 and v2", () => {
+    for (const version of [1, 2]) {
+      const bad = { ...(file([listing()]) as object), version };
+      expect(() => parseListingsFile(bad)).toThrow(/version/);
+    }
   });
 
   it("rejects a non-string industry", () => {
@@ -88,15 +115,15 @@ describe("parseListingsFile", () => {
   });
 
   it("rejects a missing or unparseable updatedAt", () => {
-    expect(() => parseListingsFile({ version: 2, listings: [] })).toThrow(/updatedAt/);
+    expect(() => parseListingsFile({ version: 3, listings: [] })).toThrow(/updatedAt/);
     expect(() =>
-      parseListingsFile({ version: 2, updatedAt: "not a date", listings: [] }),
+      parseListingsFile({ version: 3, updatedAt: "not a date", listings: [] }),
     ).toThrow(/updatedAt/);
   });
 
   it("rejects listings that are not an array", () => {
     expect(() =>
-      parseListingsFile({ version: 1, updatedAt: "2026-06-11T00:00:00Z", listings: {} }),
+      parseListingsFile({ version: 3, updatedAt: "2026-06-11T00:00:00Z", listings: {} }),
     ).toThrow(/listings/);
   });
 
@@ -162,6 +189,7 @@ describe("toJobs", () => {
       level: "internship",
       function: "engineering",
       industry: "fintech",
+      companyType: "direct",
       metro: ["ncr"],
       url: "https://boards.greenhouse.io/xendit/jobs/123",
       posted: "2026-06-01",
@@ -169,6 +197,7 @@ describe("toJobs", () => {
     // No forbidden/unused fields leak through (id, source, dateUpdated, active…).
     expect(Object.keys(job).sort()).toEqual([
       "company",
+      "companyType",
       "function",
       "industry",
       "level",
