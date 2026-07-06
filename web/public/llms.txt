@@ -1,0 +1,23 @@
+# SimplifyTrabaho
+
+> A free, open, automatically updated list of jobs at Philippine companies — all
+> roles and levels, with internships and entry-level roles featured. Data comes
+> only from public ATS APIs that companies intentionally publish (Greenhouse,
+> Lever, Ashby, Workable, SmartRecruiters, Recruitee, BambooHR, Breezy, Manatal).
+> Every listing links to the company's official application page. No job boards
+> are scraped. Refreshed once daily.
+
+Facts stored per listing: company, role title, locations, work setup, level,
+function, industry, employer type (direct employer vs staffing/outsourcing
+agency), structured salary when published, dates, and the official application
+URL. Job-description text is never stored.
+
+## Data
+
+- [Job listings JSON (CC0 1.0)](https://raw.githubusercontent.com/yanicells/SimplifyTrabaho/main/data/listings.json): the full dataset, schema v3
+- [RSS feed](https://simplifytrabaho.ycells.com/feed.xml): newest 100 openings
+- [Source repository](https://github.com/yanicells/SimplifyTrabaho): pipeline + site, MIT-licensed code, CC0 data
+
+## Site
+
+- [Job board](https://simplifytrabaho.ycells.com/): filter by level, function, work setup, metro, industry, employer type; shareable URLs use query params (q, level, fn, setup, metro, industry, type, loc)
