@@ -293,8 +293,20 @@ verify-registry`. Also recheck the live-but-0-PH boards listed below — several
       publishes "NCR - WGC" style codes) · Accenture wd103 672/672 PH via
       source facet · P&G wd5 31/27 PH via source facet. **PRs opened
       per-company per §17.2 — pending maintainer review/merge.**
-- [ ] Wave 2 candidates from the PH-corporates graveyard below (UnionBank, Cebu
-      Pacific, PAL, San Miguel, URC, Security Bank…) — tenant-by-tenant
+- [x] 2026-07-06 — **Wave 1 MERGED and live** (PRs #2–#5, maintainer delegated
+      the merge call): Globe 103 · GCash 172 · Accenture 674 · P&G 27 active
+      listings after the first full refresh — 4,779 active total (+970).
+- [x] 2026-07-06 — **Wave 2 probed and PR'd** (PRs #6–#9): Manulife
+      manulife.wd3/MFCJH_Jobs 285/**211 PH** (MBPS) · Sun Life
+      sunlife.wd3/Experienced-Jobs 291/56 PH · QBE qbe.wd3/QBE-Careers 265/39 PH
+      (GSSC) · Broadridge broadridge.wd5/Careers 260/13 PH.
+      **Synchrony synchronyfinancial.wd5/PHLClassHire → HTTP 403 on first jobs
+      request = BLOCKED (§17.1.2)** — permanent stop, never retry, do not add.
+      Graveyard notes: UnionBank, Cebu Pacific not on Workday (own portals);
+      JPMorgan PH is on Oracle Cloud (jpmc.fa.oraclecloud.com) — out of scope.
+- [ ] Wave 3 candidates from the PH-corporates graveyard below (PAL, San
+      Miguel, URC, Security Bank…) — tenant-by-tenant, discovery is the
+      bottleneck (most PH conglomerates run custom portals)
 
 ### Phase 11 — Web product features (client-side only)
 
