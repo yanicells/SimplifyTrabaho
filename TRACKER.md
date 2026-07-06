@@ -745,6 +745,15 @@ not a real employer. Kalibrr — job-board company, fetching prohibited by rule 
   `telusinternational`), "AIA Philippines" (ex-Philam; includes MediCard PH-MPI
   postings). Concentrix/TELUS classified `direct` (they hire own employees;
   precedent: Accenture) — agencies remain recruiters/staffing firms only.
+- 2026-07-06 — **Filter selects join the pill system; Companies directory
+  added** (maintainer-requested). Selects: rounded-full, applied value
+  polarity-flips to ink + paper chevron (`.select-active`), native option
+  list kept for mobile pickers; text inputs stay soft rectangles (entry vs
+  choice = the shape distinction). New Companies view in the rail: search,
+  Most roles / A–Z sort, industry + direct/agency meta, role counts; picking
+  a company sets a new exact-match `company` URL param (codec-tested,
+  persists via the same storage path) shown as a removable ink pill on the
+  board.
 - 2026-07-06 — Maersk has no Philippines facet on its Workday tenant, so it
   runs under the §17.1.4 fallback (1,000-posting cap + local PH filter). PH
   roles beyond the cap can be missed on heavy days — accepted; revisit if the
