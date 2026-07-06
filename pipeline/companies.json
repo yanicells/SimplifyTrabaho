@@ -32,6 +32,16 @@
       "notes": "§17.2 wave-1 verified 2026-07-06: robots clean, PH country facet at source (locationCountry e56f1daf…), 672 PH postings"
     },
     {
+      "name": "AIA Philippines",
+      "ats": "workday",
+      "slug": "aia.wd3/External",
+      "industry": "insurance",
+      "type": "direct",
+      "verified": true,
+      "added": "2026-07-06",
+      "notes": "§17.2 wave-3 verified 2026-07-06: robots clean, 219 postings / 212 PH — AIA Philippines (ex-Philam Life) + MediCard (PH-MPI) sites, Makati/QC/Iloilo/Rizal"
+    },
+    {
       "name": "AJAIA",
       "ats": "workable",
       "slug": "ajaia",
