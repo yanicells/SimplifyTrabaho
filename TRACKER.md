@@ -258,6 +258,17 @@ verify-registry`. Also recheck the live-but-0-PH boards listed below — several
       dry well: most graveyard names are simply not on any public-feed ATS. The
       recognizable-employer gap is structural and is what Phase 10 (Workday) exists
       to close.
+- [x] 2026-07-06 — **Registry round 4: 15 new companies (7 direct, 8 agency),
+      registry 106 → 121 (63 direct / 58 agency), ~1,500 new PH postings.**
+      Mined by web-searching the new-ATS hosted domains (careers-page.com is a
+      rich PH vein). Direct: **Toyota Motor Philippines** (manatal, 7 PH),
+      **Ajinomoto Philippines** (28 PH), **EastWest Bank** (193 PH — first PH
+      universal bank in the registry, incl. a fresh-grad development program),
+      GPC Philippines (21), Universal Leaf Philippines (66), Bizbloqs PH (2),
+      KMC Savills (16, new `real-estate` industry tag). Agency: Siegen HR (167),
+      TASQ Staffing (392), weSource (381), HRTX (217), Our Assistants (43),
+      FreeUp (6), Doneverse (6), Urrly (1). All auto-verified on real PH
+      postings — no PH-HQ shortcut used, so no CONFIRM-IDENTITY risk.
 - [x] Schema v3 shipped: `companyType` denormalized onto every listing (precedent:
       `industry` in v2); `recategorize` is the v2→v3 migration; web validates v3 and
       the employer-type filter is live (URL param `type`).
@@ -369,6 +380,19 @@ verify-registry`. Also recheck the live-but-0-PH boards listed below — several
 All probed 2026-06-11 unless noted. Companies later verified under another slug/ATS
 are marked ➜✅. PH corporates (banks, conglomerates, airlines, food) are mostly on
 Workday/custom portals — none of the guessed SmartRecruiters identifiers existed.
+
+**Round 4 (2026-07-06) failures:**
+
+- Archax — slugs tried: archax (manatal) — 2026-07-06 — all dead
+- Pawdel — slugs tried: pawdel (manatal) — 2026-07-06 — all dead (subdomain
+  career page exists at pawdel.careers-page.com; API slug unknown)
+- Nimbly Technologies — slugs tried: hellonimbly (breezy) — 2026-07-06 — live
+  but no PH roles (0 postings today; recheck)
+- MicroSourcing — slugs tried: microresumes, microsourcing (manatal) —
+  2026-07-06 — all dead (career site is at microresumes.careers-page.com;
+  the www API 404s both slugs — big BPO, worth another slug hunt)
+- VAA Philippines — slugs tried: vaaphilippines-recruitment (breezy) —
+  2026-07-06 — live but no PH roles (0 postings today; recheck)
 
 **Live board, 0 PH roles today — recheck periodically (companies known to hire PH):**
 
