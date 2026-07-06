@@ -1,12 +1,18 @@
 @import "tailwindcss";
 
+/* Design tokens — see web/DESIGN.md (Uber-inspired black/white system).
+   Black is the only conversion color; the PH flag strip and the sun-yellow
+   "New" badge are the sole chromatic marks on the page. */
 :root {
-  --paper: #faf8f4;
-  --ink: #211d16;
-  --faint: #6e675a;
-  --line: #e6e1d6;
-  --accent: #0f43ad; /* PH flag blue, brightened for contrast on paper */
-  --sun: #fcd116; /* PH sun yellow */
+  --paper: #ffffff; /* canvas */
+  --ink: #000000;
+  --faint: #5e5e5e; /* secondary text */
+  --mute: #afafaf; /* placeholder / fine print */
+  --line: #e2e2e2; /* hairlines */
+  --soft: #f3f3f3; /* input + chip fill */
+  --press: #e2e2e2; /* pressed fill */
+  --accent: #000000; /* conversion color = ink */
+  --sun: #fcd116; /* PH sun yellow — micro-accent only */
   --sun-soft: #fdf0c2;
 }
 
@@ -14,18 +20,26 @@
   --color-paper: var(--paper);
   --color-ink: var(--ink);
   --color-faint: var(--faint);
+  --color-mute: var(--mute);
   --color-line: var(--line);
+  --color-soft: var(--soft);
+  --color-press: var(--press);
   --color-accent: var(--accent);
   --color-sun: var(--sun);
   --color-sun-soft: var(--sun-soft);
-  --font-sans: var(--font-instrument), ui-sans-serif, system-ui, sans-serif;
-  --font-display: var(--font-fraunces), ui-serif, Georgia, serif;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, "Helvetica Neue", Arial, sans-serif;
+  --font-display: var(--font-inter), ui-sans-serif, system-ui, "Helvetica Neue", Arial, sans-serif;
 }
 
 body {
   background: var(--paper);
   color: var(--ink);
-  font-family: var(--font-instrument), ui-sans-serif, system-ui, sans-serif;
+  font-family: var(--font-inter), ui-sans-serif, system-ui, "Helvetica Neue", Arial, sans-serif;
+}
+
+/* Display type never letter-spaces (DESIGN.md: no tracking flourish). */
+.font-display {
+  letter-spacing: -0.01em;
 }
 
 /* Off-screen rows skip layout and paint so thousands of rows stay smooth. */
@@ -44,8 +58,17 @@ body {
 
 .select {
   appearance: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none'%3E%3Cpath d='M4 6l4 4 4-4' stroke='%236e675a' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none'%3E%3Cpath d='M4 6l4 4 4-4' stroke='%235e5e5e' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: right 0.65rem center;
   background-size: 1rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
 }

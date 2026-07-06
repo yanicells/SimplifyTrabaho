@@ -1,40 +1,98 @@
 import type { Metadata, Viewport } from "next";
-import { Fraunces, Instrument_Sans } from "next/font/google";
+import { Inter } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
-const fraunces = Fraunces({
+const inter = Inter({
   subsets: ["latin"],
-  variable: "--font-fraunces",
-});
-
-const instrumentSans = Instrument_Sans({
-  subsets: ["latin"],
-  variable: "--font-instrument",
+  variable: "--font-inter",
 });
 
 const SITE_URL = "https://simplifytrabaho.ycells.com";
+const TITLE = "SimplifyTrabaho — jobs at Philippine companies";
+const DESCRIPTION =
+  "A free, open, automatically updated list of jobs at Philippine companies — internships and entry-level roles featured. Always links to official application pages.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: "SimplifyTrabaho — jobs at Philippine companies",
-  description:
-    "A free, open, automatically updated list of jobs at Philippine companies — internships and entry-level roles featured. Always links to official application pages.",
+  title: TITLE,
+  description: DESCRIPTION,
+  keywords: [
+    "jobs Philippines",
+    "internships Philippines",
+    "entry level jobs Philippines",
+    "fresh graduate jobs",
+    "OJT",
+    "trabaho",
+    "careers Philippines",
+    "hiring Philippines",
+  ],
   alternates: {
     canonical: "/",
+    types: { "application/rss+xml": `${SITE_URL}/feed.xml` },
   },
   openGraph: {
-    title: "SimplifyTrabaho — jobs at Philippine companies",
-    description:
-      "A free, open, automatically updated list of jobs at Philippine companies — internships and entry-level roles featured.",
+    title: TITLE,
+    description: DESCRIPTION,
     url: "/",
     siteName: "SimplifyTrabaho",
     locale: "en_PH",
     type: "website",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: TITLE,
+    description: DESCRIPTION,
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export const viewport: Viewport = {
-  themeColor: "#faf8f4",
+  themeColor: "#ffffff",
+};
+
+// Structured data for search + answer engines: the site itself (with its query
+// param as a SearchAction) and the CC0 dataset behind it.
+const JSON_LD = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": `${SITE_URL}/#website`,
+      url: SITE_URL,
+      name: "SimplifyTrabaho",
+      description: DESCRIPTION,
+      inLanguage: "en-PH",
+      potentialAction: {
+        "@type": "SearchAction",
+        target: {
+          "@type": "EntryPoint",
+          urlTemplate: `${SITE_URL}/?q={search_term_string}`,
+        },
+        "query-input": "required name=search_term_string",
+      },
+    },
+    {
+      "@type": "Dataset",
+      "@id": `${SITE_URL}/#dataset`,
+      name: "SimplifyTrabaho job listings",
+      description:
+        "Open dataset of job listings at Philippine companies, collected daily from public ATS APIs that companies intentionally publish. Facts only: company, title, location, official application URL, dates.",
+      url: "https://github.com/yanicells/SimplifyTrabaho",
+      license: "https://creativecommons.org/publicdomain/zero/1.0/",
+      isAccessibleForFree: true,
+      creator: { "@type": "Organization", name: "SimplifyTrabaho" },
+      distribution: {
+        "@type": "DataDownload",
+        encodingFormat: "application/json",
+        contentUrl:
+          "https://raw.githubusercontent.com/yanicells/SimplifyTrabaho/main/data/listings.json",
+      },
+    },
+  ],
 };
 
 export default function RootLayout({
@@ -43,11 +101,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={`${fraunces.variable} ${instrumentSans.variable} h-full antialiased`}
-    >
-      <body className="flex min-h-full flex-col">{children}</body>
+    <html lang="en" className={`${inter.variable} h-full antialiased`}>
+      <body className="flex min-h-full flex-col">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(JSON_LD) }}
+        />
+        {children}
+        <Analytics />
+      </body>
     </html>
   );
 }

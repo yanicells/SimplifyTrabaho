@@ -7,7 +7,6 @@ import {
   METRO_TAGS,
   type CompanyType,
   type JobFunction,
-  type Level,
   type MetroTag,
   type WorkSetup,
 } from "../../pipeline/src/types";
