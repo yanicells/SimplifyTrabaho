@@ -1,6 +1,6 @@
 # Phase 9 — Coverage (Tier A) + Registry Rebalance — Implementation Plan
 
-> **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
+> **Implementation note:** Execute this plan task-by-task with checkpoints. Steps use checkbox (`- [ ]`) syntax for tracking.
 
 **Goal:** Add the candidate Tier-A ATSs that proved to have a truly public, unauthenticated jobs feed (BambooHR, Breezy, Manatal), tag every registry company `direct` vs `agency`, make the README featured table direct-only, enable the web employer-type filter, and run a round-3 registry pass targeting ≥25 new **direct** employers.
 
@@ -243,7 +243,7 @@ well is dry** (TRACKER), with the agency/direct mix reported.
 - Modify: `pipeline/src/types.ts`
 - Test: `pipeline/tests/files.test.ts`
 
-- [ ] **Step 1: Add the new ATS ids and the `companyType` types**
+- [x] **Step 1: Add the new ATS ids and the `companyType` types**
 
 In `pipeline/src/types.ts`, extend `ATS_SOURCES` and add the company-type union:
 
@@ -265,7 +265,7 @@ export type AtsSource = (typeof ATS_SOURCES)[number];
 export type CompanyType = "direct" | "agency";
 ```
 
-- [ ] **Step 2: Add `type` to `RegistryCompany`, `companyType` to `FetchedPosting` and `Listing`, bump `ListingsFile.version`**
+- [x] **Step 2: Add `type` to `RegistryCompany`, `companyType` to `FetchedPosting` and `Listing`, bump `ListingsFile.version`**
 
 ```typescript
 export interface RegistryCompany {
@@ -305,12 +305,12 @@ export interface ListingsFile {
 }
 ```
 
-- [ ] **Step 3: Run typecheck to see the expected breakage**
+- [x] **Step 3: Run typecheck to see the expected breakage**
 
 Run: `pnpm --filter pipeline typecheck`
 Expected: FAIL — every normalizer (missing `companyType`), `buildListing`, `files.ts`, `cli.ts` now don't satisfy the types. This is the to-do list; the next tasks fix each.
 
-- [ ] **Step 4: Commit**
+- [x] **Step 4: Commit**
 
 ```bash
 git add pipeline/src/types.ts
@@ -325,7 +325,7 @@ git commit -m "feat(pipeline): schema v3 types — companyType + bamboohr/breezy
 - Modify: `pipeline/src/files.ts`
 - Test: `pipeline/tests/files.test.ts`
 
-- [ ] **Step 1: Write failing tests**
+- [x] **Step 1: Write failing tests**
 
 In `pipeline/tests/files.test.ts`, update `validCompany` to include `type: "direct"` and add:
 
@@ -357,12 +357,12 @@ it("rejects unsupported versions, including pre-migration v2", () => {
 });
 ```
 
-- [ ] **Step 2: Run tests to verify they fail**
+- [x] **Step 2: Run tests to verify they fail**
 
 Run: `pnpm --filter pipeline test files`
 Expected: FAIL — `type` not validated; `parseListingsFile` still expects 2.
 
-- [ ] **Step 3: Implement**
+- [x] **Step 3: Implement**
 
 In `parseRegistry`, after the `verified` check add:
 
@@ -403,12 +403,12 @@ export function parseListingsFile(raw: unknown): ListingsFile {
 }
 ```
 
-- [ ] **Step 4: Run tests to verify they pass**
+- [x] **Step 4: Run tests to verify they pass**
 
 Run: `pnpm --filter pipeline test files`
 Expected: PASS.
 
-- [ ] **Step 5: Commit**
+- [x] **Step 5: Commit**
 
 ```bash
 git add pipeline/src/files.ts pipeline/tests/files.test.ts
@@ -423,7 +423,7 @@ git commit -m "feat(pipeline): validate registry type, require listings v3"
 - Modify: `pipeline/src/normalize.ts`
 - Test: `pipeline/tests/normalize.test.ts`
 
-- [ ] **Step 1: Write a failing test**
+- [x] **Step 1: Write a failing test**
 
 Add to `pipeline/tests/normalize.test.ts` (use whatever fixture/company the file already imports for Greenhouse; here `company` must carry `type`):
 
@@ -437,12 +437,12 @@ it("copies the registry companyType onto every posting", () => {
 
 (If the existing test companies are inline literals, add `type: "direct"` to them so the file typechecks.)
 
-- [ ] **Step 2: Run to verify it fails**
+- [x] **Step 2: Run to verify it fails**
 
 Run: `pnpm --filter pipeline test normalize`
 Expected: FAIL — `companyType` missing on returned postings (and/or type error).
 
-- [ ] **Step 3: Implement**
+- [x] **Step 3: Implement**
 
 In **each** of the six existing normalizers (`normalizeGreenhouse`, `normalizeLever`, `normalizeAshby`, `normalizeWorkable`, `normalizeSmartRecruiters`, `normalizeRecruitee`), add one line beside the existing `industry: company.industry,` in the returned object:
 
@@ -451,12 +451,12 @@ In **each** of the six existing normalizers (`normalizeGreenhouse`, `normalizeLe
       companyType: company.type,
 ```
 
-- [ ] **Step 4: Run to verify pass**
+- [x] **Step 4: Run to verify pass**
 
 Run: `pnpm --filter pipeline test normalize`
 Expected: PASS.
 
-- [ ] **Step 5: Commit**
+- [x] **Step 5: Commit**
 
 ```bash
 git add pipeline/src/normalize.ts pipeline/tests/normalize.test.ts
@@ -471,7 +471,7 @@ git commit -m "feat(pipeline): copy companyType through the six existing normali
 - Modify: `pipeline/src/merge.ts`
 - Test: `pipeline/tests/merge.test.ts`
 
-- [ ] **Step 1: Write failing tests**
+- [x] **Step 1: Write failing tests**
 
 In `pipeline/tests/merge.test.ts`, ensure the helper that builds a `FetchedPosting`/`Listing` includes `companyType`, and add:
 
@@ -495,12 +495,12 @@ it("bumps dateUpdated when companyType changes", () => {
 });
 ```
 
-- [ ] **Step 2: Run to verify they fail**
+- [x] **Step 2: Run to verify they fail**
 
 Run: `pnpm --filter pipeline test merge`
 Expected: FAIL — `companyType` not on the built listing; not compared.
 
-- [ ] **Step 3: Implement**
+- [x] **Step 3: Implement**
 
 In `buildListing`, add to the returned object beside `industry`:
 
@@ -528,12 +528,12 @@ const COMPARED_FIELDS = [
 ] as const;
 ```
 
-- [ ] **Step 4: Run to verify pass**
+- [x] **Step 4: Run to verify pass**
 
 Run: `pnpm --filter pipeline test merge`
 Expected: PASS.
 
-- [ ] **Step 5: Commit**
+- [x] **Step 5: Commit**
 
 ```bash
 git add pipeline/src/merge.ts pipeline/tests/merge.test.ts
@@ -547,14 +547,14 @@ git commit -m "feat(pipeline): merge carries and compares companyType"
 **Files:**
 - Modify: `pipeline/companies.json`
 
-- [ ] **Step 1: Edit every entry**
+- [x] **Step 1: Edit every entry**
 
 Add `"type": "direct"` or `"type": "agency"` to each of the 101 entries per the
 classification in §0.3 (insert it right after `"industry"` to match the canonical key
 order in `types.ts`). Resolve the seven borderline cases (§0.3) per the maintainer's call
 recorded in Open Question Q3.
 
-- [ ] **Step 2: Verify the registry still parses and the split is right**
+- [x] **Step 2: Verify the registry still parses and the split is right**
 
 Run:
 ```bash
@@ -562,7 +562,7 @@ pnpm --filter pipeline exec tsx -e "import {readFileSync} from 'node:fs';import 
 ```
 Expected: `total 101 agency 45 direct 56` (or the adjusted split if borderline cases were reclassified — note it in TRACKER).
 
-- [ ] **Step 3: Commit**
+- [x] **Step 3: Commit**
 
 ```bash
 git add pipeline/companies.json
@@ -581,7 +581,7 @@ BambooHR and Breezy answer an **unknown/inactive tenant** with a `3xx` redirect 
 marketing page rather than a `404`. The default `politeJsonGet` follows redirects and then
 fails on `.json()`. Add an opt-in that treats a redirect as "not found" (→ dead-slug).
 
-- [ ] **Step 1: Write a failing test**
+- [x] **Step 1: Write a failing test**
 
 Add near the other `politeJsonGet`-based tests in `pipeline/tests/fetchers.test.ts`
 (import `politeJsonGet`):
@@ -608,12 +608,12 @@ describe("politeJsonGet redirectIsNotFound", () => {
 });
 ```
 
-- [ ] **Step 2: Run to verify it fails**
+- [x] **Step 2: Run to verify it fails**
 
 Run: `pnpm --filter pipeline test fetchers`
 Expected: FAIL — option unknown; 302 currently returns `{kind:"http"}`.
 
-- [ ] **Step 3: Implement**
+- [x] **Step 3: Implement**
 
 In `http.ts`, extend `HttpDeps` and handle the redirect:
 
@@ -649,12 +649,12 @@ redirect to `not-found` right after the fetch:
       if (response.ok) return { kind: "ok", body: await response.json() };
 ```
 
-- [ ] **Step 4: Run to verify pass**
+- [x] **Step 4: Run to verify pass**
 
 Run: `pnpm --filter pipeline test fetchers`
 Expected: PASS.
 
-- [ ] **Step 5: Commit**
+- [x] **Step 5: Commit**
 
 ```bash
 git add pipeline/src/fetchers/http.ts pipeline/tests/fetchers.test.ts
@@ -670,7 +670,7 @@ git commit -m "feat(pipeline): optional redirect→not-found in polite HTTP laye
 - Modify: `pipeline/src/normalize.ts`
 - Test: `pipeline/tests/normalize.test.ts`
 
-- [ ] **Step 1: Save the real fixture**
+- [x] **Step 1: Save the real fixture**
 
 Save the real Kumu response (no JD text in this feed, so it's already safe). Capture with:
 ```bash
@@ -679,7 +679,7 @@ curl -sS -A "simplifytrabaho/0.1.0 (+https://github.com/yanicells/SimplifyTrabah
 ```
 Confirm it looks like `{"meta":{"totalCount":N},"result":[{ "id", "jobOpeningName", "location", "atsLocation", "isRemote", "employmentStatusLabel" }, …]}` (the shape in §0.2).
 
-- [ ] **Step 2: Write failing tests**
+- [x] **Step 2: Write failing tests**
 
 Add to `pipeline/tests/normalize.test.ts`:
 
@@ -706,12 +706,12 @@ describe("normalizeBambooHr", () => {
 });
 ```
 
-- [ ] **Step 3: Run to verify it fails**
+- [x] **Step 3: Run to verify it fails**
 
 Run: `pnpm --filter pipeline test normalize`
 Expected: FAIL — `normalizeBambooHr` not defined.
 
-- [ ] **Step 4: Implement `normalizeBambooHr`**
+- [x] **Step 4: Implement `normalizeBambooHr`**
 
 Add to `pipeline/src/normalize.ts`:
 
@@ -767,12 +767,12 @@ export function normalizeBambooHr(company: RegistryCompany, raw: unknown): Fetch
 }
 ```
 
-- [ ] **Step 5: Run to verify pass**
+- [x] **Step 5: Run to verify pass**
 
 Run: `pnpm --filter pipeline test normalize`
 Expected: PASS.
 
-- [ ] **Step 6: Commit**
+- [x] **Step 6: Commit**
 
 ```bash
 git add pipeline/src/normalize.ts pipeline/tests/normalize.test.ts pipeline/tests/fixtures/bamboohr-kumu.json
@@ -787,7 +787,7 @@ git commit -m "feat(pipeline): BambooHR normalizer + real Kumu fixture"
 - Create: `pipeline/src/fetchers/bamboohr.ts`
 - Test: `pipeline/tests/fetchers.test.ts`
 
-- [ ] **Step 1: Write failing tests**
+- [x] **Step 1: Write failing tests**
 
 ```typescript
 import { fetchBambooHr } from "../src/fetchers/bamboohr.js";
@@ -827,12 +827,12 @@ describe("fetchBambooHr", () => {
 
 (Update the `registryCompany` helper in this test file to include `type: "direct"` in its defaults so all existing fetcher tests keep typechecking.)
 
-- [ ] **Step 2: Run to verify it fails**
+- [x] **Step 2: Run to verify it fails**
 
 Run: `pnpm --filter pipeline test fetchers`
 Expected: FAIL — `fetchBambooHr` not defined.
 
-- [ ] **Step 3: Implement**
+- [x] **Step 3: Implement**
 
 ```typescript
 import { normalizeBambooHr } from "../normalize.js";
@@ -872,12 +872,12 @@ export async function fetchBambooHr(
 }
 ```
 
-- [ ] **Step 4: Run to verify pass**
+- [x] **Step 4: Run to verify pass**
 
 Run: `pnpm --filter pipeline test fetchers`
 Expected: PASS.
 
-- [ ] **Step 5: Commit**
+- [x] **Step 5: Commit**
 
 ```bash
 git add pipeline/src/fetchers/bamboohr.ts pipeline/tests/fetchers.test.ts
@@ -893,7 +893,7 @@ git commit -m "feat(pipeline): BambooHR fetcher (redirect→dead-slug, empty=liv
 - Modify: `pipeline/src/normalize.ts`
 - Test: `pipeline/tests/normalize.test.ts`
 
-- [ ] **Step 1: Save the real fixture**
+- [x] **Step 1: Save the real fixture**
 
 ```bash
 curl -sS -A "simplifytrabaho/0.1.0 (+https://github.com/yanicells/SimplifyTrabaho)" \
@@ -901,7 +901,7 @@ curl -sS -A "simplifytrabaho/0.1.0 (+https://github.com/yanicells/SimplifyTrabah
 ```
 (Replace with a verified PH Breezy board's response if Task 17 finds one; the trial board confirms the shape. The list feed contains no JD text.)
 
-- [ ] **Step 2: Write failing tests**
+- [x] **Step 2: Write failing tests**
 
 ```typescript
 import breezySample from "./fixtures/breezy-sample.json" with { type: "json" };
@@ -924,12 +924,12 @@ describe("normalizeBreezy", () => {
 });
 ```
 
-- [ ] **Step 3: Run to verify it fails**
+- [x] **Step 3: Run to verify it fails**
 
 Run: `pnpm --filter pipeline test normalize`
 Expected: FAIL — `normalizeBreezy` not defined.
 
-- [ ] **Step 4: Implement `normalizeBreezy`**
+- [x] **Step 4: Implement `normalizeBreezy`**
 
 ```typescript
 interface BreezyJob {
@@ -975,12 +975,12 @@ export function normalizeBreezy(company: RegistryCompany, raw: unknown): Fetched
 }
 ```
 
-- [ ] **Step 5: Run to verify pass**
+- [x] **Step 5: Run to verify pass**
 
 Run: `pnpm --filter pipeline test normalize`
 Expected: PASS.
 
-- [ ] **Step 6: Commit**
+- [x] **Step 6: Commit**
 
 ```bash
 git add pipeline/src/normalize.ts pipeline/tests/normalize.test.ts pipeline/tests/fixtures/breezy-sample.json
@@ -995,7 +995,7 @@ git commit -m "feat(pipeline): Breezy normalizer + real fixture"
 - Create: `pipeline/src/fetchers/breezy.ts`
 - Test: `pipeline/tests/fetchers.test.ts`
 
-- [ ] **Step 1: Write failing tests**
+- [x] **Step 1: Write failing tests**
 
 ```typescript
 import { fetchBreezy } from "../src/fetchers/breezy.js";
@@ -1029,12 +1029,12 @@ describe("fetchBreezy", () => {
 });
 ```
 
-- [ ] **Step 2: Run to verify it fails**
+- [x] **Step 2: Run to verify it fails**
 
 Run: `pnpm --filter pipeline test fetchers`
 Expected: FAIL — `fetchBreezy` not defined.
 
-- [ ] **Step 3: Implement**
+- [x] **Step 3: Implement**
 
 ```typescript
 import { normalizeBreezy } from "../normalize.js";
@@ -1072,12 +1072,12 @@ export async function fetchBreezy(
 }
 ```
 
-- [ ] **Step 4: Run to verify pass**
+- [x] **Step 4: Run to verify pass**
 
 Run: `pnpm --filter pipeline test fetchers`
 Expected: PASS.
 
-- [ ] **Step 5: Commit**
+- [x] **Step 5: Commit**
 
 ```bash
 git add pipeline/src/fetchers/breezy.ts pipeline/tests/fetchers.test.ts
@@ -1093,7 +1093,7 @@ git commit -m "feat(pipeline): Breezy fetcher"
 - Modify: `pipeline/src/normalize.ts`
 - Test: `pipeline/tests/normalize.test.ts`
 
-- [ ] **Step 1: Save the real fixture WITH `description` stripped**
+- [x] **Step 1: Save the real fixture WITH `description` stripped**
 
 The Manatal feed includes a full-HTML `description` (JD text — rule §3.3). Strip it before
 committing the fixture, exactly like the Lever fixture's truncated JD fields:
@@ -1104,7 +1104,7 @@ curl -sS -A "simplifytrabaho/0.1.0 (+https://github.com/yanicells/SimplifyTrabah
   > pipeline/tests/fixtures/manatal-manatal.json
 ```
 
-- [ ] **Step 2: Write failing tests**
+- [x] **Step 2: Write failing tests**
 
 ```typescript
 import manatalSample from "./fixtures/manatal-manatal.json" with { type: "json" };
@@ -1129,12 +1129,12 @@ describe("normalizeManatal", () => {
 });
 ```
 
-- [ ] **Step 3: Run to verify it fails**
+- [x] **Step 3: Run to verify it fails**
 
 Run: `pnpm --filter pipeline test normalize`
 Expected: FAIL — `normalizeManatal` not defined.
 
-- [ ] **Step 4: Implement `normalizeManatal`** (note: `description` is never destructured)
+- [x] **Step 4: Implement `normalizeManatal`** (note: `description` is never destructured)
 
 ```typescript
 interface ManatalJob {
@@ -1176,12 +1176,12 @@ export function normalizeManatal(company: RegistryCompany, raw: unknown): Fetche
 }
 ```
 
-- [ ] **Step 5: Run to verify pass**
+- [x] **Step 5: Run to verify pass**
 
 Run: `pnpm --filter pipeline test normalize`
 Expected: PASS.
 
-- [ ] **Step 6: Commit**
+- [x] **Step 6: Commit**
 
 ```bash
 git add pipeline/src/normalize.ts pipeline/tests/normalize.test.ts pipeline/tests/fixtures/manatal-manatal.json
@@ -1196,7 +1196,7 @@ git commit -m "feat(pipeline): Manatal normalizer + JD-stripped fixture"
 - Create: `pipeline/src/fetchers/manatal.ts`
 - Test: `pipeline/tests/fetchers.test.ts`
 
-- [ ] **Step 1: Write failing tests**
+- [x] **Step 1: Write failing tests**
 
 ```typescript
 import { fetchManatal } from "../src/fetchers/manatal.js";
@@ -1229,12 +1229,12 @@ describe("fetchManatal", () => {
 });
 ```
 
-- [ ] **Step 2: Run to verify it fails**
+- [x] **Step 2: Run to verify it fails**
 
 Run: `pnpm --filter pipeline test fetchers`
 Expected: FAIL — `fetchManatal` not defined.
 
-- [ ] **Step 3: Implement** (paginate by following `next`, cap pages like SmartRecruiters)
+- [x] **Step 3: Implement** (paginate by following `next`, cap pages like SmartRecruiters)
 
 ```typescript
 import { normalizeManatal } from "../normalize.js";
@@ -1279,12 +1279,12 @@ export async function fetchManatal(
 }
 ```
 
-- [ ] **Step 4: Run to verify pass**
+- [x] **Step 4: Run to verify pass**
 
 Run: `pnpm --filter pipeline test fetchers`
 Expected: PASS.
 
-- [ ] **Step 5: Commit**
+- [x] **Step 5: Commit**
 
 ```bash
 git add pipeline/src/fetchers/manatal.ts pipeline/tests/fetchers.test.ts
@@ -1298,7 +1298,7 @@ git commit -m "feat(pipeline): Manatal fetcher (paginated, JD never fetched twic
 **Files:**
 - Modify: `pipeline/src/cli.ts`, `pipeline/src/verify-registry.ts`
 
-- [ ] **Step 1: Register fetchers in `cli.ts`**
+- [x] **Step 1: Register fetchers in `cli.ts`**
 
 Add imports and entries to the `FETCHERS` map:
 
@@ -1322,7 +1322,7 @@ const FETCHERS: Record<RegistryCompany["ats"], Fetcher> = {
 ```
 Change the `writeFileSync(LISTINGS_PATH, …)` literal `version: 2` → `version: 3`.
 
-- [ ] **Step 2: Register fetchers in `verify-registry.ts` and stamp `type`**
+- [x] **Step 2: Register fetchers in `verify-registry.ts` and stamp `type`**
 
 Add the same three imports and entries to its `FETCHERS` map. Then add `type` to the
 `Candidate` interface and to the probe/verified entries:
@@ -1340,12 +1340,12 @@ In the loop where `probe` is built, set `type: candidate.type ?? "direct"`, and 
 verified entry is created (`verifiedEntry = { ...probe, verified: true, … }`) the `type`
 rides along from `probe`. Import `CompanyType` from `./types.js`.
 
-- [ ] **Step 3: Typecheck the whole pipeline**
+- [x] **Step 3: Typecheck the whole pipeline**
 
 Run: `pnpm --filter pipeline typecheck`
 Expected: PASS (all the Task-1 breakage is now resolved).
 
-- [ ] **Step 4: Commit**
+- [x] **Step 4: Commit**
 
 ```bash
 git add pipeline/src/cli.ts pipeline/src/verify-registry.ts
@@ -1360,7 +1360,7 @@ git commit -m "feat(pipeline): wire BambooHR/Breezy/Manatal fetchers; verify-reg
 - Modify: `pipeline/src/backfill.ts`, `pipeline/src/recategorize.ts`
 - Test: `pipeline/tests/backfill.test.ts`
 
-- [ ] **Step 1: Write failing tests**
+- [x] **Step 1: Write failing tests**
 
 In `pipeline/tests/backfill.test.ts`:
 
@@ -1389,12 +1389,12 @@ it("leaves companyType direct when the company is missing from the registry", ()
 });
 ```
 
-- [ ] **Step 2: Run to verify they fail**
+- [x] **Step 2: Run to verify they fail**
 
 Run: `pnpm --filter pipeline test backfill`
 Expected: FAIL — output is v2; no `companyType`.
 
-- [ ] **Step 3: Implement**
+- [x] **Step 3: Implement**
 
 In `recategorizeDataset`:
 - Accept v2 or v3 (v1 is long migrated): change the guard to
@@ -1405,12 +1405,12 @@ In `recategorizeDataset`:
 
 In `recategorize.ts`, change the log line `v${String(before)} → v2` to `→ v3`.
 
-- [ ] **Step 4: Run to verify pass**
+- [x] **Step 4: Run to verify pass**
 
 Run: `pnpm --filter pipeline test backfill`
 Expected: PASS.
 
-- [ ] **Step 5: Commit**
+- [x] **Step 5: Commit**
 
 ```bash
 git add pipeline/src/backfill.ts pipeline/src/recategorize.ts pipeline/tests/backfill.test.ts
@@ -1425,7 +1425,7 @@ git commit -m "feat(pipeline): recategorize is the v2→v3 migration (stamps com
 - Modify: `pipeline/src/readme.ts`
 - Test: `pipeline/tests/readme.test.ts`
 
-- [ ] **Step 1: Write a failing test**
+- [x] **Step 1: Write a failing test**
 
 In `pipeline/tests/readme.test.ts` (give the test listings a `companyType`):
 
@@ -1445,12 +1445,12 @@ it("excludes agency listings from the featured table", () => {
 });
 ```
 
-- [ ] **Step 2: Run to verify it fails**
+- [x] **Step 2: Run to verify it fails**
 
 Run: `pnpm --filter pipeline test readme`
 Expected: FAIL — Emapta still appears (and/or type error on the literals).
 
-- [ ] **Step 3: Implement**
+- [x] **Step 3: Implement**
 
 In `generateReadme`, add the direct-only condition to the `featured` filter:
 
@@ -1468,12 +1468,12 @@ In `generateReadme`, add the direct-only condition to the `featured` filter:
 Also update the "How this works" sentence to include the new sources:
 `…public ATS APIs (Greenhouse, Lever, Ashby, Workable, SmartRecruiters, Recruitee, BambooHR, Breezy, Manatal)…`.
 
-- [ ] **Step 4: Run to verify pass**
+- [x] **Step 4: Run to verify pass**
 
 Run: `pnpm --filter pipeline test readme`
 Expected: PASS.
 
-- [ ] **Step 5: Commit**
+- [x] **Step 5: Commit**
 
 ```bash
 git add pipeline/src/readme.ts pipeline/tests/readme.test.ts
@@ -1487,19 +1487,19 @@ git commit -m "feat(pipeline): README featured table is direct-employers-only (S
 **Files:**
 - Modify: `docs/SPEC.md`
 
-- [ ] **Step 1: Update §6**
+- [x] **Step 1: Update §6**
   - Bump the jsonc example `"version": 2` → `3` and adjust the version comment to mention `companyType` (Phase 9).
   - Add a `companyType` row to the Listing table after `industry`:
     `| `companyType` | enum | **Schema v3 (Phase 9).** `direct` \| `agency`, copied from the company's registry entry at normalization (SPEC §7/§11). |`
   - Add `bamboohr`, `breezy`, `manatal` to the `source` field's enum list.
 
-- [ ] **Step 2: Update §5.1**
+- [x] **Step 2: Update §5.1**
   - Add three rows to the fetchers table (BambooHR `…/careers/list`, Breezy `…/breezy.hr/json`, Manatal `…/careers-page.com/api/v1.0/c/{slug}/jobs/`).
   - Replace the "Phase 9 candidates to evaluate" paragraph with the probe verdicts from §0.1 (Freshteam OUT — no public feed; BambooHR/Breezy/Manatal IN; Personio IN-but-deferred (XML); Teamtailor/Jobvite/Zoho OUT — auth required).
 
-- [ ] **Step 3: Update §7** — note that `parseRegistry` now **requires** `type`.
+- [x] **Step 3: Update §7** — note that `parseRegistry` now **requires** `type`.
 
-- [ ] **Step 4: Commit**
+- [x] **Step 4: Commit**
 
 ```bash
 git add docs/SPEC.md
@@ -1513,27 +1513,27 @@ git commit -m "docs(spec): schema v3 companyType, new Tier-A ATS rows, Phase 9 p
 **Files:**
 - Modify: `pipeline/candidates.json`, `data/listings.json` (generated), `README.md` (generated), `pipeline/companies.json` (generated additions)
 
-- [ ] **Step 1: Replace `candidates.json` with the round-3 list (§0.4)**
+- [x] **Step 1: Replace `candidates.json` with the round-3 list (§0.4)**
 
 Use the candidates.json format (`{ candidates: [ { name, industry, type?, phHq?, tries:[{ats,slug}] } ] }`).
 Kumu goes straight to the registry (already confirmed) — add it directly to
 `companies.json` as `{ "name": "Kumu", "ats": "bamboohr", "slug": "kumu", "industry": "consumer", "type": "direct", "verified": true, "added": "2026-06-13", "notes": "…N PH postings" }`. The rest go in `candidates.json` with `type: "direct"` and best-guess slugs across `bamboohr`/`breezy`/`manatal` (Batch A) and the existing ATSs (Batch B).
 
-- [ ] **Step 2: Migrate the committed dataset to v3 BEFORE refreshing**
+- [x] **Step 2: Migrate the committed dataset to v3 BEFORE refreshing**
 
 `pnpm refresh` now rejects the committed v2 `listings.json`. Run the migration first:
 
 Run: `pnpm --filter pipeline recategorize`
 Expected: prints `schema v2 → v3, N listings`, stamps `companyType` on every listing.
 
-- [ ] **Step 3: Run the registry verification probe**
+- [x] **Step 3: Run the registry verification probe**
 
 Run: `pnpm --filter pipeline verify-registry`
 Expected: prints `✅`/`MISS`/`LIVE` per candidate, merges verified ones into
 `companies.json`, and prints TRACKER-format failure lines for the rest. Heed the
 `CONFIRM-IDENTITY` warning for any PH-HQ 0-posting verification (the lever:maya lesson).
 
-- [ ] **Step 4: Full refresh end-to-end**
+- [x] **Step 4: Full refresh end-to-end**
 
 Run: `pnpm refresh`
 Expected: all verified companies fetched (new ATSs included), exit 0, valid v3
@@ -1541,7 +1541,7 @@ Expected: all verified companies fetched (new ATSs included), exit 0, valid v3
 summary shows the new BambooHR/Breezy/Manatal companies and that the README featured table
 shows only direct employers.
 
-- [ ] **Step 5: Spot-check no JD text leaked (esp. Manatal `description`)**
+- [x] **Step 5: Spot-check no JD text leaked (esp. Manatal `description`)**
 
 Run:
 ```bash
@@ -1549,7 +1549,7 @@ node -e "const d=require('./data/listings.json');const bad=d.listings.filter(l=>
 ```
 Expected: `0`.
 
-- [ ] **Step 6: Commit data**
+- [x] **Step 6: Commit data**
 
 ```bash
 git add pipeline/candidates.json pipeline/companies.json data/listings.json README.md data/fetch-state.json
@@ -1564,7 +1564,7 @@ git commit -m "data: Phase 9 round-3 — new direct employers + BambooHR/Breezy/
 - Modify: `web/lib/listings.ts`
 - Test: `web/lib/listings.test.ts`
 
-- [ ] **Step 1: Write a failing test**
+- [x] **Step 1: Write a failing test**
 
 In `web/lib/listings.test.ts`, add `companyType` to the valid-listing helper and assert
 the build rejects a bad value and passes a good one through to `Job`:
@@ -1582,12 +1582,12 @@ it("fails the build on an invalid companyType", () => {
 
 (Update the existing valid-listing fixture in this test to include `companyType: "direct"` and `version: 3` so the suite typechecks/passes; flip the version assertions from 2 to 3.)
 
-- [ ] **Step 2: Run to verify it fails**
+- [x] **Step 2: Run to verify it fails**
 
 Run: `pnpm --filter web test`
 Expected: FAIL — `companyType` not validated/passed; version mismatch.
 
-- [ ] **Step 3: Implement**
+- [x] **Step 3: Implement**
 
 In `web/lib/listings.ts`:
 - Import `CompanyType` from `../../pipeline/src/types` and add to `Job`:
@@ -1605,12 +1605,12 @@ In `web/lib/listings.ts`:
   `"must be 3 (run recategorize to migrate v2 data)"`, and return `version: 3`.
 - In `toJobs`, copy `companyType: l.companyType` into the `job` object.
 
-- [ ] **Step 4: Run to verify pass**
+- [x] **Step 4: Run to verify pass**
 
 Run: `pnpm --filter web test`
 Expected: PASS.
 
-- [ ] **Step 5: Commit**
+- [x] **Step 5: Commit**
 
 ```bash
 git add web/lib/listings.ts web/lib/listings.test.ts
@@ -1625,7 +1625,7 @@ git commit -m "feat(web): ship companyType to the client, validate v3 schema"
 - Modify: `web/lib/filter-params.ts`
 - Test: `web/lib/filter-params.test.ts`
 
-- [ ] **Step 1: Write failing tests**
+- [x] **Step 1: Write failing tests**
 
 In `web/lib/filter-params.test.ts`:
 
@@ -1645,12 +1645,12 @@ it("keeps the default (all) out of the URL", () => {
 });
 ```
 
-- [ ] **Step 2: Run to verify they fail**
+- [x] **Step 2: Run to verify they fail**
 
 Run: `pnpm --filter web test`
 Expected: FAIL — `type` not on `Filters`.
 
-- [ ] **Step 3: Implement**
+- [x] **Step 3: Implement**
 
 In `web/lib/filter-params.ts`:
 - Import `CompanyType` from the pipeline types.
@@ -1663,12 +1663,12 @@ In `web/lib/filter-params.ts`:
   if (type === "direct" || type === "agency") filters.type = type;
   ```
 
-- [ ] **Step 4: Run to verify pass**
+- [x] **Step 4: Run to verify pass**
 
 Run: `pnpm --filter web test`
 Expected: PASS.
 
-- [ ] **Step 5: Commit**
+- [x] **Step 5: Commit**
 
 ```bash
 git add web/lib/filter-params.ts web/lib/filter-params.test.ts
@@ -1682,7 +1682,7 @@ git commit -m "feat(web): employer-type filter in the URL codec"
 **Files:**
 - Modify: `web/components/job-board.tsx`
 
-- [ ] **Step 1: Flip the flag and wire the select**
+- [x] **Step 1: Flip the flag and wire the select**
 
 - Set `const EMPLOYER_TYPE_FILTER_ENABLED = true;`.
 - Destructure `type` from `filters` alongside `setup, metro, industry`.
@@ -1708,12 +1708,12 @@ git commit -m "feat(web): employer-type filter in the URL codec"
   ```
 - Add to `advancedCount`: `+ (type !== "all" ? 1 : 0)`.
 
-- [ ] **Step 2: Build the static site**
+- [x] **Step 2: Build the static site**
 
 Run: `pnpm --filter web build`
 Expected: PASS — static export builds against the v3 `data/listings.json`.
 
-- [ ] **Step 3: Playwright-verify (per the working agreement)**
+- [x] **Step 3: Playwright-verify (per the working agreement)**
 
 Start the built export, then with playwright on desktop + 390px mobile confirm: the
 employer-type select appears in the advanced panel, selecting "Direct employers" filters
@@ -1721,7 +1721,7 @@ the list and bumps the filter count, the URL gains `?type=direct`, pasting that 
 reproduces the view, "Agencies" works, reset clears it, no console errors, no horizontal
 overflow on mobile.
 
-- [ ] **Step 4: Commit**
+- [x] **Step 4: Commit**
 
 ```bash
 git add web/components/job-board.tsx
@@ -1735,19 +1735,19 @@ git commit -m "feat(web): enable the employer-type (direct/agency) filter"
 **Files:**
 - Modify: `TRACKER.md`
 
-- [ ] **Step 1: Run everything**
+- [x] **Step 1: Run everything**
 
 Run: `pnpm test` (all workspaces) — expect green.
 Run: `pnpm refresh` — expect 0 failures, valid v3 output, direct-only featured table.
 Run: `pnpm --filter web build` — expect green.
 
-- [ ] **Step 2: Update TRACKER.md**
+- [x] **Step 2: Update TRACKER.md**
   - Check off the Phase 9 items (Freshteam item → **cut**, replaced by BambooHR/Breezy/Manatal; note why in Decisions).
   - Move graveyard entries: **Kumu ➜✅ (bamboohr:kumu)**; mark **Thinking Machines — Freshteam has no public feed → unreachable under our rules** (Issues + graveyard).
   - Record the agency/direct mix (e.g. "registry now N companies, X direct / Y agency") and the round-3 result (≥25 new direct employers, or the documented dry well).
   - Decisions: schema v3 `companyType` denormalized (precedent: industry); Personio deferred (XML + EU-centric); Teamtailor/Jobvite/Zoho OUT (auth); employer-type filter live.
 
-- [ ] **Step 3: Commit**
+- [x] **Step 3: Commit**
 
 ```bash
 git add TRACKER.md
@@ -1836,12 +1836,8 @@ git commit -m "docs(tracker): Phase 9 complete — new ATSs, registry rebalance,
 ## Execution handoff
 
 Plan complete and saved to `docs/plans/phase-9-plan.md`. This is a **plan-only** stage —
-no pipeline/web code was written. Two execution options for Stage 2:
-
-1. **Subagent-Driven (recommended)** — dispatch a fresh subagent per task with two-stage
-   review between tasks (superpowers:subagent-driven-development).
-2. **Inline Execution** — execute tasks in this session with checkpoints
-   (superpowers:executing-plans).
+no pipeline/web code was written. For Stage 2, execute tasks in order with checkpoints
+between tasks.
 
 Resolve **Q1** (cut Freshteam) and **Q3** (borderline classifications) before Task 5/15,
 and **Q2/Q5** before Task 17.
