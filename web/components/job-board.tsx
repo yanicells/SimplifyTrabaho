@@ -293,6 +293,27 @@ export function JobBoard({
 
   const shown = filtered.slice(0, visible);
   const updatedMs = Date.parse(updatedAt);
+  const hasMore = filtered.length > visible;
+
+  // Infinite scroll: grow the visible window when the sentinel nears the
+  // viewport. Recreated per page so a sentinel that stays inside rootMargin
+  // after a growth still fires (IO only reports intersection *changes*).
+  // The Show-more button inside the sentinel is the no-IO/no-JS fallback.
+  const sentinelRef = useRef<HTMLDivElement | null>(null);
+  useEffect(() => {
+    const node = sentinelRef.current;
+    if (!node || !hasMore || typeof IntersectionObserver === "undefined") return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((entry) => entry.isIntersecting)) {
+          setVisible((v) => v + PAGE_SIZE);
+        }
+      },
+      { rootMargin: "800px 0px" },
+    );
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, [hasMore, visible, view]);
 
   const fieldClass =
     "h-11 rounded-lg bg-soft px-3 text-sm text-ink placeholder:text-mute focus:outline-none focus:ring-2 focus:ring-ink";
@@ -670,9 +691,9 @@ export function JobBoard({
             </ul>
           )}
 
-          {/* Pagination */}
-          {filtered.length > visible && (
-            <div className="mt-6 flex flex-col items-center gap-2">
+          {/* Infinite-scroll sentinel — button doubles as the fallback */}
+          {hasMore && (
+            <div ref={sentinelRef} className="mt-6 flex flex-col items-center gap-2">
               <button
                 type="button"
                 onClick={() => setVisible((v) => v + PAGE_SIZE)}
