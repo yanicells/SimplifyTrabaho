@@ -239,15 +239,28 @@ verify-registry`. Also recheck the live-but-0-PH boards listed below — several
 - [x] Coverage targets: function other <15% met (13.7%); level unknown <25% NOT
       met (58.3%) — gap explained in Issues, accuracy not traded for coverage
 
-### Phase 9 — Coverage, Tier A + registry rebalance
+### Phase 9 — Coverage, Tier A + registry rebalance — **COMPLETE 2026-07-06**
 
-- [ ] Freshteam fetcher + fixture + tests → Thinking Machines PH
-      (thinkingmachines.freshteam.com — closes the v1 graveyard entry)
-- [ ] Probe candidate ATSs (SPEC §5.1): BambooHR, Breezy, Personio, Manatal,
-      Teamtailor, Jobvite, Zoho Recruit — add fetchers only for truly public feeds
-- [ ] Registry: add `type: direct|agency` to every entry
-- [ ] README featured table → direct employers only (SPEC §11)
-- [ ] Registry round 3: target ≥25 new direct employers (or document the dry well)
+- [x] ~~Freshteam fetcher~~ **CUT** — Freshteam has no public unauthenticated feed
+      (`/api/job_postings` → 401, `.json` → OAuth redirect, `/jobs` is HTML-only);
+      extracting = HTML scraping = out of scope. Thinking Machines stays unreachable
+      under our rules. Kumu (bamboohr:kumu) closes the graveyard-proof role instead.
+- [x] Probe candidate ATSs (SPEC §5.1): BambooHR ✅ IN, Breezy ✅ IN, Manatal ✅ IN,
+      Personio ⚠️ deferred (public but XML + EU-centric), Freshteam/Teamtailor/
+      Jobvite/Zoho Recruit ❌ OUT (auth-gated). Three new fetchers + normalizers,
+      TDD with real fixtures (JD text stripped).
+- [x] Registry: `type: direct|agency` on all entries (106 companies:
+      56 direct / 50 agency; borderline flips per maintainer: Arcanys, Hello Rache,
+      SupportYourApp, Tech Firefly, Xillium → agency)
+- [x] README featured table → direct employers only (SPEC §11)
+- [x] Registry round 3: **5 new direct employers landed** (Kumu + Expedock via
+      BambooHR; BillEase, CloudEats, Eskwelabs via Manatal) — the ≥25 target hit a
+      dry well: most graveyard names are simply not on any public-feed ATS. The
+      recognizable-employer gap is structural and is what Phase 10 (Workday) exists
+      to close.
+- [x] Schema v3 shipped: `companyType` denormalized onto every listing (precedent:
+      `industry` in v2); `recategorize` is the v2→v3 migration; web validates v3 and
+      the employer-type filter is live (URL param `type`).
 
 ### Phase 10 — Coverage, Workday tier (SPEC §17)
 
@@ -373,25 +386,29 @@ Workday/custom portals — none of the guessed SmartRecruiters identifiers exist
 - PayMongo — paymongo (lever, greenhouse, workable, ashby) — no public board found
 - Mynt/GCash — mynt, gcash (greenhouse); mynt (lever, ashby)
 - Maya — maya (greenhouse); lever:maya exists but is a US company (see Issues)
-- Kumu — kumu (greenhouse, lever, workable, ashby)
+- Kumu — kumu (greenhouse, lever, workable, ashby) ➜✅ bamboohr:kumu (Phase 9)
 - SafetyCulture — safetyculture (greenhouse, lever)
 - Sprout Solutions — sproutsolutions, sprout-solutions (greenhouse); sprout (lever)
   ➜✅ workable:sprout-solutions
 - First Circle — firstcircle (greenhouse, lever); firstcircle (recruitee)
   ➜✅ workable:first-circle
 - Thinking Machines (PH) — thinkingmachines, thinking-machines (lever);
-  greenhouse:thinkingmachines is the US AI lab (see Issues) — no public board found
+  greenhouse:thinkingmachines is the US AI lab (see Issues) — no public board found.
+  2026-07: found on Freshteam but Freshteam has **no public feed** (auth-gated +
+  HTML-only) → unreachable under our rules; partnership/PR is the only path
 - ShopBack — shopback (lever, greenhouse) · Tyme — tyme (lever) ➜✅ GoTyme via
   workable:gotyme-ph-philippines · Athena — athena, athenago (lever); athena (ashby)
 - Coda Payments — codapayments, coda (greenhouse) · SupportNinja — supportninja
   (greenhouse, lever) · Ninja Van — ninja-van (lever) ➜✅ lever:ninjavan
-- Fintech/startups: BillEase (gh, lever) · ErudiFi (gh, lever) · Tonik — tonik
+- Fintech/startups: BillEase (gh, lever) ➜✅ manatal:billease · ErudiFi (gh, lever) · Tonik — tonik
   (lever), tonikbank (gh) · PDAX (lever, workable) · NextPay (lever, ashby) ·
   GrowSari (gh, lever, workable) · SariSuki (lever, workable) · CloudEats (lever,
-  workable) · Packworks (lever, workable) · Expedock (gh, ashby) · Locad (ashby,
+  workable) ➜✅ manatal:cloudeats · Packworks (lever, workable) · Expedock (gh,
+  ashby) ➜✅ bamboohr:expedock · Locad (ashby,
   workable) · Voyager Innovations (gh) · Tala (gh) · Aspire (gh) · Sleek (lever) ·
   Paymentwall (lever) · Bybit (lever) · Mober (workable) · Transportify (workable) ·
-  Edukasyon.ph (workable: edukasyon, edukasyon-ph) · Eskwelabs (workable) ·
+  Edukasyon.ph (workable: edukasyon, edukasyon-ph) · Eskwelabs (workable)
+  ➜✅ manatal:eskwelabs ·
   Edamama (workable, recruitee) · Zennya — zennya (lever), zennya-health (workable)
 - Outsourcing/staffing: Booth & Partners (workable ×2) · GoTeam (workable) ·
   SupportZebra (workable) · Filta (workable, recruitee) · Intelassist (workable) ·
@@ -583,3 +600,24 @@ not a real employer. Kalibrr — job-board company, fetching prohibited by rule 
   - Employer-type filter shipped dark behind `EMPLOYER_TYPE_FILTER_ENABLED=false`
     in job-board.tsx; flip when Phase 9 adds registry `type` (URL param `type`
     reserved).
+- 2026-07-06 — **Phase 9 decisions (executed 2026-07-02..06):**
+  - Schema v3: `companyType: direct|agency` denormalized onto every listing at
+    normalization (precedent: `industry` in v2). Field named `companyType` on
+    listings (registry keeps bare `type`) to avoid overloading `type` (Q4).
+  - Freshteam **cut** (Q1): no public unauthenticated feed — `/api/job_postings`
+    401, `.json` OAuth redirect, `/jobs` HTML-only. Thinking Machines PH stays
+    unreachable under our rules; Kumu (bamboohr:kumu) is the graveyard-closer.
+  - Personio **deferred** (Q2): feed is public but XML (pipeline speaks JSON) and
+    EU-centric (~0 PH employers). Revisit only if a PH employer surfaces on it.
+  - Teamtailor / Jobvite / Zoho Recruit **OUT**: all auth-gated (API key/OAuth).
+  - Borderline classifications (Q3, maintainer-confirmed): Arcanys, Hello Rache,
+    SupportYourApp, Tech Firefly, Xillium → **agency**; final split 56 direct /
+    50 agency across 106 companies.
+  - Round-3 (Q5): dry well documented — 5 net-new direct employers (Kumu,
+    Expedock via BambooHR; BillEase, CloudEats, Eskwelabs via Manatal). Most
+    graveyard names aren't on any public-feed ATS; the recognizable-employer gap
+    is Workday-shaped (Phase 10).
+  - BambooHR/Breezy redirect-on-unknown-tenant handled via opt-in
+    `redirectIsNotFound` in the polite HTTP layer (default behavior for the six
+    v1 fetchers unchanged); Manatal 404s unknown slugs; all three treat
+    live-empty as a successful empty fetch.
