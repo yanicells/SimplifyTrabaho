@@ -304,9 +304,24 @@ verify-registry`. Also recheck the live-but-0-PH boards listed below — several
       request = BLOCKED (§17.1.2)** — permanent stop, never retry, do not add.
       Graveyard notes: UnionBank, Cebu Pacific not on Workday (own portals);
       JPMorgan PH is on Oracle Cloud (jpmc.fa.oraclecloud.com) — out of scope.
-- [ ] Wave 3 candidates from the PH-corporates graveyard below (PAL, San
-      Miguel, URC, Security Bank…) — tenant-by-tenant, discovery is the
-      bottleneck (most PH conglomerates run custom portals)
+- [x] 2026-07-06 — **Wave 3 probed, PR'd (#10–#16) and MERGED** (all robots-clean,
+      guardrailed adapter only): Concentrix cnx.wd1/external_global 351/**251 PH**
+      · AIA Philippines aia.wd3/External 219/**212 PH** (Philam + MediCard PH-MPI)
+      · Pru Life UK prudential.wd3/prudential 38/**34 PH** (PLUK-tagged) ·
+      Maersk maersk.wd3/Maersk_Careers 1000-cap/**33 PH** (no PH facet on tenant —
+      cap + local filter per §17.1.4 fallback) · Mondelez mdlz.wd3/External
+      **25 PH** (closes the graveyard SR guess) · Unilever
+      unilever.wd3/Unilever_Experienced_Professionals 252/**16 PH** ·
+      TELUS Digital telusinternational.wd3/External 56/**8 PH**.
+      **Wells Fargo wellsfargo.wd1/WellsFargoJobs → robots.txt HTTP 422 =
+      BLOCKED (§17.1.1)** — permanent stop, never re-probe, do not add.
+      Emerson (industrial) migrated to Oracle Cloud (hdjq.fa.us2.oraclecloud.com)
+      — out of scope; emerson.wd5 is Emerson *College* (wrong identity — don't add).
+      Not on Workday per discovery: Henkel, Zurich, Nestlé PH, Jollibee, PAL,
+      San Miguel, URC, Security Bank, BDO, Metrobank, Ayala cos (custom portals;
+      BDO tenants found are BDO Canada/Australia — wrong identity).
+      Coca-Cola: coke.wd1 is TCCC global (PH bottler CCEP Aboitiz not on Workday);
+      not probed — recheck later.
 
 ### Phase 11 — Web product features (client-side only)
 
@@ -404,6 +419,21 @@ All probed 2026-06-11 unless noted. Companies later verified under another slug/
 are marked ➜✅. PH corporates (banks, conglomerates, airlines, food) are mostly on
 Workday/custom portals — none of the guessed SmartRecruiters identifiers existed.
 
+**Round 5 (2026-07-06) — 4 new Tier-A companies landed** (MR DIY Philippines 
+manatal:mr-diy-philippines · Sunnies manatal:sunnies-inc · HawodTech Solutions
+manatal:hawodtech · Pepper Money UK PH Branch manatal:pmb-uk-philippine-branch —
+all auto-verified on real PH postings). Failures/rechecks:
+
+- Citadel Pacific — slugs tried: citadelpacific (manatal) — 2026-07-06 — all dead
+  (career page exists at citadelpacific.careers-page.com; www API 404s the slug)
+- CTC BPO — slugs tried: ctc-bpo-inc-2 (manatal) — 2026-07-06 — live but 0
+  postings today; recheck
+- 2026-07-06 recheck of the "live but 0 PH" board list — still 0 PH across all:
+  Deel (0 postings), Kraken (54), Reddit (187), OKX (301), Pearl Talent (10),
+  Persona (24), Catena (3), Kittl (3), Pareto.AI (4), Flagright (35),
+  Supabase (50), Zip (128), Payabli (12), dbt Labs (0), Helium 10 (0),
+  Lingaro (1), WTW (7), Time Doctor (3), InDebted (6) — keep on periodic recheck.
+
 **Round 4 (2026-07-06) failures:**
 
 - Archax — slugs tried: archax (manatal) — 2026-07-06 — all dead
@@ -487,7 +517,8 @@ Workday/custom portals — none of the guessed SmartRecruiters identifiers exist
   Welocalize — welocalize (lever) ➜ Welo Global ✅ lever:weloglobal · Horizons (gh) ·
   AirAsia (gh) · Keywords Studios (gh) · Carousell (gh) · Damstra (smartrecruiters) ·
   NCS (smartrecruiters) · DXC — DXCTechnology16 (smartrecruiters) · Fresenius —
-  FreseniusMedicalCare (smartrecruiters) · Majorel, Mondelez, JTI, Datacom, Emerson,
+  FreseniusMedicalCare (smartrecruiters) · Majorel, Mondelez ➜✅ workday:mdlz.wd3/External (wave 3), JTI, Datacom,
+  Emerson (2026-07: careers moved to Oracle Cloud — out of scope),
   Infosys BPM (smartrecruiters)
 - PH corporates (all smartrecruiters guesses, all dead — they're on Workday/custom):
   UnionBank, Aboitiz Power, Cebu Pacific, Philippine Airlines, San Miguel, Universal
@@ -701,3 +732,20 @@ not a real employer. Kalibrr — job-board company, fetching prohibited by rule 
   - SEO/AEO: JSON-LD advertises the `?q=` SearchAction and the CC0 dataset;
     `llms.txt` points answer engines at listings.json + feed.xml. Google
     Search Console verification remains maintainer-side (Phase 12).
+- 2026-07-06 — **Infinite scroll replaces manual-only pagination** on the job
+  board: an IntersectionObserver sentinel (800px rootMargin) grows the visible
+  window by PAGE_SIZE; the "Show more roles" button stays inside the sentinel
+  as the no-JS / no-IntersectionObserver fallback; `content-visibility` rows
+  and PAGE_SIZE batching unchanged. Observer is recreated per page because IO
+  only reports intersection *changes* — a sentinel still inside rootMargin
+  after growth must re-fire.
+- 2026-07-06 — **Wave-3 registry naming:** entries use the brand PH job-seekers
+  know — "Pru Life UK" (not Prudential plc; PH postings are PLUK-tagged),
+  "TELUS Digital" (current brand; tenant keeps pre-rebrand id
+  `telusinternational`), "AIA Philippines" (ex-Philam; includes MediCard PH-MPI
+  postings). Concentrix/TELUS classified `direct` (they hire own employees;
+  precedent: Accenture) — agencies remain recruiters/staffing firms only.
+- 2026-07-06 — Maersk has no Philippines facet on its Workday tenant, so it
+  runs under the §17.1.4 fallback (1,000-posting cap + local PH filter). PH
+  roles beyond the cap can be missed on heavy days — accepted; revisit if the
+  tenant grows a country facet.
