@@ -26,6 +26,47 @@ job boards are scraped. Ever. Data refreshes once daily.
 
 | Company | Role | Location | Work Setup | Apply | Posted |
 | --- | --- | --- | --- | --- | --- |
+| **EastWest Bank** | Account Associate (Taguig) | Taguig, Metro Manila, Philippines | — | [Apply](https://www.careers-page.com/eastwest-bank/job/X9Y53383) | today |
+| **EastWest Bank** | Systems & Applications Associate | Makati City, Metro Manila, Philippines | — | [Apply](https://www.careers-page.com/eastwest-bank/job/V66884W6) | today |
+| **EastWest Bank** | Sales Associate (Davao) | Davao City, Davao del Sur, Philippines | — | [Apply](https://www.careers-page.com/eastwest-bank/job/L457R677) | today |
+| **EastWest Bank** | Account Associate ﻿(Binondo) | Manila, Metro Manila, Philippines | — | [Apply](https://www.careers-page.com/eastwest-bank/job/5WRV3395) | today |
+| **EastWest Bank** | Data Science Intern | Taguig, Metro Manila, Philippines | — | [Apply](https://www.careers-page.com/eastwest-bank/job/V6W5RWY8) | today |
+| **EastWest Bank** | Collections Associate (Operations) - Ortigas | Mandaluyong City, Metro Manila, Philippines | — | [Apply](https://www.careers-page.com/eastwest-bank/job/4RV47995) | today |
+| **EastWest Bank** | Collections Associate | Mandaluyong City, Metro Manila, Philippines | — | [Apply](https://www.careers-page.com/eastwest-bank/job/7XW7Y78X) | today |
+| **EastWest Bank** | EastWest Internship Program | Taguig, Metro Manila, Philippines | — | [Apply](https://www.careers-page.com/eastwest-bank/job/W3356746) | today |
+| **EastWest Bank** | Accounting Associate | Taguig, Metro Manila, Philippines | — | [Apply](https://www.careers-page.com/eastwest-bank/job/Y6V86R85) | today |
+| **EastWest Bank** | Branch Operations Associate - Cash Services (Provincial) | Makati City, Metro Manila, Philippines | — | [Apply](https://www.careers-page.com/eastwest-bank/job/X9YX4V6R) | today |
+| **EastWest Bank** | Sales Associate  Mortgage (Makati) | Makati City, Metro Manila, Philippines | — | [Apply](https://www.careers-page.com/eastwest-bank/job/L9Y693W4) | today |
+| **EastWest Bank** | Branch Banking Sales Intern-Chinese Speaking (For Active Pooling) | Metro Manila, Philippines | — | [Apply](https://www.careers-page.com/eastwest-bank/job/L3X8XY8W) | today |
+| **EastWest Bank** | Customer Service Representative | Makati, Metro Manila, Philippines | — | [Apply](https://www.careers-page.com/eastwest-bank/job/L5XXV6WR) | today |
+| **EastWest Bank** | IT & Digital Solutions Internship Program (Voluntary Internship) | Makati, Metro Manila, Philippines | — | [Apply](https://www.careers-page.com/eastwest-bank/job/LR8Y4X96) | today |
+| **EastWest Bank** | Junior Data Product Manager | Taguig, Metro Manila, Philippines | — | [Apply](https://www.careers-page.com/eastwest-bank/job/933V575Y) | today |
+| **EastWest Bank** | Shared Services Associate | Makati, Metro Manila, Philippines | — | [Apply](https://www.careers-page.com/eastwest-bank/job/QY4Y6585) | today |
+| **EastWest Bank** | Account Associate (Caloocan) | Caloocan, Metro Manila, Philippines | — | [Apply](https://www.careers-page.com/eastwest-bank/job/RY764XW6) | today |
+| **EastWest Bank** | Bank Operations Associate | Mandaluyong City, Metro Manila, Philippines | — | [Apply](https://www.careers-page.com/eastwest-bank/job/8X3RV3WR) | today |
+| **EastWest Bank** | Sales Support Admin Associate | Taguig, Metro Manila, Philippines | — | [Apply](https://www.careers-page.com/eastwest-bank/job/Y6RWR49V) | today |
+| **EastWest Bank** | Internship Opportunity (Voluntary/Academic) | Metro Manila, Philippines | — | [Apply](https://www.careers-page.com/eastwest-bank/job/7XY9436X) | today |
+| **EastWest Bank** | Account Associate (Greenhills) | NCR, NCR, Philippines | — | [Apply](https://www.careers-page.com/eastwest-bank/job/QW95X359) | today |
+| **EastWest Bank** | Junior Program Developer - Credit Decision Engine | Taguig, Metro Manila, Philippines | — | [Apply](https://www.careers-page.com/eastwest-bank/job/3W5RR588) | today |
+| **EastWest Bank** | Urgent Hiring Credit Associate - BGC | Taguig, Metro Manila, Philippines | — | [Apply](https://www.careers-page.com/eastwest-bank/job/4RXRR5W5) | today |
+| **GPC Philippines** | Benefits Policy Data Entry Specialist | Manila, Metro Manila, Philippines | — | [Apply](https://www.careers-page.com/gpc-philippines-corporation/job/63XVX74W) | today |
+| **KMC Savills** | Admin Intern (BGC) | Taguig, Metro Manila, Philippines | — | [Apply](https://www.careers-page.com/kmc-savills-inc/job/934347R4) | today |
+| **KMC Savills** | Front Office Associate (CEBU) | Cebu City, Cebu, Philippines | — | [Apply](https://www.careers-page.com/kmc-savills-inc/job/5WRWR965) | today |
+| **KMC Savills** | Front Office Associate (Clark) | San Fernando, Pampanga, Philippines | — | [Apply](https://www.careers-page.com/kmc-savills-inc/job/V6Y6Y4V6) | today |
+| **Universal Leaf Philippines** | Fumigation Associate | Cagayan Valley, Philippines | — | [Apply](https://www.careers-page.com/universal-leaf/job/RYV9WW4R) | today |
+| **Universal Leaf Philippines** | HR Associate | Agoo, La Union, Philippines | — | [Apply](https://www.careers-page.com/universal-leaf/job/RY756WYX) | today |
+| **Universal Leaf Philippines** | Growing Operations Management Trainee | Cagayan Valley, Philippines | — | [Apply](https://www.careers-page.com/universal-leaf/job/QXW9VY7R) | today |
+| **Universal Leaf Philippines** | Programming Associate | Cagayan Valley, Philippines | — | [Apply](https://www.careers-page.com/universal-leaf/job/RY6RWVY6) | today |
+| **Universal Leaf Philippines** | Leaf Management Trainee (Leaf MT) | Cagayan Valley, Philippines | — | [Apply](https://www.careers-page.com/universal-leaf/job/63X68X7R) | today |
+| **Universal Leaf Philippines** | Accounting Associate | Cagayan Valley, Philippines | — | [Apply](https://www.careers-page.com/universal-leaf/job/5WY39743) | today |
+| **Universal Leaf Philippines** | IT Applications Development Associate | Cagayan Valley, Philippines | — | [Apply](https://www.careers-page.com/universal-leaf/job/L3X4W7RW) | today |
+| **Universal Leaf Philippines** | Data Protection & Management (DPM) Associate | Cagayan Valley, Philippines | — | [Apply](https://www.careers-page.com/universal-leaf/job/3WR5X85W) | today |
+| **Universal Leaf Philippines** | Tax Compliance Assistant I | Reina Mercedes, Isabela, Philippines | — | [Apply](https://www.careers-page.com/universal-leaf/job/63V5W6V5) | today |
+| **Universal Leaf Philippines** | Operations Accounting Associate | Cagayan Valley, Philippines | — | [Apply](https://www.careers-page.com/universal-leaf/job/3WR46Y6V) | today |
+| **Universal Leaf Philippines** | Forestry Associate | Cagayan Valley, Philippines | — | [Apply](https://www.careers-page.com/universal-leaf/job/W33YRXV6) | today |
+| **Universal Leaf Philippines** | Research Associate | Cagayan Valley, Philippines | — | [Apply](https://www.careers-page.com/universal-leaf/job/RY7Y749R) | today |
+| **Universal Leaf Philippines** | Growing Operations Management Trainee | Candon, Ilocos Sur, Philippines | — | [Apply](https://www.careers-page.com/universal-leaf/job/L3XRYRXV) | today |
+| **Universal Leaf Philippines** | QMS Associate | Candon City, Ilocos Sur, Philippines | — | [Apply](https://www.careers-page.com/universal-leaf/job/4RX6Y687) | today |
 | **Workstream** | Mandarin Technical Support Associate | Manila, Philippines | — | [Apply](https://job-boards.greenhouse.io/workstream/jobs/6109105004) | 1d ago |
 | **Arch Global Services PH** | 2026-7985 Data Analyst Junior (Contractor) - (Night Shift) | Taguig, Metro Manila, Philippines | Hybrid | [Apply](https://jobs.smartrecruiters.com/ArchGlobalServicesPhilippinesInc/744000135667440) | 2d ago |
 | **Arch Global Services PH** | Business Operations Associate-Junior | Taguig City, National Capital Region, Philippines | Hybrid | [Apply](https://jobs.smartrecruiters.com/ArchGlobalServicesPhilippinesInc/744000135662270) | 2d ago |
@@ -87,7 +128,7 @@ job boards are scraped. Ever. Data refreshes once daily.
 | **Aprio** | Aprio PH - Accounting Associate, RFH Outsourcing (Makati) | Makati City, Metro Manila | Hybrid | [Apply](https://jobs.lever.co/Aprio/4a2c9b08-a039-40e3-a7f9-d977d5d7660a) | 9d ago |
 | **First Circle** | Finance Associate (Accounting) | Taguig, Philippines | — | [Apply](https://apply.workable.com/j/6AFF083075) | 10d ago |
 | **Aprio** | Aprio PH - Senior Accounting Associate | Clark, Pampanga | Hybrid | [Apply](https://jobs.lever.co/Aprio/23898102-c5f3-4369-a3f6-161780ea360a) | 10d ago |
-| **Pilmico** | HR Intern – Talent and Organization Development | Makati, Metro Manila, Philippines | Hybrid | [Apply](https://jobs.smartrecruiters.com/PilmicoFoodsCorporation/744000134077381) | 10d ago |
+| **Pilmico** | HR Intern – Talent and Organization Development | Makati, Metro Manila, Philippines | Hybrid | [Apply](https://jobs.smartrecruiters.com/PilmicoFoodsCorporation/744000134077381) | 11d ago |
 | **Delivery Hero** | System Administrator I (Midshift) | Taguig, Philippines | On-site | [Apply](https://jobs.smartrecruiters.com/DeliveryHero/744000133917849) | 11d ago |
 | **Angkas** | Admin Associate | Makati City, Philippines | — | [Apply](https://apply.workable.com/j/77C5437F7F) | 12d ago |
 | **Angkas** | Onboarding Associate - Cebu | Cebu City, Philippines | — | [Apply](https://apply.workable.com/j/2B90E16FDB) | 12d ago |
@@ -115,7 +156,7 @@ job boards are scraped. Ever. Data refreshes once daily.
 
 ---
 
-**2266 active listings** from **106 companies tracked** · last updated 2026-07-06 01:40 UTC
+**3809 active listings** from **121 companies tracked** · last updated 2026-07-06 02:05 UTC
 
 Full list with filters (all roles, all levels): **[simplifytrabaho.ycells.com](https://simplifytrabaho.ycells.com)**
 
