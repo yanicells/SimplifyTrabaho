@@ -1,127 +1,154 @@
 {
   "candidates": [
     {
-      "name": "Toyota Motor Philippines",
-      "industry": "automotive",
+      "name": "MR DIY Philippines",
+      "industry": "retail",
       "type": "direct",
-      "tries": [{ "ats": "manatal", "slug": "toyota-motor-philippines-corporation" }]
+      "tries": [{ "ats": "manatal", "slug": "mr-diy-philippines" }]
     },
     {
-      "name": "Ajinomoto Philippines",
-      "industry": "food",
+      "name": "Sunnies",
+      "industry": "retail",
       "type": "direct",
-      "tries": [{ "ats": "manatal", "slug": "ajinomoto" }]
+      "tries": [{ "ats": "manatal", "slug": "sunnies-inc" }]
     },
     {
-      "name": "EastWest Bank",
+      "name": "Citadel Pacific",
+      "industry": "conglomerate",
+      "type": "direct",
+      "tries": [{ "ats": "manatal", "slug": "citadelpacific" }]
+    },
+    {
+      "name": "HawodTech Solutions",
+      "industry": "it-services",
+      "type": "direct",
+      "tries": [{ "ats": "manatal", "slug": "hawodtech" }]
+    },
+    {
+      "name": "Pepper Money UK - Philippines Branch",
       "industry": "financial-services",
       "type": "direct",
-      "tries": [{ "ats": "manatal", "slug": "eastwest-bank" }]
+      "tries": [{ "ats": "manatal", "slug": "pmb-uk-philippine-branch" }]
     },
     {
-      "name": "GPC Philippines",
-      "industry": "manufacturing",
+      "name": "CTC BPO",
+      "industry": "outsourcing",
+      "type": "agency",
+      "tries": [{ "ats": "manatal", "slug": "ctc-bpo-inc-2" }]
+    },
+    {
+      "name": "Deel",
+      "industry": "hr-tech",
       "type": "direct",
-      "tries": [{ "ats": "manatal", "slug": "gpc-philippines-corporation" }]
+      "tries": [{ "ats": "ashby", "slug": "deel" }]
     },
     {
-      "name": "Universal Leaf Philippines",
-      "industry": "manufacturing",
-      "type": "direct",
-      "tries": [{ "ats": "manatal", "slug": "universal-leaf" }]
-    },
-    {
-      "name": "Bizbloqs Management Solutions PH",
-      "industry": "software",
-      "type": "direct",
-      "tries": [{ "ats": "manatal", "slug": "bizbloqs-management-solutions-philippines-inc" }]
-    },
-    {
-      "name": "KMC Savills",
-      "industry": "real-estate",
-      "type": "direct",
-      "tries": [{ "ats": "manatal", "slug": "kmc-savills-inc" }]
-    },
-    {
-      "name": "Archax",
+      "name": "Kraken",
       "industry": "fintech",
       "type": "direct",
-      "tries": [{ "ats": "manatal", "slug": "archax" }]
+      "tries": [{ "ats": "ashby", "slug": "kraken.com" }]
     },
     {
-      "name": "Pawdel",
-      "industry": "consumer",
-      "type": "direct",
-      "tries": [{ "ats": "manatal", "slug": "pawdel" }]
-    },
-    {
-      "name": "Nimbly Technologies",
+      "name": "Reddit",
       "industry": "saas",
       "type": "direct",
-      "tries": [{ "ats": "breezy", "slug": "hellonimbly" }]
+      "tries": [{ "ats": "greenhouse", "slug": "reddit" }]
     },
     {
-      "name": "MicroSourcing",
-      "industry": "outsourcing",
-      "type": "agency",
-      "tries": [
-        { "ats": "manatal", "slug": "microresumes" },
-        { "ats": "manatal", "slug": "microsourcing" }
-      ]
+      "name": "OKX",
+      "industry": "fintech",
+      "type": "direct",
+      "tries": [{ "ats": "greenhouse", "slug": "okx" }]
     },
     {
-      "name": "Siegen HR Solutions",
+      "name": "Pearl Talent",
       "industry": "recruitment",
       "type": "agency",
-      "tries": [{ "ats": "manatal", "slug": "siegensolutions" }]
+      "tries": [{ "ats": "ashby", "slug": "pearl" }]
     },
     {
-      "name": "TASQ Staffing Solutions",
+      "name": "Persona",
       "industry": "staffing",
       "type": "agency",
-      "tries": [{ "ats": "manatal", "slug": "tasq-staffing-solutions" }]
+      "tries": [{ "ats": "ashby", "slug": "persona" }]
     },
     {
-      "name": "weSource",
+      "name": "Catena",
       "industry": "recruitment",
       "type": "agency",
-      "tries": [{ "ats": "manatal", "slug": "wesource" }]
+      "tries": [{ "ats": "ashby", "slug": "catena" }]
     },
     {
-      "name": "HRTX",
-      "industry": "recruitment",
-      "type": "agency",
-      "tries": [{ "ats": "manatal", "slug": "hrtx-careers" }]
+      "name": "Kittl",
+      "industry": "saas",
+      "type": "direct",
+      "tries": [{ "ats": "ashby", "slug": "kittl" }]
     },
     {
-      "name": "FreeUp",
-      "industry": "staffing",
-      "type": "agency",
-      "tries": [{ "ats": "breezy", "slug": "freeeup" }]
+      "name": "Pareto.AI",
+      "industry": "ai-data",
+      "type": "direct",
+      "tries": [{ "ats": "ashby", "slug": "pareto-ai" }]
     },
     {
-      "name": "Doneverse",
-      "industry": "outsourcing",
-      "type": "agency",
-      "tries": [{ "ats": "breezy", "slug": "doneverse" }]
+      "name": "Flagright",
+      "industry": "fintech",
+      "type": "direct",
+      "tries": [{ "ats": "ashby", "slug": "flagright.com" }]
     },
     {
-      "name": "VAA Philippines",
-      "industry": "outsourcing",
-      "type": "agency",
-      "tries": [{ "ats": "breezy", "slug": "vaaphilippines-recruitment" }]
+      "name": "Supabase",
+      "industry": "saas",
+      "type": "direct",
+      "tries": [{ "ats": "ashby", "slug": "supabase" }]
     },
     {
-      "name": "Our Assistants",
-      "industry": "staffing",
-      "type": "agency",
-      "tries": [{ "ats": "breezy", "slug": "ourassistants" }]
+      "name": "Zip",
+      "industry": "saas",
+      "type": "direct",
+      "tries": [{ "ats": "ashby", "slug": "zip" }]
     },
     {
-      "name": "Urrly",
-      "industry": "staffing",
-      "type": "agency",
-      "tries": [{ "ats": "breezy", "slug": "urrly" }]
+      "name": "Payabli",
+      "industry": "fintech",
+      "type": "direct",
+      "tries": [{ "ats": "ashby", "slug": "payabli" }]
+    },
+    {
+      "name": "dbt Labs",
+      "industry": "ai-data",
+      "type": "direct",
+      "tries": [{ "ats": "greenhouse", "slug": "dbtlabsinc" }]
+    },
+    {
+      "name": "Helium 10",
+      "industry": "saas",
+      "type": "direct",
+      "tries": [{ "ats": "greenhouse", "slug": "helium10" }]
+    },
+    {
+      "name": "Lingaro",
+      "industry": "it-services",
+      "type": "direct",
+      "tries": [{ "ats": "smartrecruiters", "slug": "Lingaro" }]
+    },
+    {
+      "name": "WTW",
+      "industry": "insurance",
+      "type": "direct",
+      "tries": [{ "ats": "smartrecruiters", "slug": "WTW" }]
+    },
+    {
+      "name": "Time Doctor",
+      "industry": "saas",
+      "type": "direct",
+      "tries": [{ "ats": "recruitee", "slug": "timedoctor" }]
+    },
+    {
+      "name": "InDebted",
+      "industry": "fintech",
+      "type": "direct",
+      "tries": [{ "ats": "lever", "slug": "indebted" }]
     }
   ]
 }
