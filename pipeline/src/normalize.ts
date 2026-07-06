@@ -493,3 +493,69 @@ export function normalizeLever(company: RegistryCompany, raw: unknown): FetchedP
     } satisfies FetchedPosting;
   });
 }
+
+/** Workday registry slug: `{tenant}.wd{n}/{site}` (SPEC §17), e.g. `globe.wd3/GLB_Careers`. */
+export function parseWorkdaySlug(slug: string): {
+  tenant: string;
+  host: string;
+  site: string;
+} {
+  const match = /^([a-z0-9-]+)\.(wd\d+)\/([A-Za-z0-9_-]+)$/.exec(slug);
+  const [, tenant, wdHost, site] = match ?? [];
+  if (tenant === undefined || wdHost === undefined || site === undefined) {
+    throw new Error(`invalid workday slug "${slug}" — expected {tenant}.wd{n}/{site}`);
+  }
+  return {
+    tenant,
+    host: `${tenant}.${wdHost}.myworkdayjobs.com`,
+    site,
+  };
+}
+
+interface WorkdayJob {
+  title?: unknown;
+  externalPath?: unknown;
+  locationsText?: unknown;
+  timeType?: unknown;
+  // postedOn is relative text ("Posted 3 Days Ago") — not a fact we store;
+  // datePosted falls back to first-seen (SPEC §6). No JD text in the list feed.
+}
+
+export function normalizeWorkday(
+  company: RegistryCompany,
+  jobs: unknown[],
+  options: {
+    /**
+     * True when the jobs were fetched under the tenant's own Philippines
+     * country facet (§17.1.4). Faceted responses omit locationsText — the facet
+     * itself is the location fact, so those items get "Philippines".
+     */
+    assumePhilippines?: boolean;
+  } = {},
+): FetchedPosting[] {
+  const { host, site } = parseWorkdaySlug(company.slug);
+  return jobs.map((raw) => {
+    const job = raw as WorkdayJob;
+    const title = String(job.title ?? "");
+    const locationsText = String(job.locationsText ?? "").trim();
+    const locations =
+      locationsText !== ""
+        ? [locationsText]
+        : options.assumePhilippines
+          ? ["Philippines"]
+          : [];
+    return {
+      company: company.name,
+      source: "workday",
+      title,
+      locations,
+      url: `https://${host}/en-US/${site}${String(job.externalPath ?? "")}`,
+      workSetup: workSetupFromText(`${title} ${locationsText}`),
+      employmentType: mapCommitment(job.timeType),
+      salary: null,
+      publishedAt: null,
+      industry: company.industry,
+      companyType: company.type,
+    } satisfies FetchedPosting;
+  });
+}

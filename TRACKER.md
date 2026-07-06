@@ -275,13 +275,24 @@ verify-registry`. Also recheck the live-but-0-PH boards listed below — several
 
 ### Phase 10 — Coverage, Workday tier (SPEC §17)
 
-- [ ] Workday fetcher with ALL §17.1 guardrails (robots.txt gate, stop-on-block
-      with TRACKER flag, ≥2s politeness, pagination cap, location facets for
-      global tenants, jobs-list only — never job detail pages)
-- [ ] Guardrails proven by tests (blocked-response fixtures → permanent skip)
-- [ ] Wave 1 via individual PRs with §17.2 evidence: Globe (GLB_Careers),
-      Mynt/GCash (Globe tenant, site Mynt), Accenture (wd103, PH facet),
-      P&G (wd5, PH facet)
+- [x] 2026-07-06 — Workday fetcher with ALL §17.1 guardrails: robots.txt gate
+      before the first byte; 401/403/422/429/non-JSON = `blocked` recorded in
+      `data/fetch-state.json` and skipped every future run until a human deletes
+      the entry; ≥2s politeness; PH-facet auto-discovery from the page's own
+      first response (handles Accenture's nested locationMainGroup > Country);
+      1,000-posting cap; jobs-list only. Registry slug format
+      `{tenant}.wd{n}/{site}` (SPEC §17 updated same commit).
+- [x] 2026-07-06 — Guardrails proven by tests (19 Workday tests: robots
+      disallow → no jobs request; block statuses → exactly one attempt, no
+      retry; challenge page → blocked; 2s gaps asserted; cap; facet flat +
+      nested; PH-facet location fact). Country-faceted items omit locationsText
+      — the PH facet itself is stored as the location ("Philippines").
+- [x] 2026-07-06 — Wave-1 evidence probes (live, guardrailed): all four tenants
+      robots-clean, no blocks. Globe GLB_Careers 451 postings / 104 PH ·
+      Mynt 186 / 170 PH (needed the new bare-`NCR` PH-filter keyword — GCash
+      publishes "NCR - WGC" style codes) · Accenture wd103 672/672 PH via
+      source facet · P&G wd5 31/27 PH via source facet. **PRs opened
+      per-company per §17.2 — pending maintainer review/merge.**
 - [ ] Wave 2 candidates from the PH-corporates graveyard below (UnionBank, Cebu
       Pacific, PAL, San Miguel, URC, Security Bank…) — tenant-by-tenant
 

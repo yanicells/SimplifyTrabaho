@@ -23,9 +23,14 @@ describe("parseRegistry", () => {
     expect(registry.companies).toHaveLength(1);
   });
 
-  it("rejects unknown ATS ids", () => {
+  it("accepts workday (Tier B, Phase 10) and rejects unknown ATS ids", () => {
+    const registry = parseRegistry({
+      version: 1,
+      companies: [{ ...validCompany, ats: "workday", slug: "globe.wd3/GLB_Careers" }],
+    });
+    expect(registry.companies[0]?.ats).toBe("workday");
     expect(() =>
-      parseRegistry({ version: 1, companies: [{ ...validCompany, ats: "workday" }] }),
+      parseRegistry({ version: 1, companies: [{ ...validCompany, ats: "taleo" }] }),
     ).toThrow(/ats/i);
   });
 

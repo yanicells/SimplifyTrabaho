@@ -10,6 +10,7 @@ import { fetchManatal } from "./fetchers/manatal.js";
 import { fetchRecruitee } from "./fetchers/recruitee.js";
 import { fetchSmartRecruiters } from "./fetchers/smartrecruiters.js";
 import { fetchWorkable } from "./fetchers/workable.js";
+import { fetchWorkday } from "./fetchers/workday.js";
 import { computeCoverage, formatCoverageReport } from "./coverage.js";
 import { emptyListingsFile, parseListingsFile, parseRegistry } from "./files.js";
 import { filterPhilippines } from "./filter.js";
@@ -42,17 +43,26 @@ const FETCHERS: Record<RegistryCompany["ats"], Fetcher> = {
   bamboohr: fetchBambooHr,
   breezy: fetchBreezy,
   manatal: fetchManatal,
+  workday: fetchWorkday,
 };
 
 interface FetchState {
   version: 1;
   /** consecutive dead-slug counts keyed by "ats:slug" */
   deadSlugStreaks: Record<string, number>;
+  /**
+   * Workday §17.1.2 permanent stops keyed by "ats:slug" → "date: reason".
+   * A blocked tenant is skipped on every future run until a human deletes the
+   * entry here (after reviewing why it was blocked). Never auto-cleared.
+   */
+  blocked?: Record<string, string>;
 }
 
 function loadFetchState(): FetchState {
-  if (!existsSync(FETCH_STATE_PATH)) return { version: 1, deadSlugStreaks: {} };
-  return JSON.parse(readFileSync(FETCH_STATE_PATH, "utf8")) as FetchState;
+  if (!existsSync(FETCH_STATE_PATH)) return { version: 1, deadSlugStreaks: {}, blocked: {} };
+  const state = JSON.parse(readFileSync(FETCH_STATE_PATH, "utf8")) as FetchState;
+  state.blocked ??= {};
+  return state;
 }
 
 async function main(): Promise<number> {
@@ -83,8 +93,17 @@ async function main(): Promise<number> {
       failed += 1;
       continue;
     }
-    const result = await fetcher(company);
     const stateKey = `${company.ats}:${company.slug}`;
+    const blockNote = fetchState.blocked?.[stateKey];
+    if (blockNote !== undefined) {
+      // §17.1.2: a blocked tenant stays skipped until a human reviews and
+      // removes the entry from data/fetch-state.json.
+      console.log(`  SKIP  ${label} — BLOCKED (${blockNote}) — human review required`);
+      okByName.set(company.name, false);
+      failed += 1;
+      continue;
+    }
+    const result = await fetcher(company);
     if (result.ok) {
       console.log(`  OK    ${label} — ${result.postings.length} postings`);
       allPostings.push(...result.postings);
@@ -95,6 +114,14 @@ async function main(): Promise<number> {
       console.log(`  FAIL  ${label} — ${result.errorKind}: ${result.detail}`);
       okByName.set(company.name, false);
       failed += 1;
+      if (result.errorKind === "blocked") {
+        fetchState.blocked ??= {};
+        fetchState.blocked[stateKey] = `${now.slice(0, 10)}: ${result.detail}`;
+        console.log(
+          `  TRACKER-ISSUE: ${label} BLOCKED — recorded in fetch-state.json; ` +
+            `mark the company blocked in TRACKER and do not retry (SPEC §17.1.2)`,
+        );
+      }
       if (result.errorKind === "dead-slug") {
         const streak = (fetchState.deadSlugStreaks[stateKey] ?? 0) + 1;
         fetchState.deadSlugStreaks[stateKey] = streak;

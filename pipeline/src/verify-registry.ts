@@ -10,6 +10,7 @@ import { fetchManatal } from "./fetchers/manatal.js";
 import { fetchRecruitee } from "./fetchers/recruitee.js";
 import { fetchSmartRecruiters } from "./fetchers/smartrecruiters.js";
 import { fetchWorkable } from "./fetchers/workable.js";
+import { fetchWorkday } from "./fetchers/workday.js";
 import { mergeRegistryCompanies, parseRegistry } from "./files.js";
 import { filterPhilippines } from "./filter.js";
 import type { AtsSource, CompanyType, FetchResult, RegistryCompany } from "./types.js";
@@ -39,6 +40,9 @@ const FETCHERS: Record<AtsSource, (c: RegistryCompany) => Promise<FetchResult>> 
   bamboohr: fetchBambooHr,
   breezy: fetchBreezy,
   manatal: fetchManatal,
+  // Workday is Tier B: verify-registry may PROBE it for §17.2 evidence, but the
+  // resulting entry must land via a per-company PR, never direct to main.
+  workday: fetchWorkday,
 };
 
 interface Candidate {
