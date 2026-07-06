@@ -24,6 +24,7 @@ import {
   type TrackerStatus,
 } from "@/lib/tracker";
 import { MyJobs } from "@/components/my-jobs";
+import { CompanyDirectory } from "@/components/company-directory";
 import { timeAgo } from "@/lib/time";
 
 const PAGE_SIZE = 60;
@@ -119,6 +120,21 @@ function sameSet(a: readonly string[], b: readonly string[]): boolean {
   return a.length === b.length && a.every((v) => b.includes(v));
 }
 
+function BuildingIcon() {
+  return (
+    <svg viewBox="0 0 16 16" fill="none" aria-hidden className="h-4 w-4">
+      <path
+        d="M3 13.5V3.4a.5.5 0 0 1 .4-.5l5-1a.5.5 0 0 1 .6.5v11.1M9 5.5l3.6.9a.5.5 0 0 1 .4.5v6.6M1.5 13.5h13"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path d="M5 5.5h1.5M5 8h1.5M5 10.5h1.5" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
+    </svg>
+  );
+}
+
 function BookmarkIcon({ filled }: { filled: boolean }) {
   return (
     <svg viewBox="0 0 16 16" aria-hidden className="h-4 w-4">
@@ -147,7 +163,7 @@ export function JobBoard({
   const [visible, setVisible] = useState(PAGE_SIZE);
   const [panelOpen, setPanelOpen] = useState(false);
   const [tracker, setTracker] = useState<TrackerState>(emptyTracker);
-  const [view, setView] = useState<"board" | "tracked">("board");
+  const [view, setView] = useState<"board" | "tracked" | "companies">("board");
   const [copied, setCopied] = useState(false);
 
   // Static export renders the featured default. On hydration, a pasted URL wins;
@@ -164,10 +180,12 @@ export function JobBoard({
         : filtersFromSearch(readStorage(FILTERS_STORAGE_KEY) ?? "");
     if (filtersToSearch(applied) !== "") {
       setFilters(applied);
-      // Surface the advanced panel when the restored state carries advanced filters.
-      const { levels, query, ...advanced } = applied;
+      // Surface the advanced panel when the restored state carries advanced
+      // filters (company lives in the directory, not the panel — excluded).
+      const { levels, query, company, ...advanced } = applied;
       void levels;
       void query;
+      void company;
       if (filtersToSearch({ ...defaultFilters(), ...advanced }) !== "") {
         setPanelOpen(true);
       }
@@ -238,7 +256,7 @@ export function JobBoard({
     [tracker],
   );
 
-  const { levels, fns, setup, metro, industry, type: employerType } = filters;
+  const { levels, fns, setup, metro, industry, type: employerType, company } = filters;
   const levelSet = useMemo(() => new Set<string>(levels), [levels]);
   const fnSet = useMemo(() => new Set<string>(fns), [fns]);
 
@@ -256,6 +274,7 @@ export function JobBoard({
       if (metro !== "all" && !job.metro.includes(metro)) continue;
       if (industry !== "all" && job.industry !== industry) continue;
       if (employerType !== "all" && job.companyType !== employerType) continue;
+      if (company !== "" && job.company !== company) continue;
       if (loc !== "" && !locationKeys[i].includes(loc)) continue;
       if (terms.length > 0 && !terms.every((t) => searchKeys[i].includes(t))) continue;
       out.push(job);
@@ -271,6 +290,7 @@ export function JobBoard({
     metro,
     industry,
     employerType,
+    company,
     deferredLocation,
     deferredQuery,
   ]);
@@ -321,6 +341,14 @@ export function JobBoard({
   const chipClass = (active: boolean) =>
     `shrink-0 rounded-full px-3.5 py-2 text-sm font-medium transition-colors ${
       active ? "bg-ink text-paper" : "bg-soft text-ink hover:bg-press"
+    }`;
+
+  // Selects are choices, so they wear the pill like every other interactive
+  // element (DESIGN.md); an applied filter polarity-flips to ink. Text inputs
+  // stay soft rectangles — entry vs choice is the shape distinction.
+  const selectClass = (active: boolean) =>
+    `select h-11 w-full rounded-full pl-4 pr-9 text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-ink ${
+      active ? "select-active bg-ink text-paper" : "bg-soft text-ink hover:bg-press"
     }`;
 
   const trackedCount = tracker.jobs.length;
@@ -386,6 +414,17 @@ export function JobBoard({
                 strokeLinejoin="round"
               />
             </svg>
+          </button>
+          <button
+            type="button"
+            aria-pressed={view === "companies"}
+            onClick={() => setView(view === "companies" ? "board" : "companies")}
+            className={`flex h-11 shrink-0 items-center gap-1.5 rounded-full px-4 text-sm font-medium transition-colors ${
+              view === "companies" ? "bg-ink text-paper" : "bg-soft text-ink hover:bg-press"
+            }`}
+          >
+            <BuildingIcon />
+            <span className="hidden sm:inline">Companies</span>
           </button>
           <button
             type="button"
@@ -488,7 +527,7 @@ export function JobBoard({
                     value={setup}
                     onChange={(e) => patch({ setup: e.target.value as Filters["setup"] })}
                     aria-label="Filter by work setup"
-                    className={`select ${fieldClass} pr-8`}
+                    className={selectClass(setup !== "all")}
                   >
                     <option value="all">Any setup</option>
                     {SETUP_OPTIONS.map((o) => (
@@ -501,7 +540,7 @@ export function JobBoard({
                     value={metro}
                     onChange={(e) => patch({ metro: e.target.value as Filters["metro"] })}
                     aria-label="Filter by metro area"
-                    className={`select ${fieldClass} pr-8`}
+                    className={selectClass(metro !== "all")}
                   >
                     <option value="all">Any metro</option>
                     {METRO_OPTIONS.map((o) => (
@@ -514,7 +553,7 @@ export function JobBoard({
                     value={industry}
                     onChange={(e) => patch({ industry: e.target.value })}
                     aria-label="Filter by company industry"
-                    className={`select ${fieldClass} pr-8`}
+                    className={selectClass(industry !== "all")}
                   >
                     <option value="all">Any industry</option>
                     {industries.map((tag) => (
@@ -527,7 +566,7 @@ export function JobBoard({
                     value={employerType}
                     onChange={(e) => patch({ type: e.target.value as Filters["type"] })}
                     aria-label="Filter by employer type"
-                    className={`select ${fieldClass} pr-8`}
+                    className={selectClass(employerType !== "all")}
                   >
                     <option value="all">Any employer</option>
                     <option value="direct">Direct employers</option>
@@ -548,7 +587,19 @@ export function JobBoard({
         )}
       </div>
 
-      {view === "tracked" ? (
+      {view === "companies" ? (
+        <div className="mt-4">
+          <CompanyDirectory
+            jobs={jobs}
+            onSelect={(name) => {
+              // Clean slate: every open role at the picked company, all levels.
+              setFilters({ ...defaultFilters(), levels: [], company: name });
+              setVisible(PAGE_SIZE);
+              setView("board");
+            }}
+          />
+        </div>
+      ) : view === "tracked" ? (
         <div className="mt-4">
           <MyJobs
             tracker={tracker}
@@ -562,8 +613,32 @@ export function JobBoard({
         </div>
       ) : (
         <>
+          {/* Active company filter — set from the Companies directory */}
+          {company !== "" && (
+            <div className="mt-4">
+              <span className="inline-flex items-center gap-2 rounded-full bg-ink py-1.5 pl-4 pr-1.5 text-sm font-medium text-paper">
+                {company}
+                <button
+                  type="button"
+                  aria-label={`Stop filtering by ${company}`}
+                  onClick={() => patch({ company: "" })}
+                  className="flex h-7 w-7 items-center justify-center rounded-full bg-paper/20 transition-colors hover:bg-paper/40"
+                >
+                  <svg viewBox="0 0 16 16" fill="none" aria-hidden className="h-3.5 w-3.5">
+                    <path
+                      d="M4 4l8 8M12 4l-8 8"
+                      stroke="currentColor"
+                      strokeWidth="1.5"
+                      strokeLinecap="round"
+                    />
+                  </svg>
+                </button>
+              </span>
+            </div>
+          )}
+
           {/* Result count */}
-          <div className="mt-4 flex items-baseline justify-between gap-3">
+          <div className={`flex items-baseline justify-between gap-3 ${company !== "" ? "mt-3" : "mt-4"}`}>
             <p aria-live="polite" className="text-sm text-faint">
               <span className="font-semibold text-ink">
                 {filtered.length.toLocaleString("en-US")}

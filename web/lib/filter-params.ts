@@ -53,6 +53,8 @@ export interface Filters {
   type: "all" | CompanyType;
   location: string;
   query: string;
+  /** Exact company-name match (set from the Companies directory). Empty = any. */
+  company: string;
 }
 
 export function defaultFilters(): Filters {
@@ -65,6 +67,7 @@ export function defaultFilters(): Filters {
     type: "all",
     location: "",
     query: "",
+    company: "",
   };
 }
 
@@ -92,6 +95,7 @@ export function filtersToSearch(filters: Filters): string {
   if (filters.type !== "all") params.set("type", filters.type);
   if (filters.location !== "") params.set("loc", filters.location);
   if (filters.query !== "") params.set("q", filters.query);
+  if (filters.company !== "") params.set("company", filters.company);
   return params.toString();
 }
 
@@ -140,5 +144,6 @@ export function filtersFromSearch(search: string): Filters {
 
   filters.location = params.get("loc") ?? "";
   filters.query = params.get("q") ?? "";
+  filters.company = params.get("company") ?? "";
   return filters;
 }

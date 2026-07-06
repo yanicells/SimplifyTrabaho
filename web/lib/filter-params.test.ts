@@ -40,6 +40,7 @@ describe("filtersToSearch", () => {
       type: "direct",
       location: "cebu city",
       query: "software intern",
+      company: "Sun Life",
     });
     const params = new URLSearchParams(search);
     expect(params.get("level")).toBe("all");
@@ -50,6 +51,7 @@ describe("filtersToSearch", () => {
     expect(params.get("type")).toBe("direct");
     expect(params.get("loc")).toBe("cebu city");
     expect(params.get("q")).toBe("software intern");
+    expect(params.get("company")).toBe("Sun Life");
   });
 });
 
@@ -70,6 +72,7 @@ describe("filtersFromSearch", () => {
       type: "agency" as const,
       location: "makati",
       query: "civil engineer",
+      company: "Accenture",
     };
     const roundTripped = filtersFromSearch(
       filtersToSearch({ ...filters, levels: [...filters.levels], fns: [...filters.fns] }),
@@ -105,5 +108,16 @@ describe("filtersFromSearch", () => {
   it("treats level=internship,entry the same as the default view", () => {
     const filters = filtersFromSearch("level=entry,internship");
     expect(filtersToSearch(filters)).toBe("");
+  });
+
+  it("round-trips the company filter and omits it by default", () => {
+    expect(filtersFromSearch("company=Sun%20Life").company).toBe("Sun Life");
+    expect(filtersToSearch({ ...defaultFilters(), company: "Sun Life" })).toBe(
+      "company=Sun+Life",
+    );
+    expect(filtersFromSearch("").company).toBe("");
+    // Round-trip through the codec preserves the exact name.
+    const search = filtersToSearch({ ...defaultFilters(), company: "P&G" });
+    expect(filtersFromSearch(search).company).toBe("P&G");
   });
 });
