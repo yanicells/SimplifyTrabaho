@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "updatedAt": "2026-07-06T14:42:07.256Z",
+  "updatedAt": "2026-07-06T22:56:17.807Z",
   "listings": [
     {
       "id": "16e8a85575e0",
@@ -966,6 +966,98 @@
       "salary": null,
       "datePosted": "2024-05-16T18:59:11.000Z",
       "dateUpdated": "2026-06-11T01:21:12.918Z",
+      "active": true
+    },
+    {
+      "id": "2cedd90cf204",
+      "company": "Accenture",
+      "title": "Juniper Network Engineer",
+      "locations": [
+        "Philippines"
+      ],
+      "workSetup": "unknown",
+      "level": "unknown",
+      "function": "engineering",
+      "industry": "it-services",
+      "companyType": "direct",
+      "metro": [
+        "other-ph"
+      ],
+      "url": "https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Manila/Juniper-Network-Engineer_ATCP-1459075-S426633-1",
+      "source": "workday",
+      "employmentType": "unknown",
+      "salary": null,
+      "datePosted": "2026-07-06T22:56:17.807Z",
+      "dateUpdated": "2026-07-06T22:56:17.807Z",
+      "active": true
+    },
+    {
+      "id": "3960d7096d79",
+      "company": "Accenture",
+      "title": "Juniper Network Engineer",
+      "locations": [
+        "Philippines"
+      ],
+      "workSetup": "unknown",
+      "level": "unknown",
+      "function": "engineering",
+      "industry": "it-services",
+      "companyType": "direct",
+      "metro": [
+        "other-ph"
+      ],
+      "url": "https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Manila/Juniper-Network-Engineer_ATCP-1459079-S426631",
+      "source": "workday",
+      "employmentType": "unknown",
+      "salary": null,
+      "datePosted": "2026-07-06T22:56:17.807Z",
+      "dateUpdated": "2026-07-06T22:56:17.807Z",
+      "active": true
+    },
+    {
+      "id": "8df219109d80",
+      "company": "Accenture",
+      "title": "Juniper Network Engineer",
+      "locations": [
+        "Philippines"
+      ],
+      "workSetup": "unknown",
+      "level": "unknown",
+      "function": "engineering",
+      "industry": "it-services",
+      "companyType": "direct",
+      "metro": [
+        "other-ph"
+      ],
+      "url": "https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Manila/Juniper-Network-Engineer_ATCP-1459076-S426634",
+      "source": "workday",
+      "employmentType": "unknown",
+      "salary": null,
+      "datePosted": "2026-07-06T22:56:17.807Z",
+      "dateUpdated": "2026-07-06T22:56:17.807Z",
+      "active": true
+    },
+    {
+      "id": "f9c3ea7b6a18",
+      "company": "Accenture",
+      "title": "Juniper Network Engineer",
+      "locations": [
+        "Philippines"
+      ],
+      "workSetup": "unknown",
+      "level": "unknown",
+      "function": "engineering",
+      "industry": "it-services",
+      "companyType": "direct",
+      "metro": [
+        "other-ph"
+      ],
+      "url": "https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Manila/Juniper-Network-Engineer_ATCP-1459074-S426632",
+      "source": "workday",
+      "employmentType": "unknown",
+      "salary": null,
+      "datePosted": "2026-07-06T22:56:17.807Z",
+      "dateUpdated": "2026-07-06T22:56:17.807Z",
       "active": true
     },
     {
@@ -4599,8 +4691,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-07-06T06:10:09.418Z",
-      "dateUpdated": "2026-07-06T06:10:09.418Z",
-      "active": true
+      "dateUpdated": "2026-07-06T22:56:17.807Z",
+      "active": false
     },
     {
       "id": "3d0291f3e372",
@@ -5358,8 +5450,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-07-06T06:10:09.418Z",
-      "dateUpdated": "2026-07-06T06:10:09.418Z",
-      "active": true
+      "dateUpdated": "2026-07-06T22:56:17.807Z",
+      "active": false
     },
     {
       "id": "4810af645f76",
@@ -11154,8 +11246,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-07-06T06:10:09.418Z",
-      "dateUpdated": "2026-07-06T06:10:09.418Z",
-      "active": true
+      "dateUpdated": "2026-07-06T22:56:17.807Z",
+      "active": false
     },
     {
       "id": "a989eb807bca",
@@ -29910,6 +30002,29 @@
       "active": true
     },
     {
+      "id": "0cef66860a91",
+      "company": "Auctane",
+      "title": "Associate IT Support Specialist ",
+      "locations": [
+        "Manila, Philippines"
+      ],
+      "workSetup": "unknown",
+      "level": "entry",
+      "function": "customer-support",
+      "industry": "logistics-tech",
+      "companyType": "direct",
+      "metro": [
+        "ncr"
+      ],
+      "url": "https://job-boards.greenhouse.io/auctane/jobs/7781416003",
+      "source": "greenhouse",
+      "employmentType": "unknown",
+      "salary": null,
+      "datePosted": "2026-07-06T15:22:25.000Z",
+      "dateUpdated": "2026-07-06T22:56:17.807Z",
+      "active": true
+    },
+    {
       "id": "b70b9b2cd654",
       "company": "Auctane",
       "title": "Senior Security Engineer",
@@ -36322,8 +36437,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-07-06T14:19:26.364Z",
-      "dateUpdated": "2026-07-06T14:19:26.364Z",
-      "active": true
+      "dateUpdated": "2026-07-06T22:56:17.807Z",
+      "active": false
     },
     {
       "id": "1fd7aaa021a4",
@@ -54030,8 +54145,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-07-03T04:57:02.000Z",
-      "dateUpdated": "2026-07-06T01:40:26.175Z",
-      "active": true
+      "dateUpdated": "2026-07-06T22:56:17.807Z",
+      "active": false
     },
     {
       "id": "216b263c4a0c",
@@ -72254,8 +72369,8 @@
       "employmentType": "contract",
       "salary": "$900 – $1,800 per month • Multiple Ranges",
       "datePosted": "2026-06-17T14:50:15.650Z",
-      "dateUpdated": "2026-07-06T01:40:26.175Z",
-      "active": true
+      "dateUpdated": "2026-07-06T22:56:17.807Z",
+      "active": false
     },
     {
       "id": "d3bdfc4dd233",
@@ -72589,8 +72704,8 @@
       "employmentType": "contract",
       "salary": "$900 – $1,800 per month • Multiple Ranges",
       "datePosted": "2026-06-08T19:07:46.705Z",
-      "dateUpdated": "2026-07-06T01:40:26.175Z",
-      "active": false
+      "dateUpdated": "2026-07-06T22:56:17.807Z",
+      "active": true
     },
     {
       "id": "35b6317c7769",
@@ -72723,6 +72838,29 @@
       "datePosted": "2026-05-28T20:43:47.883Z",
       "dateUpdated": "2026-06-29T22:45:23.998Z",
       "active": false
+    },
+    {
+      "id": "e3ee10b769c9",
+      "company": "Hire Overseas",
+      "title": "Chief of Staff",
+      "locations": [
+        "Philippines"
+      ],
+      "workSetup": "remote",
+      "level": "senior",
+      "function": "other",
+      "industry": "staffing",
+      "companyType": "agency",
+      "metro": [
+        "other-ph"
+      ],
+      "url": "https://apply.workable.com/j/B5AB4D8C3E",
+      "source": "workable",
+      "employmentType": "full-time",
+      "salary": null,
+      "datePosted": "2026-07-06T00:00:00.000Z",
+      "dateUpdated": "2026-07-06T22:56:17.807Z",
+      "active": true
     },
     {
       "id": "1f78e4680fbf",
@@ -75310,6 +75448,29 @@
       "salary": null,
       "datePosted": "2025-10-06T00:00:00.000Z",
       "dateUpdated": "2026-06-11T12:33:52.706Z",
+      "active": true
+    },
+    {
+      "id": "7d3a4a32a282",
+      "company": "HireHawk",
+      "title": "Outbound GTM Lead / Staffing Industry",
+      "locations": [
+        "Philippines"
+      ],
+      "workSetup": "remote",
+      "level": "senior",
+      "function": "other",
+      "industry": "staffing",
+      "companyType": "agency",
+      "metro": [
+        "other-ph"
+      ],
+      "url": "https://apply.workable.com/j/C3B0089E33",
+      "source": "workable",
+      "employmentType": "full-time",
+      "salary": null,
+      "datePosted": "2026-07-06T00:00:00.000Z",
+      "dateUpdated": "2026-07-06T22:56:17.807Z",
       "active": true
     },
     {
@@ -111464,6 +111625,29 @@
       "active": true
     },
     {
+      "id": "7f593eac493a",
+      "company": "NICE",
+      "title": "Software Engineer",
+      "locations": [
+        "Philippines - Manila"
+      ],
+      "workSetup": "unknown",
+      "level": "unknown",
+      "function": "engineering",
+      "industry": "saas",
+      "companyType": "direct",
+      "metro": [
+        "ncr"
+      ],
+      "url": "https://boards.eu.greenhouse.io/nice/jobs/4914352101?gh_jid=4914352101",
+      "source": "greenhouse",
+      "employmentType": "unknown",
+      "salary": null,
+      "datePosted": "2026-07-06T16:24:00.000Z",
+      "dateUpdated": "2026-07-06T22:56:17.807Z",
+      "active": true
+    },
+    {
       "id": "f8830074d760",
       "company": "NICE",
       "title": "Associate Professional Services Engineer",
@@ -121396,8 +121580,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-06-22T03:57:51.066Z",
-      "dateUpdated": "2026-06-22T23:11:19.193Z",
-      "active": true
+      "dateUpdated": "2026-07-06T22:56:17.807Z",
+      "active": false
     },
     {
       "id": "0a6c745a186b",
@@ -130826,8 +131010,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-05-18T00:00:00.000Z",
-      "dateUpdated": "2026-06-11T01:34:15.640Z",
-      "active": true
+      "dateUpdated": "2026-07-06T22:56:17.807Z",
+      "active": false
     },
     {
       "id": "6b9e8a0ac56f",
@@ -145627,8 +145811,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-07-06T14:19:26.364Z",
-      "dateUpdated": "2026-07-06T14:19:26.364Z",
-      "active": true
+      "dateUpdated": "2026-07-06T22:56:17.807Z",
+      "active": false
     },
     {
       "id": "8e84f285948e",
@@ -145835,8 +146019,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-07-06T14:19:26.364Z",
-      "dateUpdated": "2026-07-06T14:19:26.364Z",
-      "active": true
+      "dateUpdated": "2026-07-06T22:56:17.807Z",
+      "active": false
     },
     {
       "id": "e4d966c10dd0",
