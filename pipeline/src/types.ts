@@ -11,6 +11,7 @@ export const ATS_SOURCES = [
   "bamboohr",
   "breezy",
   "manatal",
+  "workday",
 ] as const;
 export type AtsSource = (typeof ATS_SOURCES)[number];
 
@@ -146,7 +147,8 @@ export interface FetchedPosting {
   companyType: CompanyType;
 }
 
-export type FetchErrorKind = "dead-slug" | "http" | "network";
+/** "blocked" is Workday-only (SPEC §17.1.2): permanent stop, human review required. */
+export type FetchErrorKind = "dead-slug" | "http" | "network" | "blocked";
 
 export type FetchResult =
   | { ok: true; postings: FetchedPosting[] }

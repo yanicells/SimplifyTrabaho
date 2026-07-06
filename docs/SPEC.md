@@ -230,7 +230,7 @@ Each `Listing`:
 | `companyType`    | enum           | **Schema v3 (Phase 9).** `direct` \| `agency`, copied from the company's registry entry at normalization (SPEC §7/§11).                                                |
 | `metro`          | string[]       | **Schema v2 (Phase 8).** Normalized PH region tags derived from `locations`: `ncr`, `cebu`, `davao`, `clark-pampanga`, `calabarzon`, `iloilo`, `bacolod`, `baguio`, `cdo`, `remote-ph`, `other-ph`. Keyword map lives next to the PH filter (§8); extend the value list as real locations demand, spec update in the same commit. |
 | `url`            | string         | Official application URL on the company's ATS. The only outbound link.                                                                                                                    |
-| `source`         | string         | ATS name: `greenhouse`, `lever`, `ashby`, `workable`, `smartrecruiters`, `recruitee`, `bamboohr`, `breezy`, `manatal`.                                                                     |
+| `source`         | string         | ATS name: `greenhouse`, `lever`, `ashby`, `workable`, `smartrecruiters`, `recruitee`, `bamboohr`, `breezy`, `manatal`, `workday` (Tier B, §17).                                                                     |
 | `employmentType` | enum           | `full-time` \| `part-time` \| `contract` \| `internship` \| `unknown` — when the ATS provides it.                                                                                         |
 | `salary`         | string \| null | Only if published in the structured feed (e.g., Ashby compensation). Verbatim formatted range. Never inferred.                                                                            |
 | `datePosted`     | string         | ISO 8601 UTC. From the ATS published/created field when available; otherwise the date our pipeline first saw it. Never changes after first set.                                           |
@@ -548,6 +548,12 @@ Phases for the implementing agent (track in TRACKER.md):
 Accenture (`accenture.wd103.myworkdayjobs.com/AccentureCareers`), P&G
 (`pg.wd5.myworkdayjobs.com/1000`), and most large PH corporates (banks, airlines,
 conglomerates — see the TRACKER candidate graveyard).
+
+**Registry slug format:** `{tenant}.wd{n}/{site}` (e.g. `globe.wd3/GLB_Careers`) —
+the adapter derives host `{tenant}.wd{n}.myworkdayjobs.com` and the CXS jobs path
+from it. Blocked tenants are recorded in `data/fetch-state.json` under `blocked`
+(keyed `workday:{slug}`) and skipped on every future run until a human deletes the
+entry after review.
 
 **What it is:** every public Workday career site is rendered by a JSON endpoint:
 `POST https://{tenant}.wd{n}.myworkdayjobs.com/wday/cxs/{tenant}/{site}/jobs` with a

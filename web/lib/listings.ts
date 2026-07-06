@@ -76,6 +76,7 @@ const SOURCES = [
   "bamboohr",
   "breezy",
   "manatal",
+  "workday",
 ];
 const COMPANY_TYPES: readonly CompanyType[] = ["direct", "agency"];
 

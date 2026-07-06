@@ -493,3 +493,52 @@ export function normalizeLever(company: RegistryCompany, raw: unknown): FetchedP
     } satisfies FetchedPosting;
   });
 }
+
+/** Workday registry slug: `{tenant}.wd{n}/{site}` (SPEC §17), e.g. `globe.wd3/GLB_Careers`. */
+export function parseWorkdaySlug(slug: string): {
+  tenant: string;
+  host: string;
+  site: string;
+} {
+  const match = /^([a-z0-9-]+)\.(wd\d+)\/([A-Za-z0-9_-]+)$/.exec(slug);
+  if (!match) {
+    throw new Error(`invalid workday slug "${slug}" — expected {tenant}.wd{n}/{site}`);
+  }
+  return {
+    tenant: match[1],
+    host: `${match[1]}.${match[2]}.myworkdayjobs.com`,
+    site: match[3],
+  };
+}
+
+interface WorkdayJob {
+  title?: unknown;
+  externalPath?: unknown;
+  locationsText?: unknown;
+  timeType?: unknown;
+  // postedOn is relative text ("Posted 3 Days Ago") — not a fact we store;
+  // datePosted falls back to first-seen (SPEC §6). No JD text in the list feed.
+}
+
+export function normalizeWorkday(company: RegistryCompany, jobs: unknown[]): FetchedPosting[] {
+  const { host, site } = parseWorkdaySlug(company.slug);
+  return jobs.map((raw) => {
+    const job = raw as WorkdayJob;
+    const title = String(job.title ?? "");
+    const locationsText = String(job.locationsText ?? "").trim();
+    const locations = locationsText !== "" ? [locationsText] : [];
+    return {
+      company: company.name,
+      source: "workday",
+      title,
+      locations,
+      url: `https://${host}/en-US/${site}${String(job.externalPath ?? "")}`,
+      workSetup: workSetupFromText(`${title} ${locationsText}`),
+      employmentType: mapCommitment(job.timeType),
+      salary: null,
+      publishedAt: null,
+      industry: company.industry,
+      companyType: company.type,
+    } satisfies FetchedPosting;
+  });
+}
