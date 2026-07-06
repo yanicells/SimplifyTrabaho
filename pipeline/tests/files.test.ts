@@ -28,7 +28,7 @@ describe("parseRegistry", () => {
       version: 1,
       companies: [{ ...validCompany, ats: "workday", slug: "globe.wd3/GLB_Careers" }],
     });
-    expect(registry.companies[0].ats).toBe("workday");
+    expect(registry.companies[0]?.ats).toBe("workday");
     expect(() =>
       parseRegistry({ version: 1, companies: [{ ...validCompany, ats: "taleo" }] }),
     ).toThrow(/ats/i);

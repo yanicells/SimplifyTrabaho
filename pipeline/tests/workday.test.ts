@@ -52,7 +52,7 @@ function fakeHttp(
   const calls: Call[] = [];
   const sleeps: number[] = [];
   let posts = 0;
-  const fetchFn = (async (input: RequestInfo | URL, init?: RequestInit) => {
+  const fetchFn = (async (input: Parameters<typeof fetch>[0], init?: RequestInit) => {
     const url = String(input);
     calls.push({
       url,
@@ -63,7 +63,7 @@ function fakeHttp(
       if (robots === "network") throw new Error("connect ETIMEDOUT");
       return new Response(robots.text, { status: robots.status });
     }
-    const spec = jobsResponses[Math.min(posts, jobsResponses.length - 1)];
+    const spec = jobsResponses[Math.min(posts, jobsResponses.length - 1)] ?? { status: 500 };
     posts += 1;
     if (spec.html) return new Response("<html>challenge</html>", { status: spec.status });
     return new Response(JSON.stringify(spec.json ?? {}), { status: spec.status });
@@ -101,7 +101,7 @@ describe("fetchWorkday — robots.txt gate (guardrail §17.1.1)", () => {
     if (!result.ok) expect(result.errorKind).toBe("blocked");
     // Only the robots.txt request went out — never the jobs POST.
     expect(http.calls).toHaveLength(1);
-    expect(http.calls[0].url).toBe("https://globe.wd3.myworkdayjobs.com/robots.txt");
+    expect(http.calls[0]?.url).toBe("https://globe.wd3.myworkdayjobs.com/robots.txt");
   });
 
   it("treats Disallow: / as a full block", async () => {
@@ -217,10 +217,60 @@ describe("fetchWorkday — PH facet at the source (guardrail §17.1.4)", () => {
     if (result.ok) expect(result.postings).toHaveLength(30);
     const posts = http.calls.filter((c) => c.method === "POST");
     expect(posts).toHaveLength(3);
-    expect((posts[0].body as { appliedFacets: object }).appliedFacets).toEqual({});
-    expect((posts[1].body as { appliedFacets: object }).appliedFacets).toEqual({
+    expect((posts[0]?.body as { appliedFacets: object }).appliedFacets).toEqual({});
+    expect((posts[1]?.body as { appliedFacets: object }).appliedFacets).toEqual({
       locationCountry: ["ph-guid"],
     });
+  });
+
+  it("finds the Philippines inside a nested facet group (Accenture locationMainGroup > Country)", async () => {
+    const facets = [
+      {
+        facetParameter: "locationMainGroup",
+        values: [
+          {
+            facetParameter: "locationCountry",
+            descriptor: "Country",
+            values: [
+              { descriptor: "Argentina", id: "ar-guid", count: 175 },
+              { descriptor: "Philippines", id: "ph-guid", count: 671 },
+            ],
+          },
+        ],
+      },
+    ];
+    const http = fakeHttp({ status: 404, text: "" }, [
+      { status: 200, json: jobsPage(2000, 20, facets) },
+      { status: 200, json: jobsPage(25, 20) },
+      { status: 200, json: jobsPage(25, 5) },
+    ]);
+    const result = await fetchWorkday(COMPANY, http);
+    expect(result.ok).toBe(true);
+    if (result.ok) expect(result.postings).toHaveLength(25);
+    const posts = http.calls.filter((c) => c.method === "POST");
+    expect((posts[1]?.body as { appliedFacets: object }).appliedFacets).toEqual({
+      locationCountry: ["ph-guid"],
+    });
+  });
+
+  it("stamps Philippines as the location when PH-faceted items omit locationsText", async () => {
+    // Real Accenture behavior: country-faceted items carry no locationsText.
+    // The facet itself is the location fact — Workday returned these under the
+    // Philippines country facet.
+    const facets = [
+      {
+        facetParameter: "locationCountry",
+        values: [{ descriptor: "Philippines", id: "ph-guid", count: 2 }],
+      },
+    ];
+    const bare = { title: "ETL Developer", externalPath: "/job/x/ETL_1" };
+    const http = fakeHttp({ status: 404, text: "" }, [
+      { status: 200, json: jobsPage(600, 20, facets) },
+      { status: 200, json: { total: 1, jobPostings: [bare], facets: [] } },
+    ]);
+    const result = await fetchWorkday(COMPANY, http);
+    expect(result.ok).toBe(true);
+    if (result.ok) expect(result.postings[0]?.locations).toEqual(["Philippines"]);
   });
 
   it("small tenants are fetched whole with no facet round-trip", async () => {
@@ -259,7 +309,7 @@ describe("normalizeWorkday", () => {
     const postings = normalizeWorkday(COMPANY, [
       { title: "Analyst", externalPath: "/job/x/Analyst_1" },
     ]);
-    expect(postings[0].locations).toEqual([]);
-    expect(postings[0].employmentType).toBe("unknown");
+    expect(postings[0]?.locations).toEqual([]);
+    expect(postings[0]?.employmentType).toBe("unknown");
   });
 });

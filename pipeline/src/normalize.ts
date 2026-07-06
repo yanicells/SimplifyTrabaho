@@ -501,13 +501,14 @@ export function parseWorkdaySlug(slug: string): {
   site: string;
 } {
   const match = /^([a-z0-9-]+)\.(wd\d+)\/([A-Za-z0-9_-]+)$/.exec(slug);
-  if (!match) {
+  const [, tenant, wdHost, site] = match ?? [];
+  if (tenant === undefined || wdHost === undefined || site === undefined) {
     throw new Error(`invalid workday slug "${slug}" — expected {tenant}.wd{n}/{site}`);
   }
   return {
-    tenant: match[1],
-    host: `${match[1]}.${match[2]}.myworkdayjobs.com`,
-    site: match[3],
+    tenant,
+    host: `${tenant}.${wdHost}.myworkdayjobs.com`,
+    site,
   };
 }
 
@@ -520,13 +521,29 @@ interface WorkdayJob {
   // datePosted falls back to first-seen (SPEC §6). No JD text in the list feed.
 }
 
-export function normalizeWorkday(company: RegistryCompany, jobs: unknown[]): FetchedPosting[] {
+export function normalizeWorkday(
+  company: RegistryCompany,
+  jobs: unknown[],
+  options: {
+    /**
+     * True when the jobs were fetched under the tenant's own Philippines
+     * country facet (§17.1.4). Faceted responses omit locationsText — the facet
+     * itself is the location fact, so those items get "Philippines".
+     */
+    assumePhilippines?: boolean;
+  } = {},
+): FetchedPosting[] {
   const { host, site } = parseWorkdaySlug(company.slug);
   return jobs.map((raw) => {
     const job = raw as WorkdayJob;
     const title = String(job.title ?? "");
     const locationsText = String(job.locationsText ?? "").trim();
-    const locations = locationsText !== "" ? [locationsText] : [];
+    const locations =
+      locationsText !== ""
+        ? [locationsText]
+        : options.assumePhilippines
+          ? ["Philippines"]
+          : [];
     return {
       company: company.name,
       source: "workday",

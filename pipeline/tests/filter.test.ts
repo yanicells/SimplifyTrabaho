@@ -21,6 +21,14 @@ describe("isPhilippineLocation", () => {
     expect(isPhilippineLocation("Cagayan de Oro")).toBe(true);
   });
 
+  it("accepts NCR codes as published by Workday tenants (GCash 'NCR - WGC')", () => {
+    expect(isPhilippineLocation("NCR - WGC")).toBe(true);
+    expect(isPhilippineLocation("NCR - WCC")).toBe(true);
+    expect(isPhilippineLocation("National Capital Region")).toBe(true);
+    // Word boundaries: "ncr" inside another word never matches.
+    expect(isPhilippineLocation("Suncrest, CA")).toBe(false);
+  });
+
   it("accepts Parañaque with and without the eñe", () => {
     expect(isPhilippineLocation("Parañaque")).toBe(true);
     expect(isPhilippineLocation("Paranaque City")).toBe(true);

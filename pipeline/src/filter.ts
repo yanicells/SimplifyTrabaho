@@ -11,6 +11,8 @@ export const PH_LOCATION_KEYWORDS: readonly string[] = [
   "pilipinas",
   "ph",
   // metro & city names
+  "ncr",
+  "national capital region",
   "manila",
   "makati",
   "taguig",

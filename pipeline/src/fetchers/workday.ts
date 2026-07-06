@@ -32,7 +32,7 @@ export function robotsAllowsJobsPath(robotsTxt: string, jobsPath: string): boole
   for (const raw of lines) {
     const line = raw.replace(/#.*$/, "").trim();
     if (line === "") continue;
-    const [field, ...rest] = line.split(":");
+    const [field = "", ...rest] = line.split(":");
     const value = rest.join(":").trim();
     switch (field.trim().toLowerCase()) {
       case "user-agent":
@@ -54,27 +54,36 @@ interface WorkdayPage {
   facets?: unknown;
 }
 
-interface FacetValue {
+interface FacetNode {
+  facetParameter?: unknown;
   descriptor?: unknown;
   id?: unknown;
+  values?: unknown;
 }
 
-/** Find a Philippines value in the page's own facet list (§17.1.4). */
+/**
+ * Find a Philippines value in the page's own facet list (§17.1.4). Facet groups
+ * can nest (Accenture: locationMainGroup > Country > Philippines); the nested
+ * group carries the facetParameter that appliedFacets must use.
+ */
 function findPhilippinesFacet(
-  facets: unknown,
+  nodes: unknown,
+  parameter: string | null = null,
 ): { parameter: string; id: string } | null {
-  if (!Array.isArray(facets)) return null;
-  for (const facet of facets) {
-    const f = facet as { facetParameter?: unknown; values?: unknown };
-    if (typeof f?.facetParameter !== "string" || !Array.isArray(f.values)) continue;
-    for (const value of f.values as FacetValue[]) {
-      if (
-        String(value?.descriptor ?? "").toLowerCase() === "philippines" &&
-        typeof value.id === "string"
-      ) {
-        return { parameter: f.facetParameter, id: value.id };
-      }
+  if (!Array.isArray(nodes)) return null;
+  for (const raw of nodes) {
+    const node = raw as FacetNode;
+    const ownParameter =
+      typeof node?.facetParameter === "string" ? node.facetParameter : parameter;
+    if (
+      ownParameter !== null &&
+      String(node?.descriptor ?? "").toLowerCase() === "philippines" &&
+      typeof node?.id === "string"
+    ) {
+      return { parameter: ownParameter, id: node.id };
     }
+    const nested = findPhilippinesFacet(node?.values, ownParameter);
+    if (nested) return nested;
   }
   return null;
 }
@@ -181,10 +190,12 @@ export async function fetchWorkday(
   let appliedFacets: Record<string, string[]> = {};
   let page = first.page;
   let total = Number(page.total ?? 0);
+  let phFaceted = false;
 
   if (total > FACET_TRIGGER_TOTAL) {
     const ph = findPhilippinesFacet(page.facets);
     if (ph) {
+      phFaceted = true;
       // Global tenant with a PH facet: restart faceted so we never bulk-pull
       // a 10,000-job worldwide feed.
       appliedFacets = { [ph.parameter]: [ph.id] };
@@ -207,7 +218,12 @@ export async function fetchWorkday(
   }
 
   try {
-    return { ok: true, postings: normalizeWorkday(company, jobs.slice(0, MAX_POSTINGS)) };
+    return {
+      ok: true,
+      postings: normalizeWorkday(company, jobs.slice(0, MAX_POSTINGS), {
+        assumePhilippines: phFaceted,
+      }),
+    };
   } catch (error) {
     return {
       ok: false,
