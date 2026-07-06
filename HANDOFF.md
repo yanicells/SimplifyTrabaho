@@ -149,8 +149,8 @@ employer-type web filter, and run a registry pass targeting **≥25 new direct e
 fix the 45-agency skew.
 
 **The plan is fully written** in [docs/plans/phase-9-plan.md](docs/plans/phase-9-plan.md)
-— 21 TDD tasks, real captured response shapes, exact code. **Execute it** via
-superpowers:subagent-driven-development (recommended) or superpowers:executing-plans.
+— 21 TDD tasks, real captured response shapes, exact code. **Execute it** task-by-task
+with checkpoints.
 
 **Research already done (drove the plan):**
 

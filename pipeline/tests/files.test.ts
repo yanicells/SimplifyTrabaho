@@ -12,6 +12,7 @@ const validCompany = {
   ats: "greenhouse",
   slug: "xendit",
   industry: "fintech",
+  type: "direct",
   verified: true,
   added: "2026-06-11",
 };
@@ -42,24 +43,36 @@ describe("parseRegistry", () => {
       parseRegistry({ version: 1, companies: [{ name: "NoSlug", ats: "lever" }] }),
     ).toThrow(/slug/i);
   });
+
+  it("rejects an invalid employer type", () => {
+    expect(() =>
+      parseRegistry({ version: 1, companies: [{ ...validCompany, type: "vendor" }] }),
+    ).toThrow(/type/i);
+  });
+
+  it("rejects a registry entry missing type", () => {
+    const { type, ...noType } = validCompany;
+    void type;
+    expect(() => parseRegistry({ version: 1, companies: [noType] })).toThrow(/type/i);
+  });
 });
 
 describe("parseListingsFile", () => {
-  it("accepts a valid v2 file and the empty default", () => {
+  it("accepts a valid v3 file and the empty default", () => {
     const file = parseListingsFile(emptyListingsFile("2026-06-11T22:00:00.000Z"));
-    expect(file.version).toBe(2);
+    expect(file.version).toBe(3);
     expect(file.listings).toEqual([]);
   });
 
   it("rejects files without a listings array", () => {
-    expect(() => parseListingsFile({ version: 2, updatedAt: "x" })).toThrow(/listings/i);
+    expect(() => parseListingsFile({ version: 3, updatedAt: "x" })).toThrow(/listings/i);
   });
 
-  it("rejects unsupported versions, including pre-migration v1", () => {
-    expect(() => parseListingsFile({ version: 1, updatedAt: "x", listings: [] })).toThrow(
+  it("rejects unsupported versions, including pre-migration v2", () => {
+    expect(() => parseListingsFile({ version: 2, updatedAt: "x", listings: [] })).toThrow(
       /version/i,
     );
-    expect(() => parseListingsFile({ version: 3, updatedAt: "x", listings: [] })).toThrow(
+    expect(() => parseListingsFile({ version: 4, updatedAt: "x", listings: [] })).toThrow(
       /version/i,
     );
   });
@@ -75,6 +88,7 @@ describe("mergeRegistryCompanies", () => {
     ats,
     slug,
     industry: "",
+    type: "direct",
     verified: true,
     added: "2026-06-11",
   });

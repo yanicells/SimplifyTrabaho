@@ -14,6 +14,7 @@ function listing(overrides: Partial<Listing> = {}): Listing {
     level: "internship",
     function: "engineering",
     industry: "fintech",
+    companyType: "direct",
     metro: ["ncr"],
     url: "https://example.com/jobs/1",
     source: "greenhouse",
@@ -101,6 +102,18 @@ describe("generateReadme", () => {
     expect(md).not.toContain("Inactive Intern");
     expect(md).not.toContain("Old Intern Posting");
     expect(md).toContain("Marketing Intern");
+  });
+
+  it("excludes agency listings from the featured table", () => {
+    const md = generateReadme({
+      ...base,
+      listings: [
+        listing({ id: "1", company: "Kumu", companyType: "direct" }),
+        listing({ id: "2", company: "Emapta", companyType: "agency" }),
+      ],
+    });
+    expect(md).toContain("Kumu");
+    expect(md).not.toContain("Emapta");
   });
 
   it("sorts featured rows newest first and caps at 200", () => {

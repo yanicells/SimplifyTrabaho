@@ -17,3 +17,12 @@ dist/
 
 # playwright MCP session artifacts (site verification)
 .playwright-mcp/
+
+# pnpm store (local cache)
+.pnpm-store/
+
+# local agent tooling (session artifacts, installed skills)
+.superpowers/
+.agents/
+.claude/
+skills-lock.json

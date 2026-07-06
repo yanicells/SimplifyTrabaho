@@ -2,8 +2,11 @@ import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { fetchAshby } from "./fetchers/ashby.js";
+import { fetchBambooHr } from "./fetchers/bamboohr.js";
+import { fetchBreezy } from "./fetchers/breezy.js";
 import { fetchGreenhouse } from "./fetchers/greenhouse.js";
 import { fetchLever } from "./fetchers/lever.js";
+import { fetchManatal } from "./fetchers/manatal.js";
 import { fetchRecruitee } from "./fetchers/recruitee.js";
 import { fetchSmartRecruiters } from "./fetchers/smartrecruiters.js";
 import { fetchWorkable } from "./fetchers/workable.js";
@@ -36,6 +39,9 @@ const FETCHERS: Record<RegistryCompany["ats"], Fetcher> = {
   workable: fetchWorkable,
   smartrecruiters: fetchSmartRecruiters,
   recruitee: fetchRecruitee,
+  bamboohr: fetchBambooHr,
+  breezy: fetchBreezy,
+  manatal: fetchManatal,
 };
 
 interface FetchState {
@@ -131,7 +137,7 @@ async function main(): Promise<number> {
   mkdirSync(DATA_DIR, { recursive: true });
   writeFileSync(
     LISTINGS_PATH,
-    JSON.stringify({ version: 2, updatedAt: now, listings }, null, 2) + "\n",
+    JSON.stringify({ version: 3, updatedAt: now, listings }, null, 2) + "\n",
   );
   writeFileSync(FETCH_STATE_PATH, JSON.stringify(fetchState, null, 2) + "\n");
 

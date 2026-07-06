@@ -7,6 +7,7 @@ import path from "node:path";
 import { isPhilippineLocation } from "../../pipeline/src/filter";
 import {
   METRO_TAGS,
+  type CompanyType,
   type JobFunction,
   type Level,
   type Listing,
@@ -25,6 +26,8 @@ export interface Job {
   function: JobFunction;
   /** Company-level industry tag from the registry (schema v2). */
   industry: string;
+  /** Registry employer type — direct employer vs staffing/outsourcing agency (schema v3). */
+  companyType: CompanyType;
   /** Normalized PH region tags (schema v2). */
   metro: MetroTag[];
   /** Official application URL — also serves as the React key (unique per listing). */
@@ -63,7 +66,18 @@ const FUNCTIONS: readonly JobFunction[] = [
   "construction",
   "other",
 ];
-const SOURCES = ["greenhouse", "lever", "ashby", "workable", "smartrecruiters", "recruitee"];
+const SOURCES = [
+  "greenhouse",
+  "lever",
+  "ashby",
+  "workable",
+  "smartrecruiters",
+  "recruitee",
+  "bamboohr",
+  "breezy",
+  "manatal",
+];
+const COMPANY_TYPES: readonly CompanyType[] = ["direct", "agency"];
 
 function fail(where: string, problem: string): never {
   throw new Error(`listings.json invalid: ${where} ${problem}`);
@@ -135,6 +149,7 @@ function parseListing(raw: unknown, index: number): Listing {
     level: requireEnum(obj, where, "level", LEVELS),
     function: requireEnum(obj, where, "function", FUNCTIONS),
     industry: obj.industry,
+    companyType: requireEnum(obj, where, "companyType", COMPANY_TYPES),
     metro: metro as MetroTag[],
     url: requireString(obj, where, "url"),
     source: requireEnum(obj, where, "source", SOURCES) as Listing["source"],
@@ -158,15 +173,15 @@ export function parseListingsFile(raw: unknown): ListingsFile {
     fail("file", "must be a JSON object");
   }
   const obj = raw as Record<string, unknown>;
-  if (obj.version !== 2) {
-    fail("version", "must be 2 (run recategorize to migrate v1 data)");
+  if (obj.version !== 3) {
+    fail("version", "must be 3 (run recategorize to migrate older data)");
   }
   requireDate(obj, "file", "updatedAt");
   if (!Array.isArray(obj.listings)) {
     fail("listings", "must be an array");
   }
   return {
-    version: 2,
+    version: 3,
     updatedAt: obj.updatedAt as string,
     listings: obj.listings.map(parseListing),
   };
@@ -191,6 +206,7 @@ export function toJobs(file: ListingsFile): JobsPayload {
         level: l.level,
         function: l.function,
         industry: l.industry,
+        companyType: l.companyType,
         metro: l.metro as MetroTag[],
         url: l.url,
         posted: l.datePosted.slice(0, 10),

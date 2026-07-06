@@ -65,6 +65,7 @@ describe("filtersFromSearch", () => {
       setup: "hybrid" as const,
       metro: "ncr" as const,
       industry: "outsourcing",
+      type: "agency" as const,
       location: "makati",
       query: "civil engineer",
     };
@@ -79,11 +80,20 @@ describe("filtersFromSearch", () => {
   });
 
   it("ignores unknown enum values instead of breaking the view", () => {
-    const filters = filtersFromSearch("level=boss&fn=astronaut,sales&setup=moon&metro=atlantis");
+    const filters = filtersFromSearch(
+      "level=boss&fn=astronaut,sales&setup=moon&metro=atlantis&type=franchise",
+    );
     expect(filters.levels).toEqual(DEFAULT_LEVELS); // junk-only level falls back to default
     expect(filters.fns).toEqual(["sales"]);
     expect(filters.setup).toBe("all");
     expect(filters.metro).toBe("all");
+    expect(filters.type).toBe("all");
+  });
+
+  it("round-trips the employer-type filter and omits it by default", () => {
+    expect(filtersFromSearch("type=direct").type).toBe("direct");
+    expect(filtersToSearch(defaultFilters())).toBe("");
+    expect(filtersToSearch({ ...defaultFilters(), type: "direct" })).toBe("type=direct");
   });
 
   it("ignores unknown params entirely", () => {

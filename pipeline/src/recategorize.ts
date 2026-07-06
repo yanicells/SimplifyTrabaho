@@ -5,7 +5,7 @@ import { recategorizeDataset } from "./backfill.js";
 import { parseRegistry } from "./files.js";
 
 // `pnpm --filter pipeline recategorize` (SPEC §9): full-dataset backfill including
-// inactive listings, and the v1→v2 migration path. See backfill.ts for the rules.
+// inactive listings, and the v2→v3 migration path. See backfill.ts for the rules.
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..", "..");
 const LISTINGS_PATH = join(ROOT, "data", "listings.json");
@@ -18,7 +18,7 @@ const before = raw.version;
 const { file, summary } = recategorizeDataset(raw, registry);
 writeFileSync(LISTINGS_PATH, JSON.stringify(file, null, 2) + "\n");
 
-console.log(`recategorize: schema v${String(before)} → v2, ${summary.total} listings`);
+console.log(`recategorize: schema v${String(before)} → v3, ${summary.total} listings`);
 console.log(
   `  level changed: ${summary.levelChanged} · function changed: ${summary.functionChanged} · ` +
     `metro changed: ${summary.metroChanged} · industry changed: ${summary.industryChanged}`,

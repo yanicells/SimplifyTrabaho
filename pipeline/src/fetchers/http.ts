@@ -7,6 +7,12 @@ export const USER_AGENT =
 export interface HttpDeps {
   fetchFn?: typeof fetch;
   sleep?: (ms: number) => Promise<void>;
+  /**
+   * Treat any 3xx redirect as "not found" (→ dead-slug). BambooHR/Breezy redirect an
+   * unknown or inactive tenant to a marketing page instead of returning 404. Off by
+   * default so the six original fetchers are unchanged.
+   */
+  redirectIsNotFound?: boolean;
 }
 
 const realSleep = (ms: number) => new Promise<void>((resolve) => setTimeout(resolve, ms));
@@ -31,8 +37,16 @@ export async function politeJsonGet(url: string, deps: HttpDeps = {}): Promise<H
     try {
       const response = await fetchFn(url, {
         headers: { "User-Agent": USER_AGENT, Accept: "application/json" },
+        ...(deps.redirectIsNotFound ? { redirect: "manual" as const } : {}),
       });
       if (response.status === 404) return { kind: "not-found" };
+      if (
+        deps.redirectIsNotFound &&
+        (response.type === "opaqueredirect" ||
+          (response.status >= 300 && response.status < 400))
+      ) {
+        return { kind: "not-found" };
+      }
       if (response.ok) return { kind: "ok", body: await response.json() };
       last = { kind: "http", status: response.status };
       const retryable = response.status === 429 || response.status >= 500;

@@ -4,8 +4,11 @@ import { fileURLToPath } from "node:url";
 import { describe, expect, it } from "vitest";
 import {
   normalizeAshby,
+  normalizeBambooHr,
+  normalizeBreezy,
   normalizeGreenhouse,
   normalizeLever,
+  normalizeManatal,
   normalizeRecruitee,
   normalizeSmartRecruiters,
   normalizeWorkable,
@@ -21,6 +24,9 @@ const ashbyRaw = loadFixture("ashby-deel.json");
 const workableRaw = loadFixture("workable-crewbloom.json");
 const smartRecruitersRaw = loadFixture("smartrecruiters-canva.json");
 const recruiteeRaw = loadFixture("recruitee-hostaway.json");
+const bambooKumu = loadFixture("bamboohr-kumu.json");
+const breezySample = loadFixture("breezy-sample.json");
+const manatalSample = loadFixture("manatal-manatal.json");
 
 function company(overrides: Partial<RegistryCompany>): RegistryCompany {
   return {
@@ -28,6 +34,7 @@ function company(overrides: Partial<RegistryCompany>): RegistryCompany {
     ats: "greenhouse",
     slug: "test",
     industry: "",
+    type: "direct",
     verified: true,
     added: "2026-06-11",
     ...overrides,
@@ -39,6 +46,7 @@ const xendit: RegistryCompany = {
   ats: "greenhouse",
   slug: "xendit",
   industry: "fintech",
+  type: "direct",
   verified: true,
   added: "2026-06-11",
 };
@@ -48,9 +56,81 @@ const ninjaVan: RegistryCompany = {
   ats: "lever",
   slug: "ninjavan",
   industry: "logistics",
+  type: "direct",
   verified: true,
   added: "2026-06-11",
 };
+
+const kumu = {
+  name: "Kumu", ats: "bamboohr" as const, slug: "kumu",
+  industry: "consumer", type: "direct" as const, verified: true, added: "2026-06-13",
+};
+
+const breezyCo = {
+  name: "Breezy Sample", ats: "breezy" as const, slug: "breezy",
+  industry: "saas", type: "direct" as const, verified: true, added: "2026-06-13",
+};
+
+const manatalCo = {
+  name: "Manatal", ats: "manatal" as const, slug: "manatal",
+  industry: "hr-tech", type: "direct" as const, verified: true, added: "2026-06-13",
+};
+
+describe("normalizeBambooHr", () => {
+  it("maps title, constructed apply URL, locations, and employment type", () => {
+    const postings = normalizeBambooHr(kumu, bambooKumu);
+    expect(postings.length).toBeGreaterThan(0);
+    const intern = postings.find((p) => /intern/i.test(p.title))!;
+    expect(intern.url).toBe(`https://kumu.bamboohr.com/careers/${(bambooKumu as any).result.find((r:any)=>/intern/i.test(r.jobOpeningName)).id}`);
+    expect(intern.employmentType).toBe("internship");
+    expect(intern.companyType).toBe("direct");
+    expect(intern.source).toBe("bamboohr");
+    expect(intern.publishedAt).toBeNull(); // BambooHR list feed has no date
+    expect(intern.locations.join(" ")).toMatch(/Makati|Philippines/);
+  });
+
+  it("derives workSetup from the location text, not just the title", () => {
+    const raw = {
+      result: [
+        {
+          id: "77",
+          jobOpeningName: "Community Operations Associate",
+          employmentStatusLabel: "Full-Time",
+          isRemote: null,
+          atsLocation: { city: "Remote", province: "", country: "Philippines" },
+        },
+      ],
+    };
+    const [p] = normalizeBambooHr(kumu, raw);
+    expect(p!.workSetup).toBe("remote");
+  });
+});
+
+describe("normalizeBreezy", () => {
+  it("maps title, provided apply URL, published date, location, salary", () => {
+    const postings = normalizeBreezy(breezyCo, breezySample);
+    const p = postings[0]!;
+    expect(p.title).toBe((breezySample as any)[0].name);
+    expect(p.url).toBe((breezySample as any)[0].url);
+    expect(p.publishedAt).toBe(new Date((breezySample as any)[0].published_date).toISOString());
+    expect(p.source).toBe("breezy");
+    expect(p.companyType).toBe("direct");
+  });
+});
+
+describe("normalizeManatal", () => {
+  it("maps title + constructed apply URL and NEVER reads description", () => {
+    const postings = normalizeManatal(manatalCo, manatalSample);
+    const first = (manatalSample as any).results[0];
+    const p = postings[0]!;
+    expect(p.title).toBe(first.position_name);
+    expect(p.url).toBe(`https://www.careers-page.com/manatal/job/${first.hash}`);
+    expect(p.source).toBe("manatal");
+    expect(p.companyType).toBe("direct");
+    // No field should ever carry HTML/JD text.
+    expect(JSON.stringify(p)).not.toMatch(/<p>|<strong>|description/i);
+  });
+});
 
 describe("normalizeGreenhouse", () => {
   const postings = normalizeGreenhouse(xendit, greenhouseRaw);
@@ -76,6 +156,12 @@ describe("normalizeGreenhouse", () => {
 
   it("copies the registry industry into every posting (schema v2)", () => {
     expect(postings.every((p) => p.industry === "fintech")).toBe(true);
+  });
+
+  it("copies the registry companyType onto every posting", () => {
+    const agencyCo = { ...xendit, type: "agency" as const };
+    const postings = normalizeGreenhouse(agencyCo, greenhouseRaw);
+    expect(postings.every((p) => p.companyType === "agency")).toBe(true);
   });
 
   it("splits multi-location strings on semicolons", () => {

@@ -17,10 +17,6 @@ const PAGE_SIZE = 60;
 const NEW_WINDOW_MS = 3 * 24 * 60 * 60 * 1000;
 const URL_SYNC_DEBOUNCE_MS = 200;
 
-// Phase 9 adds `type: direct|agency` to the registry; flip this once the data
-// ships an employer type per listing. The URL param name `type` is reserved.
-const EMPLOYER_TYPE_FILTER_ENABLED = false;
-
 const LEVEL_CHIPS: { id: SelectableLevel; label: string }[] = [
   { id: "internship", label: "Internships" },
   { id: "entry", label: "Entry level" },
@@ -167,7 +163,7 @@ export function JobBoard({
     [jobs],
   );
 
-  const { levels, fns, setup, metro, industry } = filters;
+  const { levels, fns, setup, metro, industry, type: employerType } = filters;
   const levelSet = useMemo(() => new Set<string>(levels), [levels]);
   const fnSet = useMemo(() => new Set<string>(fns), [fns]);
 
@@ -184,6 +180,7 @@ export function JobBoard({
       if (setup !== "all" && job.workSetup !== setup) continue;
       if (metro !== "all" && !job.metro.includes(metro)) continue;
       if (industry !== "all" && job.industry !== industry) continue;
+      if (employerType !== "all" && job.companyType !== employerType) continue;
       if (loc !== "" && !locationKeys[i].includes(loc)) continue;
       if (terms.length > 0 && !terms.every((t) => searchKeys[i].includes(t))) continue;
       out.push(job);
@@ -198,6 +195,7 @@ export function JobBoard({
     setup,
     metro,
     industry,
+    employerType,
     deferredLocation,
     deferredQuery,
   ]);
@@ -209,6 +207,7 @@ export function JobBoard({
     (setup !== "all" ? 1 : 0) +
     (metro !== "all" ? 1 : 0) +
     (industry !== "all" ? 1 : 0) +
+    (employerType !== "all" ? 1 : 0) +
     (filters.location !== "" ? 1 : 0);
 
   function reset() {
@@ -410,16 +409,16 @@ export function JobBoard({
                   </option>
                 ))}
               </select>
-              {EMPLOYER_TYPE_FILTER_ENABLED && (
-                <select
-                  aria-label="Filter by employer type"
-                  className={`select ${fieldClass} pr-8`}
-                >
-                  <option value="all">Any employer</option>
-                  <option value="direct">Direct employers</option>
-                  <option value="agency">Agencies</option>
-                </select>
-              )}
+              <select
+                value={employerType}
+                onChange={(e) => patch({ type: e.target.value as Filters["type"] })}
+                aria-label="Filter by employer type"
+                className={`select ${fieldClass} pr-8`}
+              >
+                <option value="all">Any employer</option>
+                <option value="direct">Direct employers</option>
+                <option value="agency">Agencies</option>
+              </select>
               <input
                 type="text"
                 value={filters.location}

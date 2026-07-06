@@ -2,14 +2,17 @@ import { readFileSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { fetchAshby } from "./fetchers/ashby.js";
+import { fetchBambooHr } from "./fetchers/bamboohr.js";
+import { fetchBreezy } from "./fetchers/breezy.js";
 import { fetchGreenhouse } from "./fetchers/greenhouse.js";
 import { fetchLever } from "./fetchers/lever.js";
+import { fetchManatal } from "./fetchers/manatal.js";
 import { fetchRecruitee } from "./fetchers/recruitee.js";
 import { fetchSmartRecruiters } from "./fetchers/smartrecruiters.js";
 import { fetchWorkable } from "./fetchers/workable.js";
 import { mergeRegistryCompanies, parseRegistry } from "./files.js";
 import { filterPhilippines } from "./filter.js";
-import type { AtsSource, FetchResult, RegistryCompany } from "./types.js";
+import type { AtsSource, CompanyType, FetchResult, RegistryCompany } from "./types.js";
 
 // Registry verification tool (SPEC §7.1): probes candidate slugs against the six
 // documented ATS endpoints (politely — the HTTP layer enforces 1s gaps), checks for
@@ -33,11 +36,15 @@ const FETCHERS: Record<AtsSource, (c: RegistryCompany) => Promise<FetchResult>> 
   workable: fetchWorkable,
   smartrecruiters: fetchSmartRecruiters,
   recruitee: fetchRecruitee,
+  bamboohr: fetchBambooHr,
+  breezy: fetchBreezy,
+  manatal: fetchManatal,
 };
 
 interface Candidate {
   name: string;
   industry: string;
+  type?: CompanyType; // defaults to "direct" — round 3 chases direct employers
   phHq?: boolean;
   tries: Array<{ ats: AtsSource; slug: string }>;
 }
@@ -72,6 +79,7 @@ async function main(): Promise<void> {
         ats: attempt.ats,
         slug: attempt.slug,
         industry: candidate.industry,
+        type: candidate.type ?? "direct",
         verified: false,
         added: today,
       };

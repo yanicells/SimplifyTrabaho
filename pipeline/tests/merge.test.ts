@@ -17,6 +17,7 @@ function posting(overrides: Partial<FetchedPosting> = {}): FetchedPosting {
     salary: null,
     publishedAt: "2026-05-01T00:00:00.000Z",
     industry: "fintech",
+    companyType: "direct",
     ...overrides,
   };
 }
@@ -49,6 +50,11 @@ describe("buildListing", () => {
     );
     expect(listing.industry).toBe("fintech");
     expect(listing.metro).toEqual(["ncr", "cebu"]);
+  });
+
+  it("carries companyType from posting onto the listing", () => {
+    const fetched = posting({ companyType: "agency" });
+    expect(buildListing(fetched, NOW).companyType).toBe("agency");
   });
 
   it("falls back to first-seen time when the ATS gives no published date", () => {
@@ -118,6 +124,19 @@ describe("mergeListings", () => {
     expect(listings[0]!.industry).toBe("payments");
     expect(listings[0]!.dateUpdated).toBe(NOW);
     expect(summary.updated).toBe(1);
+  });
+
+  it("bumps dateUpdated when companyType changes", () => {
+    const old = buildListing(posting({ companyType: "agency" }), EARLIER);
+    const current = buildListing(posting({ companyType: "direct" }), NOW);
+    const { listings } = mergeListings({
+      existing: [old],
+      current: [current],
+      fetchedCompanies: new Set([old.company]),
+      now: NOW,
+    });
+    expect(listings[0]!.companyType).toBe("direct");
+    expect(listings[0]!.dateUpdated).toBe(NOW);
   });
 
   it("deactivates listings absent from a successfully fetched company", () => {

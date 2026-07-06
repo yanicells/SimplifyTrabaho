@@ -48,6 +48,7 @@ export function normalizeGreenhouse(company: RegistryCompany, raw: unknown): Fet
       salary: null,
       publishedAt: toIsoUtc(job.first_published as string | null | undefined),
       industry: company.industry,
+      companyType: company.type,
     } satisfies FetchedPosting;
   });
 }
@@ -73,6 +74,137 @@ function mapCommitment(value: unknown): EmploymentType {
   if (commitment.includes("contract")) return "contract";
   if (commitment.includes("full")) return "full-time";
   return "unknown";
+}
+
+interface BambooHrJob {
+  id?: unknown;
+  jobOpeningName?: unknown;
+  employmentStatusLabel?: unknown;
+  isRemote?: unknown;
+  location?: { city?: unknown; state?: unknown };
+  atsLocation?: { country?: unknown; province?: unknown; state?: unknown; city?: unknown };
+}
+
+function mapBambooEmployment(label: string): EmploymentType {
+  const l = label.toLowerCase();
+  if (l.includes("intern")) return "internship";
+  if (l.includes("part")) return "part-time";
+  if (l.includes("contract") || l.includes("contractor")) return "contract";
+  if (l.includes("full") || l.includes("regular") || l.includes("probationary")) return "full-time";
+  return "unknown";
+}
+
+export function normalizeBambooHr(company: RegistryCompany, raw: unknown): FetchedPosting[] {
+  const result = (raw as { result?: unknown })?.result;
+  if (!Array.isArray(result)) {
+    throw new Error(`bamboohr payload for ${company.slug} has no result array`);
+  }
+  return result.map((job: BambooHrJob) => {
+    const ats = job.atsLocation ?? {};
+    const loc = job.location ?? {};
+    // Prefer the structured atsLocation (has country); fall back to location {city,state}.
+    const parts = [
+      String(ats.city ?? loc.city ?? "").trim(),
+      String(ats.province ?? ats.state ?? loc.state ?? "").trim(),
+      String(ats.country ?? "").trim(),
+    ].filter(Boolean);
+    const locations = parts.length > 0 ? [parts.join(", ")] : [];
+    const title = String(job.jobOpeningName ?? "");
+    return {
+      company: company.name,
+      source: "bamboohr",
+      title,
+      locations,
+      url: `https://${company.slug}.bamboohr.com/careers/${String(job.id ?? "")}`,
+      workSetup:
+        job.isRemote === true ? "remote" : workSetupFromText(`${title} ${locations.join(" ")}`),
+      employmentType: mapBambooEmployment(String(job.employmentStatusLabel ?? "")),
+      salary: null,
+      publishedAt: null, // list feed carries no published date (SPEC §6 first-seen fallback)
+      industry: company.industry,
+      companyType: company.type,
+    } satisfies FetchedPosting;
+  });
+}
+
+interface BreezyJob {
+  name?: unknown;
+  url?: unknown;
+  published_date?: unknown;
+  type?: { name?: unknown };
+  salary?: unknown;
+  location?: {
+    name?: unknown;
+    city?: unknown;
+    is_remote?: unknown;
+    country?: { name?: unknown };
+  };
+}
+
+export function normalizeBreezy(company: RegistryCompany, raw: unknown): FetchedPosting[] {
+  if (!Array.isArray(raw)) {
+    throw new Error(`breezy payload for ${company.slug} is not a postings array`);
+  }
+  return raw.map((job: BreezyJob) => {
+    const loc = job.location ?? {};
+    const locationName =
+      String(loc.name ?? "").trim() ||
+      [String(loc.city ?? "").trim(), String(loc.country?.name ?? "").trim()]
+        .filter(Boolean)
+        .join(", ");
+    const salary = typeof job.salary === "string" && job.salary.trim() !== "" ? job.salary.trim() : null;
+    return {
+      company: company.name,
+      source: "breezy",
+      title: String(job.name ?? ""),
+      locations: locationName ? [locationName] : [],
+      url: String(job.url ?? ""),
+      workSetup: loc.is_remote === true ? "remote" : workSetupFromText(locationName),
+      employmentType: mapCommitment(job.type?.name),
+      salary,
+      publishedAt: toIsoUtc(job.published_date as string | null | undefined),
+      industry: company.industry,
+      companyType: company.type,
+    } satisfies FetchedPosting;
+  });
+}
+
+interface ManatalJob {
+  hash?: unknown;
+  position_name?: unknown;
+  country?: unknown;
+  state?: unknown;
+  city?: unknown;
+  // `description` (JD HTML) is intentionally NOT in this interface — never read it.
+}
+
+export function normalizeManatal(company: RegistryCompany, raw: unknown): FetchedPosting[] {
+  const results = (raw as { results?: unknown })?.results;
+  if (!Array.isArray(results)) {
+    throw new Error(`manatal payload for ${company.slug} has no results array`);
+  }
+  return results.map((job: ManatalJob) => {
+    const locationParts = [
+      String(job.city ?? "").trim(),
+      String(job.state ?? "").trim(),
+      String(job.country ?? "").trim(),
+    ].filter(Boolean);
+    const locations = locationParts.length > 0 ? [locationParts.join(", ")] : [];
+    const title = String(job.position_name ?? "");
+    return {
+      company: company.name,
+      source: "manatal",
+      title,
+      locations,
+      url: `https://www.careers-page.com/${encodeURIComponent(company.slug)}/job/${String(job.hash ?? "")}`,
+      workSetup: workSetupFromText(`${title} ${locations.join(" ")}`),
+      employmentType: "unknown",
+      salary: null,
+      publishedAt: null, // list feed carries no published date
+      industry: company.industry,
+      companyType: company.type,
+    } satisfies FetchedPosting;
+  });
 }
 
 interface LeverSalaryRange {
@@ -144,6 +276,7 @@ export function normalizeAshby(company: RegistryCompany, raw: unknown): FetchedP
         salary: typeof summary === "string" && summary !== "" ? summary : null,
         publishedAt: toIsoUtc(job.publishedAt as string | null | undefined),
         industry: company.industry,
+        companyType: company.type,
       } satisfies FetchedPosting;
     });
 }
@@ -188,6 +321,7 @@ export function normalizeWorkable(company: RegistryCompany, raw: unknown): Fetch
       salary: null,
       publishedAt: toIsoUtc((job.published_on ?? job.created_at) as string | null | undefined),
       industry: company.industry,
+      companyType: company.type,
     } satisfies FetchedPosting;
   });
 }
@@ -244,6 +378,7 @@ export function normalizeSmartRecruiters(
       salary: null,
       publishedAt: toIsoUtc(posting.releasedDate as string | null | undefined),
       industry: company.industry,
+      companyType: company.type,
     } satisfies FetchedPosting;
   });
 }
@@ -318,6 +453,7 @@ export function normalizeRecruitee(company: RegistryCompany, raw: unknown): Fetc
       salary: formatRecruiteeSalary(offer.salary),
       publishedAt: recruiteeDate(offer.published_at ?? offer.created_at),
       industry: company.industry,
+      companyType: company.type,
     } satisfies FetchedPosting;
   });
 }
@@ -353,6 +489,7 @@ export function normalizeLever(company: RegistryCompany, raw: unknown): FetchedP
       salary: formatLeverSalary(posting.salaryRange),
       publishedAt: toIsoUtc(posting.createdAt as number | null | undefined),
       industry: company.industry,
+      companyType: company.type,
     } satisfies FetchedPosting;
   });
 }

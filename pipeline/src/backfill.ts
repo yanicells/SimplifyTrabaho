@@ -3,8 +3,8 @@ import { deriveMetro } from "./metro.js";
 import type { Listing, ListingsFile, Registry } from "./types.js";
 
 // Core of `pnpm --filter pipeline recategorize` (SPEC §9): re-runs categorization,
-// metro derivation, and the registry industry copy over the ENTIRE dataset —
-// including inactive listings — and the designated v1→v2 migration path.
+// metro derivation, and the registry metadata copy over the ENTIRE dataset —
+// including inactive listings — and the designated v2→v3 migration path.
 //
 // Re-tagging is our metadata, not a change in the listing itself: datePosted is
 // preserved, dateUpdated is never bumped, and the file-level updatedAt stays put
@@ -27,8 +27,8 @@ export interface BackfillResult {
 
 export function recategorizeDataset(raw: unknown, registry: Registry): BackfillResult {
   const obj = raw as { version?: unknown; updatedAt?: unknown; listings?: unknown };
-  if (obj?.version !== 1 && obj?.version !== 2) {
-    throw new Error("recategorize: unsupported listings version (expected 1 or 2)");
+  if (obj?.version !== 2 && obj?.version !== 3) {
+    throw new Error("recategorize: unsupported listings version (expected 2 or 3)");
   }
   if (typeof obj.updatedAt !== "string") {
     throw new Error("recategorize: missing updatedAt");
@@ -40,6 +40,7 @@ export function recategorizeDataset(raw: unknown, registry: Registry): BackfillR
   const industryByCompany = new Map(
     registry.companies.map((c) => [c.name, c.industry]),
   );
+  const typeByCompany = new Map(registry.companies.map((c) => [c.name, c.type]));
 
   const summary: BackfillSummary = {
     total: obj.listings.length,
@@ -55,6 +56,7 @@ export function recategorizeDataset(raw: unknown, registry: Registry): BackfillR
     const { level, function: fn } = categorize(old.title);
     const metro = deriveMetro(old.locations);
     const industry = industryByCompany.get(old.company) ?? "";
+    const companyType = typeByCompany.get(old.company) ?? "direct";
     if (!industryByCompany.has(old.company)) unknown.add(old.company);
 
     if (level !== old.level) summary.levelChanged += 1;
@@ -74,6 +76,7 @@ export function recategorizeDataset(raw: unknown, registry: Registry): BackfillR
       level,
       function: fn,
       industry,
+      companyType,
       metro,
       url: old.url,
       source: old.source,
@@ -87,7 +90,7 @@ export function recategorizeDataset(raw: unknown, registry: Registry): BackfillR
 
   summary.unknownCompanies = [...unknown].sort();
   return {
-    file: { version: 2, updatedAt: obj.updatedAt, listings },
+    file: { version: 3, updatedAt: obj.updatedAt, listings },
     summary,
   };
 }

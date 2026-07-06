@@ -1,60 +1,393 @@
 {
   "candidates": [
     {
-      "name": "Awesome CX",
-      "industry": "customer-support",
-      "tries": [{ "ats": "workable", "slug": "awesomecx" }]
-    },
-    {
-      "name": "Bold Business",
-      "industry": "outsourcing",
-      "tries": [{ "ats": "workable", "slug": "bold-business" }]
-    },
-    {
-      "name": "Connext Global Solutions",
-      "industry": "outsourcing",
-      "tries": [
-        { "ats": "workable", "slug": "connext" },
-        { "ats": "workable", "slug": "connext-global" }
-      ]
-    },
-    {
-      "name": "MCVO Talent",
-      "industry": "accounting",
+      "name": "PayMongo",
+      "industry": "fintech",
+      "type": "direct",
       "phHq": true,
-      "tries": [{ "ats": "workable", "slug": "mcvo-talent" }]
-    },
-    {
-      "name": "OfficePartners360",
-      "industry": "outsourcing",
       "tries": [
-        { "ats": "workable", "slug": "op360" },
-        { "ats": "workable", "slug": "officepartners360" }
+        { "ats": "bamboohr", "slug": "paymongo" },
+        { "ats": "breezy", "slug": "paymongo" },
+        { "ats": "manatal", "slug": "paymongo" }
       ]
     },
     {
-      "name": "OneCoreDev IT",
+      "name": "Maya",
+      "industry": "fintech",
+      "type": "direct",
+      "phHq": true,
+      "tries": [
+        { "ats": "bamboohr", "slug": "maya" },
+        { "ats": "bamboohr", "slug": "mayabank" },
+        { "ats": "breezy", "slug": "maya" },
+        { "ats": "manatal", "slug": "maya" }
+      ]
+    },
+    {
+      "name": "PDAX",
+      "industry": "fintech",
+      "type": "direct",
+      "phHq": true,
+      "tries": [
+        { "ats": "bamboohr", "slug": "pdax" },
+        { "ats": "breezy", "slug": "pdax" },
+        { "ats": "manatal", "slug": "pdax" }
+      ]
+    },
+    {
+      "name": "NextPay",
+      "industry": "fintech",
+      "type": "direct",
+      "phHq": true,
+      "tries": [
+        { "ats": "bamboohr", "slug": "nextpay" },
+        { "ats": "breezy", "slug": "nextpay" },
+        { "ats": "manatal", "slug": "nextpay" }
+      ]
+    },
+    {
+      "name": "Tonik",
+      "industry": "fintech",
+      "type": "direct",
+      "phHq": true,
+      "tries": [
+        { "ats": "bamboohr", "slug": "tonik" },
+        { "ats": "bamboohr", "slug": "tonikbank" },
+        { "ats": "breezy", "slug": "tonik" },
+        { "ats": "manatal", "slug": "tonik" }
+      ]
+    },
+    {
+      "name": "BillEase",
+      "industry": "fintech",
+      "type": "direct",
+      "phHq": true,
+      "tries": [
+        { "ats": "bamboohr", "slug": "billease" },
+        { "ats": "breezy", "slug": "billease" },
+        { "ats": "manatal", "slug": "billease" }
+      ]
+    },
+    {
+      "name": "Coda Payments",
+      "industry": "fintech",
+      "type": "direct",
+      "tries": [
+        { "ats": "bamboohr", "slug": "codapayments" },
+        { "ats": "breezy", "slug": "codapayments" },
+        { "ats": "breezy", "slug": "coda-payments" },
+        { "ats": "manatal", "slug": "codapayments" }
+      ]
+    },
+    {
+      "name": "SafetyCulture",
+      "industry": "saas",
+      "type": "direct",
+      "tries": [
+        { "ats": "bamboohr", "slug": "safetyculture" },
+        { "ats": "breezy", "slug": "safetyculture" },
+        { "ats": "manatal", "slug": "safetyculture" }
+      ]
+    },
+    {
+      "name": "Peddlr",
+      "industry": "e-commerce",
+      "type": "direct",
+      "phHq": true,
+      "tries": [
+        { "ats": "bamboohr", "slug": "peddlr" },
+        { "ats": "breezy", "slug": "peddlr" },
+        { "ats": "manatal", "slug": "peddlr" }
+      ]
+    },
+    {
+      "name": "UNAWA",
+      "industry": "legaltech",
+      "type": "direct",
+      "phHq": true,
+      "tries": [
+        { "ats": "bamboohr", "slug": "unawa" },
+        { "ats": "breezy", "slug": "unawa" },
+        { "ats": "manatal", "slug": "unawa" }
+      ]
+    },
+    {
+      "name": "mWell",
+      "industry": "healthtech",
+      "type": "direct",
+      "phHq": true,
+      "tries": [
+        { "ats": "bamboohr", "slug": "mwell" },
+        { "ats": "breezy", "slug": "mwell" },
+        { "ats": "manatal", "slug": "mwell" }
+      ]
+    },
+    {
+      "name": "Salarium",
+      "industry": "hr-tech",
+      "type": "direct",
+      "phHq": true,
+      "tries": [
+        { "ats": "bamboohr", "slug": "salarium" },
+        { "ats": "breezy", "slug": "salarium" },
+        { "ats": "manatal", "slug": "salarium" }
+      ]
+    },
+    {
+      "name": "GrowSari",
+      "industry": "e-commerce",
+      "type": "direct",
+      "phHq": true,
+      "tries": [
+        { "ats": "bamboohr", "slug": "growsari" },
+        { "ats": "breezy", "slug": "growsari" },
+        { "ats": "manatal", "slug": "growsari" }
+      ]
+    },
+    {
+      "name": "Packworks",
+      "industry": "e-commerce",
+      "type": "direct",
+      "phHq": true,
+      "tries": [
+        { "ats": "bamboohr", "slug": "packworks" },
+        { "ats": "breezy", "slug": "packworks" },
+        { "ats": "manatal", "slug": "packworks" }
+      ]
+    },
+    {
+      "name": "Expedock",
+      "industry": "logistics",
+      "type": "direct",
+      "phHq": true,
+      "tries": [
+        { "ats": "bamboohr", "slug": "expedock" },
+        { "ats": "breezy", "slug": "expedock" },
+        { "ats": "manatal", "slug": "expedock" }
+      ]
+    },
+    {
+      "name": "Locad",
+      "industry": "logistics",
+      "type": "direct",
+      "tries": [
+        { "ats": "bamboohr", "slug": "locad" },
+        { "ats": "breezy", "slug": "locad" },
+        { "ats": "manatal", "slug": "locad" }
+      ]
+    },
+    {
+      "name": "Edamama",
+      "industry": "e-commerce",
+      "type": "direct",
+      "phHq": true,
+      "tries": [
+        { "ats": "bamboohr", "slug": "edamama" },
+        { "ats": "breezy", "slug": "edamama" },
+        { "ats": "manatal", "slug": "edamama" }
+      ]
+    },
+    {
+      "name": "Zennya",
+      "industry": "healthtech",
+      "type": "direct",
+      "phHq": true,
+      "tries": [
+        { "ats": "bamboohr", "slug": "zennya" },
+        { "ats": "breezy", "slug": "zennya" },
+        { "ats": "manatal", "slug": "zennya" }
+      ]
+    },
+    {
+      "name": "CloudEats",
+      "industry": "food",
+      "type": "direct",
+      "phHq": true,
+      "tries": [
+        { "ats": "bamboohr", "slug": "cloudeats" },
+        { "ats": "breezy", "slug": "cloudeats" },
+        { "ats": "manatal", "slug": "cloudeats" }
+      ]
+    },
+    {
+      "name": "SariSuki",
+      "industry": "e-commerce",
+      "type": "direct",
+      "phHq": true,
+      "tries": [
+        { "ats": "bamboohr", "slug": "sarisuki" },
+        { "ats": "breezy", "slug": "sarisuki" },
+        { "ats": "manatal", "slug": "sarisuki" }
+      ]
+    },
+    {
+      "name": "Symph",
       "industry": "it-services",
+      "type": "direct",
       "phHq": true,
-      "tries": [{ "ats": "workable", "slug": "onecoredev" }]
+      "tries": [
+        { "ats": "bamboohr", "slug": "symph" },
+        { "ats": "breezy", "slug": "symph" },
+        { "ats": "manatal", "slug": "symph" }
+      ]
     },
     {
-      "name": "STAFFVIRTUAL",
-      "industry": "outsourcing",
+      "name": "Eskwelabs",
+      "industry": "education",
+      "type": "direct",
       "phHq": true,
-      "tries": [{ "ats": "workable", "slug": "staffvirtual" }]
+      "tries": [
+        { "ats": "bamboohr", "slug": "eskwelabs" },
+        { "ats": "breezy", "slug": "eskwelabs" },
+        { "ats": "manatal", "slug": "eskwelabs" }
+      ]
     },
     {
-      "name": "Telework PH",
-      "industry": "outsourcing",
+      "name": "Voyager Innovations",
+      "industry": "fintech",
+      "type": "direct",
       "phHq": true,
-      "tries": [{ "ats": "workable", "slug": "teleworkph" }]
+      "tries": [
+        { "ats": "bamboohr", "slug": "voyagerinnovations" },
+        { "ats": "breezy", "slug": "voyager-innovations" },
+        { "ats": "manatal", "slug": "voyager-innovations" },
+        { "ats": "manatal", "slug": "voyagerinnovations" }
+      ]
     },
     {
-      "name": "iSupport Worldwide",
-      "industry": "outsourcing",
+      "name": "Advance.ph",
+      "industry": "fintech",
+      "type": "direct",
       "phHq": true,
-      "tries": [{ "ats": "workable", "slug": "isupport-worldwide" }]
+      "tries": [
+        { "ats": "bamboohr", "slug": "advance" },
+        { "ats": "breezy", "slug": "advance" },
+        { "ats": "manatal", "slug": "advance-ph" },
+        { "ats": "manatal", "slug": "advance" }
+      ]
+    },
+    {
+      "name": "Deel",
+      "industry": "hr-tech",
+      "type": "direct",
+      "tries": [{ "ats": "ashby", "slug": "deel" }]
+    },
+    {
+      "name": "Kraken",
+      "industry": "fintech",
+      "type": "direct",
+      "tries": [
+        { "ats": "ashby", "slug": "kraken.com" },
+        { "ats": "ashby", "slug": "kraken" }
+      ]
+    },
+    {
+      "name": "Supabase",
+      "industry": "saas",
+      "type": "direct",
+      "tries": [{ "ats": "ashby", "slug": "supabase" }]
+    },
+    {
+      "name": "Kittl",
+      "industry": "saas",
+      "type": "direct",
+      "tries": [{ "ats": "ashby", "slug": "kittl" }]
+    },
+    {
+      "name": "Pareto.AI",
+      "industry": "ai-data",
+      "type": "direct",
+      "tries": [
+        { "ats": "ashby", "slug": "pareto.ai" },
+        { "ats": "ashby", "slug": "pareto" }
+      ]
+    },
+    {
+      "name": "Flagright",
+      "industry": "fintech",
+      "type": "direct",
+      "tries": [{ "ats": "ashby", "slug": "flagright" }]
+    },
+    {
+      "name": "Zip",
+      "industry": "saas",
+      "type": "direct",
+      "tries": [{ "ats": "ashby", "slug": "zip" }]
+    },
+    {
+      "name": "Payabli",
+      "industry": "fintech",
+      "type": "direct",
+      "tries": [{ "ats": "ashby", "slug": "payabli" }]
+    },
+    {
+      "name": "OnePay",
+      "industry": "fintech",
+      "type": "direct",
+      "tries": [
+        { "ats": "ashby", "slug": "onepay" },
+        { "ats": "ashby", "slug": "one-pay" }
+      ]
+    },
+    {
+      "name": "OKX",
+      "industry": "fintech",
+      "type": "direct",
+      "tries": [{ "ats": "greenhouse", "slug": "okx" }]
+    },
+    {
+      "name": "Reddit",
+      "industry": "consumer",
+      "type": "direct",
+      "tries": [{ "ats": "greenhouse", "slug": "reddit" }]
+    },
+    {
+      "name": "dbt Labs",
+      "industry": "saas",
+      "type": "direct",
+      "tries": [
+        { "ats": "greenhouse", "slug": "dbtlabsinc" },
+        { "ats": "greenhouse", "slug": "dbtlabs" }
+      ]
+    },
+    {
+      "name": "Helium 10",
+      "industry": "saas",
+      "type": "direct",
+      "tries": [{ "ats": "greenhouse", "slug": "helium10" }]
+    },
+    {
+      "name": "InfoTrust",
+      "industry": "it-services",
+      "type": "direct",
+      "tries": [{ "ats": "greenhouse", "slug": "infotrust" }]
+    },
+    {
+      "name": "Betr",
+      "industry": "consumer",
+      "type": "direct",
+      "tries": [{ "ats": "lever", "slug": "betr" }]
+    },
+    {
+      "name": "Luxury Presence",
+      "industry": "saas",
+      "type": "direct",
+      "tries": [{ "ats": "lever", "slug": "luxurypresence" }]
+    },
+    {
+      "name": "InDebted",
+      "industry": "fintech",
+      "type": "direct",
+      "tries": [{ "ats": "lever", "slug": "indebted" }]
+    },
+    {
+      "name": "Time Doctor",
+      "industry": "saas",
+      "type": "direct",
+      "tries": [
+        { "ats": "recruitee", "slug": "timedoctor" },
+        { "ats": "recruitee", "slug": "time-doctor" }
+      ]
     }
   ]
 }

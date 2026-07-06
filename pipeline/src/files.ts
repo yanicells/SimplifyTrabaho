@@ -31,6 +31,9 @@ export function parseRegistry(raw: unknown): Registry {
     if (typeof entry.verified !== "boolean") {
       fail(`${where} (${String(entry.name)}): verified must be boolean`);
     }
+    if (entry.type !== "direct" && entry.type !== "agency") {
+      fail(`${where} (${String(entry.name)}): type must be "direct" or "agency"`);
+    }
     const key = `${String(entry.ats)}:${entry.slug}`;
     if (seen.has(key)) fail(`registry: duplicate ats+slug pair ${key}`);
     seen.add(key);
@@ -39,6 +42,7 @@ export function parseRegistry(raw: unknown): Registry {
       ats: entry.ats as RegistryCompany["ats"],
       slug: entry.slug,
       industry: typeof entry.industry === "string" ? entry.industry : "",
+      type: entry.type as RegistryCompany["type"],
       verified: entry.verified,
       added: typeof entry.added === "string" ? entry.added : "",
     };
@@ -65,14 +69,14 @@ export function mergeRegistryCompanies(
 }
 
 export function emptyListingsFile(updatedAt: string): ListingsFile {
-  return { version: 2, updatedAt, listings: [] };
+  return { version: 3, updatedAt, listings: [] };
 }
 
 export function parseListingsFile(raw: unknown): ListingsFile {
   const obj = raw as { version?: unknown; updatedAt?: unknown; listings?: unknown };
-  // v1 files must go through `pnpm --filter pipeline recategorize` (the migration path).
-  if (obj?.version !== 2) fail("listings file: unsupported version (expected 2)");
+  // v2 files must go through `pnpm --filter pipeline recategorize` (the migration path).
+  if (obj?.version !== 3) fail("listings file: unsupported version (expected 3)");
   if (typeof obj.updatedAt !== "string") fail("listings file: missing updatedAt");
   if (!Array.isArray(obj.listings)) fail("listings file: listings must be an array");
-  return { version: 2, updatedAt: obj.updatedAt, listings: obj.listings as Listing[] };
+  return { version: 3, updatedAt: obj.updatedAt, listings: obj.listings as Listing[] };
 }

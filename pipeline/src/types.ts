@@ -8,8 +8,14 @@ export const ATS_SOURCES = [
   "workable",
   "smartrecruiters",
   "recruitee",
+  "bamboohr",
+  "breezy",
+  "manatal",
 ] as const;
 export type AtsSource = (typeof ATS_SOURCES)[number];
+
+/** Schema v2 → v3 (SPEC §7): registry employer type, denormalized onto each Listing. */
+export type CompanyType = "direct" | "agency";
 
 export type WorkSetup = "onsite" | "hybrid" | "remote" | "unknown";
 
@@ -74,6 +80,8 @@ export interface Listing {
   function: JobFunction;
   /** Schema v2: company-level industry tag copied from the registry at normalization. */
   industry: string;
+  /** Schema v3: registry employer type copied at normalization (SPEC §7/§11). */
+  companyType: CompanyType;
   /** Schema v2: normalized PH region tags derived from `locations` (SPEC §6). */
   metro: string[];
   /** Official application URL on the company's ATS — the only outbound link. */
@@ -91,7 +99,7 @@ export interface Listing {
 }
 
 export interface ListingsFile {
-  version: 2;
+  version: 3;
   /** ISO 8601 UTC of the last successful pipeline run. */
   updatedAt: string;
   listings: Listing[];
@@ -103,6 +111,8 @@ export interface RegistryCompany {
   ats: AtsSource;
   slug: string;
   industry: string;
+  /** Schema v3 (SPEC §7): "agency" = staffing/outsourcing/recruitment; else "direct". */
+  type: CompanyType;
   /** Only verified entries are fetched; false = candidate pending verification. */
   verified: boolean;
   /** ISO date the entry was added. */
@@ -132,6 +142,8 @@ export interface FetchedPosting {
   publishedAt: string | null;
   /** Schema v2: the registry entry's industry tag, copied at normalization. */
   industry: string;
+  /** Schema v3: the registry entry's employer type, copied at normalization. */
+  companyType: CompanyType;
 }
 
 export type FetchErrorKind = "dead-slug" | "http" | "network";
