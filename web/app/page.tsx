@@ -89,7 +89,7 @@ export default function Home() {
             — public APIs that companies intentionally publish (Greenhouse, Lever,
             Ashby, Workable, SmartRecruiters, Recruitee, BambooHR, Breezy, Manatal).
             We store facts only and always send you to the official application
-            page. No accounts, no tracking, no middlemen.
+            page. No accounts, no cookies, no middlemen.
           </p>
           <p className="mt-5 text-sm text-paper/70">
             <a

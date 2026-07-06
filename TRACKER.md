@@ -276,20 +276,32 @@ verify-registry`. Also recheck the live-but-0-PH boards listed below — several
 
 ### Phase 11 — Web product features (client-side only)
 
-- [ ] Application tracker: Track button, status flow (saved → applied → interview →
-      offer/rejected), "My applications" view, localStorage, JSON export
-- [ ] Preferences: persisted default filters, one-tap reset
+- [x] 2026-07-06 — Application tracker: bookmark button per row, status flow
+      (saved → applied → interview → offer / waitlisted / rejected), "My jobs"
+      view with per-row status select + remove, localStorage
+      (`st:tracker:v1`, lenient parse — corrupt entries dropped), JSON export.
+      Tracked jobs keep a company/title snapshot so they survive listings going
+      inactive ("No longer listed" tag).
+- [x] 2026-07-06 — Preferences: filters persist via localStorage
+      (`st:filters:v1`, reuses the URL codec so junk is validated for free);
+      pasted URL always wins over the saved state; Reset clears both.
 - [ ] Support & feedback: navbar button (GitHub issues + donate link), dismissible
       prompt at most every ~5 Apply clicks with permanent opt-out — UX co-designed
       with maintainer in-phase
-- [ ] PWA baseline: manifest + icons, installable
-- [ ] No accounts, no backend, no third-party trackers; core flow regression-free
+- [x] 2026-07-06 — PWA baseline: manifest.ts + SVG icon (ink square, PH-sun
+      mark). PNG icon sizes pending real branding assets.
+- [x] No accounts, no backend; analytics is Vercel Analytics (cookieless,
+      maintainer-requested — see Decisions); core apply flow regression-free
+      (233 tests green, playwright-style preview verified)
 
 ### Phase 12 — Reach & SEO (maintainer-led; agents prepare, maintainer publishes)
 
-- [ ] RSS feed(s) from the pipeline
-- [ ] OG share images; sitemap; per-page metadata
-- [ ] "Copy link to this view" affordance (builds on Phase 8 URL params)
+- [x] 2026-07-06 — RSS feed: `/feed.xml` (newest 100, facts only, official apply
+      links), generated at web build from listings.json
+- [x] 2026-07-06 — OG share image (build-time ImageResponse), sitemap.xml,
+      robots.txt, expanded metadata (keywords, twitter card, RSS alternate),
+      JSON-LD (WebSite + SearchAction on `?q=`, CC0 Dataset), `llms.txt`
+- [x] 2026-07-06 — "Copy link to this view" affordance (next to Reset filters)
 - [ ] Google Search Console — **maintainer**
 - [ ] Newsletter bridge evaluation (e.g., Buttondown over RSS) — recommend, don't build
 - [ ] Launch/distribution posts (r/phcareers, FB groups, university orgs) — **maintainer**
@@ -621,3 +633,24 @@ not a real employer. Kalibrr — job-board company, fetching prohibited by rule 
     `redirectIsNotFound` in the polite HTTP layer (default behavior for the six
     v1 fetchers unchanged); Manatal 404s unknown slugs; all three treat
     live-empty as a successful empty fetch.
+- 2026-07-06 — **Web v2 (redesign + Phase 11/12 slice, maintainer-directed):**
+  - Visual system swapped to an Uber-Base-inspired black/white duet
+    (`web/DESIGN.md`, via `getdesign add uber`): Inter replaces Fraunces +
+    Instrument Sans, warm-cream palette dies, black is the only conversion
+    color, every interactive element is a pill, container widened
+    max-w-3xl → max-w-6xl, footer is the page's single polarity-flip black
+    band. The PH flag strip + sun-yellow micro-accents (New badge, count
+    badges, OG highlight) are the sole chromatic marks — the PH identity IS
+    the accent.
+  - Tracker statuses extend the SPEC flow with `waitlisted`
+    (saved → applied → interview → offer/waitlisted/rejected) per maintainer
+    request. Identity key is the listing URL (same as the React key).
+  - **Vercel Analytics added on explicit maintainer request.** It is
+    cookieless and stores no personal data, so the footer promise was
+    reworded "no tracking" → "no cookies" to stay honest. The Phase 11
+    "no third-party trackers" clause is superseded by this decision.
+  - Filter persistence stores the URL-codec string, not a parallel format —
+    one validator, no schema drift.
+  - SEO/AEO: JSON-LD advertises the `?q=` SearchAction and the CC0 dataset;
+    `llms.txt` points answer engines at listings.json + feed.xml. Google
+    Search Console verification remains maintainer-side (Phase 12).
