@@ -70,11 +70,5 @@ Script-naming rule: never name a script `update` or `fetch` — both are pnpm bu
   (e.g., dead slugs, misclassified titles), record decisions with dates.
 - Follow the build order in SPEC §16 (v1, shipped) and §18 (v2) unless TRACKER says
   otherwise.
-- Use TDD (superpowers:test-driven-development) for pipeline logic; fixtures from
-  real ATS responses.
 - When building the website: use the frontend-design skill and
   vercel-react-best-practices; mobile-first (PH users are mobile-heavy).
-- Use context7 for current Next.js/library docs; use playwright to verify the site
-  when relevant.
-- Verify before claiming done (superpowers:verification-before-completion) — run
-  `pnpm refresh` and `pnpm --filter web build` and look at the output.
