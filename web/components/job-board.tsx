@@ -11,11 +11,28 @@ import {
   type Filters,
   type SelectableLevel,
 } from "@/lib/filter-params";
+import { readStorage, removeStorage, writeStorage } from "@/lib/storage";
+import {
+  emptyTracker,
+  isTracked,
+  parseTracker,
+  serializeTracker,
+  setJobStatus,
+  trackJob,
+  untrackJob,
+  type TrackerState,
+  type TrackerStatus,
+} from "@/lib/tracker";
+import { MyJobs } from "@/components/my-jobs";
 import { timeAgo } from "@/lib/time";
 
 const PAGE_SIZE = 60;
 const NEW_WINDOW_MS = 3 * 24 * 60 * 60 * 1000;
 const URL_SYNC_DEBOUNCE_MS = 200;
+
+/** Saved filters reuse the URL codec, so junk in storage is dropped for free. */
+const FILTERS_STORAGE_KEY = "st:filters:v1";
+const TRACKER_STORAGE_KEY = "st:tracker:v1";
 
 const LEVEL_CHIPS: { id: SelectableLevel; label: string }[] = [
   { id: "internship", label: "Internships" },
@@ -102,6 +119,20 @@ function sameSet(a: readonly string[], b: readonly string[]): boolean {
   return a.length === b.length && a.every((v) => b.includes(v));
 }
 
+function BookmarkIcon({ filled }: { filled: boolean }) {
+  return (
+    <svg viewBox="0 0 16 16" aria-hidden className="h-4 w-4">
+      <path
+        d="M4 2.5h8a.5.5 0 0 1 .5.5v10.4l-4.2-2.8a.5.5 0 0 0-.6 0L3.5 13.4V3a.5.5 0 0 1 .5-.5Z"
+        fill={filled ? "currentColor" : "none"}
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
 export function JobBoard({
   jobs,
   industries,
@@ -115,25 +146,38 @@ export function JobBoard({
   const [filters, setFilters] = useState<Filters>(defaultFilters);
   const [visible, setVisible] = useState(PAGE_SIZE);
   const [panelOpen, setPanelOpen] = useState(false);
+  const [tracker, setTracker] = useState<TrackerState>(emptyTracker);
+  const [view, setView] = useState<"board" | "tracked">("board");
+  const [copied, setCopied] = useState(false);
 
-  // Static export renders the featured default; a pasted URL applies its filter
-  // state right after hydration (the only moment location.search is knowable).
+  // Static export renders the featured default. On hydration, a pasted URL wins;
+  // otherwise the last-used filters come back from localStorage (Phase 11
+  // preferences). The tracker always loads from storage. setState inside this
+  // mount effect is deliberate: location.search and localStorage only exist
+  // client-side, so this one post-hydration pass is the earliest safe moment.
+  /* eslint-disable react-hooks/set-state-in-effect */
   useEffect(() => {
     const fromUrl = filtersFromSearch(window.location.search);
-    if (filtersToSearch(fromUrl) !== "") {
-      setFilters(fromUrl);
-      // Surface the advanced panel when the link carries advanced filters.
-      const { levels, query, ...advanced } = fromUrl;
+    const applied =
+      filtersToSearch(fromUrl) !== ""
+        ? fromUrl
+        : filtersFromSearch(readStorage(FILTERS_STORAGE_KEY) ?? "");
+    if (filtersToSearch(applied) !== "") {
+      setFilters(applied);
+      // Surface the advanced panel when the restored state carries advanced filters.
+      const { levels, query, ...advanced } = applied;
       void levels;
       void query;
       if (filtersToSearch({ ...defaultFilters(), ...advanced }) !== "") {
         setPanelOpen(true);
       }
     }
+    setTracker(parseTracker(readStorage(TRACKER_STORAGE_KEY)));
   }, []);
+  /* eslint-enable react-hooks/set-state-in-effect */
 
-  // Keep the address bar shareable on every change, debounced so typing in the
-  // text fields doesn't hammer history.replaceState (Safari rate-limits it).
+  // Keep the address bar shareable and the preference persisted on every change,
+  // debounced so typing doesn't hammer history.replaceState (Safari rate-limits it).
   const urlTimer = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
   useEffect(() => {
     if (urlTimer.current !== undefined) clearTimeout(urlTimer.current);
@@ -141,6 +185,8 @@ export function JobBoard({
       const search = filtersToSearch(filters);
       const url = window.location.pathname + (search === "" ? "" : `?${search}`);
       history.replaceState(null, "", url);
+      if (search === "") removeStorage(FILTERS_STORAGE_KEY);
+      else writeStorage(FILTERS_STORAGE_KEY, search);
     }, URL_SYNC_DEBOUNCE_MS);
     return () => clearTimeout(urlTimer.current);
   }, [filters]);
@@ -148,6 +194,30 @@ export function JobBoard({
   function patch(partial: Partial<Filters>) {
     setFilters((prev) => ({ ...prev, ...partial }));
     setVisible(PAGE_SIZE);
+  }
+
+  function updateTracker(next: TrackerState) {
+    setTracker(next);
+    writeStorage(TRACKER_STORAGE_KEY, serializeTracker(next));
+  }
+
+  function toggleTracked(job: Job) {
+    const now = new Date().toISOString();
+    updateTracker(
+      isTracked(tracker, job.url)
+        ? untrackJob(tracker, job.url)
+        : trackJob(tracker, { url: job.url, company: job.company, title: job.title }, now),
+    );
+  }
+
+  function copyLink() {
+    navigator.clipboard?.writeText(window.location.href).then(
+      () => {
+        setCopied(true);
+        setTimeout(() => setCopied(false), 1500);
+      },
+      () => {},
+    );
   }
 
   // Typing stays responsive: the row list re-filters against the deferred values.
@@ -161,6 +231,11 @@ export function JobBoard({
   const locationKeys = useMemo(
     () => jobs.map((j) => j.locations.join("; ").toLowerCase()),
     [jobs],
+  );
+  const liveUrls = useMemo(() => new Set(jobs.map((j) => j.url)), [jobs]);
+  const trackedUrls = useMemo(
+    () => new Set(tracker.jobs.map((j) => j.url)),
+    [tracker],
   );
 
   const { levels, fns, setup, metro, industry, type: employerType } = filters;
@@ -213,33 +288,34 @@ export function JobBoard({
   function reset() {
     setFilters(defaultFilters());
     setVisible(PAGE_SIZE);
+    removeStorage(FILTERS_STORAGE_KEY);
   }
 
   const shown = filtered.slice(0, visible);
   const updatedMs = Date.parse(updatedAt);
 
   const fieldClass =
-    "h-11 rounded-lg border border-line bg-white px-3 text-sm text-ink placeholder:text-faint focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/20";
+    "h-11 rounded-lg bg-soft px-3 text-sm text-ink placeholder:text-mute focus:outline-none focus:ring-2 focus:ring-ink";
 
   const chipClass = (active: boolean) =>
-    `shrink-0 rounded-full border px-3.5 py-2 text-sm font-medium transition-colors ${
-      active
-        ? "border-ink bg-ink text-paper"
-        : "border-line bg-white text-ink hover:border-faint"
+    `shrink-0 rounded-full px-3.5 py-2 text-sm font-medium transition-colors ${
+      active ? "bg-ink text-paper" : "bg-soft text-ink hover:bg-press"
     }`;
+
+  const trackedCount = tracker.jobs.length;
 
   return (
     <div className="pb-12">
       {/* Sticky filter rail — stays put while the results scroll (SPEC §12 v2) */}
       <div className="sticky top-0 z-20 -mx-4 border-b border-line bg-paper/95 px-4 pb-3 backdrop-blur sm:mx-0 sm:px-0">
-        {/* Search + advanced-filters toggle */}
+        {/* Search + advanced-filters toggle + my-jobs toggle */}
         <div className="flex gap-2 pt-4">
           <div className="relative min-w-0 flex-1">
             <svg
               viewBox="0 0 16 16"
               fill="none"
               aria-hidden
-              className="pointer-events-none absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-faint"
+              className="pointer-events-none absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-mute"
             >
               <circle cx="7" cy="7" r="5" stroke="currentColor" strokeWidth="1.5" />
               <path
@@ -263,10 +339,10 @@ export function JobBoard({
             aria-expanded={panelOpen}
             aria-controls="advanced-filters"
             onClick={() => setPanelOpen((open) => !open)}
-            className={`flex h-11 shrink-0 items-center gap-1.5 rounded-lg border px-3.5 text-sm font-medium transition-colors ${
+            className={`flex h-11 shrink-0 items-center gap-1.5 rounded-full px-4 text-sm font-medium transition-colors ${
               panelOpen || advancedCount > 0
-                ? "border-ink bg-white text-ink"
-                : "border-line bg-white text-ink hover:border-faint"
+                ? "bg-ink text-paper"
+                : "bg-soft text-ink hover:bg-press"
             }`}
           >
             Filters
@@ -279,7 +355,7 @@ export function JobBoard({
               viewBox="0 0 16 16"
               fill="none"
               aria-hidden
-              className={`h-3.5 w-3.5 text-faint transition-transform ${panelOpen ? "rotate-180" : ""}`}
+              className={`h-3.5 w-3.5 transition-transform ${panelOpen ? "rotate-180" : ""}`}
             >
               <path
                 d="M4 6l4 4 4-4"
@@ -290,267 +366,327 @@ export function JobBoard({
               />
             </svg>
           </button>
-        </div>
-
-        {/* Level chips — multi-select; the featured preset is the default view */}
-        <div
-          role="group"
-          aria-label="Filter by level (multi-select)"
-          className="no-scrollbar -mx-4 mt-3 flex gap-2 overflow-x-auto px-4 pb-1 sm:mx-0 sm:flex-wrap sm:px-0"
-        >
           <button
             type="button"
-            aria-pressed={isFeatured}
-            onClick={() => patch({ levels: [...DEFAULT_LEVELS] })}
-            className={chipClass(isFeatured)}
+            aria-pressed={view === "tracked"}
+            onClick={() => setView(view === "tracked" ? "board" : "tracked")}
+            className={`flex h-11 shrink-0 items-center gap-1.5 rounded-full px-4 text-sm font-medium transition-colors ${
+              view === "tracked" ? "bg-ink text-paper" : "bg-soft text-ink hover:bg-press"
+            }`}
           >
-            <span aria-hidden className={`mr-1 ${isFeatured ? "text-sun" : "text-faint"}`}>
-              ✶
-            </span>
-            Interns &amp; fresh grads
-          </button>
-          <button
-            type="button"
-            aria-pressed={levels.length === 0}
-            onClick={() => patch({ levels: [] })}
-            className={chipClass(levels.length === 0)}
-          >
-            All roles
-          </button>
-          {LEVEL_CHIPS.map((chip) => {
-            const active = levelSet.has(chip.id);
-            return (
-              <button
-                key={chip.id}
-                type="button"
-                aria-pressed={active}
-                onClick={() => patch({ levels: toggle(levels, chip.id) })}
-                className={chipClass(active)}
+            <BookmarkIcon filled={view === "tracked"} />
+            <span className="hidden sm:inline">My jobs</span>
+            {trackedCount > 0 && (
+              <span
+                className={`rounded-full px-1.5 py-px text-[11px] font-bold ${
+                  view === "tracked" ? "bg-paper text-ink" : "bg-sun text-ink"
+                }`}
               >
-                {chip.label}
-              </button>
-            );
-          })}
+                {trackedCount}
+              </span>
+            )}
+          </button>
         </div>
 
-        {/* Advanced filters — function multi-select, setup, metro, industry, location.
-            On phones it overlays the list (absolute) so the sticky rail stays short;
-            on sm+ it sits in-flow inside the rail. */}
-        {panelOpen && (
-          <div
-            id="advanced-filters"
-            className="absolute inset-x-0 top-full max-h-[60vh] overflow-y-auto border-b border-line bg-paper px-4 pb-4 pt-3 shadow-[0_12px_24px_-16px_rgba(33,29,22,0.4)] sm:static sm:mt-3 sm:max-h-none sm:overflow-visible sm:border-0 sm:bg-transparent sm:p-0 sm:shadow-none"
-          >
-            <p className="text-xs font-medium uppercase tracking-wider text-faint">
-              Function
-            </p>
+        {view === "board" && (
+          <>
+            {/* Level chips — multi-select; the featured preset is the default view */}
             <div
               role="group"
-              aria-label="Filter by function (multi-select)"
-              className="mt-1.5 flex flex-wrap gap-1.5"
+              aria-label="Filter by level (multi-select)"
+              className="no-scrollbar -mx-4 mt-3 flex gap-2 overflow-x-auto px-4 pb-1 sm:mx-0 sm:flex-wrap sm:px-0"
             >
-              {SELECTABLE_FUNCTIONS.map((fn) => {
-                const active = fnSet.has(fn);
+              <button
+                type="button"
+                aria-pressed={isFeatured}
+                onClick={() => patch({ levels: [...DEFAULT_LEVELS] })}
+                className={chipClass(isFeatured)}
+              >
+                Interns &amp; fresh grads
+              </button>
+              <button
+                type="button"
+                aria-pressed={levels.length === 0}
+                onClick={() => patch({ levels: [] })}
+                className={chipClass(levels.length === 0)}
+              >
+                All roles
+              </button>
+              {LEVEL_CHIPS.map((chip) => {
+                const active = levelSet.has(chip.id);
                 return (
                   <button
-                    key={fn}
+                    key={chip.id}
                     type="button"
                     aria-pressed={active}
-                    onClick={() => patch({ fns: toggle(fns, fn) })}
-                    className={`rounded-full border px-2.5 py-1 text-[13px] font-medium transition-colors ${
-                      active
-                        ? "border-accent bg-accent text-white"
-                        : "border-line bg-white text-ink hover:border-faint"
-                    }`}
+                    onClick={() => patch({ levels: toggle(levels, chip.id) })}
+                    className={chipClass(active)}
                   >
-                    {FUNCTION_LABELS[fn]}
+                    {chip.label}
                   </button>
                 );
               })}
             </div>
 
-            <div className="mt-3 grid grid-cols-2 gap-2 sm:grid-cols-4">
-              <select
-                value={setup}
-                onChange={(e) => patch({ setup: e.target.value as Filters["setup"] })}
-                aria-label="Filter by work setup"
-                className={`select ${fieldClass} pr-8`}
+            {/* Advanced filters — function multi-select, setup, metro, industry, location.
+                On phones it overlays the list (absolute) so the sticky rail stays short;
+                on sm+ it sits in-flow inside the rail. */}
+            {panelOpen && (
+              <div
+                id="advanced-filters"
+                className="absolute inset-x-0 top-full max-h-[60vh] overflow-y-auto border-b border-line bg-paper px-4 pb-4 pt-3 shadow-[0_12px_24px_-16px_rgba(0,0,0,0.35)] sm:static sm:mt-3 sm:max-h-none sm:overflow-visible sm:border-0 sm:bg-transparent sm:p-0 sm:shadow-none"
               >
-                <option value="all">Any setup</option>
-                {SETUP_OPTIONS.map((o) => (
-                  <option key={o.id} value={o.id}>
-                    {o.label}
-                  </option>
-                ))}
-              </select>
-              <select
-                value={metro}
-                onChange={(e) => patch({ metro: e.target.value as Filters["metro"] })}
-                aria-label="Filter by metro area"
-                className={`select ${fieldClass} pr-8`}
-              >
-                <option value="all">Any metro</option>
-                {METRO_OPTIONS.map((o) => (
-                  <option key={o.id} value={o.id}>
-                    {o.label}
-                  </option>
-                ))}
-              </select>
-              <select
-                value={industry}
-                onChange={(e) => patch({ industry: e.target.value })}
-                aria-label="Filter by company industry"
-                className={`select ${fieldClass} pr-8`}
-              >
-                <option value="all">Any industry</option>
-                {industries.map((tag) => (
-                  <option key={tag} value={tag}>
-                    {industryLabel(tag)}
-                  </option>
-                ))}
-              </select>
-              <select
-                value={employerType}
-                onChange={(e) => patch({ type: e.target.value as Filters["type"] })}
-                aria-label="Filter by employer type"
-                className={`select ${fieldClass} pr-8`}
-              >
-                <option value="all">Any employer</option>
-                <option value="direct">Direct employers</option>
-                <option value="agency">Agencies</option>
-              </select>
-              <input
-                type="text"
-                value={filters.location}
-                onChange={(e) => patch({ location: e.target.value })}
-                placeholder="Location, e.g. Cebu"
-                aria-label="Filter by location"
-                className={`${fieldClass} col-span-2 sm:col-span-1`}
-              />
-            </div>
-          </div>
-        )}
-      </div>
-
-      {/* Result count */}
-      <div className="mt-4 flex items-baseline justify-between gap-3">
-        <p aria-live="polite" className="text-sm text-faint">
-          <span className="font-semibold text-ink">
-            {filtered.length.toLocaleString("en-US")}
-          </span>{" "}
-          {filtered.length === 1 ? "role" : "roles"}
-          {isDefaultView ? " for interns & fresh grads" : ""} · newest first
-        </p>
-        {!isDefaultView && (
-          <button
-            type="button"
-            onClick={reset}
-            className="shrink-0 text-sm font-medium text-accent hover:underline"
-          >
-            Reset filters
-          </button>
-        )}
-      </div>
-
-      {/* Listings */}
-      {shown.length === 0 ? (
-        <div className="border-t border-line py-16 text-center">
-          <p className="font-display text-lg">Walang nahanap — no roles match.</p>
-          <p className="mt-2 text-sm text-faint">
-            Try fewer filters, or browse{" "}
-            <button
-              type="button"
-              onClick={() => {
-                reset();
-                patch({ levels: [] });
-              }}
-              className="font-medium text-accent hover:underline"
-            >
-              all roles
-            </button>
-            .
-          </p>
-        </div>
-      ) : (
-        <ul role="list" className="mt-1 divide-y divide-line border-t border-line">
-          {shown.map((job) => {
-            const isNew = updatedMs - Date.parse(job.posted) < NEW_WINDOW_MS;
-            const levelPill = LEVEL_PILLS[job.level];
-            const setupPill = SETUP_PILLS[job.workSetup];
-            const extraLocations = job.locations.length - 2;
-            return (
-              <li key={job.url} className="job-row flex items-center gap-4 py-4">
-                <div className="min-w-0 flex-1">
-                  <p className="flex flex-wrap items-baseline gap-x-2 gap-y-0.5 text-[13px] text-faint">
-                    <span className="font-semibold uppercase tracking-wide text-ink/80">
-                      {job.company}
-                    </span>
-                    <span>{timeAgo(job.posted, updatedAt)}</span>
-                    {isNew && (
-                      <span className="rounded-full bg-sun-soft px-1.5 py-px text-[11px] font-bold text-ink">
-                        New
-                      </span>
-                    )}
-                  </p>
-                  <h2 className="mt-1 text-[16px] font-semibold leading-snug sm:text-[17px]">
-                    {job.title}
-                  </h2>
-                  <p className="mt-1.5 flex flex-wrap items-center gap-x-2 gap-y-1 text-[13px] text-faint">
-                    {levelPill && (
-                      <span
-                        className={`rounded-full px-2 py-0.5 font-medium ${
-                          job.level === "internship" || job.level === "entry"
-                            ? "bg-sun-soft text-ink"
-                            : "border border-line"
+                <p className="text-xs font-medium uppercase tracking-wider text-faint">
+                  Function
+                </p>
+                <div
+                  role="group"
+                  aria-label="Filter by function (multi-select)"
+                  className="mt-1.5 flex flex-wrap gap-1.5"
+                >
+                  {SELECTABLE_FUNCTIONS.map((fn) => {
+                    const active = fnSet.has(fn);
+                    return (
+                      <button
+                        key={fn}
+                        type="button"
+                        aria-pressed={active}
+                        onClick={() => patch({ fns: toggle(fns, fn) })}
+                        className={`rounded-full px-2.5 py-1 text-[13px] font-medium transition-colors ${
+                          active ? "bg-ink text-paper" : "bg-soft text-ink hover:bg-press"
                         }`}
                       >
-                        {levelPill}
-                      </span>
-                    )}
-                    {setupPill && (
-                      <span className="rounded-full border border-line px-2 py-0.5 font-medium">
-                        {setupPill}
-                      </span>
-                    )}
-                    {job.locations.length > 0 && (
-                      <span className="min-w-0 truncate">
-                        {job.locations.slice(0, 2).join(" · ")}
-                        {extraLocations > 0 ? ` +${extraLocations}` : ""}
-                      </span>
-                    )}
-                    {job.salary && <span className="font-medium text-ink">{job.salary}</span>}
-                  </p>
+                        {FUNCTION_LABELS[fn]}
+                      </button>
+                    );
+                  })}
                 </div>
-                <a
-                  href={job.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={`Apply to ${job.title} at ${job.company} (opens the official application page)`}
-                  className="shrink-0 rounded-full bg-accent px-4 py-2 text-sm font-semibold text-white transition-opacity hover:opacity-85"
-                >
-                  Apply
-                </a>
-              </li>
-            );
-          })}
-        </ul>
-      )}
 
-      {/* Pagination */}
-      {filtered.length > visible && (
-        <div className="mt-6 flex flex-col items-center gap-2">
-          <button
-            type="button"
-            onClick={() => setVisible((v) => v + PAGE_SIZE)}
-            className="rounded-full border border-line bg-white px-5 py-2.5 text-sm font-semibold text-ink transition-colors hover:border-faint"
-          >
-            Show more roles
-          </button>
-          <p className="text-xs text-faint">
-            Showing {shown.length.toLocaleString("en-US")} of{" "}
-            {filtered.length.toLocaleString("en-US")}
-          </p>
+                <div className="mt-3 grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-5">
+                  <select
+                    value={setup}
+                    onChange={(e) => patch({ setup: e.target.value as Filters["setup"] })}
+                    aria-label="Filter by work setup"
+                    className={`select ${fieldClass} pr-8`}
+                  >
+                    <option value="all">Any setup</option>
+                    {SETUP_OPTIONS.map((o) => (
+                      <option key={o.id} value={o.id}>
+                        {o.label}
+                      </option>
+                    ))}
+                  </select>
+                  <select
+                    value={metro}
+                    onChange={(e) => patch({ metro: e.target.value as Filters["metro"] })}
+                    aria-label="Filter by metro area"
+                    className={`select ${fieldClass} pr-8`}
+                  >
+                    <option value="all">Any metro</option>
+                    {METRO_OPTIONS.map((o) => (
+                      <option key={o.id} value={o.id}>
+                        {o.label}
+                      </option>
+                    ))}
+                  </select>
+                  <select
+                    value={industry}
+                    onChange={(e) => patch({ industry: e.target.value })}
+                    aria-label="Filter by company industry"
+                    className={`select ${fieldClass} pr-8`}
+                  >
+                    <option value="all">Any industry</option>
+                    {industries.map((tag) => (
+                      <option key={tag} value={tag}>
+                        {industryLabel(tag)}
+                      </option>
+                    ))}
+                  </select>
+                  <select
+                    value={employerType}
+                    onChange={(e) => patch({ type: e.target.value as Filters["type"] })}
+                    aria-label="Filter by employer type"
+                    className={`select ${fieldClass} pr-8`}
+                  >
+                    <option value="all">Any employer</option>
+                    <option value="direct">Direct employers</option>
+                    <option value="agency">Agencies</option>
+                  </select>
+                  <input
+                    type="text"
+                    value={filters.location}
+                    onChange={(e) => patch({ location: e.target.value })}
+                    placeholder="Location, e.g. Cebu"
+                    aria-label="Filter by location"
+                    className={`${fieldClass} col-span-2 sm:col-span-1`}
+                  />
+                </div>
+              </div>
+            )}
+          </>
+        )}
+      </div>
+
+      {view === "tracked" ? (
+        <div className="mt-4">
+          <MyJobs
+            tracker={tracker}
+            liveUrls={liveUrls}
+            updatedAt={updatedAt}
+            onStatus={(url, status: TrackerStatus) =>
+              updateTracker(setJobStatus(tracker, url, status, new Date().toISOString()))
+            }
+            onRemove={(url) => updateTracker(untrackJob(tracker, url))}
+          />
         </div>
+      ) : (
+        <>
+          {/* Result count */}
+          <div className="mt-4 flex items-baseline justify-between gap-3">
+            <p aria-live="polite" className="text-sm text-faint">
+              <span className="font-semibold text-ink">
+                {filtered.length.toLocaleString("en-US")}
+              </span>{" "}
+              {filtered.length === 1 ? "role" : "roles"}
+              {isDefaultView ? " for interns & fresh grads" : ""} · newest first
+            </p>
+            {!isDefaultView && (
+              <span className="flex shrink-0 items-center gap-3">
+                <button
+                  type="button"
+                  onClick={copyLink}
+                  className="text-sm font-medium text-ink underline underline-offset-2 hover:text-faint"
+                >
+                  {copied ? "Link copied" : "Copy link"}
+                </button>
+                <button
+                  type="button"
+                  onClick={reset}
+                  className="text-sm font-medium text-ink underline underline-offset-2 hover:text-faint"
+                >
+                  Reset filters
+                </button>
+              </span>
+            )}
+          </div>
+
+          {/* Listings */}
+          {shown.length === 0 ? (
+            <div className="border-t border-line py-16 text-center">
+              <p className="font-display text-lg font-bold">Walang nahanap — no roles match.</p>
+              <p className="mt-2 text-sm text-faint">
+                Try fewer filters, or browse{" "}
+                <button
+                  type="button"
+                  onClick={() => {
+                    reset();
+                    patch({ levels: [] });
+                  }}
+                  className="font-medium text-ink underline underline-offset-2 hover:text-faint"
+                >
+                  all roles
+                </button>
+                .
+              </p>
+            </div>
+          ) : (
+            <ul role="list" className="mt-1 divide-y divide-line border-t border-line">
+              {shown.map((job) => {
+                const isNew = updatedMs - Date.parse(job.posted) < NEW_WINDOW_MS;
+                const levelPill = LEVEL_PILLS[job.level];
+                const setupPill = SETUP_PILLS[job.workSetup];
+                const extraLocations = job.locations.length - 2;
+                const saved = trackedUrls.has(job.url);
+                return (
+                  <li key={job.url} className="job-row flex items-center gap-3 py-4 sm:gap-4">
+                    <div className="min-w-0 flex-1">
+                      <p className="flex flex-wrap items-baseline gap-x-2 gap-y-0.5 text-[13px] text-faint">
+                        <span className="font-semibold uppercase tracking-wide text-ink/80">
+                          {job.company}
+                        </span>
+                        <span>{timeAgo(job.posted, updatedAt)}</span>
+                        {isNew && (
+                          <span className="rounded-full bg-sun-soft px-1.5 py-px text-[11px] font-bold text-ink">
+                            New
+                          </span>
+                        )}
+                      </p>
+                      <h2 className="mt-1 text-[16px] font-semibold leading-snug sm:text-[17px]">
+                        {job.title}
+                      </h2>
+                      <p className="mt-1.5 flex flex-wrap items-center gap-x-2 gap-y-1 text-[13px] text-faint">
+                        {levelPill && (
+                          <span
+                            className={`rounded-full px-2 py-0.5 font-medium ${
+                              job.level === "internship" || job.level === "entry"
+                                ? "bg-sun-soft text-ink"
+                                : "bg-soft"
+                            }`}
+                          >
+                            {levelPill}
+                          </span>
+                        )}
+                        {setupPill && (
+                          <span className="rounded-full bg-soft px-2 py-0.5 font-medium">
+                            {setupPill}
+                          </span>
+                        )}
+                        {job.locations.length > 0 && (
+                          <span className="min-w-0 truncate">
+                            {job.locations.slice(0, 2).join(" · ")}
+                            {extraLocations > 0 ? ` +${extraLocations}` : ""}
+                          </span>
+                        )}
+                        {job.salary && <span className="font-medium text-ink">{job.salary}</span>}
+                      </p>
+                    </div>
+                    <button
+                      type="button"
+                      aria-pressed={saved}
+                      aria-label={
+                        saved
+                          ? `Remove ${job.title} at ${job.company} from saved jobs`
+                          : `Save ${job.title} at ${job.company}`
+                      }
+                      onClick={() => toggleTracked(job)}
+                      className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full transition-colors ${
+                        saved ? "bg-ink text-paper" : "bg-soft text-faint hover:bg-press hover:text-ink"
+                      }`}
+                    >
+                      <BookmarkIcon filled={saved} />
+                    </button>
+                    <a
+                      href={job.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`Apply to ${job.title} at ${job.company} (opens the official application page)`}
+                      className="shrink-0 rounded-full bg-ink px-4 py-2 text-sm font-medium text-paper transition-opacity hover:opacity-80"
+                    >
+                      Apply
+                    </a>
+                  </li>
+                );
+              })}
+            </ul>
+          )}
+
+          {/* Pagination */}
+          {filtered.length > visible && (
+            <div className="mt-6 flex flex-col items-center gap-2">
+              <button
+                type="button"
+                onClick={() => setVisible((v) => v + PAGE_SIZE)}
+                className="rounded-full bg-soft px-5 py-2.5 text-sm font-medium text-ink transition-colors hover:bg-press"
+              >
+                Show more roles
+              </button>
+              <p className="text-xs text-faint">
+                Showing {shown.length.toLocaleString("en-US")} of{" "}
+                {filtered.length.toLocaleString("en-US")}
+              </p>
+            </div>
+          )}
+        </>
       )}
     </div>
   );

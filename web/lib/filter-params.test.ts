@@ -37,6 +37,7 @@ describe("filtersToSearch", () => {
       setup: "remote",
       metro: "cebu",
       industry: "fintech",
+      type: "direct",
       location: "cebu city",
       query: "software intern",
     });
@@ -46,6 +47,7 @@ describe("filtersToSearch", () => {
     expect(params.get("setup")).toBe("remote");
     expect(params.get("metro")).toBe("cebu");
     expect(params.get("industry")).toBe("fintech");
+    expect(params.get("type")).toBe("direct");
     expect(params.get("loc")).toBe("cebu city");
     expect(params.get("q")).toBe("software intern");
   });
