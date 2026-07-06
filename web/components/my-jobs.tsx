@@ -8,6 +8,7 @@ import {
   type TrackerStatus,
 } from "@/lib/tracker";
 import { timeAgo } from "@/lib/time";
+import { FilterSelect } from "@/components/filter-select";
 
 /**
  * "My jobs" — the application-tracker view (Phase 11). Everything renders from
@@ -97,18 +98,17 @@ export function MyJobs({
                 </h3>
               </div>
               <div className="flex shrink-0 items-center gap-2">
-                <select
+                <FilterSelect
+                  label={`Status for ${job.title} at ${job.company}`}
                   value={job.status}
-                  onChange={(e) => onStatus(job.url, e.target.value as TrackerStatus)}
-                  aria-label={`Status for ${job.title} at ${job.company}`}
-                  className="select h-9 rounded-full bg-soft pl-3 pr-8 text-sm font-medium text-ink focus:outline-none focus:ring-2 focus:ring-ink"
-                >
-                  {TRACKER_STATUSES.map((s) => (
-                    <option key={s} value={s}>
-                      {TRACKER_STATUS_LABELS[s]}
-                    </option>
-                  ))}
-                </select>
+                  dense
+                  menuAlign="right"
+                  onChange={(v) => onStatus(job.url, v as TrackerStatus)}
+                  options={TRACKER_STATUSES.map((s) => ({
+                    value: s,
+                    label: TRACKER_STATUS_LABELS[s],
+                  }))}
+                />
                 <button
                   type="button"
                   onClick={() => onRemove(job.url)}

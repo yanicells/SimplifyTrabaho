@@ -25,6 +25,7 @@ import {
 } from "@/lib/tracker";
 import { MyJobs } from "@/components/my-jobs";
 import { CompanyDirectory } from "@/components/company-directory";
+import { FilterSelect } from "@/components/filter-select";
 import { timeAgo } from "@/lib/time";
 
 const PAGE_SIZE = 60;
@@ -343,13 +344,6 @@ export function JobBoard({
       active ? "bg-ink text-paper" : "bg-soft text-ink hover:bg-press"
     }`;
 
-  // Selects are choices, so they wear the pill like every other interactive
-  // element (DESIGN.md); an applied filter polarity-flips to ink. Text inputs
-  // stay soft rectangles — entry vs choice is the shape distinction.
-  const selectClass = (active: boolean) =>
-    `select h-11 w-full rounded-full pl-4 pr-9 text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-ink ${
-      active ? "select-active bg-ink text-paper" : "bg-soft text-ink hover:bg-press"
-    }`;
 
   const trackedCount = tracker.jobs.length;
 
@@ -523,55 +517,47 @@ export function JobBoard({
                 </div>
 
                 <div className="mt-3 grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-5">
-                  <select
+                  <FilterSelect
+                    label="Filter by work setup"
                     value={setup}
-                    onChange={(e) => patch({ setup: e.target.value as Filters["setup"] })}
-                    aria-label="Filter by work setup"
-                    className={selectClass(setup !== "all")}
-                  >
-                    <option value="all">Any setup</option>
-                    {SETUP_OPTIONS.map((o) => (
-                      <option key={o.id} value={o.id}>
-                        {o.label}
-                      </option>
-                    ))}
-                  </select>
-                  <select
+                    active={setup !== "all"}
+                    onChange={(v) => patch({ setup: v as Filters["setup"] })}
+                    options={[
+                      { value: "all", label: "Any setup" },
+                      ...SETUP_OPTIONS.map((o) => ({ value: o.id, label: o.label })),
+                    ]}
+                  />
+                  <FilterSelect
+                    label="Filter by metro area"
                     value={metro}
-                    onChange={(e) => patch({ metro: e.target.value as Filters["metro"] })}
-                    aria-label="Filter by metro area"
-                    className={selectClass(metro !== "all")}
-                  >
-                    <option value="all">Any metro</option>
-                    {METRO_OPTIONS.map((o) => (
-                      <option key={o.id} value={o.id}>
-                        {o.label}
-                      </option>
-                    ))}
-                  </select>
-                  <select
+                    active={metro !== "all"}
+                    onChange={(v) => patch({ metro: v as Filters["metro"] })}
+                    options={[
+                      { value: "all", label: "Any metro" },
+                      ...METRO_OPTIONS.map((o) => ({ value: o.id, label: o.label })),
+                    ]}
+                  />
+                  <FilterSelect
+                    label="Filter by company industry"
                     value={industry}
-                    onChange={(e) => patch({ industry: e.target.value })}
-                    aria-label="Filter by company industry"
-                    className={selectClass(industry !== "all")}
-                  >
-                    <option value="all">Any industry</option>
-                    {industries.map((tag) => (
-                      <option key={tag} value={tag}>
-                        {industryLabel(tag)}
-                      </option>
-                    ))}
-                  </select>
-                  <select
+                    active={industry !== "all"}
+                    onChange={(v) => patch({ industry: v })}
+                    options={[
+                      { value: "all", label: "Any industry" },
+                      ...industries.map((tag) => ({ value: tag, label: industryLabel(tag) })),
+                    ]}
+                  />
+                  <FilterSelect
+                    label="Filter by employer type"
                     value={employerType}
-                    onChange={(e) => patch({ type: e.target.value as Filters["type"] })}
-                    aria-label="Filter by employer type"
-                    className={selectClass(employerType !== "all")}
-                  >
-                    <option value="all">Any employer</option>
-                    <option value="direct">Direct employers</option>
-                    <option value="agency">Agencies</option>
-                  </select>
+                    active={employerType !== "all"}
+                    onChange={(v) => patch({ type: v as Filters["type"] })}
+                    options={[
+                      { value: "all", label: "Any employer" },
+                      { value: "direct", label: "Direct employers" },
+                      { value: "agency", label: "Agencies" },
+                    ]}
+                  />
                   <input
                     type="text"
                     value={filters.location}
