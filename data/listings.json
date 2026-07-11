@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "updatedAt": "2026-07-10T22:49:24.055Z",
+  "updatedAt": "2026-07-11T22:35:59.990Z",
   "listings": [
     {
       "id": "16e8a85575e0",
@@ -966,6 +966,29 @@
       "salary": null,
       "datePosted": "2024-05-16T18:59:11.000Z",
       "dateUpdated": "2026-06-11T01:21:12.918Z",
+      "active": true
+    },
+    {
+      "id": "6d5e6a6426f7",
+      "company": "Accenture",
+      "title": "",
+      "locations": [
+        "Philippines"
+      ],
+      "workSetup": "unknown",
+      "level": "unknown",
+      "function": "other",
+      "industry": "it-services",
+      "companyType": "direct",
+      "metro": [
+        "other-ph"
+      ],
+      "url": "https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers",
+      "source": "workday",
+      "employmentType": "unknown",
+      "salary": null,
+      "datePosted": "2026-07-11T22:35:59.990Z",
+      "dateUpdated": "2026-07-11T22:35:59.990Z",
       "active": true
     },
     {
@@ -10855,8 +10878,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-07-06T06:10:09.418Z",
-      "dateUpdated": "2026-07-10T22:49:24.055Z",
-      "active": true
+      "dateUpdated": "2026-07-11T22:35:59.990Z",
+      "active": false
     },
     {
       "id": "8e48f9a5c499",
@@ -22263,8 +22286,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-07-06T14:19:26.364Z",
-      "dateUpdated": "2026-07-06T14:19:26.364Z",
-      "active": true
+      "dateUpdated": "2026-07-11T22:35:59.990Z",
+      "active": false
     },
     {
       "id": "d27737f8328c",
@@ -62645,8 +62668,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-07-06T06:10:09.418Z",
-      "dateUpdated": "2026-07-06T06:10:09.418Z",
-      "active": true
+      "dateUpdated": "2026-07-11T22:35:59.990Z",
+      "active": false
     },
     {
       "id": "1db11099f70a",
@@ -109031,6 +109054,29 @@
       "active": true
     },
     {
+      "id": "ac03e34175d0",
+      "company": "MR DIY Philippines",
+      "title": "ASSISTANT BRANCH MANAGER",
+      "locations": [
+        "Batangas City, Batangas, Philippines"
+      ],
+      "workSetup": "unknown",
+      "level": "senior",
+      "function": "retail",
+      "industry": "retail",
+      "companyType": "direct",
+      "metro": [
+        "calabarzon"
+      ],
+      "url": "https://www.careers-page.com/mr-diy-philippines/job/Y639V9Y9",
+      "source": "manatal",
+      "employmentType": "unknown",
+      "salary": null,
+      "datePosted": "2026-07-11T22:35:59.990Z",
+      "dateUpdated": "2026-07-11T22:35:59.990Z",
+      "active": true
+    },
+    {
       "id": "44d32703cfe0",
       "company": "MR DIY Philippines",
       "title": "ASSISTANT BRANCH MANAGER",
@@ -109050,8 +109096,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-07-10T22:49:24.055Z",
-      "dateUpdated": "2026-07-10T22:49:24.055Z",
-      "active": true
+      "dateUpdated": "2026-07-11T22:35:59.990Z",
+      "active": false
     },
     {
       "id": "a59123e29ade",
@@ -109073,8 +109119,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-07-10T22:49:24.055Z",
-      "dateUpdated": "2026-07-10T22:49:24.055Z",
-      "active": true
+      "dateUpdated": "2026-07-11T22:35:59.990Z",
+      "active": false
     },
     {
       "id": "0533645e17ec",
@@ -109188,8 +109234,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-07-09T23:01:32.263Z",
-      "dateUpdated": "2026-07-10T22:49:24.055Z",
-      "active": false
+      "dateUpdated": "2026-07-11T22:35:59.990Z",
+      "active": true
     },
     {
       "id": "7b0049807dcf",
@@ -109211,8 +109257,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-07-09T23:01:32.263Z",
-      "dateUpdated": "2026-07-10T22:49:24.055Z",
-      "active": false
+      "dateUpdated": "2026-07-11T22:35:59.990Z",
+      "active": true
     },
     {
       "id": "82164a00c135",
@@ -109234,8 +109280,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-07-09T23:01:32.263Z",
-      "dateUpdated": "2026-07-09T23:01:32.263Z",
-      "active": true
+      "dateUpdated": "2026-07-11T22:35:59.990Z",
+      "active": false
     },
     {
       "id": "bbae69cf3adc",
@@ -109326,8 +109372,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-07-08T22:55:00.494Z",
-      "dateUpdated": "2026-07-09T23:01:32.263Z",
-      "active": false
+      "dateUpdated": "2026-07-11T22:35:59.990Z",
+      "active": true
     },
     {
       "id": "14cd903da026",
@@ -109349,8 +109395,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-07-08T22:55:00.494Z",
-      "dateUpdated": "2026-07-10T22:49:24.055Z",
-      "active": true
+      "dateUpdated": "2026-07-11T22:35:59.990Z",
+      "active": false
     },
     {
       "id": "14e30d7b72fe",
@@ -109418,8 +109464,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-07-08T22:55:00.494Z",
-      "dateUpdated": "2026-07-08T22:55:00.494Z",
-      "active": true
+      "dateUpdated": "2026-07-11T22:35:59.990Z",
+      "active": false
     },
     {
       "id": "40bfe1d60807",
@@ -109464,8 +109510,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-07-08T22:55:00.494Z",
-      "dateUpdated": "2026-07-09T23:01:32.263Z",
-      "active": false
+      "dateUpdated": "2026-07-11T22:35:59.990Z",
+      "active": true
     },
     {
       "id": "64f3e75a48cb",
@@ -109533,8 +109579,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-07-08T22:55:00.494Z",
-      "dateUpdated": "2026-07-09T23:01:32.263Z",
-      "active": false
+      "dateUpdated": "2026-07-11T22:35:59.990Z",
+      "active": true
     },
     {
       "id": "8d265dfb69fb",
@@ -109579,8 +109625,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-07-08T22:55:00.494Z",
-      "dateUpdated": "2026-07-08T22:55:00.494Z",
-      "active": true
+      "dateUpdated": "2026-07-11T22:35:59.990Z",
+      "active": false
     },
     {
       "id": "ac45a848dd82",
@@ -109671,8 +109717,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-07-08T22:55:00.494Z",
-      "dateUpdated": "2026-07-08T22:55:00.494Z",
-      "active": true
+      "dateUpdated": "2026-07-11T22:35:59.990Z",
+      "active": false
     },
     {
       "id": "eace965790b8",
@@ -109740,8 +109786,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-07-07T22:50:16.282Z",
-      "dateUpdated": "2026-07-07T22:50:16.282Z",
-      "active": true
+      "dateUpdated": "2026-07-11T22:35:59.990Z",
+      "active": false
     },
     {
       "id": "2fa56eccf181",
@@ -109763,8 +109809,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-07-07T22:50:16.282Z",
-      "dateUpdated": "2026-07-10T22:49:24.055Z",
-      "active": true
+      "dateUpdated": "2026-07-11T22:35:59.990Z",
+      "active": false
     },
     {
       "id": "34c8f0de599d",
@@ -109832,8 +109878,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-07-07T22:50:16.282Z",
-      "dateUpdated": "2026-07-10T22:49:24.055Z",
-      "active": false
+      "dateUpdated": "2026-07-11T22:35:59.990Z",
+      "active": true
     },
     {
       "id": "66fc634cf7f9",
@@ -109924,8 +109970,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-07-07T22:50:16.282Z",
-      "dateUpdated": "2026-07-09T23:01:32.263Z",
-      "active": true
+      "dateUpdated": "2026-07-11T22:35:59.990Z",
+      "active": false
     },
     {
       "id": "865badc86aca",
@@ -109947,8 +109993,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-07-07T22:50:16.282Z",
-      "dateUpdated": "2026-07-09T23:01:32.263Z",
-      "active": false
+      "dateUpdated": "2026-07-11T22:35:59.990Z",
+      "active": true
     },
     {
       "id": "99bb7acd3b21",
@@ -110016,8 +110062,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-07-07T22:50:16.282Z",
-      "dateUpdated": "2026-07-10T22:49:24.055Z",
-      "active": true
+      "dateUpdated": "2026-07-11T22:35:59.990Z",
+      "active": false
     },
     {
       "id": "b668b13ada83",
@@ -110085,8 +110131,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-07-07T22:50:16.282Z",
-      "dateUpdated": "2026-07-09T23:01:32.263Z",
-      "active": false
+      "dateUpdated": "2026-07-11T22:35:59.990Z",
+      "active": true
     },
     {
       "id": "d6b690df046b",
@@ -110361,8 +110407,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-07-06T14:42:07.256Z",
-      "dateUpdated": "2026-07-10T22:49:24.055Z",
-      "active": true
+      "dateUpdated": "2026-07-11T22:35:59.990Z",
+      "active": false
     },
     {
       "id": "054b6194c8d0",
@@ -110476,8 +110522,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-07-06T14:42:07.256Z",
-      "dateUpdated": "2026-07-09T23:01:32.263Z",
-      "active": false
+      "dateUpdated": "2026-07-11T22:35:59.990Z",
+      "active": true
     },
     {
       "id": "0b5f80efb90f",
@@ -110545,8 +110591,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-07-06T14:42:07.256Z",
-      "dateUpdated": "2026-07-10T22:49:24.055Z",
-      "active": false
+      "dateUpdated": "2026-07-11T22:35:59.990Z",
+      "active": true
     },
     {
       "id": "0f59d54c2944",
@@ -110660,8 +110706,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-07-06T14:42:07.256Z",
-      "dateUpdated": "2026-07-08T22:55:00.494Z",
-      "active": true
+      "dateUpdated": "2026-07-11T22:35:59.990Z",
+      "active": false
     },
     {
       "id": "1489c98ec900",
@@ -110913,8 +110959,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-07-06T14:42:07.256Z",
-      "dateUpdated": "2026-07-10T22:49:24.055Z",
-      "active": false
+      "dateUpdated": "2026-07-11T22:35:59.990Z",
+      "active": true
     },
     {
       "id": "1a07c66395e1",
@@ -110959,8 +111005,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-07-06T14:42:07.256Z",
-      "dateUpdated": "2026-07-07T22:50:16.282Z",
-      "active": false
+      "dateUpdated": "2026-07-11T22:35:59.990Z",
+      "active": true
     },
     {
       "id": "1c4b82228866",
@@ -111189,8 +111235,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-07-06T14:42:07.256Z",
-      "dateUpdated": "2026-07-10T22:49:24.055Z",
-      "active": false
+      "dateUpdated": "2026-07-11T22:35:59.990Z",
+      "active": true
     },
     {
       "id": "2394cd340e1b",
@@ -111327,8 +111373,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-07-06T14:42:07.256Z",
-      "dateUpdated": "2026-07-06T14:42:07.256Z",
-      "active": true
+      "dateUpdated": "2026-07-11T22:35:59.990Z",
+      "active": false
     },
     {
       "id": "26b4b731c6f3",
@@ -111442,8 +111488,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-07-06T14:42:07.256Z",
-      "dateUpdated": "2026-07-09T23:01:32.263Z",
-      "active": true
+      "dateUpdated": "2026-07-11T22:35:59.990Z",
+      "active": false
     },
     {
       "id": "2a031b3971c3",
@@ -111465,8 +111511,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-07-06T14:42:07.256Z",
-      "dateUpdated": "2026-07-06T14:42:07.256Z",
-      "active": true
+      "dateUpdated": "2026-07-11T22:35:59.990Z",
+      "active": false
     },
     {
       "id": "2a13107e408f",
@@ -111626,8 +111672,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-07-06T14:42:07.256Z",
-      "dateUpdated": "2026-07-10T22:49:24.055Z",
-      "active": false
+      "dateUpdated": "2026-07-11T22:35:59.990Z",
+      "active": true
     },
     {
       "id": "302f101517ff",
@@ -111718,8 +111764,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-07-06T14:42:07.256Z",
-      "dateUpdated": "2026-07-06T14:42:07.256Z",
-      "active": true
+      "dateUpdated": "2026-07-11T22:35:59.990Z",
+      "active": false
     },
     {
       "id": "348435c3c70a",
@@ -112224,8 +112270,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-07-06T14:42:07.256Z",
-      "dateUpdated": "2026-07-09T23:01:32.263Z",
-      "active": false
+      "dateUpdated": "2026-07-11T22:35:59.990Z",
+      "active": true
     },
     {
       "id": "4cf5c92500ec",
@@ -112293,8 +112339,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-07-06T14:42:07.256Z",
-      "dateUpdated": "2026-07-10T22:49:24.055Z",
-      "active": false
+      "dateUpdated": "2026-07-11T22:35:59.990Z",
+      "active": true
     },
     {
       "id": "4f04e6ebf04d",
@@ -112316,8 +112362,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-07-06T14:42:07.256Z",
-      "dateUpdated": "2026-07-10T22:49:24.055Z",
-      "active": true
+      "dateUpdated": "2026-07-11T22:35:59.990Z",
+      "active": false
     },
     {
       "id": "4f567cb1dacd",
@@ -112753,8 +112799,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-07-06T14:42:07.256Z",
-      "dateUpdated": "2026-07-08T22:55:00.494Z",
-      "active": true
+      "dateUpdated": "2026-07-11T22:35:59.990Z",
+      "active": false
     },
     {
       "id": "5bb96e5e70c6",
@@ -113374,8 +113420,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-07-06T14:42:07.256Z",
-      "dateUpdated": "2026-07-06T14:42:07.256Z",
-      "active": true
+      "dateUpdated": "2026-07-11T22:35:59.990Z",
+      "active": false
     },
     {
       "id": "6b6d7b9f9ebd",
@@ -113489,8 +113535,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-07-06T14:42:07.256Z",
-      "dateUpdated": "2026-07-09T23:01:32.263Z",
-      "active": false
+      "dateUpdated": "2026-07-11T22:35:59.990Z",
+      "active": true
     },
     {
       "id": "6ff0484c482a",
@@ -113834,8 +113880,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-07-06T14:42:07.256Z",
-      "dateUpdated": "2026-07-09T23:01:32.263Z",
-      "active": true
+      "dateUpdated": "2026-07-11T22:35:59.990Z",
+      "active": false
     },
     {
       "id": "7b0b83d0d30b",
@@ -114087,8 +114133,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-07-06T14:42:07.256Z",
-      "dateUpdated": "2026-07-10T22:49:24.055Z",
-      "active": false
+      "dateUpdated": "2026-07-11T22:35:59.990Z",
+      "active": true
     },
     {
       "id": "8ae7e2ae4746",
@@ -114156,8 +114202,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-07-06T14:42:07.256Z",
-      "dateUpdated": "2026-07-09T23:01:32.263Z",
-      "active": true
+      "dateUpdated": "2026-07-11T22:35:59.990Z",
+      "active": false
     },
     {
       "id": "8b5e3c1c3fd1",
@@ -114225,8 +114271,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-07-06T14:42:07.256Z",
-      "dateUpdated": "2026-07-10T22:49:24.055Z",
-      "active": false
+      "dateUpdated": "2026-07-11T22:35:59.990Z",
+      "active": true
     },
     {
       "id": "8dc8f3cc7774",
@@ -114455,8 +114501,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-07-06T14:42:07.256Z",
-      "dateUpdated": "2026-07-07T22:50:16.282Z",
-      "active": false
+      "dateUpdated": "2026-07-11T22:35:59.990Z",
+      "active": true
     },
     {
       "id": "93a9622cb7cf",
@@ -114869,8 +114915,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-07-06T14:42:07.256Z",
-      "dateUpdated": "2026-07-10T22:49:24.055Z",
-      "active": true
+      "dateUpdated": "2026-07-11T22:35:59.990Z",
+      "active": false
     },
     {
       "id": "9faa3ba84580",
@@ -114892,8 +114938,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-07-06T14:42:07.256Z",
-      "dateUpdated": "2026-07-10T22:49:24.055Z",
-      "active": false
+      "dateUpdated": "2026-07-11T22:35:59.990Z",
+      "active": true
     },
     {
       "id": "a14b82f2731a",
@@ -115237,8 +115283,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-07-06T14:42:07.256Z",
-      "dateUpdated": "2026-07-10T22:49:24.055Z",
-      "active": false
+      "dateUpdated": "2026-07-11T22:35:59.990Z",
+      "active": true
     },
     {
       "id": "adabf135b458",
@@ -115306,8 +115352,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-07-06T14:42:07.256Z",
-      "dateUpdated": "2026-07-10T22:49:24.055Z",
-      "active": false
+      "dateUpdated": "2026-07-11T22:35:59.990Z",
+      "active": true
     },
     {
       "id": "afa660d96a60",
@@ -115927,8 +115973,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-07-06T14:42:07.256Z",
-      "dateUpdated": "2026-07-09T23:01:32.263Z",
-      "active": true
+      "dateUpdated": "2026-07-11T22:35:59.990Z",
+      "active": false
     },
     {
       "id": "c0639d25e68a",
@@ -115996,8 +116042,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-07-06T14:42:07.256Z",
-      "dateUpdated": "2026-07-08T22:55:00.494Z",
-      "active": true
+      "dateUpdated": "2026-07-11T22:35:59.990Z",
+      "active": false
     },
     {
       "id": "c57934601540",
@@ -117261,8 +117307,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-07-06T14:42:07.256Z",
-      "dateUpdated": "2026-07-10T22:49:24.055Z",
-      "active": true
+      "dateUpdated": "2026-07-11T22:35:59.990Z",
+      "active": false
     },
     {
       "id": "eefc2e1b6bd5",
@@ -117353,8 +117399,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-07-06T14:42:07.256Z",
-      "dateUpdated": "2026-07-09T23:01:32.263Z",
-      "active": true
+      "dateUpdated": "2026-07-11T22:35:59.990Z",
+      "active": false
     },
     {
       "id": "f15037b7bee8",
@@ -117445,8 +117491,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-07-06T14:42:07.256Z",
-      "dateUpdated": "2026-07-10T22:49:24.055Z",
-      "active": true
+      "dateUpdated": "2026-07-11T22:35:59.990Z",
+      "active": false
     },
     {
       "id": "f3b388e3bfaf",
@@ -157360,8 +157406,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-07-07T22:50:16.282Z",
-      "dateUpdated": "2026-07-10T22:49:24.055Z",
-      "active": false
+      "dateUpdated": "2026-07-11T22:35:59.990Z",
+      "active": true
     },
     {
       "id": "002a244e2af5",
