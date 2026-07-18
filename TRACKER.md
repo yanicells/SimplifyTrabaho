@@ -357,6 +357,12 @@ verify-registry`. Also recheck the live-but-0-PH boards listed below — several
 
 ## 🐞 Issues & blockers
 
+- 2026-07-19 — [resolved] Web build broke on `listings.json invalid:
+  listings[87].title must be a non-empty string` — a Workday board stub for
+  Accenture (empty title, board-root URL, no `externalPath`) had been merged
+  into `data/listings.json`. Pipeline now drops any posting with a blank title
+  before the PH filter (logged in the run summary); the one malformed row was
+  removed from the dataset. Commit `5cd67a6`.
 - 2026-06-11 — [resolved] Bare-PH token matched Vietnamese "Thành phố" (JS `\b` vs
   accented letters) → Bosch Vietnam interns leaked into the featured table. Fixed
   with Unicode lookaround boundaries in `filter.ts` + regression tests; dataset
