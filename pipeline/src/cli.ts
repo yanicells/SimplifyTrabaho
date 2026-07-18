@@ -140,8 +140,17 @@ async function main(): Promise<number> {
     return 1;
   }
 
-  const { kept, rejectedLocations } = filterPhilippines(allPostings);
-  console.log(`\nPH filter: kept ${kept.length} of ${allPostings.length} postings`);
+  // A blank title means the source row was malformed (e.g. a Workday board stub) —
+  // it can never render or validate, so it must not reach listings.json.
+  const titled = allPostings.filter((posting) => posting.title.trim() !== "");
+  if (titled.length < allPostings.length) {
+    const dropped = allPostings.filter((posting) => posting.title.trim() === "");
+    console.warn(`\nDropped ${dropped.length} posting(s) with empty title:`);
+    for (const posting of dropped) console.warn(`  - ${posting.company}: ${posting.url}`);
+  }
+
+  const { kept, rejectedLocations } = filterPhilippines(titled);
+  console.log(`\nPH filter: kept ${kept.length} of ${titled.length} postings`);
   if (rejectedLocations.length > 0) {
     const sample = rejectedLocations.slice(0, 15);
     console.log(`rejected location sample (${rejectedLocations.length} unique):`);
