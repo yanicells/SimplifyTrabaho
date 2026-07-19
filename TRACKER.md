@@ -425,6 +425,27 @@ All probed 2026-06-11 unless noted. Companies later verified under another slug/
 are marked ➜✅. PH corporates (banks, conglomerates, airlines, food) are mostly on
 Workday/custom portals — none of the guessed SmartRecruiters identifiers existed.
 
+**Round 6 (2026-07-19/20) — 17 new Tier-A companies landed** (found via targeted
+web search of the ATS hosted-board domains, verified with `verify-registry`):
+Payoneer gh:payoneer (5 PH) · Encora gh:encora10 (7) · Coda Payments lever:Coda
+(3 — note capital C; lever:coda 404s) · Lone Wolf lever:lwolf (2) · RWS lever:rws
+(1) · MySigrid workable:mysigrid (14) · YouTrip workable:youtrip (3) · Support
+Services Group PH workable:support-services-group-philippines-inc-2 (PH-HQ, 0
+today; board title names the PH entity) · Paired workable:pairedrecruiting (17) ·
+Datacom workable:datacom1 (5) · Pearl Talent workable:pearltalent · Austal
+Philippines manatal:austal-philippines (72) · Remote Employee PH
+manatal:remote-employee-ph (17) · Philippine Span Asia Carrier manatal:psacc
+(150) · Turnitin smartrecruiters:TurnitinLLC (11) · LILT ashby:lilt-production
+(3) · The Global Talent Co ashby:the-global-talent-co (1). Round-6 failures:
+Trustana gh · Thunder gh · Nimbyx smartrecruiters:NimbyxPhilippinesInc — all
+dead; Coinbase gh:coinbase (151 postings, 0 PH) and Betr lever:betr (11, 0 PH)
+join the periodic-recheck list. 2026-07-19 recheck of the standing live-but-0-PH
+list: still 0 PH across all (Deel 0 postings, Kraken 49, Reddit 198, OKX 316,
+Persona 26, Catena 3, Kittl 5, Pareto.AI 4, Flagright 34, Supabase 55, Zip 134,
+Payabli 11, dbt Labs 0, Helium 10 0, Lingaro 1, WTW 7, Time Doctor 3, InDebted 6,
+CTC BPO 0, Citadel Pacific still dead). Verified entries pruned from
+candidates.json; recheck entries kept.
+
 **Round 5 (2026-07-06) — 4 new Tier-A companies landed** (MR DIY Philippines 
 manatal:mr-diy-philippines · Sunnies manatal:sunnies-inc · HawodTech Solutions
 manatal:hawodtech · Pepper Money UK PH Branch manatal:pmb-uk-philippine-branch —

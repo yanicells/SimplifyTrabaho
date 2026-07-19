@@ -1,154 +1,280 @@
 {
   "candidates": [
     {
-      "name": "MR DIY Philippines",
-      "industry": "retail",
-      "type": "direct",
-      "tries": [{ "ats": "manatal", "slug": "mr-diy-philippines" }]
-    },
-    {
-      "name": "Sunnies",
-      "industry": "retail",
-      "type": "direct",
-      "tries": [{ "ats": "manatal", "slug": "sunnies-inc" }]
-    },
-    {
       "name": "Citadel Pacific",
       "industry": "conglomerate",
       "type": "direct",
-      "tries": [{ "ats": "manatal", "slug": "citadelpacific" }]
-    },
-    {
-      "name": "HawodTech Solutions",
-      "industry": "it-services",
-      "type": "direct",
-      "tries": [{ "ats": "manatal", "slug": "hawodtech" }]
-    },
-    {
-      "name": "Pepper Money UK - Philippines Branch",
-      "industry": "financial-services",
-      "type": "direct",
-      "tries": [{ "ats": "manatal", "slug": "pmb-uk-philippine-branch" }]
+      "tries": [
+        {
+          "ats": "manatal",
+          "slug": "citadelpacific"
+        }
+      ]
     },
     {
       "name": "CTC BPO",
       "industry": "outsourcing",
       "type": "agency",
-      "tries": [{ "ats": "manatal", "slug": "ctc-bpo-inc-2" }]
+      "tries": [
+        {
+          "ats": "manatal",
+          "slug": "ctc-bpo-inc-2"
+        }
+      ]
     },
     {
       "name": "Deel",
       "industry": "hr-tech",
       "type": "direct",
-      "tries": [{ "ats": "ashby", "slug": "deel" }]
+      "tries": [
+        {
+          "ats": "ashby",
+          "slug": "deel"
+        }
+      ]
     },
     {
       "name": "Kraken",
       "industry": "fintech",
       "type": "direct",
-      "tries": [{ "ats": "ashby", "slug": "kraken.com" }]
+      "tries": [
+        {
+          "ats": "ashby",
+          "slug": "kraken.com"
+        }
+      ]
     },
     {
       "name": "Reddit",
       "industry": "saas",
       "type": "direct",
-      "tries": [{ "ats": "greenhouse", "slug": "reddit" }]
+      "tries": [
+        {
+          "ats": "greenhouse",
+          "slug": "reddit"
+        }
+      ]
     },
     {
       "name": "OKX",
       "industry": "fintech",
       "type": "direct",
-      "tries": [{ "ats": "greenhouse", "slug": "okx" }]
-    },
-    {
-      "name": "Pearl Talent",
-      "industry": "recruitment",
-      "type": "agency",
-      "tries": [{ "ats": "ashby", "slug": "pearl" }]
+      "tries": [
+        {
+          "ats": "greenhouse",
+          "slug": "okx"
+        }
+      ]
     },
     {
       "name": "Persona",
       "industry": "staffing",
       "type": "agency",
-      "tries": [{ "ats": "ashby", "slug": "persona" }]
+      "tries": [
+        {
+          "ats": "ashby",
+          "slug": "persona"
+        }
+      ]
     },
     {
       "name": "Catena",
       "industry": "recruitment",
       "type": "agency",
-      "tries": [{ "ats": "ashby", "slug": "catena" }]
+      "tries": [
+        {
+          "ats": "ashby",
+          "slug": "catena"
+        }
+      ]
     },
     {
       "name": "Kittl",
       "industry": "saas",
       "type": "direct",
-      "tries": [{ "ats": "ashby", "slug": "kittl" }]
+      "tries": [
+        {
+          "ats": "ashby",
+          "slug": "kittl"
+        }
+      ]
     },
     {
       "name": "Pareto.AI",
       "industry": "ai-data",
       "type": "direct",
-      "tries": [{ "ats": "ashby", "slug": "pareto-ai" }]
+      "tries": [
+        {
+          "ats": "ashby",
+          "slug": "pareto-ai"
+        }
+      ]
     },
     {
       "name": "Flagright",
       "industry": "fintech",
       "type": "direct",
-      "tries": [{ "ats": "ashby", "slug": "flagright.com" }]
+      "tries": [
+        {
+          "ats": "ashby",
+          "slug": "flagright.com"
+        }
+      ]
     },
     {
       "name": "Supabase",
       "industry": "saas",
       "type": "direct",
-      "tries": [{ "ats": "ashby", "slug": "supabase" }]
+      "tries": [
+        {
+          "ats": "ashby",
+          "slug": "supabase"
+        }
+      ]
     },
     {
       "name": "Zip",
       "industry": "saas",
       "type": "direct",
-      "tries": [{ "ats": "ashby", "slug": "zip" }]
+      "tries": [
+        {
+          "ats": "ashby",
+          "slug": "zip"
+        }
+      ]
     },
     {
       "name": "Payabli",
       "industry": "fintech",
       "type": "direct",
-      "tries": [{ "ats": "ashby", "slug": "payabli" }]
+      "tries": [
+        {
+          "ats": "ashby",
+          "slug": "payabli"
+        }
+      ]
     },
     {
       "name": "dbt Labs",
       "industry": "ai-data",
       "type": "direct",
-      "tries": [{ "ats": "greenhouse", "slug": "dbtlabsinc" }]
+      "tries": [
+        {
+          "ats": "greenhouse",
+          "slug": "dbtlabsinc"
+        }
+      ]
     },
     {
       "name": "Helium 10",
       "industry": "saas",
       "type": "direct",
-      "tries": [{ "ats": "greenhouse", "slug": "helium10" }]
+      "tries": [
+        {
+          "ats": "greenhouse",
+          "slug": "helium10"
+        }
+      ]
     },
     {
       "name": "Lingaro",
       "industry": "it-services",
       "type": "direct",
-      "tries": [{ "ats": "smartrecruiters", "slug": "Lingaro" }]
+      "tries": [
+        {
+          "ats": "smartrecruiters",
+          "slug": "Lingaro"
+        }
+      ]
     },
     {
       "name": "WTW",
       "industry": "insurance",
       "type": "direct",
-      "tries": [{ "ats": "smartrecruiters", "slug": "WTW" }]
+      "tries": [
+        {
+          "ats": "smartrecruiters",
+          "slug": "WTW"
+        }
+      ]
     },
     {
       "name": "Time Doctor",
       "industry": "saas",
       "type": "direct",
-      "tries": [{ "ats": "recruitee", "slug": "timedoctor" }]
+      "tries": [
+        {
+          "ats": "recruitee",
+          "slug": "timedoctor"
+        }
+      ]
     },
     {
       "name": "InDebted",
       "industry": "fintech",
       "type": "direct",
-      "tries": [{ "ats": "lever", "slug": "indebted" }]
+      "tries": [
+        {
+          "ats": "lever",
+          "slug": "indebted"
+        }
+      ]
+    },
+    {
+      "name": "Coinbase",
+      "industry": "fintech",
+      "type": "direct",
+      "tries": [
+        {
+          "ats": "greenhouse",
+          "slug": "coinbase"
+        }
+      ]
+    },
+    {
+      "name": "Trustana",
+      "industry": "saas",
+      "type": "direct",
+      "tries": [
+        {
+          "ats": "greenhouse",
+          "slug": "trustana"
+        }
+      ]
+    },
+    {
+      "name": "Thunder",
+      "industry": "it-services",
+      "type": "direct",
+      "tries": [
+        {
+          "ats": "greenhouse",
+          "slug": "thunder"
+        }
+      ]
+    },
+    {
+      "name": "Betr",
+      "industry": "gaming",
+      "type": "direct",
+      "tries": [
+        {
+          "ats": "lever",
+          "slug": "betr"
+        }
+      ]
+    },
+    {
+      "name": "Nimbyx Philippines",
+      "industry": "saas",
+      "type": "direct",
+      "phHq": true,
+      "tries": [
+        {
+          "ats": "smartrecruiters",
+          "slug": "NimbyxPhilippinesInc"
+        }
+      ]
     }
   ]
 }
