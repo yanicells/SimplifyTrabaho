@@ -1,8 +1,8 @@
 import { loadJobs } from "@/lib/listings";
+import { SITE_URL } from "@/lib/site";
 
 export const dynamic = "force-static";
 
-const SITE_URL = "https://simplifytrabaho.ycells.com";
 const FEED_SIZE = 100;
 
 function escapeXml(s: string): string {

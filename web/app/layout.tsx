@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
+import { REPO_URL, SITE_URL } from "@/lib/site";
 import "./globals.css";
 
 const inter = Inter({
@@ -8,7 +9,6 @@ const inter = Inter({
   variable: "--font-inter",
 });
 
-const SITE_URL = "https://simplifytrabaho.ycells.com";
 const TITLE = "SimplifyTrabaho — jobs at Philippine companies";
 const DESCRIPTION =
   "A free, open, automatically updated list of jobs at Philippine companies — internships and entry-level roles featured. Always links to official application pages.";
@@ -81,7 +81,7 @@ const JSON_LD = {
       name: "SimplifyTrabaho job listings",
       description:
         "Open dataset of job listings at Philippine companies, collected daily from public ATS APIs that companies intentionally publish. Facts only: company, title, location, official application URL, dates.",
-      url: "https://github.com/yanicells/SimplifyTrabaho",
+      url: REPO_URL,
       license: "https://creativecommons.org/publicdomain/zero/1.0/",
       isAccessibleForFree: true,
       creator: { "@type": "Organization", name: "SimplifyTrabaho" },

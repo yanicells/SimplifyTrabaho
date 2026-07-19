@@ -107,7 +107,8 @@ async function main(): Promise<number> {
     if (result.ok) {
       console.log(`  OK    ${label} — ${result.postings.length} postings`);
       allPostings.push(...result.postings);
-      okByName.set(company.name, (okByName.get(company.name) ?? true) && true);
+      // Keep an earlier board's failure sticky for multi-board companies.
+      okByName.set(company.name, okByName.get(company.name) ?? true);
       delete fetchState.deadSlugStreaks[stateKey];
       succeeded += 1;
     } else {

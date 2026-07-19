@@ -7,6 +7,7 @@ import path from "node:path";
 import { interleaveByCompany } from "../../pipeline/src/feed";
 import { isPhilippineLocation } from "../../pipeline/src/filter";
 import {
+  ATS_SOURCES,
   METRO_TAGS,
   type CompanyType,
   type JobFunction,
@@ -66,18 +67,6 @@ const FUNCTIONS: readonly JobFunction[] = [
   "retail",
   "construction",
   "other",
-];
-const SOURCES = [
-  "greenhouse",
-  "lever",
-  "ashby",
-  "workable",
-  "smartrecruiters",
-  "recruitee",
-  "bamboohr",
-  "breezy",
-  "manatal",
-  "workday",
 ];
 const COMPANY_TYPES: readonly CompanyType[] = ["direct", "agency"];
 
@@ -154,7 +143,7 @@ function parseListing(raw: unknown, index: number): Listing {
     companyType: requireEnum(obj, where, "companyType", COMPANY_TYPES),
     metro: metro as MetroTag[],
     url: requireString(obj, where, "url"),
-    source: requireEnum(obj, where, "source", SOURCES) as Listing["source"],
+    source: requireEnum(obj, where, "source", ATS_SOURCES),
     employmentType: requireEnum(obj, where, "employmentType", [
       "full-time",
       "part-time",

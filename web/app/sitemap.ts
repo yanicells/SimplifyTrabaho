@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { loadJobs } from "@/lib/listings";
+import { SITE_URL } from "@/lib/site";
 
 export const dynamic = "force-static";
 
@@ -10,7 +11,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const { updatedAt } = loadJobs();
   return [
     {
-      url: "https://simplifytrabaho.ycells.com",
+      url: SITE_URL,
       lastModified: updatedAt,
       changeFrequency: "daily",
       priority: 1,
