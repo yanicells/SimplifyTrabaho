@@ -1,3 +1,4 @@
+import { interleaveByCompany } from "./feed.js";
 import type { Listing } from "./types.js";
 
 // README.md generator (SPEC §11). The README is fully generated — the header
@@ -45,16 +46,21 @@ export function generateReadme({
   const nowMs = Date.parse(now ?? updatedAt);
   const activeCount = listings.filter((l) => l.active).length;
 
-  const featured = listings
-    .filter(
-      (l) =>
-        l.active &&
-        l.companyType === "direct" &&
-        (l.level === "internship" || l.level === "entry") &&
-        nowMs - Date.parse(l.datePosted) <= FEATURED_WINDOW_DAYS * DAY_MS,
-    )
-    .sort((a, b) => b.datePosted.localeCompare(a.datePosted))
-    .slice(0, FEATURED_CAP);
+  // Interleave before capping so the 200 featured rows span many companies
+  // instead of one bulk poster's same-day block.
+  const featured = interleaveByCompany(
+    listings
+      .filter(
+        (l) =>
+          l.active &&
+          l.companyType === "direct" &&
+          (l.level === "internship" || l.level === "entry") &&
+          nowMs - Date.parse(l.datePosted) <= FEATURED_WINDOW_DAYS * DAY_MS,
+      )
+      .sort((a, b) => b.datePosted.localeCompare(a.datePosted)),
+    (l) => l.datePosted.slice(0, 10),
+    (l) => l.company,
+  ).slice(0, FEATURED_CAP);
 
   const rows = featured.map((l) =>
     [

@@ -250,6 +250,25 @@ describe("toJobs", () => {
     ]);
   });
 
+  it("interleaves companies within a same-day bucket (no long single-company runs)", () => {
+    const parsed = parseListingsFile(
+      file([
+        listing({ company: "Accenture", url: "https://x.co/a1", datePosted: "2026-07-06T00:00:00Z" }),
+        listing({ company: "Accenture", url: "https://x.co/a2", datePosted: "2026-07-06T00:00:00Z" }),
+        listing({ company: "Accenture", url: "https://x.co/a3", datePosted: "2026-07-06T00:00:00Z" }),
+        listing({ company: "GCash", url: "https://x.co/g1", datePosted: "2026-07-06T00:00:00Z" }),
+        listing({ company: "Xendit", url: "https://x.co/x1", datePosted: "2026-07-06T00:00:00Z" }),
+      ]),
+    );
+    expect(toJobs(parsed).jobs.map((j) => j.company)).toEqual([
+      "Accenture",
+      "GCash",
+      "Xendit",
+      "Accenture",
+      "Accenture",
+    ]);
+  });
+
   it("orders Philippine locations first for multi-country roles", () => {
     const parsed = parseListingsFile(
       file([

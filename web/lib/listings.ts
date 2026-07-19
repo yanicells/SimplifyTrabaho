@@ -4,6 +4,7 @@
 
 import { readFileSync } from "node:fs";
 import path from "node:path";
+import { interleaveByCompany } from "../../pipeline/src/feed";
 import { isPhilippineLocation } from "../../pipeline/src/filter";
 import {
   METRO_TAGS,
@@ -188,9 +189,13 @@ export function parseListingsFile(raw: unknown): ListingsFile {
   };
 }
 
-/** Active listings only, trimmed to UI fields, newest first (then company asc). */
+/**
+ * Active listings only, trimmed to UI fields, newest day first. Within a day,
+ * companies are interleaved (round-robin) so a bulk poster can't occupy hundreds
+ * of consecutive rows — first-seen days put thousands of listings on one date.
+ */
 export function toJobs(file: ListingsFile): JobsPayload {
-  const jobs = file.listings
+  const sorted = file.listings
     .filter((l) => l.active)
     .sort(
       (a, b) => b.datePosted.localeCompare(a.datePosted) || a.company.localeCompare(b.company),
@@ -217,6 +222,11 @@ export function toJobs(file: ListingsFile): JobsPayload {
       }
       return job;
     });
+  const jobs = interleaveByCompany(
+    sorted,
+    (job) => job.posted,
+    (job) => job.company,
+  );
   return { updatedAt: file.updatedAt, jobs };
 }
 
