@@ -1,31 +1,14 @@
 import { JobBoard } from "@/components/job-board";
 import { loadJobs } from "@/lib/listings";
+import { REPO_URL } from "@/lib/site";
 
-const REPO_URL = "https://github.com/yanicells/SimplifyTrabaho";
-
-const MONTHS = [
-  "Jan",
-  "Feb",
-  "Mar",
-  "Apr",
-  "May",
-  "Jun",
-  "Jul",
-  "Aug",
-  "Sep",
-  "Oct",
-  "Nov",
-  "Dec",
-];
-
-function formatDateUtc(iso: string): string {
-  const d = new Date(iso);
-  return `${MONTHS[d.getUTCMonth()]} ${d.getUTCDate()}, ${d.getUTCFullYear()}`;
-}
-
-function thousands(n: number): string {
-  return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-}
+// UTC-pinned so the build machine's timezone can't shift the stamp.
+const DATE_FORMAT = new Intl.DateTimeFormat("en-US", {
+  month: "short",
+  day: "numeric",
+  year: "numeric",
+  timeZone: "UTC",
+});
 
 export default function Home() {
   const { updatedAt, jobs } = loadJobs();
@@ -70,7 +53,8 @@ export default function Home() {
           </p>
 
           <p className="mt-8 border-y border-line py-3 text-xs font-medium uppercase tracking-wider text-faint">
-            Updated {formatDateUtc(updatedAt)} · {thousands(jobs.length)} open roles ·{" "}
+            Updated {DATE_FORMAT.format(new Date(updatedAt))} ·{" "}
+            {jobs.length.toLocaleString("en-US")} open roles ·{" "}
             {companyCount} companies
           </p>
         </header>
@@ -87,9 +71,10 @@ export default function Home() {
           <p className="mt-3 max-w-xl text-sm leading-relaxed text-paper/70">
             Every listing comes straight from the company&apos;s official careers feed
             — public APIs that companies intentionally publish (Greenhouse, Lever,
-            Ashby, Workable, SmartRecruiters, Recruitee, BambooHR, Breezy, Manatal).
-            We store facts only and always send you to the official application
-            page. No accounts, no cookies, no middlemen.
+            Ashby, Workable, SmartRecruiters, Recruitee, BambooHR, Breezy, Manatal)
+            and company Workday careers sites. We store facts only and always send
+            you to the official application page. No accounts, no cookies, no
+            middlemen.
           </p>
           <p className="mt-5 text-sm text-paper/70">
             <a

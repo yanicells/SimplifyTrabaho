@@ -109,9 +109,10 @@ built for the PH market.
 
 Listings come exclusively from public ATS APIs (Greenhouse, Lever, Ashby, Workable,
 SmartRecruiters, Recruitee, BambooHR, Breezy, Manatal) that companies intentionally
-publish for their own careers pages. We store facts only — company, role title,
-location, link — and always send you to the company's official application page. No
-job boards are scraped. Ever. Data refreshes once daily.
+publish for their own careers pages, plus company Workday careers sites fetched
+under strict politeness guardrails ([SPEC §17](docs/SPEC.md)). We store facts only —
+company, role title, location, link — and always send you to the company's official
+application page. No job boards are scraped. Ever. Data refreshes once daily.
 
 ## Featured: internships & entry-level (last ${FEATURED_WINDOW_DAYS} days)
 
