@@ -569,6 +569,17 @@ not a real employer. Kalibrr — job-board company, fetching prohibited by rule 
 
 ## 📔 Decision log
 
+- 2026-07-20 — Feed ordering: web board + README featured table now interleave
+  companies round-robin inside each posted-day bucket (`pipeline/src/feed.ts`,
+  shared by `web/lib/listings.ts` toJobs and `readme.ts`). Reason: datePosted-desc
+  put bulk posters in unbroken blocks (Accenture: 587 consecutive rows on the
+  2026-07-06 first-seen bucket) — bad browse UX. Day-level recency is preserved
+  and output is deterministic. README featured interleaves before the 200 cap so
+  the table spans many companies.
+- 2026-07-20 — Site identity constants centralized in `web/lib/site.ts`
+  (SITE_URL/REPO_URL); web listing validation reuses ATS_SOURCES from pipeline
+  types instead of a hand-copied list. Footer/README source copy now credits
+  Workday careers sites (was missing despite 15 Workday companies).
 - 2026-06-11 — Scope: all jobs, all levels, all industries at tracked companies;
   internships+entry featured. (User decision; future = ROADMAP.)
 - 2026-06-11 — Sources: public ATS APIs ONLY for v1. No job boards ever (ToS). No
