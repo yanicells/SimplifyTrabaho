@@ -42,6 +42,17 @@ body {
   letter-spacing: -0.01em;
 }
 
+/* PH traffic is mobile-heavy: kill the double-tap zoom delay on every control
+   and keep the tap flash subtle rather than the OS default blue block. */
+button,
+a,
+input,
+select,
+[role="option"] {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: rgb(0 0 0 / 0.06);
+}
+
 /* Off-screen rows skip layout and paint so thousands of rows stay smooth. */
 .job-row {
   content-visibility: auto;

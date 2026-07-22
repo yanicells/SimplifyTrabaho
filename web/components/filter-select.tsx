@@ -30,7 +30,7 @@ export function FilterSelect({
   onChange: (value: string) => void;
   /** Applied filter — polarity-flips the trigger to ink. */
   active?: boolean;
-  /** Compact h-9 trigger (tracker rows). */
+  /** Compact 36px trigger — matches the rail's chips (filter panel, tracker rows). */
   dense?: boolean;
   menuAlign?: "left" | "right";
 }) {
@@ -111,8 +111,8 @@ export function FilterSelect({
             openList();
           }
         }}
-        className={`flex w-full items-center justify-between gap-2 rounded-full text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-ink ${
-          dense ? "h-9 pl-3 pr-2.5" : "h-11 pl-4 pr-3"
+        className={`flex w-full items-center justify-between gap-2 rounded-full text-sm font-medium transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-ink ${
+          dense ? "h-9 pl-3.5 pr-2.5" : "h-11 pl-4 pr-3"
         } ${active ? "bg-ink text-paper" : "bg-soft text-ink hover:bg-press"}`}
       >
         <span className="truncate">{selected?.label}</span>
@@ -160,6 +160,8 @@ export function FilterSelect({
                 aria-selected={isSelected}
                 tabIndex={i === focusIndex ? 0 : -1}
                 onClick={() => pick(i)}
+                // Roving focus is moved programmatically, so this stays :focus —
+                // :focus-visible would drop the highlight after a mouse open.
                 className={`flex w-full items-center justify-between gap-3 rounded-xl px-3 py-2 text-left text-sm transition-colors hover:bg-soft focus:bg-soft focus:outline-none ${
                   isSelected ? "font-semibold" : "font-normal"
                 }`}

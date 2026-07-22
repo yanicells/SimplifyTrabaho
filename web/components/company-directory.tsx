@@ -68,7 +68,9 @@ export function CompanyDirectory({
       {/* Same caption shape as the board: count left, sort state right. */}
       <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 border-b border-line pb-3">
         <p aria-live="polite" className="text-sm text-faint">
-          <span className="font-semibold text-ink">{shown.length.toLocaleString("en-US")}</span>{" "}
+          <span className="font-semibold tabular-nums text-ink">
+            {shown.length.toLocaleString("en-US")}
+          </span>{" "}
           {shown.length === 1 ? "company" : "companies"} with open roles
         </p>
         <p className="text-sm text-faint">
@@ -84,7 +86,7 @@ export function CompanyDirectory({
             <button
               type="button"
               onClick={onClearQuery}
-              className="font-medium text-ink underline underline-offset-2 hover:text-faint"
+              className="font-medium text-ink underline underline-offset-2 hover:text-faint focus:outline-none focus-visible:ring-2 focus-visible:ring-ink"
             >
               browse all companies
             </button>
@@ -99,7 +101,7 @@ export function CompanyDirectory({
                 type="button"
                 onClick={() => onSelect(c.name)}
                 aria-label={`See ${c.count === 1 ? "1 open role" : `${c.count} open roles`} at ${c.name}`}
-                className="group flex w-full items-center gap-3 py-4 text-left"
+                className="group flex w-full items-center gap-3 rounded-lg py-4 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-ink"
               >
                 <div className="min-w-0 flex-1">
                   <p className="text-[16px] font-semibold leading-snug group-hover:underline group-hover:underline-offset-2">
@@ -114,7 +116,7 @@ export function CompanyDirectory({
                     <span>{c.type === "direct" ? "Direct employer" : "Agency"}</span>
                   </p>
                 </div>
-                <span className="shrink-0 text-sm font-semibold text-ink">
+                <span className="shrink-0 text-sm font-semibold tabular-nums text-ink">
                   {c.count.toLocaleString("en-US")}{" "}
                   <span className="font-normal text-faint">{c.count === 1 ? "role" : "roles"}</span>
                 </span>

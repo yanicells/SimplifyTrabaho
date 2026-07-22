@@ -40,12 +40,15 @@ export function MyJobs({
 
   if (tracker.jobs.length === 0) {
     return (
-      <div className="rounded-2xl bg-soft px-6 py-16 text-center">
-        <p className="font-display text-lg font-bold">No saved jobs yet</p>
-        <p className="mx-auto mt-2 max-w-sm text-sm leading-relaxed text-faint">
-          Tap the bookmark on any role to save it here, then track your progress
-          from applied to offer. Everything stays on this device.
-        </p>
+      <div className="border-b border-line pb-3">
+        <p className="text-sm text-faint">0 jobs tracked · saved on this device only</p>
+        <div className="py-16 text-center">
+          <p className="font-display text-lg font-bold">No saved jobs yet</p>
+          <p className="mx-auto mt-2 max-w-sm text-sm leading-relaxed text-faint">
+            Tap the bookmark on any role to save it here, then track your progress
+            from applied to offer. Everything stays on this device.
+          </p>
+        </div>
       </div>
     );
   }
@@ -55,21 +58,22 @@ export function MyJobs({
 
   return (
     <div>
-      <div className="flex items-baseline justify-between gap-3">
+      {/* Same caption shape as the board: count left, actions right, one hairline. */}
+      <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 border-b border-line pb-3">
         <p className="text-sm text-faint">
-          <span className="font-semibold text-ink">{jobs.length}</span>{" "}
+          <span className="font-semibold tabular-nums text-ink">{jobs.length}</span>{" "}
           {jobs.length === 1 ? "job" : "jobs"} tracked · saved on this device only
         </p>
         <button
           type="button"
           onClick={download}
-          className="shrink-0 text-sm font-medium text-ink underline underline-offset-2 hover:text-faint"
+          className="shrink-0 text-sm font-medium text-ink underline underline-offset-2 hover:text-faint focus:outline-none focus-visible:ring-2 focus-visible:ring-ink"
         >
           Export JSON
         </button>
       </div>
 
-      <ul role="list" className="mt-1 divide-y divide-line border-t border-line">
+      <ul role="list" className="divide-y divide-line">
         {jobs.map((job) => {
           const gone = !liveUrls.has(job.url);
           return (
@@ -113,7 +117,7 @@ export function MyJobs({
                   type="button"
                   onClick={() => onRemove(job.url)}
                   aria-label={`Remove ${job.title} at ${job.company} from saved jobs`}
-                  className="flex h-9 w-9 items-center justify-center rounded-full bg-soft text-faint transition-colors hover:bg-press hover:text-ink"
+                  className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-soft text-faint transition-colors hover:bg-press hover:text-ink focus:outline-none focus-visible:ring-2 focus-visible:ring-ink"
                 >
                   <svg viewBox="0 0 16 16" fill="none" aria-hidden className="h-4 w-4">
                     <path

@@ -354,11 +354,14 @@ export function JobBoard({
     return () => observer.disconnect();
   }, [hasMore, visible, view]);
 
+  // One control height (36px) across the whole rail — chips, selects, buttons
+  // and text fields all line up on it.
+  // Height is set per use so the primary search can sit one step taller.
   const fieldClass =
-    "h-11 rounded-lg bg-soft px-3 text-sm text-ink placeholder:text-mute focus:outline-none focus:ring-2 focus:ring-ink";
+    "rounded-lg bg-soft px-3.5 text-sm text-ink placeholder:text-mute focus:outline-none focus-visible:ring-2 focus-visible:ring-ink";
 
   const chipClass = (active: boolean) =>
-    `shrink-0 rounded-full px-3.5 py-2 text-sm font-medium transition-colors ${
+    `inline-flex h-9 shrink-0 items-center rounded-full px-3.5 text-sm font-medium transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-ink ${
       active ? "bg-ink text-paper" : "bg-soft text-ink hover:bg-press"
     }`;
 
@@ -372,16 +375,19 @@ export function JobBoard({
         {/* Search — full-width, the rail's primary control. One box for every
             view: on the board it matches company+title, in the directory it
             matches company names. */}
-        <div className="pt-4">
+        <div className="pt-3">
           <input
             type="search"
+            name="q"
             value={filters.query}
             onChange={(e) => patch({ query: e.target.value })}
+            autoComplete="off"
+            spellCheck={false}
             placeholder={
               view === "companies" ? "Search companies…" : "Search roles or companies…"
             }
             aria-label={view === "companies" ? "Search companies" : "Search roles or companies"}
-            className={`${fieldClass} w-full`}
+            className={`${fieldClass} h-10 w-full`}
           />
         </div>
 
@@ -446,11 +452,7 @@ export function JobBoard({
                 aria-expanded={panelOpen}
                 aria-controls="advanced-filters"
                 onClick={() => setPanelOpen((open) => !open)}
-                className={`flex h-9 shrink-0 items-center gap-1.5 rounded-full px-3.5 text-sm font-medium transition-colors ${
-                  panelOpen || advancedCount > 0
-                    ? "bg-ink text-paper"
-                    : "bg-soft text-ink hover:bg-press"
-                }`}
+                className={`${chipClass(panelOpen || advancedCount > 0)} gap-1.5`}
               >
                 Filters
                 {advancedCount > 0 && (
@@ -478,9 +480,7 @@ export function JobBoard({
               type="button"
               aria-pressed={view === "companies"}
               onClick={() => setView(view === "companies" ? "board" : "companies")}
-              className={`flex h-9 shrink-0 items-center gap-1.5 rounded-full px-3.5 text-sm font-medium transition-colors ${
-                view === "companies" ? "bg-ink text-paper" : "bg-soft text-ink hover:bg-press"
-              }`}
+              className={`${chipClass(view === "companies")} gap-1.5`}
             >
               <BuildingIcon />
               <span className="hidden sm:inline">Companies</span>
@@ -489,9 +489,7 @@ export function JobBoard({
               type="button"
               aria-pressed={view === "tracked"}
               onClick={() => setView(view === "tracked" ? "board" : "tracked")}
-              className={`flex h-9 shrink-0 items-center gap-1.5 rounded-full px-3.5 text-sm font-medium transition-colors ${
-                view === "tracked" ? "bg-ink text-paper" : "bg-soft text-ink hover:bg-press"
-              }`}
+              className={`${chipClass(view === "tracked")} gap-1.5`}
             >
               <BookmarkIcon filled={view === "tracked"} />
               <span className="hidden sm:inline">My jobs</span>
@@ -524,7 +522,7 @@ export function JobBoard({
                 <div
                   role="group"
                   aria-label="Filter by function (multi-select)"
-                  className="mt-1.5 flex flex-wrap gap-1.5"
+                  className="mt-2 flex flex-wrap gap-2"
                 >
                   {SELECTABLE_FUNCTIONS.map((fn) => {
                     const active = fnSet.has(fn);
@@ -534,9 +532,7 @@ export function JobBoard({
                         type="button"
                         aria-pressed={active}
                         onClick={() => patch({ fns: toggle(fns, fn) })}
-                        className={`rounded-full px-2.5 py-1 text-[13px] font-medium transition-colors ${
-                          active ? "bg-ink text-paper" : "bg-soft text-ink hover:bg-press"
-                        }`}
+                        className={chipClass(active)}
                       >
                         {FUNCTION_LABELS[fn]}
                       </button>
@@ -544,9 +540,13 @@ export function JobBoard({
                   })}
                 </div>
 
-                <div className="mt-3 grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-5">
+                <p className="mt-4 text-xs font-medium uppercase tracking-wider text-faint">
+                  Setup, place &amp; employer
+                </p>
+                <div className="mt-2 grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-5">
                   <FilterSelect
                     label="Filter by work setup"
+                    dense
                     value={setup}
                     active={setup !== "all"}
                     onChange={(v) => patch({ setup: v as Filters["setup"] })}
@@ -557,6 +557,7 @@ export function JobBoard({
                   />
                   <FilterSelect
                     label="Filter by metro area"
+                    dense
                     value={metro}
                     active={metro !== "all"}
                     onChange={(v) => patch({ metro: v as Filters["metro"] })}
@@ -567,6 +568,7 @@ export function JobBoard({
                   />
                   <FilterSelect
                     label="Filter by company industry"
+                    dense
                     value={industry}
                     active={industry !== "all"}
                     onChange={(v) => patch({ industry: v })}
@@ -577,6 +579,7 @@ export function JobBoard({
                   />
                   <FilterSelect
                     label="Filter by employer type"
+                    dense
                     value={employerType}
                     active={employerType !== "all"}
                     onChange={(v) => patch({ type: v as Filters["type"] })}
@@ -588,11 +591,14 @@ export function JobBoard({
                   />
                   <input
                     type="text"
+                    name="location"
                     value={filters.location}
                     onChange={(e) => patch({ location: e.target.value })}
-                    placeholder="Location, e.g. Cebu"
+                    autoComplete="off"
+                    spellCheck={false}
+                    placeholder="Location, e.g. Cebu…"
                     aria-label="Filter by location"
-                    className={`${fieldClass} col-span-2 sm:col-span-1`}
+                    className={`${fieldClass} h-9 col-span-2 sm:col-span-1`}
                   />
                 </div>
               </div>
@@ -659,15 +665,15 @@ export function JobBoard({
               so the count isn't stated twice on the page. */}
           <div
             className={`flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 border-b border-line pb-3 ${
-              company !== "" ? "mt-3" : "mt-5"
+              company !== "" ? "mt-3" : "mt-4"
             }`}
           >
             <p aria-live="polite" className="text-sm text-faint">
-              <span className="font-semibold text-ink">
+              <span className="font-semibold tabular-nums text-ink">
                 {filtered.length.toLocaleString("en-US")}
               </span>{" "}
               {filtered.length === 1 ? "role" : "roles"} ·{" "}
-              <span className="font-semibold text-ink">{shownCompanies}</span>{" "}
+              <span className="font-semibold tabular-nums text-ink">{shownCompanies}</span>{" "}
               {shownCompanies === 1 ? "company" : "companies"}
             </p>
             <span className="flex flex-wrap items-baseline gap-x-4 gap-y-1 text-sm">
@@ -676,14 +682,14 @@ export function JobBoard({
                   <button
                     type="button"
                     onClick={copyLink}
-                    className="font-medium text-ink underline underline-offset-2 hover:text-faint"
+                    className="font-medium text-ink underline underline-offset-2 hover:text-faint focus:outline-none focus-visible:ring-2 focus-visible:ring-ink"
                   >
                     {copied ? "Link copied" : "Copy link"}
                   </button>
                   <button
                     type="button"
                     onClick={reset}
-                    className="font-medium text-ink underline underline-offset-2 hover:text-faint"
+                    className="font-medium text-ink underline underline-offset-2 hover:text-faint focus:outline-none focus-visible:ring-2 focus-visible:ring-ink"
                   >
                     Reset filters
                   </button>
@@ -769,7 +775,7 @@ export function JobBoard({
                           : `Save ${job.title} at ${job.company}`
                       }
                       onClick={() => toggleTracked(job)}
-                      className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full transition-colors ${
+                      className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-ink ${
                         saved ? "bg-ink text-paper" : "bg-soft text-faint hover:bg-press hover:text-ink"
                       }`}
                     >
@@ -780,7 +786,7 @@ export function JobBoard({
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label={`Apply to ${job.title} at ${job.company} (opens the official application page)`}
-                      className="shrink-0 rounded-full bg-ink px-4 py-2 text-sm font-medium text-paper transition-opacity hover:opacity-80"
+                      className="shrink-0 rounded-full bg-ink px-4 py-2 text-sm font-medium text-paper transition-opacity hover:opacity-80 focus:outline-none focus-visible:ring-2 focus-visible:ring-ink focus-visible:ring-offset-2"
                     >
                       Apply
                     </a>
@@ -796,11 +802,11 @@ export function JobBoard({
               <button
                 type="button"
                 onClick={() => setVisible((v) => v + PAGE_SIZE)}
-                className="rounded-full bg-soft px-5 py-2.5 text-sm font-medium text-ink transition-colors hover:bg-press"
+                className="rounded-full bg-soft px-5 py-2.5 text-sm font-medium text-ink transition-colors hover:bg-press focus:outline-none focus-visible:ring-2 focus-visible:ring-ink"
               >
                 Show more roles
               </button>
-              <p className="text-xs text-faint">
+              <p className="text-xs tabular-nums text-faint">
                 Showing {shown.length.toLocaleString("en-US")} of{" "}
                 {filtered.length.toLocaleString("en-US")}
               </p>

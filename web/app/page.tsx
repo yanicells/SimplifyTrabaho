@@ -36,7 +36,7 @@ export default function Home() {
             </a>
           </div>
 
-          <h1 className="mt-8 max-w-2xl font-display text-4xl font-bold leading-[1.1] sm:text-5xl">
+          <h1 className="mt-8 max-w-2xl text-balance font-display text-4xl font-bold leading-[1.1] sm:text-5xl">
             Search every open role in the Philippines.
           </h1>
         </header>

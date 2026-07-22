@@ -569,6 +569,17 @@ not a real employer. Kalibrr — job-board company, fetching prohibited by rule 
 
 ## 📔 Decision log
 
+- 2026-07-22 — One control height (36px / `h-9`) across every view: level chips,
+  company-sort chips, Filters/Companies/My jobs, the function chips and the
+  advanced selects (now `dense`) and location field all share `chipClass`
+  geometry; only the rail search sits a step taller at `h-10`. Captions are
+  identical in all three views (count left, actions right, single hairline,
+  `tabular-nums`), so My jobs and Companies no longer read as separate designs.
+  Advanced panel gained a second section label ("Setup, place & employer").
+  Web Interface Guidelines pass over the same code: `focus-visible` rings on all
+  controls (was `focus:` or nothing), `autoComplete="off"` + `spellCheck={false}`
+  on the search and location inputs, `touch-action: manipulation` +
+  intentional tap-highlight globally, `text-balance` on the h1.
 - 2026-07-22 — Board now opens on **all roles**, not the interns & entry preset
   (maintainer request). `defaultFilters().levels` is `[]`, so `filtersToSearch`
   drops the `level=all` marker entirely and `level=internship,entry` became an
