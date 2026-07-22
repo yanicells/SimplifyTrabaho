@@ -154,11 +154,16 @@ export function JobBoard({
   jobs,
   industries,
   updatedAt,
+  updatedLabel,
+  companyCount,
 }: {
   jobs: Job[];
   /** Unique registry industry tags present in the data, alphabetical (built server-side). */
   industries: string[];
   updatedAt: string;
+  /** Pre-formatted (UTC-pinned) refresh date — the board is the only place it shows. */
+  updatedLabel: string;
+  companyCount: number;
 }) {
   const [filters, setFilters] = useState<Filters>(defaultFilters);
   const [visible, setVisible] = useState(PAGE_SIZE);
@@ -623,8 +628,13 @@ export function JobBoard({
             </div>
           )}
 
-          {/* Result count */}
-          <div className={`flex items-baseline justify-between gap-3 ${company !== "" ? "mt-3" : "mt-4"}`}>
+          {/* Result count + refresh stamp — one caption line for the list below,
+              so the count isn't stated twice on the page. */}
+          <div
+            className={`flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 border-b border-line pb-3 ${
+              company !== "" ? "mt-3" : "mt-5"
+            }`}
+          >
             <p aria-live="polite" className="text-sm text-faint">
               <span className="font-semibold text-ink">
                 {filtered.length.toLocaleString("en-US")}
@@ -632,29 +642,34 @@ export function JobBoard({
               {filtered.length === 1 ? "role" : "roles"}
               {isDefaultView ? " for interns & fresh grads" : ""} · newest first
             </p>
-            {!isDefaultView && (
-              <span className="flex shrink-0 items-center gap-3">
-                <button
-                  type="button"
-                  onClick={copyLink}
-                  className="text-sm font-medium text-ink underline underline-offset-2 hover:text-faint"
-                >
-                  {copied ? "Link copied" : "Copy link"}
-                </button>
-                <button
-                  type="button"
-                  onClick={reset}
-                  className="text-sm font-medium text-ink underline underline-offset-2 hover:text-faint"
-                >
-                  Reset filters
-                </button>
+            <span className="flex flex-wrap items-baseline gap-x-4 gap-y-1 text-sm">
+              {!isDefaultView && (
+                <>
+                  <button
+                    type="button"
+                    onClick={copyLink}
+                    className="font-medium text-ink underline underline-offset-2 hover:text-faint"
+                  >
+                    {copied ? "Link copied" : "Copy link"}
+                  </button>
+                  <button
+                    type="button"
+                    onClick={reset}
+                    className="font-medium text-ink underline underline-offset-2 hover:text-faint"
+                  >
+                    Reset filters
+                  </button>
+                </>
+              )}
+              <span className="text-faint">
+                Updated {updatedLabel} · {companyCount} companies
               </span>
-            )}
+            </span>
           </div>
 
           {/* Listings */}
           {shown.length === 0 ? (
-            <div className="border-t border-line py-16 text-center">
+            <div className="py-16 text-center">
               <p className="font-display text-lg font-bold">Walang nahanap — no roles match.</p>
               <p className="mt-2 text-sm text-faint">
                 Try fewer filters, or browse{" "}
@@ -672,7 +687,7 @@ export function JobBoard({
               </p>
             </div>
           ) : (
-            <ul role="list" className="mt-1 divide-y divide-line border-t border-line">
+            <ul role="list" className="divide-y divide-line">
               {shown.map((job) => {
                 const isNew = updatedMs - Date.parse(job.posted) < NEW_WINDOW_MS;
                 const levelPill = LEVEL_PILLS[job.level];

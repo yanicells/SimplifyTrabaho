@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 /* Design tokens — see web/DESIGN.md (Uber-inspired black/white system).
-   Black is the only conversion color; the PH flag strip and the sun-yellow
-   "New" badge are the sole chromatic marks on the page. */
+   Black is the only conversion color; sun-yellow (the "New" badge, filter
+   count, level pills) is the page's sole chromatic mark. */
 :root {
   --paper: #ffffff; /* canvas */
   --ink: #000000;

@@ -18,14 +18,8 @@ export default function Home() {
 
   return (
     <>
-      {/* PH flag strip — the page's one chromatic mark */}
-      <div
-        aria-hidden
-        className="h-1 bg-gradient-to-r from-[#0038a8] via-[#ce1126] to-[#fcd116]"
-      />
-
-      <div className="mx-auto w-full max-w-6xl flex-1 px-4 sm:px-6 lg:px-8">
-        <header className="pt-6 sm:pt-8">
+      <div className="mx-auto w-full max-w-5xl flex-1 px-4 sm:px-6 lg:px-8">
+        <header className="pt-6 pb-2 sm:pt-8">
           <div className="flex items-center justify-between gap-4">
             <p className="font-display text-xl font-bold tracking-tight">
               SimplifyTrabaho
@@ -52,21 +46,22 @@ export default function Home() {
             no accounts.
           </p>
 
-          <p className="mt-8 border-y border-line py-3 text-xs font-medium uppercase tracking-wider text-faint">
-            Updated {DATE_FORMAT.format(new Date(updatedAt))} ·{" "}
-            {jobs.length.toLocaleString("en-US")} open roles ·{" "}
-            {companyCount} companies
-          </p>
         </header>
 
         <main>
-          <JobBoard jobs={jobs} industries={industries} updatedAt={updatedAt} />
+          <JobBoard
+            jobs={jobs}
+            industries={industries}
+            updatedAt={updatedAt}
+            updatedLabel={DATE_FORMAT.format(new Date(updatedAt))}
+            companyCount={companyCount}
+          />
         </main>
       </div>
 
       {/* Footer — the page's single polarity flip (DESIGN.md black band) */}
       <footer className="bg-ink text-paper">
-        <div className="mx-auto w-full max-w-6xl px-4 py-10 sm:px-6 lg:px-8">
+        <div className="mx-auto w-full max-w-5xl px-4 py-10 sm:px-6 lg:px-8">
           <p className="font-display text-lg font-bold">SimplifyTrabaho</p>
           <p className="mt-3 max-w-xl text-sm leading-relaxed text-paper/70">
             Every listing comes straight from the company&apos;s official careers feed
