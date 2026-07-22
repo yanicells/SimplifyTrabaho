@@ -1,8 +1,10 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useMemo } from "react";
 import type { Job } from "@/lib/listings";
 import { industryLabel } from "@/components/job-board";
+
+export type CompanySort = "roles" | "name";
 
 interface CompanyRow {
   name: string;
@@ -12,20 +14,25 @@ interface CompanyRow {
 }
 
 /**
- * Browsable list of every company with open roles — search, sort by open
- * roles or A–Z, tap a company to see its listings on the board. Rows are
- * hairline-divided (no card chrome) per the DESIGN.md faq-row pattern.
+ * Browsable list of every company with open roles — tap a company to see its
+ * listings on the board. Search and sort live in the board's own rail, so this
+ * component owns no controls of its own. Rows are hairline-divided (no card
+ * chrome) per the DESIGN.md faq-row pattern.
  */
 export function CompanyDirectory({
   jobs,
+  query,
+  sort,
+  onClearQuery,
   onSelect,
 }: {
   jobs: Job[];
+  /** The shared rail search box, reused verbatim as the company filter. */
+  query: string;
+  sort: CompanySort;
+  onClearQuery: () => void;
   onSelect: (company: string) => void;
 }) {
-  const [query, setQuery] = useState("");
-  const [sort, setSort] = useState<"roles" | "name">("roles");
-
   const companies = useMemo(() => {
     const byName = new Map<string, CompanyRow>();
     for (const job of jobs) {
@@ -56,55 +63,27 @@ export function CompanyDirectory({
     return matched;
   }, [companies, query, sort]);
 
-  const sortChip = (active: boolean) =>
-    `shrink-0 rounded-full px-3.5 py-2 text-sm font-medium transition-colors ${
-      active ? "bg-ink text-paper" : "bg-soft text-ink hover:bg-press"
-    }`;
-
   return (
     <div>
-      <div className="flex flex-wrap items-center gap-2">
-        <input
-          type="search"
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-          placeholder="Search companies…"
-          aria-label="Search companies"
-          className="h-11 min-w-0 flex-1 rounded-lg bg-soft px-3 text-sm text-ink placeholder:text-mute focus:outline-none focus:ring-2 focus:ring-ink"
-        />
-        <div role="group" aria-label="Sort companies" className="flex gap-2">
-          <button
-            type="button"
-            aria-pressed={sort === "roles"}
-            onClick={() => setSort("roles")}
-            className={sortChip(sort === "roles")}
-          >
-            Most roles
-          </button>
-          <button
-            type="button"
-            aria-pressed={sort === "name"}
-            onClick={() => setSort("name")}
-            className={sortChip(sort === "name")}
-          >
-            A–Z
-          </button>
-        </div>
+      {/* Same caption shape as the board: count left, sort state right. */}
+      <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 border-b border-line pb-3">
+        <p aria-live="polite" className="text-sm text-faint">
+          <span className="font-semibold text-ink">{shown.length.toLocaleString("en-US")}</span>{" "}
+          {shown.length === 1 ? "company" : "companies"} with open roles
+        </p>
+        <p className="text-sm text-faint">
+          {sort === "roles" ? "Most roles first" : "A–Z"}
+        </p>
       </div>
 
-      <p aria-live="polite" className="mt-4 text-sm text-faint">
-        <span className="font-semibold text-ink">{shown.length.toLocaleString("en-US")}</span>{" "}
-        {shown.length === 1 ? "company" : "companies"} with open roles
-      </p>
-
       {shown.length === 0 ? (
-        <div className="mt-1 border-t border-line py-16 text-center">
+        <div className="py-16 text-center">
           <p className="font-display text-lg font-bold">No company matches “{query.trim()}”.</p>
           <p className="mt-2 text-sm text-faint">
             Check the spelling, or{" "}
             <button
               type="button"
-              onClick={() => setQuery("")}
+              onClick={onClearQuery}
               className="font-medium text-ink underline underline-offset-2 hover:text-faint"
             >
               browse all companies
@@ -113,7 +92,7 @@ export function CompanyDirectory({
           </p>
         </div>
       ) : (
-        <ul role="list" className="mt-1 divide-y divide-line border-t border-line">
+        <ul role="list" className="divide-y divide-line">
           {shown.map((c) => (
             <li key={c.name}>
               <button

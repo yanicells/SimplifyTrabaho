@@ -30,7 +30,7 @@ import {
   type TrackerStatus,
 } from "@/lib/tracker";
 import { MyJobs } from "@/components/my-jobs";
-import { CompanyDirectory } from "@/components/company-directory";
+import { CompanyDirectory, type CompanySort } from "@/components/company-directory";
 import { FilterSelect } from "@/components/filter-select";
 import { timeAgo } from "@/lib/time";
 
@@ -174,6 +174,7 @@ export function JobBoard({
   const [panelOpen, setPanelOpen] = useState(false);
   const [tracker, setTracker] = useState<TrackerState>(emptyTracker);
   const [view, setView] = useState<"board" | "tracked" | "companies">("board");
+  const [companySort, setCompanySort] = useState<CompanySort>("roles");
   const [copied, setCopied] = useState(false);
 
   // Static export renders the featured default. On hydration, a pasted URL wins;
@@ -368,14 +369,18 @@ export function JobBoard({
     <div className="pb-12">
       {/* Sticky filter rail — stays put while the results scroll (SPEC §12 v2) */}
       <div className="sticky top-0 z-20 -mx-4 border-b border-line bg-paper/95 px-4 pb-3 backdrop-blur sm:mx-0 sm:px-0">
-        {/* Search — full-width, the rail's primary control */}
+        {/* Search — full-width, the rail's primary control. One box for every
+            view: on the board it matches company+title, in the directory it
+            matches company names. */}
         <div className="pt-4">
           <input
             type="search"
             value={filters.query}
             onChange={(e) => patch({ query: e.target.value })}
-            placeholder="Search roles or companies…"
-            aria-label="Search roles or companies"
+            placeholder={
+              view === "companies" ? "Search companies…" : "Search roles or companies…"
+            }
+            aria-label={view === "companies" ? "Search companies" : "Search roles or companies"}
             className={`${fieldClass} w-full`}
           />
         </div>
@@ -411,39 +416,64 @@ export function JobBoard({
             </div>
           )}
 
-          <div className="ml-auto flex items-center gap-2">
-            <button
-              type="button"
-              aria-expanded={panelOpen}
-              aria-controls="advanced-filters"
-              onClick={() => setPanelOpen((open) => !open)}
-              className={`flex h-9 shrink-0 items-center gap-1.5 rounded-full px-3.5 text-sm font-medium transition-colors ${
-                panelOpen || advancedCount > 0
-                  ? "bg-ink text-paper"
-                  : "bg-soft text-ink hover:bg-press"
-              }`}
-            >
-              Filters
-              {advancedCount > 0 && (
-                <span className="rounded-full bg-sun px-1.5 py-px text-[11px] font-bold text-ink">
-                  {advancedCount}
-                </span>
-              )}
-              <svg
-                viewBox="0 0 16 16"
-                fill="none"
-                aria-hidden
-                className={`h-3.5 w-3.5 transition-transform ${panelOpen ? "rotate-180" : ""}`}
+          {/* The directory's sort takes the level chips' slot, so browsing
+              companies never grows a second control row. */}
+          {view === "companies" && (
+            <div role="group" aria-label="Sort companies" className="flex flex-wrap gap-2">
+              <button
+                type="button"
+                aria-pressed={companySort === "roles"}
+                onClick={() => setCompanySort("roles")}
+                className={chipClass(companySort === "roles")}
               >
-                <path
-                  d="M4 6l4 4 4-4"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </button>
+                Most roles
+              </button>
+              <button
+                type="button"
+                aria-pressed={companySort === "name"}
+                onClick={() => setCompanySort("name")}
+                className={chipClass(companySort === "name")}
+              >
+                A–Z
+              </button>
+            </div>
+          )}
+
+          <div className="ml-auto flex items-center gap-2">
+            {view === "board" && (
+              <button
+                type="button"
+                aria-expanded={panelOpen}
+                aria-controls="advanced-filters"
+                onClick={() => setPanelOpen((open) => !open)}
+                className={`flex h-9 shrink-0 items-center gap-1.5 rounded-full px-3.5 text-sm font-medium transition-colors ${
+                  panelOpen || advancedCount > 0
+                    ? "bg-ink text-paper"
+                    : "bg-soft text-ink hover:bg-press"
+                }`}
+              >
+                Filters
+                {advancedCount > 0 && (
+                  <span className="rounded-full bg-sun px-1.5 py-px text-[11px] font-bold text-ink">
+                    {advancedCount}
+                  </span>
+                )}
+                <svg
+                  viewBox="0 0 16 16"
+                  fill="none"
+                  aria-hidden
+                  className={`h-3.5 w-3.5 transition-transform ${panelOpen ? "rotate-180" : ""}`}
+                >
+                  <path
+                    d="M4 6l4 4 4-4"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </button>
+            )}
             <button
               type="button"
               aria-pressed={view === "companies"}
@@ -572,12 +602,16 @@ export function JobBoard({
       </div>
 
       {view === "companies" ? (
-        <div className="mt-4">
+        <div className="mt-5">
           <CompanyDirectory
             jobs={jobs}
+            query={deferredQuery}
+            sort={companySort}
+            onClearQuery={() => patch({ query: "" })}
             onSelect={(name) => {
               // Clean slate: every open role at the picked company, all levels.
-              setFilters({ ...defaultFilters(), levels: [], company: name });
+              // Dropping the query matters — it was a company-name search.
+              setFilters({ ...defaultFilters(), company: name });
               setVisible(PAGE_SIZE);
               setView("board");
             }}
