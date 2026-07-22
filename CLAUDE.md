@@ -2,7 +2,7 @@
 
 A free, open, auto-updated list of jobs at Philippine companies (all roles, all levels,
 internships & entry-level featured). PH counterpart of SimplifyJobs/Summer2026-Internships.
-Data comes ONLY from public endpoints companies themselves expose (SPEC §5.1 + §17).
+Data comes ONLY from public endpoints companies themselves expose.
 
 Naming: **SimplifyTrabaho** in all user-facing copy (README, site UI, docs prose);
 lowercase `simplifytrabaho` only as identifier (domain, package names, User-Agent).
@@ -40,8 +40,6 @@ pnpm --filter web build      # static build (fails on invalid listings.json)
 pnpm test                    # all tests
 ```
 
-Script-naming rule: never name a script `update` or `fetch` — both are pnpm built-ins.
-
 ## Repo map
 
 - `pipeline/` — TypeScript CLI. `companies.json` (hand-curated registry — the crown
@@ -68,7 +66,5 @@ Script-naming rule: never name a script `update` or `fetch` — both are pnpm bu
 
 - Keep TRACKER.md current every session: move items between sections, log issues
   (e.g., dead slugs, misclassified titles), record decisions with dates.
-- Follow the build order in SPEC §16 (v1, shipped) and §18 (v2) unless TRACKER says
-  otherwise.
 - When building the website: use the frontend-design skill and
   vercel-react-best-practices; mobile-first (PH users are mobile-heavy).
