@@ -569,6 +569,16 @@ not a real employer. Kalibrr — job-board company, fetching prohibited by rule 
 
 ## 📔 Decision log
 
+- 2026-07-22 — Header trimmed (maintainer request): the PH flag gradient strip
+  is dropped from the page (the OG image keeps it), and the bordered
+  "Updated … · N open roles · N companies" band is gone — the role count was
+  stated twice on screen. The refresh stamp + company count now ride the
+  results caption opposite the count, which also gives that row a right-hand
+  element in the default view (Copy link / Reset only render when filtered).
+  Caption owns the single hairline; the list lost its `border-t` (was a double
+  rule). Container `max-w-6xl` → `max-w-5xl`.
+- 2026-07-22 — Root `pnpm dev` script added (`pnpm --filter web dev`); bare
+  `pnpm dev` previously failed with ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL.
 - 2026-07-20 — Feed ordering: web board + README featured table now interleave
   companies round-robin inside each posted-day bucket (`pipeline/src/feed.ts`,
   shared by `web/lib/listings.ts` toJobs and `readme.ts`). Reason: datePosted-desc
