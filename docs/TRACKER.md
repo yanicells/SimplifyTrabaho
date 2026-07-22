@@ -569,6 +569,17 @@ not a real employer. Kalibrr — job-board company, fetching prohibited by rule 
 
 ## 📔 Decision log
 
+- 2026-07-23 — Docs consolidated under `docs/` (TRACKER + ROADMAP + SPEC alongside
+  HANDOFF); every markdown link repointed (CLAUDE.md, web/AGENTS.md, and the docs'
+  own cross-links). New [PIPELINE.md](PIPELINE.md) explains in plain language where
+  the data comes from and how a run works; the generated README links to it instead
+  of Spec + Roadmap, and the "SPEC §17" pointer is gone (it sent readers into an
+  internal spec section). The Workday robots.txt guardrail is now stated in the
+  README itself. README stayed generated: copy changes went into
+  `pipeline/src/readme.ts`, then the file was re-rendered through `generateReadme`
+  against the committed data. Known gap: HANDOFF.md still links
+  `docs/plans/phase-9-plan.md`, deleted earlier in `chore: remove old plan`.
+
 - 2026-07-22 — One control height (36px / `h-9`) across every view: level chips,
   company-sort chips, Filters/Companies/My jobs, the function chips and the
   advanced selects (now `dense`) and location field all share `chipClass`
