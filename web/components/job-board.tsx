@@ -394,7 +394,7 @@ export function JobBoard({
         {/* Level chips and the view toggles share one line: filtering left,
             switching right. The toggles render in every view so there's always
             a way back to the board. */}
-        <div className="mt-2 flex flex-wrap items-center gap-2">
+        <div className="mt-3 flex flex-wrap items-center gap-2">
           {view === "board" && (
             <div role="group" aria-label="Filter by level (multi-select)" className="flex flex-wrap gap-2">
               <button
