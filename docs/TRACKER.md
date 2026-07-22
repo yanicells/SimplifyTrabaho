@@ -177,13 +177,13 @@ maintainer)
 
 **Maintainer launch checklist (the only remaining v1 steps):**
 
-1. **Make the repo public** — it is still private (GitHub API 404s it anonymously;
-   it's absent from yanicells's public repo list). README badges and the GitHub
-   links on the site 404 for visitors until then.
-2. Set the repo **description**, e.g.: "🇵🇭 Free, auto-updated list of jobs at
-   Philippine companies — internships & fresh grads featured. Facts only, straight
-   from official company ATS APIs. Refreshed daily." and **website**
-   <https://simplifytrabaho.ycells.com>.
+1. ~~Make the repo public~~ — DONE (verified public 2026-07-23; badges and the
+   site's GitHub links resolve).
+2. Description and **website** are set (2026-07-23). The description is currently
+   the generic "Aggregated job postings from different APIs." — worth replacing with
+   something like "🇵🇭 Free, auto-updated list of jobs at Philippine companies.
+   Internships & fresh grads featured. Facts only, straight from official company
+   ATS APIs. Refreshed daily."
 3. Set **topics**, e.g.: `philippines`, `jobs`, `internships`, `entry-level`,
    `fresh-graduates`, `job-search`, `careers`, `job-listings`, `open-data`,
    `typescript`, `nextjs`.
