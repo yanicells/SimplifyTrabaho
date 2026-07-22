@@ -12,7 +12,6 @@ const DATE_FORMAT = new Intl.DateTimeFormat("en-US", {
 
 export default function Home() {
   const { updatedAt, jobs } = loadJobs();
-  const companyCount = new Set(jobs.map((j) => j.company)).size;
   // Industry options for the filter, built at build time (30-ish short strings).
   const industries = [...new Set(jobs.map((j) => j.industry).filter(Boolean))].sort();
 
@@ -37,15 +36,9 @@ export default function Home() {
             </a>
           </div>
 
-          <h1 className="mt-8 max-w-2xl font-display text-4xl font-bold leading-[1.15] sm:text-5xl">
-            Every job at Philippine companies. One list.
+          <h1 className="mt-8 max-w-2xl font-display text-4xl font-bold leading-[1.1] sm:text-5xl">
+            Search every open role in the Philippines.
           </h1>
-          <p className="mt-4 max-w-xl text-base leading-relaxed text-faint">
-            Interns and fresh grads up front. Pulled daily from official careers
-            pages — every Apply goes straight to the real application. Free, open,
-            no accounts.
-          </p>
-
         </header>
 
         <main>
@@ -54,7 +47,6 @@ export default function Home() {
             industries={industries}
             updatedAt={updatedAt}
             updatedLabel={DATE_FORMAT.format(new Date(updatedAt))}
-            companyCount={companyCount}
           />
         </main>
       </div>

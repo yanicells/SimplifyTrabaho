@@ -3,7 +3,6 @@
 import { useDeferredValue, useEffect, useMemo, useRef, useState } from "react";
 import type { Job } from "@/lib/listings";
 import {
-  DEFAULT_LEVELS,
   defaultFilters,
   filtersFromSearch,
   filtersToSearch,
@@ -117,10 +116,6 @@ function toggle<T>(values: T[], value: T): T[] {
   return values.includes(value) ? values.filter((v) => v !== value) : [...values, value];
 }
 
-function sameSet(a: readonly string[], b: readonly string[]): boolean {
-  return a.length === b.length && a.every((v) => b.includes(v));
-}
-
 function BuildingIcon() {
   return (
     <svg viewBox="0 0 16 16" fill="none" aria-hidden className="h-4 w-4">
@@ -155,7 +150,6 @@ export function JobBoard({
   industries,
   updatedAt,
   updatedLabel,
-  companyCount,
 }: {
   jobs: Job[];
   /** Unique registry industry tags present in the data, alphabetical (built server-side). */
@@ -163,7 +157,6 @@ export function JobBoard({
   updatedAt: string;
   /** Pre-formatted (UTC-pinned) refresh date — the board is the only place it shows. */
   updatedLabel: string;
-  companyCount: number;
 }) {
   const [filters, setFilters] = useState<Filters>(defaultFilters);
   const [visible, setVisible] = useState(PAGE_SIZE);
@@ -301,7 +294,12 @@ export function JobBoard({
     deferredQuery,
   ]);
 
-  const isFeatured = sameSet(levels, DEFAULT_LEVELS);
+  /** Companies represented in the current result set — the count next to it. */
+  const shownCompanies = useMemo(
+    () => new Set(filtered.map((j) => j.company)).size,
+    [filtered],
+  );
+
   const isDefaultView = filtersToSearch(filters) === "";
   const advancedCount =
     (fns.length > 0 ? 1 : 0) +
@@ -356,113 +354,24 @@ export function JobBoard({
     <div className="pb-12">
       {/* Sticky filter rail — stays put while the results scroll (SPEC §12 v2) */}
       <div className="sticky top-0 z-20 -mx-4 border-b border-line bg-paper/95 px-4 pb-3 backdrop-blur sm:mx-0 sm:px-0">
-        {/* Search + advanced-filters toggle + my-jobs toggle */}
-        <div className="flex gap-2 pt-4">
-          <div className="relative min-w-0 flex-1">
-            <svg
-              viewBox="0 0 16 16"
-              fill="none"
-              aria-hidden
-              className="pointer-events-none absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-mute"
-            >
-              <circle cx="7" cy="7" r="5" stroke="currentColor" strokeWidth="1.5" />
-              <path
-                d="m11 11 3.5 3.5"
-                stroke="currentColor"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-              />
-            </svg>
-            <input
-              type="search"
-              value={filters.query}
-              onChange={(e) => patch({ query: e.target.value })}
-              placeholder="Search roles or companies…"
-              aria-label="Search roles or companies"
-              className={`${fieldClass} w-full pl-10`}
-            />
-          </div>
-          <button
-            type="button"
-            aria-expanded={panelOpen}
-            aria-controls="advanced-filters"
-            onClick={() => setPanelOpen((open) => !open)}
-            className={`flex h-11 shrink-0 items-center gap-1.5 rounded-full px-4 text-sm font-medium transition-colors ${
-              panelOpen || advancedCount > 0
-                ? "bg-ink text-paper"
-                : "bg-soft text-ink hover:bg-press"
-            }`}
-          >
-            Filters
-            {advancedCount > 0 && (
-              <span className="rounded-full bg-sun px-1.5 py-px text-[11px] font-bold text-ink">
-                {advancedCount}
-              </span>
-            )}
-            <svg
-              viewBox="0 0 16 16"
-              fill="none"
-              aria-hidden
-              className={`h-3.5 w-3.5 transition-transform ${panelOpen ? "rotate-180" : ""}`}
-            >
-              <path
-                d="M4 6l4 4 4-4"
-                stroke="currentColor"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </button>
-          <button
-            type="button"
-            aria-pressed={view === "companies"}
-            onClick={() => setView(view === "companies" ? "board" : "companies")}
-            className={`flex h-11 shrink-0 items-center gap-1.5 rounded-full px-4 text-sm font-medium transition-colors ${
-              view === "companies" ? "bg-ink text-paper" : "bg-soft text-ink hover:bg-press"
-            }`}
-          >
-            <BuildingIcon />
-            <span className="hidden sm:inline">Companies</span>
-          </button>
-          <button
-            type="button"
-            aria-pressed={view === "tracked"}
-            onClick={() => setView(view === "tracked" ? "board" : "tracked")}
-            className={`flex h-11 shrink-0 items-center gap-1.5 rounded-full px-4 text-sm font-medium transition-colors ${
-              view === "tracked" ? "bg-ink text-paper" : "bg-soft text-ink hover:bg-press"
-            }`}
-          >
-            <BookmarkIcon filled={view === "tracked"} />
-            <span className="hidden sm:inline">My jobs</span>
-            {trackedCount > 0 && (
-              <span
-                className={`rounded-full px-1.5 py-px text-[11px] font-bold ${
-                  view === "tracked" ? "bg-paper text-ink" : "bg-sun text-ink"
-                }`}
-              >
-                {trackedCount}
-              </span>
-            )}
-          </button>
+        {/* Search — full-width, the rail's primary control */}
+        <div className="pt-4">
+          <input
+            type="search"
+            value={filters.query}
+            onChange={(e) => patch({ query: e.target.value })}
+            placeholder="Search roles or companies…"
+            aria-label="Search roles or companies"
+            className={`${fieldClass} w-full`}
+          />
         </div>
 
-        {view === "board" && (
-          <>
-            {/* Level chips — multi-select; the featured preset is the default view */}
-            <div
-              role="group"
-              aria-label="Filter by level (multi-select)"
-              className="no-scrollbar -mx-4 mt-3 flex gap-2 overflow-x-auto px-4 pb-1 sm:mx-0 sm:flex-wrap sm:px-0"
-            >
-              <button
-                type="button"
-                aria-pressed={isFeatured}
-                onClick={() => patch({ levels: [...DEFAULT_LEVELS] })}
-                className={chipClass(isFeatured)}
-              >
-                Interns &amp; fresh grads
-              </button>
+        {/* Level chips and the view toggles share one line: filtering left,
+            switching right. The toggles render in every view so there's always
+            a way back to the board. */}
+        <div className="mt-2 flex flex-wrap items-center gap-2">
+          {view === "board" && (
+            <div role="group" aria-label="Filter by level (multi-select)" className="flex flex-wrap gap-2">
               <button
                 type="button"
                 aria-pressed={levels.length === 0}
@@ -486,7 +395,77 @@ export function JobBoard({
                 );
               })}
             </div>
+          )}
 
+          <div className="ml-auto flex items-center gap-2">
+            <button
+              type="button"
+              aria-expanded={panelOpen}
+              aria-controls="advanced-filters"
+              onClick={() => setPanelOpen((open) => !open)}
+              className={`flex h-9 shrink-0 items-center gap-1.5 rounded-full px-3.5 text-sm font-medium transition-colors ${
+                panelOpen || advancedCount > 0
+                  ? "bg-ink text-paper"
+                  : "bg-soft text-ink hover:bg-press"
+              }`}
+            >
+              Filters
+              {advancedCount > 0 && (
+                <span className="rounded-full bg-sun px-1.5 py-px text-[11px] font-bold text-ink">
+                  {advancedCount}
+                </span>
+              )}
+              <svg
+                viewBox="0 0 16 16"
+                fill="none"
+                aria-hidden
+                className={`h-3.5 w-3.5 transition-transform ${panelOpen ? "rotate-180" : ""}`}
+              >
+                <path
+                  d="M4 6l4 4 4-4"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </button>
+            <button
+              type="button"
+              aria-pressed={view === "companies"}
+              onClick={() => setView(view === "companies" ? "board" : "companies")}
+              className={`flex h-9 shrink-0 items-center gap-1.5 rounded-full px-3.5 text-sm font-medium transition-colors ${
+                view === "companies" ? "bg-ink text-paper" : "bg-soft text-ink hover:bg-press"
+              }`}
+            >
+              <BuildingIcon />
+              <span className="hidden sm:inline">Companies</span>
+            </button>
+            <button
+              type="button"
+              aria-pressed={view === "tracked"}
+              onClick={() => setView(view === "tracked" ? "board" : "tracked")}
+              className={`flex h-9 shrink-0 items-center gap-1.5 rounded-full px-3.5 text-sm font-medium transition-colors ${
+                view === "tracked" ? "bg-ink text-paper" : "bg-soft text-ink hover:bg-press"
+              }`}
+            >
+              <BookmarkIcon filled={view === "tracked"} />
+              <span className="hidden sm:inline">My jobs</span>
+              {trackedCount > 0 && (
+                <span
+                  className={`rounded-full px-1.5 py-px text-[11px] font-bold ${
+                    view === "tracked" ? "bg-paper text-ink" : "bg-sun text-ink"
+                  }`}
+                >
+                  {trackedCount}
+                </span>
+              )}
+            </button>
+          </div>
+        </div>
+
+        {view === "board" && (
+          <>
             {/* Advanced filters — function multi-select, setup, metro, industry, location.
                 On phones it overlays the list (absolute) so the sticky rail stays short;
                 on sm+ it sits in-flow inside the rail. */}
@@ -639,8 +618,9 @@ export function JobBoard({
               <span className="font-semibold text-ink">
                 {filtered.length.toLocaleString("en-US")}
               </span>{" "}
-              {filtered.length === 1 ? "role" : "roles"}
-              {isDefaultView ? " for interns & fresh grads" : ""} · newest first
+              {filtered.length === 1 ? "role" : "roles"} ·{" "}
+              <span className="font-semibold text-ink">{shownCompanies}</span>{" "}
+              {shownCompanies === 1 ? "company" : "companies"}
             </p>
             <span className="flex flex-wrap items-baseline gap-x-4 gap-y-1 text-sm">
               {!isDefaultView && (
@@ -661,9 +641,7 @@ export function JobBoard({
                   </button>
                 </>
               )}
-              <span className="text-faint">
-                Updated {updatedLabel} · {companyCount} companies
-              </span>
+              <span className="text-faint">Updated {updatedLabel}</span>
             </span>
           </div>
 
