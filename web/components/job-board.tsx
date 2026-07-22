@@ -1,6 +1,13 @@
 "use client";
 
-import { useDeferredValue, useEffect, useMemo, useRef, useState } from "react";
+import {
+  useDeferredValue,
+  useEffect,
+  useLayoutEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 import type { Job } from "@/lib/listings";
 import {
   defaultFilters,
@@ -34,6 +41,10 @@ const URL_SYNC_DEBOUNCE_MS = 200;
 /** Saved filters reuse the URL codec, so junk in storage is dropped for free. */
 const FILTERS_STORAGE_KEY = "st:filters:v1";
 const TRACKER_STORAGE_KEY = "st:tracker:v1";
+
+/** Layout effects run before paint in the browser and warn on the server, so the
+    prerender path falls back to useEffect (where neither ever runs). */
+const useBrowserLayoutEffect = typeof window === "undefined" ? useEffect : useLayoutEffect;
 
 const LEVEL_CHIPS: { id: SelectableLevel; label: string }[] = [
   { id: "internship", label: "Internships" },
@@ -170,8 +181,11 @@ export function JobBoard({
   // preferences). The tracker always loads from storage. setState inside this
   // mount effect is deliberate: location.search and localStorage only exist
   // client-side, so this one post-hydration pass is the earliest safe moment.
+  // It's a *layout* effect so the restored state replaces the prerendered
+  // default before the browser paints — otherwise a saved "All roles" shows a
+  // visible flash of the interns & entry default on every load.
   /* eslint-disable react-hooks/set-state-in-effect */
-  useEffect(() => {
+  useBrowserLayoutEffect(() => {
     const fromUrl = filtersFromSearch(window.location.search);
     const applied =
       filtersToSearch(fromUrl) !== ""
@@ -650,16 +664,13 @@ export function JobBoard({
             <div className="py-16 text-center">
               <p className="font-display text-lg font-bold">Walang nahanap — no roles match.</p>
               <p className="mt-2 text-sm text-faint">
-                Try fewer filters, or browse{" "}
+                Try fewer filters, or{" "}
                 <button
                   type="button"
-                  onClick={() => {
-                    reset();
-                    patch({ levels: [] });
-                  }}
+                  onClick={reset}
                   className="font-medium text-ink underline underline-offset-2 hover:text-faint"
                 >
-                  all roles
+                  browse all roles
                 </button>
                 .
               </p>

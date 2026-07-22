@@ -1,6 +1,5 @@
 import { describe, expect, it } from "vitest";
 import {
-  DEFAULT_LEVELS,
   defaultFilters,
   filtersFromSearch,
   filtersToSearch,
@@ -10,12 +9,14 @@ import {
 // reproduce the view, and the default (featured) view must keep a clean URL.
 
 describe("filtersToSearch", () => {
-  it("serializes the default featured view as an empty string", () => {
+  it("serializes the default view (all roles, no filters) as an empty string", () => {
     expect(filtersToSearch(defaultFilters())).toBe("");
   });
 
-  it("marks 'all roles' explicitly so it differs from the default", () => {
-    expect(filtersToSearch({ ...defaultFilters(), levels: [] })).toBe("level=all");
+  it("serializes the featured level preset explicitly", () => {
+    expect(
+      filtersToSearch({ ...defaultFilters(), levels: ["entry", "internship"] }),
+    ).toBe("level=internship%2Centry");
   });
 
   it("serializes custom level sets in canonical order", () => {
@@ -43,7 +44,7 @@ describe("filtersToSearch", () => {
       company: "Sun Life",
     });
     const params = new URLSearchParams(search);
-    expect(params.get("level")).toBe("all");
+    expect(params.get("level")).toBe(null);
     expect(params.get("fn")).toBe("healthcare");
     expect(params.get("setup")).toBe("remote");
     expect(params.get("metro")).toBe("cebu");
@@ -56,10 +57,10 @@ describe("filtersToSearch", () => {
 });
 
 describe("filtersFromSearch", () => {
-  it("returns the featured default for an empty search", () => {
+  it("returns the default (all roles) for an empty search", () => {
     expect(filtersFromSearch("")).toEqual(defaultFilters());
     expect(filtersFromSearch("")).not.toBe(defaultFilters()); // fresh object
-    expect(defaultFilters().levels).toEqual(DEFAULT_LEVELS);
+    expect(defaultFilters().levels).toEqual([]);
   });
 
   it("round-trips every field", () => {
@@ -81,14 +82,18 @@ describe("filtersFromSearch", () => {
   });
 
   it("accepts a leading question mark (location.search form)", () => {
-    expect(filtersFromSearch("?level=all").levels).toEqual([]);
+    expect(filtersFromSearch("?level=senior").levels).toEqual(["senior"]);
+  });
+
+  it("reads a legacy level=all link as the plain default", () => {
+    expect(filtersFromSearch("level=all")).toEqual(defaultFilters());
   });
 
   it("ignores unknown enum values instead of breaking the view", () => {
     const filters = filtersFromSearch(
       "level=boss&fn=astronaut,sales&setup=moon&metro=atlantis&type=franchise",
     );
-    expect(filters.levels).toEqual(DEFAULT_LEVELS); // junk-only level falls back to default
+    expect(filters.levels).toEqual([]); // junk-only level falls back to all roles
     expect(filters.fns).toEqual(["sales"]);
     expect(filters.setup).toBe("all");
     expect(filters.metro).toBe("all");
@@ -105,9 +110,10 @@ describe("filtersFromSearch", () => {
     expect(filtersFromSearch("utm_source=fb&ref=x")).toEqual(defaultFilters());
   });
 
-  it("treats level=internship,entry the same as the default view", () => {
+  it("round-trips the featured level preset", () => {
     const filters = filtersFromSearch("level=entry,internship");
-    expect(filtersToSearch(filters)).toBe("");
+    expect(filters.levels).toEqual(["internship", "entry"]);
+    expect(filtersToSearch(filters)).toBe("level=internship%2Centry");
   });
 
   it("round-trips the company filter and omits it by default", () => {

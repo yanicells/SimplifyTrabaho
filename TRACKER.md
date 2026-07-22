@@ -569,6 +569,18 @@ not a real employer. Kalibrr — job-board company, fetching prohibited by rule 
 
 ## 📔 Decision log
 
+- 2026-07-22 — Board now opens on **all roles**, not the interns & entry preset
+  (maintainer request). `defaultFilters().levels` is `[]`, so `filtersToSearch`
+  drops the `level=all` marker entirely and `level=internship,entry` became an
+  ordinary explicit filter; legacy `?level=all` links still parse to the default
+  (`"all"` is not a level, so it's dropped). Reason: the prerendered HTML always
+  shipped the interns+entry default, so a saved "All roles" preference flashed
+  the wrong chips on every load. Restore from URL/localStorage also moved to a
+  layout effect so it lands before paint. The "Interns & fresh grads" chip is
+  gone (redundant with Internships + Entry level), Filters/Companies/My jobs
+  moved onto the chip row, hero is one line ("Search every open role in the
+  Philippines."), and the caption reads "N roles · N companies" — companies
+  counted from the filtered set, "newest first" dropped.
 - 2026-07-22 — Header trimmed (maintainer request): the PH flag gradient strip
   is dropped from the page (the OG image keeps it), and the bordered
   "Updated … · N open roles · N companies" band is gone — the role count was

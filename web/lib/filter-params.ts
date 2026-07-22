@@ -1,5 +1,5 @@
 // Full filter state ⇆ URL query params (SPEC §12 v2). Pasting a URL reproduces
-// the view; the default featured view keeps a clean URL (no params). The codec is
+// the view; the default view — all roles, no filters — keeps a clean URL. The codec is
 // forgiving on input — junk values are dropped, never thrown — because shared
 // links get mangled by chat apps and trackers.
 
@@ -13,9 +13,6 @@ import {
 
 export const SELECTABLE_LEVELS = ["internship", "entry", "mid", "senior"] as const;
 export type SelectableLevel = (typeof SELECTABLE_LEVELS)[number];
-
-/** The featured default: interns & fresh grads (SPEC §12). */
-export const DEFAULT_LEVELS: readonly SelectableLevel[] = ["internship", "entry"];
 
 export const SELECTABLE_FUNCTIONS = [
   "engineering",
@@ -59,7 +56,7 @@ export interface Filters {
 
 export function defaultFilters(): Filters {
   return {
-    levels: [...DEFAULT_LEVELS],
+    levels: [],
     fns: [],
     setup: "all",
     metro: "all",
@@ -75,15 +72,10 @@ function inCanonicalOrder<T extends string>(values: T[], order: readonly T[]): T
   return order.filter((v) => values.includes(v));
 }
 
-function sameSet(a: readonly string[], b: readonly string[]): boolean {
-  return a.length === b.length && a.every((v) => b.includes(v));
-}
-
 export function filtersToSearch(filters: Filters): string {
   const params = new URLSearchParams();
-  if (filters.levels.length === 0) {
-    params.set("level", "all");
-  } else if (!sameSet(filters.levels, DEFAULT_LEVELS)) {
+  // All roles is the default view, so it needs no param at all.
+  if (filters.levels.length > 0) {
     params.set("level", inCanonicalOrder(filters.levels, SELECTABLE_LEVELS).join(","));
   }
   if (filters.fns.length > 0) {
@@ -116,13 +108,9 @@ export function filtersFromSearch(search: string): Filters {
     search.startsWith("?") ? search.slice(1) : search,
   );
 
-  const level = params.get("level");
-  if (level === "all") {
-    filters.levels = [];
-  } else {
-    const levels = parseList(level, SELECTABLE_LEVELS);
-    if (levels.length > 0) filters.levels = levels;
-  }
+  // "all" is not a level, so old links carrying level=all parse to [] — which is
+  // now exactly the default view.
+  filters.levels = parseList(params.get("level"), SELECTABLE_LEVELS);
 
   filters.fns = parseList(params.get("fn"), SELECTABLE_FUNCTIONS);
 
