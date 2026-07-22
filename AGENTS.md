@@ -1,13 +1,3 @@
-<!-- BEGIN:nextjs-agent-rules -->
-
-# This is NOT the Next.js you know
-
-This version has breaking changes — APIs, conventions, and file structure may all differ 
-from your training data. Read the relevant guide in `node_modules/next/dist/docs/` 
-before writing any code. Heed deprecation notices.
-
-<!-- END:nextjs-agent-rules -->
-
 # AGENTS.md — SimplifyTrabaho
 
 A free, open, auto-updated list of jobs at Philippine companies (all roles, all levels,
@@ -22,7 +12,7 @@ work log. [docs/ROADMAP.md](../docs/ROADMAP.md) is future scope (don't build it 
 
 1. NEVER fetch from LinkedIn, JobStreet, Indeed, Kalibrr, Glassdoor, or any job
    board/aggregator. Their ToS prohibit it.
-2. Only the six documented public ATS endpoints in SPEC §5.1 (Greenhouse, Lever,
+2. Only the six documented public ATS endpoints (Greenhouse, Lever,
    Ashby, Workable, SmartRecruiters, Recruitee). No auth bypass, no robots.txt
    violations, no rate-limit evasion.
 3. Store facts only: company, title, locations, URL, dates, work setup, structured
@@ -43,8 +33,6 @@ pnpm --filter web dev        # run the site locally
 pnpm --filter web build      # static build (fails on invalid listings.json)
 pnpm test                    # all tests
 ```
-
-Script-naming rule: never name a script `update` or `fetch` — both are pnpm built-ins.
 
 ## Repo map
 
@@ -70,12 +58,7 @@ Script-naming rule: never name a script `update` or `fetch` — both are pnpm bu
 
 - Keep docs/TRACKER.md current every session: move items between sections, log issues
   (e.g., dead slugs, misclassified titles), record decisions with dates.
-- Follow the build order in SPEC §16 unless TRACKER says otherwise.
-- Use TDD (superpowers:test-driven-development) for pipeline logic; fixtures from
-  real ATS responses.
 - When building the website: use the frontend-design skill and
   vercel-react-best-practices; mobile-first (PH users are mobile-heavy).
-- Use context7 for current Next.js/library docs; use playwright to verify the site
-  when relevant.
-- Verify before claiming done (superpowers:verification-before-completion) — run
+- Verify before claiming done — run
   `pnpm refresh` and `pnpm --filter web build` and look at the output.
