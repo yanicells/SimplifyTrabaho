@@ -40,8 +40,14 @@ export function MyJobs({
 
   if (tracker.jobs.length === 0) {
     return (
-      <div className="border-b border-line pb-3">
-        <p className="text-sm text-faint">0 jobs tracked · saved on this device only</p>
+      <div>
+        {/* Caption then hairline then content — the shape every view uses. */}
+        <div className="border-b border-line pb-3">
+          <p className="text-sm text-faint">
+            <span className="font-semibold tabular-nums text-ink">0</span> jobs tracked · saved
+            on this device only
+          </p>
+        </div>
         <div className="py-16 text-center">
           <p className="font-display text-lg font-bold">No saved jobs yet</p>
           <p className="mx-auto mt-2 max-w-sm text-sm leading-relaxed text-faint">

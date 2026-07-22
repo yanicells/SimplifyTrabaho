@@ -608,7 +608,7 @@ export function JobBoard({
       </div>
 
       {view === "companies" ? (
-        <div className="mt-5">
+        <div className="mt-4">
           <CompanyDirectory
             jobs={jobs}
             query={deferredQuery}
