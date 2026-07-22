@@ -8,8 +8,8 @@ Naming: **SimplifyTrabaho** in all user-facing copy (README, site UI, docs prose
 lowercase `simplifytrabaho` only as identifier (domain, package names, User-Agent).
 
 **Read before building:** [docs/SPEC.md](docs/SPEC.md) is the full PRD — schemas,
-pipeline stages, endpoints, acceptance criteria. [TRACKER.md](TRACKER.md) is the live
-work log. [ROADMAP.md](ROADMAP.md) is future scope (don't build it yet).
+pipeline stages, endpoints, acceptance criteria. [docs/TRACKER.md](docs/TRACKER.md) is the live
+work log. [docs/ROADMAP.md](docs/ROADMAP.md) is future scope (don't build it yet).
 
 ## Golden rules (legal — never violate, never "just this once")
 
@@ -64,7 +64,7 @@ pnpm test                    # all tests
 
 ## Working agreement
 
-- Keep TRACKER.md current every session: move items between sections, log issues
+- Keep docs/TRACKER.md current every session: move items between sections, log issues
   (e.g., dead slugs, misclassified titles), record decisions with dates.
 - When building the website: use the frontend-design skill and
   vercel-react-best-practices; mobile-first (PH users are mobile-heavy).

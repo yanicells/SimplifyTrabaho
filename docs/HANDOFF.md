@@ -6,8 +6,8 @@
 > the pending/future work**, so a cold agent can get the full picture without re-reading
 > every past chat. v1 is shipped and live; the detail here leans toward what's *next*.
 >
-> **Read order for a new agent:** this file → [CLAUDE.md](CLAUDE.md) (non-negotiable
-> rules) → [docs/SPEC.md](docs/SPEC.md) (the PRD) → [TRACKER.md](TRACKER.md) (live work
+> **Read order for a new agent:** this file → [CLAUDE.md](../CLAUDE.md) (non-negotiable
+> rules) → [SPEC.md](SPEC.md) (the PRD) → [TRACKER.md](TRACKER.md) (live work
 > log + full decision log + candidate graveyard) → [docs/plans/phase-9-plan.md](docs/plans/phase-9-plan.md)
 > (the next thing to build). This handoff **summarizes and points**; those files are the
 > source of truth. Where they disagree with this doc, they win — but this doc carries
@@ -85,7 +85,7 @@ seekers* — while never bending the legal rules.
 
 ## 3. Non-negotiable rules (legal) — never violate, never "just this once"
 
-These are from [CLAUDE.md](CLAUDE.md) §"Golden rules". Restated here because they gate
+These are from [CLAUDE.md](../CLAUDE.md) §"Golden rules". Restated here because they gate
 *every* future phase, especially Workday (Phase 10):
 
 1. **NEVER** fetch from LinkedIn, JobStreet, Indeed, Kalibrr, Glassdoor, or any job
@@ -333,7 +333,7 @@ stage prompts (each must work in a cold session because they're pasted into fres
 
 ### Standing working agreement (from CLAUDE.md)
 
-- Keep TRACKER.md current every session — it's the memory between sessions.
+- Keep docs/TRACKER.md current every session — it's the memory between sessions.
 - TDD for pipeline logic (fixtures from real ATS responses, JD text stripped before commit).
 - Building the website: use the frontend-design skill + vercel-react-best-practices;
   mobile-first. Use context7 for current library docs; use playwright to verify the site.
@@ -348,7 +348,8 @@ stage prompts (each must work in a cold session because they're pasted into fres
 filter/categorize/merge/readme/cli/verify-registry/backfill); `data/listings.json`
 (generated source of truth, committed, never hand-edit); `web/` (Next.js static export
 reading `data/listings.json` at build); `README.md` (generated — never hand-edit);
-`docs/SPEC.md` (PRD), `docs/plans/` (phase plans); `TRACKER.md`, `ROADMAP.md`, `CLAUDE.md`.
+`docs/SPEC.md` (PRD), `docs/plans/` (phase plans); `docs/TRACKER.md`, `docs/ROADMAP.md`,
+`CLAUDE.md`.
 
 **Commands (pnpm only):**
 ```

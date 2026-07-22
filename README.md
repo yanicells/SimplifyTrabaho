@@ -12,7 +12,7 @@ all levels — with **internships and entry-level roles featured**. Inspired by
 [SimplifyJobs/Summer2026-Internships](https://github.com/SimplifyJobs/Summer2026-Internships),
 built for the PH market.
 
-**Full list with filters → [simplifytrabaho.ycells.com](https://simplifytrabaho.ycells.com)** · [Spec](docs/SPEC.md) · [Roadmap](ROADMAP.md)
+**Full list with filters → [simplifytrabaho.ycells.com](https://simplifytrabaho.ycells.com)** · [Spec](docs/SPEC.md) · [Roadmap](docs/ROADMAP.md)
 
 ## How this works (and why it's legal)
 

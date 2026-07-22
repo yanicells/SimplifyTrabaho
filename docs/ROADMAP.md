@@ -1,8 +1,8 @@
 # ROADMAP — SimplifyTrabaho
 
 Future additions, in rough priority order. Nothing here is in current scope — see
-[docs/SPEC.md](docs/SPEC.md) §16 (v1, shipped) and §18 (v2, Phases 7–12, in progress)
-for what IS in scope. When an item starts, move it into TRACKER.md as tasks and (if
+[SPEC.md](SPEC.md) §16 (v1, shipped) and §18 (v2, Phases 7–12, in progress)
+for what IS in scope. When an item starts, move it into [TRACKER.md](TRACKER.md) as tasks and (if
 needed) extend the SPEC first.
 
 > Promoted out of this roadmap into v2 (2026-06-12): Workday support (now SPEC §17),

@@ -14,9 +14,9 @@ A free, open, auto-updated list of jobs at Philippine companies (all roles, all 
 internships & entry-level featured). PH counterpart of SimplifyJobs/Summer2026-Internships.
 Data comes ONLY from public ATS APIs that companies intentionally publish.
 
-**Read before building:** [docs/SPEC.md](docs/SPEC.md) is the full PRD — schemas,
-pipeline stages, endpoints, acceptance criteria. [TRACKER.md](TRACKER.md) is the live
-work log. [ROADMAP.md](ROADMAP.md) is future scope (don't build it yet).
+**Read before building:** [docs/SPEC.md](../docs/SPEC.md) is the full PRD — schemas,
+pipeline stages, endpoints, acceptance criteria. [docs/TRACKER.md](../docs/TRACKER.md) is the live
+work log. [docs/ROADMAP.md](../docs/ROADMAP.md) is future scope (don't build it yet).
 
 ## Golden rules (legal — never violate, never "just this once")
 
@@ -68,7 +68,7 @@ Script-naming rule: never name a script `update` or `fetch` — both are pnpm bu
 
 ## Working agreement
 
-- Keep TRACKER.md current every session: move items between sections, log issues
+- Keep docs/TRACKER.md current every session: move items between sections, log issues
   (e.g., dead slugs, misclassified titles), record decisions with dates.
 - Follow the build order in SPEC §16 unless TRACKER says otherwise.
 - Use TDD (superpowers:test-driven-development) for pipeline logic; fixtures from

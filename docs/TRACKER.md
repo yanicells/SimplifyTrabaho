@@ -2,7 +2,7 @@
 
 > Live work log. Every working session: update sections, check off items, log issues
 > and decisions with dates. This file is the agent's memory between sessions.
-> Spec: [docs/SPEC.md](docs/SPEC.md) · Rules: [CLAUDE.md](CLAUDE.md)
+> Spec: [SPEC.md](SPEC.md) · Rules: [CLAUDE.md](../CLAUDE.md)
 
 ## ✅ Done
 
