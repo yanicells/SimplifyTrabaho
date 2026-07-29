@@ -1,5 +1,7 @@
 {
   "version": 1,
   "deadSlugStreaks": {},
-  "blocked": {}
+  "blocked": {
+    "workday:telusinternational.wd3/External": "2026-07-29: robots.txt returned HTTP 403 — treating as a block (§17.1.1)"
+  }
 }
