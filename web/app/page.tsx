@@ -71,8 +71,7 @@ export default function Home() {
               className="font-medium text-paper underline underline-offset-2 hover:text-paper/80"
             >
               Open source on GitHub
-            </a>{" "}
-            · Libre at bukás, para sa lahat.
+            </a>
           </p>
         </div>
       </footer>
