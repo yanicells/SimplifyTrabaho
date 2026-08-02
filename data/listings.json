@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "updatedAt": "2026-08-01T22:43:15.009Z",
+  "updatedAt": "2026-08-02T22:43:50.280Z",
   "listings": [
     {
       "id": "16e8a85575e0",
@@ -35813,6 +35813,78 @@
       "active": true
     },
     {
+      "id": "f4b0945b291a",
+      "company": "Assist World",
+      "title": "Administrative Assistant",
+      "locations": [
+        "South Africa",
+        "Philippines"
+      ],
+      "workSetup": "remote",
+      "level": "unknown",
+      "function": "operations",
+      "industry": "staffing",
+      "companyType": "agency",
+      "metro": [
+        "other-ph"
+      ],
+      "url": "https://jobs.lever.co/assist-world/1a63fe2a-3f24-4640-a4a8-52f5a03a2e56",
+      "source": "lever",
+      "employmentType": "unknown",
+      "salary": "600–800 USD per month",
+      "datePosted": "2026-08-02T00:28:14.574Z",
+      "dateUpdated": "2026-08-02T22:43:50.280Z",
+      "active": true
+    },
+    {
+      "id": "f3e41ccc6305",
+      "company": "Assist World",
+      "title": "Marketing Assistant",
+      "locations": [
+        "Philippines",
+        "South Africa"
+      ],
+      "workSetup": "remote",
+      "level": "unknown",
+      "function": "marketing",
+      "industry": "staffing",
+      "companyType": "agency",
+      "metro": [
+        "other-ph"
+      ],
+      "url": "https://jobs.lever.co/assist-world/afff5812-e73d-49d3-b504-953a9651a7a3",
+      "source": "lever",
+      "employmentType": "unknown",
+      "salary": "600–800 USD per month",
+      "datePosted": "2026-08-01T23:44:41.267Z",
+      "dateUpdated": "2026-08-02T22:43:50.280Z",
+      "active": true
+    },
+    {
+      "id": "3652a90243ac",
+      "company": "Assist World",
+      "title": "Outbound Appointment Setter",
+      "locations": [
+        "South Africa",
+        "Philippines"
+      ],
+      "workSetup": "remote",
+      "level": "unknown",
+      "function": "sales",
+      "industry": "staffing",
+      "companyType": "agency",
+      "metro": [
+        "other-ph"
+      ],
+      "url": "https://jobs.lever.co/assist-world/193743be-6344-49d0-b996-c9335f0e178e",
+      "source": "lever",
+      "employmentType": "unknown",
+      "salary": "300–500 USD per month",
+      "datePosted": "2026-08-01T23:37:46.050Z",
+      "dateUpdated": "2026-08-02T22:43:50.280Z",
+      "active": true
+    },
+    {
       "id": "4a7de24d93bb",
       "company": "Assist World",
       "title": "Executive Assistant (Bookkeeping & Administration)",
@@ -46585,8 +46657,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-07-30T22:55:18.949Z",
-      "dateUpdated": "2026-07-30T22:55:18.949Z",
-      "active": true
+      "dateUpdated": "2026-08-02T22:43:50.280Z",
+      "active": false
     },
     {
       "id": "cad8712b831b",
@@ -72333,8 +72405,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-07-06T06:10:09.418Z",
-      "dateUpdated": "2026-07-06T06:10:09.418Z",
-      "active": true
+      "dateUpdated": "2026-08-02T22:43:50.280Z",
+      "active": false
     },
     {
       "id": "757780fbc990",
@@ -99541,6 +99613,29 @@
       "active": false
     },
     {
+      "id": "64380a8bb2aa",
+      "company": "Hunt St",
+      "title": "Senior Architectural Draftsperson (014-1167)",
+      "locations": [
+        "Philippines"
+      ],
+      "workSetup": "remote",
+      "level": "senior",
+      "function": "construction",
+      "industry": "staffing",
+      "companyType": "agency",
+      "metro": [
+        "other-ph"
+      ],
+      "url": "https://apply.workable.com/j/93EA82A623",
+      "source": "workable",
+      "employmentType": "full-time",
+      "salary": null,
+      "datePosted": "2026-08-02T00:00:00.000Z",
+      "dateUpdated": "2026-08-02T22:43:50.280Z",
+      "active": true
+    },
+    {
       "id": "b03f40f9075a",
       "company": "Hunt St",
       "title": "Senior Bookkeeper - (011 - 1179)",
@@ -100549,8 +100644,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-07-22T00:00:00.000Z",
-      "dateUpdated": "2026-07-22T22:52:23.799Z",
-      "active": true
+      "dateUpdated": "2026-08-02T22:43:50.280Z",
+      "active": false
     },
     {
       "id": "74a0f1ebbc99",
@@ -103263,8 +103358,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-06-22T00:00:00.000Z",
-      "dateUpdated": "2026-06-22T23:11:19.193Z",
-      "active": true
+      "dateUpdated": "2026-08-02T22:43:50.280Z",
+      "active": false
     },
     {
       "id": "52d605ced398",
@@ -113792,6 +113887,29 @@
       "active": true
     },
     {
+      "id": "d93a222a76fc",
+      "company": "Lalamove",
+      "title": "Driver Operations Associate - Retention and Communication",
+      "locations": [
+        "Parañaque, Metro Manila"
+      ],
+      "workSetup": "onsite",
+      "level": "entry",
+      "function": "operations",
+      "industry": "logistics",
+      "companyType": "direct",
+      "metro": [
+        "ncr"
+      ],
+      "url": "https://jobs.lever.co/lalamove/028c974e-0b68-43ce-82ef-4913e7d2007f",
+      "source": "lever",
+      "employmentType": "full-time",
+      "salary": null,
+      "datePosted": "2026-08-02T07:24:03.763Z",
+      "dateUpdated": "2026-08-02T22:43:50.280Z",
+      "active": true
+    },
+    {
       "id": "df4716f51b9d",
       "company": "Lalamove",
       "title": "Assistant Customer Service Manager",
@@ -115260,8 +115378,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-07-16T22:47:23.279Z",
-      "dateUpdated": "2026-07-16T22:47:23.279Z",
-      "active": true
+      "dateUpdated": "2026-08-02T22:43:50.280Z",
+      "active": false
     },
     {
       "id": "e24159211064",
@@ -120436,6 +120554,29 @@
       "salary": null,
       "datePosted": "2025-02-18T00:00:00.000Z",
       "dateUpdated": "2026-06-11T01:21:12.918Z",
+      "active": true
+    },
+    {
+      "id": "0324ac427906",
+      "company": "Manulife",
+      "title": "Financial Sales Associate",
+      "locations": [
+        "Makati City"
+      ],
+      "workSetup": "unknown",
+      "level": "entry",
+      "function": "sales",
+      "industry": "insurance",
+      "companyType": "direct",
+      "metro": [
+        "ncr"
+      ],
+      "url": "https://manulife.wd3.myworkdayjobs.com/en-US/MFCJH_Jobs/job/Makati-City/Financial-Sales-Associate_JR26060664",
+      "source": "workday",
+      "employmentType": "unknown",
+      "salary": null,
+      "datePosted": "2026-08-02T22:43:50.280Z",
+      "dateUpdated": "2026-08-02T22:43:50.280Z",
       "active": true
     },
     {
@@ -126139,8 +126280,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-07-06T06:26:42.064Z",
-      "dateUpdated": "2026-07-06T06:26:42.064Z",
-      "active": true
+      "dateUpdated": "2026-08-02T22:43:50.280Z",
+      "active": false
     },
     {
       "id": "a41d1a21f4ff",
@@ -128968,8 +129109,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-07-17T22:37:21.033Z",
-      "dateUpdated": "2026-08-01T22:43:15.009Z",
-      "active": false
+      "dateUpdated": "2026-08-02T22:43:50.280Z",
+      "active": true
     },
     {
       "id": "d7d027d24750",
@@ -129014,8 +129155,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-07-13T22:43:36.854Z",
-      "dateUpdated": "2026-08-01T22:43:15.009Z",
-      "active": false
+      "dateUpdated": "2026-08-02T22:43:50.280Z",
+      "active": true
     },
     {
       "id": "0e56df2bc57f",
@@ -129037,8 +129178,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-07-12T22:36:54.216Z",
-      "dateUpdated": "2026-07-31T22:50:07.503Z",
-      "active": false
+      "dateUpdated": "2026-08-02T22:43:50.280Z",
+      "active": true
     },
     {
       "id": "6abff4cbaba8",
@@ -129060,8 +129201,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-07-12T22:36:54.216Z",
-      "dateUpdated": "2026-07-28T22:50:27.230Z",
-      "active": true
+      "dateUpdated": "2026-08-02T22:43:50.280Z",
+      "active": false
     },
     {
       "id": "ac03e34175d0",
@@ -129198,8 +129339,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-07-09T23:01:32.263Z",
-      "dateUpdated": "2026-08-01T22:43:15.009Z",
-      "active": true
+      "dateUpdated": "2026-08-02T22:43:50.280Z",
+      "active": false
     },
     {
       "id": "37d0febf1d82",
@@ -129221,8 +129362,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-07-09T23:01:32.263Z",
-      "dateUpdated": "2026-08-01T22:43:15.009Z",
-      "active": true
+      "dateUpdated": "2026-08-02T22:43:50.280Z",
+      "active": false
     },
     {
       "id": "7874bb256ae0",
@@ -129244,8 +129385,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-07-09T23:01:32.263Z",
-      "dateUpdated": "2026-08-01T22:43:15.009Z",
-      "active": false
+      "dateUpdated": "2026-08-02T22:43:50.280Z",
+      "active": true
     },
     {
       "id": "7b0049807dcf",
@@ -129290,8 +129431,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-07-09T23:01:32.263Z",
-      "dateUpdated": "2026-08-01T22:43:15.009Z",
-      "active": false
+      "dateUpdated": "2026-08-02T22:43:50.280Z",
+      "active": true
     },
     {
       "id": "bbae69cf3adc",
@@ -129313,8 +129454,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-07-09T23:01:32.263Z",
-      "dateUpdated": "2026-08-01T22:43:15.009Z",
-      "active": true
+      "dateUpdated": "2026-08-02T22:43:50.280Z",
+      "active": false
     },
     {
       "id": "033ac418b151",
@@ -129336,8 +129477,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-07-08T22:55:00.494Z",
-      "dateUpdated": "2026-08-01T22:43:15.009Z",
-      "active": true
+      "dateUpdated": "2026-08-02T22:43:50.280Z",
+      "active": false
     },
     {
       "id": "053aec5ab63b",
@@ -129888,8 +130029,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-07-07T22:50:16.282Z",
-      "dateUpdated": "2026-07-30T22:55:18.949Z",
-      "active": true
+      "dateUpdated": "2026-08-02T22:43:50.280Z",
+      "active": false
     },
     {
       "id": "66fc634cf7f9",
@@ -129911,8 +130052,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-07-07T22:50:16.282Z",
-      "dateUpdated": "2026-07-30T22:55:18.949Z",
-      "active": true
+      "dateUpdated": "2026-08-02T22:43:50.280Z",
+      "active": false
     },
     {
       "id": "691906e2128a",
@@ -129980,8 +130121,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-07-07T22:50:16.282Z",
-      "dateUpdated": "2026-07-31T22:50:07.503Z",
-      "active": true
+      "dateUpdated": "2026-08-02T22:43:50.280Z",
+      "active": false
     },
     {
       "id": "865badc86aca",
@@ -130532,8 +130673,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-07-06T14:42:07.256Z",
-      "dateUpdated": "2026-08-01T22:43:15.009Z",
-      "active": false
+      "dateUpdated": "2026-08-02T22:43:50.280Z",
+      "active": true
     },
     {
       "id": "0b5f80efb90f",
@@ -130601,8 +130742,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-07-06T14:42:07.256Z",
-      "dateUpdated": "2026-08-01T22:43:15.009Z",
-      "active": false
+      "dateUpdated": "2026-08-02T22:43:50.280Z",
+      "active": true
     },
     {
       "id": "0f59d54c2944",
@@ -130739,8 +130880,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-07-06T14:42:07.256Z",
-      "dateUpdated": "2026-08-01T22:43:15.009Z",
-      "active": true
+      "dateUpdated": "2026-08-02T22:43:50.280Z",
+      "active": false
     },
     {
       "id": "14e423a70780",
@@ -131521,8 +131662,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-07-06T14:42:07.256Z",
-      "dateUpdated": "2026-07-31T22:50:07.503Z",
-      "active": false
+      "dateUpdated": "2026-08-02T22:43:50.280Z",
+      "active": true
     },
     {
       "id": "2a13107e408f",
@@ -131682,8 +131823,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-07-06T14:42:07.256Z",
-      "dateUpdated": "2026-08-01T22:43:15.009Z",
-      "active": false
+      "dateUpdated": "2026-08-02T22:43:50.280Z",
+      "active": true
     },
     {
       "id": "302f101517ff",
@@ -131889,8 +132030,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-07-06T14:42:07.256Z",
-      "dateUpdated": "2026-07-29T22:47:19.137Z",
-      "active": true
+      "dateUpdated": "2026-08-02T22:43:50.280Z",
+      "active": false
     },
     {
       "id": "3ee58b015b56",
@@ -132004,8 +132145,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-07-06T14:42:07.256Z",
-      "dateUpdated": "2026-08-01T22:43:15.009Z",
-      "active": false
+      "dateUpdated": "2026-08-02T22:43:50.280Z",
+      "active": true
     },
     {
       "id": "4515e548ecbb",
@@ -132349,8 +132490,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-07-06T14:42:07.256Z",
-      "dateUpdated": "2026-07-31T22:50:07.503Z",
-      "active": true
+      "dateUpdated": "2026-08-02T22:43:50.280Z",
+      "active": false
     },
     {
       "id": "4f04e6ebf04d",
@@ -132625,8 +132766,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-07-06T14:42:07.256Z",
-      "dateUpdated": "2026-07-30T22:55:18.949Z",
-      "active": true
+      "dateUpdated": "2026-08-02T22:43:50.280Z",
+      "active": false
     },
     {
       "id": "595b6f27fd3e",
@@ -132809,8 +132950,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-07-06T14:42:07.256Z",
-      "dateUpdated": "2026-08-01T22:43:15.009Z",
-      "active": true
+      "dateUpdated": "2026-08-02T22:43:50.280Z",
+      "active": false
     },
     {
       "id": "5bb96e5e70c6",
@@ -134856,8 +134997,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-07-06T14:42:07.256Z",
-      "dateUpdated": "2026-07-31T22:50:07.503Z",
-      "active": true
+      "dateUpdated": "2026-08-02T22:43:50.280Z",
+      "active": false
     },
     {
       "id": "9e9eb7c740c5",
@@ -134925,8 +135066,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-07-06T14:42:07.256Z",
-      "dateUpdated": "2026-07-27T22:49:41.043Z",
-      "active": false
+      "dateUpdated": "2026-08-02T22:43:50.280Z",
+      "active": true
     },
     {
       "id": "9faa3ba84580",
@@ -135799,8 +135940,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-07-06T14:42:07.256Z",
-      "dateUpdated": "2026-07-23T22:45:20.903Z",
-      "active": true
+      "dateUpdated": "2026-08-02T22:43:50.280Z",
+      "active": false
     },
     {
       "id": "bb3949fbc56c",
@@ -136259,8 +136400,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-07-06T14:42:07.256Z",
-      "dateUpdated": "2026-07-27T22:49:41.043Z",
-      "active": false
+      "dateUpdated": "2026-08-02T22:43:50.280Z",
+      "active": true
     },
     {
       "id": "cd847895939d",
@@ -136788,8 +136929,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-07-06T14:42:07.256Z",
-      "dateUpdated": "2026-07-31T22:50:07.503Z",
-      "active": true
+      "dateUpdated": "2026-08-02T22:43:50.280Z",
+      "active": false
     },
     {
       "id": "dd8e81c80cc3",
@@ -137386,8 +137527,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-07-06T14:42:07.256Z",
-      "dateUpdated": "2026-08-01T22:43:15.009Z",
-      "active": true
+      "dateUpdated": "2026-08-02T22:43:50.280Z",
+      "active": false
     },
     {
       "id": "f14b103315c1",
@@ -137501,8 +137642,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-07-06T14:42:07.256Z",
-      "dateUpdated": "2026-07-27T22:49:41.043Z",
-      "active": false
+      "dateUpdated": "2026-08-02T22:43:50.280Z",
+      "active": true
     },
     {
       "id": "f3b388e3bfaf",
@@ -169834,8 +169975,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-07-21T00:00:00.000Z",
-      "dateUpdated": "2026-07-21T22:43:30.359Z",
-      "active": true
+      "dateUpdated": "2026-08-02T22:43:50.280Z",
+      "active": false
     },
     {
       "id": "57dda13a5bd1",
@@ -170409,8 +170550,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-04-01T00:00:00.000Z",
-      "dateUpdated": "2026-06-11T01:34:15.640Z",
-      "active": true
+      "dateUpdated": "2026-08-02T22:43:50.280Z",
+      "active": false
     },
     {
       "id": "457a36b596bc",
@@ -187653,8 +187794,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-07-06T14:19:26.364Z",
-      "dateUpdated": "2026-07-28T22:50:27.230Z",
-      "active": true
+      "dateUpdated": "2026-08-02T22:43:50.280Z",
+      "active": false
     },
     {
       "id": "3cd895144200",
