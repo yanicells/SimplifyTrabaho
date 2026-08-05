@@ -612,6 +612,15 @@ not a real employer. Kalibrr — job-board company, fetching prohibited by rule 
 
 ## 📔 Decision log
 
+- 2026-08-05 — **Round 7 big-employer sweep** landed Canva, Citi, PwC, Deutsche
+  Bank, GitLab, Betr, Nimbyx (registry 157→164). Citi robots.txt has
+  `Disallow: /2/` for the UI career site; our adapter only checks the CXS path
+  `/wday/cxs/citi/2/jobs`, which is not disallowed, so the probe passed. Left as
+  a **maintainer confirm** before merge — if we treat UI Disallow as a closed
+  door, drop Citi. HSBC / Standard Chartered / IBM / Dell / JPMorgan remain out
+  of scope (Phenom/SuccessFactors/custom/Oracle). Tier-A product giants mostly
+  live-but-0-PH (Stripe, Spotify, Notion, …); only GitLab had a PH location.
+
 - 2026-07-23 — Docs consolidated under `docs/` (TRACKER + ROADMAP + SPEC alongside
   HANDOFF); every markdown link repointed (CLAUDE.md, web/AGENTS.md, and the docs'
   own cross-links). New [PIPELINE.md](PIPELINE.md) explains in plain language where
