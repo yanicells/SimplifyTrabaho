@@ -425,6 +425,43 @@ All probed 2026-06-11 unless noted. Companies later verified under another slug/
 are marked ➜✅. PH corporates (banks, conglomerates, airlines, food) are mostly on
 Workday/custom portals — none of the guessed SmartRecruiters identifiers existed.
 
+**Round 7 (2026-08-05) — big-employer coverage sweep.** Registry 157 → 164.
+
+Landed:
+- **Canva** smartrecruiters:Canva (7 PH) — closes Round-6 graveyard ✅ that was
+  verified but never merged
+- **Citi** workday:citi.wd5/2 (183 PH) — §17.2; robots Disallow:/2/ (UI) but CXS
+  `/wday/cxs/citi/2/jobs` not disallowed (adapter accepted — **maintainer confirm**)
+- **PwC** workday:pwc.wd3/Global_Experienced_Careers (1 PH under 1000-cap; robots
+  Allow clean)
+- **Deutsche Bank** workday:db.wd3/DBWebsite (42 PH; robots Allow:/DBWebsite/)
+- **GitLab** greenhouse:gitlab (1 PH) — only Tier-A big-product hit this round
+- **Betr** lever:betr (1 PH) — was live-but-0-PH; now has PH
+- **Nimbyx Philippines** smartrecruiters:NimbyxPhilippinesInc (2 PH) — was Round-6
+  dead; live on recheck
+
+Workday GCC dry well / out of scope (do not re-probe same wrong tenants):
+- **HSBC** — mycareer.hsbc.com (not Workday); guessed hsbc.wd3 → 500/406
+- **Standard Chartered** — jobs.standardchartered.com is **SuccessFactors** (out of
+  scope); guessed scb/standardchartered.wd3 → 500
+- **IBM** — careers.ibm.com custom; guessed ibm.wd5/wd1 → 500
+- **Dell** — Oracle Cloud (`enterpriseplatform.dell.com/hcmUI`) — out of scope
+- **JPMorgan** — still Oracle (`jpmc.fa.oraclecloud.com`) — unchanged
+
+Tier-A big-product probes (live boards, 0 PH — added to periodic recheck):
+Stripe gh:stripe (545) · Spotify lever:spotify (103) · Notion ashby:notion (114) ·
+Figma gh:figma (176) · Datadog gh:datadog (432) · Cloudflare gh:cloudflare (292) ·
+Intercom gh:intercom (122) · Discord gh:discord (47) · Twilio gh:twilio (179) ·
+Ubisoft sr:Ubisoft2 (277). Dead guesses: Shopify (gh/ashby/lever), Atlassian
+(gh/lever/ashby).
+
+2026-08-05 recheck of standing live-but-0-PH list: still 0 PH for Deel, Kraken,
+Reddit, OKX, Persona, Catena, Kittl, Pareto.AI, Flagright, Supabase, Zip, Payabli,
+Helium 10, Lingaro, WTW, Time Doctor, Coinbase, CTC BPO, Citadel Pacific (dead),
+Ubisoft. Newly dead (drop from hot recheck): dbt Labs gh:dbtlabsinc, InDebted
+lever:indebted, Trustana gh, Thunder gh. Betr + Nimbyx ➜✅ pruned from
+candidates.json; product-cos live-but-0-PH kept.
+
 **Round 6 (2026-07-19/20) — 17 new Tier-A companies landed** (found via targeted
 web search of the ATS hosted-board domains, verified with `verify-registry`):
 Payoneer gh:payoneer (5 PH) · Encora gh:encora10 (7) · Coda Payments lever:Coda
@@ -444,7 +481,7 @@ list: still 0 PH across all (Deel 0 postings, Kraken 49, Reddit 198, OKX 316,
 Persona 26, Catena 3, Kittl 5, Pareto.AI 4, Flagright 34, Supabase 55, Zip 134,
 Payabli 11, dbt Labs 0, Helium 10 0, Lingaro 1, WTW 7, Time Doctor 3, InDebted 6,
 CTC BPO 0, Citadel Pacific still dead). Verified entries pruned from
-candidates.json; recheck entries kept.
+candidates.json; recheck entries kept. **2026-08-05:** Nimbyx + Betr ➜✅ (Round 7).
 
 **Round 5 (2026-07-06) — 4 new Tier-A companies landed** (MR DIY Philippines 
 manatal:mr-diy-philippines · Sunnies manatal:sunnies-inc · HawodTech Solutions
@@ -488,8 +525,13 @@ all auto-verified on real PH postings). Failures/rechecks:
   Magic — magic (greenhouse, 0 jobs) · Lingaro — Lingaro (smartrecruiters) ·
   Ubisoft — Ubisoft2 (smartrecruiters) · WTW — WTW (smartrecruiters) ·
   Doka/Umdasch — UmdaschGroup (smartrecruiters) · Jetfuel — Jetfuelagency (smartrecruiters)
-- Betr — betr (lever) · Luxury Presence — luxurypresence (lever) ·
-  InDebted — indebted (lever) · Time Doctor — timedoctor (recruitee)
+- Betr ➜✅ (Round 7) · Luxury Presence — luxurypresence (lever) ·
+  InDebted — indebted (lever, dead 2026-08-05) · Time Doctor — timedoctor (recruitee)
+- Round-7 product cos (0 PH): Stripe — stripe (greenhouse) · Spotify — spotify
+  (lever) · Notion — notion (ashby) · Figma — figma (greenhouse) · Datadog —
+  datadog (greenhouse) · Cloudflare — cloudflare (greenhouse) · Intercom —
+  intercom (greenhouse) · Discord — discord (greenhouse) · Twilio — twilio
+  (greenhouse)
 - Workable live-but-empty, not PH-HQ: bruntwork, cleardesk, doxa-talent, medva,
   oradian, superstaff, helpware, hammerjack, wing-assistant (Wing ➜✅ via
   lever:getwingapp), boldr, bywave, everise, overshore, optibpo, legalmatch,
