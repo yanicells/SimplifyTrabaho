@@ -382,6 +382,16 @@
       "notes": "auto-verified 2026-06-11: 2 PH postings"
     },
     {
+      "name": "Deutsche Bank",
+      "ats": "workday",
+      "slug": "db.wd3/DBWebsite",
+      "industry": "financial-services",
+      "type": "direct",
+      "verified": true,
+      "added": "2026-08-05",
+      "notes": "§17.2 round-7 verified 2026-08-05: robots clean (Allow:/DBWebsite/); no block; 42 postings / 42 PH (identity: db.wd3/DBWebsite — DKS Manila / DB careers)"
+    },
+    {
       "name": "Dialpad",
       "ats": "greenhouse",
       "slug": "dialpad",
