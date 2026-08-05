@@ -541,6 +541,7 @@ all auto-verified on real PH postings). Failures/rechecks:
 **Dead slugs (404 / unknown identifier):**
 
 - Canva — canva, canvacareers (greenhouse); canva (lever) ➜✅ smartrecruiters:Canva
+  (merged Round 7, 2026-08-05)
 - PayMongo — paymongo (lever, greenhouse, workable, ashby) — no public board found
 - Mynt/GCash — mynt, gcash (greenhouse); mynt (lever, ashby)
 - Maya — maya (greenhouse); lever:maya exists but is a US company (see Issues)
