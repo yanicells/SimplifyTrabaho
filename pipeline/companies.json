@@ -252,6 +252,16 @@
       "notes": "auto-verified 2026-06-11: 4 PH postings"
     },
     {
+      "name": "Citi",
+      "ats": "workday",
+      "slug": "citi.wd5/2",
+      "industry": "financial-services",
+      "type": "direct",
+      "verified": true,
+      "added": "2026-08-05",
+      "notes": "§17.2 round-7 verified 2026-08-05: robots HTTP 200; Disallow:/2/ (UI) but CXS /wday/cxs/citi/2/jobs not disallowed — adapter accepted (human confirm); no block; 187 postings / 183 PH via local filter (identity: jobs.citi.com → citi.wd5/2)"
+    },
+    {
       "name": "Clipboard Health",
       "ats": "ashby",
       "slug": "clipboard",
