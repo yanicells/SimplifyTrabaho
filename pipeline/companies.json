@@ -952,6 +952,16 @@
       "notes": "auto-verified 2026-07-06: 211 PH postings (MBPS QC/Manila)"
     },
     {
+      "name": "Mastercard",
+      "ats": "workday",
+      "slug": "mastercard.wd1/CorporateCareers",
+      "industry": "financial-services",
+      "type": "direct",
+      "verified": true,
+      "added": "2026-08-07",
+      "notes": "§17.2 round-8 verified 2026-08-07: robots clean (Allow:/CorporateCareers/); no block; 1000-cap / 11 PH"
+    },
+    {
       "name": "Mind You",
       "ats": "smartrecruiters",
       "slug": "MindYouMentalHealthSystemsInc",
