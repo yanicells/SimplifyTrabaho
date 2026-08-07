@@ -425,6 +425,23 @@ All probed 2026-06-11 unless noted. Companies later verified under another slug/
 are marked ➜✅. PH corporates (banks, conglomerates, airlines, food) are mostly on
 Workday/custom portals — none of the guessed SmartRecruiters identifiers existed.
 
+**Round 8 (2026-08-07) — more GCC / multinational employers.** Registry 164 → 171.
+
+Landed (all ≥1 PH):
+- **Johnson & Johnson** workday:jj.wd5/JJ (52 PH) — robots Allow:/JJ/
+- **ING** workday:ing.wd3/ICSGBLCOR (170 PH) — Manila One Ayala GCC; robots Allow
+- **Salesforce** workday:salesforce.wd12/External_Career_Site (11 PH) — robots Allow
+- **Pfizer** workday:pfizer.wd1/PfizerCareers (7 PH) — robots Allow
+- **Mastercard** workday:mastercard.wd1/CorporateCareers (11 PH) — robots Allow
+- **Entrego** smartrecruiters:Entrego (1 PH) — PH logistics
+- **AECOM** smartrecruiters:AECOM2 (106 PH) — AECOM GBS Philippines
+
+Misses / dry wells this round:
+- **Barclays** workday:barclays.wd3/External_Career_Site_Barclays — live, 1000-cap,
+  **0 PH** (do not add; recheck later)
+- Guessed tenants HTTP 500 / wrong: Amex (aexp.wd5), Scotiabank, Honeywell,
+  Deloitte, ANZ, Schneider — do not retry same guesses. Siemens wd3/External 404.
+
 **Round 7 (2026-08-05) — big-employer coverage sweep.** Registry 157 → 164.
 
 Landed:
@@ -611,6 +628,12 @@ not a real employer. Kalibrr — job-board company, fetching prohibited by rule 
 <!-- Format: - CompanyName — slugs tried: a, b (ats names) — date — result/notes -->
 
 ## 📔 Decision log
+
+- 2026-08-07 — **Round 8** landed J&J, ING, Salesforce, Pfizer, Mastercard
+  (Workday §17.2, all robots Allow clean) plus Entrego + AECOM (SmartRecruiters).
+  Barclays Workday board live but 0 PH under 1000-cap — not added. Amex /
+  Scotiabank / Honeywell / Deloitte / ANZ guessed tenants returned 500 — need
+  real careers-page discovery before another probe.
 
 - 2026-08-05 — **Round 7 big-employer sweep** landed Canva, Citi, PwC, Deutsche
   Bank, GitLab, Betr, Nimbyx (registry 157→164). Citi robots.txt has
