@@ -32,6 +32,16 @@
       "notes": "§17.2 wave-1 verified 2026-07-06: robots clean, PH country facet at source (locationCountry e56f1daf…), 672 PH postings"
     },
     {
+      "name": "AECOM",
+      "ats": "smartrecruiters",
+      "slug": "AECOM2",
+      "industry": "it-services",
+      "type": "direct",
+      "verified": true,
+      "added": "2026-08-07",
+      "notes": "auto-verified 2026-08-07: 106 PH postings"
+    },
+    {
       "name": "AIA Philippines",
       "ats": "workday",
       "slug": "aia.wd3/External",
@@ -482,6 +492,16 @@
       "notes": "auto-verified 2026-07-19: 7 PH postings"
     },
     {
+      "name": "Entrego",
+      "ats": "smartrecruiters",
+      "slug": "Entrego",
+      "industry": "logistics",
+      "type": "direct",
+      "verified": true,
+      "added": "2026-08-07",
+      "notes": "auto-verified 2026-08-07: 1 PH postings"
+    },
+    {
       "name": "Eskwelabs",
       "ats": "manatal",
       "slug": "eskwelabs",
@@ -772,6 +792,16 @@
       "notes": "auto-verified 2026-06-11: PH-headquartered, 0 open PH roles today"
     },
     {
+      "name": "ING",
+      "ats": "workday",
+      "slug": "ing.wd3/ICSGBLCOR",
+      "industry": "financial-services",
+      "type": "direct",
+      "verified": true,
+      "added": "2026-08-07",
+      "notes": "§17.2 round-8 verified 2026-08-07: robots clean (Allow:/ICSGBLCOR/); no block; 745 postings / 170 PH (Manila One Ayala — ING GCC)"
+    },
+    {
       "name": "Instructure",
       "ats": "ashby",
       "slug": "instructure",
@@ -810,6 +840,16 @@
       "verified": true,
       "added": "2026-06-11",
       "notes": "auto-verified 2026-06-11: PH-headquartered, 0 open PH roles today"
+    },
+    {
+      "name": "Johnson & Johnson",
+      "ats": "workday",
+      "slug": "jj.wd5/JJ",
+      "industry": "healthtech",
+      "type": "direct",
+      "verified": true,
+      "added": "2026-08-07",
+      "notes": "§17.2 round-8 verified 2026-08-07: robots clean (Allow:/JJ/); no block; 1000-cap / 52 PH (Taguig/Manila identity — jj.wd5/JJ)"
     },
     {
       "name": "Kasa",
@@ -930,6 +970,16 @@
       "verified": true,
       "added": "2026-07-06",
       "notes": "auto-verified 2026-07-06: 211 PH postings (MBPS QC/Manila)"
+    },
+    {
+      "name": "Mastercard",
+      "ats": "workday",
+      "slug": "mastercard.wd1/CorporateCareers",
+      "industry": "financial-services",
+      "type": "direct",
+      "verified": true,
+      "added": "2026-08-07",
+      "notes": "§17.2 round-8 verified 2026-08-07: robots clean (Allow:/CorporateCareers/); no block; 1000-cap / 11 PH"
     },
     {
       "name": "Mind You",
@@ -1112,6 +1162,16 @@
       "notes": "auto-verified 2026-07-06: 8 PH postings"
     },
     {
+      "name": "Pfizer",
+      "ats": "workday",
+      "slug": "pfizer.wd1/PfizerCareers",
+      "industry": "healthtech",
+      "type": "direct",
+      "verified": true,
+      "added": "2026-08-07",
+      "notes": "§17.2 round-8 verified 2026-08-07: robots clean (Allow:/PfizerCareers/); no block; 7 postings / 7 PH"
+    },
+    {
       "name": "Philippine Span Asia Carrier",
       "ats": "manatal",
       "slug": "psacc",
@@ -1250,6 +1310,16 @@
       "verified": true,
       "added": "2026-07-19",
       "notes": "auto-verified 2026-07-19: 1 PH postings"
+    },
+    {
+      "name": "Salesforce",
+      "ats": "workday",
+      "slug": "salesforce.wd12/External_Career_Site",
+      "industry": "saas",
+      "type": "direct",
+      "verified": true,
+      "added": "2026-08-07",
+      "notes": "§17.2 round-8 verified 2026-08-07: robots clean (Allow:/External_Career_Site/); no block; 12 postings / 11 PH"
     },
     {
       "name": "SGS",
