@@ -7,9 +7,8 @@ export const size = { width: 512, height: 512 };
 export const contentType = "image/png";
 
 // Raster twin of public/icon.svg, generated at build time from that same file so
-// the mark can never drift between the two. Needed because the places that most
-// affect discovery — Google's Organization logo rich result and Chrome's PWA
-// install criteria — accept PNG/JPG/GIF only, not SVG.
+// the mark cannot drift between formats. The PNG gives manifests and search
+// consumers a conventional fixed-size fallback alongside the SVG.
 const MARK = readFileSync(path.join(process.cwd(), "public", "icon.svg"), "utf8");
 const MARK_URI = `data:image/svg+xml;base64,${Buffer.from(MARK).toString("base64")}`;
 

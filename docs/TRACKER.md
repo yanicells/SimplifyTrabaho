@@ -639,17 +639,18 @@ not a real employer. Kalibrr — job-board company, fetching prohibited by rule 
   twins:
   1. `/opengraph-image`, and the new `/icon` + `/apple-icon`, were served
      `content-type: application/octet-stream` — Vercel types static files by
-     extension and Next emits these extensionless. Facebook, LinkedIn, Slack and
-     X all reject a non-image content type, so **every share card since launch
-     has been rendering blank**. `next.config` `headers()` is a no-op under
-     `output: "export"`, so the fix is `web/vercel.json`; rationale is in
+     extension and Next emits these extensionless. Social crawlers may not
+     recognize an octet-stream response as an image. `next.config` `headers()`
+     is a no-op under `output: "export"`, so the fix is `web/vercel.json`;
+     rationale is in
      `web/README.md` since JSON takes no comments. Re-check after any new
      generated image route with
      `curl -sI https://simplifytrabaho.ycells.com/opengraph-image`.
-  2. `/index.txt` and `/__next.*.txt` (the RSC payloads) are publicly crawlable
-     `text/plain` copies of the page — duplicate content competing with `/`.
-     robots.txt now disallows them. The prefix is `/__next.`, deliberately **not**
-     `/_next`, which is the JS/CSS bundle Google must fetch to render the page.
+  2. `/index.txt` and `/__next.*.txt` (the RSC payloads) are public `text/plain`
+     copies of page data. `web/vercel.json` now adds `X-Robots-Tag: noindex` to
+     all `.txt` responses. They remain allowed in `robots.txt` so crawlers can
+     read that header; blocking a URL in robots.txt alone does not prevent it
+     from appearing in an index.
 - **No `JobPosting` structured data, ever** — deliberate, and written up at the top
   of `web/lib/structured-data.ts` with a test pinning it. Google requires
   `description` (the job-description text) which golden rule 3 forbids storing;

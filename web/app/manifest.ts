@@ -27,8 +27,8 @@ export default function manifest(): MetadataRoute.Manifest {
         type: "image/svg+xml",
         purpose: "any",
       },
-      // Chrome's install criteria still want a raster icon; app/icon.tsx
-      // generates this from the same source mark.
+      // Raster fallback for install surfaces that do not use the SVG entry;
+      // app/icon.tsx generates it from the same source mark.
       {
         src: "/icon",
         sizes: "512x512",

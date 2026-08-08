@@ -21,9 +21,8 @@ Next's generated metadata images (`app/opengraph-image.tsx`, `app/icon.tsx`,
 `app/apple-icon.tsx`) are emitted by `output: "export"` as **extensionless**
 files — `out/opengraph-image`, `out/icon`, `out/apple-icon`. Vercel's static
 layer types files by extension, so it served all three as
-`application/octet-stream`. Facebook, LinkedIn, Slack and X all reject a
-non-image content type, so share cards rendered blank, and Google won't accept
-a non-image response as an Organization logo.
+`application/octet-stream`. Social crawlers and search engines may not recognize
+those responses as images, even though the file bytes are valid PNGs.
 
 `headers()` in `next.config.ts` is a no-op under `output: "export"`, so the
 content type has to be asserted at the host. If a new generated image route is
@@ -32,3 +31,10 @@ added, add it to `vercel.json` too — and verify with:
 ```
 curl -sI https://simplifytrabaho.ycells.com/opengraph-image | grep content-type
 ```
+
+The static export also emits RSC payloads as `.txt` files. Every `.txt`
+response receives `X-Robots-Tag: noindex` from `vercel.json`; this keeps the
+payload URLs out of search results while leaving them crawlable so bots can see
+the directive. `robots.txt` must not disallow them, because a blocked URL can
+still be indexed without its content. This also marks `/llms.txt` as noindex,
+but does not prevent agents from fetching it.

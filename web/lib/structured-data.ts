@@ -81,8 +81,8 @@ export function buildGraph({
         logo: {
           "@type": "ImageObject",
           "@id": LOGO_ID,
-          // Raster twin of icon.svg (app/icon.tsx) — Google's logo rich result
-          // rejects SVG. web/vercel.json is what makes this serve as image/png.
+          // Raster twin of icon.svg (app/icon.tsx), with a fixed 512px size.
+          // web/vercel.json makes the extensionless route serve as image/png.
           url: `${SITE_URL}/icon`,
           contentUrl: `${SITE_URL}/icon`,
           width: 512,
