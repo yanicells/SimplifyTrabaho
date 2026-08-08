@@ -351,7 +351,12 @@ verify-registry`. Also recheck the live-but-0-PH boards listed below — several
       robots.txt, expanded metadata (keywords, twitter card, RSS alternate),
       JSON-LD (WebSite + SearchAction on `?q=`, CC0 Dataset), `llms.txt`
 - [x] 2026-07-06 — "Copy link to this view" affordance (next to Reset filters)
-- [ ] Google Search Console — **maintainer**
+- [x] 2026-08-08 — Google Search Console verification meta in place
+      (`metadata.verification.google`); **maintainer** still clicks Verify in the
+      GSC console and submits `/sitemap.xml` once this deploys
+- [x] 2026-08-08 — SEO pass, second round (see decision log for the two live bugs
+      it turned up): expanded metadata, four-node JSON-LD graph, raster icons,
+      RSC-payload crawl block, heading ladder, indexable subhead
 - [ ] Newsletter bridge evaluation (e.g., Buttondown over RSS) — recommend, don't build
 - [ ] Launch/distribution posts (r/phcareers, FB groups, university orgs) — **maintainer**
 
@@ -628,6 +633,42 @@ not a real employer. Kalibrr — job-board company, fetching prohibited by rule 
 <!-- Format: - CompanyName — slugs tried: a, b (ats names) — date — result/notes -->
 
 ## 📔 Decision log
+
+- 2026-08-08 — **SEO pass** turned up two bugs that were live in production, both
+  caused by `output: "export"` writing files without extensions or with unwanted
+  twins:
+  1. `/opengraph-image`, and the new `/icon` + `/apple-icon`, were served
+     `content-type: application/octet-stream` — Vercel types static files by
+     extension and Next emits these extensionless. Social crawlers may not
+     recognize an octet-stream response as an image. `next.config` `headers()`
+     is a no-op under `output: "export"`, so the fix is `web/vercel.json`;
+     rationale is in
+     `web/README.md` since JSON takes no comments. Re-check after any new
+     generated image route with
+     `curl -sI https://simplifytrabaho.ycells.com/opengraph-image`.
+  2. `/index.txt` and `/__next.*.txt` (the RSC payloads) are public `text/plain`
+     copies of page data. `web/vercel.json` now adds `X-Robots-Tag: noindex` to
+     all `.txt` responses. They remain allowed in `robots.txt` so crawlers can
+     read that header; blocking a URL in robots.txt alone does not prevent it
+     from appearing in an index.
+- **No `JobPosting` structured data, ever** — deliberate, and written up at the top
+  of `web/lib/structured-data.ts` with a test pinning it. Google requires
+  `description` (the job-description text) which golden rule 3 forbids storing;
+  emitting it anyway would be job-posting spam pointing at a page that doesn't
+  host the posting, risking a manual action on the domain.
+- Site title/description now live in `web/lib/site.ts` and are read by `<title>`,
+  the meta description, OG/Twitter, the OG image `alt`, and the JSON-LD. The
+  hand-copied `alt` string had already drifted; one constant stops that.
+- Canonical, `og:url`, sitemap `<loc>` and every JSON-LD `url` are held to one
+  spelling — bare `SITE_URL`, no trailing slash, which is what Next emits. A
+  first attempt aligned them the other way and had to be reversed after checking
+  the built head.
+- **Known limit, not fixed here:** the page ships 60 rendered rows out of 6,551
+  in a ~2.7 MB HTML document (the rest ride along as RSC payload for client-side
+  filtering). Crawlers therefore see under 1% of the roles, and the payload is a
+  real LCP cost. Fixing it means static per-facet routes (`/internships`,
+  `/remote`, `/metro-manila`) — a genuine IA change, so it belongs in ROADMAP, not
+  in an SEO pass.
 
 - 2026-08-07 — **Round 8** landed J&J, ING, Salesforce, Pfizer, Mastercard
   (Workday §17.2, all robots Allow clean) plus Entrego + AECOM (SmartRecruiters).

@@ -609,6 +609,7 @@ export function JobBoard({
 
       {view === "companies" ? (
         <div className="mt-4">
+          <h2 className="sr-only">Companies hiring</h2>
           <CompanyDirectory
             jobs={jobs}
             query={deferredQuery}
@@ -625,6 +626,7 @@ export function JobBoard({
         </div>
       ) : view === "tracked" ? (
         <div className="mt-4">
+          <h2 className="sr-only">Saved jobs</h2>
           <MyJobs
             tracker={tracker}
             liveUrls={liveUrls}
@@ -699,7 +701,11 @@ export function JobBoard({
             </span>
           </div>
 
-          {/* Listings */}
+          {/* Listings. The heading is off-screen — the caption line above already
+              labels the list visually — but it gives the h1 -> h2 -> h3 ladder a
+              rung, so screen-reader heading navigation lands on the results
+              instead of jumping straight from the page title into role titles. */}
+          <h2 className="sr-only">Job openings</h2>
           {shown.length === 0 ? (
             <div className="py-16 text-center">
               <p className="font-display text-lg font-bold">Walang nahanap — no roles match.</p>
@@ -737,9 +743,9 @@ export function JobBoard({
                           </span>
                         )}
                       </p>
-                      <h2 className="mt-1 text-[16px] font-semibold leading-snug sm:text-[17px]">
+                      <h3 className="mt-1 text-[16px] font-semibold leading-snug sm:text-[17px]">
                         {job.title}
-                      </h2>
+                      </h3>
                       <p className="mt-1.5 flex flex-wrap items-center gap-x-2 gap-y-1 text-[13px] text-faint">
                         {levelPill && (
                           <span

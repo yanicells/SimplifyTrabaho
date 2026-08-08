@@ -11,6 +11,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const { updatedAt } = loadJobs();
   return [
     {
+      // Bare SITE_URL, no trailing slash — that is the exact string Next emits
+      // for the canonical link and og:url. A sitemap URL that differs from the
+      // canonical by so much as a slash is a needless "alternate page with
+      // proper canonical tag" report in Search Console, so all four (canonical,
+      // og:url, sitemap, JSON-LD) are held to one spelling.
       url: SITE_URL,
       lastModified: updatedAt,
       changeFrequency: "daily",

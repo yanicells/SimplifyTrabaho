@@ -1,7 +1,10 @@
 import { ImageResponse } from "next/og";
+import { SITE_TITLE } from "@/lib/site";
 
 export const dynamic = "force-static";
-export const alt = "SimplifyTrabaho — jobs at Philippine companies";
+// Feeds og:image:alt and twitter:image:alt. Read from lib/site so it can't
+// drift from the <title> the way the hand-copied string did.
+export const alt = SITE_TITLE;
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 

@@ -1,6 +1,7 @@
 import { JobBoard } from "@/components/job-board";
 import { loadJobs } from "@/lib/listings";
-import { REPO_URL } from "@/lib/site";
+import { REPO_URL, SITE_DESCRIPTION, SITE_TITLE } from "@/lib/site";
+import { buildGraph } from "@/lib/structured-data";
 
 // UTC-pinned so the build machine's timezone can't shift the stamp.
 const DATE_FORMAT = new Intl.DateTimeFormat("en-US", {
@@ -15,14 +16,24 @@ export default function Home() {
   // Industry options for the filter, built at build time (30-ish short strings).
   const industries = [...new Set(jobs.map((j) => j.industry).filter(Boolean))].sort();
 
+  const graph = buildGraph({
+    updatedAt,
+    jobCount: jobs.length,
+    companyCount: new Set(jobs.map((j) => j.company)).size,
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
+  });
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(graph) }}
+      />
       <div className="mx-auto w-full max-w-5xl flex-1 px-4 sm:px-6 lg:px-8">
         <header className="pt-6 pb-2 sm:pt-8">
           <div className="flex items-center justify-between gap-4">
-            <p className="font-display text-xl font-bold tracking-tight">
-              SimplifyTrabaho
-            </p>
+            <p className="font-display text-xl font-bold tracking-tight">SimplifyTrabaho</p>
             <a
               href={REPO_URL}
               target="_blank"
@@ -39,6 +50,10 @@ export default function Home() {
           <h1 className="mt-8 max-w-2xl text-balance font-display text-4xl font-bold leading-[1.1] sm:text-5xl">
             Search job openings in the Philippines.
           </h1>
+
+          <p className="mt-4 max-w-2xl text-[15px] leading-relaxed text-faint sm:text-base">
+            Fresh jobs and internships from official company career feeds — updated daily.
+          </p>
         </header>
 
         <main>
@@ -56,12 +71,11 @@ export default function Home() {
         <div className="mx-auto w-full max-w-5xl px-4 py-10 sm:px-6 lg:px-8">
           <p className="font-display text-lg font-bold">SimplifyTrabaho</p>
           <p className="mt-3 max-w-xl text-sm leading-relaxed text-paper/70">
-            Every listing comes straight from the company&apos;s official careers feed
-            — public APIs that companies intentionally publish (Greenhouse, Lever,
-            Ashby, Workable, SmartRecruiters, Recruitee, BambooHR, Breezy, Manatal)
-            and company Workday careers sites. We store facts only and always send
-            you to the official application page. No accounts, no cookies, no
-            middlemen.
+            Every listing comes straight from the company&apos;s official careers feed — public
+            APIs that companies intentionally publish (Greenhouse, Lever, Ashby, Workable,
+            SmartRecruiters, Recruitee, BambooHR, Breezy, Manatal) and company Workday careers
+            sites. We store facts only and always send you to the official application page. No
+            accounts, no cookies, no middlemen.
           </p>
           <p className="mt-5 text-sm text-paper/70">
             <a
