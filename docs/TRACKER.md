@@ -52,9 +52,9 @@
         raw / ~91 KB gzipped at 2,097 listings.
   - [x] One-page UI per SPEC §12: Fraunces/Instrument Sans "broadsheet" look, PH
         flag strip + sun-yellow accents, level chips (default = interns & fresh
-        grads, one tap to All roles), function/work-setup selects, 
-        location-contains + tokenized free-text search (all client-side), Show 
-        more pagination with `content-visibility` rows, Apply → official URL with 
+        grads, one tap to All roles), function/work-setup selects,
+        location-contains + tokenized free-text search (all client-side), Show
+        more pagination with `content-visibility` rows, Apply → official URL with
         `target=_blank rel="noopener noreferrer"`, last-updated dateline, GitHub links.
   - [x] Playwright-verified on the built static export, desktop + 390px mobile:
         default featured view (208 roles), every filter, multi-word search, empty
@@ -337,8 +337,10 @@ verify-registry`. Also recheck the live-but-0-PH boards listed below — several
 - [ ] Support & feedback: navbar button (GitHub issues + donate link), dismissible
       prompt at most every ~5 Apply clicks with permanent opt-out — UX co-designed
       with maintainer in-phase
-- [x] 2026-07-06 — PWA baseline: manifest.ts + SVG icon (ink square, PH-sun
-      mark). PNG icon sizes pending real branding assets.
+- [x] 2026-07-06 — PWA baseline: manifest.ts + SVG icon.
+- [x] 2026-08-08 — Brand pass: selected the smiling briefcase mark, replaced the
+      favicon/Apple/PWA/structured-data logo source, added visible header/footer
+      marks, and created checked-in 1200×630 + 1200×1200 social share images.
 - [x] No accounts, no backend; analytics is Vercel Analytics (cookieless,
       maintainer-requested — see Decisions); core apply flow regression-free
       (233 tests green, playwright-style preview verified)
@@ -357,6 +359,9 @@ verify-registry`. Also recheck the live-but-0-PH boards listed below — several
 - [x] 2026-08-08 — SEO pass, second round (see decision log for the two live bugs
       it turned up): expanded metadata, four-node JSON-LD graph, raster icons,
       RSC-payload crawl block, heading ladder, indexable subhead
+- [x] 2026-08-08 — Brand/share assets: Messenger-compatible 1200×630 preview and
+      square social image now live under `web/public/social/`; metadata points at
+      the wide card and the same briefcase mark powers the generated icon routes.
 - [ ] Newsletter bridge evaluation (e.g., Buttondown over RSS) — recommend, don't build
 - [ ] Launch/distribution posts (r/phcareers, FB groups, university orgs) — **maintainer**
 
@@ -505,7 +510,7 @@ Payabli 11, dbt Labs 0, Helium 10 0, Lingaro 1, WTW 7, Time Doctor 3, InDebted 6
 CTC BPO 0, Citadel Pacific still dead). Verified entries pruned from
 candidates.json; recheck entries kept. **2026-08-05:** Nimbyx + Betr ➜✅ (Round 7).
 
-**Round 5 (2026-07-06) — 4 new Tier-A companies landed** (MR DIY Philippines 
+**Round 5 (2026-07-06) — 4 new Tier-A companies landed** (MR DIY Philippines
 manatal:mr-diy-philippines · Sunnies manatal:sunnies-inc · HawodTech Solutions
 manatal:hawodtech · Pepper Money UK PH Branch manatal:pmb-uk-philippine-branch —
 all auto-verified on real PH postings). Failures/rechecks:
@@ -634,6 +639,12 @@ not a real employer. Kalibrr — job-board company, fetching prohibited by rule 
 
 ## 📔 Decision log
 
+- 2026-08-08 — **Smiling briefcase is the selected brand mark.** The old exploratory
+  sun, pin, monogram, and concept-sheet files were removed. `web/public/logo.svg`
+  is the transparent primary mark; `web/public/icon.svg` is the white rounded
+  favicon/PWA variant. Social link previews use the checked-in wide PNG so
+  Messenger/Facebook/WhatsApp/LinkedIn/Slack crawlers receive a conventional
+  raster image.
 - 2026-08-08 — **SEO pass** turned up two bugs that were live in production, both
   caused by `output: "export"` writing files without extensions or with unwanted
   twins:
@@ -767,7 +778,7 @@ not a real employer. Kalibrr — job-board company, fetching prohibited by rule 
   company's listings instead of mass-deactivating them. Cost: a real company with
   temporarily zero postings also freezes — acceptable trade-off.
 - 2026-06-11 — Workable widget API: live accounts with no published widget jobs
-  return 200 + `jobs: []` (a successful empty fetch); unknown accounts get a real 404. 
+  return 200 + `jobs: []` (a successful empty fetch); unknown accounts get a real 404.
   Several PH-HQ outsourcing firms sit in this empty state — kept as verified
   per SPEC §7.1 (PH-HQ rule) so their future postings flow in automatically.
 - 2026-06-11 — Identity rule added after the lever:maya incident: a PH-HQ

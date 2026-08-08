@@ -13,23 +13,33 @@ pnpm --filter web test     # data-layer unit tests
 The build ships only active listings with only the fields the UI renders
 (see `lib/listings.ts`). Filtering is fully client-side.
 
+## Brand and share assets
+
+`public/logo.svg` is the primary smiling briefcase mark. `public/icon.svg` is its
+rounded-square favicon/PWA variant, and the generated `/icon` and `/apple-icon`
+routes rasterize that same source. The checked-in
+`public/social/simplifytrabaho-og.png` is the 1200×630 link-preview image used by
+Messenger, Facebook, WhatsApp, LinkedIn, Slack, and X; the square PNG is for
+profile and square-share surfaces.
+
 ## `vercel.json` — why it exists
 
 JSON can't carry a comment, so the reason lives here.
 
-Next's generated metadata images (`app/opengraph-image.tsx`, `app/icon.tsx`,
-`app/apple-icon.tsx`) are emitted by `output: "export"` as **extensionless**
-files — `out/opengraph-image`, `out/icon`, `out/apple-icon`. Vercel's static
-layer types files by extension, so it served all three as
+Next's generated app icons (`app/icon.tsx`, `app/apple-icon.tsx`) are emitted by
+`output: "export"` as **extensionless** files — `out/icon`, `out/apple-icon`.
+Vercel's static layer types files by extension, so it served both as
 `application/octet-stream`. Social crawlers and search engines may not recognize
-those responses as images, even though the file bytes are valid PNGs.
+those responses as images, even though the file bytes are valid PNGs. The OG
+share card is checked in as `public/social/simplifytrabaho-og.png`, so it keeps
+its normal `.png` content type.
 
 `headers()` in `next.config.ts` is a no-op under `output: "export"`, so the
 content type has to be asserted at the host. If a new generated image route is
 added, add it to `vercel.json` too — and verify with:
 
 ```
-curl -sI https://simplifytrabaho.ycells.com/opengraph-image | grep content-type
+curl -sI https://simplifytrabaho.ycells.com/icon | grep content-type
 ```
 
 The static export also emits RSC payloads as `.txt` files. Every `.txt`
