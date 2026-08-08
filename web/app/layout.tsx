@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
-import { REPO_URL, SITE_URL } from "@/lib/site";
+import { REPO_URL, SITE_DESCRIPTION, SITE_TITLE, SITE_URL } from "@/lib/site";
 import "./globals.css";
 
 const inter = Inter({
@@ -12,13 +12,8 @@ const inter = Inter({
   display: "swap",
 });
 
-// Kept under ~60 chars so Google renders it whole; brand first (SPEC naming
-// convention), then the two intents people actually search for.
-const TITLE = "SimplifyTrabaho — jobs & internships at Philippine companies";
-// Kept under ~160 chars for the same reason. "Updated daily" is the freshness
-// signal that wins the click against stale aggregators.
-const DESCRIPTION =
-  "Free, open, updated daily: jobs at Philippine companies, with internships and entry-level roles featured. Every listing links to the official application page.";
+const TITLE = SITE_TITLE;
+const DESCRIPTION = SITE_DESCRIPTION;
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -97,47 +92,6 @@ export const viewport: Viewport = {
   colorScheme: "light",
 };
 
-// Structured data for search + answer engines: the site itself (with its query
-// param as a SearchAction) and the CC0 dataset behind it.
-const JSON_LD = {
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "WebSite",
-      "@id": `${SITE_URL}/#website`,
-      url: SITE_URL,
-      name: "SimplifyTrabaho",
-      description: DESCRIPTION,
-      inLanguage: "en-PH",
-      potentialAction: {
-        "@type": "SearchAction",
-        target: {
-          "@type": "EntryPoint",
-          urlTemplate: `${SITE_URL}/?q={search_term_string}`,
-        },
-        "query-input": "required name=search_term_string",
-      },
-    },
-    {
-      "@type": "Dataset",
-      "@id": `${SITE_URL}/#dataset`,
-      name: "SimplifyTrabaho job listings",
-      description:
-        "Open dataset of job listings at Philippine companies, collected daily from public ATS APIs that companies intentionally publish. Facts only: company, title, location, official application URL, dates.",
-      url: REPO_URL,
-      license: "https://creativecommons.org/publicdomain/zero/1.0/",
-      isAccessibleForFree: true,
-      creator: { "@type": "Organization", name: "SimplifyTrabaho" },
-      distribution: {
-        "@type": "DataDownload",
-        encodingFormat: "application/json",
-        contentUrl:
-          "https://raw.githubusercontent.com/yanicells/SimplifyTrabaho/main/data/listings.json",
-      },
-    },
-  ],
-};
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -146,10 +100,8 @@ export default function RootLayout({
   return (
     <html lang="en-PH" className={`${inter.variable} h-full antialiased`}>
       <body className="flex min-h-full flex-col">
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(JSON_LD) }}
-        />
+        {/* JSON-LD lives in page.tsx, where the listing counts and the refresh
+            timestamp it reports are actually in scope. */}
         {children}
         <Analytics />
       </body>

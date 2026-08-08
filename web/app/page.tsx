@@ -1,6 +1,7 @@
 import { JobBoard } from "@/components/job-board";
 import { loadJobs } from "@/lib/listings";
-import { REPO_URL } from "@/lib/site";
+import { REPO_URL, SITE_DESCRIPTION, SITE_TITLE } from "@/lib/site";
+import { buildGraph } from "@/lib/structured-data";
 
 // UTC-pinned so the build machine's timezone can't shift the stamp.
 const DATE_FORMAT = new Intl.DateTimeFormat("en-US", {
@@ -15,8 +16,20 @@ export default function Home() {
   // Industry options for the filter, built at build time (30-ish short strings).
   const industries = [...new Set(jobs.map((j) => j.industry).filter(Boolean))].sort();
 
+  const graph = buildGraph({
+    updatedAt,
+    jobCount: jobs.length,
+    companyCount: new Set(jobs.map((j) => j.company)).size,
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
+  });
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(graph) }}
+      />
       <div className="mx-auto w-full max-w-5xl flex-1 px-4 sm:px-6 lg:px-8">
         <header className="pt-6 pb-2 sm:pt-8">
           <div className="flex items-center justify-between gap-4">
