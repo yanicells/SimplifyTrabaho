@@ -11,7 +11,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const { updatedAt } = loadJobs();
   return [
     {
-      url: SITE_URL,
+      // Trailing slash, matching what the canonical link resolves to. A sitemap
+      // URL that differs from the canonical by so much as a slash is a
+      // needless "alternate page with proper canonical tag" report in Search
+      // Console.
+      url: `${SITE_URL}/`,
       lastModified: updatedAt,
       changeFrequency: "daily",
       priority: 1,
