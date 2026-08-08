@@ -16,20 +16,18 @@ const MARK_URI = `data:image/svg+xml;base64,${Buffer.from(MARK).toString("base64
 
 export default function AppleIcon() {
   return new ImageResponse(
-    (
-      <div
-        style={{
-          width: "100%",
-          height: "100%",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          background: "#000000",
-        }}
-      >
-        <img src={MARK_URI} width={size.width} height={size.height} alt="" />
-      </div>
-    ),
+    <div
+      style={{
+        width: "100%",
+        height: "100%",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        background: "#000000",
+      }}
+    >
+      <img src={MARK_URI} width={size.width} height={size.height} alt="" />
+    </div>,
     size,
   );
 }
