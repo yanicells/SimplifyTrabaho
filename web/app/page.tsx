@@ -33,9 +33,7 @@ export default function Home() {
       <div className="mx-auto w-full max-w-5xl flex-1 px-4 sm:px-6 lg:px-8">
         <header className="pt-6 pb-2 sm:pt-8">
           <div className="flex items-center justify-between gap-4">
-            <p className="font-display text-xl font-bold tracking-tight">
-              SimplifyTrabaho
-            </p>
+            <p className="font-display text-xl font-bold tracking-tight">SimplifyTrabaho</p>
             <a
               href={REPO_URL}
               target="_blank"
@@ -53,17 +51,8 @@ export default function Home() {
             Search job openings in the Philippines.
           </h1>
 
-          {/* The only prose above the fold. Without it a crawler sees a heading,
-              sixty rows and a footer — no statement of what the page is. Two
-              sentences is the ceiling: on a 375px screen every extra line pushes
-              the search box further down, and PH traffic is mobile-heavy. The
-              "free / open source" claim is left to the footer rather than
-              repeated here. */}
           <p className="mt-4 max-w-2xl text-[15px] leading-relaxed text-faint sm:text-base">
-            Internships, entry-level and experienced roles at Philippine companies —
-            pulled daily from company career feeds,{" "}
-            <strong className="font-medium text-ink">never from job boards</strong>.
-            Every listing links straight to the official application page.
+            Fresh jobs and internships from official company career feeds — updated daily.
           </p>
         </header>
 
@@ -82,12 +71,11 @@ export default function Home() {
         <div className="mx-auto w-full max-w-5xl px-4 py-10 sm:px-6 lg:px-8">
           <p className="font-display text-lg font-bold">SimplifyTrabaho</p>
           <p className="mt-3 max-w-xl text-sm leading-relaxed text-paper/70">
-            Every listing comes straight from the company&apos;s official careers feed
-            — public APIs that companies intentionally publish (Greenhouse, Lever,
-            Ashby, Workable, SmartRecruiters, Recruitee, BambooHR, Breezy, Manatal)
-            and company Workday careers sites. We store facts only and always send
-            you to the official application page. No accounts, no cookies, no
-            middlemen.
+            Every listing comes straight from the company&apos;s official careers feed — public
+            APIs that companies intentionally publish (Greenhouse, Lever, Ashby, Workable,
+            SmartRecruiters, Recruitee, BambooHR, Breezy, Manatal) and company Workday careers
+            sites. We store facts only and always send you to the official application page. No
+            accounts, no cookies, no middlemen.
           </p>
           <p className="mt-5 text-sm text-paper/70">
             <a
