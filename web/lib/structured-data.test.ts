@@ -76,6 +76,13 @@ describe("buildGraph", () => {
     expect(node("Dataset").dateModified).toBe(INPUT.updatedAt);
   });
 
+  it("applies the data license only to the dataset", () => {
+    expect(node("Dataset").license).toBe(
+      "https://creativecommons.org/publicdomain/zero/1.0/",
+    );
+    expect(node("WebSite")).not.toHaveProperty("license");
+  });
+
   // Next resolves the canonical link and og:url to bare SITE_URL, no trailing
   // slash. The sitemap and these nodes are held to that same spelling so Search
   // Console never reports the page as its own alternate.
