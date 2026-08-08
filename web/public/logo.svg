@@ -4,17 +4,19 @@
 
   <g fill="none" stroke="#111111" stroke-linecap="round" stroke-linejoin="round">
     <path d="M124 112V78c0-22 18-40 40-40h108c22 0 40 18 40 40v34" stroke-width="27" />
-    <rect x="40" y="113" width="306" height="249" rx="42" fill="#ffffff" stroke-width="27" />
-    <path d="M45 259c72 27 224 27 296 0" stroke-width="26" />
+    <g transform="translate(27 0)">
+      <rect x="40" y="113" width="306" height="249" rx="42" fill="#ffffff" stroke-width="27" />
+      <path d="M45 259c72 27 224 27 296 0" stroke-width="26" />
+    </g>
   </g>
 
-  <g fill="#111111">
+  <g transform="translate(27 0)" fill="#111111">
     <circle cx="137" cy="204" r="12" />
     <circle cx="249" cy="204" r="12" />
     <rect x="167" y="245" width="52" height="52" rx="12" />
   </g>
 
-  <path d="M174 228c11 15 27 15 38 0" fill="none" stroke="#111111" stroke-width="11" stroke-linecap="round" />
+  <path d="M174 228c11 15 27 15 38 0" transform="translate(27 0)" fill="none" stroke="#111111" stroke-width="11" stroke-linecap="round" />
 
   <g fill="none" stroke="#fcd116" stroke-width="12" stroke-linecap="round">
     <path d="M324 43v22" />

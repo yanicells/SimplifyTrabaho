@@ -340,7 +340,8 @@ verify-registry`. Also recheck the live-but-0-PH boards listed below — several
 - [x] 2026-07-06 — PWA baseline: manifest.ts + SVG icon.
 - [x] 2026-08-08 — Brand pass: selected the smiling briefcase mark, replaced the
       favicon/Apple/PWA/structured-data logo source, added visible header/footer
-      marks, and created checked-in 1200×630 + 1200×1200 social share images.
+      marks, optically centered the icon at small sizes, and created checked-in
+      1200×630 + 1200×1200 social share images.
 - [x] No accounts, no backend; analytics is Vercel Analytics (cookieless,
       maintainer-requested — see Decisions); core apply flow regression-free
       (233 tests green, playwright-style preview verified)
