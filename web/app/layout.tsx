@@ -48,6 +48,11 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
+  // Google Search Console ownership (maintainer-held property, SPEC §18 Phase 12).
+  // Removing this un-verifies the property — leave it in place.
+  verification: {
+    google: "eVLb2lTbuAz4-4MAUUSPkp9ZQe0rHc00MWOyB2LQccg",
+  },
 };
 
 export const viewport: Viewport = {
