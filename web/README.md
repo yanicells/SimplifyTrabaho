@@ -12,3 +12,23 @@ pnpm --filter web test     # data-layer unit tests
 
 The build ships only active listings with only the fields the UI renders
 (see `lib/listings.ts`). Filtering is fully client-side.
+
+## `vercel.json` — why it exists
+
+JSON can't carry a comment, so the reason lives here.
+
+Next's generated metadata images (`app/opengraph-image.tsx`, `app/icon.tsx`,
+`app/apple-icon.tsx`) are emitted by `output: "export"` as **extensionless**
+files — `out/opengraph-image`, `out/icon`, `out/apple-icon`. Vercel's static
+layer types files by extension, so it served all three as
+`application/octet-stream`. Facebook, LinkedIn, Slack and X all reject a
+non-image content type, so share cards rendered blank, and Google won't accept
+a non-image response as an Organization logo.
+
+`headers()` in `next.config.ts` is a no-op under `output: "export"`, so the
+content type has to be asserted at the host. If a new generated image route is
+added, add it to `vercel.json` too — and verify with:
+
+```
+curl -sI https://simplifytrabaho.ycells.com/opengraph-image | grep content-type
+```
