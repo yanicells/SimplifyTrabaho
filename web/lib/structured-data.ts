@@ -102,7 +102,6 @@ export function buildGraph({
         description,
         inLanguage: "en-PH",
         publisher: { "@id": ORGANIZATION_ID },
-        license: CC0,
         potentialAction: {
           "@type": "SearchAction",
           target: {
