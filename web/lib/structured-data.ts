@@ -125,7 +125,7 @@ export function buildGraph({
         dateModified: updatedAt,
         primaryImageOfPage: {
           "@type": "ImageObject",
-          url: `${SITE_URL}/opengraph-image`,
+          url: `${SITE_URL}/social/simplifytrabaho-og.png`,
           width: 1200,
           height: 630,
         },
