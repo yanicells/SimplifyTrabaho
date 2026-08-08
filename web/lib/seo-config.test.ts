@@ -21,3 +21,14 @@ describe("generated text payload indexing", () => {
     });
   });
 });
+
+describe("generated metadata image responses", () => {
+  it.each(["/opengraph-image", "/icon", "/apple-icon"])("serves %s as image/png", (source) => {
+    const imageRule = vercelConfig.headers.find((rule) => rule.source === source);
+
+    expect(imageRule?.headers).toContainEqual({
+      key: "Content-Type",
+      value: "image/png",
+    });
+  });
+});
