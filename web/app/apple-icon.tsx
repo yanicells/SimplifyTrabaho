@@ -7,12 +7,12 @@ export const size = { width: 180, height: 180 };
 export const contentType = "image/png";
 
 // iOS home-screen icon. PH traffic is mobile-heavy and "add to home screen" is
-// the closest thing this site has to an install, so it gets a real asset rather
-// than iOS's default screenshot-of-the-page. Same source mark as icon.tsx; iOS
-// applies its own corner mask, and the ink field behind the mark means the
-// squircle crop lands on black instead of a transparent corner.
-const MARK = readFileSync(path.join(process.cwd(), "public", "icon.svg"), "utf8");
-const MARK_URI = `data:image/svg+xml;base64,${Buffer.from(MARK).toString("base64")}`;
+// the closest thing this site has to an install, so it gets the centered app
+// mark rather than the wider header treatment.
+const BRAND = readFileSync(
+  path.join(process.cwd(), "public", "social", "simplifytrabaho-mark.png"),
+);
+const BRAND_URI = `data:image/png;base64,${BRAND.toString("base64")}`;
 
 export default function AppleIcon() {
   return new ImageResponse(
@@ -23,10 +23,10 @@ export default function AppleIcon() {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        background: "#000000",
+        background: "#ffffff",
       }}
     >
-      <img src={MARK_URI} width={size.width} height={size.height} alt="" />
+      <img src={BRAND_URI} width={size.width} height={size.height} alt="" />
     </div>,
     size,
   );

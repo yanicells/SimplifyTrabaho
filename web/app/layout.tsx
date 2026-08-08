@@ -63,11 +63,20 @@ export const metadata: Metadata = {
     siteName: "SimplifyTrabaho",
     locale: "en_PH",
     type: "website",
+    images: [
+      {
+        url: "/social/simplifytrabaho-og.png",
+        width: 1200,
+        height: 630,
+        alt: "SimplifyTrabaho smiling briefcase logo",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: TITLE,
     description: DESCRIPTION,
+    images: ["/social/simplifytrabaho-og.png"],
   },
   robots: {
     index: true,

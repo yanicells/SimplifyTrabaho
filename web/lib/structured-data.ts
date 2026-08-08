@@ -81,8 +81,9 @@ export function buildGraph({
         logo: {
           "@type": "ImageObject",
           "@id": LOGO_ID,
-          // Raster twin of icon.svg (app/icon.tsx), with a fixed 512px size.
-          // web/vercel.json makes the extensionless route serve as image/png.
+          // Raster twin of the centered app mark (app/icon.tsx), with a fixed
+          // 512px size. web/vercel.json makes the extensionless route serve as
+          // image/png.
           url: `${SITE_URL}/icon`,
           contentUrl: `${SITE_URL}/icon`,
           width: 512,
@@ -125,7 +126,7 @@ export function buildGraph({
         dateModified: updatedAt,
         primaryImageOfPage: {
           "@type": "ImageObject",
-          url: `${SITE_URL}/opengraph-image`,
+          url: `${SITE_URL}/social/simplifytrabaho-og.png`,
           width: 1200,
           height: 630,
         },

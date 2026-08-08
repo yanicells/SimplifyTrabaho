@@ -33,7 +33,17 @@ export default function Home() {
       <div className="mx-auto w-full max-w-5xl flex-1 px-4 sm:px-6 lg:px-8">
         <header className="pt-6 pb-2 sm:pt-8">
           <div className="flex items-center justify-between gap-4">
-            <p className="font-display text-xl font-bold tracking-tight">SimplifyTrabaho</p>
+            <a href="/" className="flex items-center gap-3" aria-label="SimplifyTrabaho home">
+              <img
+                src="/social/simplifytrabaho-icon.png"
+                width="96"
+                height="96"
+                alt=""
+                aria-hidden="true"
+                className="h-14 w-14 shrink-0 rounded-2xl object-contain sm:h-16 sm:w-16"
+              />
+              <span className="font-display text-xl font-bold tracking-tight">SimplifyTrabaho</span>
+            </a>
             <a
               href={REPO_URL}
               target="_blank"
@@ -69,7 +79,17 @@ export default function Home() {
       {/* Footer — the page's single polarity flip (DESIGN.md black band) */}
       <footer className="bg-ink text-paper">
         <div className="mx-auto w-full max-w-5xl px-4 py-10 sm:px-6 lg:px-8">
-          <p className="font-display text-lg font-bold">SimplifyTrabaho</p>
+          <div className="flex items-center gap-3">
+            <img
+              src="/social/simplifytrabaho-mark.png"
+              width="96"
+              height="96"
+              alt=""
+              aria-hidden="true"
+              className="h-14 w-14 shrink-0 rounded-2xl object-contain"
+            />
+            <p className="font-display text-lg font-bold">SimplifyTrabaho</p>
+          </div>
           <p className="mt-3 max-w-xl text-sm leading-relaxed text-paper/70">
             Every listing comes straight from the company&apos;s official careers feed — public
             APIs that companies intentionally publish (Greenhouse, Lever, Ashby, Workable,
