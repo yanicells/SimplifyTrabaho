@@ -76,8 +76,13 @@ describe("buildGraph", () => {
     expect(node("Dataset").dateModified).toBe(INPUT.updatedAt);
   });
 
-  it("points the canonical page URL at the site root with a trailing slash", () => {
-    expect(node("CollectionPage").url).toBe(`${SITE_URL}/`);
+  // Next resolves the canonical link and og:url to bare SITE_URL, no trailing
+  // slash. The sitemap and these nodes are held to that same spelling so Search
+  // Console never reports the page as its own alternate.
+  it("spells the page URL exactly as the canonical link does", () => {
+    expect(node("CollectionPage").url).toBe(SITE_URL);
+    expect(node("Dataset").url).toBe(SITE_URL);
+    expect(node("WebSite").url).toBe(SITE_URL);
   });
 
   it("uses the raster logo, since Google's logo rich result rejects SVG", () => {

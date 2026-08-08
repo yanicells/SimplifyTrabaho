@@ -116,7 +116,7 @@ export function buildGraph({
         // CollectionPage, not WebPage: the page IS the list of openings.
         "@type": "CollectionPage",
         "@id": WEBPAGE_ID,
-        url: `${SITE_URL}/`,
+        url: SITE_URL,
         name: title,
         description,
         isPartOf: { "@id": WEBSITE_ID },
@@ -143,7 +143,7 @@ export function buildGraph({
           "public ATS APIs that companies intentionally publish. Facts only: company, title, " +
           "location, work setup, level, function, industry, published salary, dates, and the " +
           "official application URL. No job-description text and no personal data.",
-        url: `${SITE_URL}/`,
+        url: SITE_URL,
         sameAs: REPO_URL,
         license: CC0,
         isAccessibleForFree: true,
