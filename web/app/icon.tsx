@@ -26,7 +26,6 @@ export default function Icon() {
           background: "#000000",
         }}
       >
-        {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src={MARK_URI} width={size.width} height={size.height} alt="" />
       </div>
     ),
