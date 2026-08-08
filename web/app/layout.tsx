@@ -41,8 +41,13 @@ export const metadata: Metadata = {
   // Salary strings ("₱25,000 - ₱35,000") otherwise get auto-linked as phone
   // numbers by iOS Safari, which mangles the copy crawlers and users see.
   formatDetection: { telephone: false, address: false, email: false },
-  // ATS sites see us as the referrer (good for the relationships this project
-  // depends on) without leaking the visitor's filter query string.
+  // Default policy for anything that leaves the page: send the origin, never
+  // the visitor's filter query string. Note this does NOT currently reach the
+  // Apply links or the GitHub links — those carry rel="noreferrer", which wins
+  // and sends no referrer at all. It is the safe default for links added later
+  // without that rel. Whether Apply links should identify SimplifyTrabaho as
+  // the traffic source to each ATS is a privacy call for the maintainer, not a
+  // side effect of an SEO change.
   referrer: "origin-when-cross-origin",
   alternates: {
     canonical: "/",
