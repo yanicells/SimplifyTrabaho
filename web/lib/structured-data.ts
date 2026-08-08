@@ -81,7 +81,7 @@ export function buildGraph({
         logo: {
           "@type": "ImageObject",
           "@id": LOGO_ID,
-          // Raster twin of the canonical icon crop (app/icon.tsx), with a fixed
+          // Raster twin of the centered app mark (app/icon.tsx), with a fixed
           // 512px size. web/vercel.json makes the extensionless route serve as
           // image/png.
           url: `${SITE_URL}/icon`,

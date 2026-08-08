@@ -6,10 +6,10 @@ export const dynamic = "force-static";
 export const size = { width: 512, height: 512 };
 export const contentType = "image/png";
 
-// Use the checked-in icon-only crop directly so the favicon cannot drift from
-// the mark shown in the site header/footer.
+// Use the centered, spark-free app mark so the favicon stays compact at tab
+// size while the header keeps its friendlier accent version.
 const BRAND = readFileSync(
-  path.join(process.cwd(), "public", "social", "simplifytrabaho-icon.png"),
+  path.join(process.cwd(), "public", "social", "simplifytrabaho-mark.png"),
 );
 const BRAND_URI = `data:image/png;base64,${BRAND.toString("base64")}`;
 

@@ -342,6 +342,8 @@ verify-registry`. Also recheck the live-but-0-PH boards listed below — several
       favicon/Apple/PWA/structured-data logo source, added the zoomed icon-only
       PNG crop to the header/footer, and created checked-in 1200×630 + 1200×1200
       social share images.
+- [x] 2026-08-09 — Split the header accent icon from the centered, spark-free
+      footer/app mark so the compact surfaces stay visually balanced.
 - [x] No accounts, no backend; analytics is Vercel Analytics (cookieless,
       maintainer-requested — see Decisions); core apply flow regression-free
       (233 tests green, playwright-style preview verified)
@@ -642,8 +644,10 @@ not a real employer. Kalibrr — job-board company, fetching prohibited by rule 
 
 - 2026-08-08 — **Smiling briefcase is the selected brand mark.** The old exploratory
   sun, pin, monogram, and concept-sheet files were removed. The checked-in
-  `web/public/social/simplifytrabaho-icon.png` is now the canonical icon source;
-  the square lockup remains a separate social asset. Social link previews use the wide PNG so
+  `web/public/social/simplifytrabaho-icon.png` remains the header icon, while the
+  centered, spark-free `web/public/social/simplifytrabaho-mark.png` is used for
+  the footer and app icons. The square lockup remains a separate social asset.
+  Social link previews use the wide PNG so
   Messenger/Facebook/WhatsApp/LinkedIn/Slack crawlers receive a conventional
   raster image.
 - 2026-08-08 — **SEO pass** turned up two bugs that were live in production, both

@@ -7,10 +7,10 @@ export const size = { width: 180, height: 180 };
 export const contentType = "image/png";
 
 // iOS home-screen icon. PH traffic is mobile-heavy and "add to home screen" is
-// the closest thing this site has to an install, so it gets the same checked-in
-// icon crop as the site header/footer.
+// the closest thing this site has to an install, so it gets the centered app
+// mark rather than the wider header treatment.
 const BRAND = readFileSync(
-  path.join(process.cwd(), "public", "social", "simplifytrabaho-icon.png"),
+  path.join(process.cwd(), "public", "social", "simplifytrabaho-mark.png"),
 );
 const BRAND_URI = `data:image/png;base64,${BRAND.toString("base64")}`;
 

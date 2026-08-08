@@ -15,10 +15,11 @@ The build ships only active listings with only the fields the UI renders
 
 ## Brand and share assets
 
-`public/social/simplifytrabaho-icon.png` is the canonical icon-only crop used by
-the header, footer, favicon, Apple icon, and PWA manifest. The footer keeps the
-same white icon tile against the black band so its black artwork remains legible
-beside the white footer copy. The full
+`public/social/simplifytrabaho-icon.png` is the header/navbar icon, including the
+small yellow accent marks. `public/social/simplifytrabaho-mark.png` is the
+centered, spark-free mark used by the footer, favicon, Apple icon, and PWA
+manifest. The footer keeps the white mark tile against the black band so its
+black artwork remains legible beside the white footer copy. The full
 `public/social/simplifytrabaho-square.png` lockup remains available for social
 profiles and square shares. The checked-in
 `public/social/simplifytrabaho-og.png` is the 1200×630 link-preview image used by

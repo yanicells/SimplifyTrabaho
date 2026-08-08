@@ -22,12 +22,12 @@ export default function manifest(): MetadataRoute.Manifest {
     theme_color: "#ffffff",
     icons: [
       {
-        src: "/social/simplifytrabaho-icon.png",
-        sizes: "860x860",
+        src: "/social/simplifytrabaho-mark.png",
+        sizes: "1254x1254",
         type: "image/png",
         purpose: "any",
       },
-      // Raster fallback for install surfaces that do not use the static crop;
+      // Raster fallback for install surfaces that do not use the static mark;
       // app/icon.tsx generates it from the same source image.
       {
         src: "/icon",
