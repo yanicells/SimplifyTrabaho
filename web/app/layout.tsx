@@ -7,28 +7,53 @@ import "./globals.css";
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
+  // Text paints immediately in the metric-matched fallback rather than going
+  // invisible while the webfont loads — protects LCP, which Google measures.
+  display: "swap",
 });
 
-const TITLE = "SimplifyTrabaho — jobs at Philippine companies";
+// Kept under ~60 chars so Google renders it whole; brand first (SPEC naming
+// convention), then the two intents people actually search for.
+const TITLE = "SimplifyTrabaho — jobs & internships at Philippine companies";
+// Kept under ~160 chars for the same reason. "Updated daily" is the freshness
+// signal that wins the click against stale aggregators.
 const DESCRIPTION =
-  "A free, open, automatically updated list of jobs at Philippine companies — internships and entry-level roles featured. Always links to official application pages.";
+  "Free, open, updated daily: jobs at Philippine companies, with internships and entry-level roles featured. Every listing links to the official application page.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: TITLE,
+  title: { default: TITLE, template: "%s — SimplifyTrabaho" },
   description: DESCRIPTION,
+  applicationName: "SimplifyTrabaho",
+  category: "Jobs & Careers",
+  authors: [{ name: "SimplifyTrabaho contributors", url: REPO_URL }],
+  creator: "SimplifyTrabaho",
+  publisher: "SimplifyTrabaho",
   keywords: [
     "jobs Philippines",
     "internships Philippines",
     "entry level jobs Philippines",
-    "fresh graduate jobs",
+    "fresh graduate jobs Philippines",
     "OJT",
     "trabaho",
     "careers Philippines",
     "hiring Philippines",
+    "remote jobs Philippines",
+    "work from home Philippines",
+    "Metro Manila jobs",
+    "job openings Philippines",
   ],
+  // Salary strings ("₱25,000 - ₱35,000") otherwise get auto-linked as phone
+  // numbers by iOS Safari, which mangles the copy crawlers and users see.
+  formatDetection: { telephone: false, address: false, email: false },
+  // ATS sites see us as the referrer (good for the relationships this project
+  // depends on) without leaking the visitor's filter query string.
+  referrer: "origin-when-cross-origin",
   alternates: {
     canonical: "/",
+    // Single-locale site, but declaring it stops Google from guessing, and
+    // x-default keeps non-PH searchers pointed at the same page.
+    languages: { "en-PH": "/", "x-default": "/" },
     types: { "application/rss+xml": `${SITE_URL}/feed.xml` },
   },
   openGraph: {
@@ -47,6 +72,15 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
+    // Uncapped snippets + large image previews: this is a listings page whose
+    // value in the SERP is the detail, and the OG card is worth showing big.
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-snippet": -1,
+      "max-image-preview": "large",
+      "max-video-preview": -1,
+    },
   },
   // Google Search Console ownership (maintainer-held property, SPEC §18 Phase 12).
   // Removing this un-verifies the property — leave it in place.
@@ -57,6 +91,10 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   themeColor: "#ffffff",
+  // The design system is light-only (globals.css defines no dark tokens).
+  // Declaring it stops Android Chrome's auto-dark from inverting the page into
+  // a contrast-broken version of itself.
+  colorScheme: "light",
 };
 
 // Structured data for search + answer engines: the site itself (with its query
@@ -106,7 +144,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} h-full antialiased`}>
+    <html lang="en-PH" className={`${inter.variable} h-full antialiased`}>
       <body className="flex min-h-full flex-col">
         <script
           type="application/ld+json"
