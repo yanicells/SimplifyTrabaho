@@ -339,9 +339,9 @@ verify-registry`. Also recheck the live-but-0-PH boards listed below — several
       with maintainer in-phase
 - [x] 2026-07-06 — PWA baseline: manifest.ts + generated icon routes.
 - [x] 2026-08-08 — Brand pass: selected the smiling briefcase mark, replaced the
-      favicon/Apple/PWA/structured-data logo source, added the square PNG lockup
-      to the header/footer, and created checked-in 1200×630 + 1200×1200 social
-      share images.
+      favicon/Apple/PWA/structured-data logo source, added the zoomed icon-only
+      PNG crop to the header/footer, and created checked-in 1200×630 + 1200×1200
+      social share images.
 - [x] No accounts, no backend; analytics is Vercel Analytics (cookieless,
       maintainer-requested — see Decisions); core apply flow regression-free
       (233 tests green, playwright-style preview verified)
@@ -642,8 +642,8 @@ not a real employer. Kalibrr — job-board company, fetching prohibited by rule 
 
 - 2026-08-08 — **Smiling briefcase is the selected brand mark.** The old exploratory
   sun, pin, monogram, and concept-sheet files were removed. The checked-in
-  `web/public/social/simplifytrabaho-square.png` is now the single canonical
-  lockup source for the site and generated icons. Social link previews use the wide PNG so
+  `web/public/social/simplifytrabaho-icon.png` is now the canonical icon source;
+  the square lockup remains a separate social asset. Social link previews use the wide PNG so
   Messenger/Facebook/WhatsApp/LinkedIn/Slack crawlers receive a conventional
   raster image.
 - 2026-08-08 — **SEO pass** turned up two bugs that were live in production, both

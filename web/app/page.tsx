@@ -35,7 +35,7 @@ export default function Home() {
           <div className="flex items-center justify-between gap-4">
             <a href="/" className="flex items-center gap-3" aria-label="SimplifyTrabaho home">
               <img
-                src="/social/simplifytrabaho-square.png"
+                src="/social/simplifytrabaho-icon.png"
                 width="96"
                 height="96"
                 alt=""
@@ -81,7 +81,7 @@ export default function Home() {
         <div className="mx-auto w-full max-w-5xl px-4 py-10 sm:px-6 lg:px-8">
           <div className="flex items-center gap-3">
             <img
-              src="/social/simplifytrabaho-square.png"
+              src="/social/simplifytrabaho-icon.png"
               width="96"
               height="96"
               alt=""
