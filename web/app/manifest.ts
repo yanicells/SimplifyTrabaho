@@ -22,13 +22,13 @@ export default function manifest(): MetadataRoute.Manifest {
     theme_color: "#ffffff",
     icons: [
       {
-        src: "/icon.svg",
-        sizes: "any",
-        type: "image/svg+xml",
+        src: "/social/simplifytrabaho-square.png",
+        sizes: "1200x1200",
+        type: "image/png",
         purpose: "any",
       },
-      // Raster fallback for install surfaces that do not use the SVG entry;
-      // app/icon.tsx generates it from the same source mark.
+      // Raster fallback for install surfaces that do not use the static square;
+      // app/icon.tsx generates it from the same source image.
       {
         src: "/icon",
         sizes: "512x512",

@@ -35,16 +35,14 @@ export default function Home() {
           <div className="flex items-center justify-between gap-4">
             <a href="/" className="flex items-center gap-3" aria-label="SimplifyTrabaho home">
               <img
-                src="/logo.svg"
-                width="58"
-                height="52"
+                src="/social/simplifytrabaho-square.png"
+                width="96"
+                height="96"
                 alt=""
                 aria-hidden="true"
-                className="h-11 w-auto"
+                className="h-14 w-14 shrink-0 rounded-2xl object-contain sm:h-16 sm:w-16"
               />
-              <span className="font-display text-xl font-bold tracking-tight">
-                SimplifyTrabaho
-              </span>
+              <span className="font-display text-xl font-bold tracking-tight">SimplifyTrabaho</span>
             </a>
             <a
               href={REPO_URL}
@@ -83,12 +81,12 @@ export default function Home() {
         <div className="mx-auto w-full max-w-5xl px-4 py-10 sm:px-6 lg:px-8">
           <div className="flex items-center gap-3">
             <img
-              src="/icon.svg"
-              width="40"
-              height="40"
+              src="/social/simplifytrabaho-square.png"
+              width="96"
+              height="96"
               alt=""
               aria-hidden="true"
-              className="h-10 w-10 rounded-xl"
+              className="h-14 w-14 shrink-0 rounded-2xl object-contain"
             />
             <p className="font-display text-lg font-bold">SimplifyTrabaho</p>
           </div>
