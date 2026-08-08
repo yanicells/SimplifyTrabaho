@@ -21,7 +21,7 @@ export default function Icon() {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        background: "#000000",
+        background: "#ffffff",
       }}
     >
       <img src={MARK_URI} width={size.width} height={size.height} alt="" />

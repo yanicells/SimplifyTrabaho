@@ -35,7 +35,7 @@ export default function manifest(): MetadataRoute.Manifest {
         type: "image/png",
         purpose: "any",
       },
-      // The mark sits on a full-bleed ink field well inside the 80% safe zone,
+      // The mark sits on a full-bleed white rounded field inside the safe zone,
       // so the same asset survives Android's adaptive-icon crop.
       {
         src: "/icon",
