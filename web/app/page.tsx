@@ -52,6 +52,19 @@ export default function Home() {
           <h1 className="mt-8 max-w-2xl text-balance font-display text-4xl font-bold leading-[1.1] sm:text-5xl">
             Search job openings in the Philippines.
           </h1>
+
+          {/* The only prose above the fold. Without it a crawler sees a heading,
+              sixty rows and a footer — no statement of what the page is. Two
+              sentences is the ceiling: on a 375px screen every extra line pushes
+              the search box further down, and PH traffic is mobile-heavy. The
+              "free / open source" claim is left to the footer rather than
+              repeated here. */}
+          <p className="mt-4 max-w-2xl text-[15px] leading-relaxed text-faint sm:text-base">
+            Internships, entry-level and experienced roles at Philippine companies —
+            pulled daily from company career feeds,{" "}
+            <strong className="font-medium text-ink">never from job boards</strong>.
+            Every listing links straight to the official application page.
+          </p>
         </header>
 
         <main>
