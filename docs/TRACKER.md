@@ -146,28 +146,28 @@
 ## ✅ Acceptance criteria sweep (SPEC §15) — 2026-06-11
 
 - [x] 1. `pnpm refresh` clean run — this session: 101/101 fetched, 0 failed, exit 0;
-     valid listings.json (2,121 total / 2,097 active) + README regenerated. CI runs
-     the same on a clean clone daily (bot commits prove it).
+      valid listings.json (2,121 total / 2,097 active) + README regenerated. CI runs
+      the same on a clean clone daily (bot commits prove it).
 - [x] 2. Registry 101/101 verified spanning all six ATSs (workable 48, sr 15, gh 14,
-     ashby 12, lever 10, recruitee 2); active listings span internship 27 / entry
-     234 / senior 578 and tech (eng 310, data 104) + non-tech (finance 242, ops 238,
-     sales 172, support 114) functions.
+      ashby 12, lever 10, recruitee 2); active listings span internship 27 / entry
+      234 / senior 578 and tech (eng 310, data 104) + non-tech (finance 242, ops 238,
+      sales 172, support 114) functions.
 - [x] 3. Spot-check script over all 2,121 listings: 0 non-ATS sources, 0 forbidden
-     hosts (every URL on official ATS/company career domains), exact schema keys,
-     0 fields >250 chars (no JD text), 0 emails, 0 HTML fragments.
+      hosts (every URL on official ATS/company career domains), exact schema keys,
+      0 fields >250 chars (no JD text), 0 emails, 0 HTML fragments.
 - [x] 4. README featured table regenerates as valid GFM (82 rows, 30-day window);
-     3 sampled Apply links returned HTTP 200 on official ATS pages; GitHub render
-     confirmed by maintainer on prior commits (same generated format).
+      3 sampled Apply links returned HTTP 200 on official ATS pages; GitHub render
+      confirmed by maintainer on prior commits (same generated format).
 - [x] 5. Live site playwright pass (prod, simplifytrabaho.ycells.com): default view
-     "Interns & fresh grads" (210 roles), All roles → 2,096, multi-word search,
-     location filter, function/setup selects present, Apply links → official ATS
-     pages, 390px mobile no horizontal overflow, 0 console errors/warnings.
+      "Interns & fresh grads" (210 roles), All roles → 2,096, multi-word search,
+      location filter, function/setup selects present, Apply links → official ATS
+      pages, 390px mobile no horizontal overflow, 0 console errors/warnings.
 - [x] 6. Daily Actions run green & committing: two `data: daily refresh` commits by
-     github-actions[bot] in git history (scheduled runs succeeded and pushed); the
-     always-commits-when-green behavior is documented in the decision log. (API
-     check not possible anonymously while the repo is private.)
+      github-actions[bot] in git history (scheduled runs succeeded and pushed); the
+      always-commits-when-green behavior is documented in the decision log. (API
+      check not possible anonymously while the repo is private.)
 - [x] 7. Manual laptop flow verified end-to-end — maintainer 2026-06-11; this
-     session repeated pull → refresh → commit → push locally.
+      session repeated pull → refresh → commit → push locally.
 - [x] 8. TRACKER.md reflects reality — this update.
 
 ## 🔨 In progress
@@ -316,7 +316,7 @@ verify-registry`. Also recheck the live-but-0-PH boards listed below — several
       **Wells Fargo wellsfargo.wd1/WellsFargoJobs → robots.txt HTTP 422 =
       BLOCKED (§17.1.1)** — permanent stop, never re-probe, do not add.
       Emerson (industrial) migrated to Oracle Cloud (hdjq.fa.us2.oraclecloud.com)
-      — out of scope; emerson.wd5 is Emerson _College_ (wrong identity — don't add).
+      — out of scope; emerson.wd5 is Emerson *College* (wrong identity — don't add).
       Not on Workday per discovery: Henkel, Zurich, Nestlé PH, Jollibee, PAL,
       San Miguel, URC, Security Bank, BDO, Metrobank, Ayala cos (custom portals;
       BDO tenants found are BDO Canada/Australia — wrong identity).
@@ -371,7 +371,7 @@ verify-registry`. Also recheck the live-but-0-PH boards listed below — several
 ## 🐞 Issues & blockers
 
 - 2026-07-19 — [resolved] Web build broke on `listings.json invalid:
-listings[87].title must be a non-empty string` — a Workday board stub for
+  listings[87].title must be a non-empty string` — a Workday board stub for
   Accenture (empty title, board-root URL, no `externalPath`) had been merged
   into `data/listings.json`. Pipeline now drops any posting with a blank title
   before the PH filter (logged in the run summary); the one malformed row was
@@ -441,7 +441,6 @@ Workday/custom portals — none of the guessed SmartRecruiters identifiers exist
 **Round 8 (2026-08-07) — more GCC / multinational employers.** Registry 164 → 171.
 
 Landed (all ≥1 PH):
-
 - **Johnson & Johnson** workday:jj.wd5/JJ (52 PH) — robots Allow:/JJ/
 - **ING** workday:ing.wd3/ICSGBLCOR (170 PH) — Manila One Ayala GCC; robots Allow
 - **Salesforce** workday:salesforce.wd12/External_Career_Site (11 PH) — robots Allow
@@ -451,7 +450,6 @@ Landed (all ≥1 PH):
 - **AECOM** smartrecruiters:AECOM2 (106 PH) — AECOM GBS Philippines
 
 Misses / dry wells this round:
-
 - **Barclays** workday:barclays.wd3/External_Career_Site_Barclays — live, 1000-cap,
   **0 PH** (do not add; recheck later)
 - Guessed tenants HTTP 500 / wrong: Amex (aexp.wd5), Scotiabank, Honeywell,
@@ -460,7 +458,6 @@ Misses / dry wells this round:
 **Round 7 (2026-08-05) — big-employer coverage sweep.** Registry 157 → 164.
 
 Landed:
-
 - **Canva** smartrecruiters:Canva (7 PH) — closes Round-6 graveyard ✅ that was
   verified but never merged
 - **Citi** workday:citi.wd5/2 (183 PH) — §17.2; robots Disallow:/2/ (UI) but CXS
@@ -474,7 +471,6 @@ Landed:
   dead; live on recheck
 
 Workday GCC dry well / out of scope (do not re-probe same wrong tenants):
-
 - **HSBC** — mycareer.hsbc.com (not Workday); guessed hsbc.wd3 → 500/406
 - **Standard Chartered** — jobs.standardchartered.com is **SuccessFactors** (out of
   scope); guessed scb/standardchartered.wd3 → 500
@@ -955,7 +951,7 @@ not a real employer. Kalibrr — job-board company, fetching prohibited by rule 
   window by PAGE_SIZE; the "Show more roles" button stays inside the sentinel
   as the no-JS / no-IntersectionObserver fallback; `content-visibility` rows
   and PAGE_SIZE batching unchanged. Observer is recreated per page because IO
-  only reports intersection _changes_ — a sentinel still inside rootMargin
+  only reports intersection *changes* — a sentinel still inside rootMargin
   after growth must re-fire.
 - 2026-07-06 — **Wave-3 registry naming:** entries use the brand PH job-seekers
   know — "Pru Life UK" (not Prudential plc; PH postings are PLUK-tagged),
