@@ -29,18 +29,18 @@ own page calls, reads the same JSON, and stores a subset of it.
 Ten systems are supported right now. Company counts below are a snapshot of the
 registry on 2026-07-21, not a live figure:
 
-| ATS | Companies |
-| --- | --- |
-| Workable | 54 |
-| Manatal | 21 |
-| Greenhouse | 16 |
-| SmartRecruiters | 16 |
-| Workday | 15 |
-| Ashby | 14 |
-| Lever | 13 |
-| Breezy | 4 |
-| Recruitee | 2 |
-| BambooHR | 2 |
+| ATS             | Companies |
+| --------------- | --------- |
+| Workable        | 54        |
+| Manatal         | 21        |
+| Greenhouse      | 16        |
+| SmartRecruiters | 16        |
+| Workday         | 15        |
+| Ashby           | 14        |
+| Lever           | 13        |
+| Breezy          | 4         |
+| Recruitee       | 2         |
+| BambooHR        | 2         |
 
 The first nine work the same way: one documented JSON endpoint per company, keyed by
 whatever slug the company registered (`boards-api.greenhouse.io/v1/boards/<slug>/jobs`,

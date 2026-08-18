@@ -94,24 +94,78 @@ describe("recategorizeDataset", () => {
 
   it("is idempotent over a v3 file", () => {
     const first = recategorizeDataset(v2File([v2Listing()]), registry);
-    const second = recategorizeDataset(
-      JSON.parse(JSON.stringify(first.file)),
-      registry,
-    );
+    const second = recategorizeDataset(JSON.parse(JSON.stringify(first.file)), registry);
     expect(second.file).toEqual(first.file);
     expect(second.summary.functionChanged).toBe(0);
     expect(second.summary.levelChanged).toBe(0);
   });
 
   it("migrates v2 → v3 and stamps companyType from the registry", () => {
-    const v3Registry = { version: 1 as const, companies: [
-      { name: "Kumu", ats: "bamboohr" as const, slug: "kumu", industry: "consumer", type: "direct" as const, verified: true, added: "2026-06-13" },
-      { name: "Emapta", ats: "workable" as const, slug: "emapta", industry: "outsourcing", type: "agency" as const, verified: true, added: "2026-06-11" },
-    ] };
-    const v2 = { version: 2, updatedAt: "2026-06-12T00:00:00.000Z", listings: [
-      { id: "a", company: "Kumu", title: "Intern", locations: ["Makati, Philippines"], workSetup: "onsite", level: "internship", function: "other", industry: "consumer", metro: ["ncr"], url: "u1", source: "bamboohr", employmentType: "internship", salary: null, datePosted: "2026-06-01T00:00:00.000Z", dateUpdated: "2026-06-01T00:00:00.000Z", active: true },
-      { id: "b", company: "Emapta", title: "Agent", locations: ["Manila, Philippines"], workSetup: "onsite", level: "entry", function: "customer-support", industry: "outsourcing", metro: ["ncr"], url: "u2", source: "workable", employmentType: "full-time", salary: null, datePosted: "2026-06-01T00:00:00.000Z", dateUpdated: "2026-06-01T00:00:00.000Z", active: true },
-    ] };
+    const v3Registry = {
+      version: 1 as const,
+      companies: [
+        {
+          name: "Kumu",
+          ats: "bamboohr" as const,
+          slug: "kumu",
+          industry: "consumer",
+          type: "direct" as const,
+          verified: true,
+          added: "2026-06-13",
+        },
+        {
+          name: "Emapta",
+          ats: "workable" as const,
+          slug: "emapta",
+          industry: "outsourcing",
+          type: "agency" as const,
+          verified: true,
+          added: "2026-06-11",
+        },
+      ],
+    };
+    const v2 = {
+      version: 2,
+      updatedAt: "2026-06-12T00:00:00.000Z",
+      listings: [
+        {
+          id: "a",
+          company: "Kumu",
+          title: "Intern",
+          locations: ["Makati, Philippines"],
+          workSetup: "onsite",
+          level: "internship",
+          function: "other",
+          industry: "consumer",
+          metro: ["ncr"],
+          url: "u1",
+          source: "bamboohr",
+          employmentType: "internship",
+          salary: null,
+          datePosted: "2026-06-01T00:00:00.000Z",
+          dateUpdated: "2026-06-01T00:00:00.000Z",
+          active: true,
+        },
+        {
+          id: "b",
+          company: "Emapta",
+          title: "Agent",
+          locations: ["Manila, Philippines"],
+          workSetup: "onsite",
+          level: "entry",
+          function: "customer-support",
+          industry: "outsourcing",
+          metro: ["ncr"],
+          url: "u2",
+          source: "workable",
+          employmentType: "full-time",
+          salary: null,
+          datePosted: "2026-06-01T00:00:00.000Z",
+          dateUpdated: "2026-06-01T00:00:00.000Z",
+          active: true,
+        },
+      ],
+    };
     const { file } = recategorizeDataset(v2, v3Registry as any);
     expect(file.version).toBe(3);
     expect(file.listings.find((l) => l.company === "Kumu")!.companyType).toBe("direct");
@@ -119,9 +173,30 @@ describe("recategorizeDataset", () => {
   });
 
   it("leaves companyType direct when the company is missing from the registry", () => {
-    const v2 = { version: 2, updatedAt: "t", listings: [
-      { id: "a", company: "Gone", title: "X", locations: [], workSetup: "unknown", level: "unknown", function: "other", industry: "", metro: [], url: "u", source: "lever", employmentType: "unknown", salary: null, datePosted: "2026-06-01T00:00:00.000Z", dateUpdated: "2026-06-01T00:00:00.000Z", active: false },
-    ] };
+    const v2 = {
+      version: 2,
+      updatedAt: "t",
+      listings: [
+        {
+          id: "a",
+          company: "Gone",
+          title: "X",
+          locations: [],
+          workSetup: "unknown",
+          level: "unknown",
+          function: "other",
+          industry: "",
+          metro: [],
+          url: "u",
+          source: "lever",
+          employmentType: "unknown",
+          salary: null,
+          datePosted: "2026-06-01T00:00:00.000Z",
+          dateUpdated: "2026-06-01T00:00:00.000Z",
+          active: false,
+        },
+      ],
+    };
     const { file } = recategorizeDataset(v2, { version: 1, companies: [] } as any);
     expect(file.listings[0]!.companyType).toBe("direct"); // safe default; inactive history
   });

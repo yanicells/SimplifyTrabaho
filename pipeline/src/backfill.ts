@@ -37,9 +37,7 @@ export function recategorizeDataset(raw: unknown, registry: Registry): BackfillR
     throw new Error("recategorize: listings must be an array");
   }
 
-  const industryByCompany = new Map(
-    registry.companies.map((c) => [c.name, c.industry]),
-  );
+  const industryByCompany = new Map(registry.companies.map((c) => [c.name, c.industry]));
   const typeByCompany = new Map(registry.companies.map((c) => [c.name, c.type]));
 
   const summary: BackfillSummary = {
@@ -61,8 +59,7 @@ export function recategorizeDataset(raw: unknown, registry: Registry): BackfillR
 
     if (level !== old.level) summary.levelChanged += 1;
     if (fn !== old.function) summary.functionChanged += 1;
-    if (JSON.stringify(metro) !== JSON.stringify(old.metro ?? null))
-      summary.metroChanged += 1;
+    if (JSON.stringify(metro) !== JSON.stringify(old.metro ?? null)) summary.metroChanged += 1;
     if (industry !== (old.industry ?? null)) summary.industryChanged += 1;
 
     // Rebuild in canonical key order so v1 rows gain industry/metro in the same

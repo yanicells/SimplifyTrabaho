@@ -21,7 +21,11 @@ export async function fetchBreezy(
       try {
         return { ok: true, postings: normalizeBreezy(company, outcome.body) };
       } catch (error) {
-        return { ok: false, errorKind: "http", detail: error instanceof Error ? error.message : String(error) };
+        return {
+          ok: false,
+          errorKind: "http",
+          detail: error instanceof Error ? error.message : String(error),
+        };
       }
     case "not-found":
       return { ok: false, errorKind: "dead-slug", detail: `board not found: ${company.slug}` };

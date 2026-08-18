@@ -1,1 +1,113 @@
-{"meta":{"totalCount":8},"result":[{"id":"336","jobOpeningName":"Business Development Associate","departmentId":"19634","departmentLabel":"Operations","employmentStatusLabel":"Probationary","location":{"city":"Makati","state":"Metro Manila"},"atsLocation":{"country":null,"state":null,"province":null,"city":null},"isRemote":null,"locationType":"2"},{"id":"337","jobOpeningName":"User Operations Associate","departmentId":"19634","departmentLabel":"Operations","employmentStatusLabel":"Contractor","location":{"city":null,"state":null},"atsLocation":{"country":"Philippines","state":null,"province":"NCR","city":"Makati"},"isRemote":null,"locationType":"1"},{"id":"338","jobOpeningName":"Community Operations Associate","departmentId":"19634","departmentLabel":"Operations","employmentStatusLabel":"Contractor","location":{"city":null,"state":null},"atsLocation":{"country":"Philippines","state":null,"province":"NCR","city":"Makati"},"isRemote":null,"locationType":"1"},{"id":"339","jobOpeningName":"Community Operations Intern","departmentId":"19634","departmentLabel":"Operations","employmentStatusLabel":"Intern","location":{"city":null,"state":null},"atsLocation":{"country":"Philippines","state":null,"province":"NCR","city":"Makati"},"isRemote":null,"locationType":"1"},{"id":"340","jobOpeningName":"Quality Assurance Intern","departmentId":"20001","departmentLabel":"Technology & Product","employmentStatusLabel":"Intern","location":{"city":"Makati","state":"Metro Manila"},"atsLocation":{"country":null,"state":null,"province":null,"city":null},"isRemote":null,"locationType":"2"},{"id":"341","jobOpeningName":"Bilingual IT Project Manager (English\u2013Chinese)","departmentId":"19634","departmentLabel":"Operations","employmentStatusLabel":"Contractor","location":{"city":"Makati","state":"Metro Manila"},"atsLocation":{"country":null,"state":null,"province":null,"city":null},"isRemote":null,"locationType":"2"},{"id":"342","jobOpeningName":"LiveOps Associate (24\/7 Operations & Moderation)","departmentId":"19934","departmentLabel":"Support","employmentStatusLabel":"Probationary","location":{"city":null,"state":null},"atsLocation":{"country":"Philippines","state":null,"province":"Metro Manila","city":"Makati"},"isRemote":null,"locationType":"1"},{"id":"343","jobOpeningName":"Operational Finance Analyst","departmentId":"18564","departmentLabel":"Finance","employmentStatusLabel":"Regular","location":{"city":"Makati","state":"Metro Manila"},"atsLocation":{"country":null,"state":null,"province":null,"city":null},"isRemote":null,"locationType":"2"}]}
+{
+  "meta": { "totalCount": 8 },
+  "result": [
+    {
+      "id": "336",
+      "jobOpeningName": "Business Development Associate",
+      "departmentId": "19634",
+      "departmentLabel": "Operations",
+      "employmentStatusLabel": "Probationary",
+      "location": { "city": "Makati", "state": "Metro Manila" },
+      "atsLocation": { "country": null, "state": null, "province": null, "city": null },
+      "isRemote": null,
+      "locationType": "2"
+    },
+    {
+      "id": "337",
+      "jobOpeningName": "User Operations Associate",
+      "departmentId": "19634",
+      "departmentLabel": "Operations",
+      "employmentStatusLabel": "Contractor",
+      "location": { "city": null, "state": null },
+      "atsLocation": {
+        "country": "Philippines",
+        "state": null,
+        "province": "NCR",
+        "city": "Makati"
+      },
+      "isRemote": null,
+      "locationType": "1"
+    },
+    {
+      "id": "338",
+      "jobOpeningName": "Community Operations Associate",
+      "departmentId": "19634",
+      "departmentLabel": "Operations",
+      "employmentStatusLabel": "Contractor",
+      "location": { "city": null, "state": null },
+      "atsLocation": {
+        "country": "Philippines",
+        "state": null,
+        "province": "NCR",
+        "city": "Makati"
+      },
+      "isRemote": null,
+      "locationType": "1"
+    },
+    {
+      "id": "339",
+      "jobOpeningName": "Community Operations Intern",
+      "departmentId": "19634",
+      "departmentLabel": "Operations",
+      "employmentStatusLabel": "Intern",
+      "location": { "city": null, "state": null },
+      "atsLocation": {
+        "country": "Philippines",
+        "state": null,
+        "province": "NCR",
+        "city": "Makati"
+      },
+      "isRemote": null,
+      "locationType": "1"
+    },
+    {
+      "id": "340",
+      "jobOpeningName": "Quality Assurance Intern",
+      "departmentId": "20001",
+      "departmentLabel": "Technology & Product",
+      "employmentStatusLabel": "Intern",
+      "location": { "city": "Makati", "state": "Metro Manila" },
+      "atsLocation": { "country": null, "state": null, "province": null, "city": null },
+      "isRemote": null,
+      "locationType": "2"
+    },
+    {
+      "id": "341",
+      "jobOpeningName": "Bilingual IT Project Manager (English\u2013Chinese)",
+      "departmentId": "19634",
+      "departmentLabel": "Operations",
+      "employmentStatusLabel": "Contractor",
+      "location": { "city": "Makati", "state": "Metro Manila" },
+      "atsLocation": { "country": null, "state": null, "province": null, "city": null },
+      "isRemote": null,
+      "locationType": "2"
+    },
+    {
+      "id": "342",
+      "jobOpeningName": "LiveOps Associate (24\/7 Operations & Moderation)",
+      "departmentId": "19934",
+      "departmentLabel": "Support",
+      "employmentStatusLabel": "Probationary",
+      "location": { "city": null, "state": null },
+      "atsLocation": {
+        "country": "Philippines",
+        "state": null,
+        "province": "Metro Manila",
+        "city": "Makati"
+      },
+      "isRemote": null,
+      "locationType": "1"
+    },
+    {
+      "id": "343",
+      "jobOpeningName": "Operational Finance Analyst",
+      "departmentId": "18564",
+      "departmentLabel": "Finance",
+      "employmentStatusLabel": "Regular",
+      "location": { "city": "Makati", "state": "Metro Manila" },
+      "atsLocation": { "country": null, "state": null, "province": null, "city": null },
+      "isRemote": null,
+      "locationType": "2"
+    }
+  ]
+}

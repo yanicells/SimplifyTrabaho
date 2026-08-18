@@ -92,10 +92,9 @@ describe("parseWorkdaySlug", () => {
 
 describe("fetchWorkday — robots.txt gate (guardrail §17.1.1)", () => {
   it("checks robots.txt before anything else and stops when the jobs path is disallowed", async () => {
-    const http = fakeHttp(
-      { status: 200, text: "User-agent: *\nDisallow: /wday/" },
-      [{ status: 200, json: jobsPage(1, 1) }],
-    );
+    const http = fakeHttp({ status: 200, text: "User-agent: *\nDisallow: /wday/" }, [
+      { status: 200, json: jobsPage(1, 1) },
+    ]);
     const result = await fetchWorkday(COMPANY, http);
     expect(result.ok).toBe(false);
     if (!result.ok) expect(result.errorKind).toBe("blocked");
@@ -133,14 +132,17 @@ describe("fetchWorkday — robots.txt gate (guardrail §17.1.1)", () => {
 });
 
 describe("fetchWorkday — stop on block, never retry (guardrail §17.1.2)", () => {
-  it.each([401, 403, 422, 429])("status %i → blocked after exactly one attempt", async (status) => {
-    const http = fakeHttp({ status: 404, text: "" }, [{ status, json: {} }]);
-    const result = await fetchWorkday(COMPANY, http);
-    expect(result.ok).toBe(false);
-    if (!result.ok) expect(result.errorKind).toBe("blocked");
-    // robots + ONE jobs attempt, zero retries.
-    expect(http.calls).toHaveLength(2);
-  });
+  it.each([401, 403, 422, 429])(
+    "status %i → blocked after exactly one attempt",
+    async (status) => {
+      const http = fakeHttp({ status: 404, text: "" }, [{ status, json: {} }]);
+      const result = await fetchWorkday(COMPANY, http);
+      expect(result.ok).toBe(false);
+      if (!result.ok) expect(result.errorKind).toBe("blocked");
+      // robots + ONE jobs attempt, zero retries.
+      expect(http.calls).toHaveLength(2);
+    },
+  );
 
   it("a non-JSON response (bot-challenge page) → blocked", async () => {
     const http = fakeHttp({ status: 404, text: "" }, [{ status: 200, html: true }]);

@@ -90,7 +90,8 @@ function mapBambooEmployment(label: string): EmploymentType {
   if (l.includes("intern")) return "internship";
   if (l.includes("part")) return "part-time";
   if (l.includes("contract") || l.includes("contractor")) return "contract";
-  if (l.includes("full") || l.includes("regular") || l.includes("probationary")) return "full-time";
+  if (l.includes("full") || l.includes("regular") || l.includes("probationary"))
+    return "full-time";
   return "unknown";
 }
 
@@ -117,7 +118,9 @@ export function normalizeBambooHr(company: RegistryCompany, raw: unknown): Fetch
       locations,
       url: `https://${company.slug}.bamboohr.com/careers/${String(job.id ?? "")}`,
       workSetup:
-        job.isRemote === true ? "remote" : workSetupFromText(`${title} ${locations.join(" ")}`),
+        job.isRemote === true
+          ? "remote"
+          : workSetupFromText(`${title} ${locations.join(" ")}`),
       employmentType: mapBambooEmployment(String(job.employmentStatusLabel ?? "")),
       salary: null,
       publishedAt: null, // list feed carries no published date (SPEC §6 first-seen fallback)
@@ -152,7 +155,8 @@ export function normalizeBreezy(company: RegistryCompany, raw: unknown): Fetched
       [String(loc.city ?? "").trim(), String(loc.country?.name ?? "").trim()]
         .filter(Boolean)
         .join(", ");
-    const salary = typeof job.salary === "string" && job.salary.trim() !== "" ? job.salary.trim() : null;
+    const salary =
+      typeof job.salary === "string" && job.salary.trim() !== "" ? job.salary.trim() : null;
     return {
       company: company.name,
       source: "breezy",

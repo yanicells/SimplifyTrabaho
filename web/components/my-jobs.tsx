@@ -51,8 +51,8 @@ export function MyJobs({
         <div className="py-16 text-center">
           <p className="font-display text-lg font-bold">No saved jobs yet</p>
           <p className="mx-auto mt-2 max-w-sm text-sm leading-relaxed text-faint">
-            Tap the bookmark on any role to save it here, then track your progress
-            from applied to offer. Everything stays on this device.
+            Tap the bookmark on any role to save it here, then track your progress from applied
+            to offer. Everything stays on this device.
           </p>
         </div>
       </div>

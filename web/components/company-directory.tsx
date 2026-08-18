@@ -73,14 +73,14 @@ export function CompanyDirectory({
           </span>{" "}
           {shown.length === 1 ? "company" : "companies"} with open roles
         </p>
-        <p className="text-sm text-faint">
-          {sort === "roles" ? "Most roles first" : "A–Z"}
-        </p>
+        <p className="text-sm text-faint">{sort === "roles" ? "Most roles first" : "A–Z"}</p>
       </div>
 
       {shown.length === 0 ? (
         <div className="py-16 text-center">
-          <p className="font-display text-lg font-bold">No company matches “{query.trim()}”.</p>
+          <p className="font-display text-lg font-bold">
+            No company matches “{query.trim()}”.
+          </p>
           <p className="mt-2 text-sm text-faint">
             Check the spelling, or{" "}
             <button
@@ -118,7 +118,9 @@ export function CompanyDirectory({
                 </div>
                 <span className="shrink-0 text-sm font-semibold tabular-nums text-ink">
                   {c.count.toLocaleString("en-US")}{" "}
-                  <span className="font-normal text-faint">{c.count === 1 ? "role" : "roles"}</span>
+                  <span className="font-normal text-faint">
+                    {c.count === 1 ? "role" : "roles"}
+                  </span>
                 </span>
                 <svg
                   viewBox="0 0 16 16"

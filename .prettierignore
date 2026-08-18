@@ -8,3 +8,6 @@ out/
 dist/
 pnpm-lock.yaml
 web/next-env.d.ts
+
+# work log full of code identifiers; prettier markdown emphasis rewriting corrupts them
+docs/TRACKER.md
