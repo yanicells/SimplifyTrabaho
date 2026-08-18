@@ -187,7 +187,6 @@ export function JobBoard({
   // It's a *layout* effect so the restored state replaces the prerendered
   // default before the browser paints — otherwise a saved "All roles" shows a
   // visible flash of the interns & entry default on every load.
-  /* eslint-disable react-hooks/set-state-in-effect */
   useBrowserLayoutEffect(() => {
     const fromUrl = filtersFromSearch(window.location.search);
     const applied =
@@ -208,7 +207,6 @@ export function JobBoard({
     }
     setTracker(parseTracker(readStorage(TRACKER_STORAGE_KEY)));
   }, []);
-  /* eslint-enable react-hooks/set-state-in-effect */
 
   // Keep the address bar shareable and the preference persisted on every change,
   // debounced so typing doesn't hammer history.replaceState (Safari rate-limits it).

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { JobBoard } from "@/components/job-board";
 import { loadJobs } from "@/lib/listings";
 import { REPO_URL, SITE_DESCRIPTION, SITE_TITLE } from "@/lib/site";
@@ -33,7 +34,13 @@ export default function Home() {
       <div className="mx-auto w-full max-w-5xl flex-1 px-4 sm:px-6 lg:px-8">
         <header className="pt-6 pb-2 sm:pt-8">
           <div className="flex items-center justify-between gap-4">
-            <a href="/" className="flex items-center gap-3" aria-label="SimplifyTrabaho home">
+            <Link
+              href="/"
+              className="flex items-center gap-3"
+              aria-label="SimplifyTrabaho home"
+            >
+              {/* Static export has no image optimizer, so plain <img> is deliberate. */}
+              {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src="/social/simplifytrabaho-icon.png"
                 width="96"
@@ -45,7 +52,7 @@ export default function Home() {
               <span className="font-display text-xl font-bold tracking-tight">
                 SimplifyTrabaho
               </span>
-            </a>
+            </Link>
             <a
               href={REPO_URL}
               target="_blank"
@@ -82,6 +89,7 @@ export default function Home() {
       <footer className="bg-ink text-paper">
         <div className="mx-auto w-full max-w-5xl px-4 py-10 sm:px-6 lg:px-8">
           <div className="flex items-center gap-3">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/social/simplifytrabaho-mark.png"
               width="96"
