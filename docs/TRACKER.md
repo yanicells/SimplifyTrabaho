@@ -642,6 +642,17 @@ not a real employer. Kalibrr — job-board company, fetching prohibited by rule 
 
 ## 📔 Decision log
 
+- 2026-08-19 — **Launch-polish pass** (`chore/launch-polish`): applied prettier
+  across the workspace (32 files were drifting), fixed the last `next lint`
+  error (home logo anchor now uses `next/link`; the two `<img>` warnings carry
+  scoped disables — static export has no image optimizer), removed a
+  no-longer-needed `react-hooks/set-state-in-effect` disable in
+  `job-board.tsx`, and CI now gates on `pnpm format:check` and
+  `pnpm --filter web lint` in addition to typecheck/tests/build.
+  **`docs/TRACKER.md` is now in `.prettierignore`:** prettier's markdown
+  emphasis rewriting is non-idempotent here and corrupts identifiers
+  (`external_global` → `external*global`, `PAGE_SIZE` → `PAGE*SIZE`) —
+  this file's formatting stays hand-owned.
 - 2026-08-08 — **Smiling briefcase is the selected brand mark.** The old exploratory
   sun, pin, monogram, and concept-sheet files were removed. The checked-in
   `web/public/social/simplifytrabaho-icon.png` remains the header icon, while the
