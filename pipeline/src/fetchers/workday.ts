@@ -127,7 +127,10 @@ async function postJobsPage(
       };
     }
   } catch (error) {
-    return { kind: "network", message: error instanceof Error ? error.message : String(error) };
+    return {
+      kind: "network",
+      message: error instanceof Error ? error.message : String(error),
+    };
   }
 }
 

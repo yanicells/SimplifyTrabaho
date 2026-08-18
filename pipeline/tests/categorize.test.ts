@@ -238,9 +238,9 @@ describe("categorizeFunction", () => {
   });
 
   it("does not treat a BPO 'Healthcare Account' as a healthcare role", () => {
-    expect(
-      categorizeFunction("Team Lead (Individual Contributor) | Healthcare Account"),
-    ).toBe("other");
+    expect(categorizeFunction("Team Lead (Individual Contributor) | Healthcare Account")).toBe(
+      "other",
+    );
   });
 
   it("maps education titles", () => {
@@ -276,9 +276,7 @@ describe("categorizeFunction", () => {
     expect(categorizeFunction("Conformance Analyst - Chemical")).toBe("manufacturing");
     expect(categorizeFunction("Farm Maintenance Technician")).toBe("manufacturing");
     expect(categorizeFunction("Electrical Technician")).toBe("manufacturing");
-    expect(categorizeFunction("Mechanical Technician (Refrigeration)")).toBe(
-      "manufacturing",
-    );
+    expect(categorizeFunction("Mechanical Technician (Refrigeration)")).toBe("manufacturing");
     expect(categorizeFunction("Welder")).toBe("manufacturing");
     expect(categorizeFunction("Plant Manager")).toBe("manufacturing");
     expect(categorizeFunction("Assembler")).toBe("manufacturing");
@@ -360,12 +358,10 @@ describe("categorizeFunction", () => {
     expect(categorizeFunction("Back Office Associate | Healthcare Account")).toBe(
       "operations",
     );
-    expect(categorizeFunction("Mechanical/HVAC Fabrication VA (023-892)")).toBe(
+    expect(categorizeFunction("Mechanical/HVAC Fabrication VA (023-892)")).toBe("operations");
+    expect(categorizeFunction("2026-7942 Optimization Lead — Managed Service Delivery")).toBe(
       "operations",
     );
-    expect(
-      categorizeFunction("2026-7942 Optimization Lead — Managed Service Delivery"),
-    ).toBe("operations");
   });
 
   it("maps mined marketing/data/engineering vocabulary", () => {
@@ -430,9 +426,9 @@ describe("categorizeFunction", () => {
       "finance",
     );
     expect(categorizeFunction("Remedial Officer")).toBe("finance");
-    expect(
-      categorizeFunction("2026-7923 Catastrophe Modeling Analyst-Mid (Nightshift)"),
-    ).toBe("finance");
+    expect(categorizeFunction("2026-7923 Catastrophe Modeling Analyst-Mid (Nightshift)")).toBe(
+      "finance",
+    );
     // document controllers are construction admin, not financial controllers
     expect(categorizeFunction("Junior Document Controller (Construction)")).toBe(
       "construction",

@@ -197,17 +197,31 @@ function registryCompany(overrides: Partial<RegistryCompany>): RegistryCompany {
 }
 
 describe("fetchBambooHr", () => {
-  const kumu = registryCompany({ name: "Kumu", ats: "bamboohr", slug: "kumu", type: "direct" });
+  const kumu = registryCompany({
+    name: "Kumu",
+    ats: "bamboohr",
+    slug: "kumu",
+    type: "direct",
+  });
 
   it("hits {slug}.bamboohr.com/careers/list and normalizes", async () => {
-    const http = fakeHttp([{
-      status: 200,
-      body: { meta: { totalCount: 1 }, result: [
-        { id: "319", jobOpeningName: "Marketing intern",
-          atsLocation: { country: "Philippines", province: "NCR", city: "Makati" },
-          employmentStatusLabel: "Intern", isRemote: null },
-      ] },
-    }]);
+    const http = fakeHttp([
+      {
+        status: 200,
+        body: {
+          meta: { totalCount: 1 },
+          result: [
+            {
+              id: "319",
+              jobOpeningName: "Marketing intern",
+              atsLocation: { country: "Philippines", province: "NCR", city: "Makati" },
+              employmentStatusLabel: "Intern",
+              isRemote: null,
+            },
+          ],
+        },
+      },
+    ]);
     const result = await fetchBambooHr(kumu, http);
     expect(http.calls[0]!.url).toBe("https://kumu.bamboohr.com/careers/list");
     expect(result.ok).toBe(true);
@@ -223,21 +237,36 @@ describe("fetchBambooHr", () => {
 
   it("treats a redirect (unknown tenant) as dead-slug", async () => {
     const http = fakeHttp([{ status: 302 }]);
-    expect(await fetchBambooHr(kumu, http)).toMatchObject({ ok: false, errorKind: "dead-slug" });
+    expect(await fetchBambooHr(kumu, http)).toMatchObject({
+      ok: false,
+      errorKind: "dead-slug",
+    });
     expect(http.calls).toHaveLength(1);
   });
 });
 
 describe("fetchBreezy", () => {
-  const co = registryCompany({ name: "Breezy Co", ats: "breezy", slug: "acme", type: "direct" });
+  const co = registryCompany({
+    name: "Breezy Co",
+    ats: "breezy",
+    slug: "acme",
+    type: "direct",
+  });
 
   it("hits {slug}.breezy.hr/json and normalizes", async () => {
-    const http = fakeHttp([{
-      status: 200,
-      body: [{ name: "Engineer", url: "https://acme.breezy.hr/p/x",
-        published_date: "2026-06-01T00:00:00.000Z",
-        location: { name: "Manila, Philippines", is_remote: false } }],
-    }]);
+    const http = fakeHttp([
+      {
+        status: 200,
+        body: [
+          {
+            name: "Engineer",
+            url: "https://acme.breezy.hr/p/x",
+            published_date: "2026-06-01T00:00:00.000Z",
+            location: { name: "Manila, Philippines", is_remote: false },
+          },
+        ],
+      },
+    ]);
     const result = await fetchBreezy(co, http);
     expect(http.calls[0]!.url).toBe("https://acme.breezy.hr/json");
     expect(result.ok).toBe(true);
@@ -257,12 +286,35 @@ describe("fetchBreezy", () => {
 });
 
 describe("fetchManatal", () => {
-  const co = registryCompany({ name: "Manatal", ats: "manatal", slug: "manatal", type: "direct" });
+  const co = registryCompany({
+    name: "Manatal",
+    ats: "manatal",
+    slug: "manatal",
+    type: "direct",
+  });
 
   it("paginates via the next URL until null", async () => {
     const http = fakeHttp([
-      { status: 200, body: { count: 2, next: "https://www.careers-page.com/api/v1.0/c/manatal/jobs/?page=2&page_size=1", previous: null, results: [{ hash: "A", position_name: "One", country: "Philippines", city: "Makati" }] } },
-      { status: 200, body: { count: 2, next: null, previous: "x", results: [{ hash: "B", position_name: "Two", country: "Philippines", city: "Cebu" }] } },
+      {
+        status: 200,
+        body: {
+          count: 2,
+          next: "https://www.careers-page.com/api/v1.0/c/manatal/jobs/?page=2&page_size=1",
+          previous: null,
+          results: [
+            { hash: "A", position_name: "One", country: "Philippines", city: "Makati" },
+          ],
+        },
+      },
+      {
+        status: 200,
+        body: {
+          count: 2,
+          next: null,
+          previous: "x",
+          results: [{ hash: "B", position_name: "Two", country: "Philippines", city: "Cebu" }],
+        },
+      },
     ]);
     const result = await fetchManatal(co, http);
     expect(http.calls[0]!.url).toContain("/api/v1.0/c/manatal/jobs/?page_size=");
@@ -271,12 +323,16 @@ describe("fetchManatal", () => {
   });
 
   it("reports dead-slug on 404 (unknown client)", async () => {
-    const http = fakeHttp([{ status: 404, body: { detail: "No ClientPortalSettings matches…" } }]);
+    const http = fakeHttp([
+      { status: 404, body: { detail: "No ClientPortalSettings matches…" } },
+    ]);
     expect(await fetchManatal(co, http)).toMatchObject({ ok: false, errorKind: "dead-slug" });
   });
 
   it("treats an empty results page as a successful empty fetch", async () => {
-    const http = fakeHttp([{ status: 200, body: { count: 0, next: null, previous: null, results: [] } }]);
+    const http = fakeHttp([
+      { status: 200, body: { count: 0, next: null, previous: null, results: [] } },
+    ]);
     const result = await fetchManatal(co, http);
     expect(result.ok).toBe(true);
     if (result.ok) expect(result.postings).toHaveLength(0);

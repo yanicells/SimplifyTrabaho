@@ -77,9 +77,7 @@ describe("buildGraph", () => {
   });
 
   it("applies the data license only to the dataset", () => {
-    expect(node("Dataset").license).toBe(
-      "https://creativecommons.org/publicdomain/zero/1.0/",
-    );
+    expect(node("Dataset").license).toBe("https://creativecommons.org/publicdomain/zero/1.0/");
     expect(node("WebSite")).not.toHaveProperty("license");
   });
 

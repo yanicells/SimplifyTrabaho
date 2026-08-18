@@ -104,10 +104,7 @@ const INDUSTRY_LABELS: Record<string, string> = {
 };
 
 export function industryLabel(tag: string): string {
-  return (
-    INDUSTRY_LABELS[tag] ??
-    tag.replace(/-/g, " ").replace(/^./, (c) => c.toUpperCase())
-  );
+  return INDUSTRY_LABELS[tag] ?? tag.replace(/-/g, " ").replace(/^./, (c) => c.toUpperCase());
 }
 
 const LEVEL_PILLS: Partial<Record<Job["level"], string>> = {
@@ -137,7 +134,12 @@ function BuildingIcon() {
         strokeLinecap="round"
         strokeLinejoin="round"
       />
-      <path d="M5 5.5h1.5M5 8h1.5M5 10.5h1.5" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
+      <path
+        d="M5 5.5h1.5M5 8h1.5M5 10.5h1.5"
+        stroke="currentColor"
+        strokeWidth="1.2"
+        strokeLinecap="round"
+      />
     </svg>
   );
 }
@@ -265,10 +267,7 @@ export function JobBoard({
     [jobs],
   );
   const liveUrls = useMemo(() => new Set(jobs.map((j) => j.url)), [jobs]);
-  const trackedUrls = useMemo(
-    () => new Set(tracker.jobs.map((j) => j.url)),
-    [tracker],
-  );
+  const trackedUrls = useMemo(() => new Set(tracker.jobs.map((j) => j.url)), [tracker]);
 
   const { levels, fns, setup, metro, industry, type: employerType, company } = filters;
   const levelSet = useMemo(() => new Set<string>(levels), [levels]);
@@ -365,7 +364,6 @@ export function JobBoard({
       active ? "bg-ink text-paper" : "bg-soft text-ink hover:bg-press"
     }`;
 
-
   const trackedCount = tracker.jobs.length;
 
   return (
@@ -386,7 +384,9 @@ export function JobBoard({
             placeholder={
               view === "companies" ? "Search companies…" : "Search roles or companies…"
             }
-            aria-label={view === "companies" ? "Search companies" : "Search roles or companies"}
+            aria-label={
+              view === "companies" ? "Search companies" : "Search roles or companies"
+            }
             className={`${fieldClass} h-10 w-full`}
           />
         </div>
@@ -396,7 +396,11 @@ export function JobBoard({
             a way back to the board. */}
         <div className="mt-3 flex flex-wrap items-center gap-2">
           {view === "board" && (
-            <div role="group" aria-label="Filter by level (multi-select)" className="flex flex-wrap gap-2">
+            <div
+              role="group"
+              aria-label="Filter by level (multi-select)"
+              className="flex flex-wrap gap-2"
+            >
               <button
                 type="button"
                 aria-pressed={levels.length === 0}
@@ -708,7 +712,9 @@ export function JobBoard({
           <h2 className="sr-only">Job openings</h2>
           {shown.length === 0 ? (
             <div className="py-16 text-center">
-              <p className="font-display text-lg font-bold">Walang nahanap — no roles match.</p>
+              <p className="font-display text-lg font-bold">
+                Walang nahanap — no roles match.
+              </p>
               <p className="mt-2 text-sm text-faint">
                 Try fewer filters, or{" "}
                 <button
@@ -769,7 +775,9 @@ export function JobBoard({
                             {extraLocations > 0 ? ` +${extraLocations}` : ""}
                           </span>
                         )}
-                        {job.salary && <span className="font-medium text-ink">{job.salary}</span>}
+                        {job.salary && (
+                          <span className="font-medium text-ink">{job.salary}</span>
+                        )}
                       </p>
                     </div>
                     <button
@@ -782,7 +790,9 @@ export function JobBoard({
                       }
                       onClick={() => toggleTracked(job)}
                       className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-ink ${
-                        saved ? "bg-ink text-paper" : "bg-soft text-faint hover:bg-press hover:text-ink"
+                        saved
+                          ? "bg-ink text-paper"
+                          : "bg-soft text-faint hover:bg-press hover:text-ink"
                       }`}
                     >
                       <BookmarkIcon filled={saved} />

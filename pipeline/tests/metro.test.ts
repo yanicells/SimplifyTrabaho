@@ -74,9 +74,7 @@ describe("deriveMetro", () => {
   it("falls back to other-ph for PH locations without a metro bucket", () => {
     expect(deriveMetro(["Philippines"])).toEqual(["other-ph"]);
     expect(deriveMetro(["Tarlac, Central Luzon, Philippines"])).toEqual(["other-ph"]);
-    expect(deriveMetro(["Iligan City, Northern Mindanao, Philippines"])).toEqual([
-      "other-ph",
-    ]);
+    expect(deriveMetro(["Iligan City, Northern Mindanao, Philippines"])).toEqual(["other-ph"]);
     expect(deriveMetro(["Tacloban or Ormoc, Leyte and Samar, Philippines"])).toEqual([
       "other-ph",
     ]);
@@ -92,9 +90,10 @@ describe("deriveMetro", () => {
     expect(
       deriveMetro(["Cebu City, Philippines", "Makati", "Quezon City, Philippines"]),
     ).toEqual(["ncr", "cebu"]);
-    expect(
-      deriveMetro(["Remote - Philippines", "Manila, Philippines", "Singapore"]),
-    ).toEqual(["ncr", "remote-ph"]);
+    expect(deriveMetro(["Remote - Philippines", "Manila, Philippines", "Singapore"])).toEqual([
+      "ncr",
+      "remote-ph",
+    ]);
   });
 
   it("matches city keywords on word boundaries only", () => {

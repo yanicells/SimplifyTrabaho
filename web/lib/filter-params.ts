@@ -91,10 +91,7 @@ export function filtersToSearch(filters: Filters): string {
   return params.toString();
 }
 
-function parseList<T extends string>(
-  raw: string | null,
-  allowed: readonly T[],
-): T[] {
+function parseList<T extends string>(raw: string | null, allowed: readonly T[]): T[] {
   if (raw === null) return [];
   return inCanonicalOrder(
     raw.split(",").filter((v): v is T => (allowed as readonly string[]).includes(v)),
@@ -104,9 +101,7 @@ function parseList<T extends string>(
 
 export function filtersFromSearch(search: string): Filters {
   const filters = defaultFilters();
-  const params = new URLSearchParams(
-    search.startsWith("?") ? search.slice(1) : search,
-  );
+  const params = new URLSearchParams(search.startsWith("?") ? search.slice(1) : search);
 
   // "all" is not a level, so old links carrying level=all parse to [] — which is
   // now exactly the default view.

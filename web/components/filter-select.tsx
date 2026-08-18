@@ -140,48 +140,53 @@ export function FilterSelect({
             menuAlign === "right" ? "right-0" : "left-0"
           }`}
         >
-        <div
-          id={listId}
-          role="listbox"
-          aria-label={label}
-          onKeyDown={onListKeyDown}
-          className="max-h-72 overflow-y-auto p-1.5"
-        >
-          {options.map((option, i) => {
-            const isSelected = i === selectedIndex;
-            return (
-              <button
-                key={option.value}
-                ref={(el) => {
-                  optionRefs.current[i] = el;
-                }}
-                type="button"
-                role="option"
-                aria-selected={isSelected}
-                tabIndex={i === focusIndex ? 0 : -1}
-                onClick={() => pick(i)}
-                // Roving focus is moved programmatically, so this stays :focus —
-                // :focus-visible would drop the highlight after a mouse open.
-                className={`flex w-full items-center justify-between gap-3 rounded-xl px-3 py-2 text-left text-sm transition-colors hover:bg-soft focus:bg-soft focus:outline-none ${
-                  isSelected ? "font-semibold" : "font-normal"
-                }`}
-              >
-                <span className="whitespace-nowrap">{option.label}</span>
-                {isSelected && (
-                  <svg viewBox="0 0 16 16" fill="none" aria-hidden className="h-4 w-4 shrink-0">
-                    <path
-                      d="M3 8.5l3.5 3.5L13 5"
-                      stroke="currentColor"
-                      strokeWidth="1.5"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                )}
-              </button>
-            );
-          })}
-        </div>
+          <div
+            id={listId}
+            role="listbox"
+            aria-label={label}
+            onKeyDown={onListKeyDown}
+            className="max-h-72 overflow-y-auto p-1.5"
+          >
+            {options.map((option, i) => {
+              const isSelected = i === selectedIndex;
+              return (
+                <button
+                  key={option.value}
+                  ref={(el) => {
+                    optionRefs.current[i] = el;
+                  }}
+                  type="button"
+                  role="option"
+                  aria-selected={isSelected}
+                  tabIndex={i === focusIndex ? 0 : -1}
+                  onClick={() => pick(i)}
+                  // Roving focus is moved programmatically, so this stays :focus —
+                  // :focus-visible would drop the highlight after a mouse open.
+                  className={`flex w-full items-center justify-between gap-3 rounded-xl px-3 py-2 text-left text-sm transition-colors hover:bg-soft focus:bg-soft focus:outline-none ${
+                    isSelected ? "font-semibold" : "font-normal"
+                  }`}
+                >
+                  <span className="whitespace-nowrap">{option.label}</span>
+                  {isSelected && (
+                    <svg
+                      viewBox="0 0 16 16"
+                      fill="none"
+                      aria-hidden
+                      className="h-4 w-4 shrink-0"
+                    >
+                      <path
+                        d="M3 8.5l3.5 3.5L13 5"
+                        stroke="currentColor"
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  )}
+                </button>
+              );
+            })}
+          </div>
         </div>
       )}
     </div>

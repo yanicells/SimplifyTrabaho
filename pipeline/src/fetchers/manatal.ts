@@ -23,14 +23,24 @@ export async function fetchManatal(
   while (url && pages < MAX_PAGES) {
     const outcome = await politeJsonGet(url, deps);
     if (outcome.kind === "not-found") {
-      return { ok: false, errorKind: "dead-slug", detail: `client not found: ${company.slug}` };
+      return {
+        ok: false,
+        errorKind: "dead-slug",
+        detail: `client not found: ${company.slug}`,
+      };
     }
-    if (outcome.kind === "http") return { ok: false, errorKind: "http", detail: `HTTP ${outcome.status}` };
-    if (outcome.kind === "network") return { ok: false, errorKind: "network", detail: outcome.message };
+    if (outcome.kind === "http")
+      return { ok: false, errorKind: "http", detail: `HTTP ${outcome.status}` };
+    if (outcome.kind === "network")
+      return { ok: false, errorKind: "network", detail: outcome.message };
     try {
       postings.push(...normalizeManatal(company, outcome.body));
     } catch (error) {
-      return { ok: false, errorKind: "http", detail: error instanceof Error ? error.message : String(error) };
+      return {
+        ok: false,
+        errorKind: "http",
+        detail: error instanceof Error ? error.message : String(error),
+      };
     }
     const next = (outcome.body as { next?: unknown }).next;
     url = typeof next === "string" && next !== "" ? next : null;

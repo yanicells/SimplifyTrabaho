@@ -42,7 +42,9 @@ export default function Home() {
                 aria-hidden="true"
                 className="h-14 w-14 shrink-0 rounded-2xl object-contain sm:h-16 sm:w-16"
               />
-              <span className="font-display text-xl font-bold tracking-tight">SimplifyTrabaho</span>
+              <span className="font-display text-xl font-bold tracking-tight">
+                SimplifyTrabaho
+              </span>
             </a>
             <a
               href={REPO_URL}

@@ -1,9 +1,5 @@
 import { describe, expect, it } from "vitest";
-import {
-  defaultFilters,
-  filtersFromSearch,
-  filtersToSearch,
-} from "./filter-params";
+import { defaultFilters, filtersFromSearch, filtersToSearch } from "./filter-params";
 
 // Full filter state ⇆ URL query params (SPEC §12 v2): pasting a URL must
 // reproduce the view, and the default (featured) view must keep a clean URL.
@@ -14,21 +10,21 @@ describe("filtersToSearch", () => {
   });
 
   it("serializes the featured level preset explicitly", () => {
-    expect(
-      filtersToSearch({ ...defaultFilters(), levels: ["entry", "internship"] }),
-    ).toBe("level=internship%2Centry");
+    expect(filtersToSearch({ ...defaultFilters(), levels: ["entry", "internship"] })).toBe(
+      "level=internship%2Centry",
+    );
   });
 
   it("serializes custom level sets in canonical order", () => {
-    expect(
-      filtersToSearch({ ...defaultFilters(), levels: ["senior", "mid"] }),
-    ).toBe("level=mid%2Csenior");
+    expect(filtersToSearch({ ...defaultFilters(), levels: ["senior", "mid"] })).toBe(
+      "level=mid%2Csenior",
+    );
   });
 
   it("serializes multi-select functions in canonical order", () => {
-    expect(
-      filtersToSearch({ ...defaultFilters(), fns: ["data", "engineering"] }),
-    ).toBe("fn=engineering%2Cdata");
+    expect(filtersToSearch({ ...defaultFilters(), fns: ["data", "engineering"] })).toBe(
+      "fn=engineering%2Cdata",
+    );
   });
 
   it("serializes every non-default field", () => {

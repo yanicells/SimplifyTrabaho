@@ -62,18 +62,33 @@ const ninjaVan: RegistryCompany = {
 };
 
 const kumu = {
-  name: "Kumu", ats: "bamboohr" as const, slug: "kumu",
-  industry: "consumer", type: "direct" as const, verified: true, added: "2026-06-13",
+  name: "Kumu",
+  ats: "bamboohr" as const,
+  slug: "kumu",
+  industry: "consumer",
+  type: "direct" as const,
+  verified: true,
+  added: "2026-06-13",
 };
 
 const breezyCo = {
-  name: "Breezy Sample", ats: "breezy" as const, slug: "breezy",
-  industry: "saas", type: "direct" as const, verified: true, added: "2026-06-13",
+  name: "Breezy Sample",
+  ats: "breezy" as const,
+  slug: "breezy",
+  industry: "saas",
+  type: "direct" as const,
+  verified: true,
+  added: "2026-06-13",
 };
 
 const manatalCo = {
-  name: "Manatal", ats: "manatal" as const, slug: "manatal",
-  industry: "hr-tech", type: "direct" as const, verified: true, added: "2026-06-13",
+  name: "Manatal",
+  ats: "manatal" as const,
+  slug: "manatal",
+  industry: "hr-tech",
+  type: "direct" as const,
+  verified: true,
+  added: "2026-06-13",
 };
 
 describe("normalizeBambooHr", () => {
@@ -81,7 +96,9 @@ describe("normalizeBambooHr", () => {
     const postings = normalizeBambooHr(kumu, bambooKumu);
     expect(postings.length).toBeGreaterThan(0);
     const intern = postings.find((p) => /intern/i.test(p.title))!;
-    expect(intern.url).toBe(`https://kumu.bamboohr.com/careers/${(bambooKumu as any).result.find((r:any)=>/intern/i.test(r.jobOpeningName)).id}`);
+    expect(intern.url).toBe(
+      `https://kumu.bamboohr.com/careers/${(bambooKumu as any).result.find((r: any) => /intern/i.test(r.jobOpeningName)).id}`,
+    );
     expect(intern.employmentType).toBe("internship");
     expect(intern.companyType).toBe("direct");
     expect(intern.source).toBe("bamboohr");
@@ -112,7 +129,9 @@ describe("normalizeBreezy", () => {
     const p = postings[0]!;
     expect(p.title).toBe((breezySample as any)[0].name);
     expect(p.url).toBe((breezySample as any)[0].url);
-    expect(p.publishedAt).toBe(new Date((breezySample as any)[0].published_date).toISOString());
+    expect(p.publishedAt).toBe(
+      new Date((breezySample as any)[0].published_date).toISOString(),
+    );
     expect(p.source).toBe("breezy");
     expect(p.companyType).toBe("direct");
   });

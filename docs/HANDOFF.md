@@ -3,7 +3,7 @@
 > **What this is.** A snapshot written 2026-06-16 to hand the project off to a fresh
 > Claude Code instance. **It is an archive, not the current state.** Everything it
 > called "pending" (Phases 9 to 12) shipped on 2026-07-06. Sections 4, 5 and 10 have
-> been collapsed to pointers; the rest is kept because it carries the *why* behind the
+> been collapsed to pointers; the rest is kept because it carries the _why_ behind the
 > project that the other docs don't record.
 >
 > **If you are a new agent, do not start here.** Start with [CLAUDE.md](../CLAUDE.md)
@@ -21,7 +21,7 @@ SimplifyTrabaho is **a free, open, auto-updated list of jobs at Philippine compa
 all roles, all levels, with internships & entry-level featured by default. It's the PH
 counterpart of [SimplifyJobs/Summer2026-Internships](https://github.com/SimplifyJobs/Summer2026-Internships),
 which the maintainer chose deliberately as the blueprint because (1) it already works and
-(2) it's legally clean. We copy their *architecture and legal posture*, not their code,
+(2) it's legally clean. We copy their _architecture and legal posture_, not their code,
 and adapt it to the PH market.
 
 **The maintainer's framing, in their own words (from the planning "hub chat"):**
@@ -29,7 +29,7 @@ and adapt it to the PH market.
 - "main inspo is the simplify jobs repo … make it PH focused."
 - Scope grew from internships-only to **all jobs, all levels, all industries** (not just
   tech) — "You are fable 5, you can do a lot of things." Internships + fresh-grad/entry
-  stay *featured* because entry-level hunting is the bigger PH pain point.
+  stay _featured_ because entry-level hunting is the bigger PH pain point.
 - **No crowdsourcing in v1** — "maybe in the future but rn no." Data comes only from
   endpoints companies themselves publish.
 - Free, open, mobile-first (PH users are mobile-heavy), auto-updated daily.
@@ -48,9 +48,9 @@ the registry is agency-heavy and is missing the recognizable employers PH job-se
 actually search for (Globe, GCash, Accenture, P&G, Thinking Machines, the big
 conglomerates), and there's no distribution path yet for real people to find the site.
 **Everything in v2 (Phases 9–12) exists to close that gap.** When prioritizing or making
-judgment calls, optimize for: *more recognizable direct employers, better categorization
+judgment calls, optimize for: _more recognizable direct employers, better categorization
 that matches what users expect, and features/reach that get this in front of PH job
-seekers* — while never bending the legal rules.
+seekers_ — while never bending the legal rules.
 
 ---
 
@@ -68,7 +68,7 @@ seekers* — while never bending the legal rules.
   **Claude's workflow feature**: a phase is split into separate prompts —
   **Plan → Implement → Review → Finalize** — sent one per message, in order, in the same
   chat. (Phase 9's four-stage prompt set was already written this way; see §5.) A new
-  agent should be comfortable both *executing* a stage and *producing* the next-stage
+  agent should be comfortable both _executing_ a stage and _producing_ the next-stage
   prompt when asked.
 - **Wants to be personally involved** in the reach/SEO work (Phase 12) and in co-designing
   the support/feedback UX (Phase 11) — agents prepare artifacts, the maintainer publishes
@@ -86,7 +86,7 @@ seekers* — while never bending the legal rules.
 ## 3. Non-negotiable rules (legal) — never violate, never "just this once"
 
 These are from [CLAUDE.md](../CLAUDE.md) §"Golden rules". Restated here because they gate
-*every* future phase, especially Workday (Phase 10):
+_every_ future phase, especially Workday (Phase 10):
 
 1. **NEVER** fetch from LinkedIn, JobStreet, Indeed, Kalibrr, Glassdoor, or any job
    board/aggregator. Their ToS prohibit it.
@@ -130,14 +130,14 @@ are maintained every session; this file is not.
 This table is the reason the supported-system list looks the way it does. The verdicts
 have not changed, so it is worth keeping in front of anyone evaluating a new platform:
 
-| ATS | Verdict | Why |
-| --- | --- | --- |
-| BambooHR | IN | `{slug}.bamboohr.com/careers/list` returns anonymous JSON. Unknown tenants 3xx-redirect, which the fetcher treats as a dead slug. |
-| Breezy | IN | `{slug}.breezy.hr/json` returns anonymous JSON, and it is the cleanest of the set (apply URL, date and salary all in the feed). |
-| Manatal | IN | `careers-page.com/api/v1.0/c/{slug}/jobs/` returns anonymous paginated JSON. It includes a job description field that must be dropped at normalization and never stored. |
-| Personio | Deferred | Public, but XML rather than JSON, and EU-centric with almost no PH employers. Not worth a new parser until one shows up. |
-| Freshteam | OUT | No public unauthenticated feed. `/jobs` is HTML only, the API returns 401, and `.json` redirects to OAuth. Getting the data would mean scraping HTML, which rule 2 forbids. |
-| Teamtailor, Jobvite, Zoho Recruit | OUT | All require an API key, OAuth, or a vendor-issued feed link. |
+| ATS                               | Verdict  | Why                                                                                                                                                                         |
+| --------------------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| BambooHR                          | IN       | `{slug}.bamboohr.com/careers/list` returns anonymous JSON. Unknown tenants 3xx-redirect, which the fetcher treats as a dead slug.                                           |
+| Breezy                            | IN       | `{slug}.breezy.hr/json` returns anonymous JSON, and it is the cleanest of the set (apply URL, date and salary all in the feed).                                             |
+| Manatal                           | IN       | `careers-page.com/api/v1.0/c/{slug}/jobs/` returns anonymous paginated JSON. It includes a job description field that must be dropped at normalization and never stored.    |
+| Personio                          | Deferred | Public, but XML rather than JSON, and EU-centric with almost no PH employers. Not worth a new parser until one shows up.                                                    |
+| Freshteam                         | OUT      | No public unauthenticated feed. `/jobs` is HTML only, the API returns 401, and `.json` redirects to OAuth. Getting the data would mean scraping HTML, which rule 2 forbids. |
+| Teamtailor, Jobvite, Zoho Recruit | OUT      | All require an API key, OAuth, or a vendor-issued feed link.                                                                                                                |
 
 The consequence worth remembering: the SPEC originally named Freshteam as the route to
 adding Thinking Machines, and Freshteam does not qualify. Thinking Machines stays
@@ -164,9 +164,9 @@ Full dated log is in [TRACKER.md](TRACKER.md) "Decision log". The load-bearing o
 - **Registry (`pipeline/companies.json`) is the crown jewel** and the only hand-edited data
   file. Entries need `verified: true` (endpoint confirmed live) before the pipeline uses them.
 - **Data = facts only, link out always.** CC0 1.0 for the datasets, MIT for the code —
-  rationale: claiming attribution rights over *facts* would contradict our own legal stance.
+  rationale: claiming attribution rights over _facts_ would contradict our own legal stance.
 - **Categorizer is deliberately conservative** (SPEC §9 "never guess"): an unknown level is
-  better than a wrong one. PH-vocabulary rules are mined from the *real* dataset, never
+  better than a wrong one. PH-vocabulary rules are mined from the _real_ dataset, never
   invented (CSR/TSR/SDR → entry but only after senior/mid markers; supervisor/team-leader →
   senior; "Project Manager" stays `other` — no honest bucket; bare "officer" is NOT senior
   because PH "HR Officer" is staff-level; etc.).
@@ -178,29 +178,29 @@ Full dated log is in [TRACKER.md](TRACKER.md) "Decision log". The load-bearing o
 ## 7. Gotchas & hard-won lessons (read before you trip on them)
 
 - **Daily bot conflict.** The `github-actions[bot]` commits `data/listings.json` + `README.md`
-  + `data/fetch-state.json` every night at 22:00 UTC. **Always `git pull --rebase` before
-  pushing.** On a generated-file conflict, resolve toward the **newer refresh**. (See the
-  maintainer's memory note on this.)
+  - `data/fetch-state.json` every night at 22:00 UTC. **Always `git pull --rebase` before
+    pushing.** On a generated-file conflict, resolve toward the **newer refresh**. (See the
+    maintainer's memory note on this.)
 - **PowerShell corrupts git commit messages.** Inline here-strings and `Out-File` both
   mangle the subject (UTF-8 BOM leaks in, quotes break native-arg parsing). Write the message
   to a BOM-free file and use `git commit -F`, or use the Bash tool with a heredoc.
 - **A green refresh always commits** even if no listings changed, because every run rewrites
-  `updatedAt` in both generated files. That's *intentional* — it keeps the dateline fresh,
+  `updatedAt` in both generated files. That's _intentional_ — it keeps the dateline fresh,
   triggers the daily Vercel redeploy, and carries `fetch-state.json` (the 3-strikes dead-slug
   counter) across CI runs. Don't "optimize" the timestamp away.
 - **PH-HQ + 0-postings = confirm identity.** Generic slugs caused real wrong-company
   additions in v1: `lever:maya` (a US firm, not the PH fintech), `greenhouse:thinkingmachines`
-  (the US AI *Lab*, not the Manila data consultancy). `verify-registry` now prints a
+  (the US AI _Lab_, not the Manila data consultancy). `verify-registry` now prints a
   `CONFIRM-IDENTITY` warning for any PH-HQ verification with zero PH postings — heed it.
-- **Empty ≠ dead, per-ATS.** SmartRecruiters returns `200` with empty results for *unknown*
+- **Empty ≠ dead, per-ATS.** SmartRecruiters returns `200` with empty results for _unknown_
   companies, so the SR fetcher treats empty as dead-slug (freezes listings instead of mass-
-  deactivating). Workable returns `200 + jobs:[]` for live-but-quiet accounts = a *successful*
+  deactivating). Workable returns `200 + jobs:[]` for live-but-quiet accounts = a _successful_
   empty fetch. BambooHR/Breezy 3xx-redirect unknown tenants (→ dead-slug); Manatal 404s them.
 - **`level: unknown` is ~58%, structurally — do NOT "fix" it by guessing.** The Phase 8
-  target was <25% and it wasn't met *on purpose*: the unknown mass is genuinely unleveled
+  target was <25% and it wasn't met _on purpose_: the unknown mass is genuinely unleveled
   titles ("PHP Developer", "Bookkeeper", "Graphic Designer") with no marker at all, and SPEC
-  §9 forbids leveling them. The recommendation on file is to revisit the *target* in the SPEC,
-  not to trade accuracy for coverage. (`function: other` *did* hit its <15% target at 13.7%.)
+  §9 forbids leveling them. The recommendation on file is to revisit the _target_ in the SPEC,
+  not to trade accuracy for coverage. (`function: other` _did_ hit its <15% target at 13.7%.)
 - **Open taxonomy/metro backlogs** (mined but deliberately unmapped — no honest bucket):
   agriculture/farm roles (Pilmico), lab/science analysts (SGS), bare "Business Analyst"/
   "Project Manager", BPO quality-systems titles; and Tarlac/Central-Luzon locations fall to
@@ -227,8 +227,8 @@ single chat**, in order:
    entries), commit in sensible increments, `git pull --rebase`, push, confirm CI green.
 
 **Governance per tier:** Phase 9 (Tier-A) finalizes **direct to main**. Phase 10 (Workday,
-Tier-B) finalizes via **a PR per company** with SPEC §17.2 evidence (the adapter *code* can
-merge to main; each company *entry* is its own PR).
+Tier-B) finalizes via **a PR per company** with SPEC §17.2 evidence (the adapter _code_ can
+merge to main; each company _entry_ is its own PR).
 
 When the maintainer asks for "the prompt for phase N," produce these four self-contained
 stage prompts (each must work in a cold session because they're pasted into fresh chats).
@@ -255,6 +255,7 @@ PIPELINE.md (the public explainer of how listings are sourced) and this file;
 `CLAUDE.md` and `AGENTS.md` sit at the root.
 
 **Commands (pnpm only):**
+
 ```
 pnpm install                       # workspace install (root)
 pnpm refresh                       # full pipeline: fetch → data/listings.json → README.md

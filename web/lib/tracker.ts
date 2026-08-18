@@ -104,10 +104,7 @@ export function trackJob(
   if (isTracked(state, job.url)) return state;
   return {
     version: 1,
-    jobs: [
-      ...state.jobs,
-      { ...job, status: "saved", savedAt: now, updatedAt: now },
-    ],
+    jobs: [...state.jobs, { ...job, status: "saved", savedAt: now, updatedAt: now }],
   };
 }
 

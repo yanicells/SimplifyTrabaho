@@ -27,9 +27,7 @@ function tracked(): TrackerState {
 describe("trackJob", () => {
   it("saves a job with status saved and both timestamps", () => {
     const state = tracked();
-    expect(state.jobs).toEqual([
-      { ...JOB, status: "saved", savedAt: NOW, updatedAt: NOW },
-    ]);
+    expect(state.jobs).toEqual([{ ...JOB, status: "saved", savedAt: NOW, updatedAt: NOW }]);
     expect(isTracked(state, JOB.url)).toBe(true);
   });
 
