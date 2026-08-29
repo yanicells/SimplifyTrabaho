@@ -84,7 +84,7 @@ export default function Home() {
           </h1>
 
           <p className="mt-4 max-w-2xl text-[15px] leading-relaxed text-faint sm:text-base">
-            Fresh jobs and internships from official company career feeds — updated daily.
+            Jobs and internships from official company career feeds — checked daily.
           </p>
         </header>
 

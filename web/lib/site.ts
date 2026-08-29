@@ -16,4 +16,4 @@ export const SITE_TITLE = "SimplifyTrabaho — jobs & internships at Philippine 
 // differentiators. Shared by the meta description, the OG/Twitter cards, and
 // the JSON-LD, so they can't disagree.
 export const SITE_DESCRIPTION =
-  "Free, open, updated daily: jobs at Philippine companies, with internships and entry-level roles featured. Every listing links to the official application page.";
+  "Free, open job directory checked daily: roles at Philippine companies, including internships and entry-level work. Every listing links to the official application page.";
