@@ -55,9 +55,9 @@ export default function Home() {
               {/* Static export has no image optimizer, so plain <img> is deliberate. */}
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="/social/simplifytrabaho-icon.png"
-                width="96"
-                height="96"
+                src="/social/simplifytrabaho-icon-192.png"
+                width="192"
+                height="192"
                 alt=""
                 aria-hidden="true"
                 className="h-14 w-14 shrink-0 rounded-2xl object-contain sm:h-16 sm:w-16"
@@ -104,9 +104,9 @@ export default function Home() {
           <div className="flex items-center gap-3">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="/social/simplifytrabaho-mark.png"
-              width="96"
-              height="96"
+              src="/social/simplifytrabaho-mark-192.png"
+              width="192"
+              height="192"
               alt=""
               aria-hidden="true"
               className="h-14 w-14 shrink-0 rounded-2xl object-contain"

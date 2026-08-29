@@ -25,6 +25,11 @@ profiles and square shares. The checked-in
 `public/social/simplifytrabaho-og.png` is the 1200×630 link-preview image used by
 Messenger, Facebook, WhatsApp, LinkedIn, Slack, and X.
 
+The header and footer serve the dedicated 192px derivatives
+`simplifytrabaho-icon-192.png` and `simplifytrabaho-mark-192.png`. Keep the larger
+source files for social/PWA generation; serving them directly at 56–64px wastes
+hundreds of kilobytes on the initial mobile view.
+
 ## `vercel.json` — why it exists
 
 JSON can't carry a comment, so the reason lives here.
