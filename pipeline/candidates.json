@@ -19,12 +19,6 @@
       "tries": [{ "ats": "ashby", "slug": "deel" }]
     },
     {
-      "name": "Kraken",
-      "industry": "fintech",
-      "type": "direct",
-      "tries": [{ "ats": "ashby", "slug": "kraken.com" }]
-    },
-    {
       "name": "Reddit",
       "industry": "saas",
       "type": "direct",
@@ -109,12 +103,6 @@
       "tries": [{ "ats": "recruitee", "slug": "timedoctor" }]
     },
     {
-      "name": "Coinbase",
-      "industry": "fintech",
-      "type": "direct",
-      "tries": [{ "ats": "greenhouse", "slug": "coinbase" }]
-    },
-    {
       "name": "Stripe",
       "industry": "fintech",
       "type": "direct",
@@ -173,6 +161,18 @@
       "industry": "gaming",
       "type": "direct",
       "tries": [{ "ats": "smartrecruiters", "slug": "Ubisoft2" }]
+    },
+    {
+      "name": "Jaber Resource",
+      "industry": "recruitment",
+      "type": "agency",
+      "tries": [{ "ats": "manatal", "slug": "jaberph" }]
+    },
+    {
+      "name": "HireKayana",
+      "industry": "recruitment",
+      "type": "agency",
+      "tries": [{ "ats": "manatal", "slug": "hirekayana" }]
     }
   ]
 }

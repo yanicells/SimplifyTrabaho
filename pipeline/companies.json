@@ -72,6 +72,16 @@
       "notes": "auto-verified 2026-07-06: 28 PH postings"
     },
     {
+      "name": "Aleph",
+      "ats": "lever",
+      "slug": "aleph",
+      "industry": "advertising",
+      "type": "direct",
+      "verified": true,
+      "added": "2026-08-29",
+      "notes": "auto-verified 2026-08-29: 4 PH postings"
+    },
+    {
       "name": "Angkas",
       "ats": "workable",
       "slug": "angkas",
@@ -330,6 +340,16 @@
       "verified": true,
       "added": "2026-07-19",
       "notes": "auto-verified 2026-07-19: 3 PH postings"
+    },
+    {
+      "name": "Coinbase",
+      "ats": "greenhouse",
+      "slug": "coinbase",
+      "industry": "fintech",
+      "type": "direct",
+      "verified": true,
+      "added": "2026-08-29",
+      "notes": "auto-verified 2026-08-29: 2 PH postings"
     },
     {
       "name": "Coins.ph",
@@ -882,6 +902,16 @@
       "notes": "auto-verified 2026-06-11: PH-headquartered, 0 open PH roles today"
     },
     {
+      "name": "Kraken",
+      "ats": "ashby",
+      "slug": "kraken.com",
+      "industry": "fintech",
+      "type": "direct",
+      "verified": true,
+      "added": "2026-08-29",
+      "notes": "auto-verified 2026-08-29: 1 PH postings"
+    },
+    {
       "name": "Kumu",
       "ats": "bamboohr",
       "slug": "kumu",
@@ -1352,6 +1382,16 @@
       "notes": "auto-verified 2026-06-11: PH-headquartered, 0 open PH roles today"
     },
     {
+      "name": "Snappr",
+      "ats": "lever",
+      "slug": "snappr",
+      "industry": "media",
+      "type": "direct",
+      "verified": true,
+      "added": "2026-08-29",
+      "notes": "auto-verified 2026-08-29: 16 PH postings"
+    },
+    {
       "name": "Sourcefit",
       "ats": "workable",
       "slug": "sourcefit",
@@ -1488,8 +1528,8 @@
       "industry": "outsourcing",
       "type": "direct",
       "verified": true,
-      "disabled": true,
       "added": "2026-07-06",
+      "disabled": true,
       "notes": "DISABLED 2026-08-29 after review: robots.txt began returning HTTP 403 on 2026-07-29; permanent stop under §17.1.1, never re-probe. Originally verified 2026-07-06 with 56 postings / 8 PH; tenant keeps the pre-rebrand telusinternational id."
     },
     {
