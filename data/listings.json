@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "updatedAt": "2026-08-29T07:56:26.102Z",
+  "updatedAt": "2026-08-29T23:40:38.571Z",
   "listings": [
     {
       "id": "16e8a85575e0",
@@ -46896,8 +46896,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-01-13T14:55:28.741Z",
-      "dateUpdated": "2026-06-11T01:21:12.918Z",
-      "active": true
+      "dateUpdated": "2026-08-29T23:40:38.571Z",
+      "active": false
     },
     {
       "id": "f18cbe032c6d",
@@ -90643,6 +90643,29 @@
       "active": true
     },
     {
+      "id": "7179ec95eb4a",
+      "company": "First Circle",
+      "title": "Payment Operations Analyst (Business Graduates 2025/2026)",
+      "locations": [
+        "Taguig, Philippines"
+      ],
+      "workSetup": "unknown",
+      "level": "unknown",
+      "function": "operations",
+      "industry": "fintech",
+      "companyType": "direct",
+      "metro": [
+        "ncr"
+      ],
+      "url": "https://apply.workable.com/j/1BA372B30A",
+      "source": "workable",
+      "employmentType": "full-time",
+      "salary": null,
+      "datePosted": "2026-08-29T00:00:00.000Z",
+      "dateUpdated": "2026-08-29T23:40:38.571Z",
+      "active": true
+    },
+    {
       "id": "9796c6e18e24",
       "company": "First Circle",
       "title": "Risk Operations Support (Finance Graduates 2025/2026)",
@@ -90783,7 +90806,7 @@
     {
       "id": "5fec41a35eff",
       "company": "First Circle",
-      "title": "Risk Operations Analyst - Finance Graduates 2025 & 2026",
+      "title": "Risk Operations Analyst (Finance Graduates 2025/2026)",
       "locations": [
         "Taguig, Philippines"
       ],
@@ -90800,7 +90823,7 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-07-13T00:00:00.000Z",
-      "dateUpdated": "2026-08-14T22:11:36.865Z",
+      "dateUpdated": "2026-08-29T23:40:38.571Z",
       "active": true
     },
     {
