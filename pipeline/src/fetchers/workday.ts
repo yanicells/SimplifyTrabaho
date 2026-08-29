@@ -1,6 +1,6 @@
 import { normalizeWorkday, parseWorkdaySlug } from "../normalize.js";
 import type { FetchResult, RegistryCompany } from "../types.js";
-import { USER_AGENT, type HttpDeps } from "./http.js";
+import { requestSignal, USER_AGENT, type HttpDeps } from "./http.js";
 
 export { parseWorkdaySlug };
 
@@ -102,6 +102,7 @@ async function postJobsPage(
   url: string,
   appliedFacets: Record<string, string[]>,
   offset: number,
+  timeoutMs: number,
 ): Promise<PageOutcome> {
   await sleep(POLITENESS_GAP_MS);
   try {
@@ -113,6 +114,7 @@ async function postJobsPage(
         "Content-Type": "application/json",
       },
       body: JSON.stringify({ appliedFacets, limit: PAGE_SIZE, offset, searchText: "" }),
+      signal: requestSignal(timeoutMs),
     });
     if (BLOCK_STATUSES.has(response.status)) {
       return { kind: "blocked", detail: `HTTP ${response.status} — permanent stop (§17.1.2)` };
@@ -140,6 +142,7 @@ export async function fetchWorkday(
 ): Promise<FetchResult> {
   const fetchFn = deps.fetchFn ?? fetch;
   const sleep = deps.sleep ?? realSleep;
+  const timeoutMs = deps.timeoutMs ?? 30_000;
 
   let parsed: ReturnType<typeof parseWorkdaySlug>;
   try {
@@ -160,6 +163,7 @@ export async function fetchWorkday(
   try {
     const robots = await fetchFn(`https://${host}/robots.txt`, {
       headers: { "User-Agent": USER_AGENT },
+      signal: requestSignal(timeoutMs),
     });
     if (robots.ok) {
       const text = await robots.text();
@@ -187,7 +191,7 @@ export async function fetchWorkday(
   }
 
   // First page, unfaceted: also our §17.1.4 facet-discovery request.
-  const first = await postJobsPage(fetchFn, sleep, jobsUrl, {}, 0);
+  const first = await postJobsPage(fetchFn, sleep, jobsUrl, {}, 0, timeoutMs);
   if (first.kind !== "ok") return failureFrom(first);
 
   let appliedFacets: Record<string, string[]> = {};
@@ -202,7 +206,7 @@ export async function fetchWorkday(
       // Global tenant with a PH facet: restart faceted so we never bulk-pull
       // a 10,000-job worldwide feed.
       appliedFacets = { [ph.parameter]: [ph.id] };
-      const faceted = await postJobsPage(fetchFn, sleep, jobsUrl, appliedFacets, 0);
+      const faceted = await postJobsPage(fetchFn, sleep, jobsUrl, appliedFacets, 0, timeoutMs);
       if (faceted.kind !== "ok") return failureFrom(faceted);
       page = faceted.page;
       total = Number(page.total ?? 0);
@@ -215,7 +219,7 @@ export async function fetchWorkday(
     jobs.push(...items);
     const next = jobs.length;
     if (next >= Math.min(total, MAX_POSTINGS) || items.length === 0) break;
-    const outcome = await postJobsPage(fetchFn, sleep, jobsUrl, appliedFacets, next);
+    const outcome = await postJobsPage(fetchFn, sleep, jobsUrl, appliedFacets, next, timeoutMs);
     if (outcome.kind !== "ok") return failureFrom(outcome);
     page = outcome.page;
   }

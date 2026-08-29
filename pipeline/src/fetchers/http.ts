@@ -7,6 +7,8 @@ export const USER_AGENT =
 export interface HttpDeps {
   fetchFn?: typeof fetch;
   sleep?: (ms: number) => Promise<void>;
+  /** Per-request wall-clock timeout. A fresh abort signal is created for every attempt. */
+  timeoutMs?: number;
   /**
    * Treat any 3xx redirect as "not found" (→ dead-slug). BambooHR/Breezy redirect an
    * unknown or inactive tenant to a marketing page instead of returning 404. Off by
@@ -20,6 +22,11 @@ const realSleep = (ms: number) => new Promise<void>((resolve) => setTimeout(reso
 const POLITENESS_GAP_MS = 1000;
 const MAX_ATTEMPTS = 3;
 const BACKOFF_BASE_MS = 2000;
+const DEFAULT_TIMEOUT_MS = 30_000;
+
+export function requestSignal(timeoutMs = DEFAULT_TIMEOUT_MS): AbortSignal {
+  return AbortSignal.timeout(timeoutMs);
+}
 
 export type HttpOutcome =
   | { kind: "ok"; body: unknown }
@@ -30,6 +37,7 @@ export type HttpOutcome =
 export async function politeJsonGet(url: string, deps: HttpDeps = {}): Promise<HttpOutcome> {
   const fetchFn = deps.fetchFn ?? fetch;
   const sleep = deps.sleep ?? realSleep;
+  const timeoutMs = deps.timeoutMs ?? DEFAULT_TIMEOUT_MS;
   let last: HttpOutcome = { kind: "network", message: "request never attempted" };
 
   for (let attempt = 1; attempt <= MAX_ATTEMPTS; attempt += 1) {
@@ -37,6 +45,7 @@ export async function politeJsonGet(url: string, deps: HttpDeps = {}): Promise<H
     try {
       const response = await fetchFn(url, {
         headers: { "User-Agent": USER_AGENT, Accept: "application/json" },
+        signal: requestSignal(timeoutMs),
         ...(deps.redirectIsNotFound ? { redirect: "manual" as const } : {}),
       });
       if (response.status === 404) return { kind: "not-found" };

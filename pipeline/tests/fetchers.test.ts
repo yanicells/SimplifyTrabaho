@@ -45,14 +45,18 @@ const GH_BODY = {
 interface Call {
   url: string;
   headers: Record<string, string>;
+  signal: AbortSignal | null | undefined;
 }
 
 function fakeHttp(responses: Array<{ status: number; body?: unknown } | Error>) {
   const calls: Call[] = [];
   const sleeps: number[] = [];
   let i = 0;
-  const fetchFn = (async (url: unknown, init?: { headers?: Record<string, string> }) => {
-    calls.push({ url: String(url), headers: init?.headers ?? {} });
+  const fetchFn = (async (
+    url: unknown,
+    init?: { headers?: Record<string, string>; signal?: AbortSignal | null },
+  ) => {
+    calls.push({ url: String(url), headers: init?.headers ?? {}, signal: init?.signal });
     const next = responses[Math.min(i, responses.length - 1)]!;
     i += 1;
     if (next instanceof Error) throw next;
@@ -83,6 +87,14 @@ describe("politeJsonGet redirectIsNotFound", () => {
     const http = fakeHttp([{ status: 302 }]);
     const outcome = await politeJsonGet("https://x.example/list", http);
     expect(outcome.kind).toBe("http");
+  });
+});
+
+describe("politeJsonGet timeout", () => {
+  it("attaches an abort signal to every request", async () => {
+    const http = fakeHttp([{ status: 200, body: {} }]);
+    await politeJsonGet("https://x.example/list", { ...http, timeoutMs: 1234 });
+    expect(http.calls[0]?.signal).toBeInstanceOf(AbortSignal);
   });
 });
 
