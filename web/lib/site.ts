@@ -3,6 +3,9 @@
 
 export const SITE_URL = "https://simplifytrabaho.ycells.com";
 export const REPO_URL = "https://github.com/yanicells/SimplifyTrabaho";
+export const REPORT_LISTING_URL = `${REPO_URL}/issues/new?template=report-listing.yml`;
+export const SUGGEST_COMPANY_URL = `${REPO_URL}/issues/new?template=add-company.yml`;
+export const REPORT_BUG_URL = `${REPO_URL}/issues/new?template=bug-report.yml`;
 
 // Concise and descriptive: brand first (SPEC naming convention), then the two
 // intents people actually search for. Search results truncate to device width,

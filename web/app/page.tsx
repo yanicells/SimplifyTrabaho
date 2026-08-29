@@ -1,7 +1,14 @@
 import Link from "next/link";
 import { JobBoard } from "@/components/job-board";
 import { loadJobs } from "@/lib/listings";
-import { REPO_URL, SITE_DESCRIPTION, SITE_TITLE } from "@/lib/site";
+import {
+  REPORT_BUG_URL,
+  REPORT_LISTING_URL,
+  REPO_URL,
+  SITE_DESCRIPTION,
+  SITE_TITLE,
+  SUGGEST_COMPANY_URL,
+} from "@/lib/site";
 import { buildGraph } from "@/lib/structured-data";
 
 // UTC-pinned so the build machine's timezone can't shift the stamp.
@@ -113,7 +120,7 @@ export default function Home() {
             sites. We store facts only and always send you to the official application page. No
             accounts, no cookies, no middlemen.
           </p>
-          <p className="mt-5 text-sm text-paper/70">
+          <p className="mt-5 flex flex-wrap gap-x-4 gap-y-2 text-sm text-paper/70">
             <a
               href={REPO_URL}
               target="_blank"
@@ -121,6 +128,30 @@ export default function Home() {
               className="rounded-sm font-medium text-paper underline underline-offset-2 hover:text-paper/80 focus:outline-none focus-visible:ring-2 focus-visible:ring-paper"
             >
               Open source on GitHub
+            </a>
+            <a
+              href={REPORT_LISTING_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-sm font-medium text-paper underline underline-offset-2 hover:text-paper/80 focus:outline-none focus-visible:ring-2 focus-visible:ring-paper"
+            >
+              Report a listing
+            </a>
+            <a
+              href={SUGGEST_COMPANY_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-sm font-medium text-paper underline underline-offset-2 hover:text-paper/80 focus:outline-none focus-visible:ring-2 focus-visible:ring-paper"
+            >
+              Suggest a company
+            </a>
+            <a
+              href={REPORT_BUG_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-sm font-medium text-paper underline underline-offset-2 hover:text-paper/80 focus:outline-none focus-visible:ring-2 focus-visible:ring-paper"
+            >
+              Report a site bug
             </a>
           </p>
         </div>

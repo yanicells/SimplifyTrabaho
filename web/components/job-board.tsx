@@ -33,6 +33,7 @@ import { MyJobs } from "@/components/my-jobs";
 import { CompanyDirectory, type CompanySort } from "@/components/company-directory";
 import { FilterSelect } from "@/components/filter-select";
 import { timeAgo } from "@/lib/time";
+import { REPORT_LISTING_URL } from "@/lib/site";
 
 const PAGE_SIZE = 60;
 const NEW_WINDOW_MS = 3 * 24 * 60 * 60 * 1000;
@@ -713,6 +714,14 @@ export function JobBoard({
                   </button>
                 </>
               )}
+              <a
+                href={REPORT_LISTING_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-medium text-ink underline underline-offset-2 hover:text-faint focus:outline-none focus-visible:ring-2 focus-visible:ring-ink"
+              >
+                Report a listing
+              </a>
               <span className="text-faint">Updated {updatedLabel}</span>
             </span>
           </div>
