@@ -240,7 +240,8 @@
       "type": "direct",
       "verified": true,
       "added": "2026-07-06",
-      "notes": "auto-verified 2026-07-06: 13 PH postings (Manila, Ayala Ave)"
+      "disabled": true,
+      "notes": "DISABLED 2026-08-29 after review: jobs endpoint returned a non-JSON response (bot challenge); permanent stop under §17.1.2, never re-probe. Originally verified 2026-07-06 with 13 PH postings (Manila, Ayala Ave)."
     },
     {
       "name": "BSA Solutions",
@@ -290,7 +291,8 @@
       "type": "direct",
       "verified": true,
       "added": "2026-08-05",
-      "notes": "§17.2 round-7 verified 2026-08-05: robots HTTP 200; Disallow:/2/ (UI) but CXS /wday/cxs/citi/2/jobs not disallowed — adapter accepted (human confirm); no block; 187 postings / 183 PH via local filter (identity: jobs.citi.com → citi.wd5/2)"
+      "disabled": true,
+      "notes": "DISABLED 2026-08-29 after review: robots.txt returned HTTP 503; permanent stop under §17.1.1, never re-probe. Originally §17.2 round-7 verified 2026-08-05 with 187 postings / 183 PH (identity: jobs.citi.com → citi.wd5/2)."
     },
     {
       "name": "Clipboard Health",
@@ -370,7 +372,8 @@
       "type": "direct",
       "verified": true,
       "added": "2026-07-06",
-      "notes": "§17.2 wave-3 verified 2026-07-06: robots clean, PH location facet at source, 351 postings / 251 PH (QC EXXA Tower, Alabang, CDO, Ayala TechnoHub sites)"
+      "disabled": true,
+      "notes": "DISABLED 2026-08-29 after review: robots.txt returned HTTP 503; permanent stop under §17.1.1, never re-probe. Originally §17.2 wave-3 verified 2026-07-06 with 351 postings / 251 PH (QC EXXA Tower, Alabang, CDO, Ayala TechnoHub sites)."
     },
     {
       "name": "CrewBloom",
