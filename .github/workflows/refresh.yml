@@ -15,7 +15,7 @@ concurrency:
 jobs:
   refresh:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 60
     steps:
       - uses: actions/checkout@v6
       - uses: pnpm/action-setup@v6
@@ -24,7 +24,22 @@ jobs:
           node-version: 22
           cache: pnpm
       - run: pnpm install --frozen-lockfile
-      - run: pnpm refresh
+      - name: Refresh listings
+        run: |
+          set -o pipefail
+          pnpm refresh | tee refresh.log
+          {
+            echo "## Refresh result"
+            echo
+            grep -E "^(registry:|run summary:|  FAIL|  SKIP.*BLOCKED)" refresh.log || true
+          } >> "$GITHUB_STEP_SUMMARY"
+      - name: Validate generated site
+        run: |
+          pnpm format:check
+          pnpm typecheck
+          pnpm --filter web lint
+          pnpm test
+          pnpm --filter web build
       - name: Commit & push if data changed
         run: |
           if git diff --quiet -- data/listings.json README.md; then
