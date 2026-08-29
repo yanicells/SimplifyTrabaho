@@ -37,6 +37,8 @@ export interface MergeInput {
   current: Listing[];
   /** Company names whose fetch SUCCEEDED this run — only their absences mean anything. */
   fetchedCompanies: Set<string>;
+  /** Company names explicitly disabled in the registry after human/maintainer review. */
+  inactiveCompanies?: Set<string>;
   now: string;
 }
 
@@ -80,6 +82,7 @@ export function mergeListings({
   existing,
   current,
   fetchedCompanies,
+  inactiveCompanies = new Set(),
   now,
 }: MergeInput): MergeResult {
   const summary: MergeSummary = { added: 0, updated: 0, unchanged: 0, deactivated: 0 };
@@ -102,8 +105,12 @@ export function mergeListings({
         merged.push(old);
         summary.unchanged += 1;
       }
-    } else if (old.active && fetchedCompanies.has(old.company)) {
-      // present before, gone from a feed we successfully fetched → deactivate
+    } else if (
+      old.active &&
+      (fetchedCompanies.has(old.company) || inactiveCompanies.has(old.company))
+    ) {
+      // Present before, then absent from a successful fetch — or deliberately
+      // disabled after review — means the listing is no longer publishable.
       merged.push({ ...old, active: false, dateUpdated: now });
       summary.deactivated += 1;
     } else {

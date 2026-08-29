@@ -49,7 +49,8 @@
       "type": "direct",
       "verified": true,
       "added": "2026-07-06",
-      "notes": "§17.2 wave-3 verified 2026-07-06: robots clean, 219 postings / 212 PH — AIA Philippines (ex-Philam Life) + MediCard (PH-MPI) sites, Makati/QC/Iloilo/Rizal"
+      "disabled": true,
+      "notes": "DISABLED 2026-08-29 after review: robots.txt returned HTTP 503; permanent stop under §17.1.1, never re-probe. Originally §17.2 wave-3 verified 2026-07-06 with 219 postings / 212 PH — AIA Philippines (ex-Philam Life) + MediCard (PH-MPI) sites."
     },
     {
       "name": "AJAIA",
@@ -70,6 +71,16 @@
       "verified": true,
       "added": "2026-07-06",
       "notes": "auto-verified 2026-07-06: 28 PH postings"
+    },
+    {
+      "name": "Aleph",
+      "ats": "lever",
+      "slug": "aleph",
+      "industry": "advertising",
+      "type": "direct",
+      "verified": true,
+      "added": "2026-08-29",
+      "notes": "auto-verified 2026-08-29: 4 PH postings"
     },
     {
       "name": "Angkas",
@@ -229,7 +240,8 @@
       "type": "direct",
       "verified": true,
       "added": "2026-07-06",
-      "notes": "auto-verified 2026-07-06: 13 PH postings (Manila, Ayala Ave)"
+      "disabled": true,
+      "notes": "DISABLED 2026-08-29 after review: jobs endpoint returned a non-JSON response (bot challenge); permanent stop under §17.1.2, never re-probe. Originally verified 2026-07-06 with 13 PH postings (Manila, Ayala Ave)."
     },
     {
       "name": "BSA Solutions",
@@ -279,7 +291,8 @@
       "type": "direct",
       "verified": true,
       "added": "2026-08-05",
-      "notes": "§17.2 round-7 verified 2026-08-05: robots HTTP 200; Disallow:/2/ (UI) but CXS /wday/cxs/citi/2/jobs not disallowed — adapter accepted (human confirm); no block; 187 postings / 183 PH via local filter (identity: jobs.citi.com → citi.wd5/2)"
+      "disabled": true,
+      "notes": "DISABLED 2026-08-29 after review: robots.txt returned HTTP 503; permanent stop under §17.1.1, never re-probe. Originally §17.2 round-7 verified 2026-08-05 with 187 postings / 183 PH (identity: jobs.citi.com → citi.wd5/2)."
     },
     {
       "name": "Clipboard Health",
@@ -332,6 +345,16 @@
       "notes": "auto-verified 2026-07-19: 3 PH postings"
     },
     {
+      "name": "Coinbase",
+      "ats": "greenhouse",
+      "slug": "coinbase",
+      "industry": "fintech",
+      "type": "direct",
+      "verified": true,
+      "added": "2026-08-29",
+      "notes": "auto-verified 2026-08-29: 2 PH postings"
+    },
+    {
       "name": "Coins.ph",
       "ats": "lever",
       "slug": "coins",
@@ -349,7 +372,8 @@
       "type": "direct",
       "verified": true,
       "added": "2026-07-06",
-      "notes": "§17.2 wave-3 verified 2026-07-06: robots clean, PH location facet at source, 351 postings / 251 PH (QC EXXA Tower, Alabang, CDO, Ayala TechnoHub sites)"
+      "disabled": true,
+      "notes": "DISABLED 2026-08-29 after review: robots.txt returned HTTP 503; permanent stop under §17.1.1, never re-probe. Originally §17.2 wave-3 verified 2026-07-06 with 351 postings / 251 PH (QC EXXA Tower, Alabang, CDO, Ayala TechnoHub sites)."
     },
     {
       "name": "CrewBloom",
@@ -409,7 +433,8 @@
       "type": "direct",
       "verified": true,
       "added": "2026-08-05",
-      "notes": "§17.2 round-7 verified 2026-08-05: robots clean (Allow:/DBWebsite/); no block; 42 postings / 42 PH (identity: db.wd3/DBWebsite — DKS Manila / DB careers)"
+      "disabled": true,
+      "notes": "DISABLED 2026-08-29 after review: robots.txt returned HTTP 503; permanent stop under §17.1.1, never re-probe. Originally verified 2026-08-05 with 42 PH postings."
     },
     {
       "name": "Dialpad",
@@ -609,7 +634,8 @@
       "type": "direct",
       "verified": true,
       "added": "2026-07-06",
-      "notes": "§17.2 wave-1 verified 2026-07-06: Mynt site on the Globe tenant, robots clean, 186 postings, 170 PH"
+      "disabled": true,
+      "notes": "DISABLED 2026-08-29 after review: robots.txt returned HTTP 503; permanent stop under §17.1.1, never re-probe. Originally verified 2026-07-06 with 170 PH postings."
     },
     {
       "name": "GitLab",
@@ -639,7 +665,8 @@
       "type": "direct",
       "verified": true,
       "added": "2026-07-06",
-      "notes": "§17.2 wave-1 verified 2026-07-06: robots.txt clean, 451 postings, 104 PH"
+      "disabled": true,
+      "notes": "DISABLED 2026-08-29 after review: robots.txt returned HTTP 503; permanent stop under §17.1.1, never re-probe. Originally verified 2026-07-06 with 104 PH postings."
     },
     {
       "name": "GoTyme Bank",
@@ -799,7 +826,8 @@
       "type": "direct",
       "verified": true,
       "added": "2026-08-07",
-      "notes": "§17.2 round-8 verified 2026-08-07: robots clean (Allow:/ICSGBLCOR/); no block; 745 postings / 170 PH (Manila One Ayala — ING GCC)"
+      "disabled": true,
+      "notes": "DISABLED 2026-08-29 after review: robots.txt returned HTTP 503; permanent stop under §17.1.1, never re-probe. Originally verified 2026-08-07 with 170 PH postings."
     },
     {
       "name": "Instructure",
@@ -882,6 +910,16 @@
       "notes": "auto-verified 2026-06-11: PH-headquartered, 0 open PH roles today"
     },
     {
+      "name": "Kraken",
+      "ats": "ashby",
+      "slug": "kraken.com",
+      "industry": "fintech",
+      "type": "direct",
+      "verified": true,
+      "added": "2026-08-29",
+      "notes": "auto-verified 2026-08-29: 1 PH postings"
+    },
+    {
       "name": "Kumu",
       "ats": "bamboohr",
       "slug": "kumu",
@@ -949,7 +987,8 @@
       "type": "direct",
       "verified": true,
       "added": "2026-07-06",
-      "notes": "§17.2 wave-3 verified 2026-07-06: robots clean, no PH facet found on this tenant so the 1,000-posting cap applies — 33 PH today (Pasig, Pasay, QC, Calamba DC); PH roles past the cap may be missed"
+      "disabled": true,
+      "notes": "DISABLED 2026-08-29 after review: robots.txt returned HTTP 503; permanent stop under §17.1.1, never re-probe. Originally verified 2026-07-06 with 33 PH postings."
     },
     {
       "name": "Manila Recruitment",
@@ -969,7 +1008,8 @@
       "type": "direct",
       "verified": true,
       "added": "2026-07-06",
-      "notes": "auto-verified 2026-07-06: 211 PH postings (MBPS QC/Manila)"
+      "disabled": true,
+      "notes": "DISABLED 2026-08-29 after review: robots.txt returned HTTP 503; permanent stop under §17.1.1, never re-probe. Originally verified 2026-07-06 with 211 PH postings."
     },
     {
       "name": "Mastercard",
@@ -999,7 +1039,8 @@
       "type": "direct",
       "verified": true,
       "added": "2026-07-06",
-      "notes": "§17.2 wave-3 verified 2026-07-06: robots clean, PH facet at source, 25 PH postings (Parañaque plant + Manila; graveyard smartrecruiters guess was dead — Workday is the real board)"
+      "disabled": true,
+      "notes": "DISABLED 2026-08-29 after review: robots.txt returned HTTP 503; permanent stop under §17.1.1, never re-probe. Originally verified 2026-07-06 with 25 PH postings."
     },
     {
       "name": "MR DIY Philippines",
@@ -1209,7 +1250,8 @@
       "type": "direct",
       "verified": true,
       "added": "2026-07-06",
-      "notes": "§17.2 wave-3 verified 2026-07-06: robots clean, 38 postings / 34 PH — Prudential plc tenant, PH postings tagged PLUK (Pru Life UK), Metro Manila + Cebu"
+      "disabled": true,
+      "notes": "DISABLED 2026-08-29 after review: robots.txt returned HTTP 503; permanent stop under §17.1.1, never re-probe. Originally verified 2026-07-06 with 34 PH postings."
     },
     {
       "name": "PwC",
@@ -1219,7 +1261,8 @@
       "type": "direct",
       "verified": true,
       "added": "2026-08-05",
-      "notes": "§17.2 round-7 verified 2026-08-05: robots clean (Allow:/Global_Experienced_Careers/); no block; 1000-cap pull / 1 PH via local filter (identity: pwc.wd3 Global Experienced Careers)"
+      "disabled": true,
+      "notes": "DISABLED 2026-08-29 after review: robots.txt returned HTTP 503; permanent stop under §17.1.1, never re-probe. Originally verified 2026-08-05 with 1 PH posting."
     },
     {
       "name": "QBE",
@@ -1229,7 +1272,8 @@
       "type": "direct",
       "verified": true,
       "added": "2026-07-06",
-      "notes": "auto-verified 2026-07-06: 39 PH postings (GSSC Manila/Cebu)"
+      "disabled": true,
+      "notes": "DISABLED 2026-08-29 after review: robots.txt returned HTTP 503; permanent stop under §17.1.1, never re-probe. Originally verified 2026-07-06 with 39 PH postings."
     },
     {
       "name": "QuickTeam",
@@ -1352,6 +1396,16 @@
       "notes": "auto-verified 2026-06-11: PH-headquartered, 0 open PH roles today"
     },
     {
+      "name": "Snappr",
+      "ats": "lever",
+      "slug": "snappr",
+      "industry": "media",
+      "type": "direct",
+      "verified": true,
+      "added": "2026-08-29",
+      "notes": "auto-verified 2026-08-29: 16 PH postings"
+    },
+    {
       "name": "Sourcefit",
       "ats": "workable",
       "slug": "sourcefit",
@@ -1399,7 +1453,8 @@
       "type": "direct",
       "verified": true,
       "added": "2026-07-06",
-      "notes": "auto-verified 2026-07-06: 56 PH postings (Taguig)"
+      "disabled": true,
+      "notes": "DISABLED 2026-08-29 after review: robots.txt returned HTTP 503; permanent stop under §17.1.1, never re-probe. Originally verified 2026-07-06 with 56 PH postings."
     },
     {
       "name": "Sunnies",
@@ -1489,7 +1544,8 @@
       "type": "direct",
       "verified": true,
       "added": "2026-07-06",
-      "notes": "§17.2 wave-3 verified 2026-07-06: robots clean, 56 postings / 8 PH (Manila McKinley West, Discovery, Market! Market! sites); tenant keeps the pre-rebrand telusinternational id"
+      "disabled": true,
+      "notes": "DISABLED 2026-08-29 after review: robots.txt began returning HTTP 403 on 2026-07-29; permanent stop under §17.1.1, never re-probe. Originally verified 2026-07-06 with 56 postings / 8 PH; tenant keeps the pre-rebrand telusinternational id."
     },
     {
       "name": "The Global Talent Co",
@@ -1579,7 +1635,8 @@
       "type": "direct",
       "verified": true,
       "added": "2026-07-06",
-      "notes": "§17.2 wave-3 verified 2026-07-06: robots clean, 252 postings / 16 PH (Taguig BGC HQ + Cavite plant); experienced-professionals site — early-careers runs on a separate portal"
+      "disabled": true,
+      "notes": "DISABLED 2026-08-29 after review: robots.txt returned HTTP 503; permanent stop under §17.1.1, never re-probe. Originally verified 2026-07-06 with 16 PH postings."
     },
     {
       "name": "Universal Leaf Philippines",

@@ -1,0 +1,58 @@
+name: Suggest a company
+description: Suggest an employer whose Philippine roles use a supported public ATS feed.
+title: "[Company]: "
+labels: [company-suggestion]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        SimplifyTrabaho accepts only official company career feeds. LinkedIn, JobStreet, Indeed, Kalibrr, Glassdoor, and other job boards are never valid sources.
+  - type: input
+    id: company
+    attributes:
+      label: Company name
+      placeholder: Example Philippines
+    validations:
+      required: true
+  - type: input
+    id: careers
+    attributes:
+      label: Official company careers page
+      placeholder: https://company.example/careers
+    validations:
+      required: true
+  - type: dropdown
+    id: ats
+    attributes:
+      label: ATS platform
+      description: Select the platform visible on the official careers page.
+      options:
+        - Greenhouse
+        - Lever
+        - Ashby
+        - Workable
+        - SmartRecruiters
+        - Recruitee
+        - BambooHR
+        - Breezy
+        - Manatal
+        - Workday (requires separate evidence review)
+        - I am not sure
+    validations:
+      required: true
+  - type: input
+    id: board
+    attributes:
+      label: Official ATS board or current Philippine role URL
+      placeholder: https://jobs.ashbyhq.com/example/...
+    validations:
+      required: true
+  - type: checkboxes
+    id: source
+    attributes:
+      label: Source check
+      options:
+        - label: This link came from the company's official careers page, not a job board.
+          required: true
+        - label: I found at least one current role explicitly located in or open to the Philippines.
+          required: true

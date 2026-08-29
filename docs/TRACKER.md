@@ -6,6 +6,27 @@
 
 ## ✅ Done
 
+- [x] 2026-08-29 — **Launch-readiness pass complete**:
+  - [x] Added terminal registry lifecycle for blocked/retired sources. Seventeen
+        Workday boards are now retained as provenance with `disabled: true`, never
+        fetched again, and their stale listings become inactive without another
+        request. Final refresh: **158 fetched, 0 failed, 5,554 active**, with zero
+        active listings from disabled companies.
+  - [x] Added a 30-second timeout to every ATS request; daily refresh now has a
+        60-minute ceiling and validates formatting, types, lint, tests, and the
+        production build before committing generated data.
+  - [x] Completed mobile accessibility pass: skip link, accessible icon controls,
+        visible keyboard focus, live clipboard status, and confirmation before
+        deleting a saved job.
+  - [x] Added public issue forms and in-product links for listing corrections,
+        company suggestions, and site bugs. Added privacy-minimal Vercel Analytics
+        events without search text, typed locations, job titles, or tracker data.
+  - [x] Replaced oversized header/footer image downloads with dedicated 192px
+        assets while preserving full-size social and PWA sources.
+  - [x] Official ATS discovery added **Snappr** (16 PH roles), **Aleph** (4),
+        **Coinbase** (2), and **Kraken** (1). Jaber Resource and HireKayana remain
+        candidates: their Manatal pages are public, but the documented API slugs
+        return 404, so HTML scraping was not used.
 - [x] 2026-06-11 — Research: SimplifyJobs repo architecture, ATS public APIs, legal
       landscape (job-board ToS, PH law, copyright-of-facts).
 - [x] 2026-06-11 — Design approved; SPEC.md, CLAUDE.md, TRACKER.md, ROADMAP.md written.
@@ -175,25 +196,24 @@
 (nothing code-side — Phase 6 code work done; launch checklist below is on the
 maintainer)
 
-**Maintainer launch checklist (the only remaining v1 steps):**
+**Maintainer launch checklist:**
 
 1. ~~Make the repo public~~ — DONE (verified public 2026-07-23; badges and the
    site's GitHub links resolve).
-2. Description and **website** are set (2026-07-23). The description is currently
-   the generic "Aggregated job postings from different APIs." — worth replacing with
-   something like "🇵🇭 Free, auto-updated list of jobs at Philippine companies.
-   Internships & fresh grads featured. Facts only, straight from official company
-   ATS APIs. Refreshed daily."
-3. Set **topics**, e.g.: `philippines`, `jobs`, `internships`, `entry-level`,
-   `fresh-graduates`, `job-search`, `careers`, `job-listings`, `open-data`,
-   `typescript`, `nextjs`.
+2. [x] Repository description, website, and launch topics updated 2026-08-29.
+3. [ ] In Google Search Console, click Verify, submit `/sitemap.xml`, then request
+   indexing for the homepage.
+4. [ ] After this launch PR deploys, smoke-test one feedback form and confirm custom
+   events appear in Vercel Analytics.
+5. [ ] Publish launch posts to selected communities; tailor each post and follow
+   community self-promotion rules.
 
 Registry growth is continuous (SPEC §7.1): web-search the six ATS-hosted domains for
 PH city strings → add slugs to `pipeline/candidates.json` → `pnpm --filter pipeline
 verify-registry`. Also recheck the live-but-0-PH boards listed below — several
 (Deel, Kraken, Reddit, ClickUp-style remote employers) post PH roles periodically.
 
-## ✅ v1 build order (SPEC §16) — complete except repo publish
+## ✅ v1 build order (SPEC §16) — complete
 
 ### Phase 5 — Automation
 
@@ -212,7 +232,7 @@ verify-registry`. Also recheck the live-but-0-PH boards listed below — several
 
 - [x] Acceptance-criteria sweep (SPEC §15) — see sweep section above
 - [x] README copy/badges review — badges added, copy reviewed (legal section kept)
-- [ ] Publish repo — **maintainer action**, see launch checklist above
+- [x] Publish repo — public since 2026-07-23
 
 ## ⏭️ Next up (v2 build order — SPEC §18, approved 2026-06-12)
 
@@ -334,9 +354,9 @@ verify-registry`. Also recheck the live-but-0-PH boards listed below — several
 - [x] 2026-07-06 — Preferences: filters persist via localStorage
       (`st:filters:v1`, reuses the URL codec so junk is validated for free);
       pasted URL always wins over the saved state; Reset clears both.
-- [ ] Support & feedback: navbar button (GitHub issues + donate link), dismissible
-      prompt at most every ~5 Apply clicks with permanent opt-out — UX co-designed
-      with maintainer in-phase
+- [x] 2026-08-29 — Support & feedback: listing correction, company suggestion,
+      and site bug issue forms linked from the product. Donation and interruptive
+      apply-count prompts remain deliberately deferred until there is real demand.
 - [x] 2026-07-06 — PWA baseline: manifest.ts + generated icon routes.
 - [x] 2026-08-08 — Brand pass: selected the smiling briefcase mark, replaced the
       favicon/Apple/PWA/structured-data logo source, added the zoomed icon-only
@@ -344,9 +364,8 @@ verify-registry`. Also recheck the live-but-0-PH boards listed below — several
       social share images.
 - [x] 2026-08-09 — Split the header accent icon from the centered, spark-free
       footer/app mark so the compact surfaces stay visually balanced.
-- [x] No accounts, no backend; analytics is Vercel Analytics (cookieless,
-      maintainer-requested — see Decisions); core apply flow regression-free
-      (233 tests green, playwright-style preview verified)
+- [x] No accounts, no backend; analytics is Vercel Analytics with privacy-minimal
+      custom events (no query text, typed location, title, or tracker content).
 
 ### Phase 12 — Reach & SEO (maintainer-led; agents prepare, maintainer publishes)
 
@@ -398,8 +417,8 @@ verify-registry`. Also recheck the live-but-0-PH boards listed below — several
   titles). Active listings: unknown 1,351 → 1,238, other 825 → 571. The remaining
   unknowns are by design — unleveled titles like "PHP Developer" stay unknown per
   SPEC §9 (never guess). Future tuning is continuous work, driven by new titles.
-- 2026-06-11 — [open] **Repo is still private** — publishing it is the last launch
-  step (maintainer-only). Badges/GitHub links 404 for visitors until flipped.
+- 2026-06-11 — [resolved 2026-07-23] Repository is public; badges and GitHub links
+  resolve for visitors.
 - 2026-06-11 — [resolved] **Data licensing decision**: maintainer chose CC0 1.0 for
   the datasets (`data/listings.json`, `pipeline/companies.json`); MIT stays for the
   code. `data/LICENSE` added with the CC0 text + a preamble (compilation of public
@@ -433,6 +452,13 @@ verify-registry`. Also recheck the live-but-0-PH boards listed below — several
 <!-- Format: - 2026-06-12 — [open|resolved] Short description. Context/link. -->
 
 ## 🗂️ Registry: failed/pending candidates
+
+- Jaber Resource — slug tried: jaberph (Manatal) — 2026-08-29 — public official
+  career page has 19 PH roles, but documented API endpoint returns 404; keep as a
+  candidate and do not scrape HTML.
+- HireKayana — slug tried: hirekayana (Manatal) — 2026-08-29 — public official
+  career page has 19 PH roles, but documented API endpoint returns 404; keep as a
+  candidate and do not scrape HTML.
 
 All probed 2026-06-11 unless noted. Companies later verified under another slug/ATS
 are marked ➜✅. PH corporates (banks, conglomerates, airlines, food) are mostly on
@@ -642,6 +668,15 @@ not a real employer. Kalibrr — job-board company, fetching prohibited by rule 
 
 ## 📔 Decision log
 
+- 2026-08-29 — **Launch-readiness pass.** Registry now supports terminal
+  `disabled: true` sources: they remain auditable, receive no further requests,
+  and their listings are retired on refresh. Live review found 16 additional
+  Workday boards that had closed access (robots HTTP 503 or non-JSON challenge),
+  joining TELUS Digital for 17 disabled sources total. No retry, browser, cookie,
+  User-Agent, or IP workaround was attempted. Remaining 158 enabled feeds completed
+  with zero failures. The same pass added bounded request timeouts, stronger daily
+  publish gates, mobile accessibility fixes, GitHub feedback forms, privacy-minimal
+  analytics, smaller display assets, and four verified Tier-A employers.
 - 2026-08-19 — **Launch-polish pass** (`chore/launch-polish`): applied prettier
   across the workspace (32 files were drifting), fixed the last `next lint`
   error (home logo anchor now uses `next/link`; the two `<img>` warnings carry

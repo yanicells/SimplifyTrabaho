@@ -116,6 +116,8 @@ export interface RegistryCompany {
   type: CompanyType;
   /** Only verified entries are fetched; false = candidate pending verification. */
   verified: boolean;
+  /** Permanently excluded from fetching after a block/removal review; retained for provenance. */
+  disabled?: boolean;
   /** ISO date the entry was added. */
   added: string;
   notes?: string;

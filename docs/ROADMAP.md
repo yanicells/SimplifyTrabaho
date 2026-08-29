@@ -12,10 +12,10 @@ needed) extend the SPEC first.
 
 ## Community
 
-- **Crowdsourced submissions** (the Simplify flywheel): GitHub issue forms for
-  "add a company" / "add a listing" / "report a dead link", with a validation bot that
-  verifies the ATS endpoint before a maintainer merges. Revisit once v2 lands and the
-  repo has an audience.
+- **Crowdsourced submission validation:** public GitHub issue forms for company
+  suggestions, listing corrections, and site bugs shipped 2026-08-29. Remaining
+  work is an optional bot that verifies supported ATS endpoints before maintainer
+  review; build only if submission volume warrants it.
 - Multiple maintainers / org move; contribution guide (CONTRIBUTING.md).
 
 ## Coverage beyond v2

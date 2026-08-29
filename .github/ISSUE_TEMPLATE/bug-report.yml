@@ -1,0 +1,35 @@
+name: Report a site bug
+description: Report a problem with search, filters, saved jobs, layout, or accessibility.
+title: "[Bug]: "
+labels: [bug]
+body:
+  - type: input
+    id: page
+    attributes:
+      label: Page URL
+      placeholder: https://simplifytrabaho.ycells.com/?level=entry
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Open Filters
+        2. Choose Cebu
+        3. ...
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What did you expect, and what happened instead?
+    validations:
+      required: true
+  - type: input
+    id: device
+    attributes:
+      label: Device and browser
+      placeholder: Android phone, Chrome 140
+    validations:
+      required: true

@@ -101,7 +101,7 @@ export function MyJobs({
                     href={job.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="hover:underline"
+                    className="rounded-sm hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-ink"
                   >
                     {job.title}
                   </a>
@@ -121,7 +121,13 @@ export function MyJobs({
                 />
                 <button
                   type="button"
-                  onClick={() => onRemove(job.url)}
+                  onClick={() => {
+                    if (
+                      window.confirm(`Remove “${job.title}” at ${job.company} from My jobs?`)
+                    ) {
+                      onRemove(job.url);
+                    }
+                  }}
                   aria-label={`Remove ${job.title} at ${job.company} from saved jobs`}
                   className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-soft text-faint transition-colors hover:bg-press hover:text-ink focus:outline-none focus-visible:ring-2 focus-visible:ring-ink"
                 >

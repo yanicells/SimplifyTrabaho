@@ -8,6 +8,7 @@ import {
   useRef,
   useState,
 } from "react";
+import { track } from "@vercel/analytics";
 import type { Job } from "@/lib/listings";
 import {
   defaultFilters,
@@ -33,6 +34,7 @@ import { MyJobs } from "@/components/my-jobs";
 import { CompanyDirectory, type CompanySort } from "@/components/company-directory";
 import { FilterSelect } from "@/components/filter-select";
 import { timeAgo } from "@/lib/time";
+import { REPORT_LISTING_URL } from "@/lib/site";
 
 const PAGE_SIZE = 60;
 const NEW_WINDOW_MS = 3 * 24 * 60 * 60 * 1000;
@@ -177,7 +179,7 @@ export function JobBoard({
   const [tracker, setTracker] = useState<TrackerState>(emptyTracker);
   const [view, setView] = useState<"board" | "tracked" | "companies">("board");
   const [companySort, setCompanySort] = useState<CompanySort>("roles");
-  const [copied, setCopied] = useState(false);
+  const [copyStatus, setCopyStatus] = useState<"idle" | "copied" | "failed">("idle");
 
   // Static export renders the featured default. On hydration, a pasted URL wins;
   // otherwise the last-used filters come back from localStorage (Phase 11
@@ -223,9 +225,10 @@ export function JobBoard({
     return () => clearTimeout(urlTimer.current);
   }, [filters]);
 
-  function patch(partial: Partial<Filters>) {
+  function patch(partial: Partial<Filters>, trackedFilter?: string) {
     setFilters((prev) => ({ ...prev, ...partial }));
     setVisible(PAGE_SIZE);
+    if (trackedFilter) track("filter_changed", { filter: trackedFilter });
   }
 
   function updateTracker(next: TrackerState) {
@@ -235,21 +238,30 @@ export function JobBoard({
 
   function toggleTracked(job: Job) {
     const now = new Date().toISOString();
+    const saved = isTracked(tracker, job.url);
+    track(saved ? "job_unsaved" : "job_saved", {
+      level: job.level,
+      function: job.function,
+      setup: job.workSetup,
+      employer_type: job.companyType,
+    });
     updateTracker(
-      isTracked(tracker, job.url)
+      saved
         ? untrackJob(tracker, job.url)
         : trackJob(tracker, { url: job.url, company: job.company, title: job.title }, now),
     );
   }
 
-  function copyLink() {
-    navigator.clipboard?.writeText(window.location.href).then(
-      () => {
-        setCopied(true);
-        setTimeout(() => setCopied(false), 1500);
-      },
-      () => {},
-    );
+  async function copyLink() {
+    try {
+      if (!navigator.clipboard) throw new Error("Clipboard API unavailable");
+      await navigator.clipboard.writeText(window.location.href);
+      setCopyStatus("copied");
+      track("copy_filter_link");
+    } catch {
+      setCopyStatus("failed");
+    }
+    setTimeout(() => setCopyStatus("idle"), 2500);
   }
 
   // Typing stays responsive: the row list re-filters against the deferred values.
@@ -377,6 +389,9 @@ export function JobBoard({
             name="q"
             value={filters.query}
             onChange={(e) => patch({ query: e.target.value })}
+            onBlur={() => {
+              if (filters.query.trim() !== "") track("search_used", { view });
+            }}
             autoComplete="off"
             spellCheck={false}
             placeholder={
@@ -402,7 +417,7 @@ export function JobBoard({
               <button
                 type="button"
                 aria-pressed={levels.length === 0}
-                onClick={() => patch({ levels: [] })}
+                onClick={() => patch({ levels: [] }, "level")}
                 className={chipClass(levels.length === 0)}
               >
                 All roles
@@ -414,7 +429,7 @@ export function JobBoard({
                     key={chip.id}
                     type="button"
                     aria-pressed={active}
-                    onClick={() => patch({ levels: toggle(levels, chip.id) })}
+                    onClick={() => patch({ levels: toggle(levels, chip.id) }, "level")}
                     className={chipClass(active)}
                   >
                     {chip.label}
@@ -480,6 +495,7 @@ export function JobBoard({
             )}
             <button
               type="button"
+              aria-label={view === "companies" ? "Show job listings" : "Browse companies"}
               aria-pressed={view === "companies"}
               onClick={() => setView(view === "companies" ? "board" : "companies")}
               className={`${chipClass(view === "companies")} gap-1.5`}
@@ -489,6 +505,7 @@ export function JobBoard({
             </button>
             <button
               type="button"
+              aria-label={view === "tracked" ? "Show job listings" : "Show my saved jobs"}
               aria-pressed={view === "tracked"}
               onClick={() => setView(view === "tracked" ? "board" : "tracked")}
               className={`${chipClass(view === "tracked")} gap-1.5`}
@@ -516,7 +533,7 @@ export function JobBoard({
             {panelOpen && (
               <div
                 id="advanced-filters"
-                className="absolute inset-x-0 top-full max-h-[60vh] overflow-y-auto border-b border-line bg-paper px-4 pb-4 pt-3 shadow-[0_12px_24px_-16px_rgba(0,0,0,0.35)] sm:static sm:mt-3 sm:max-h-none sm:overflow-visible sm:border-0 sm:bg-transparent sm:p-0 sm:shadow-none"
+                className="absolute inset-x-0 top-full max-h-[60vh] overscroll-contain overflow-y-auto border-b border-line bg-paper px-4 pb-4 pt-3 shadow-[0_12px_24px_-16px_rgba(0,0,0,0.35)] sm:static sm:mt-3 sm:max-h-none sm:overflow-visible sm:border-0 sm:bg-transparent sm:p-0 sm:shadow-none"
               >
                 <p className="text-xs font-medium uppercase tracking-wider text-faint">
                   Function
@@ -533,7 +550,7 @@ export function JobBoard({
                         key={fn}
                         type="button"
                         aria-pressed={active}
-                        onClick={() => patch({ fns: toggle(fns, fn) })}
+                        onClick={() => patch({ fns: toggle(fns, fn) }, "function")}
                         className={chipClass(active)}
                       >
                         {FUNCTION_LABELS[fn]}
@@ -551,7 +568,7 @@ export function JobBoard({
                     dense
                     value={setup}
                     active={setup !== "all"}
-                    onChange={(v) => patch({ setup: v as Filters["setup"] })}
+                    onChange={(v) => patch({ setup: v as Filters["setup"] }, "work_setup")}
                     options={[
                       { value: "all", label: "Any setup" },
                       ...SETUP_OPTIONS.map((o) => ({ value: o.id, label: o.label })),
@@ -562,7 +579,7 @@ export function JobBoard({
                     dense
                     value={metro}
                     active={metro !== "all"}
-                    onChange={(v) => patch({ metro: v as Filters["metro"] })}
+                    onChange={(v) => patch({ metro: v as Filters["metro"] }, "metro")}
                     options={[
                       { value: "all", label: "Any metro" },
                       ...METRO_OPTIONS.map((o) => ({ value: o.id, label: o.label })),
@@ -573,7 +590,7 @@ export function JobBoard({
                     dense
                     value={industry}
                     active={industry !== "all"}
-                    onChange={(v) => patch({ industry: v })}
+                    onChange={(v) => patch({ industry: v }, "industry")}
                     options={[
                       { value: "all", label: "Any industry" },
                       ...industries.map((tag) => ({ value: tag, label: industryLabel(tag) })),
@@ -584,7 +601,7 @@ export function JobBoard({
                     dense
                     value={employerType}
                     active={employerType !== "all"}
-                    onChange={(v) => patch({ type: v as Filters["type"] })}
+                    onChange={(v) => patch({ type: v as Filters["type"] }, "employer_type")}
                     options={[
                       { value: "all", label: "Any employer" },
                       { value: "direct", label: "Direct employers" },
@@ -596,6 +613,11 @@ export function JobBoard({
                     name="location"
                     value={filters.location}
                     onChange={(e) => patch({ location: e.target.value })}
+                    onBlur={() => {
+                      if (filters.location.trim() !== "") {
+                        track("filter_changed", { filter: "location" });
+                      }
+                    }}
                     autoComplete="off"
                     spellCheck={false}
                     placeholder="Location, e.g. Cebu…"
@@ -650,7 +672,7 @@ export function JobBoard({
                   type="button"
                   aria-label={`Stop filtering by ${company}`}
                   onClick={() => patch({ company: "" })}
-                  className="flex h-7 w-7 items-center justify-center rounded-full bg-paper/20 transition-colors hover:bg-paper/40"
+                  className="flex h-7 w-7 items-center justify-center rounded-full bg-paper/20 transition-colors hover:bg-paper/40 focus:outline-none focus-visible:ring-2 focus-visible:ring-paper"
                 >
                   <svg viewBox="0 0 16 16" fill="none" aria-hidden className="h-3.5 w-3.5">
                     <path
@@ -688,8 +710,19 @@ export function JobBoard({
                     onClick={copyLink}
                     className="font-medium text-ink underline underline-offset-2 hover:text-faint focus:outline-none focus-visible:ring-2 focus-visible:ring-ink"
                   >
-                    {copied ? "Link copied" : "Copy link"}
+                    {copyStatus === "copied"
+                      ? "Link copied"
+                      : copyStatus === "failed"
+                        ? "Copy failed — copy the URL above"
+                        : "Copy link"}
                   </button>
+                  <span className="sr-only" role="status" aria-live="polite">
+                    {copyStatus === "copied"
+                      ? "Link copied to clipboard"
+                      : copyStatus === "failed"
+                        ? "Could not copy the link. Copy the address from your browser."
+                        : ""}
+                  </span>
                   <button
                     type="button"
                     onClick={reset}
@@ -699,6 +732,14 @@ export function JobBoard({
                   </button>
                 </>
               )}
+              <a
+                href={REPORT_LISTING_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-medium text-ink underline underline-offset-2 hover:text-faint focus:outline-none focus-visible:ring-2 focus-visible:ring-ink"
+              >
+                Report a listing
+              </a>
               <span className="text-faint">Updated {updatedLabel}</span>
             </span>
           </div>
@@ -708,6 +749,10 @@ export function JobBoard({
               rung, so screen-reader heading navigation lands on the results
               instead of jumping straight from the page title into role titles. */}
           <h2 className="sr-only">Job openings</h2>
+          <p className="mt-2 text-xs leading-relaxed text-faint">
+            Dates come from the official feed when published; otherwise they show when
+            SimplifyTrabaho first found the role.
+          </p>
           {shown.length === 0 ? (
             <div className="py-16 text-center">
               <p className="font-display text-lg font-bold">
@@ -718,7 +763,7 @@ export function JobBoard({
                 <button
                   type="button"
                   onClick={reset}
-                  className="font-medium text-ink underline underline-offset-2 hover:text-faint"
+                  className="font-medium text-ink underline underline-offset-2 hover:text-faint focus:outline-none focus-visible:ring-2 focus-visible:ring-ink"
                 >
                   browse all roles
                 </button>
@@ -800,6 +845,14 @@ export function JobBoard({
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label={`Apply to ${job.title} at ${job.company} (opens the official application page)`}
+                      onClick={() =>
+                        track("apply_click", {
+                          level: job.level,
+                          function: job.function,
+                          setup: job.workSetup,
+                          employer_type: job.companyType,
+                        })
+                      }
                       className="shrink-0 rounded-full bg-ink px-4 py-2 text-sm font-medium text-paper transition-opacity hover:opacity-80 focus:outline-none focus-visible:ring-2 focus-visible:ring-ink focus-visible:ring-offset-2"
                     >
                       Apply

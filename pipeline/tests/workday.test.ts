@@ -42,6 +42,7 @@ interface Call {
   url: string;
   method: string;
   body: unknown;
+  signal: AbortSignal | null | undefined;
 }
 
 /** Fake HTTP: robots.txt response + a handler for each sequential jobs POST. */
@@ -58,6 +59,7 @@ function fakeHttp(
       url,
       method: init?.method ?? "GET",
       body: init?.body !== undefined ? JSON.parse(String(init.body)) : undefined,
+      signal: init?.signal,
     });
     if (url.endsWith("/robots.txt")) {
       if (robots === "network") throw new Error("connect ETIMEDOUT");
@@ -91,6 +93,13 @@ describe("parseWorkdaySlug", () => {
 });
 
 describe("fetchWorkday — robots.txt gate (guardrail §17.1.1)", () => {
+  it("bounds both the robots and jobs requests with abort signals", async () => {
+    const http = fakeHttp({ status: 404, text: "" }, [{ status: 200, json: jobsPage(1, 1) }]);
+    await fetchWorkday(COMPANY, { ...http, timeoutMs: 1234 });
+    expect(http.calls).toHaveLength(2);
+    for (const call of http.calls) expect(call.signal).toBeInstanceOf(AbortSignal);
+  });
+
   it("checks robots.txt before anything else and stops when the jobs path is disallowed", async () => {
     const http = fakeHttp({ status: 200, text: "User-agent: *\nDisallow: /wday/" }, [
       { status: 200, json: jobsPage(1, 1) },

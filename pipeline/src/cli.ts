@@ -69,6 +69,13 @@ async function main(): Promise<number> {
   const now = new Date().toISOString();
   const registry = parseRegistry(JSON.parse(readFileSync(REGISTRY_PATH, "utf8")));
   const verified = registry.companies.filter((c) => c.verified);
+  const enabled = verified.filter((c) => !c.disabled);
+  const enabledCompanyNames = new Set(enabled.map((c) => c.name));
+  const inactiveCompanies = new Set(
+    registry.companies
+      .filter((c) => c.disabled && !enabledCompanyNames.has(c.name))
+      .map((c) => c.name),
+  );
   const existing = existsSync(LISTINGS_PATH)
     ? parseListingsFile(JSON.parse(readFileSync(LISTINGS_PATH, "utf8")))
     : emptyListingsFile(now);
@@ -76,7 +83,8 @@ async function main(): Promise<number> {
 
   console.log(`SimplifyTrabaho refresh — ${now}`);
   console.log(
-    `registry: ${registry.companies.length} companies, ${verified.length} verified\n`,
+    `registry: ${registry.companies.length} boards, ${verified.length} verified, ` +
+      `${enabled.length} enabled\n`,
   );
 
   const allPostings: FetchedPosting[] = [];
@@ -84,7 +92,7 @@ async function main(): Promise<number> {
   let succeeded = 0;
   let failed = 0;
 
-  for (const company of verified) {
+  for (const company of enabled) {
     const fetcher = FETCHERS[company.ats];
     const label = `${company.name} [${company.ats}:${company.slug}]`;
     if (!fetcher) {
@@ -168,6 +176,7 @@ async function main(): Promise<number> {
     existing: existing.listings,
     current,
     fetchedCompanies,
+    inactiveCompanies,
     now,
   });
 
@@ -178,7 +187,7 @@ async function main(): Promise<number> {
   );
   writeFileSync(FETCH_STATE_PATH, JSON.stringify(fetchState, null, 2) + "\n");
 
-  const companiesTracked = new Set(verified.map((c) => c.name)).size;
+  const companiesTracked = enabledCompanyNames.size;
   writeFileSync(README_PATH, generateReadme({ listings, companiesTracked, updatedAt: now }));
 
   console.log(

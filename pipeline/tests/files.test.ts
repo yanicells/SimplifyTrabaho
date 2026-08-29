@@ -23,6 +23,23 @@ describe("parseRegistry", () => {
     expect(registry.companies).toHaveLength(1);
   });
 
+  it("preserves an explicitly disabled registry entry", () => {
+    const registry = parseRegistry({
+      version: 1,
+      companies: [{ ...validCompany, disabled: true }],
+    });
+    expect(registry.companies[0]?.disabled).toBe(true);
+  });
+
+  it("rejects a non-boolean disabled flag", () => {
+    expect(() =>
+      parseRegistry({
+        version: 1,
+        companies: [{ ...validCompany, disabled: "yes" }],
+      }),
+    ).toThrow(/disabled/i);
+  });
+
   it("accepts workday (Tier B, Phase 10) and rejects unknown ATS ids", () => {
     const registry = parseRegistry({
       version: 1,
