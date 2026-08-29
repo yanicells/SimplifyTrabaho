@@ -2,6 +2,18 @@
   "version": 1,
   "deadSlugStreaks": {},
   "blocked": {
-    "workday:telusinternational.wd3/External": "2026-07-29: robots.txt returned HTTP 403 — treating as a block (§17.1.1)"
+    "workday:telusinternational.wd3/External": "2026-07-29: robots.txt returned HTTP 403 — treating as a block (§17.1.1)",
+    "workday:db.wd3/DBWebsite": "2026-08-29: robots.txt returned HTTP 503 — treating as a block (§17.1.1)",
+    "workday:globe.wd3/Mynt": "2026-08-29: robots.txt returned HTTP 503 — treating as a block (§17.1.1)",
+    "workday:globe.wd3/GLB_Careers": "2026-08-29: robots.txt returned HTTP 503 — treating as a block (§17.1.1)",
+    "workday:ing.wd3/ICSGBLCOR": "2026-08-29: robots.txt returned HTTP 503 — treating as a block (§17.1.1)",
+    "workday:maersk.wd3/Maersk_Careers": "2026-08-29: robots.txt returned HTTP 503 — treating as a block (§17.1.1)",
+    "workday:manulife.wd3/MFCJH_Jobs": "2026-08-29: robots.txt returned HTTP 503 — treating as a block (§17.1.1)",
+    "workday:mdlz.wd3/External": "2026-08-29: robots.txt returned HTTP 503 — treating as a block (§17.1.1)",
+    "workday:prudential.wd3/prudential": "2026-08-29: robots.txt returned HTTP 503 — treating as a block (§17.1.1)",
+    "workday:pwc.wd3/Global_Experienced_Careers": "2026-08-29: robots.txt returned HTTP 503 — treating as a block (§17.1.1)",
+    "workday:qbe.wd3/QBE-Careers": "2026-08-29: robots.txt returned HTTP 503 — treating as a block (§17.1.1)",
+    "workday:sunlife.wd3/Experienced-Jobs": "2026-08-29: robots.txt returned HTTP 503 — treating as a block (§17.1.1)",
+    "workday:unilever.wd3/Unilever_Experienced_Professionals": "2026-08-29: robots.txt returned HTTP 503 — treating as a block (§17.1.1)"
   }
 }
