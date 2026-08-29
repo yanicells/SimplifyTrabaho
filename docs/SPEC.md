@@ -254,6 +254,7 @@ emails, applicant data of any kind.
       "industry": "fintech", // free-form lowercase tag
       "type": "direct", // v2 (Phase 9): "direct" employer | "agency" (staffing/outsourcing/recruitment)
       "verified": true, // true = endpoint confirmed live with PH roles
+      "disabled": false, // optional; true = permanently excluded after block/removal review
       "added": "2026-06-11",
       "notes": "", // optional: e.g. "also hires remote APAC"
     },
@@ -264,6 +265,9 @@ emails, applicant data of any kind.
 - A company that uses two ATSs gets **two entries** (same `name`).
 - `verified: false` entries are skipped by the pipeline (they're candidates pending
   verification).
+- `disabled: true` entries stay in the registry as provenance but are never fetched.
+  When every board for that company is disabled, its previously active listings are
+  marked inactive on the next refresh without probing the blocked endpoint again.
 - Registry is the ONLY hand-edited data file. Keep it alphabetized by `name`.
 - `parseRegistry` requires every company entry to include `type`; missing `type` is a
   registry validation error.
@@ -393,6 +397,9 @@ These tables WILL be imperfect. Requirements: (a) they live in one file
    but which is absent from the current set → `active: false`, `dateUpdated` now.
    **Critical:** if a company's fetch FAILED this run, leave its listings untouched —
    never mass-deactivate because of a transient error.
+   A registry entry set to `disabled: true` after human/maintainer review is terminal,
+   not a transient failure: if the company has no other enabled board, deactivate its
+   listings without making another request.
 5. A company hitting `dead-slug` 3 runs in a row → keep its listings frozen, add an
    issue entry to TRACKER.md for human/agent follow-up.
 6. Write `listings.json` (stable sort: company asc, then datePosted desc — keeps git

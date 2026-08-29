@@ -31,6 +31,9 @@ export function parseRegistry(raw: unknown): Registry {
     if (typeof entry.verified !== "boolean") {
       fail(`${where} (${String(entry.name)}): verified must be boolean`);
     }
+    if (entry.disabled !== undefined && typeof entry.disabled !== "boolean") {
+      fail(`${where} (${String(entry.name)}): disabled must be boolean when present`);
+    }
     if (entry.type !== "direct" && entry.type !== "agency") {
       fail(`${where} (${String(entry.name)}): type must be "direct" or "agency"`);
     }
@@ -46,6 +49,7 @@ export function parseRegistry(raw: unknown): Registry {
       verified: entry.verified,
       added: typeof entry.added === "string" ? entry.added : "",
     };
+    if (entry.disabled === true) company.disabled = true;
     if (typeof entry.notes === "string" && entry.notes !== "") company.notes = entry.notes;
     return company;
   });

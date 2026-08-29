@@ -1488,8 +1488,9 @@
       "industry": "outsourcing",
       "type": "direct",
       "verified": true,
+      "disabled": true,
       "added": "2026-07-06",
-      "notes": "§17.2 wave-3 verified 2026-07-06: robots clean, 56 postings / 8 PH (Manila McKinley West, Discovery, Market! Market! sites); tenant keeps the pre-rebrand telusinternational id"
+      "notes": "DISABLED 2026-08-29 after review: robots.txt began returning HTTP 403 on 2026-07-29; permanent stop under §17.1.1, never re-probe. Originally verified 2026-07-06 with 56 postings / 8 PH; tenant keeps the pre-rebrand telusinternational id."
     },
     {
       "name": "The Global Talent Co",

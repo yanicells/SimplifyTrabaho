@@ -165,6 +165,20 @@ describe("mergeListings", () => {
     expect(summary.deactivated).toBe(0);
   });
 
+  it("deactivates listings for a company explicitly disabled in the registry", () => {
+    const existing = existingListing({ company: "TELUS Digital" });
+    const { listings, summary } = mergeListings({
+      existing: [existing],
+      current: [],
+      fetchedCompanies: new Set(),
+      inactiveCompanies: new Set(["TELUS Digital"]),
+      now: NOW,
+    });
+    expect(listings[0]!.active).toBe(false);
+    expect(listings[0]!.dateUpdated).toBe(NOW);
+    expect(summary.deactivated).toBe(1);
+  });
+
   it("reactivates a listing that reappears in the feed", () => {
     const existing = existingListing({ active: false });
     const { listings, summary } = mergeListings({

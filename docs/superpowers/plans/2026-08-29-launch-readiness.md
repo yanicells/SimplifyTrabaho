@@ -32,7 +32,7 @@
 
 **Interfaces:**
 - Consumes: registry `verified` state and the existing `data/fetch-state.json` block record.
-- Produces: `MergeInput.inactiveCompanies`, a set of company names whose active listings must become inactive without another request.
+- Produces: optional registry `disabled: true` provenance and `MergeInput.inactiveCompanies`, a set of company names whose active listings must become inactive without another request.
 
 - [ ] **Step 1: Write a failing merge test**
 
@@ -44,7 +44,7 @@ Run `pnpm --filter pipeline test -- merge.test.ts`; expect TypeScript or asserti
 
 - [ ] **Step 3: Implement terminal registry deactivation**
 
-Extend `MergeInput` with `inactiveCompanies: Set<string>`. In `mergeListings`, deactivate old active listings when their company is in that set. In the CLI, populate it only for company names that remain in the registry but have no verified board. Mark TELUS Digital `verified: false`, preserve its block note, and document the lifecycle rule in SPEC §10.
+Extend `MergeInput` with `inactiveCompanies: Set<string>`. In `mergeListings`, deactivate old active listings when their company is in that set. Add optional `disabled: true` to the registry format, populate the set only for company names with no enabled board, preserve TELUS Digital's historical verification and block note, and document the lifecycle rule in SPEC §7 and §10.
 
 - [ ] **Step 4: Verify and commit**
 
@@ -213,4 +213,3 @@ Record the session and fix stale private-repository notes. Set the GitHub descri
 - [ ] **Step 4: Push and create the PR**
 
 Push `codex/launch-readiness`, open a PR against `main` with verification and remaining maintainer steps, and stop without waiting for CI.
-
