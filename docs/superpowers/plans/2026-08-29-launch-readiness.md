@@ -24,6 +24,7 @@
 ### Task 1: Retire the blocked TELUS board safely
 
 **Files:**
+
 - Modify: `docs/SPEC.md`
 - Modify: `pipeline/companies.json`
 - Modify: `pipeline/src/cli.ts`
@@ -31,6 +32,7 @@
 - Test: `pipeline/tests/merge.test.ts`
 
 **Interfaces:**
+
 - Consumes: registry `verified` state and the existing `data/fetch-state.json` block record.
 - Produces: optional registry `disabled: true` provenance and `MergeInput.inactiveCompanies`, a set of company names whose active listings must become inactive without another request.
 
@@ -53,6 +55,7 @@ Run the focused pipeline tests, then commit as `fix(pipeline): retire blocked re
 ### Task 2: Bound requests and give refresh enough time
 
 **Files:**
+
 - Modify: `pipeline/src/fetchers/http.ts`
 - Modify: `pipeline/src/fetchers/workday.ts`
 - Test: `pipeline/tests/fetchers.test.ts`
@@ -60,6 +63,7 @@ Run the focused pipeline tests, then commit as `fix(pipeline): retire blocked re
 - Modify: `.github/workflows/refresh.yml`
 
 **Interfaces:**
+
 - Consumes: `HttpDeps` used by every fetcher.
 - Produces: optional `timeoutMs`, defaulting to 30 seconds, applied through a fresh `AbortSignal.timeout()` per request.
 
@@ -82,6 +86,7 @@ Run focused fetcher tests and YAML parsing, then commit pipeline and workflow ch
 ### Task 3: Complete mobile accessibility and feedback paths
 
 **Files:**
+
 - Modify: `web/app/page.tsx`
 - Modify: `web/components/job-board.tsx`
 - Modify: `web/components/my-jobs.tsx`
@@ -91,6 +96,7 @@ Run focused fetcher tests and YAML parsing, then commit pipeline and workflow ch
 - Create: `.github/ISSUE_TEMPLATE/config.yml`
 
 **Interfaces:**
+
 - Consumes: existing repository URL constants and local tracker callbacks.
 - Produces: named mobile icon controls, a skip link, complete focus states, confirmed destructive removal, and public support entry points.
 
@@ -117,12 +123,14 @@ Run web tests, lint, and typecheck, then commit accessibility and feedback as se
 ### Task 4: Improve launch measurement and freshness language
 
 **Files:**
+
 - Modify: `web/app/page.tsx`
 - Modify: `web/components/job-board.tsx`
 - Modify: `web/lib/site.ts`
 - Modify: `web/lib/seo-config.test.ts`
 
 **Interfaces:**
+
 - Consumes: `track` from `@vercel/analytics` and existing non-sensitive job facets.
 - Produces: `apply_click`, `job_saved`, `job_unsaved`, and `copy_filter_link` events without recording search text or personal data.
 
@@ -141,12 +149,14 @@ Update copy tests if needed, run web tests/typecheck/lint, and commit.
 ### Task 5: Reduce oversized brand assets on the page
 
 **Files:**
+
 - Create: `web/public/social/simplifytrabaho-icon-192.png`
 - Create: `web/public/social/simplifytrabaho-mark-192.png`
 - Modify: `web/app/page.tsx`
 - Modify: `web/README.md`
 
 **Interfaces:**
+
 - Consumes: selected 860px/1254px source PNGs.
 - Produces: dedicated 192px display assets while preserving the original social/PWA files.
 
@@ -165,9 +175,11 @@ Run the web build, confirm asset paths exist in `web/out`, and commit.
 ### Task 6: Explore legal Tier-A company additions
 
 **Files:**
+
 - Modify only when verified: `pipeline/candidates.json`, `pipeline/companies.json`, `docs/TRACKER.md`
 
 **Interfaces:**
+
 - Consumes: official Greenhouse, Lever, Ashby, Workable, SmartRecruiters, Recruitee, BambooHR, Breezy, or Manatal public endpoints.
 - Produces: registry entries only when identity and at least one current Philippine posting are confirmed by the existing verifier.
 
@@ -190,11 +202,13 @@ Commit verified registry additions. If none pass, record the explored official s
 ### Task 7: Regenerate, verify, publish the branch
 
 **Files:**
+
 - Generated: `data/listings.json`
 - Generated: `README.md`
 - Modify: `docs/TRACKER.md`
 
 **Interfaces:**
+
 - Consumes: all implementation tasks.
 - Produces: a reviewable branch and pull request.
 

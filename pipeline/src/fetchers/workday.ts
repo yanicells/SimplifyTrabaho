@@ -219,7 +219,14 @@ export async function fetchWorkday(
     jobs.push(...items);
     const next = jobs.length;
     if (next >= Math.min(total, MAX_POSTINGS) || items.length === 0) break;
-    const outcome = await postJobsPage(fetchFn, sleep, jobsUrl, appliedFacets, next, timeoutMs);
+    const outcome = await postJobsPage(
+      fetchFn,
+      sleep,
+      jobsUrl,
+      appliedFacets,
+      next,
+      timeoutMs,
+    );
     if (outcome.kind !== "ok") return failureFrom(outcome);
     page = outcome.page;
   }

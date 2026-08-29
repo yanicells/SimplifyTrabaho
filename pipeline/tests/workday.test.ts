@@ -94,9 +94,7 @@ describe("parseWorkdaySlug", () => {
 
 describe("fetchWorkday — robots.txt gate (guardrail §17.1.1)", () => {
   it("bounds both the robots and jobs requests with abort signals", async () => {
-    const http = fakeHttp({ status: 404, text: "" }, [
-      { status: 200, json: jobsPage(1, 1) },
-    ]);
+    const http = fakeHttp({ status: 404, text: "" }, [{ status: 200, json: jobsPage(1, 1) }]);
     await fetchWorkday(COMPANY, { ...http, timeoutMs: 1234 });
     expect(http.calls).toHaveLength(2);
     for (const call of http.calls) expect(call.signal).toBeInstanceOf(AbortSignal);
