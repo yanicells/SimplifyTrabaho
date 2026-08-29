@@ -49,7 +49,8 @@
       "type": "direct",
       "verified": true,
       "added": "2026-07-06",
-      "notes": "§17.2 wave-3 verified 2026-07-06: robots clean, 219 postings / 212 PH — AIA Philippines (ex-Philam Life) + MediCard (PH-MPI) sites, Makati/QC/Iloilo/Rizal"
+      "disabled": true,
+      "notes": "DISABLED 2026-08-29 after review: robots.txt returned HTTP 503; permanent stop under §17.1.1, never re-probe. Originally §17.2 wave-3 verified 2026-07-06 with 219 postings / 212 PH — AIA Philippines (ex-Philam Life) + MediCard (PH-MPI) sites."
     },
     {
       "name": "AJAIA",
