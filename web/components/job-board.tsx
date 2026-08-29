@@ -177,7 +177,7 @@ export function JobBoard({
   const [tracker, setTracker] = useState<TrackerState>(emptyTracker);
   const [view, setView] = useState<"board" | "tracked" | "companies">("board");
   const [companySort, setCompanySort] = useState<CompanySort>("roles");
-  const [copied, setCopied] = useState(false);
+  const [copyStatus, setCopyStatus] = useState<"idle" | "copied" | "failed">("idle");
 
   // Static export renders the featured default. On hydration, a pasted URL wins;
   // otherwise the last-used filters come back from localStorage (Phase 11
@@ -242,14 +242,15 @@ export function JobBoard({
     );
   }
 
-  function copyLink() {
-    navigator.clipboard?.writeText(window.location.href).then(
-      () => {
-        setCopied(true);
-        setTimeout(() => setCopied(false), 1500);
-      },
-      () => {},
-    );
+  async function copyLink() {
+    try {
+      if (!navigator.clipboard) throw new Error("Clipboard API unavailable");
+      await navigator.clipboard.writeText(window.location.href);
+      setCopyStatus("copied");
+    } catch {
+      setCopyStatus("failed");
+    }
+    setTimeout(() => setCopyStatus("idle"), 2500);
   }
 
   // Typing stays responsive: the row list re-filters against the deferred values.
@@ -480,6 +481,7 @@ export function JobBoard({
             )}
             <button
               type="button"
+              aria-label={view === "companies" ? "Show job listings" : "Browse companies"}
               aria-pressed={view === "companies"}
               onClick={() => setView(view === "companies" ? "board" : "companies")}
               className={`${chipClass(view === "companies")} gap-1.5`}
@@ -489,6 +491,7 @@ export function JobBoard({
             </button>
             <button
               type="button"
+              aria-label={view === "tracked" ? "Show job listings" : "Show my saved jobs"}
               aria-pressed={view === "tracked"}
               onClick={() => setView(view === "tracked" ? "board" : "tracked")}
               className={`${chipClass(view === "tracked")} gap-1.5`}
@@ -516,7 +519,7 @@ export function JobBoard({
             {panelOpen && (
               <div
                 id="advanced-filters"
-                className="absolute inset-x-0 top-full max-h-[60vh] overflow-y-auto border-b border-line bg-paper px-4 pb-4 pt-3 shadow-[0_12px_24px_-16px_rgba(0,0,0,0.35)] sm:static sm:mt-3 sm:max-h-none sm:overflow-visible sm:border-0 sm:bg-transparent sm:p-0 sm:shadow-none"
+                className="absolute inset-x-0 top-full max-h-[60vh] overscroll-contain overflow-y-auto border-b border-line bg-paper px-4 pb-4 pt-3 shadow-[0_12px_24px_-16px_rgba(0,0,0,0.35)] sm:static sm:mt-3 sm:max-h-none sm:overflow-visible sm:border-0 sm:bg-transparent sm:p-0 sm:shadow-none"
               >
                 <p className="text-xs font-medium uppercase tracking-wider text-faint">
                   Function
@@ -650,7 +653,7 @@ export function JobBoard({
                   type="button"
                   aria-label={`Stop filtering by ${company}`}
                   onClick={() => patch({ company: "" })}
-                  className="flex h-7 w-7 items-center justify-center rounded-full bg-paper/20 transition-colors hover:bg-paper/40"
+                  className="flex h-7 w-7 items-center justify-center rounded-full bg-paper/20 transition-colors hover:bg-paper/40 focus:outline-none focus-visible:ring-2 focus-visible:ring-paper"
                 >
                   <svg viewBox="0 0 16 16" fill="none" aria-hidden className="h-3.5 w-3.5">
                     <path
@@ -688,8 +691,19 @@ export function JobBoard({
                     onClick={copyLink}
                     className="font-medium text-ink underline underline-offset-2 hover:text-faint focus:outline-none focus-visible:ring-2 focus-visible:ring-ink"
                   >
-                    {copied ? "Link copied" : "Copy link"}
+                    {copyStatus === "copied"
+                      ? "Link copied"
+                      : copyStatus === "failed"
+                        ? "Copy failed — copy the URL above"
+                        : "Copy link"}
                   </button>
+                  <span className="sr-only" role="status" aria-live="polite">
+                    {copyStatus === "copied"
+                      ? "Link copied to clipboard"
+                      : copyStatus === "failed"
+                        ? "Could not copy the link. Copy the address from your browser."
+                        : ""}
+                  </span>
                   <button
                     type="button"
                     onClick={reset}
@@ -718,7 +732,7 @@ export function JobBoard({
                 <button
                   type="button"
                   onClick={reset}
-                  className="font-medium text-ink underline underline-offset-2 hover:text-faint"
+                  className="font-medium text-ink underline underline-offset-2 hover:text-faint focus:outline-none focus-visible:ring-2 focus-visible:ring-ink"
                 >
                   browse all roles
                 </button>
