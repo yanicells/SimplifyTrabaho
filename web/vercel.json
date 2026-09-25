@@ -4,14 +4,6 @@
     {
       "source": "/:path*.txt",
       "headers": [{ "key": "X-Robots-Tag", "value": "noindex" }]
-    },
-    {
-      "source": "/icon",
-      "headers": [{ "key": "Content-Type", "value": "image/png" }]
-    },
-    {
-      "source": "/apple-icon",
-      "headers": [{ "key": "Content-Type", "value": "image/png" }]
     }
   ]
 }

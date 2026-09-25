@@ -81,11 +81,9 @@ export function buildGraph({
         logo: {
           "@type": "ImageObject",
           "@id": LOGO_ID,
-          // Raster twin of the centered app mark (app/icon.tsx), with a fixed
-          // 512px size. web/vercel.json makes the extensionless route serve as
-          // image/png.
-          url: `${SITE_URL}/icon`,
-          contentUrl: `${SITE_URL}/icon`,
+          // The centered app mark, 512px (Google's logo result needs ≥112px raster).
+          url: `${SITE_URL}/social/simplifytrabaho-mark.png`,
+          contentUrl: `${SITE_URL}/social/simplifytrabaho-mark.png`,
           width: 512,
           height: 512,
           caption: "SimplifyTrabaho",
