@@ -64,6 +64,9 @@ pnpm test                    # all tests
 
 - Registry governance: Tier-A companies may land direct to main; Workday (Tier-B)
   companies enter ONLY via pull request with SPEC §17.2 evidence.
+- Never disable a source or record a permanent block on transient errors (5xx,
+  timeouts, network) — those are "retry next run". Disabling a registry source needs
+  maintainer sign-off in a PR with evidence of a genuine block (SPEC §17.1.2).
 - Keep docs/TRACKER.md current every session: move items between sections, log issues
   (e.g., dead slugs, misclassified titles), record decisions with dates.
 - When building the website: use the frontend-design skill and
