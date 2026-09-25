@@ -29,24 +29,22 @@ describe("filtersToSearch", () => {
 
   it("serializes every non-default field", () => {
     const search = filtersToSearch({
-      levels: [],
+      levels: ["entry"],
+      noLevel: true,
       fns: ["healthcare"],
       setup: "remote",
       metro: "cebu",
-      industry: "fintech",
       type: "direct",
-      location: "cebu city",
       query: "software intern",
       company: "Sun Life",
     });
     const params = new URLSearchParams(search);
-    expect(params.get("level")).toBe(null);
+    expect(params.get("level")).toBe("entry");
+    expect(params.get("nolevel")).toBe("1");
     expect(params.get("fn")).toBe("healthcare");
     expect(params.get("setup")).toBe("remote");
     expect(params.get("metro")).toBe("cebu");
-    expect(params.get("industry")).toBe("fintech");
     expect(params.get("type")).toBe("direct");
-    expect(params.get("loc")).toBe("cebu city");
     expect(params.get("q")).toBe("software intern");
     expect(params.get("company")).toBe("Sun Life");
   });
@@ -62,12 +60,11 @@ describe("filtersFromSearch", () => {
   it("round-trips every field", () => {
     const filters = {
       levels: ["mid", "senior"] as const,
+      noLevel: true,
       fns: ["engineering", "construction"] as const,
       setup: "hybrid" as const,
       metro: "ncr" as const,
-      industry: "outsourcing",
       type: "agency" as const,
-      location: "makati",
       query: "civil engineer",
       company: "Accenture",
     };
@@ -100,6 +97,18 @@ describe("filtersFromSearch", () => {
     expect(filtersFromSearch("type=direct").type).toBe("direct");
     expect(filtersToSearch(defaultFilters())).toBe("");
     expect(filtersToSearch({ ...defaultFilters(), type: "direct" })).toBe("type=direct");
+  });
+
+  it("ignores retired params and values from older links", () => {
+    expect(filtersFromSearch("industry=fintech&loc=cebu&metro=remote-ph")).toEqual(
+      defaultFilters(),
+    );
+  });
+
+  it("keeps the no-level toggle only alongside a level filter", () => {
+    expect(filtersFromSearch("level=entry&nolevel=1").noLevel).toBe(true);
+    expect(filtersFromSearch("nolevel=1")).toEqual(defaultFilters());
+    expect(filtersToSearch({ ...defaultFilters(), noLevel: true })).toBe("");
   });
 
   it("ignores unknown params entirely", () => {

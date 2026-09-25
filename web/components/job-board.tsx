@@ -14,10 +14,18 @@ import {
   defaultFilters,
   filtersFromSearch,
   filtersToSearch,
-  SELECTABLE_FUNCTIONS,
+  SELECTABLE_METROS,
   type Filters,
   type SelectableLevel,
 } from "@/lib/filter-params";
+import {
+  FIELD_GROUPS,
+  FIELD_LABELS,
+  LEVEL_LABELS,
+  METRO_LABELS,
+  SETUP_LABELS,
+} from "@/lib/labels";
+import { buildSearchKey, matchesQuery, parseQuery } from "@/lib/search";
 import { readStorage, removeStorage, writeStorage } from "@/lib/storage";
 import {
   emptyTracker,
@@ -55,72 +63,11 @@ const LEVEL_CHIPS: { id: SelectableLevel; label: string }[] = [
   { id: "senior", label: "Senior" },
 ];
 
-const FUNCTION_LABELS: Record<(typeof SELECTABLE_FUNCTIONS)[number], string> = {
-  engineering: "Engineering",
-  data: "Data & AI",
-  design: "Design",
-  product: "Product",
-  marketing: "Marketing",
-  sales: "Sales",
-  finance: "Finance",
-  hr: "HR & People",
-  operations: "Operations",
-  "customer-support": "Customer support",
-  legal: "Legal",
-  healthcare: "Healthcare",
-  education: "Education",
-  hospitality: "Hospitality",
-  manufacturing: "Manufacturing",
-  retail: "Retail",
-  construction: "Construction & property",
-  other: "Other",
-};
-
 const SETUP_OPTIONS: { id: Job["workSetup"]; label: string }[] = [
   { id: "remote", label: "Remote" },
   { id: "hybrid", label: "Hybrid" },
   { id: "onsite", label: "On-site" },
 ];
-
-const METRO_OPTIONS: { id: Job["metro"][number]; label: string }[] = [
-  { id: "ncr", label: "Metro Manila (NCR)" },
-  { id: "cebu", label: "Cebu" },
-  { id: "davao", label: "Davao" },
-  { id: "clark-pampanga", label: "Clark · Pampanga" },
-  { id: "calabarzon", label: "Calabarzon" },
-  { id: "iloilo", label: "Iloilo" },
-  { id: "bacolod", label: "Bacolod" },
-  { id: "baguio", label: "Baguio" },
-  { id: "cdo", label: "Cagayan de Oro" },
-  { id: "remote-ph", label: "Remote (PH)" },
-  { id: "other-ph", label: "Other PH" },
-];
-
-/** Registry industry tags are lowercase slugs; a few need hand-tuned labels. */
-const INDUSTRY_LABELS: Record<string, string> = {
-  saas: "SaaS",
-  "ai-data": "AI & data",
-  "hr-tech": "HR tech",
-  "it-services": "IT services",
-  ecommerce: "E-commerce",
-};
-
-export function industryLabel(tag: string): string {
-  return INDUSTRY_LABELS[tag] ?? tag.replace(/-/g, " ").replace(/^./, (c) => c.toUpperCase());
-}
-
-const LEVEL_PILLS: Partial<Record<Job["level"], string>> = {
-  internship: "Internship",
-  entry: "Entry level",
-  mid: "Mid-level",
-  senior: "Senior",
-};
-
-const SETUP_PILLS: Partial<Record<Job["workSetup"], string>> = {
-  remote: "Remote",
-  hybrid: "Hybrid",
-  onsite: "On-site",
-};
 
 function toggle<T>(values: T[], value: T): T[] {
   return values.includes(value) ? values.filter((v) => v !== value) : [...values, value];
@@ -162,13 +109,10 @@ function BookmarkIcon({ filled }: { filled: boolean }) {
 
 export function JobBoard({
   jobs,
-  industries,
   updatedAt,
   updatedLabel,
 }: {
   jobs: Job[];
-  /** Unique registry industry tags present in the data, alphabetical (built server-side). */
-  industries: string[];
   updatedAt: string;
   /** Pre-formatted (UTC-pinned) refresh date — the board is the only place it shows. */
   updatedLabel: string;
@@ -199,8 +143,9 @@ export function JobBoard({
       setFilters(applied);
       // Surface the advanced panel when the restored state carries advanced
       // filters (company lives in the directory, not the panel — excluded).
-      const { levels, query, company, ...advanced } = applied;
+      const { levels, noLevel, query, company, ...advanced } = applied;
       void levels;
+      void noLevel;
       void query;
       void company;
       if (filtersToSearch({ ...defaultFilters(), ...advanced }) !== "") {
@@ -264,59 +209,68 @@ export function JobBoard({
     setTimeout(() => setCopyStatus("idle"), 2500);
   }
 
-  // Typing stays responsive: the row list re-filters against the deferred values.
+  // Typing stays responsive: the row list re-filters against the deferred query.
   const deferredQuery = useDeferredValue(filters.query);
-  const deferredLocation = useDeferredValue(filters.location);
 
-  const searchKeys = useMemo(
-    () => jobs.map((j) => `${j.company} ${j.title}`.toLowerCase()),
-    [jobs],
-  );
-  const locationKeys = useMemo(
-    () => jobs.map((j) => j.locations.join("; ").toLowerCase()),
-    [jobs],
-  );
+  // Built once per dataset, so a keystroke only runs substring checks.
+  const searchKeys = useMemo(() => jobs.map(buildSearchKey), [jobs]);
   const liveUrls = useMemo(() => new Set(jobs.map((j) => j.url)), [jobs]);
   const trackedUrls = useMemo(() => new Set(tracker.jobs.map((j) => j.url)), [tracker]);
 
-  const { levels, fns, setup, metro, industry, type: employerType, company } = filters;
+  const { levels, noLevel, fns, setup, metro, type: employerType, company } = filters;
   const levelSet = useMemo(() => new Set<string>(levels), [levels]);
   const fnSet = useMemo(() => new Set<string>(fns), [fns]);
 
-  const filtered = useMemo(() => {
-    // Every word must match somewhere in company+title, so "software intern"
-    // finds "Software Engineering Intern".
-    const terms = deferredQuery.trim().toLowerCase().split(/\s+/).filter(Boolean);
-    const loc = deferredLocation.trim().toLowerCase();
+  // One pass yields the rows plus two side counts for the panel: per-field
+  // counts against every OTHER filter (so picking a field never zeroes its
+  // siblings), and the no-level roles an active level filter is hiding.
+  const { filtered, fieldCounts, noLevelCount } = useMemo(() => {
+    const terms = parseQuery(deferredQuery);
+    const counts: Partial<Record<Job["function"], number>> = {};
+    let unleveled = 0;
     const out: Job[] = [];
     for (let i = 0; i < jobs.length; i++) {
       const job = jobs[i];
-      if (levelSet.size > 0 && !levelSet.has(job.level)) continue;
-      if (fnSet.size > 0 && !fnSet.has(job.function)) continue;
       if (setup !== "all" && job.workSetup !== setup) continue;
       if (metro !== "all" && !job.metro.includes(metro)) continue;
-      if (industry !== "all" && job.industry !== industry) continue;
       if (employerType !== "all" && job.companyType !== employerType) continue;
       if (company !== "" && job.company !== company) continue;
-      if (loc !== "" && !locationKeys[i].includes(loc)) continue;
-      if (terms.length > 0 && !terms.every((t) => searchKeys[i].includes(t))) continue;
-      out.push(job);
+      if (terms.length > 0 && !matchesQuery(searchKeys[i], terms)) continue;
+      const fnOk = fnSet.size === 0 || fnSet.has(job.function);
+      if (levelSet.size > 0 && job.level === "unknown" && fnOk) unleveled++;
+      const levelOk =
+        levelSet.size === 0 || levelSet.has(job.level) || (noLevel && job.level === "unknown");
+      if (!levelOk) continue;
+      counts[job.function] = (counts[job.function] ?? 0) + 1;
+      if (fnOk) out.push(job);
     }
-    return out;
+    return { filtered: out, fieldCounts: counts, noLevelCount: unleveled };
   }, [
     jobs,
     searchKeys,
-    locationKeys,
     levelSet,
+    noLevel,
     fnSet,
     setup,
     metro,
-    industry,
     employerType,
     company,
-    deferredLocation,
     deferredQuery,
   ]);
+
+  // Field dropdown columns: busiest first within each, "Other" pinned last.
+  const fieldGroups = useMemo(
+    () =>
+      FIELD_GROUPS.map((group) => ({
+        label: group.label,
+        options: group.fields
+          .map((fn) => ({ value: fn, label: FIELD_LABELS[fn], count: fieldCounts[fn] ?? 0 }))
+          .sort((a, b) =>
+            a.value === "other" ? 1 : b.value === "other" ? -1 : b.count - a.count,
+          ),
+      })),
+    [fieldCounts],
+  );
 
   /** Companies represented in the current result set — the count next to it. */
   const shownCompanies = useMemo(
@@ -329,9 +283,20 @@ export function JobBoard({
     (fns.length > 0 ? 1 : 0) +
     (setup !== "all" ? 1 : 0) +
     (metro !== "all" ? 1 : 0) +
-    (industry !== "all" ? 1 : 0) +
-    (employerType !== "all" ? 1 : 0) +
-    (filters.location !== "" ? 1 : 0);
+    (employerType !== "all" ? 1 : 0);
+
+  // On phones the panel hangs below the sticky rail with a sticky "Show N roles"
+  // at its foot, so opening it first scrolls the rail up to where it sticks —
+  // otherwise the panel's bottom (and that button) can start off-screen.
+  const railRef = useRef<HTMLDivElement | null>(null);
+  function togglePanel() {
+    const opening = !panelOpen;
+    setPanelOpen(opening);
+    const top = railRef.current?.getBoundingClientRect().top ?? 0;
+    if (opening && top > 0 && window.matchMedia("(max-width: 639px)").matches) {
+      window.scrollBy({ top, behavior: "smooth" });
+    }
+  }
 
   function reset() {
     setFilters(defaultFilters());
@@ -379,9 +344,13 @@ export function JobBoard({
   return (
     <div className="pb-12">
       {/* Sticky filter rail — stays put while the results scroll (SPEC §12 v2) */}
-      <div className="sticky top-0 z-20 -mx-4 border-b border-line bg-paper/95 px-4 pb-3 backdrop-blur sm:mx-0 sm:px-0">
+      <div
+        ref={railRef}
+        className="sticky top-0 z-20 -mx-4 border-b border-line bg-paper/95 px-4 pb-3 backdrop-blur sm:mx-0 sm:px-0"
+      >
         {/* Search — full-width, the rail's primary control. One box for every
-            view: on the board it matches company+title, in the directory it
+            view: on the board it's the smart search (lib/search.ts — role,
+            company, place, field, level, setup, industry), in the directory it
             matches company names. */}
         <div className="pt-3">
           <input
@@ -395,10 +364,10 @@ export function JobBoard({
             autoComplete="off"
             spellCheck={false}
             placeholder={
-              view === "companies" ? "Search companies…" : "Search roles or companies…"
+              view === "companies" ? "Search companies…" : "Search role, company, or place…"
             }
             aria-label={
-              view === "companies" ? "Search companies" : "Search roles or companies"
+              view === "companies" ? "Search companies" : "Search role, company, or place"
             }
             className={`${fieldClass} h-10 w-full`}
           />
@@ -468,7 +437,7 @@ export function JobBoard({
                 type="button"
                 aria-expanded={panelOpen}
                 aria-controls="advanced-filters"
-                onClick={() => setPanelOpen((open) => !open)}
+                onClick={togglePanel}
                 className={`${chipClass(panelOpen || advancedCount > 0)} gap-1.5`}
               >
                 Filters
@@ -525,109 +494,73 @@ export function JobBoard({
           </div>
         </div>
 
-        {view === "board" && (
-          <>
-            {/* Advanced filters — function multi-select, setup, metro, industry, location.
-                On phones it overlays the list (absolute) so the sticky rail stays short;
-                on sm+ it sits in-flow inside the rail. */}
-            {panelOpen && (
-              <div
-                id="advanced-filters"
-                className="absolute inset-x-0 top-full max-h-[60vh] overscroll-contain overflow-y-auto border-b border-line bg-paper px-4 pb-4 pt-3 shadow-[0_12px_24px_-16px_rgba(0,0,0,0.35)] sm:static sm:mt-3 sm:max-h-none sm:overflow-visible sm:border-0 sm:bg-transparent sm:p-0 sm:shadow-none"
+        {/* Advanced filters — four dropdowns: Field, Work setup, Location, Employer.
+            One row on sm+, in-flow inside the rail. On phones the panel overlays
+            the list (absolute) so the sticky rail stays short, stacks the
+            dropdowns, and ends in a sticky "Show N roles" to get back to results. */}
+        {view === "board" && panelOpen && (
+          <div
+            id="advanced-filters"
+            className="absolute inset-x-0 top-full max-h-[75vh] overscroll-contain overflow-y-auto border-b border-line bg-paper px-4 pt-3 shadow-[0_12px_24px_-16px_rgba(0,0,0,0.35)] sm:static sm:mt-3 sm:max-h-none sm:overflow-visible sm:border-0 sm:bg-transparent sm:p-0 sm:shadow-none"
+          >
+            <div className="grid grid-cols-1 gap-2 sm:grid-cols-4">
+              <FilterSelect
+                multiple
+                label="Filter by field"
+                placeholder="Field"
+                dense
+                values={fns}
+                groups={fieldGroups}
+                active={fns.length > 0}
+                onChange={(v) => patch({ fns: v as Filters["fns"] }, "function")}
+              />
+              <FilterSelect
+                label="Filter by work setup"
+                dense
+                value={setup}
+                active={setup !== "all"}
+                onChange={(v) => patch({ setup: v as Filters["setup"] }, "work_setup")}
+                options={[
+                  { value: "all", label: "Any setup" },
+                  ...SETUP_OPTIONS.map((o) => ({ value: o.id, label: o.label })),
+                ]}
+              />
+              <FilterSelect
+                label="Filter by location"
+                dense
+                value={metro}
+                active={metro !== "all"}
+                onChange={(v) => patch({ metro: v as Filters["metro"] }, "metro")}
+                options={[
+                  { value: "all", label: "Any location" },
+                  ...SELECTABLE_METROS.map((m) => ({ value: m, label: METRO_LABELS[m] })),
+                ]}
+              />
+              <FilterSelect
+                label="Filter by employer type"
+                dense
+                menuAlign="right"
+                value={employerType}
+                active={employerType !== "all"}
+                onChange={(v) => patch({ type: v as Filters["type"] }, "employer_type")}
+                options={[
+                  { value: "all", label: "Any employer" },
+                  { value: "direct", label: "Direct employers" },
+                  { value: "agency", label: "Agencies" },
+                ]}
+              />
+            </div>
+            <div className="sticky bottom-0 -mx-4 mt-3 bg-paper px-4 pt-1 pb-4 sm:hidden">
+              <button
+                type="button"
+                onClick={() => setPanelOpen(false)}
+                className="h-11 w-full rounded-full bg-ink text-sm font-medium text-paper transition-opacity hover:opacity-80 focus:outline-none focus-visible:ring-2 focus-visible:ring-ink focus-visible:ring-offset-2"
               >
-                <p className="text-xs font-medium uppercase tracking-wider text-faint">
-                  Function
-                </p>
-                <div
-                  role="group"
-                  aria-label="Filter by function (multi-select)"
-                  className="mt-2 flex flex-wrap gap-2"
-                >
-                  {SELECTABLE_FUNCTIONS.map((fn) => {
-                    const active = fnSet.has(fn);
-                    return (
-                      <button
-                        key={fn}
-                        type="button"
-                        aria-pressed={active}
-                        onClick={() => patch({ fns: toggle(fns, fn) }, "function")}
-                        className={chipClass(active)}
-                      >
-                        {FUNCTION_LABELS[fn]}
-                      </button>
-                    );
-                  })}
-                </div>
-
-                <p className="mt-4 text-xs font-medium uppercase tracking-wider text-faint">
-                  Setup, place &amp; employer
-                </p>
-                <div className="mt-2 grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-5">
-                  <FilterSelect
-                    label="Filter by work setup"
-                    dense
-                    value={setup}
-                    active={setup !== "all"}
-                    onChange={(v) => patch({ setup: v as Filters["setup"] }, "work_setup")}
-                    options={[
-                      { value: "all", label: "Any setup" },
-                      ...SETUP_OPTIONS.map((o) => ({ value: o.id, label: o.label })),
-                    ]}
-                  />
-                  <FilterSelect
-                    label="Filter by metro area"
-                    dense
-                    value={metro}
-                    active={metro !== "all"}
-                    onChange={(v) => patch({ metro: v as Filters["metro"] }, "metro")}
-                    options={[
-                      { value: "all", label: "Any metro" },
-                      ...METRO_OPTIONS.map((o) => ({ value: o.id, label: o.label })),
-                    ]}
-                  />
-                  <FilterSelect
-                    label="Filter by company industry"
-                    dense
-                    value={industry}
-                    active={industry !== "all"}
-                    onChange={(v) => patch({ industry: v }, "industry")}
-                    options={[
-                      { value: "all", label: "Any industry" },
-                      ...industries.map((tag) => ({ value: tag, label: industryLabel(tag) })),
-                    ]}
-                  />
-                  <FilterSelect
-                    label="Filter by employer type"
-                    dense
-                    value={employerType}
-                    active={employerType !== "all"}
-                    onChange={(v) => patch({ type: v as Filters["type"] }, "employer_type")}
-                    options={[
-                      { value: "all", label: "Any employer" },
-                      { value: "direct", label: "Direct employers" },
-                      { value: "agency", label: "Agencies" },
-                    ]}
-                  />
-                  <input
-                    type="text"
-                    name="location"
-                    value={filters.location}
-                    onChange={(e) => patch({ location: e.target.value })}
-                    onBlur={() => {
-                      if (filters.location.trim() !== "") {
-                        track("filter_changed", { filter: "location" });
-                      }
-                    }}
-                    autoComplete="off"
-                    spellCheck={false}
-                    placeholder="Location, e.g. Cebu…"
-                    aria-label="Filter by location"
-                    className={`${fieldClass} h-9 col-span-2 sm:col-span-1`}
-                  />
-                </div>
-              </div>
-            )}
-          </>
+                Show {filtered.length.toLocaleString("en-US")}{" "}
+                {filtered.length === 1 ? "role" : "roles"}
+              </button>
+            </div>
+          </div>
         )}
       </div>
 
@@ -702,6 +635,24 @@ export function JobBoard({
               <span className="font-semibold tabular-nums text-ink">{shownCompanies}</span>{" "}
               {shownCompanies === 1 ? "company" : "companies"}
             </p>
+            {/* Most listings don't state a level, so a level filter hides them;
+                this quiet toggle lets people opt back in. */}
+            {levels.length > 0 && noLevelCount > 0 && (
+              <p className="order-last w-full text-sm text-faint">
+                {noLevel
+                  ? `Including ${noLevelCount.toLocaleString("en-US")} ${noLevelCount === 1 ? "role that doesn't" : "roles that don't"} list a level`
+                  : `+${noLevelCount.toLocaleString("en-US")} ${noLevelCount === 1 ? "role doesn't" : "roles don't"} list a level`}{" "}
+                ·{" "}
+                <button
+                  type="button"
+                  aria-pressed={noLevel}
+                  onClick={() => patch({ noLevel: !noLevel }, "no_level")}
+                  className="font-medium text-ink underline underline-offset-2 hover:text-faint focus:outline-none focus-visible:ring-2 focus-visible:ring-ink"
+                >
+                  {noLevel ? "Hide them" : "Show them"}
+                </button>
+              </p>
+            )}
             <span className="flex flex-wrap items-baseline gap-x-4 gap-y-1 text-sm">
               {!isDefaultView && (
                 <>
@@ -774,8 +725,8 @@ export function JobBoard({
             <ul role="list" className="divide-y divide-line">
               {shown.map((job) => {
                 const isNew = updatedMs - Date.parse(job.posted) < NEW_WINDOW_MS;
-                const levelPill = LEVEL_PILLS[job.level];
-                const setupPill = SETUP_PILLS[job.workSetup];
+                const levelPill = LEVEL_LABELS[job.level];
+                const setupPill = SETUP_LABELS[job.workSetup];
                 const extraLocations = job.locations.length - 2;
                 const saved = trackedUrls.has(job.url);
                 return (
