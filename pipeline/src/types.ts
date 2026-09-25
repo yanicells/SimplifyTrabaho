@@ -149,9 +149,16 @@ export interface FetchedPosting {
   companyType: CompanyType;
 }
 
-/** "blocked" is Workday-only (SPEC §17.1.2): permanent stop, human review required. */
+/**
+ * "blocked" is Workday-only (SPEC §17.1.2): permanent stop, human review required.
+ * Only genuine block signals may produce it — never 5xx, timeouts, or network errors.
+ */
 export type FetchErrorKind = "dead-slug" | "http" | "network" | "blocked";
 
+/**
+ * `partial`: the fetcher stopped early (pagination cap), so absences from this
+ * result prove nothing — merge must not deactivate the company's missing listings.
+ */
 export type FetchResult =
-  | { ok: true; postings: FetchedPosting[] }
+  | { ok: true; postings: FetchedPosting[]; partial?: true }
   | { ok: false; errorKind: FetchErrorKind; detail: string };

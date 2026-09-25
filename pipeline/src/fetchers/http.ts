@@ -70,3 +70,20 @@ export async function politeJsonGet(url: string, deps: HttpDeps = {}): Promise<H
   }
   return last;
 }
+
+/**
+ * Fetch queues for `pnpm refresh`: one per ATS, so each queue maps to one API host
+ * (per-tenant subdomains like {slug}.bamboohr.com share a queue — stricter than
+ * needed) and ALL Workday tenants share one queue (conservative, SPEC §17.1.3).
+ * Queues run concurrently; each runs sequentially, so the per-request politeness
+ * sleep above still guarantees the gap per host.
+ */
+export function groupByHost<T extends { ats: string }>(companies: T[]): T[][] {
+  const groups = new Map<string, T[]>();
+  for (const company of companies) {
+    const group = groups.get(company.ats) ?? [];
+    group.push(company);
+    groups.set(company.ats, group);
+  }
+  return [...groups.values()];
+}

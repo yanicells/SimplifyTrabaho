@@ -15,8 +15,8 @@ import { mergeRegistryCompanies, parseRegistry } from "./files.js";
 import { filterPhilippines } from "./filter.js";
 import type { AtsSource, CompanyType, FetchResult, RegistryCompany } from "./types.js";
 
-// Registry verification tool (SPEC §7.1): probes candidate slugs against the six
-// documented ATS endpoints (politely — the HTTP layer enforces 1s gaps), checks for
+// Registry verification tool (SPEC §7.1): probes candidate slugs against the nine
+// documented ATS endpoints plus Workday (politely — the HTTP layer enforces 1s gaps), checks for
 // PH roles, and merges verified entries into companies.json. Failures are printed
 // in TRACKER.md format so they can be logged, not re-researched.
 //

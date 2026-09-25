@@ -1,5 +1,9 @@
 import { describe, expect, it } from "vitest";
-import { fetchWorkday, parseWorkdaySlug } from "../src/fetchers/workday.js";
+import {
+  fetchWorkday,
+  parseWorkdaySlug,
+  robotsAllowsJobsPath,
+} from "../src/fetchers/workday.js";
 import { normalizeWorkday } from "../src/normalize.js";
 import type { RegistryCompany } from "../src/types.js";
 
@@ -48,7 +52,7 @@ interface Call {
 /** Fake HTTP: robots.txt response + a handler for each sequential jobs POST. */
 function fakeHttp(
   robots: { status: number; text: string } | "network",
-  jobsResponses: Array<{ status: number; json?: unknown; html?: boolean }>,
+  jobsResponses: Array<{ status: number; json?: unknown; html?: boolean; raw?: string }>,
 ) {
   const calls: Call[] = [];
   const sleeps: number[] = [];
@@ -68,6 +72,7 @@ function fakeHttp(
     const spec = jobsResponses[Math.min(posts, jobsResponses.length - 1)] ?? { status: 500 };
     posts += 1;
     if (spec.html) return new Response("<html>challenge</html>", { status: spec.status });
+    if (spec.raw !== undefined) return new Response(spec.raw, { status: spec.status });
     return new Response(JSON.stringify(spec.json ?? {}), { status: spec.status });
   }) as typeof fetch;
   const sleep = async (ms: number) => {
@@ -131,12 +136,45 @@ describe("fetchWorkday — robots.txt gate (guardrail §17.1.1)", () => {
     }
   });
 
-  it("treats a non-404 robots.txt error status as a block (conservative)", async () => {
+  it("treats a robots.txt 4xx other than 404 as a block (conservative)", async () => {
     const http = fakeHttp({ status: 403, text: "denied" }, []);
     const result = await fetchWorkday(COMPANY, http);
     expect(result.ok).toBe(false);
     if (!result.ok) expect(result.errorKind).toBe("blocked");
     expect(http.calls).toHaveLength(1);
+  });
+
+  it("treats a robots.txt 5xx as transient, never a block (2026-08-29 wd3 outage)", async () => {
+    const http = fakeHttp({ status: 503, text: "maintenance" }, []);
+    const result = await fetchWorkday(COMPANY, http);
+    expect(result).toMatchObject({ ok: false, errorKind: "http" });
+    expect(http.calls).toHaveLength(1); // still never touches the jobs endpoint
+  });
+});
+
+describe("robotsAllowsJobsPath", () => {
+  const PATH = "/wday/cxs/globe/GLB_Careers/jobs";
+  const allows = (robots: string) => robotsAllowsJobsPath(robots, PATH);
+
+  it("applies a group's rules to every one of its User-agent lines", () => {
+    expect(allows("User-agent: *\nUser-agent: Googlebot\nDisallow: /wday/")).toBe(false);
+    expect(allows("User-agent: Googlebot\nUser-agent: *\nDisallow: /wday/")).toBe(false);
+  });
+
+  it("ignores groups for other agents", () => {
+    expect(allows("User-agent: Googlebot\nDisallow: /\n\nUser-agent: *\nDisallow: /x/")).toBe(
+      true,
+    );
+  });
+
+  it("matches mid-path * wildcards", () => {
+    expect(allows("User-agent: *\nDisallow: /wday/cxs/*/jobs")).toBe(false);
+    expect(allows("User-agent: *\nDisallow: /wday/*/apply")).toBe(true);
+  });
+
+  it("honors the $ end anchor", () => {
+    expect(allows("User-agent: *\nDisallow: /*/jobs$")).toBe(false);
+    expect(allows("User-agent: *\nDisallow: /*/job$")).toBe(true);
   });
 });
 
@@ -158,6 +196,14 @@ describe("fetchWorkday — stop on block, never retry (guardrail §17.1.2)", () 
     const result = await fetchWorkday(COMPANY, http);
     expect(result.ok).toBe(false);
     if (!result.ok) expect(result.errorKind).toBe("blocked");
+  });
+
+  it("a truncated non-HTML body is transient, not a block", async () => {
+    const http = fakeHttp({ status: 404, text: "" }, [
+      { status: 200, raw: '{"total": 3, "jo' },
+    ]);
+    const result = await fetchWorkday(COMPANY, http);
+    expect(result).toMatchObject({ ok: false, errorKind: "network" });
   });
 
   it("a 500 is a plain http failure (not a block), still no retry", async () => {
@@ -192,6 +238,7 @@ describe("fetchWorkday — pagination + cap (guardrail §17.1.3)", () => {
     const result = await fetchWorkday(COMPANY, http);
     expect(result.ok).toBe(true);
     if (result.ok) expect(result.postings).toHaveLength(45);
+    expect(result).not.toHaveProperty("partial");
     const posts = http.calls.filter((c) => c.method === "POST");
     expect(posts.map((c) => (c.body as { offset: number }).offset)).toEqual([0, 20, 40]);
   });
@@ -203,6 +250,7 @@ describe("fetchWorkday — pagination + cap (guardrail §17.1.3)", () => {
     const result = await fetchWorkday(COMPANY, http);
     expect(result.ok).toBe(true);
     if (result.ok) expect(result.postings).toHaveLength(1000);
+    expect(result).toMatchObject({ partial: true }); // merge must not deactivate the rest
     expect(http.calls.filter((c) => c.method === "POST")).toHaveLength(50);
   });
 });

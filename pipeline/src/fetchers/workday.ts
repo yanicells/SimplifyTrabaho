@@ -6,11 +6,13 @@ export { parseWorkdaySlug };
 
 // Workday adapter — Tier B (SPEC §17). Every rule below is a guardrail, not an
 // optimization: robots.txt gate before the first byte, instant PERMANENT stop on
-// any block signal (401/403/422/429 or a non-JSON bot-challenge page — the caller
+// any block signal (401/403/422/429 or an HTML bot-challenge page — the caller
 // records the block and skips the tenant on all future runs), ≥2s politeness,
 // sequential pagination with a hard cap, jobs-list endpoint ONLY (job detail
 // pages carry JD text and multiply request volume — never fetch them).
 // NEVER add retries, UA changes, or any block-evasion here. A closed door means no.
+// Equally, a 5xx/timeout/network error is NOT a closed door — it must surface as a
+// transient "http"/"network" failure (retry next run), never as "blocked".
 
 const POLITENESS_GAP_MS = 2000; // stricter than the ≥1s Tier-A rule (§17.1.3)
 const PAGE_SIZE = 20; // the page's own request size
@@ -21,31 +23,41 @@ const FACET_TRIGGER_TOTAL = 500;
 const realSleep = (ms: number) => new Promise<void>((resolve) => setTimeout(resolve, ms));
 
 /**
- * Minimal robots.txt check for our jobs path. Conservative: we only look at the
- * `*` group and any group naming us, and we block on any Disallow rule whose
- * prefix matches the CXS jobs path or the whole site.
+ * robots.txt check for our jobs path (RFC 9309 groups: consecutive User-agent
+ * lines share the rules that follow). Conservative on purpose: Disallow rules
+ * from BOTH the `*` group and any group naming us apply, and Allow rules are
+ * ignored — so we can only ever over-block, never under-block.
  */
 export function robotsAllowsJobsPath(robotsTxt: string, jobsPath: string): boolean {
-  const lines = robotsTxt.split(/\r?\n/);
   let applies = false;
+  let readingAgents = false; // inside a run of consecutive User-agent lines
   const disallows: string[] = [];
-  for (const raw of lines) {
-    const line = raw.replace(/#.*$/, "").trim();
-    if (line === "") continue;
-    const [field = "", ...rest] = line.split(":");
-    const value = rest.join(":").trim();
-    switch (field.trim().toLowerCase()) {
-      case "user-agent":
-        applies = value === "*" || value.toLowerCase().includes("simplifytrabaho");
-        break;
-      case "disallow":
-        if (applies && value !== "") disallows.push(value);
-        break;
-      default:
-        break;
+  for (const raw of robotsTxt.split(/\r?\n/)) {
+    const line = raw.replace(/#.*$/, "");
+    const colon = line.indexOf(":");
+    if (colon === -1) continue;
+    const field = line.slice(0, colon).trim().toLowerCase();
+    const value = line.slice(colon + 1).trim();
+    if (field === "user-agent") {
+      const ours = value === "*" || value.toLowerCase().includes("simplifytrabaho");
+      applies = (readingAgents && applies) || ours;
+      readingAgents = true;
+      continue;
     }
+    readingAgents = false;
+    if (field === "disallow" && applies && value !== "") disallows.push(value);
   }
-  return !disallows.some((rule) => jobsPath.startsWith(rule.replace(/\*$/, "")));
+  return !disallows.some((rule) => robotsRuleMatches(rule, jobsPath));
+}
+
+/** RFC 9309 path match: prefix match, `*` = any run of characters, trailing `$` = end. */
+function robotsRuleMatches(rule: string, path: string): boolean {
+  const anchored = rule.endsWith("$");
+  const pattern = (anchored ? rule.slice(0, -1) : rule)
+    .split("*")
+    .map((part) => part.replace(/[.+?^${}()|[\]\\]/g, "\\$&"))
+    .join(".*");
+  return new RegExp(`^${pattern}${anchored ? "$" : ""}`).test(path);
 }
 
 interface WorkdayPage {
@@ -120,12 +132,18 @@ async function postJobsPage(
       return { kind: "blocked", detail: `HTTP ${response.status} — permanent stop (§17.1.2)` };
     }
     if (!response.ok) return { kind: "http", status: response.status };
+    // Read the body first: a timeout or reset mid-body is a network error, not a block.
+    const text = await response.text();
     try {
-      return { kind: "ok", page: (await response.json()) as WorkdayPage };
+      return { kind: "ok", page: JSON.parse(text) as WorkdayPage };
     } catch {
+      // Only an HTML page (Akamai bot challenge) is a block; other garbage is transient.
+      if (!/<html|<!doctype/i.test(text)) {
+        return { kind: "network", message: "malformed JSON response" };
+      }
       return {
         kind: "blocked",
-        detail: "non-JSON response (bot challenge?) — permanent stop (§17.1.2)",
+        detail: "HTML instead of JSON (bot challenge) — permanent stop (§17.1.2)",
       };
     }
   } catch (error) {
@@ -174,8 +192,16 @@ export async function fetchWorkday(
           detail: `robots.txt disallows ${jobsPath} — company is off the table (§17.1.1)`,
         };
       }
+    } else if (robots.status >= 500) {
+      // Server trouble (e.g. a Workday maintenance window) says nothing about
+      // permission — skip this run, retry next run. NEVER record it as a block.
+      return {
+        ok: false,
+        errorKind: "http",
+        detail: `robots.txt returned HTTP ${robots.status} — transient, retry next run`,
+      };
     } else if (robots.status !== 404) {
-      // Anything but "no robots file" is treated as a closed door.
+      // A 4xx other than 404 ("no robots file") is treated as a closed door.
       return {
         ok: false,
         errorKind: "blocked",
@@ -231,13 +257,13 @@ export async function fetchWorkday(
     page = outcome.page;
   }
 
+  const kept = jobs.slice(0, MAX_POSTINGS);
   try {
-    return {
-      ok: true,
-      postings: normalizeWorkday(company, jobs.slice(0, MAX_POSTINGS), {
-        assumePhilippines: phFaceted,
-      }),
-    };
+    const postings = normalizeWorkday(company, kept, { assumePhilippines: phFaceted });
+    // Stopped short of total (cap or empty page): partial, so merge deactivates nothing.
+    return kept.length < total
+      ? { ok: true, postings, partial: true }
+      : { ok: true, postings };
   } catch (error) {
     return {
       ok: false,

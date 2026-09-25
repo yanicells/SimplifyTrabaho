@@ -11,6 +11,7 @@ import { fetchRecruitee } from "./fetchers/recruitee.js";
 import { fetchSmartRecruiters } from "./fetchers/smartrecruiters.js";
 import { fetchWorkable } from "./fetchers/workable.js";
 import { fetchWorkday } from "./fetchers/workday.js";
+import { groupByHost } from "./fetchers/http.js";
 import { computeCoverage, formatCoverageReport } from "./coverage.js";
 import { emptyListingsFile, parseListingsFile, parseRegistry } from "./files.js";
 import { filterPhilippines } from "./filter.js";
@@ -18,9 +19,9 @@ import { buildListing, mergeListings } from "./merge.js";
 import { generateReadme } from "./readme.js";
 import type { FetchedPosting, FetchResult, RegistryCompany } from "./types.js";
 
-// Orchestrator for `pnpm refresh` (SPEC §10): fetch verified companies sequentially
-// (the polite HTTP layer enforces ≥1s gaps), PH-filter, categorize, merge into
-// data/listings.json, regenerate README.md, print a run summary.
+// Orchestrator for `pnpm refresh` (SPEC §10): fetch verified companies — sequentially
+// per host, hosts in parallel (the polite HTTP layer enforces ≥1s gaps) — PH-filter,
+// categorize, merge into data/listings.json, regenerate README.md, print a run summary.
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..", "..");
 const REGISTRY_PATH = join(ROOT, "pipeline", "companies.json");
@@ -89,44 +90,49 @@ async function main(): Promise<number> {
 
   const allPostings: FetchedPosting[] = [];
   const okByName = new Map<string, boolean>();
+  const zeroPhBoards: string[] = [];
   let succeeded = 0;
   let failed = 0;
 
-  for (const company of enabled) {
+  // Fetches one board; all of its log lines go through `log` so they print as one block.
+  const fetchOne = async (company: RegistryCompany, log: (line: string) => void) => {
     const fetcher = FETCHERS[company.ats];
     const label = `${company.name} [${company.ats}:${company.slug}]`;
     if (!fetcher) {
-      console.log(`  SKIP  ${label} — no fetcher for ${company.ats} yet`);
+      log(`  SKIP  ${label} — no fetcher for ${company.ats} yet`);
       okByName.set(company.name, false);
       failed += 1;
-      continue;
+      return;
     }
     const stateKey = `${company.ats}:${company.slug}`;
     const blockNote = fetchState.blocked?.[stateKey];
     if (blockNote !== undefined) {
       // §17.1.2: a blocked tenant stays skipped until a human reviews and
       // removes the entry from data/fetch-state.json.
-      console.log(`  SKIP  ${label} — BLOCKED (${blockNote}) — human review required`);
+      log(`  SKIP  ${label} — BLOCKED (${blockNote}) — human review required`);
       okByName.set(company.name, false);
       failed += 1;
-      continue;
+      return;
     }
     const result = await fetcher(company);
     if (result.ok) {
-      console.log(`  OK    ${label} — ${result.postings.length} postings`);
+      const cap = result.partial ? " (partial: stopped at pagination cap)" : "";
+      log(`  OK    ${label} — ${result.postings.length} postings${cap}`);
       allPostings.push(...result.postings);
-      // Keep an earlier board's failure sticky for multi-board companies.
-      okByName.set(company.name, okByName.get(company.name) ?? true);
+      if (filterPhilippines(result.postings).kept.length === 0) zeroPhBoards.push(label);
+      // Keep an earlier board's failure sticky for multi-board companies. A partial
+      // fetch counts as not-fully-fetched: its listings upsert, nothing deactivates.
+      okByName.set(company.name, !result.partial && (okByName.get(company.name) ?? true));
       delete fetchState.deadSlugStreaks[stateKey];
       succeeded += 1;
     } else {
-      console.log(`  FAIL  ${label} — ${result.errorKind}: ${result.detail}`);
+      log(`  FAIL  ${label} — ${result.errorKind}: ${result.detail}`);
       okByName.set(company.name, false);
       failed += 1;
       if (result.errorKind === "blocked") {
         fetchState.blocked ??= {};
         fetchState.blocked[stateKey] = `${now.slice(0, 10)}: ${result.detail}`;
-        console.log(
+        log(
           `  TRACKER-ISSUE: ${label} BLOCKED — recorded in fetch-state.json; ` +
             `mark the company blocked in TRACKER and do not retry (SPEC §17.1.2)`,
         );
@@ -135,14 +141,25 @@ async function main(): Promise<number> {
         const streak = (fetchState.deadSlugStreaks[stateKey] ?? 0) + 1;
         fetchState.deadSlugStreaks[stateKey] = streak;
         if (streak >= DEAD_SLUG_ALERT_AFTER) {
-          console.log(
+          log(
             `  TRACKER-ISSUE: ${label} dead-slug ${streak} runs in a row — ` +
               `verify the slug or mark verified:false (SPEC §10.5)`,
           );
         }
       }
     }
-  }
+  };
+
+  // One sequential queue per host, queues in parallel (SPEC §3.5: politeness is per host).
+  await Promise.all(
+    groupByHost(enabled).map(async (group) => {
+      for (const company of group) {
+        const lines: string[] = [];
+        await fetchOne(company, (line) => lines.push(line));
+        console.log(lines.join("\n"));
+      }
+    }),
+  );
 
   if (succeeded === 0) {
     console.error("\nAll fetches failed — refusing to touch data. Run failed loudly.");
@@ -196,6 +213,10 @@ async function main(): Promise<number> {
       `${summary.unchanged} unchanged, -${summary.deactivated} deactivated · ` +
       `${listings.length} total listings (${listings.filter((l) => l.active).length} active)`,
   );
+  if (zeroPhBoards.length > 0) {
+    // Fetched fine but nothing in PH — often a moved or abandoned board worth a look.
+    console.log(`zero-PH boards (${zeroPhBoards.length}): ${zeroPhBoards.sort().join(", ")}`);
+  }
   // SPEC §9: coverage in every refresh summary so categorizer drift stays visible.
   console.log("\n" + formatCoverageReport(computeCoverage(listings)));
   console.log(`wrote ${LISTINGS_PATH}`);
