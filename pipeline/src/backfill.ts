@@ -4,7 +4,7 @@ import type { Listing, ListingsFile, Registry } from "./types.js";
 
 // Core of `pnpm --filter pipeline recategorize` (SPEC §9): re-runs categorization,
 // metro derivation, and the registry metadata copy over the ENTIRE dataset —
-// including inactive listings — and the designated v2→v3 migration path.
+// including inactive listings.
 //
 // Re-tagging is our metadata, not a change in the listing itself: datePosted is
 // preserved, dateUpdated is never bumped, and the file-level updatedAt stays put
@@ -27,8 +27,8 @@ export interface BackfillResult {
 
 export function recategorizeDataset(raw: unknown, registry: Registry): BackfillResult {
   const obj = raw as { version?: unknown; updatedAt?: unknown; listings?: unknown };
-  if (obj?.version !== 2 && obj?.version !== 3) {
-    throw new Error("recategorize: unsupported listings version (expected 2 or 3)");
+  if (obj?.version !== 3) {
+    throw new Error("recategorize: unsupported listings version (expected 3)");
   }
   if (typeof obj.updatedAt !== "string") {
     throw new Error("recategorize: missing updatedAt");
@@ -59,11 +59,10 @@ export function recategorizeDataset(raw: unknown, registry: Registry): BackfillR
 
     if (level !== old.level) summary.levelChanged += 1;
     if (fn !== old.function) summary.functionChanged += 1;
-    if (JSON.stringify(metro) !== JSON.stringify(old.metro ?? null)) summary.metroChanged += 1;
-    if (industry !== (old.industry ?? null)) summary.industryChanged += 1;
+    if (JSON.stringify(metro) !== JSON.stringify(old.metro)) summary.metroChanged += 1;
+    if (industry !== old.industry) summary.industryChanged += 1;
 
-    // Rebuild in canonical key order so v1 rows gain industry/metro in the same
-    // position as pipeline-written v2 rows (keeps the git diff reviewable).
+    // Rebuild in canonical key order (keeps the git diff reviewable).
     return {
       id: old.id,
       company: old.company,

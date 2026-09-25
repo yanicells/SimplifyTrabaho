@@ -3,7 +3,7 @@ import { recategorizeDataset } from "../src/backfill.js";
 import type { Listing, Registry } from "../src/types.js";
 
 // `pnpm --filter pipeline recategorize` core (SPEC §9): full-dataset backfill,
-// including inactive listings, and the designated v2→v3 migration path.
+// including inactive listings.
 
 const registry: Registry = {
   version: 1,
@@ -20,9 +20,8 @@ const registry: Registry = {
   ],
 };
 
-/** A schema-v2 listing as stored on disk — no companyType. */
-function v2Listing(overrides: Partial<Listing> = {}): Record<string, unknown> {
-  const listing: Record<string, unknown> = {
+function stored(overrides: Partial<Listing> = {}): Listing {
+  return {
     id: "abc123def456",
     company: "Xendit",
     title: "Cashier",
@@ -31,6 +30,7 @@ function v2Listing(overrides: Partial<Listing> = {}): Record<string, unknown> {
     level: "unknown",
     function: "other",
     industry: "",
+    companyType: "direct",
     metro: [],
     url: "https://example.com/jobs/1",
     source: "greenhouse",
@@ -41,27 +41,24 @@ function v2Listing(overrides: Partial<Listing> = {}): Record<string, unknown> {
     active: true,
     ...overrides,
   };
-  delete (listing as { companyType?: unknown }).companyType;
-  return listing;
 }
 
-function v2File(listings: Record<string, unknown>[]): unknown {
-  return { version: 2, updatedAt: "2026-06-11T22:00:00.000Z", listings };
+function dataset(listings: Listing[]): unknown {
+  return { version: 3, updatedAt: "2026-06-11T22:00:00.000Z", listings };
 }
 
 describe("recategorizeDataset", () => {
-  it("migrates a v2 file to v3: recategorizes, derives metro, copies industry", () => {
-    const { file, summary } = recategorizeDataset(v2File([v2Listing()]), registry);
-    expect(file.version).toBe(3);
+  it("recategorizes, derives metro, and copies industry", () => {
+    const { file, summary } = recategorizeDataset(dataset([stored()]), registry);
     const listing = file.listings[0]!;
-    expect(listing.function).toBe("retail"); // v2 table catches "Cashier"
+    expect(listing.function).toBe("retail");
     expect(listing.metro).toEqual(["cebu"]);
     expect(listing.industry).toBe("fintech");
     expect(summary.functionChanged).toBe(1);
   });
 
   it("preserves datePosted and does NOT bump dateUpdated for category-only changes", () => {
-    const { file } = recategorizeDataset(v2File([v2Listing()]), registry);
+    const { file } = recategorizeDataset(dataset([stored()]), registry);
     const listing = file.listings[0]!;
     // re-tagging is our metadata, not a change in the listing itself (SPEC §9)
     expect(listing.datePosted).toBe("2026-05-01T00:00:00.000Z");
@@ -69,13 +66,13 @@ describe("recategorizeDataset", () => {
   });
 
   it("keeps the file-level updatedAt unchanged (not a pipeline run)", () => {
-    const { file } = recategorizeDataset(v2File([v2Listing()]), registry);
+    const { file } = recategorizeDataset(dataset([stored()]), registry);
     expect(file.updatedAt).toBe("2026-06-11T22:00:00.000Z");
   });
 
   it("backfills inactive listings too", () => {
     const { file } = recategorizeDataset(
-      v2File([v2Listing({ active: false, title: "Company Nurse" })]),
+      dataset([stored({ active: false, title: "Company Nurse" })]),
       registry,
     );
     expect(file.listings[0]!.active).toBe(false);
@@ -85,22 +82,22 @@ describe("recategorizeDataset", () => {
 
   it("leaves industry empty when the company is gone from the registry", () => {
     const { file, summary } = recategorizeDataset(
-      v2File([v2Listing({ company: "Vanished Co" })]),
+      dataset([stored({ company: "Vanished Co" })]),
       registry,
     );
     expect(file.listings[0]!.industry).toBe("");
     expect(summary.unknownCompanies).toEqual(["Vanished Co"]);
   });
 
-  it("is idempotent over a v3 file", () => {
-    const first = recategorizeDataset(v2File([v2Listing()]), registry);
+  it("is idempotent", () => {
+    const first = recategorizeDataset(dataset([stored()]), registry);
     const second = recategorizeDataset(JSON.parse(JSON.stringify(first.file)), registry);
     expect(second.file).toEqual(first.file);
     expect(second.summary.functionChanged).toBe(0);
     expect(second.summary.levelChanged).toBe(0);
   });
 
-  it("migrates v2 → v3 and stamps companyType from the registry", () => {
+  it("stamps companyType from the registry", () => {
     const v3Registry = {
       version: 1 as const,
       companies: [
@@ -124,8 +121,8 @@ describe("recategorizeDataset", () => {
         },
       ],
     };
-    const v2 = {
-      version: 2,
+    const input = {
+      version: 3,
       updatedAt: "2026-06-12T00:00:00.000Z",
       listings: [
         {
@@ -166,15 +163,14 @@ describe("recategorizeDataset", () => {
         },
       ],
     };
-    const { file } = recategorizeDataset(v2, v3Registry as any);
-    expect(file.version).toBe(3);
+    const { file } = recategorizeDataset(input, v3Registry as any);
     expect(file.listings.find((l) => l.company === "Kumu")!.companyType).toBe("direct");
     expect(file.listings.find((l) => l.company === "Emapta")!.companyType).toBe("agency");
   });
 
   it("leaves companyType direct when the company is missing from the registry", () => {
-    const v2 = {
-      version: 2,
+    const input = {
+      version: 3,
       updatedAt: "t",
       listings: [
         {
@@ -197,19 +193,19 @@ describe("recategorizeDataset", () => {
         },
       ],
     };
-    const { file } = recategorizeDataset(v2, { version: 1, companies: [] } as any);
+    const { file } = recategorizeDataset(input, { version: 1, companies: [] } as any);
     expect(file.listings[0]!.companyType).toBe("direct"); // safe default; inactive history
   });
 
-  it("rejects files that are neither v2 nor v3", () => {
+  it("rejects files that are not v3", () => {
     expect(() =>
-      recategorizeDataset({ version: 1, updatedAt: "x", listings: [] }, registry),
+      recategorizeDataset({ version: 2, updatedAt: "x", listings: [] }, registry),
     ).toThrow(/version/i);
   });
 
   it("never touches facts: title, locations, url, salary stay verbatim", () => {
-    const input = v2Listing({ title: " Padded Title ", salary: "₱30K" });
-    const { file } = recategorizeDataset(v2File([input]), registry);
+    const input = stored({ title: " Padded Title ", salary: "₱30K" });
+    const { file } = recategorizeDataset(dataset([input]), registry);
     const listing = file.listings[0]!;
     expect(listing.title).toBe(" Padded Title ");
     expect(listing.locations).toEqual(["Cebu City, Philippines"]);

@@ -5,7 +5,7 @@ import { recategorizeDataset } from "./backfill.js";
 import { parseRegistry } from "./files.js";
 
 // `pnpm --filter pipeline recategorize` (SPEC §9): full-dataset backfill including
-// inactive listings, and the v2→v3 migration path. See backfill.ts for the rules.
+// inactive listings. See backfill.ts for the rules.
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..", "..");
 const LISTINGS_PATH = join(ROOT, "data", "listings.json");
