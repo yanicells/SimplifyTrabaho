@@ -642,6 +642,57 @@ describe("categorizeFunction — round 3", () => {
   });
 });
 
+describe("categorizeLevel — round 4", () => {
+  it("matches plural intern/graduate/trainee markers", () => {
+    expect(categorizeLevel("Interns")).toBe("internship");
+    expect(categorizeLevel("Risk Operations Analyst (Finance Graduates 2025/2026)")).toBe(
+      "entry",
+    );
+    expect(categorizeLevel("Cash Ops Analyst (also open to fresh grads)")).toBe("entry");
+  });
+
+  it("maps support tiers and arabic grade rungs: 1 → entry, 2–3 → mid", () => {
+    expect(categorizeLevel("L1 Support Engineer")).toBe("entry");
+    expect(categorizeLevel("Tier 1 - Customer Service")).toBe("entry");
+    expect(categorizeLevel("Accountant 1")).toBe("entry");
+    expect(categorizeLevel("SOC L2 Analyst")).toBe("mid");
+    expect(categorizeLevel("L2/L3 Tech Support Engineer")).toBe("mid");
+    expect(categorizeLevel("NOC Tier 3")).toBe("mid");
+    expect(categorizeLevel("Network Engineer 2")).toBe("mid");
+    // explicit seniority still wins; batches and tier 4 are not rungs
+    expect(categorizeLevel("IT L2 Leader")).toBe("senior");
+    expect(categorizeLevel("Carpenter (ATP) Batch 1")).toBe("unknown");
+  });
+
+  it("reads 'Assoc'/'Mgr' abbreviations like the full words", () => {
+    expect(categorizeLevel("Customer Service New Assoc - Ilocos")).toBe("entry");
+    expect(categorizeLevel("Data Governance Assoc Mgr")).toBe("senior");
+    expect(categorizeLevel("Sr. Assoc, Tax")).toBe("senior");
+    expect(categorizeLevel("Association Coordinator")).toBe("unknown");
+  });
+
+  it("treats foremen as senior and tellers/laborers as entry", () => {
+    expect(categorizeLevel("Mould Foreman - Onsite")).toBe("senior");
+    expect(categorizeLevel("Universal Teller/NAC (Pasig)")).toBe("entry");
+    expect(categorizeLevel("Head Teller")).toBe("senior");
+    expect(categorizeLevel("Laborer")).toBe("entry");
+    expect(categorizeLevel("Inbound - Customer Service Rep")).toBe("entry");
+  });
+});
+
+describe("categorizeFunction — round 4", () => {
+  it("routes data entry and encoders to operations, not data", () => {
+    expect(categorizeFunction("Remote Data Entry Specialist")).toBe("operations");
+    expect(categorizeFunction("Encoder")).toBe("operations");
+    expect(categorizeFunction("Bookkeeper / Data Entry Assistant")).toBe("finance");
+    expect(categorizeFunction("Data Analyst")).toBe("data");
+  });
+
+  it("maps chat agents to customer-support", () => {
+    expect(categorizeFunction("BPO Chat Agents - Eastwood")).toBe("customer-support");
+  });
+});
+
 describe("categorize", () => {
   it("returns level and function together", () => {
     expect(categorize("Employee Relations Intern")).toEqual({
