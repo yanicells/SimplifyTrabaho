@@ -462,6 +462,186 @@ describe("categorizeFunction", () => {
   });
 });
 
+// ——— mining round 3 (2026-09-25): every title below is real, from data/listings.json ———
+
+describe("title normalization", () => {
+  it("treats underscores as separators", () => {
+    expect(categorizeFunction("General Ledger_Hybrid (Up to 60K)")).toBe("finance");
+    expect(categorizeFunction("Cloud / Dev Ops Engineer_Hybrid_BGC Taguig_Up to 200k")).toBe(
+      "engineering",
+    );
+    expect(categorizeLevel("BPO IT Director_Hybrid_Nighshift_BGC Taguig_Up to 300k")).toBe(
+      "senior",
+    );
+  });
+
+  it("folds accents and styled unicode letters before matching", () => {
+    // "Biñan" must not leak a bare "Bi" (business intelligence) match.
+    expect(categorizeFunction("Store Cashier - Biñan Laguna")).toBe("retail");
+    expect(categorizeFunction("𝗙𝗶𝗻𝗮𝗻𝗰𝗶𝗮𝗹 𝗦𝗼𝗹𝘂𝘁𝗶𝗼𝗻𝘀 𝗦𝗽𝗲𝗰𝗶𝗮𝗹𝗶𝘀𝘁")).toBe("finance");
+  });
+});
+
+describe("categorizeLevel — round 3", () => {
+  it("treats frontline role nouns as entry, after senior/mid markers", () => {
+    expect(categorizeLevel("Store Cashier - Buug Zamboanga Sibugay")).toBe("entry");
+    expect(categorizeLevel("Administration Clerk")).toBe("entry");
+    expect(categorizeLevel("Encoder")).toBe("entry");
+    expect(categorizeLevel("Customer Specialist – Alabang Site (Fresher)")).toBe("entry");
+    expect(categorizeLevel("Call Center Agent - Cebu City")).toBe("entry");
+    expect(categorizeLevel("BPO Chat Agents - Eastwood - Shifting - Up to 25K")).toBe("entry");
+    expect(categorizeLevel("Store Crew")).toBe("entry");
+    // AI agents are a product, not a frontline role
+    expect(categorizeLevel("Account Executive — AI Agents")).toBe("unknown");
+    expect(categorizeLevel("Adobe Experience Platform Agent Orchestrator")).toBe("unknown");
+  });
+
+  it("does not treat Associate Manager/Director as entry", () => {
+    expect(categorizeLevel("Oracle Cloud Application Development Associate Manager")).toBe(
+      "senior",
+    );
+    expect(categorizeLevel("Associate Director Solution Architect - (Makati, hybrid)")).toBe(
+      "senior",
+    );
+    expect(categorizeLevel("Associate Vice President - Finance")).toBe("senior");
+    expect(categorizeLevel("Account Associate (Taguig)")).toBe("entry");
+  });
+
+  it("does not read 'Mid and Night Shift' as a mid level", () => {
+    expect(
+      categorizeLevel(
+        "Application Support Specialist_Hybrid_Mid and Night Shift_BGC_Up to 130k",
+      ),
+    ).toBe("unknown");
+  });
+
+  it("only treats 'staff' as senior in the tech 'Staff Engineer' sense", () => {
+    expect(categorizeLevel("Sr./Staff Software Engineer")).toBe("senior");
+    expect(categorizeLevel("Staff Engineer")).toBe("senior");
+    expect(categorizeLevel("Accounts Payable Staff")).toBe("unknown");
+    expect(categorizeLevel("Staff Accountant")).toBe("unknown");
+    expect(categorizeLevel("IT Staff (Seasonal)")).toBe("unknown");
+  });
+
+  it("treats unit heads and officers-in-charge as senior", () => {
+    expect(categorizeLevel("IT Head")).toBe("senior");
+    expect(categorizeLevel("Bank Operations Head - up to 250k - onsite in Makati")).toBe(
+      "senior",
+    );
+    expect(categorizeLevel("Operation In Charge")).toBe("senior");
+    // "Head Office" is a place, not a rank
+    expect(categorizeLevel("Audit Officer - Head Office Audit")).toBe("unknown");
+  });
+});
+
+describe("categorizeFunction — round 3", () => {
+  it("maps word-form variants (plurals, singulars)", () => {
+    expect(categorizeFunction("Creatives Intern")).toBe("design");
+    expect(categorizeFunction("Registered Pharmacists (RPH)")).toBe("healthcare");
+    expect(categorizeFunction("Human Resource Business Partner")).toBe("hr");
+    expect(categorizeFunction("Aprio PH - Automation Developers")).toBe("engineering");
+    expect(categorizeFunction("Account Payable")).toBe("finance");
+    expect(
+      categorizeFunction("Veterinarians and Animal Science Professionals (Pooling)"),
+    ).toBe("healthcare");
+  });
+
+  it("maps finance back-office vocabulary", () => {
+    expect(categorizeFunction("DE032016-Order to Cash Ops Sr Analyst")).toBe("finance");
+    expect(categorizeFunction("Invoice to Cash Specialist I")).toBe("finance");
+    expect(categorizeFunction("General Ledger Analyst")).toBe("finance");
+    expect(categorizeFunction("DE033409-Controllership Senior Analyst")).toBe("finance");
+    expect(categorizeFunction("Business Area Controlling Analyst (Taguig) | Hybrid")).toBe(
+      "finance",
+    );
+    expect(categorizeFunction("R2A Sr. Specialist – FP&A and Reporting")).toBe("finance");
+    expect(categorizeFunction("Corporate Credit Officer (CARE Officer)")).toBe("finance");
+    expect(categorizeFunction("Universal Teller/NAC (Pasig)")).toBe("finance");
+    expect(categorizeFunction("Internal Auditing Associate Manager")).toBe("finance");
+    expect(categorizeFunction("Reconciliation Analyst")).toBe("finance");
+    expect(categorizeFunction("Cash Management Associate")).toBe("finance");
+  });
+
+  it("maps sales, operations, hr and support vocabulary", () => {
+    expect(categorizeFunction("Relationship Manager - Priority Banking")).toBe("sales");
+    expect(categorizeFunction("Key Accounts Specialist - Bacolod")).toBe("sales");
+    expect(categorizeFunction("Van Salesman – Ormoc")).toBe("sales");
+    expect(categorizeFunction("Remote Telemarketing Positions")).toBe("sales");
+    expect(categorizeFunction("Forklift Operator (Cebu)")).toBe("operations");
+    expect(categorizeFunction("Inventory Associate")).toBe("operations");
+    expect(categorizeFunction("Global Sourcing Specialist")).toBe("operations");
+    expect(categorizeFunction("Freight Coordinator")).toBe("operations");
+    expect(categorizeFunction("BPO WFM Team Lead (Alabang) | Onsite")).toBe("operations");
+    expect(categorizeFunction("Operation Officer (Palawan)")).toBe("operations");
+    expect(categorizeFunction("Compensation & Benefits Specialist")).toBe("hr");
+    expect(categorizeFunction("Learning Specialist")).toBe("hr");
+    expect(categorizeFunction("Sourcing Specialist | Headhunter (Remote) | Philippines")).toBe(
+      "hr",
+    );
+    expect(categorizeFunction("Client Services Associate")).toBe("customer-support");
+    expect(categorizeFunction("Customer Specialist – Alabang Site (Fresher)")).toBe(
+      "customer-support",
+    );
+    expect(categorizeFunction("Corporate Lawyer")).toBe("legal");
+  });
+
+  it("maps marketing, data, design and trades vocabulary", () => {
+    expect(categorizeFunction("PR Specialist - Remote (Contractor)")).toBe("marketing");
+    expect(categorizeFunction("Corporate Communications Specialist")).toBe("marketing");
+    expect(categorizeFunction("Market Research Analyst")).toBe("marketing");
+    expect(categorizeFunction("MIS Officer")).toBe("data");
+    expect(categorizeFunction("Reports Analyst")).toBe("data");
+    expect(categorizeFunction("Photo Editor (Remote) - Multiple Roles")).toBe("design");
+    expect(categorizeFunction("Diesel Mechanic ( Stay-in Set-up)")).toBe("manufacturing");
+    expect(categorizeFunction("Mechanical Fitter")).toBe("manufacturing");
+    expect(categorizeFunction("Reefer Van Technician")).toBe("manufacturing");
+    expect(
+      categorizeFunction("BIM Coordinator_Hybrid_Dayshift_MOA,Pasay City_Up to 90K"),
+    ).toBe("construction");
+  });
+
+  it("maps medical coders to healthcare, ahead of risk/QA keywords", () => {
+    expect(categorizeFunction("IP Coder (CIC or CCS)_WORK FROM HOME")).toBe("healthcare");
+    expect(categorizeFunction("Profee Coder | Sign-on Bonus | Day Shift")).toBe("healthcare");
+    expect(categorizeFunction("HCC/Risk Adjustment Coder")).toBe("healthcare");
+    expect(categorizeFunction("PB QA Coder Auditor")).toBe("healthcare");
+  });
+
+  it("uses tech platforms and a case-sensitive IT as a fallback", () => {
+    expect(categorizeFunction("IT Manager")).toBe("engineering");
+    expect(categorizeFunction("IT Intern (The Philippines)")).toBe("engineering");
+    expect(categorizeFunction("SAP ABAP Development")).toBe("engineering");
+    expect(categorizeFunction("Oracle Cloud Application Development Specialist")).toBe(
+      "engineering",
+    );
+    expect(categorizeFunction("Security Architect (Hybrid | Cubao)")).toBe("engineering");
+    expect(categorizeFunction("Solutions Architect")).toBe("engineering");
+    expect(categorizeFunction("Security Managed Services Practitioner")).toBe("engineering");
+    expect(categorizeFunction("Java Standard Edition")).toBe("engineering");
+    expect(categorizeFunction("Scrum Master")).toBe("engineering");
+    expect(categorizeFunction("Database Administration")).toBe("engineering");
+    expect(categorizeFunction("SAP Basis Administration")).toBe("engineering");
+    expect(categorizeFunction("Administration Officer_Eastwood QC_Day Shift_Up to 40k")).toBe(
+      "operations",
+    );
+    // a stated function beats the tech fallback
+    expect(categorizeFunction("IT Trainer - Power Platform - Hybrid BGC - Up to 120K")).toBe(
+      "hr",
+    );
+    expect(categorizeFunction("IT Audit Officer - Information Systems Audit")).toBe("finance");
+    // lowercase "it" and physical security never match
+    expect(categorizeFunction("Make it happen")).toBe("other");
+    expect(
+      categorizeFunction(
+        "Safety and Security Management - Regional Protective Services Specialist",
+      ),
+    ).toBe("other");
+    // Business architects are consulting roles, and BPO/bank QA is not software QA
+    expect(categorizeFunction("Business Architect")).toBe("other");
+    expect(categorizeFunction("Quality Assurance Officer")).toBe("other");
+  });
+});
+
 describe("categorize", () => {
   it("returns level and function together", () => {
     expect(categorize("Employee Relations Intern")).toEqual({
