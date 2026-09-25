@@ -265,9 +265,11 @@ emails, applicant data of any kind.
 - A company that uses two ATSs gets **two entries** (same `name`).
 - `verified: false` entries are skipped by the pipeline (they're candidates pending
   verification).
-- `disabled: true` entries stay in the registry as provenance but are never fetched.
-  When every board for that company is disabled, its previously active listings are
-  marked inactive on the next refresh without probing the blocked endpoint again.
+- `disabled: true` entries stay in the registry as provenance but are never fetched,
+  and must carry `notes` with the block evidence (the parser rejects them otherwise).
+  When a company has no enabled board left (disabled, `verified: false`, or removed),
+  its previously active listings are marked inactive on the next refresh without
+  probing any endpoint again.
 - Registry is the ONLY hand-edited data file. Keep it alphabetized by `name`.
 - `parseRegistry` requires every company entry to include `type`; missing `type` is a
   registry validation error.
@@ -399,9 +401,9 @@ These tables WILL be imperfect. Requirements: (a) they live in one file
    never mass-deactivate because of a transient error. A fetch that stopped early at
    a pagination cap (`partial`) likewise proves nothing about absences: its listings
    are upserted, but none are deactivated.
-   A registry entry set to `disabled: true` after human/maintainer review is terminal,
-   not a transient failure: if the company has no other enabled board, deactivate its
-   listings without making another request.
+   A company with no enabled registry board (`disabled: true` after review,
+   `verified: false`, or removed) is terminal, not a transient failure: deactivate
+   its listings without making another request.
 5. A company hitting `dead-slug` 3 runs in a row → keep its listings frozen, add an
    issue entry to TRACKER.md for human/agent follow-up.
 6. Write `listings.json` (stable sort: company asc, then datePosted desc — keeps git
@@ -591,7 +593,9 @@ Tier B: usable, but only under these rules.
    in TRACKER and move on.
 2. **Instant, permanent stop on any block:** a 401/403/422/429 or an Akamai
    challenge page → mark the company `blocked` in TRACKER, skip it for the rest of
-   the run and all future runs until a human reviews. NEVER retry around a block:
+   the run and all future runs until a human reviews. The rest of that run sends no
+   further Workday requests at all, so a platform-wide incident misread as blocks
+   costs at most one tenant. NEVER retry around a block:
    no IP rotation, no User-Agent changes, no headless browsers, no cookie replay,
    no third-party "unblocker" services. We are guests; a closed door means no.
 3. **Extra politeness:** ≥2s between requests to any Workday host (stricter than

@@ -26,9 +26,15 @@ describe("parseRegistry", () => {
   it("preserves an explicitly disabled registry entry", () => {
     const registry = parseRegistry({
       version: 1,
-      companies: [{ ...validCompany, disabled: true }],
+      companies: [{ ...validCompany, disabled: true, notes: "robots.txt HTTP 403" }],
     });
     expect(registry.companies[0]?.disabled).toBe(true);
+  });
+
+  it("rejects a disabled entry without evidence notes", () => {
+    expect(() =>
+      parseRegistry({ version: 1, companies: [{ ...validCompany, disabled: true }] }),
+    ).toThrow(/notes/);
   });
 
   it("rejects a non-boolean disabled flag", () => {

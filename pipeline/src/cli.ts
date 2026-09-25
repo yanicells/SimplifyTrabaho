@@ -72,14 +72,15 @@ async function main(): Promise<number> {
   const verified = registry.companies.filter((c) => c.verified);
   const enabled = verified.filter((c) => !c.disabled);
   const enabledCompanyNames = new Set(enabled.map((c) => c.name));
-  const inactiveCompanies = new Set(
-    registry.companies
-      .filter((c) => c.disabled && !enabledCompanyNames.has(c.name))
-      .map((c) => c.name),
-  );
   const existing = existsSync(LISTINGS_PATH)
     ? parseListingsFile(JSON.parse(readFileSync(LISTINGS_PATH, "utf8")))
     : emptyListingsFile(now);
+  // A company with no enabled board (disabled after review, retired as
+  // verified:false, or dropped from the registry) is never fetched again, so its
+  // listings can never be confirmed live — retire them.
+  const inactiveCompanies = new Set(
+    existing.listings.map((l) => l.company).filter((name) => !enabledCompanyNames.has(name)),
+  );
   const fetchState = loadFetchState();
 
   console.log(`SimplifyTrabaho refresh — ${now}`);
@@ -93,6 +94,9 @@ async function main(): Promise<number> {
   const zeroPhBoards: string[] = [];
   let succeeded = 0;
   let failed = 0;
+  // Set by the first Workday block this run. Blocks are permanent, so a burst of them
+  // (e.g. a platform-wide incident misread as blocks) must cost one tenant, not all.
+  let workdayHalted = false;
 
   // Fetches one board; all of its log lines go through `log` so they print as one block.
   const fetchOne = async (company: RegistryCompany, log: (line: string) => void) => {
@@ -114,6 +118,12 @@ async function main(): Promise<number> {
       failed += 1;
       return;
     }
+    if (company.ats === "workday" && workdayHalted) {
+      log(`  SKIP  ${label} — Workday halted for this run after a block`);
+      okByName.set(company.name, false);
+      failed += 1;
+      return;
+    }
     const result = await fetcher(company);
     if (result.ok) {
       const cap = result.partial ? " (partial: stopped at pagination cap)" : "";
@@ -130,6 +140,7 @@ async function main(): Promise<number> {
       okByName.set(company.name, false);
       failed += 1;
       if (result.errorKind === "blocked") {
+        workdayHalted = true;
         fetchState.blocked ??= {};
         fetchState.blocked[stateKey] = `${now.slice(0, 10)}: ${result.detail}`;
         log(
