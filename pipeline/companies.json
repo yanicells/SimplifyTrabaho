@@ -763,6 +763,16 @@
       "notes": "RE-ENABLED 2026-09-25 after maintainer review: the 2026-08-29 disable was a one-off robots.txt HTTP 503 (Workday maintenance window), not a §17.1 block. Re-check: robots.txt 200 with Allow: /Mynt/ and no rule covering /wday/cxs; one jobs request returned clean JSON (160 postings, 17 of first 20 PH (no PH facet)). Originally verified 2026-07-06 with 170 PH postings."
     },
     {
+      "name": "Genpact",
+      "ats": "workday",
+      "slug": "genpact.wd108/External_Careers",
+      "industry": "outsourcing",
+      "type": "direct",
+      "verified": true,
+      "added": "2026-09-25",
+      "notes": "§17.2 verified 2026-09-25: robots clean (Allow:/External_Careers/); no block; 2,000+ postings with no country facet (≈42 PH across site-level location facets) — 1,000-cap + local PH filter (§17.1.4 fallback)"
+    },
+    {
       "name": "GitLab",
       "ats": "greenhouse",
       "slug": "gitlab",
@@ -1003,6 +1013,16 @@
       "notes": "auto-verified 2026-06-11: 134 PH postings"
     },
     {
+      "name": "ISS",
+      "ats": "workday",
+      "slug": "issgovernance.wd1/ISScareers",
+      "industry": "financial-services",
+      "type": "direct",
+      "verified": true,
+      "added": "2026-09-25",
+      "notes": "§17.2 verified 2026-09-25: robots clean (Allow:/ISScareers/ — slug uses the robots-listed case); no block; 83 postings, 9 of first 20 PH (Makati); Institutional Shareholder Services"
+    },
+    {
       "name": "ISTA Personnel Solutions",
       "ats": "workable",
       "slug": "ista-2",
@@ -1021,6 +1041,16 @@
       "verified": true,
       "added": "2026-06-11",
       "notes": "auto-verified 2026-06-11: PH-headquartered, 0 open PH roles today"
+    },
+    {
+      "name": "JLL",
+      "ats": "workday",
+      "slug": "jll.wd1/jllcareers",
+      "industry": "real-estate",
+      "type": "direct",
+      "verified": true,
+      "added": "2026-09-25",
+      "notes": "§17.2 verified 2026-09-25: robots clean (Allow:/jllcareers/); no block; 83 PH via locationCountry facet of 2,000+"
     },
     {
       "name": "Johnson & Johnson",
@@ -1261,6 +1291,16 @@
       "verified": true,
       "added": "2026-07-19",
       "notes": "auto-verified 2026-07-19: 14 PH postings"
+    },
+    {
+      "name": "NCR Voyix",
+      "ats": "workday",
+      "slug": "ncr.wd1/ext_apac",
+      "industry": "software",
+      "type": "direct",
+      "verified": true,
+      "added": "2026-09-25",
+      "notes": "§17.2 verified 2026-09-25: robots clean (Allow:/ext_apac/); no block; 53 PH via Location_Country facet of 108"
     },
     {
       "name": "Neostella",
@@ -1583,6 +1623,16 @@
       "notes": "verified 2026-09-25: 1 PH posting (multi-country remote incl. Philippines)"
     },
     {
+      "name": "RingCentral",
+      "ats": "workday",
+      "slug": "ringcentral.wd1/RingCentral_Careers",
+      "industry": "saas",
+      "type": "direct",
+      "verified": true,
+      "added": "2026-09-25",
+      "notes": "§17.2 verified 2026-09-25: robots clean (Allow:/RingCentral_Careers/); no block; 82 postings, 5 of first 20 PH (Manila)"
+    },
+    {
       "name": "RISE",
       "ats": "lever",
       "slug": "rise",
@@ -1803,6 +1853,16 @@
       "notes": "verified 2026-09-25: 14 PH postings (Manila, Dumaguete)"
     },
     {
+      "name": "TaskUs",
+      "ats": "workday",
+      "slug": "taskus.wd1/Careers",
+      "industry": "outsourcing",
+      "type": "direct",
+      "verified": true,
+      "added": "2026-09-25",
+      "notes": "§17.2 verified 2026-09-25: robots clean (Allow:/Careers/); no block; 147 PH via locationCountry facet of 447"
+    },
+    {
       "name": "TASQ Staffing Solutions",
       "ats": "manatal",
       "slug": "tasq-staffing-solutions",
@@ -1942,6 +2002,16 @@
       "verified": true,
       "added": "2026-07-06",
       "notes": "RE-ENABLED 2026-09-25 after maintainer review: the 2026-08-29 disable was a one-off robots.txt HTTP 503 (Workday maintenance window), not a §17.1 block. Re-check: robots.txt 200 with Allow: /Unilever_Experienced_Professionals/ and no rule covering /wday/cxs; one jobs request returned clean JSON (17 PH via locationCountry facet of 241). Originally verified 2026-07-06 with 16 PH postings."
+    },
+    {
+      "name": "Unisys",
+      "ats": "workday",
+      "slug": "unisys.wd5/External",
+      "industry": "it-services",
+      "type": "direct",
+      "verified": true,
+      "added": "2026-09-25",
+      "notes": "§17.2 verified 2026-09-25: robots clean (Allow:/External/); no block; 18 PH via locationCountry facet of 435"
     },
     {
       "name": "Universal Leaf Philippines",
