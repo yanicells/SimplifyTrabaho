@@ -1,19 +1,10 @@
 import { readFileSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
-import { fetchAshby } from "./fetchers/ashby.js";
-import { fetchBambooHr } from "./fetchers/bamboohr.js";
-import { fetchBreezy } from "./fetchers/breezy.js";
-import { fetchGreenhouse } from "./fetchers/greenhouse.js";
-import { fetchLever } from "./fetchers/lever.js";
-import { fetchManatal } from "./fetchers/manatal.js";
-import { fetchRecruitee } from "./fetchers/recruitee.js";
-import { fetchSmartRecruiters } from "./fetchers/smartrecruiters.js";
-import { fetchWorkable } from "./fetchers/workable.js";
-import { fetchWorkday } from "./fetchers/workday.js";
+import { FETCHERS } from "./fetchers/index.js";
 import { mergeRegistryCompanies, parseRegistry } from "./files.js";
 import { filterPhilippines } from "./filter.js";
-import type { AtsSource, CompanyType, FetchResult, RegistryCompany } from "./types.js";
+import type { AtsSource, CompanyType, RegistryCompany } from "./types.js";
 
 // Registry verification tool (SPEC §7.1): probes candidate slugs against the nine
 // documented ATS endpoints plus Workday (politely — the HTTP layer enforces 1s gaps), checks for
@@ -29,21 +20,6 @@ import type { AtsSource, CompanyType, FetchResult, RegistryCompany } from "./typ
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..", "..");
 const REGISTRY_PATH = join(ROOT, "pipeline", "companies.json");
 const CANDIDATES_PATH = join(ROOT, "pipeline", "candidates.json");
-
-const FETCHERS: Record<AtsSource, (c: RegistryCompany) => Promise<FetchResult>> = {
-  greenhouse: fetchGreenhouse,
-  lever: fetchLever,
-  ashby: fetchAshby,
-  workable: fetchWorkable,
-  smartrecruiters: fetchSmartRecruiters,
-  recruitee: fetchRecruitee,
-  bamboohr: fetchBambooHr,
-  breezy: fetchBreezy,
-  manatal: fetchManatal,
-  // Workday is Tier B: verify-registry may PROBE it for §17.2 evidence, but the
-  // resulting entry must land via a per-company PR, never direct to main.
-  workday: fetchWorkday,
-};
 
 interface Candidate {
   name: string;

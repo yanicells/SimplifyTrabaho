@@ -1,23 +1,14 @@
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
-import { fetchAshby } from "./fetchers/ashby.js";
-import { fetchBambooHr } from "./fetchers/bamboohr.js";
-import { fetchBreezy } from "./fetchers/breezy.js";
-import { fetchGreenhouse } from "./fetchers/greenhouse.js";
-import { fetchLever } from "./fetchers/lever.js";
-import { fetchManatal } from "./fetchers/manatal.js";
-import { fetchRecruitee } from "./fetchers/recruitee.js";
-import { fetchSmartRecruiters } from "./fetchers/smartrecruiters.js";
-import { fetchWorkable } from "./fetchers/workable.js";
-import { fetchWorkday } from "./fetchers/workday.js";
 import { groupByHost } from "./fetchers/http.js";
+import { FETCHERS } from "./fetchers/index.js";
 import { computeCoverage, formatCoverageReport } from "./coverage.js";
 import { emptyListingsFile, parseListingsFile, parseRegistry } from "./files.js";
 import { filterPhilippines } from "./filter.js";
 import { buildListing, mergeListings } from "./merge.js";
 import { generateReadme } from "./readme.js";
-import type { FetchedPosting, FetchResult, RegistryCompany } from "./types.js";
+import type { FetchedPosting, RegistryCompany } from "./types.js";
 
 // Orchestrator for `pnpm refresh` (SPEC §10): fetch verified companies — sequentially
 // per host, hosts in parallel (the polite HTTP layer enforces ≥1s gaps) — PH-filter,
@@ -31,21 +22,6 @@ const FETCH_STATE_PATH = join(DATA_DIR, "fetch-state.json");
 const README_PATH = join(ROOT, "README.md");
 
 const DEAD_SLUG_ALERT_AFTER = 3;
-
-type Fetcher = (company: RegistryCompany) => Promise<FetchResult>;
-
-const FETCHERS: Record<RegistryCompany["ats"], Fetcher> = {
-  greenhouse: fetchGreenhouse,
-  lever: fetchLever,
-  ashby: fetchAshby,
-  workable: fetchWorkable,
-  smartrecruiters: fetchSmartRecruiters,
-  recruitee: fetchRecruitee,
-  bamboohr: fetchBambooHr,
-  breezy: fetchBreezy,
-  manatal: fetchManatal,
-  workday: fetchWorkday,
-};
 
 interface FetchState {
   version: 1;
@@ -100,14 +76,7 @@ async function main(): Promise<number> {
 
   // Fetches one board; all of its log lines go through `log` so they print as one block.
   const fetchOne = async (company: RegistryCompany, log: (line: string) => void) => {
-    const fetcher = FETCHERS[company.ats];
     const label = `${company.name} [${company.ats}:${company.slug}]`;
-    if (!fetcher) {
-      log(`  SKIP  ${label} — no fetcher for ${company.ats} yet`);
-      okByName.set(company.name, false);
-      failed += 1;
-      return;
-    }
     const stateKey = `${company.ats}:${company.slug}`;
     const blockNote = fetchState.blocked?.[stateKey];
     if (blockNote !== undefined) {
@@ -124,7 +93,7 @@ async function main(): Promise<number> {
       failed += 1;
       return;
     }
-    const result = await fetcher(company);
+    const result = await FETCHERS[company.ats](company);
     if (result.ok) {
       const cap = result.partial ? " (partial: stopped at pagination cap)" : "";
       log(`  OK    ${label} — ${result.postings.length} postings${cap}`);
