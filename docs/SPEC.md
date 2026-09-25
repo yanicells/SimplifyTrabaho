@@ -449,6 +449,17 @@ Requirements:
   search/filter bar is **sticky** while scrolling results; full filter state is
   encoded in **URL query params** (shareable links — pasting a URL reproduces the
   view; also the groundwork for the Phase 12 reach work).
+- **Filters & search (2026-09-25, supersedes the lists above):** level pills stay; a
+  Filters panel holds four dropdowns in one row — **Field** (the UI name for
+  `function`: grouped multi-select with live per-option counts computed against the
+  other filters), **Work setup**, **Location** (metro, no "Remote (PH)" — work setup
+  covers it), and **Employer** (direct/agency). The industry dropdown and free-text
+  location input are gone (industry stays as a Companies-directory badge). The main
+  search box is the smart search: every term must match the start of a word across
+  company, title, locations, field, level, work setup, industry, and metro labels;
+  filler words are ignored and a small alias map covers PH shorthand (ojt, fresh
+  grad, wfh, bgc, bpo…). With a level filter on, one quiet line offers to include
+  the roles that don't list a level (`nolevel=1`). Retired URL params are ignored.
 - **v2 product features (Phase 11) — all client-side, localStorage, no accounts:**
   - **Application tracker:** a "Track" affordance beside Apply; tracked listings get a
     status the user can advance (saved → applied → interview → offer / rejected) and a
