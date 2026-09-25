@@ -49,8 +49,7 @@
       "type": "direct",
       "verified": true,
       "added": "2026-07-06",
-      "disabled": true,
-      "notes": "DISABLED 2026-08-29 after review: robots.txt returned HTTP 503; permanent stop under §17.1.1, never re-probe. Originally §17.2 wave-3 verified 2026-07-06 with 219 postings / 212 PH — AIA Philippines (ex-Philam Life) + MediCard (PH-MPI) sites."
+      "notes": "RE-ENABLED 2026-09-25 after maintainer review: the 2026-08-29 disable was a one-off robots.txt HTTP 503, not a §17.1 block. Re-check: robots.txt 200 with Allow: /External/ and no rule covering /wday/cxs; one jobs request returned clean JSON (238 PH via locationCountry facet of 1,005). Originally §17.2 wave-3 verified 2026-07-06 with 219 postings / 212 PH — AIA Philippines (ex-Philam Life) + MediCard (PH-MPI) sites."
     },
     {
       "name": "AJAIA",
@@ -240,8 +239,7 @@
       "type": "direct",
       "verified": true,
       "added": "2026-07-06",
-      "disabled": true,
-      "notes": "DISABLED 2026-08-29 after review: jobs endpoint returned a non-JSON response (bot challenge); permanent stop under §17.1.2, never re-probe. Originally verified 2026-07-06 with 13 PH postings (Manila, Ayala Ave)."
+      "notes": "RE-ENABLED 2026-09-25 after maintainer review: the 2026-08-29 non-JSON response did not recur. Re-check: robots.txt 200 with Allow: /Careers/; one jobs request returned clean JSON (15 PH via Location_Country facet of 267). Originally verified 2026-07-06 with 13 PH postings (Manila, Ayala Ave)."
     },
     {
       "name": "BSA Solutions",
@@ -292,7 +290,7 @@
       "verified": true,
       "added": "2026-08-05",
       "disabled": true,
-      "notes": "DISABLED 2026-08-29 after review: robots.txt returned HTTP 503; permanent stop under §17.1.1, never re-probe. Originally §17.2 round-7 verified 2026-08-05 with 187 postings / 183 PH (identity: jobs.citi.com → citi.wd5/2)."
+      "notes": "DISABLED 2026-08-29 (robots.txt HTTP 503). Re-checked 2026-09-25 after maintainer review: robots.txt now returns 200 but contains \"Disallow: /2/\" — the careers site itself is disallowed for *, so it stays OFF (§17.1.1). Originally §17.2 round-7 verified 2026-08-05 with 187 postings / 183 PH (identity: jobs.citi.com → citi.wd5/2)."
     },
     {
       "name": "Clipboard Health",
@@ -372,8 +370,7 @@
       "type": "direct",
       "verified": true,
       "added": "2026-07-06",
-      "disabled": true,
-      "notes": "DISABLED 2026-08-29 after review: robots.txt returned HTTP 503; permanent stop under §17.1.1, never re-probe. Originally §17.2 wave-3 verified 2026-07-06 with 351 postings / 251 PH (QC EXXA Tower, Alabang, CDO, Ayala TechnoHub sites)."
+      "notes": "RE-ENABLED 2026-09-25 after maintainer review: the 2026-08-29 disable was a one-off robots.txt HTTP 503, not a §17.1 block. Re-check: robots.txt 200 with Allow: /external_global/ and no rule covering /wday/cxs; one jobs request returned clean JSON (354 PH via locationCountry facet of 1,633). Originally §17.2 wave-3 verified 2026-07-06 with 351 postings / 251 PH (QC EXXA Tower, Alabang, CDO, Ayala TechnoHub sites)."
     },
     {
       "name": "CrewBloom",
@@ -433,8 +430,7 @@
       "type": "direct",
       "verified": true,
       "added": "2026-08-05",
-      "disabled": true,
-      "notes": "DISABLED 2026-08-29 after review: robots.txt returned HTTP 503; permanent stop under §17.1.1, never re-probe. Originally verified 2026-08-05 with 42 PH postings."
+      "notes": "RE-ENABLED 2026-09-25 after maintainer review: the 2026-08-29 disable was a one-off robots.txt HTTP 503 (Workday maintenance window), not a §17.1 block. Re-check: robots.txt 200 with Allow: /DBWebsite/ and no rule covering /wday/cxs; one jobs request returned clean JSON (48 PH via Country facet of 1,148). Originally verified 2026-08-05 with 42 PH postings."
     },
     {
       "name": "Dialpad",
@@ -634,8 +630,7 @@
       "type": "direct",
       "verified": true,
       "added": "2026-07-06",
-      "disabled": true,
-      "notes": "DISABLED 2026-08-29 after review: robots.txt returned HTTP 503; permanent stop under §17.1.1, never re-probe. Originally verified 2026-07-06 with 170 PH postings."
+      "notes": "RE-ENABLED 2026-09-25 after maintainer review: the 2026-08-29 disable was a one-off robots.txt HTTP 503 (Workday maintenance window), not a §17.1 block. Re-check: robots.txt 200 with Allow: /Mynt/ and no rule covering /wday/cxs; one jobs request returned clean JSON (160 postings, 17 of first 20 PH (no PH facet)). Originally verified 2026-07-06 with 170 PH postings."
     },
     {
       "name": "GitLab",
@@ -665,8 +660,7 @@
       "type": "direct",
       "verified": true,
       "added": "2026-07-06",
-      "disabled": true,
-      "notes": "DISABLED 2026-08-29 after review: robots.txt returned HTTP 503; permanent stop under §17.1.1, never re-probe. Originally verified 2026-07-06 with 104 PH postings."
+      "notes": "RE-ENABLED 2026-09-25 after maintainer review: the 2026-08-29 disable was a one-off robots.txt HTTP 503 (Workday maintenance window), not a §17.1 block. Re-check: robots.txt 200 with Allow: /GLB_Careers/ and no rule covering /wday/cxs; one jobs request returned clean JSON (358 PH via locationCountry facet of 374). Originally verified 2026-07-06 with 104 PH postings."
     },
     {
       "name": "GoTyme Bank",
@@ -826,8 +820,7 @@
       "type": "direct",
       "verified": true,
       "added": "2026-08-07",
-      "disabled": true,
-      "notes": "DISABLED 2026-08-29 after review: robots.txt returned HTTP 503; permanent stop under §17.1.1, never re-probe. Originally verified 2026-08-07 with 170 PH postings."
+      "notes": "RE-ENABLED 2026-09-25 after maintainer review: the 2026-08-29 disable was a one-off robots.txt HTTP 503 (Workday maintenance window), not a §17.1 block. Re-check: robots.txt 200 with Allow: /ICSGBLCOR/ and no rule covering /wday/cxs; one jobs request returned clean JSON (728 postings, 6 of first 20 PH (no PH facet)). Originally verified 2026-08-07 with 170 PH postings."
     },
     {
       "name": "Instructure",
@@ -987,8 +980,7 @@
       "type": "direct",
       "verified": true,
       "added": "2026-07-06",
-      "disabled": true,
-      "notes": "DISABLED 2026-08-29 after review: robots.txt returned HTTP 503; permanent stop under §17.1.1, never re-probe. Originally verified 2026-07-06 with 33 PH postings."
+      "notes": "RE-ENABLED 2026-09-25 after maintainer review: the 2026-08-29 disable was a one-off robots.txt HTTP 503 (Workday maintenance window), not a §17.1 block. Re-check: robots.txt 200 with Allow: /Maersk_Careers/ and no rule covering /wday/cxs; one jobs request returned clean JSON (1,388 postings, no PH facet (cap + local PH filter)). Originally verified 2026-07-06 with 33 PH postings."
     },
     {
       "name": "Manila Recruitment",
@@ -1008,8 +1000,7 @@
       "type": "direct",
       "verified": true,
       "added": "2026-07-06",
-      "disabled": true,
-      "notes": "DISABLED 2026-08-29 after review: robots.txt returned HTTP 503; permanent stop under §17.1.1, never re-probe. Originally verified 2026-07-06 with 211 PH postings."
+      "notes": "RE-ENABLED 2026-09-25 after maintainer review: the 2026-08-29 disable was a one-off robots.txt HTTP 503 (Workday maintenance window), not a §17.1 block. Re-check: robots.txt 200 with Allow: /MFCJH_Jobs/ and no rule covering /wday/cxs; one jobs request returned clean JSON (196 PH via Location_Country facet of 727). Originally verified 2026-07-06 with 211 PH postings."
     },
     {
       "name": "Mastercard",
@@ -1039,8 +1030,7 @@
       "type": "direct",
       "verified": true,
       "added": "2026-07-06",
-      "disabled": true,
-      "notes": "DISABLED 2026-08-29 after review: robots.txt returned HTTP 503; permanent stop under §17.1.1, never re-probe. Originally verified 2026-07-06 with 25 PH postings."
+      "notes": "RE-ENABLED 2026-09-25 after maintainer review: the 2026-08-29 disable was a one-off robots.txt HTTP 503 (Workday maintenance window), not a §17.1 block. Re-check: robots.txt 200 with Allow: /External/ and no rule covering /wday/cxs; one jobs request returned clean JSON (25 PH via locationCountry facet of 1,318). Originally verified 2026-07-06 with 25 PH postings."
     },
     {
       "name": "MR DIY Philippines",
@@ -1250,8 +1240,7 @@
       "type": "direct",
       "verified": true,
       "added": "2026-07-06",
-      "disabled": true,
-      "notes": "DISABLED 2026-08-29 after review: robots.txt returned HTTP 503; permanent stop under §17.1.1, never re-probe. Originally verified 2026-07-06 with 34 PH postings."
+      "notes": "RE-ENABLED 2026-09-25 after maintainer review: the 2026-08-29 disable was a one-off robots.txt HTTP 503 (Workday maintenance window), not a §17.1 block. Re-check: robots.txt 200 with Allow: /prudential/ and no rule covering /wday/cxs; one jobs request returned clean JSON (46 PH via locationHierarchy1 facet of 508). Originally verified 2026-07-06 with 34 PH postings."
     },
     {
       "name": "PwC",
@@ -1261,8 +1250,7 @@
       "type": "direct",
       "verified": true,
       "added": "2026-08-05",
-      "disabled": true,
-      "notes": "DISABLED 2026-08-29 after review: robots.txt returned HTTP 503; permanent stop under §17.1.1, never re-probe. Originally verified 2026-08-05 with 1 PH posting."
+      "notes": "RE-ENABLED 2026-09-25 after maintainer review: the 2026-08-29 disable was a one-off robots.txt HTTP 503 (Workday maintenance window), not a §17.1 block. Re-check: robots.txt 200 with Allow: /Global_Experienced_Careers/ and no rule covering /wday/cxs; one jobs request returned clean JSON (4,033 postings, no PH facet (cap + local PH filter)). Originally verified 2026-08-05 with 1 PH posting."
     },
     {
       "name": "QBE",
@@ -1272,8 +1260,7 @@
       "type": "direct",
       "verified": true,
       "added": "2026-07-06",
-      "disabled": true,
-      "notes": "DISABLED 2026-08-29 after review: robots.txt returned HTTP 503; permanent stop under §17.1.1, never re-probe. Originally verified 2026-07-06 with 39 PH postings."
+      "notes": "RE-ENABLED 2026-09-25 after maintainer review: the 2026-08-29 disable was a one-off robots.txt HTTP 503 (Workday maintenance window), not a §17.1 block. Re-check: robots.txt 200 with Allow: /QBE-Careers/ and no rule covering /wday/cxs; one jobs request returned clean JSON (valid JSON but total 0 today (board empty)). Originally verified 2026-07-06 with 39 PH postings."
     },
     {
       "name": "QuickTeam",
@@ -1453,8 +1440,7 @@
       "type": "direct",
       "verified": true,
       "added": "2026-07-06",
-      "disabled": true,
-      "notes": "DISABLED 2026-08-29 after review: robots.txt returned HTTP 503; permanent stop under §17.1.1, never re-probe. Originally verified 2026-07-06 with 56 PH postings."
+      "notes": "RE-ENABLED 2026-09-25 after maintainer review: the 2026-08-29 disable was a one-off robots.txt HTTP 503 (Workday maintenance window), not a §17.1 block. Re-check: robots.txt 200 with Allow: /Experienced-Jobs/ and no rule covering /wday/cxs; one jobs request returned clean JSON (87 PH via Location_Country facet of 285). Originally verified 2026-07-06 with 56 PH postings."
     },
     {
       "name": "Sunnies",
@@ -1545,7 +1531,7 @@
       "verified": true,
       "added": "2026-07-06",
       "disabled": true,
-      "notes": "DISABLED 2026-08-29 after review: robots.txt began returning HTTP 403 on 2026-07-29; permanent stop under §17.1.1, never re-probe. Originally verified 2026-07-06 with 56 postings / 8 PH; tenant keeps the pre-rebrand telusinternational id."
+      "notes": "DISABLED 2026-08-29 after review: robots.txt began returning HTTP 403 on 2026-07-29; permanent stop under §17.1.1. Re-checked 2026-09-25 after maintainer review: robots.txt still HTTP 403 — stays disabled, no jobs request sent. Originally verified 2026-07-06 with 56 postings / 8 PH; tenant keeps the pre-rebrand telusinternational id."
     },
     {
       "name": "The Global Talent Co",
@@ -1635,8 +1621,7 @@
       "type": "direct",
       "verified": true,
       "added": "2026-07-06",
-      "disabled": true,
-      "notes": "DISABLED 2026-08-29 after review: robots.txt returned HTTP 503; permanent stop under §17.1.1, never re-probe. Originally verified 2026-07-06 with 16 PH postings."
+      "notes": "RE-ENABLED 2026-09-25 after maintainer review: the 2026-08-29 disable was a one-off robots.txt HTTP 503 (Workday maintenance window), not a §17.1 block. Re-check: robots.txt 200 with Allow: /Unilever_Experienced_Professionals/ and no rule covering /wday/cxs; one jobs request returned clean JSON (17 PH via locationCountry facet of 241). Originally verified 2026-07-06 with 16 PH postings."
     },
     {
       "name": "Universal Leaf Philippines",
