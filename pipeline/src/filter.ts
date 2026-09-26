@@ -53,9 +53,16 @@ const PH_PATTERN = new RegExp(
   "iu",
 );
 
+// City names shared with the US ("Santa Rosa, CA", "Laguna Hills, CA", "Clark, NJ"):
+// a US marker or ", XX" state code vetoes the match unless the country is named.
+const US_MARKER = /\b(?:united states|usa|u\.s\.a?)(?![\p{L}.])/iu;
+const STATE_CODE = /,\s*(?!PH\b|MM\b)[A-Z]{2}(?!\p{L})/u;
+const PH_COUNTRY = /\b(?:philippines|pilipinas)\b/i;
+
 /** True iff the location string ties the role to the Philippines (SPEC §8). */
 export function isPhilippineLocation(location: string): boolean {
-  return PH_PATTERN.test(location);
+  if (!PH_PATTERN.test(location)) return false;
+  return PH_COUNTRY.test(location) || !(US_MARKER.test(location) || STATE_CODE.test(location));
 }
 
 export interface PhFilterResult {

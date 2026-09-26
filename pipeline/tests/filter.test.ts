@@ -7,6 +7,14 @@ import {
 import type { FetchedPosting } from "../src/types.js";
 
 describe("isPhilippineLocation", () => {
+  it("rejects US cities that share a PH name, unless the country is named", () => {
+    expect(isPhilippineLocation("Santa Rosa, CA")).toBe(false);
+    expect(isPhilippineLocation("Laguna Hills, California, United States")).toBe(false);
+    expect(isPhilippineLocation("Santa Rosa, Laguna")).toBe(true);
+    expect(isPhilippineLocation("Makati, PH")).toBe(true);
+    expect(isPhilippineLocation("Santa Rosa, Laguna, Philippines")).toBe(true);
+  });
+
   it("accepts country names", () => {
     expect(isPhilippineLocation("Manila, Philippines")).toBe(true);
     expect(isPhilippineLocation("Pilipinas")).toBe(true);
