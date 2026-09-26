@@ -6,6 +6,37 @@
 
 ## ✅ Done
 
+- [x] 2026-09-26 — **Launch-readiness pass 2** (stacked PRs #31 → #32 → #33 →
+      #34 on #23 → #25 → #24 → #26 → #27 → #28 → #29 → #30):
+  - [x] Lazy loading (#31): homepage HTML 585 KB → 21 KB gzipped (5.9 MB →
+        168 KB raw) at 14,250 active listings. `/jobs.json` is 550 KB gzip
+        (~323 KB brotli), fetched after hydration. Counts match the old build;
+        `?level=internship,entry&setup=remote` returns 150 roles, 44 companies,
+        and +1,111 no-level roles. Render performance is unchanged.
+  - [x] PH filter and categorizer (#32): UNIQLO now keeps 22 of 23 postings,
+        up from 7 (FRPH, Visayas, Mindanao, Bohol). Level `unknown` 43.38% →
+        43.33%; function `other` 14.65% → 14.44% (small by design, SPEC §9).
+  - [x] Workday facets (#33): site-list faceting finds PH roles beyond the old
+        1,000-posting cap. Jobs requests before → after / PH kept: Genpact
+        51 → 7 / 113; J&J 51 → 5 / 63; Maersk 51 → 5 / 80; Mastercard
+        51 → 3 / 27; PwC 51 → 19 / 360. No blocks in the live probe. This saves
+        ~216 Workday requests per run (~765 → ~549), or ~7 minutes from the
+        37m46s baseline (~30.5m estimated). Accenture remains country-faceted;
+        ING offers only Manila site values (734 fetched, below cap), so it stays
+        bulk + local filter. ACCIONA has no PH facet: 14 PH kept of 625 fetched.
+  - [x] Registry round 11 (#34): 13 verified employers added (9 Tier A,
+        4 Workday); per-tenant §17.2 evidence is in Workday registry notes.
+  - [x] Full local refresh on the pre-round-11 stack top (not committed): **316 boards,
+        314 fetched, 0 failed, 0 blocks, 14,250 active** in 37m46s.
+  - [x] Employer dominance review (no code change): TASQ 2,283 and MR DIY 1,920
+        are distinct active roles (MR DIY has 1,807 distinct store titles).
+        The default board's first 2,000 rows have at most 54 per company;
+        README featured has 200 rows / 38 companies / at most 10 each, with
+        agencies excluded. The entry-level view is mixed for its first ~1,000
+        rows; the deep tail is mostly MR DIY/TASQ because first-seen dates put
+        6,236 listings in the 2026-09-26 day bucket. The "Direct employers"
+        filter already hides TASQ.
+
 - [x] 2026-09-26 — **Block-safety, cleanup, three new ATSs, registry round 10**
       (stacked PRs #26–#30 on top of #23 → #25 → #24):
   - [x] Block safety (#26): the first Workday block in a run halts the rest of the
@@ -441,16 +472,26 @@ verify-registry`. Also recheck the live-but-0-PH boards listed below — several
 
 ## 🐞 Issues & blockers
 
-- 2026-09-26 — [open] UNIQLO PH (`fastretailing.wd3/store_staff_ph_Uniqlo`): only
-  7 of 23 postings pass the PH filter — store locations like "UNIQLO SM Makati
-  (FRPH)" have no keyword. Consider `frph` or mall names ("SM ") as PH signals.
+- 2026-09-26 — [resolved in #32] UNIQLO PH
+  (`fastretailing.wd3/store_staff_ph_Uniqlo`): PH filter now recognizes FRPH,
+  Visayas, Mindanao, and Bohol; 22 of 23 postings kept, up from 7.
+- 2026-09-26 — [resolved in #33] Genpact, J&J, Maersk, Mastercard, and PwC
+  missed PH roles past the 1,000-posting Workday cap. Site-list faceting now
+  fetches their PH roles in 7, 5, 5, 3, and 19 jobs requests respectively;
+  the live probe found 113, 63, 80, 27, and 360 PH roles with no blocks.
+- 2026-09-26 — [open] Deep-scroll render cost: every visible row re-renders on
+  each 60-row append (~60 ms at 2,400+ rows on 4× CPU). Memoize rows if this
+  becomes noticeable to users.
+- 2026-09-26 — [open] ACCIONA has no PH Workday facet; the live probe fetched
+  625 postings and kept 14 PH locally. Below the cap, so no roles were missed.
 - 2026-09-26 — [open] Duplicate boards to revisit if the older one dies: TASQ
   (`workable:tasq-work`, 277 PH, vs active Manatal) and Gardenia (Manatal, 18 PH,
   vs active SmartRecruiters).
 - 2026-09-26 — [decision pending] Cruise lines on Pinpoint (Princess Cruises
-  `princesscruises` 47 PH, Holland America `hollandamericagroup` 12 PH) recruit
-  Filipinos for shipboard roles via PH manning agencies. Not added: the work is at
-  sea, not in PH. Maintainer's call.
+  `princesscruises` 47 PH, Holland America `hollandamericagroup` 12 PH) and
+  Scorpio Group (`scorpiogroup` 63 PH) recruit Filipinos for shipboard roles
+  via PH manning agencies (Scorpio via Manila-based 88 Aces). Held back: the
+  work is at sea, not in PH. Maintainer's call.
 
 - 2026-09-25 — [resolved in code] On 2026-08-29 every wd3 Workday tenant returned
   HTTP 503 on robots.txt during a Workday maintenance window; the adapter recorded
@@ -533,10 +574,36 @@ All probed 2026-06-11 unless noted. Companies later verified under another slug/
 are marked ➜✅. PH corporates (banks, conglomerates, airlines, food) are mostly on
 Workday/custom portals — none of the guessed SmartRecruiters identifiers existed.
 
+**Round 11 (2026-09-26).** Added 13 verified employers:
+- Tier A: FGC+ (`rippling:fgcplus`, 23 PH, agency); Foundry for Good
+  (`ashby:foundry-for-good`, 27); Extenteam (`greenhouse:extenteam`, 21,
+  agency); Otsuka Philippines
+  (`manatal:otsuka-philippines-pharmaceutical-inc-2`, 2); ShopBack
+  (`lever:shopback-2`, 2); UpGuard (`ashby:upguard`, 1); Aphex
+  (`ashby:aphex`, 1); Short Story (`ashby:ShortStory`, 2); Lyra Health
+  (`lever:lyrahealth`, 2).
+- Workday (per-tenant §17.2 evidence in `pipeline/companies.json` notes): 3M
+  (`3m.wd1/Search`, 50 PH, country facet); Allegro MicroSystems
+  (`allegromicro.wd5/AllegroCareers`, 53); FedEx
+  (`fedex.wd1/FXE_APAC_External`, 7); TP ICAP (`tp.wd107/TP-ICAP`, 35).
+
+Held back: Scorpio Group (`pinpoint:scorpiogroup`, 63 PH) routes shipboard crew
+through Manila manning agency 88 Aces; it joins the cruise-line decision.
+David Kennedy Recruitment (`teamtailor:davidkennedyrecruitment`) has a confirmed
+identity but lists 24–373 locations per PH-matching role. Parallel Wireless's
+latest PH post was July 2025. Dead: Citadel Pacific, Kittl. Empty or zero PH:
+CTC BPO, Lingaro, WTW, Deloitte, Wavemaker Partners, Deel, Reddit, OKX,
+Supabase, Time Doctor, Stripe, Spotify, Notion, Figma, Datadog, Cloudflare,
+Intercom, Discord, Twilio, Ubisoft. Low value: The Coca-Cola Company (2 PH,
+not the PH bottler), Razer (1), Diageo (2), DTN (1), Philips (1 facet result
+not retained), Comcast (3). Unsupported portals, not fetched: BDO and TTEC
+(own portals), Alorica (Oracle Cloud).
+
 **Round 10 (2026-09-26).** Off the table: Takeda (`takeda.wd3/External`, robots
 HTTP 422), Fugro (`fugro.wd3/careers`, robots `Disallow: /Careers/`). Skipped on
 quality: SEEK (job-board company), TSMG (AI-data gig recruiter), The Flex and Curvion
-Blue (100+ countries per role), FGC+ on Rippling (identity unconfirmed). Stale
+Blue (100+ countries per role), FGC+ on Rippling (identity then unconfirmed;
+verified in Round 11). Stale
 SmartRecruiters boards (last PH post 2016–2023): Vonotec, Cloud Employee, ShipERP,
 SGMAGRNDST, Peraflo, Home Credit. Live, 0 PH: Workday — Thomson Reuters, Cigna,
 AstraZeneca, UOB, Colliers, HPE, Fiserv, Capital One (1 within the 1,000 cap);
@@ -547,8 +614,7 @@ employmenthero, seaoil, shopee, gojek; Ashby employmenthero, deputy, hugo;
 SmartRecruiters Publicis, CEVA, DB Schenker, ABB, Decathlon, TDCX, IBEX, VXI,
 Firstsource, Arcadis, Worley, Kuehne+Nagel, Puma, Uniqlo. Empty Workable boards:
 optibpo, cos, frosch-travel, outsource-digital, several "Philippines Inc" boards.
-Remaining new-ATS leads: Pinpoint `scorpiogroup` (~63 PH, identity unclear),
-Teamtailor `davidkennedyrecruitment` (~7), Rippling `fgcplus` (~23).
+The remaining new-ATS leads were resolved in Round 11 above.
 
 **Round 9 (2026-09-25) — registry expansion.** Registry 175 → 218 (36 Tier A +
 7 Workday). See Done for the landed list.
@@ -773,7 +839,7 @@ all auto-verified on real PH postings). Failures/rechecks:
   Awesome CX, PartnerHero (gh), Carousell (lever), ClickUp (lever) · live-but-0-PH —
   DCX, Premier Media, Probe Group, WeAssist, TaskBullet, Sagan, Remote Workmate,
   Peak Support, Gear Inc, Elevate and Delegate, Bold Business, Connext, CloudTask,
-  Extenteam, Anytime Mailbox
+  Extenteam (earlier probe; now ➜✅ greenhouse:extenteam), Anytime Mailbox
 
 **Skipped on quality grounds:** usasurveyjob / TowardJobs (lever) — survey-gig mill,
 not a real employer. Kalibrr — job-board company, fetching prohibited by rule §1.
@@ -782,6 +848,16 @@ not a real employer. Kalibrr — job-board company, fetching prohibited by rule 
 
 ## 📔 Decision log
 
+- 2026-09-26 — **Lazy-load split (#31):** keep the first page inline and fetch
+  static `/jobs.json` after hydration for the full list. Verified filter counts
+  match the old build at 14,250 active listings.
+- 2026-09-26 — **Workday site-list facets (#33):** use PH site values only when
+  the unfiltered board exceeds the 1,000-posting cap; smaller boards keep bulk
+  fetch + local PH filtering. Accenture remains country-faceted. ING's Manila
+  site values are below the cap, and ACCIONA has no PH facet.
+- 2026-09-26 — **Scorpio Group held back:** its 63 PH-matching postings are
+  shipboard crew roles through 88 Aces, a Manila manning agency. Apply the
+  pending cruise-line/seafarer decision before adding it.
 - 2026-09-26 — **One Workday block per run.** After any block signal the run sends
   no more Workday requests (SPEC §17.1.2). A genuine platform-wide block is handled
   correctly (we stop), and a misread incident costs one tenant, not seventeen.
@@ -1160,7 +1236,8 @@ not a real employer. Kalibrr — job-board company, fetching prohibited by rule 
 - 2026-07-06 — Maersk has no Philippines facet on its Workday tenant, so it
   runs under the §17.1.4 fallback (1,000-posting cap + local PH filter). PH
   roles beyond the cap can be missed on heavy days — accepted; revisit if the
-  tenant grows a country facet.
+  tenant grows a country facet. **Superseded 2026-09-26:** #33 uses PH site-list
+  facets beyond the cap and kept 80 PH roles in the live probe.
 - 2026-09-25 — Categorizer round 3 judgment calls (all test-pinned): bare
   "quality assurance" is NOT engineering (real QA titles here are BPO/bank/plant
   QA); bare "sourcing" is NOT operations (agency "Sourcing Specialists" recruit);
