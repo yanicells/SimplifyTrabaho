@@ -80,6 +80,27 @@ describe("isPhilippineLocation", () => {
     expect(isPhilippineLocation("Clark, Pampanga")).toBe(true);
     expect(isPhilippineLocation("Clarksville, TN")).toBe(false);
   });
+
+  it("keeps Fast Retailing PH stores and named Philippine regions", () => {
+    expect(isPhilippineLocation("UNIQLO SM Makati (FRPH)")).toBe(true);
+    expect(isPhilippineLocation("UNIQLO SM City Bacolod(FRPH)")).toBe(true);
+    expect(isPhilippineLocation("Visayas")).toBe(true);
+    expect(isPhilippineLocation("Eastern Visayas")).toBe(true);
+    expect(isPhilippineLocation("Mindanao")).toBe(true);
+    expect(isPhilippineLocation("Bohol, Central Visayas")).toBe(true);
+  });
+
+  it("does not accept ambiguous mall or place names", () => {
+    expect(isPhilippineLocation("SM City Xiamen, China")).toBe(false);
+    expect(isPhilippineLocation("Santa Rosa, CA")).toBe(false);
+    expect(isPhilippineLocation("San Pablo, CA")).toBe(false);
+    expect(isPhilippineLocation("Victoria, Australia")).toBe(false);
+    expect(isPhilippineLocation("Cordova, Spain")).toBe(false);
+    expect(isPhilippineLocation("La Union, New Mexico")).toBe(false);
+    expect(isPhilippineLocation("Alabama, USA")).toBe(false);
+    expect(isPhilippineLocation("Visayasian, USA")).toBe(false);
+    expect(isPhilippineLocation("FRPHX, USA")).toBe(false);
+  });
 });
 
 describe("PH_LOCATION_KEYWORDS", () => {

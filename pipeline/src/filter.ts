@@ -10,6 +10,8 @@ export const PH_LOCATION_KEYWORDS: readonly string[] = [
   "philippines",
   "pilipinas",
   "ph",
+  // Fast Retailing's Philippines store code (UNIQLO locations omit the country).
+  "frph",
   // metro & city names
   "ncr",
   "national capital region",
@@ -39,6 +41,10 @@ export const PH_LOCATION_KEYWORDS: readonly string[] = [
   "cavite",
   "batangas",
   "cagayan de oro",
+  // Named Philippine island regions/province found in rejected ATS locations.
+  "visayas",
+  "mindanao",
+  "bohol",
 ];
 
 function escapeRegExp(s: string): string {
