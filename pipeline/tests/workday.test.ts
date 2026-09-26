@@ -426,6 +426,32 @@ describe("fetchWorkday — PH facet at the source (guardrail §17.1.4)", () => {
     });
   });
 
+  it("never picks another country's NCR site as a PH facet value", async () => {
+    // Genpact-style list: India's Delhi NCR sits beside the real PH sites, and
+    // every job under a picked value is stamped Philippine.
+    const http = fakeHttp({ status: 404, text: "" }, [
+      {
+        status: 200,
+        json: jobsPage(
+          5000,
+          20,
+          siteFacets([
+            "Gurugram, Delhi NCR, India",
+            "1901-G-Php: Cyberpob, Quezon, Philippines",
+            "Noida, NCR",
+            "Makati",
+          ]),
+        ),
+      },
+      { status: 200, json: jobsPage(6, 6) },
+    ]);
+    await fetchWorkday(COMPANY, http);
+    const posts = http.calls.filter((call) => call.method === "POST");
+    expect((posts[1]?.body as { appliedFacets: object }).appliedFacets).toEqual({
+      locations: ["site-1", "site-3"],
+    });
+  });
+
   it("keeps bulk-pulling below the cap when only a site list exists", async () => {
     const http = fakeHttp({ status: 404, text: "" }, [
       { status: 200, json: jobsPage(21, 20, siteFacets(SITES)) },

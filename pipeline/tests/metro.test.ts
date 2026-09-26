@@ -86,6 +86,12 @@ describe("deriveMetro", () => {
     expect(deriveMetro([])).toEqual([]);
   });
 
+  it("never tags India's or Canada's National Capital Region as ncr", () => {
+    expect(deriveMetro(["Gurugram, Delhi NCR, India"])).toEqual([]);
+    expect(deriveMetro(["Noida, NCR"])).toEqual([]);
+    expect(deriveMetro(["Ottawa, National Capital Region, Canada"])).toEqual([]);
+  });
+
   it("unions tags across locations, deduped, in canonical order", () => {
     expect(
       deriveMetro(["Cebu City, Philippines", "Makati", "Quezon City, Philippines"]),

@@ -37,6 +37,20 @@ describe("isPhilippineLocation", () => {
     expect(isPhilippineLocation("Suncrest, CA")).toBe(false);
   });
 
+  it("rejects other countries' namesakes of PH keywords unless PH is named", () => {
+    expect(isPhilippineLocation("Gurugram, Delhi NCR, India")).toBe(false);
+    expect(isPhilippineLocation("Noida, NCR")).toBe(false);
+    expect(isPhilippineLocation("Ottawa, National Capital Region, Canada")).toBe(false);
+    expect(isPhilippineLocation("Manila, Arkansas")).toBe(false);
+    expect(isPhilippineLocation("Laguna Hills, California")).toBe(false);
+    expect(isPhilippineLocation("Santa Rosa, La Pampa, Argentina")).toBe(false);
+    // Naming the country (or its PH code) still wins over a foreign marker.
+    expect(isPhilippineLocation("India & PH (Remote)")).toBe(true);
+    expect(isPhilippineLocation("Makati, Philippines (reports to Delhi NCR)")).toBe(true);
+    // A state name inside a PH place, not as its own part, is not a US state.
+    expect(isPhilippineLocation("California Garden Square, Mandaluyong")).toBe(true);
+  });
+
   it("accepts Parañaque with and without the eñe", () => {
     expect(isPhilippineLocation("Parañaque")).toBe(true);
     expect(isPhilippineLocation("Paranaque City")).toBe(true);

@@ -54,21 +54,71 @@ function escapeRegExp(s: string): string {
 // Unicode-aware word boundaries instead of \b: JS \b treats accented letters as
 // non-word chars, so the "ph" in Vietnamese "Thành phố" would otherwise match the
 // bare-PH country token (real bug, caught 2026-06-11 via Bosch Vietnam listings).
-const PH_PATTERN = new RegExp(
-  `(?<![\\p{L}\\p{N}])(?:${PH_LOCATION_KEYWORDS.map(escapeRegExp).join("|")})(?![\\p{L}\\p{N}])`,
-  "iu",
-);
+function wordPattern(words: readonly string[]): RegExp {
+  return new RegExp(
+    `(?<![\\p{L}\\p{N}])(?:${words.map(escapeRegExp).join("|")})(?![\\p{L}\\p{N}])`,
+    "iu",
+  );
+}
+
+const PH_PATTERN = wordPattern(PH_LOCATION_KEYWORDS);
 
 // City names shared with the US ("Santa Rosa, CA", "Laguna Hills, CA", "Clark, NJ"):
-// a US marker or ", XX" state code vetoes the match unless the country is named.
+// a US marker, a ", XX" state code, or a ", State" name vetoes the match unless the
+// country is named.
 const US_MARKER = /\b(?:united states|usa|u\.s\.a?)(?![\p{L}.])/iu;
 const STATE_CODE = /,\s*(?!PH\b|MM\b)[A-Z]{2}(?!\p{L})/u;
+// Only as a comma-separated part ("Manila, Arkansas"), so PH place names that
+// contain a state ("California Garden Square, Mandaluyong") still pass.
+const US_STATE_NAMES = [
+  "alabama", "alaska", "arizona", "arkansas", "california", "colorado", "connecticut",
+  "delaware", "district of columbia", "florida", "georgia", "hawaii", "idaho",
+  "illinois", "indiana", "iowa", "kansas", "kentucky", "louisiana", "maine",
+  "maryland", "massachusetts", "michigan", "minnesota", "mississippi", "missouri",
+  "montana", "nebraska", "nevada", "new hampshire", "new jersey", "new mexico",
+  "new york", "north carolina", "north dakota", "ohio", "oklahoma", "oregon",
+  "pennsylvania", "rhode island", "south carolina", "south dakota", "tennessee",
+  "texas", "utah", "vermont", "virginia", "washington", "west virginia", "wisconsin",
+  "wyoming",
+]; // prettier-ignore
+const US_STATE = new RegExp(`,\\s*(?:${US_STATE_NAMES.join("|")})\\s*(?:[,(]|$)`, "i");
+// Other countries' namesakes of PH keywords: India's and Canada's own National
+// Capital Regions ("Gurugram, Delhi NCR", "Ottawa, National Capital Region") and
+// the Santa Rosas of Latin America ("Santa Rosa, La Pampa, Argentina"). Global
+// Workday tenants list such sites as facet values, and findPhilippinesFacet uses
+// this same check to pick them (§17.1.4).
+const FOREIGN_MARKER = wordPattern([
+  "india",
+  "delhi",
+  "noida",
+  "gurugram",
+  "gurgaon",
+  "canada",
+  "ottawa",
+  "argentina",
+  "la pampa",
+  "mexico",
+  "guatemala",
+  "honduras",
+  "el salvador",
+  "bolivia",
+  "peru",
+  "perú",
+  "paraguay",
+  "brazil",
+  "brasil",
+]);
+// The country named outright; an uppercase PH token counts ("India & PH (Remote)").
 const PH_COUNTRY = /\b(?:philippines|pilipinas)\b/i;
+const PH_CODE = /(?<![\p{L}\p{N}])PH(?![\p{L}\p{N}])/u;
 
 /** True iff the location string ties the role to the Philippines (SPEC §8). */
 export function isPhilippineLocation(location: string): boolean {
   if (!PH_PATTERN.test(location)) return false;
-  return PH_COUNTRY.test(location) || !(US_MARKER.test(location) || STATE_CODE.test(location));
+  if (PH_COUNTRY.test(location) || PH_CODE.test(location)) return true;
+  return ![US_MARKER, STATE_CODE, US_STATE, FOREIGN_MARKER].some((veto) =>
+    veto.test(location),
+  );
 }
 
 export interface PhFilterResult {
