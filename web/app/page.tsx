@@ -1,5 +1,8 @@
 import Link from "next/link";
+import { preload } from "react-dom";
 import { JobBoard } from "@/components/job-board";
+import { defaultFilters } from "@/lib/filter-params";
+import { filterJobs, PAGE_SIZE } from "@/lib/filter-jobs";
 import { loadJobs } from "@/lib/listings";
 import {
   REPORT_BUG_URL,
@@ -21,11 +24,16 @@ const DATE_FORMAT = new Intl.DateTimeFormat("en-US", {
 
 export default function Home() {
   const { updatedAt, jobs } = loadJobs();
+  const companyCount = new Set(jobs.map((j) => j.company)).size;
+  // Only the first page of rows ships in the HTML; the full list is a static file
+  // the board fetches after hydration. Preloading starts that download alongside
+  // the page's JS instead of after it.
+  preload("/jobs.json", { as: "fetch", crossOrigin: "anonymous" });
 
   const graph = buildGraph({
     updatedAt,
     jobCount: jobs.length,
-    companyCount: new Set(jobs.map((j) => j.company)).size,
+    companyCount,
     title: SITE_TITLE,
     description: SITE_DESCRIPTION,
   });
@@ -88,7 +96,12 @@ export default function Home() {
 
         <main id="main-content" tabIndex={-1} className="scroll-mt-4 focus:outline-none">
           <JobBoard
-            jobs={jobs}
+            initialJobs={jobs.slice(0, PAGE_SIZE)}
+            defaultCounts={{
+              roles: jobs.length,
+              companies: companyCount,
+              fields: filterJobs(jobs, [], defaultFilters()).fieldCounts,
+            }}
             updatedAt={updatedAt}
             updatedLabel={DATE_FORMAT.format(new Date(updatedAt))}
           />

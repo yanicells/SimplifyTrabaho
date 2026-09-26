@@ -23,7 +23,8 @@ export function MyJobs({
 }: {
   tracker: TrackerState;
   /** URLs still present in today's data — anything else gets a "no longer listed" tag. */
-  liveUrls: Set<string>;
+  /** Null until the full job list has loaded — nothing is marked gone before then. */
+  liveUrls: Set<string> | null;
   updatedAt: string;
   onStatus: (url: string, status: TrackerStatus) => void;
   onRemove: (url: string) => void;
@@ -81,7 +82,7 @@ export function MyJobs({
 
       <ul role="list" className="divide-y divide-line">
         {jobs.map((job) => {
-          const gone = !liveUrls.has(job.url);
+          const gone = liveUrls !== null && !liveUrls.has(job.url);
           return (
             <li key={job.url} className="flex flex-wrap items-center gap-x-4 gap-y-3 py-4">
               <div className="min-w-0 flex-1 basis-64">
