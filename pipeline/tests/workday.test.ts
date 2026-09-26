@@ -312,6 +312,106 @@ describe("fetchWorkday — PH facet at the source (guardrail §17.1.4)", () => {
     });
   });
 
+  it.each([
+    ["Markets", "locationCountry"],
+    ["Location Country", "locationHierarchy1"],
+  ])("uses the nested %s country group", async (descriptor, parameter) => {
+    const facets = [
+      {
+        facetParameter: "locationMainGroup",
+        values: [
+          {
+            facetParameter: parameter,
+            descriptor,
+            values: [{ descriptor: "Philippines", id: "ph-country", count: 10 }],
+          },
+          {
+            facetParameter: "locations",
+            descriptor: "Locations",
+            values: [{ descriptor: "Manila, Philippines", id: "ph-site", count: 2 }],
+          },
+        ],
+      },
+    ];
+    const http = fakeHttp({ status: 404, text: "" }, [
+      { status: 200, json: jobsPage(219, 20, facets) },
+      { status: 200, json: jobsPage(10, 10) },
+    ]);
+    const result = await fetchWorkday(COMPANY, http);
+    expect(result.ok).toBe(true);
+    const posts = http.calls.filter((call) => call.method === "POST");
+    expect(posts).toHaveLength(2); // 219 global jobs: 11 pages before, 2 with the PH facet.
+    expect((posts[1]?.body as { appliedFacets: object }).appliedFacets).toEqual({
+      [parameter]: ["ph-country"],
+    });
+  });
+
+  it("uses a top-level Location_Country group", async () => {
+    const facets = [
+      {
+        facetParameter: "Location_Country",
+        descriptor: "Location Country",
+        values: [{ descriptor: "Philippines", id: "ph-country", count: 46 }],
+      },
+    ];
+    const http = fakeHttp({ status: 404, text: "" }, [
+      { status: 200, json: jobsPage(1882, 20, facets) },
+      { status: 200, json: jobsPage(1, 1) },
+    ]);
+    await fetchWorkday(COMPANY, http);
+    const posts = http.calls.filter((call) => call.method === "POST");
+    expect((posts[1]?.body as { appliedFacets: object }).appliedFacets).toEqual({
+      Location_Country: ["ph-country"],
+    });
+  });
+
+  // Real site-list shapes from the five tenants that hit the cap on 2026-09-26.
+  const siteFacets = (sites: string[]) => [
+    {
+      facetParameter: "locationMainGroup",
+      values: [
+        {
+          facetParameter: "locations",
+          descriptor: "Locations",
+          values: sites.map((descriptor, i) => ({ descriptor, id: `site-${i}`, count: 3 })),
+        },
+      ],
+    },
+  ];
+  const SITES = [
+    "1901-G-Php: Cyberpob, Quezon, Philippines", // Genpact
+    "Taguig, National Capital Region (Manila), Philippines", // J&J
+    "Philippines, Pasig, 1600", // Maersk
+    "Makati", // PwC
+    "Singapore",
+    "Santa Rosa, CA",
+  ];
+
+  it("facets a capped tenant on every PH site in its location list", async () => {
+    const http = fakeHttp({ status: 404, text: "" }, [
+      { status: 200, json: jobsPage(5000, 20, siteFacets(SITES)) },
+      { status: 200, json: jobsPage(12, 12) },
+    ]);
+    const result = await fetchWorkday(COMPANY, http);
+    expect(result).toMatchObject({ ok: true });
+    const posts = http.calls.filter((call) => call.method === "POST");
+    expect(posts).toHaveLength(2);
+    expect((posts[1]?.body as { appliedFacets: object }).appliedFacets).toEqual({
+      locations: ["site-0", "site-1", "site-2", "site-3"],
+    });
+  });
+
+  it("keeps bulk-pulling below the cap when only a site list exists", async () => {
+    const http = fakeHttp({ status: 404, text: "" }, [
+      { status: 200, json: jobsPage(21, 20, siteFacets(SITES)) },
+      { status: 200, json: jobsPage(21, 1) },
+    ]);
+    await fetchWorkday(COMPANY, http);
+    const posts = http.calls.filter((call) => call.method === "POST");
+    expect(posts).toHaveLength(2);
+    expect((posts[1]?.body as { appliedFacets: object }).appliedFacets).toEqual({});
+  });
+
   it("stamps Philippines as the location when PH-faceted items omit locationsText", async () => {
     // Real Accenture behavior: country-faceted items carry no locationsText.
     // The facet itself is the location fact — Workday returned these under the
@@ -323,13 +423,24 @@ describe("fetchWorkday — PH facet at the source (guardrail §17.1.4)", () => {
       },
     ];
     const bare = { title: "ETL Developer", externalPath: "/job/x/ETL_1" };
+    // A multi-site role under the facet says "3 Locations" — still a PH role.
+    const multi = {
+      title: "Analyst",
+      externalPath: "/job/y/A_2",
+      locationsText: "3 Locations",
+    };
     const http = fakeHttp({ status: 404, text: "" }, [
       { status: 200, json: jobsPage(600, 20, facets) },
-      { status: 200, json: { total: 1, jobPostings: [bare], facets: [] } },
+      { status: 200, json: { total: 2, jobPostings: [bare, multi], facets: [] } },
     ]);
     const result = await fetchWorkday(COMPANY, http);
     expect(result.ok).toBe(true);
-    if (result.ok) expect(result.postings[0]?.locations).toEqual(["Philippines"]);
+    if (result.ok) {
+      expect(result.postings.map((p) => p.locations)).toEqual([
+        ["Philippines"],
+        ["Philippines"],
+      ]);
+    }
   });
 
   it("small tenants are fetched whole with no facet round-trip", async () => {
