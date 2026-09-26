@@ -24,11 +24,16 @@ function normalizeTitle(title: string): string {
 const INTERNSHIP = /\b(?:interns?|internships?|ojt|on-the-job|practicum|apprentice)\b/i;
 const ENTRY =
   /\b(?:junior|jr\.?|entry|entry-level|fresh grads?|new grads?|graduates?|trainees?|cadets?)\b/i;
-// "Associate Manager/Director" is a management rung, not entry. "Assoc" is the
-// common abbreviation ("Customer Service New Assoc", "Assoc Mgr").
+// "Associate Manager/Director" is a management rung, not entry; so are "Associate
+// Account Director" and "Associate General Counsel". "Assoc" is the common
+// abbreviation ("Customer Service New Assoc", "Assoc Mgr"). "Associate Product
+// Manager" stays entry on purpose: manager must follow directly.
 const ASSOCIATE =
-  /\bassoc(?:iate)?\b(?!\.?\s+(?:manager|manger|mgr|director|vice president|vp|partner|principal))/i;
-const SENIOR_ASSOCIATE = /\b(?:senior|sr\.?)\s+assoc(?:iate)?\b/i;
+  /\bassoc(?:iate)?\b(?!\.?\s+(?:manager|manger|mgr|(?:\w+\s+)?director|vice president|vp|partner|principal|(?:general\s+)?counsel))/i;
+// A senior/lead rung before the associate noun, up to two words apart ("Senior
+// Accounting Associate", "Senior/Lead Associate"). "Lead Generation" is a task.
+const SENIOR_ASSOCIATE =
+  /\b(?:senior|sr\.?|lead(?!\s+gen))(?:[\s/]+[\w&.-]+){0,2}?[\s/]+assoc(?:iate)?\b/i;
 // "staff" only in the tech-ladder sense ("Staff Engineer"); "Head Office" is a place.
 const SENIOR =
   /\b(?:senior|sr\.?|lead(?!\s+generation)|leader|principal|head(?!\s+office)|manager|mgr|director|vp|vice president|chief|supervisor|superintendent|foreman|in[- ]charge)\b|\bstaff(?=\s+(?:\w+\s+)?(?:engineer|scientist|developer|designer|architect))/i;

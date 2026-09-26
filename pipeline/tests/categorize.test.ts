@@ -30,6 +30,25 @@ describe("categorizeLevel", () => {
     expect(categorizeLevel("Sr. Associate, Tax")).toBe("senior");
   });
 
+  it("does not treat a senior/lead associate with words in between as entry", () => {
+    expect(categorizeLevel("Aprio PH - Senior Accounting Associate, E-commerce")).toBe(
+      "senior",
+    );
+    expect(
+      categorizeLevel(
+        "Aprio PH - Senior Audit Associate, Housing Authority, Affordable Housing",
+      ),
+    ).toBe("senior");
+    expect(categorizeLevel("Aprio PH - Senior US Accounting Associate, Technology")).toBe(
+      "senior",
+    );
+    expect(categorizeLevel("AU Senior Adviser Associate (018-1345)")).toBe("senior");
+    expect(categorizeLevel("Workforce Management Senior/Lead Associate")).toBe("senior");
+    expect(categorizeLevel("Lead Associate - Operations (Quezon City)")).toBe("senior");
+    // Lead generation is a task, not a rung.
+    expect(categorizeLevel("Lead Generation Associate")).toBe("entry");
+  });
+
   it("detects senior level", () => {
     expect(categorizeLevel("Senior Software Engineer")).toBe("senior");
     expect(categorizeLevel("Sr Backend Engineer")).toBe("senior");
@@ -504,7 +523,13 @@ describe("categorizeLevel — round 3", () => {
       "senior",
     );
     expect(categorizeLevel("Associate Vice President - Finance")).toBe("senior");
+    expect(categorizeLevel("Associate Account Director - up to 100k - Hybrid")).toBe("senior");
+    expect(
+      categorizeLevel("Associate General Counsel, Billease Bank, Inc. (A Rural Bank)"),
+    ).not.toBe("entry");
     expect(categorizeLevel("Account Associate (Taguig)")).toBe("entry");
+    // APM is an entry track: "manager" only vetoes when it follows directly.
+    expect(categorizeLevel("Associate Product Manager")).toBe("entry");
   });
 
   it("does not read 'Mid and Night Shift' as a mid level", () => {

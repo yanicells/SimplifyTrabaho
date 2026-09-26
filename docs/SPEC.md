@@ -371,7 +371,8 @@ is an acceptable outcome — never guess wildly.
 1. `internship`: `intern`, `internship`, `ojt`, `on-the-job`, `practicum`, `apprentice`
 2. `entry`: `junior`, `jr.`, `jr `, `entry`, `entry-level`, `fresh grad`, `new grad`,
    `graduate`, `trainee`, `cadet` (PH BPO/airline cadetship programs), `associate`
-   (only when not preceded by `senior`)
+   (only when no `senior`/`lead` comes up to two words before it, and not before
+   `manager`, `director`, `vice president` or `counsel`)
 3. `senior`: `senior`, `sr.`, `sr `, `lead`, `principal`, `staff`, `head of`,
    `manager`, `director`, `vp`, `chief`, `officer` (as in C-level)
 4. `mid`: only for explicit markers (`mid-level`, `intermediate`, Roman numerals
