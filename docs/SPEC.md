@@ -627,11 +627,11 @@ Tier B: usable, but only under these rules.
 3. **Extra politeness:** ≥2s between requests to any Workday host (stricter than
    the ≥1s Tier-A rule), sequential only, pagination capped (stop after the last
    page or 1,000 postings, whichever first), same identifying User-Agent.
-4. **Global tenants get location-filtered at the source where possible:** for
-   Accenture/P&G-scale tenants, apply the Philippines location facet in
-   `appliedFacets` (discover the facet id from the page's own first request) so we
-   never bulk-pull a 10,000-job global feed. If faceting fails, cap pages and
-   PH-filter locally (§8) as usual.
+4. **Global tenants get location-filtered at the source where possible:** discover
+   Philippines location facets from the first jobs page, use country groups when
+   they save pages, and use all identified PH sites in one site group only when
+   the unfaceted feed exceeds the 1,000-posting cap; otherwise cap and PH-filter
+   locally (§8) as usual.
 5. **Same data rules:** facts only (§3.3) — the jobs list response already carries
    title/locations/postedOn/externalPath; **do not** fetch per-job detail pages
    (that's where JD text lives, and it multiplies request volume).
