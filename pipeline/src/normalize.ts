@@ -1,3 +1,4 @@
+import { isPhilippineLocation } from "./filter.js";
 import type { EmploymentType, FetchedPosting, RegistryCompany, WorkSetup } from "./types.js";
 
 // Raw ATS payload → FetchedPosting. Only the whitelisted fact fields below are ever
@@ -531,8 +532,8 @@ export function normalizeWorkday(
   options: {
     /**
      * True when the jobs were fetched under the tenant's own Philippines
-     * country facet (§17.1.4). Faceted responses omit locationsText — the facet
-     * itself is the location fact, so those items get "Philippines".
+     * location facet (§17.1.4). Faceted items can omit locationsText or say
+     * "3 Locations" — the facet itself is the location fact.
      */
     assumePhilippines?: boolean;
   } = {},
@@ -542,12 +543,13 @@ export function normalizeWorkday(
     const job = raw as WorkdayJob;
     const title = String(job.title ?? "");
     const locationsText = String(job.locationsText ?? "").trim();
-    const locations =
-      locationsText !== ""
+    // Under the PH facet, text that isn't a PH place ("" or "3 Locations") still
+    // means a PH role: the facet itself is the location fact.
+    const locations = options.assumePhilippines
+      ? [isPhilippineLocation(locationsText) ? locationsText : "Philippines"]
+      : locationsText !== ""
         ? [locationsText]
-        : options.assumePhilippines
-          ? ["Philippines"]
-          : [];
+        : [];
     return {
       company: company.name,
       source: "workday",

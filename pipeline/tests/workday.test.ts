@@ -365,55 +365,45 @@ describe("fetchWorkday — PH facet at the source (guardrail §17.1.4)", () => {
     });
   });
 
-  it.each([
-    ["Genpact", "1901-G-Php: Cyberpob, Quezon, Philippines"],
-    ["Johnson & Johnson", "Taguig, National Capital Region (Manila), Philippines"],
-    ["Maersk", "Philippines, Pasig, 1600"],
-    ["Mastercard", "Manila, Philippines"],
-    ["PwC", "Makati"],
-  ])("does not treat %s's site location as a country facet", async (_tenant, location) => {
-    const facets = [
-      {
-        facetParameter: "locationMainGroup",
-        values: [
-          {
-            facetParameter: "locations",
-            descriptor: "Locations",
-            values: [{ descriptor: location, id: "site-id", count: 1 }],
-          },
-        ],
-      },
-    ];
+  // Real site-list shapes from the five tenants that hit the cap on 2026-09-26.
+  const siteFacets = (sites: string[]) => [
+    {
+      facetParameter: "locationMainGroup",
+      values: [
+        {
+          facetParameter: "locations",
+          descriptor: "Locations",
+          values: sites.map((descriptor, i) => ({ descriptor, id: `site-${i}`, count: 3 })),
+        },
+      ],
+    },
+  ];
+  const SITES = [
+    "1901-G-Php: Cyberpob, Quezon, Philippines", // Genpact
+    "Taguig, National Capital Region (Manila), Philippines", // J&J
+    "Philippines, Pasig, 1600", // Maersk
+    "Makati", // PwC
+    "Singapore",
+    "Santa Rosa, CA",
+  ];
+
+  it("facets a capped tenant on every PH site in its location list", async () => {
     const http = fakeHttp({ status: 404, text: "" }, [
-      { status: 200, json: jobsPage(1001, 20, facets) },
+      { status: 200, json: jobsPage(5000, 20, siteFacets(SITES)) },
+      { status: 200, json: jobsPage(12, 12) },
     ]);
     const result = await fetchWorkday(COMPANY, http);
-    expect(result).toMatchObject({ ok: true, partial: true });
+    expect(result).toMatchObject({ ok: true });
     const posts = http.calls.filter((call) => call.method === "POST");
-    expect(posts).toHaveLength(50);
-    expect(
-      posts.every(
-        (call) =>
-          Object.keys((call.body as { appliedFacets: object }).appliedFacets).length === 0,
-      ),
-    ).toBe(true);
+    expect(posts).toHaveLength(2);
+    expect((posts[1]?.body as { appliedFacets: object }).appliedFacets).toEqual({
+      locations: ["site-0", "site-1", "site-2", "site-3"],
+    });
   });
 
-  it("rejects an exact Philippines site value without a country group", async () => {
-    const facets = [
-      {
-        facetParameter: "locationMainGroup",
-        values: [
-          {
-            facetParameter: "primaryLocation",
-            descriptor: "Location",
-            values: [{ descriptor: "Philippines", id: "site-id", count: 8 }],
-          },
-        ],
-      },
-    ];
+  it("keeps bulk-pulling below the cap when only a site list exists", async () => {
     const http = fakeHttp({ status: 404, text: "" }, [
-      { status: 200, json: jobsPage(21, 20, facets) },
+      { status: 200, json: jobsPage(21, 20, siteFacets(SITES)) },
       { status: 200, json: jobsPage(21, 1) },
     ]);
     await fetchWorkday(COMPANY, http);
@@ -433,13 +423,24 @@ describe("fetchWorkday — PH facet at the source (guardrail §17.1.4)", () => {
       },
     ];
     const bare = { title: "ETL Developer", externalPath: "/job/x/ETL_1" };
+    // A multi-site role under the facet says "3 Locations" — still a PH role.
+    const multi = {
+      title: "Analyst",
+      externalPath: "/job/y/A_2",
+      locationsText: "3 Locations",
+    };
     const http = fakeHttp({ status: 404, text: "" }, [
       { status: 200, json: jobsPage(600, 20, facets) },
-      { status: 200, json: { total: 1, jobPostings: [bare], facets: [] } },
+      { status: 200, json: { total: 2, jobPostings: [bare, multi], facets: [] } },
     ]);
     const result = await fetchWorkday(COMPANY, http);
     expect(result.ok).toBe(true);
-    if (result.ok) expect(result.postings[0]?.locations).toEqual(["Philippines"]);
+    if (result.ok) {
+      expect(result.postings.map((p) => p.locations)).toEqual([
+        ["Philippines"],
+        ["Philippines"],
+      ]);
+    }
   });
 
   it("small tenants are fetched whole with no facet round-trip", async () => {

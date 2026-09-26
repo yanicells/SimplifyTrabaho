@@ -1,3 +1,4 @@
+import { isPhilippineLocation } from "../filter.js";
 import { normalizeWorkday, parseWorkdaySlug } from "../normalize.js";
 import type { FetchResult, RegistryCompany } from "../types.js";
 import { errorMessage, requestSignal, USER_AGENT, type HttpDeps } from "./http.js";
@@ -17,10 +18,6 @@ export { parseWorkdaySlug };
 const POLITENESS_GAP_MS = 2000; // stricter than the ≥1s Tier-A rule (§17.1.3)
 const PAGE_SIZE = 20; // the page's own request size
 const MAX_POSTINGS = 1000; // §17.1.3 pagination cap
-// Only these observed Workday parameters represent countries. A "Philippines"
-// value under `locations`/`primaryLocation` is one site, not a country filter.
-const COUNTRY_FACET_PARAMETERS = new Set(["locationcountry", "location_country"]);
-
 const realSleep = (ms: number) => new Promise<void>((resolve) => setTimeout(resolve, ms));
 
 /**
@@ -72,41 +69,57 @@ interface FacetNode {
   descriptor?: unknown;
   id?: unknown;
   values?: unknown;
+  count?: unknown;
+}
+
+interface PhFacet {
+  parameter: string;
+  ids: string[];
+  /** The group holds a bare "Philippines" value, i.e. it's a country list. */
+  country: boolean;
+  /** Postings the selected values cover, per the facet's own counts. */
+  count: number;
 }
 
 /**
- * Find a Philippines country value in the page's own facet list (§17.1.4).
- * Groups can nest; the country group carries the appliedFacets parameter.
+ * Find the Philippines values in the page's own facet list (§17.1.4). Groups can
+ * nest (Accenture: locationMainGroup > Country > Philippines); the innermost
+ * facetParameter is what appliedFacets must use. Within one group every value
+ * our PH filter accepts is selected (Workday ORs values in a group), so a
+ * tenant that only lists sites ("Taguig, …, Philippines", "Makati") is covered
+ * across all its PH sites. A country list beats a site list; else the widest.
  */
-function findPhilippinesFacet(
-  nodes: unknown,
-  parameter: string | null = null,
-  countryGroup = false,
-): { parameter: string; id: string } | null {
-  if (!Array.isArray(nodes)) return null;
-  for (const raw of nodes) {
-    const node = raw as FacetNode;
-    const ownParameter =
-      typeof node?.facetParameter === "string" ? node.facetParameter : parameter;
-    const ownCountryGroup =
-      typeof node?.facetParameter === "string"
-        ? COUNTRY_FACET_PARAMETERS.has(node.facetParameter.toLowerCase()) ||
-          (node.facetParameter.toLowerCase() === "locationhierarchy1" &&
-            String(node.descriptor ?? "").toLowerCase() === "location country")
-        : countryGroup;
-    if (
-      ownParameter !== null &&
-      ownCountryGroup &&
-      typeof node?.descriptor === "string" &&
-      node.descriptor.trim().toLowerCase() === "philippines" &&
-      typeof node?.id === "string"
-    ) {
-      return { parameter: ownParameter, id: node.id };
+function findPhilippinesFacet(nodes: unknown): PhFacet | null {
+  let best: PhFacet | null = null;
+  const visit = (list: unknown, parameter: string | null) => {
+    if (!Array.isArray(list)) return;
+    const found: PhFacet = { parameter: parameter ?? "", ids: [], country: false, count: 0 };
+    for (const raw of list) {
+      const node = raw as FacetNode;
+      if (typeof node?.facetParameter === "string" || typeof node?.id !== "string") {
+        visit(
+          node?.values,
+          typeof node?.facetParameter === "string" ? node.facetParameter : parameter,
+        );
+        continue;
+      }
+      const descriptor = typeof node.descriptor === "string" ? node.descriptor.trim() : "";
+      if (!isPhilippineLocation(descriptor)) continue;
+      found.ids.push(node.id);
+      found.country ||= descriptor.toLowerCase() === "philippines";
+      found.count += Number(node.count ?? 0);
     }
-    const nested = findPhilippinesFacet(node?.values, ownParameter, ownCountryGroup);
-    if (nested) return nested;
-  }
-  return null;
+    if (parameter === null || found.ids.length === 0) return;
+    if (
+      best === null ||
+      (found.country && !best.country) ||
+      (found.country === best.country && found.ids.length > best.ids.length)
+    ) {
+      best = found;
+    }
+  };
+  visit(nodes, null);
+  return best;
 }
 
 const BLOCK_STATUSES = new Set([401, 403, 422, 429]);
@@ -234,18 +247,17 @@ export async function fetchWorkday(
   let total = Number(page.total ?? 0);
   let phFaceted = false;
 
-  if (total > PAGE_SIZE) {
-    const ph = findPhilippinesFacet(page.facets);
-    if (ph) {
-      phFaceted = true;
-      // Global tenant with a PH facet: restart faceted so we never bulk-pull
-      // a 10,000-job worldwide feed.
-      appliedFacets = { [ph.parameter]: [ph.id] };
-      const faceted = await postJobsPage(fetchFn, sleep, jobsUrl, appliedFacets, 0, timeoutMs);
-      if (faceted.kind !== "ok") return failureFrom(faceted);
-      page = faceted.page;
-      total = Number(page.total ?? 0);
-    }
+  // Facet whenever it saves pages (more than one page, and PH isn't the whole
+  // feed). A site list is only trusted over a capped bulk pull, though: unlike a
+  // country value it could miss a PH site the list doesn't name.
+  const ph = total > PAGE_SIZE ? findPhilippinesFacet(page.facets) : null;
+  if (ph && ph.count < total && (ph.country || total > MAX_POSTINGS)) {
+    phFaceted = true;
+    appliedFacets = { [ph.parameter]: ph.ids };
+    const faceted = await postJobsPage(fetchFn, sleep, jobsUrl, appliedFacets, 0, timeoutMs);
+    if (faceted.kind !== "ok") return failureFrom(faceted);
+    page = faceted.page;
+    total = Number(page.total ?? 0);
   }
 
   const jobs: unknown[] = [];
