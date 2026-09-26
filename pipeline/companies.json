@@ -22,6 +22,16 @@
       "notes": "auto-verified 2026-06-11: 15 PH postings"
     },
     {
+      "name": "Abbott",
+      "ats": "workday",
+      "slug": "abbott.wd5/abbottcareers",
+      "industry": "healthtech",
+      "type": "direct",
+      "verified": true,
+      "added": "2026-09-26",
+      "notes": "§17.2 verified 2026-09-26: robots clean (Allow:/abbottcareers/); no block; 42 PH of 42 (PH facet) fetched (Taguig)"
+    },
+    {
       "name": "Accenture",
       "ats": "workday",
       "slug": "accenture.wd103/AccentureCareers",
@@ -30,6 +40,16 @@
       "verified": true,
       "added": "2026-07-06",
       "notes": "§17.2 wave-1 verified 2026-07-06: robots clean, PH country facet at source (locationCountry e56f1daf…), 672 PH postings"
+    },
+    {
+      "name": "ACCIONA",
+      "ats": "workday",
+      "slug": "acciona.wd3/ACCIONA_Employment_Channel",
+      "industry": "engineering",
+      "type": "direct",
+      "verified": true,
+      "added": "2026-09-26",
+      "notes": "§17.2 verified 2026-09-26: robots clean (Allow:/ACCIONA_Employment_Channel/); no block; 14 PH of 621 fetched (Metro Manila)"
     },
     {
       "name": "Accor",
@@ -72,6 +92,16 @@
       "notes": "verified 2026-09-25: 45 PH postings (Makati, Manila)"
     },
     {
+      "name": "Aggreko",
+      "ats": "workday",
+      "slug": "aggreko.wd3/Aggreko_Careers_1",
+      "industry": "energy",
+      "type": "direct",
+      "verified": true,
+      "added": "2026-09-26",
+      "notes": "§17.2 verified 2026-09-26: robots clean (Allow:/Aggreko_Careers_1/); no block; 7 PH of 221 fetched (Manila)"
+    },
+    {
       "name": "Agoda",
       "ats": "greenhouse",
       "slug": "agoda",
@@ -90,6 +120,16 @@
       "verified": true,
       "added": "2026-07-06",
       "notes": "RE-ENABLED 2026-09-25 after maintainer review: the 2026-08-29 disable was a one-off robots.txt HTTP 503, not a §17.1 block. Re-check: robots.txt 200 with Allow: /External/ and no rule covering /wday/cxs; one jobs request returned clean JSON (238 PH via locationCountry facet of 1,005). Originally §17.2 wave-3 verified 2026-07-06 with 219 postings / 212 PH — AIA Philippines (ex-Philam Life) + MediCard (PH-MPI) sites."
+    },
+    {
+      "name": "AIG",
+      "ats": "workday",
+      "slug": "aig.wd1/aig",
+      "industry": "insurance",
+      "type": "direct",
+      "verified": true,
+      "added": "2026-09-26",
+      "notes": "§17.2 verified 2026-09-26: robots clean (Allow:/aig/); no block; 4 PH of 4 (PH facet) fetched (Makati)"
     },
     {
       "name": "Airbnb",
@@ -160,6 +200,26 @@
       "verified": true,
       "added": "2026-09-26",
       "notes": "verified 2026-09-26: 35 PH postings (Cebu, NCR; not the lever:aleph advertising group)"
+    },
+    {
+      "name": "Amadeus",
+      "ats": "workday",
+      "slug": "amadeus.wd502/jobs",
+      "industry": "travel",
+      "type": "direct",
+      "verified": true,
+      "added": "2026-09-26",
+      "notes": "§17.2 verified 2026-09-26: robots clean (Allow:/jobs/); no block; 30 PH of 121 fetched (Taguig, Manila)"
+    },
+    {
+      "name": "Analog Devices",
+      "ats": "workday",
+      "slug": "analogdevices.wd1/External",
+      "industry": "manufacturing",
+      "type": "direct",
+      "verified": true,
+      "added": "2026-09-26",
+      "notes": "§17.2 verified 2026-09-26: robots clean (Allow:/External/); no block; 106 PH of 109 (PH facet) fetched (Cavite GTC, BGC)"
     },
     {
       "name": "Anavah Talent",
@@ -292,6 +352,16 @@
       "notes": "verified 2026-09-26: 50 PH postings (Makati, AIA Tower)"
     },
     {
+      "name": "Axos",
+      "ats": "workday",
+      "slug": "axos.wd5/Axos",
+      "industry": "financial-services",
+      "type": "direct",
+      "verified": true,
+      "added": "2026-09-26",
+      "notes": "§17.2 verified 2026-09-26: robots clean (Allow:/Axos/); no block; 51 PH of 203 fetched (Manila)"
+    },
+    {
       "name": "Azeus Systems",
       "ats": "smartrecruiters",
       "slug": "AzeusSystemsPhilippinesLimited",
@@ -422,6 +492,16 @@
       "notes": "auto-verified 2026-08-05: 7 PH postings"
     },
     {
+      "name": "Cardinal Health",
+      "ats": "workday",
+      "slug": "cardinalhealth.wd1/EXT",
+      "industry": "healthtech",
+      "type": "direct",
+      "verified": true,
+      "added": "2026-09-26",
+      "notes": "§17.2 verified 2026-09-26: robots clean (Allow:/EXT/); no block; 24 PH of 25 (PH facet) fetched (BGC Taguig)"
+    },
+    {
       "name": "Career Team Enterprises",
       "ats": "greenhouse",
       "slug": "cteph",
@@ -440,6 +520,16 @@
       "verified": true,
       "added": "2026-09-25",
       "notes": "verified 2026-09-25: 4 PH postings (Manila SAP consulting)"
+    },
+    {
+      "name": "Chevron",
+      "ats": "workday",
+      "slug": "chevron.wd5/jobs",
+      "industry": "energy",
+      "type": "direct",
+      "verified": true,
+      "added": "2026-09-26",
+      "notes": "§17.2 verified 2026-09-26: robots clean (Allow:/jobs/); no block; 9 PH of 130 fetched (Makati)"
     },
     {
       "name": "CI&T",
@@ -591,6 +681,16 @@
       "verified": true,
       "added": "2026-09-26",
       "notes": "verified 2026-09-26: 1 PH posting (Philippines)"
+    },
+    {
+      "name": "Cushman & Wakefield",
+      "ats": "workday",
+      "slug": "cw.wd1/External",
+      "industry": "real-estate",
+      "type": "direct",
+      "verified": true,
+      "added": "2026-09-26",
+      "notes": "§17.2 verified 2026-09-26: robots clean (Allow:/External/); no block; 57 PH of 57 (PH facet) fetched (Taguig)"
     },
     {
       "name": "Cyberbacker",
@@ -913,6 +1013,16 @@
       "notes": "verified 2026-09-26: 28 PH postings (Pasig, Muntinlupa)"
     },
     {
+      "name": "FMC",
+      "ats": "workday",
+      "slug": "fmc.wd12/FMC",
+      "industry": "manufacturing",
+      "type": "direct",
+      "verified": true,
+      "added": "2026-09-26",
+      "notes": "§17.2 verified 2026-09-26: robots clean (Allow:/FMC/); no block; 3 PH of 76 fetched (Manila)"
+    },
+    {
       "name": "FreeUp",
       "ats": "breezy",
       "slug": "freeeup",
@@ -941,6 +1051,16 @@
       "verified": true,
       "added": "2026-06-11",
       "notes": "auto-verified 2026-06-11: 5 PH postings"
+    },
+    {
+      "name": "FWD Insurance",
+      "ats": "workday",
+      "slug": "fwd.wd3/FWDcareersite",
+      "industry": "insurance",
+      "type": "direct",
+      "verified": true,
+      "added": "2026-09-26",
+      "notes": "§17.2 verified 2026-09-26: robots clean (Allow:/FWDcareersite/); no block; 21 PH of 187 fetched (BGC Taguig)"
     },
     {
       "name": "G2i",
@@ -981,6 +1101,16 @@
       "verified": true,
       "added": "2026-07-06",
       "notes": "RE-ENABLED 2026-09-25 after maintainer review: the 2026-08-29 disable was a one-off robots.txt HTTP 503 (Workday maintenance window), not a §17.1 block. Re-check: robots.txt 200 with Allow: /Mynt/ and no rule covering /wday/cxs; one jobs request returned clean JSON (160 postings, 17 of first 20 PH (no PH facet)). Originally verified 2026-07-06 with 170 PH postings."
+    },
+    {
+      "name": "General Motors",
+      "ats": "workday",
+      "slug": "generalmotors.wd5/Careers_GM",
+      "industry": "automotive",
+      "type": "direct",
+      "verified": true,
+      "added": "2026-09-26",
+      "notes": "§17.2 verified 2026-09-26: robots clean (Allow:/Careers_GM/); no block; 4 PH of 4 (PH facet) fetched (Taguig)"
     },
     {
       "name": "Genpact",
@@ -1061,6 +1191,16 @@
       "verified": true,
       "added": "2026-09-25",
       "notes": "verified 2026-09-25: 19 PH postings (Pasig)"
+    },
+    {
+      "name": "GSK",
+      "ats": "workday",
+      "slug": "gsk.wd5/GSKCareers",
+      "industry": "healthtech",
+      "type": "direct",
+      "verified": true,
+      "added": "2026-09-26",
+      "notes": "§17.2 verified 2026-09-26: robots clean (Allow:/GSKCareers/); no block; 2 PH of 6 (PH facet) fetched (NCR, Cebu)"
     },
     {
       "name": "GUS Education Philippines",
@@ -1173,6 +1313,16 @@
       "notes": "auto-verified 2026-06-11: 136 PH postings"
     },
     {
+      "name": "Hitachi",
+      "ats": "workday",
+      "slug": "hitachi.wd1/hitachi",
+      "industry": "manufacturing",
+      "type": "direct",
+      "verified": true,
+      "added": "2026-09-26",
+      "notes": "§17.2 verified 2026-09-26: robots clean (Allow:/hitachi/); no block; 10 PH of 10 (PH facet) fetched (Parañaque)"
+    },
+    {
       "name": "Hitachi Solutions",
       "ats": "smartrecruiters",
       "slug": "HitachiSolutions",
@@ -1211,6 +1361,16 @@
       "verified": true,
       "added": "2026-09-26",
       "notes": "verified 2026-09-26: 3 PH postings (Pasig)"
+    },
+    {
+      "name": "HP",
+      "ats": "workday",
+      "slug": "hp.wd5/ExternalCareerSite",
+      "industry": "manufacturing",
+      "type": "direct",
+      "verified": true,
+      "added": "2026-09-26",
+      "notes": "§17.2 verified 2026-09-26: robots clean (Allow:/ExternalCareerSite/); no block; 1 PH of 1 (PH facet) fetched (Makati)"
     },
     {
       "name": "HRTX",
@@ -1291,6 +1451,16 @@
       "verified": true,
       "added": "2026-06-11",
       "notes": "auto-verified 2026-06-11: 2 PH postings"
+    },
+    {
+      "name": "IQVIA",
+      "ats": "workday",
+      "slug": "iqvia.wd1/IQVIA",
+      "industry": "healthtech",
+      "type": "direct",
+      "verified": true,
+      "added": "2026-09-26",
+      "notes": "§17.2 verified 2026-09-26: robots clean (Allow:/IQVIA/); no block; 43 PH of 46 (PH facet) fetched (Taguig, Pasig)"
     },
     {
       "name": "iRely",
@@ -1423,6 +1593,16 @@
       "notes": "auto-verified 2026-06-11: PH-headquartered, 0 open PH roles today. 2026-09-25: Workable board live but empty; no board found on greenhouse/lever/ashby/recruitee/bamboohr/breezy/manatal under the obvious slug. 2026-09-26: workable:kmc-solutions still empty; moved to manatal:kmc-solutions-inc — 51 PH postings; careers-page.com board titled KMC Solutions Inc."
     },
     {
+      "name": "KONE",
+      "ats": "workday",
+      "slug": "kone.wd3/Careers",
+      "industry": "manufacturing",
+      "type": "direct",
+      "verified": true,
+      "added": "2026-09-26",
+      "notes": "§17.2 verified 2026-09-26: robots clean (Allow:/Careers/); no block; 4 PH of 4 (PH facet) fetched (Makati, Cebu)"
+    },
+    {
       "name": "Kraken",
       "ats": "ashby",
       "slug": "kraken.com",
@@ -1481,6 +1661,16 @@
       "verified": true,
       "added": "2026-06-11",
       "notes": "auto-verified 2026-06-11: 1 PH postings"
+    },
+    {
+      "name": "Levi Strauss & Co.",
+      "ats": "workday",
+      "slug": "levistraussandco.wd5/External",
+      "industry": "retail",
+      "type": "direct",
+      "verified": true,
+      "added": "2026-09-26",
+      "notes": "§17.2 verified 2026-09-26: robots clean (Allow:/External/); no block; 8 PH of 8 (PH facet) fetched (Makati)"
     },
     {
       "name": "Lightspeed Commerce",
@@ -1563,6 +1753,16 @@
       "notes": "§17.2 round-8 verified 2026-08-07: robots clean (Allow:/CorporateCareers/); no block; 1000-cap / 11 PH"
     },
     {
+      "name": "Medtronic",
+      "ats": "workday",
+      "slug": "medtronic.wd1/MedtronicCareers",
+      "industry": "healthtech",
+      "type": "direct",
+      "verified": true,
+      "added": "2026-09-26",
+      "notes": "§17.2 verified 2026-09-26: robots clean (Allow:/MedtronicCareers/); no block; 26 PH of 27 (PH facet) fetched (Taguig)"
+    },
+    {
       "name": "Mind You",
       "ats": "smartrecruiters",
       "slug": "MindYouMentalHealthSystemsInc",
@@ -1623,6 +1823,16 @@
       "notes": "auto-verified 2026-07-06: 389 PH postings"
     },
     {
+      "name": "MRI Software",
+      "ats": "workday",
+      "slug": "mrisoftware.wd501/External_CareerSite",
+      "industry": "software",
+      "type": "direct",
+      "verified": true,
+      "added": "2026-09-26",
+      "notes": "§17.2 verified 2026-09-26: robots clean (Allow:/External_CareerSite/); no block; 18 PH of 92 fetched (Manila, Baguio)"
+    },
+    {
       "name": "MultiplyMii",
       "ats": "ashby",
       "slug": "multiplymii",
@@ -1641,6 +1851,16 @@
       "verified": true,
       "added": "2026-07-19",
       "notes": "auto-verified 2026-07-19: 14 PH postings"
+    },
+    {
+      "name": "Nasdaq",
+      "ats": "workday",
+      "slug": "nasdaq.wd1/Global_External_Site",
+      "industry": "fintech",
+      "type": "direct",
+      "verified": true,
+      "added": "2026-09-26",
+      "notes": "§17.2 verified 2026-09-26: robots clean (Allow:/Global_External_Site/); no block; 11 PH of 176 fetched (Taguig)"
     },
     {
       "name": "NCR Voyix",
@@ -1843,6 +2063,16 @@
       "notes": "auto-verified 2026-06-11: 4 PH postings"
     },
     {
+      "name": "Pax8",
+      "ats": "workday",
+      "slug": "pax8inc.wd12/Pax8Careers",
+      "industry": "it-services",
+      "type": "direct",
+      "verified": true,
+      "added": "2026-09-26",
+      "notes": "§17.2 verified 2026-09-26: robots clean (Allow:/Pax8Careers/); no block; 5 PH of 59 fetched (Manila)"
+    },
+    {
       "name": "PayJoy",
       "ats": "lever",
       "slug": "payjoy",
@@ -2003,6 +2233,26 @@
       "notes": "verified 2026-09-25: 11 PH postings (Cebu, Quezon City)"
     },
     {
+      "name": "Regal Rexnord",
+      "ats": "workday",
+      "slug": "regalrexnord.wd1/Careers",
+      "industry": "manufacturing",
+      "type": "direct",
+      "verified": true,
+      "added": "2026-09-26",
+      "notes": "§17.2 verified 2026-09-26: robots clean (Allow:/Careers/); no block; 21 PH of 21 (PH facet) fetched (Pasig)"
+    },
+    {
+      "name": "RELX",
+      "ats": "workday",
+      "slug": "relx.wd3/relx",
+      "industry": "media",
+      "type": "direct",
+      "verified": true,
+      "added": "2026-09-26",
+      "notes": "§17.2 verified 2026-09-26: robots clean (Allow:/relx/); no block; 96 PH of 125 fetched (Manila; Elsevier/LexisNexis parent)"
+    },
+    {
       "name": "Remote",
       "ats": "greenhouse",
       "slug": "remotecom",
@@ -2123,6 +2373,16 @@
       "notes": "auto-verified 2026-07-19: 1 PH postings 2026-09-26 recheck: live, 45 postings, 0 PH (kept; has hired in PH before)."
     },
     {
+      "name": "S&P Global",
+      "ats": "workday",
+      "slug": "spgi.wd5/SPGI_Careers",
+      "industry": "financial-services",
+      "type": "direct",
+      "verified": true,
+      "added": "2026-09-26",
+      "notes": "§17.2 verified 2026-09-26: robots clean (Allow:/SPGI_Careers/); no block; 6 PH of 275 fetched (Metro Manila)"
+    },
+    {
       "name": "Salesforce",
       "ats": "workday",
       "slug": "salesforce.wd12/External_Career_Site",
@@ -2133,6 +2393,16 @@
       "notes": "§17.2 round-8 verified 2026-08-07: robots clean (Allow:/External_Career_Site/); no block; 12 postings / 11 PH"
     },
     {
+      "name": "Samsung",
+      "ats": "workday",
+      "slug": "sec.wd3/Samsung_Careers",
+      "industry": "software",
+      "type": "direct",
+      "verified": true,
+      "added": "2026-09-26",
+      "notes": "§17.2 verified 2026-09-26: robots clean (Allow:/Samsung_Careers/); no block; 5 PH of 5 (PH facet) fetched (Samsung R&D, Science Hub Manila)"
+    },
+    {
       "name": "SGS",
       "ats": "smartrecruiters",
       "slug": "SGS",
@@ -2141,6 +2411,16 @@
       "verified": true,
       "added": "2026-06-11",
       "notes": "auto-verified 2026-06-11: 219 PH postings"
+    },
+    {
+      "name": "Shell",
+      "ats": "workday",
+      "slug": "shell.wd3/ShellCareers",
+      "industry": "energy",
+      "type": "direct",
+      "verified": true,
+      "added": "2026-09-26",
+      "notes": "§17.2 verified 2026-09-26: robots clean (Allow:/ShellCareers/); no block; 1 PH of 148 fetched (Finance Centre BGC)"
     },
     {
       "name": "Siegen HR Solutions",
@@ -2373,6 +2653,16 @@
       "notes": "verified 2026-09-26: 4 PH postings (Manila)"
     },
     {
+      "name": "Telstra",
+      "ats": "workday",
+      "slug": "telstra.wd3/Telstra_Careers",
+      "industry": "telecom",
+      "type": "direct",
+      "verified": true,
+      "added": "2026-09-26",
+      "notes": "§17.2 verified 2026-09-26: robots clean (Allow:/Telstra_Careers/); no block; 1 PH of 238 fetched (Metro Manila)"
+    },
+    {
       "name": "TELUS Digital",
       "ats": "workday",
       "slug": "telusinternational.wd3/External",
@@ -2474,6 +2764,16 @@
       "notes": "verified 2026-09-26: 11 PH postings (Pasay, Taguig, Cebu)"
     },
     {
+      "name": "TSYS",
+      "ats": "workday",
+      "slug": "tsys.wd1/TSYS",
+      "industry": "fintech",
+      "type": "direct",
+      "verified": true,
+      "added": "2026-09-26",
+      "notes": "§17.2 verified 2026-09-26: robots clean (Allow:/TSYS/); no block; 54 PH of 310 fetched (Quezon City)"
+    },
+    {
       "name": "Turnitin",
       "ats": "smartrecruiters",
       "slug": "TurnitinLLC",
@@ -2512,6 +2812,16 @@
       "verified": true,
       "added": "2026-07-06",
       "notes": "RE-ENABLED 2026-09-25 after maintainer review: the 2026-08-29 disable was a one-off robots.txt HTTP 503 (Workday maintenance window), not a §17.1 block. Re-check: robots.txt 200 with Allow: /Unilever_Experienced_Professionals/ and no rule covering /wday/cxs; one jobs request returned clean JSON (17 PH via locationCountry facet of 241). Originally verified 2026-07-06 with 16 PH postings."
+    },
+    {
+      "name": "UNIQLO Philippines",
+      "ats": "workday",
+      "slug": "fastretailing.wd3/store_staff_ph_Uniqlo",
+      "industry": "retail",
+      "type": "direct",
+      "verified": true,
+      "added": "2026-09-26",
+      "notes": "§17.2 verified 2026-09-26: robots clean (Allow:/store_staff_ph_Uniqlo/); no block; 7 PH of 23 fetched (PH-only store site; store locations like 'UNIQLO SM Makati(FRPH)' do not all pass the PH filter)"
     },
     {
       "name": "Unisys",
@@ -2582,6 +2892,16 @@
       "verified": true,
       "added": "2026-06-11",
       "notes": "auto-verified 2026-06-11: 27 PH postings"
+    },
+    {
+      "name": "Wells Fargo",
+      "ats": "workday",
+      "slug": "wf.wd1/WellsFargoJobs",
+      "industry": "financial-services",
+      "type": "direct",
+      "verified": true,
+      "added": "2026-09-26",
+      "notes": "§17.2 verified 2026-09-26: robots clean (Allow:/WellsFargoJobs/); no block; 80 PH of 81 (PH facet) fetched (Taguig)"
     },
     {
       "name": "Welo Global",
