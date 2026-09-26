@@ -34,6 +34,10 @@ export function parseRegistry(raw: unknown): Registry {
     if (entry.disabled !== undefined && typeof entry.disabled !== "boolean") {
       fail(`${where} (${String(entry.name)}): disabled must be boolean when present`);
     }
+    if (entry.disabled === true && (typeof entry.notes !== "string" || entry.notes === "")) {
+      // Disabling is permanent; it needs recorded evidence of a genuine block (§17.1.7).
+      fail(`${where} (${String(entry.name)}): disabled entries need notes with the evidence`);
+    }
     if (entry.type !== "direct" && entry.type !== "agency") {
       fail(`${where} (${String(entry.name)}): type must be "direct" or "agency"`);
     }
