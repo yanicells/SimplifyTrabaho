@@ -351,6 +351,12 @@ A listing is kept iff at least one location string (case-insensitive) matches:
 Excluded by design: bare `remote`, `remote - apac`, `remote - asia`, `remote -
 southeast asia` (can't confirm PH eligibility — revisit in ROADMAP).
 
+Namesakes abroad: a keyword match is vetoed when the string also names the US (a
+state code or state name) or another country/region that shares a PH keyword
+(India/Delhi NCR, Canada/Ottawa's National Capital Region, Latin American Santa
+Rosas), unless it names the Philippines (or the `PH` code) too. The Workday facet
+picker (§17.1.4) uses the same check, so a foreign site is never faceted as PH.
+
 Keep the keyword list as a single exported constant so it's easy to extend. Log (to
 console, optionally to TRACKER) a sample of _rejected_ location strings per run so
 missing keywords get noticed.

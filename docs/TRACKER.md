@@ -6,6 +6,14 @@
 
 ## ✅ Done
 
+- [x] 2026-09-27 — **Launch audit, second opinion** (stacked on #37):
+  - [x] PH filter no longer keeps other countries' namesakes: "Gurugram, Delhi
+        NCR, India", "Ottawa, National Capital Region, Canada", "Manila, Arkansas",
+        "Laguna Hills, California", "Santa Rosa, La Pampa, Argentina" were all PH
+        (and tagged `ncr`/`calabarzon`). Same check picks Workday site facets, so a
+        Delhi NCR site could have stamped Indian jobs Philippine. 0 of 868 real
+        location strings change verdict.
+
 - [x] 2026-09-27 — **Final pre-launch review** (stacked PRs on #34): no user-facing
       bugs or golden-rule breaks found. Three fixes:
   - [x] Public source lists (footer, `llms.txt`, generated README) name all twelve
