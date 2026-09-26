@@ -1,6 +1,6 @@
 import { normalizeSmartRecruiters } from "../normalize.js";
 import type { FetchedPosting, FetchResult, RegistryCompany } from "../types.js";
-import { politeJsonGet, type HttpDeps, type HttpOutcome } from "./http.js";
+import { errorMessage, failedFetch, politeJsonGet, type HttpDeps } from "./http.js";
 
 const PAGE_LIMIT = 100;
 
@@ -11,16 +11,6 @@ export function smartRecruitersUrl(slug: string, offset = 0): string {
 /** Unfiltered one-posting probe: tells a live company with 0 PH jobs from an unknown one. */
 export function smartRecruitersLivenessUrl(slug: string): string {
   return `https://api.smartrecruiters.com/v1/companies/${encodeURIComponent(slug)}/postings?limit=1`;
-}
-
-function failure(outcome: Exclude<HttpOutcome, { kind: "ok" }>, slug: string): FetchResult {
-  if (outcome.kind === "not-found") {
-    return { ok: false, errorKind: "dead-slug", detail: `company not found: ${slug}` };
-  }
-  if (outcome.kind === "http") {
-    return { ok: false, errorKind: "http", detail: `HTTP ${outcome.status}` };
-  }
-  return { ok: false, errorKind: "network", detail: outcome.message };
 }
 
 // SmartRecruiters quirks (verified live 2026-06-11; country filter 2026-09-25):
@@ -41,7 +31,8 @@ export async function fetchSmartRecruiters(
 
   while (offset < totalFound) {
     const outcome = await politeJsonGet(smartRecruitersUrl(company.slug, offset), deps);
-    if (outcome.kind !== "ok") return failure(outcome, company.slug);
+    if (outcome.kind !== "ok")
+      return failedFetch(outcome, `company not found: ${company.slug}`);
     const body = outcome.body as { totalFound?: unknown; content?: unknown };
     totalFound = typeof body.totalFound === "number" ? body.totalFound : 0;
     try {
@@ -50,17 +41,13 @@ export async function fetchSmartRecruiters(
       if (page.length === 0) break; // defensive: never loop on a non-advancing page
       offset += page.length;
     } catch (error) {
-      return {
-        ok: false,
-        errorKind: "http",
-        detail: error instanceof Error ? error.message : String(error),
-      };
+      return { ok: false, errorKind: "http", detail: errorMessage(error) };
     }
   }
 
   if (postings.length === 0) {
     const probe = await politeJsonGet(smartRecruitersLivenessUrl(company.slug), deps);
-    if (probe.kind !== "ok") return failure(probe, company.slug);
+    if (probe.kind !== "ok") return failedFetch(probe, `company not found: ${company.slug}`);
     const anyTotal = (probe.body as { totalFound?: unknown }).totalFound;
     if (typeof anyTotal === "number" && anyTotal > 0) return { ok: true, postings };
     return {

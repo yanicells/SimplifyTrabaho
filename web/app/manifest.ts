@@ -21,24 +21,16 @@ export default function manifest(): MetadataRoute.Manifest {
     background_color: "#ffffff",
     theme_color: "#ffffff",
     icons: [
+      // The mark sits on a full-bleed white rounded field inside the safe zone,
+      // so the same asset survives Android's adaptive-icon crop.
       {
         src: "/social/simplifytrabaho-mark.png",
-        sizes: "1254x1254",
-        type: "image/png",
-        purpose: "any",
-      },
-      // Raster fallback for install surfaces that do not use the static mark;
-      // app/icon.tsx generates it from the same source image.
-      {
-        src: "/icon",
         sizes: "512x512",
         type: "image/png",
         purpose: "any",
       },
-      // The mark sits on a full-bleed white rounded field inside the safe zone,
-      // so the same asset survives Android's adaptive-icon crop.
       {
-        src: "/icon",
+        src: "/social/simplifytrabaho-mark.png",
         sizes: "512x512",
         type: "image/png",
         purpose: "maskable",

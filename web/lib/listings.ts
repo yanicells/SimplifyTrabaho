@@ -8,7 +8,11 @@ import { interleaveByCompany } from "../../pipeline/src/feed";
 import { isPhilippineLocation } from "../../pipeline/src/filter";
 import {
   ATS_SOURCES,
+  COMPANY_TYPES,
+  JOB_FUNCTIONS,
+  LEVELS,
   METRO_TAGS,
+  WORK_SETUPS,
   type CompanyType,
   type JobFunction,
   type Level,
@@ -45,30 +49,6 @@ export interface JobsPayload {
   updatedAt: string;
   jobs: Job[];
 }
-
-const WORK_SETUPS: readonly WorkSetup[] = ["onsite", "hybrid", "remote", "unknown"];
-const LEVELS: readonly Level[] = ["internship", "entry", "mid", "senior", "unknown"];
-const FUNCTIONS: readonly JobFunction[] = [
-  "engineering",
-  "data",
-  "design",
-  "product",
-  "marketing",
-  "sales",
-  "finance",
-  "hr",
-  "operations",
-  "customer-support",
-  "legal",
-  "healthcare",
-  "education",
-  "hospitality",
-  "manufacturing",
-  "retail",
-  "construction",
-  "other",
-];
-const COMPANY_TYPES: readonly CompanyType[] = ["direct", "agency"];
 
 function fail(where: string, problem: string): never {
   throw new Error(`listings.json invalid: ${where} ${problem}`);
@@ -138,7 +118,7 @@ function parseListing(raw: unknown, index: number): Listing {
     locations: locations as string[],
     workSetup: requireEnum(obj, where, "workSetup", WORK_SETUPS),
     level: requireEnum(obj, where, "level", LEVELS),
-    function: requireEnum(obj, where, "function", FUNCTIONS),
+    function: requireEnum(obj, where, "function", JOB_FUNCTIONS),
     industry: obj.industry,
     companyType: requireEnum(obj, where, "companyType", COMPANY_TYPES),
     metro: metro as MetroTag[],

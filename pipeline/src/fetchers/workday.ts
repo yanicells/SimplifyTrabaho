@@ -1,6 +1,6 @@
 import { normalizeWorkday, parseWorkdaySlug } from "../normalize.js";
 import type { FetchResult, RegistryCompany } from "../types.js";
-import { requestSignal, USER_AGENT, type HttpDeps } from "./http.js";
+import { errorMessage, requestSignal, USER_AGENT, type HttpDeps } from "./http.js";
 
 export { parseWorkdaySlug };
 
@@ -149,7 +149,7 @@ async function postJobsPage(
   } catch (error) {
     return {
       kind: "network",
-      message: error instanceof Error ? error.message : String(error),
+      message: errorMessage(error),
     };
   }
 }
@@ -169,7 +169,7 @@ export async function fetchWorkday(
     return {
       ok: false,
       errorKind: "dead-slug",
-      detail: error instanceof Error ? error.message : String(error),
+      detail: errorMessage(error),
     };
   }
   const { tenant, host, site } = parsed;
@@ -212,7 +212,7 @@ export async function fetchWorkday(
     return {
       ok: false,
       errorKind: "network",
-      detail: error instanceof Error ? error.message : String(error),
+      detail: errorMessage(error),
     };
   }
 
@@ -268,7 +268,7 @@ export async function fetchWorkday(
     return {
       ok: false,
       errorKind: "http",
-      detail: error instanceof Error ? error.message : String(error),
+      detail: errorMessage(error),
     };
   }
 }

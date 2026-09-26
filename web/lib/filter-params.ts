@@ -5,44 +5,33 @@
 // retired values (metro=remote-ph) from older links are ignored the same way.
 
 import {
+  COMPANY_TYPES,
+  JOB_FUNCTIONS,
+  LEVELS,
   METRO_TAGS,
+  WORK_SETUPS as ALL_WORK_SETUPS,
   type CompanyType,
   type JobFunction,
+  type Level,
   type MetroTag,
   type WorkSetup,
 } from "../../pipeline/src/types";
 
-export const SELECTABLE_LEVELS = ["internship", "entry", "mid", "senior"] as const;
+export const SELECTABLE_LEVELS = LEVELS.filter(
+  (l): l is Exclude<Level, "unknown"> => l !== "unknown",
+);
 export type SelectableLevel = (typeof SELECTABLE_LEVELS)[number];
 
-export const SELECTABLE_FUNCTIONS = [
-  "engineering",
-  "data",
-  "design",
-  "product",
-  "marketing",
-  "sales",
-  "finance",
-  "hr",
-  "operations",
-  "customer-support",
-  "legal",
-  "healthcare",
-  "education",
-  "hospitality",
-  "manufacturing",
-  "retail",
-  "construction",
-  "other",
-] as const satisfies readonly JobFunction[];
+export const SELECTABLE_FUNCTIONS = JOB_FUNCTIONS;
 
 /** Work setup already covers remote, so "Remote (PH)" isn't offered as a place. */
 export const SELECTABLE_METROS = METRO_TAGS.filter(
   (m): m is Exclude<MetroTag, "remote-ph"> => m !== "remote-ph",
 );
 
-const WORK_SETUPS = ["onsite", "hybrid", "remote"] as const;
-const COMPANY_TYPES = ["direct", "agency"] as const satisfies readonly CompanyType[];
+const WORK_SETUPS = ALL_WORK_SETUPS.filter(
+  (w): w is Exclude<WorkSetup, "unknown"> => w !== "unknown",
+);
 
 export interface Filters {
   /** Empty array = all roles (no level filter). */

@@ -1,6 +1,8 @@
 // Polite HTTP layer (SPEC §3.5): identifying User-Agent, ≥1s between requests,
 // exponential backoff on 429/5xx/network errors, max 3 attempts, no retry on 404.
 
+import type { FetchedPosting, FetchResult } from "../types.js";
+
 export const USER_AGENT =
   "simplifytrabaho/0.1.0 (+https://github.com/yanicells/SimplifyTrabaho)";
 
@@ -69,6 +71,44 @@ export async function politeJsonGet(url: string, deps: HttpDeps = {}): Promise<H
     if (attempt < MAX_ATTEMPTS) await sleep(BACKOFF_BASE_MS * 2 ** (attempt - 1));
   }
   return last;
+}
+
+export function errorMessage(error: unknown): string {
+  return error instanceof Error ? error.message : String(error);
+}
+
+/** Maps a failed HTTP outcome to a FetchResult; `notFound` is the dead-slug detail. */
+export function failedFetch(
+  outcome: Exclude<HttpOutcome, { kind: "ok" }>,
+  notFound: string,
+): FetchResult {
+  switch (outcome.kind) {
+    case "not-found":
+      return { ok: false, errorKind: "dead-slug", detail: notFound };
+    case "http":
+      return { ok: false, errorKind: "http", detail: `HTTP ${outcome.status}` };
+    case "network":
+      return { ok: false, errorKind: "network", detail: outcome.message };
+  }
+}
+
+/**
+ * The whole fetcher for single-request JSON boards: one polite GET, then normalize.
+ * A normalizer throw (malformed payload) becomes an "http" failure, never a crash.
+ */
+export async function fetchJsonBoard(
+  url: string,
+  normalize: (body: unknown) => FetchedPosting[],
+  notFound: string,
+  deps: HttpDeps = {},
+): Promise<FetchResult> {
+  const outcome = await politeJsonGet(url, deps);
+  if (outcome.kind !== "ok") return failedFetch(outcome, notFound);
+  try {
+    return { ok: true, postings: normalize(outcome.body) };
+  } catch (error) {
+    return { ok: false, errorKind: "http", detail: errorMessage(error) };
+  }
 }
 
 /**

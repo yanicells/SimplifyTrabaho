@@ -1,6 +1,6 @@
 import { normalizeManatal } from "../normalize.js";
 import type { FetchedPosting, FetchResult, RegistryCompany } from "../types.js";
-import { politeJsonGet, type HttpDeps } from "./http.js";
+import { errorMessage, failedFetch, politeJsonGet, type HttpDeps } from "./http.js";
 
 const PAGE_SIZE = 100; // requested, but the API ignores it and serves 20 per page
 // Safety cap only (~10,000 postings at 20/page; MR DIY alone has ~2,100). Hitting it
@@ -24,25 +24,12 @@ export async function fetchManatal(
 
   while (url && pages < MAX_PAGES) {
     const outcome = await politeJsonGet(url, deps);
-    if (outcome.kind === "not-found") {
-      return {
-        ok: false,
-        errorKind: "dead-slug",
-        detail: `client not found: ${company.slug}`,
-      };
-    }
-    if (outcome.kind === "http")
-      return { ok: false, errorKind: "http", detail: `HTTP ${outcome.status}` };
-    if (outcome.kind === "network")
-      return { ok: false, errorKind: "network", detail: outcome.message };
+    if (outcome.kind !== "ok")
+      return failedFetch(outcome, `client not found: ${company.slug}`);
     try {
       postings.push(...normalizeManatal(company, outcome.body));
     } catch (error) {
-      return {
-        ok: false,
-        errorKind: "http",
-        detail: error instanceof Error ? error.message : String(error),
-      };
+      return { ok: false, errorKind: "http", detail: errorMessage(error) };
     }
     const next = (outcome.body as { next?: unknown }).next;
     url = typeof next === "string" && next !== "" ? next : null;

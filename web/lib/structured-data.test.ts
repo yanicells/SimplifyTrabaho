@@ -92,7 +92,7 @@ describe("buildGraph", () => {
 
   it("uses the raster logo, since Google's logo rich result rejects SVG", () => {
     const logo = node("Organization").logo as { url: string };
-    expect(logo.url).toBe(`${SITE_URL}/icon`);
+    expect(logo.url).toBe(`${SITE_URL}/social/simplifytrabaho-mark.png`);
     expect(logo.url).not.toMatch(/\.svg$/);
   });
 

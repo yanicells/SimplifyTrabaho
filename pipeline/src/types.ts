@@ -16,32 +16,37 @@ export const ATS_SOURCES = [
 export type AtsSource = (typeof ATS_SOURCES)[number];
 
 /** Schema v2 → v3 (SPEC §7): registry employer type, denormalized onto each Listing. */
-export type CompanyType = "direct" | "agency";
+export const COMPANY_TYPES = ["direct", "agency"] as const;
+export type CompanyType = (typeof COMPANY_TYPES)[number];
 
-export type WorkSetup = "onsite" | "hybrid" | "remote" | "unknown";
+export const WORK_SETUPS = ["onsite", "hybrid", "remote", "unknown"] as const;
+export type WorkSetup = (typeof WORK_SETUPS)[number];
 
-export type Level = "internship" | "entry" | "mid" | "senior" | "unknown";
+export const LEVELS = ["internship", "entry", "mid", "senior", "unknown"] as const;
+export type Level = (typeof LEVELS)[number];
 
 /** Schema v2 (SPEC §6): 18 values aligned with the SEEK/JobStreet classification. */
-export type JobFunction =
-  | "engineering"
-  | "data"
-  | "design"
-  | "product"
-  | "marketing"
-  | "sales"
-  | "finance"
-  | "hr"
-  | "operations"
-  | "customer-support"
-  | "legal"
-  | "healthcare"
-  | "education"
-  | "hospitality"
-  | "manufacturing"
-  | "retail"
-  | "construction"
-  | "other";
+export const JOB_FUNCTIONS = [
+  "engineering",
+  "data",
+  "design",
+  "product",
+  "marketing",
+  "sales",
+  "finance",
+  "hr",
+  "operations",
+  "customer-support",
+  "legal",
+  "healthcare",
+  "education",
+  "hospitality",
+  "manufacturing",
+  "retail",
+  "construction",
+  "other",
+] as const;
+export type JobFunction = (typeof JOB_FUNCTIONS)[number];
 
 export type EmploymentType = "full-time" | "part-time" | "contract" | "internship" | "unknown";
 
