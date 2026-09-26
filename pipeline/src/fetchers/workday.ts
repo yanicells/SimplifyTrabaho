@@ -17,8 +17,9 @@ export { parseWorkdaySlug };
 const POLITENESS_GAP_MS = 2000; // stricter than the ≥1s Tier-A rule (§17.1.3)
 const PAGE_SIZE = 20; // the page's own request size
 const MAX_POSTINGS = 1000; // §17.1.3 pagination cap
-/** Above this total we look for a Philippines facet instead of bulk-pulling (§17.1.4). */
-const FACET_TRIGGER_TOTAL = 500;
+// Only these observed Workday parameters represent countries. A "Philippines"
+// value under `locations`/`primaryLocation` is one site, not a country filter.
+const COUNTRY_FACET_PARAMETERS = new Set(["locationcountry", "location_country"]);
 
 const realSleep = (ms: number) => new Promise<void>((resolve) => setTimeout(resolve, ms));
 
@@ -74,27 +75,35 @@ interface FacetNode {
 }
 
 /**
- * Find a Philippines value in the page's own facet list (§17.1.4). Facet groups
- * can nest (Accenture: locationMainGroup > Country > Philippines); the nested
- * group carries the facetParameter that appliedFacets must use.
+ * Find a Philippines country value in the page's own facet list (§17.1.4).
+ * Groups can nest; the country group carries the appliedFacets parameter.
  */
 function findPhilippinesFacet(
   nodes: unknown,
   parameter: string | null = null,
+  countryGroup = false,
 ): { parameter: string; id: string } | null {
   if (!Array.isArray(nodes)) return null;
   for (const raw of nodes) {
     const node = raw as FacetNode;
     const ownParameter =
       typeof node?.facetParameter === "string" ? node.facetParameter : parameter;
+    const ownCountryGroup =
+      typeof node?.facetParameter === "string"
+        ? COUNTRY_FACET_PARAMETERS.has(node.facetParameter.toLowerCase()) ||
+          (node.facetParameter.toLowerCase() === "locationhierarchy1" &&
+            String(node.descriptor ?? "").toLowerCase() === "location country")
+        : countryGroup;
     if (
       ownParameter !== null &&
-      String(node?.descriptor ?? "").toLowerCase() === "philippines" &&
+      ownCountryGroup &&
+      typeof node?.descriptor === "string" &&
+      node.descriptor.trim().toLowerCase() === "philippines" &&
       typeof node?.id === "string"
     ) {
       return { parameter: ownParameter, id: node.id };
     }
-    const nested = findPhilippinesFacet(node?.values, ownParameter);
+    const nested = findPhilippinesFacet(node?.values, ownParameter, ownCountryGroup);
     if (nested) return nested;
   }
   return null;
@@ -225,7 +234,7 @@ export async function fetchWorkday(
   let total = Number(page.total ?? 0);
   let phFaceted = false;
 
-  if (total > FACET_TRIGGER_TOTAL) {
+  if (total > PAGE_SIZE) {
     const ph = findPhilippinesFacet(page.facets);
     if (ph) {
       phFaceted = true;

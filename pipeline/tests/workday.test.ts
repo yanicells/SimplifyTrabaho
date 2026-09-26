@@ -312,6 +312,116 @@ describe("fetchWorkday — PH facet at the source (guardrail §17.1.4)", () => {
     });
   });
 
+  it.each([
+    ["Markets", "locationCountry"],
+    ["Location Country", "locationHierarchy1"],
+  ])("uses the nested %s country group", async (descriptor, parameter) => {
+    const facets = [
+      {
+        facetParameter: "locationMainGroup",
+        values: [
+          {
+            facetParameter: parameter,
+            descriptor,
+            values: [{ descriptor: "Philippines", id: "ph-country", count: 10 }],
+          },
+          {
+            facetParameter: "locations",
+            descriptor: "Locations",
+            values: [{ descriptor: "Manila, Philippines", id: "ph-site", count: 2 }],
+          },
+        ],
+      },
+    ];
+    const http = fakeHttp({ status: 404, text: "" }, [
+      { status: 200, json: jobsPage(219, 20, facets) },
+      { status: 200, json: jobsPage(10, 10) },
+    ]);
+    const result = await fetchWorkday(COMPANY, http);
+    expect(result.ok).toBe(true);
+    const posts = http.calls.filter((call) => call.method === "POST");
+    expect(posts).toHaveLength(2); // 219 global jobs: 11 pages before, 2 with the PH facet.
+    expect((posts[1]?.body as { appliedFacets: object }).appliedFacets).toEqual({
+      [parameter]: ["ph-country"],
+    });
+  });
+
+  it("uses a top-level Location_Country group", async () => {
+    const facets = [
+      {
+        facetParameter: "Location_Country",
+        descriptor: "Location Country",
+        values: [{ descriptor: "Philippines", id: "ph-country", count: 46 }],
+      },
+    ];
+    const http = fakeHttp({ status: 404, text: "" }, [
+      { status: 200, json: jobsPage(1882, 20, facets) },
+      { status: 200, json: jobsPage(1, 1) },
+    ]);
+    await fetchWorkday(COMPANY, http);
+    const posts = http.calls.filter((call) => call.method === "POST");
+    expect((posts[1]?.body as { appliedFacets: object }).appliedFacets).toEqual({
+      Location_Country: ["ph-country"],
+    });
+  });
+
+  it.each([
+    ["Genpact", "1901-G-Php: Cyberpob, Quezon, Philippines"],
+    ["Johnson & Johnson", "Taguig, National Capital Region (Manila), Philippines"],
+    ["Maersk", "Philippines, Pasig, 1600"],
+    ["Mastercard", "Manila, Philippines"],
+    ["PwC", "Makati"],
+  ])("does not treat %s's site location as a country facet", async (_tenant, location) => {
+    const facets = [
+      {
+        facetParameter: "locationMainGroup",
+        values: [
+          {
+            facetParameter: "locations",
+            descriptor: "Locations",
+            values: [{ descriptor: location, id: "site-id", count: 1 }],
+          },
+        ],
+      },
+    ];
+    const http = fakeHttp({ status: 404, text: "" }, [
+      { status: 200, json: jobsPage(1001, 20, facets) },
+    ]);
+    const result = await fetchWorkday(COMPANY, http);
+    expect(result).toMatchObject({ ok: true, partial: true });
+    const posts = http.calls.filter((call) => call.method === "POST");
+    expect(posts).toHaveLength(50);
+    expect(
+      posts.every(
+        (call) =>
+          Object.keys((call.body as { appliedFacets: object }).appliedFacets).length === 0,
+      ),
+    ).toBe(true);
+  });
+
+  it("rejects an exact Philippines site value without a country group", async () => {
+    const facets = [
+      {
+        facetParameter: "locationMainGroup",
+        values: [
+          {
+            facetParameter: "primaryLocation",
+            descriptor: "Location",
+            values: [{ descriptor: "Philippines", id: "site-id", count: 8 }],
+          },
+        ],
+      },
+    ];
+    const http = fakeHttp({ status: 404, text: "" }, [
+      { status: 200, json: jobsPage(21, 20, facets) },
+      { status: 200, json: jobsPage(21, 1) },
+    ]);
+    await fetchWorkday(COMPANY, http);
+    const posts = http.calls.filter((call) => call.method === "POST");
+    expect(posts).toHaveLength(2);
+    expect((posts[1]?.body as { appliedFacets: object }).appliedFacets).toEqual({});
+  });
+
   it("stamps Philippines as the location when PH-faceted items omit locationsText", async () => {
     // Real Accenture behavior: country-faceted items carry no locationsText.
     // The facet itself is the location fact — Workday returned these under the
