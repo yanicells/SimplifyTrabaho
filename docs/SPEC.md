@@ -64,8 +64,10 @@ rules, the feature changes — not the rules.
    JobStreet/SEEK has no public API or open partner program. This includes "just one
    request" and "just for testing."
 2. **Only fetch from public, unauthenticated endpoints that the companies' own careers
-   pages call from a browser.** Two tiers (see §17): **Tier A** — documented public ATS
-   APIs (§5.1), default and unrestricted; **Tier B** — unofficial-but-public endpoints
+   pages call from a browser.** Two tiers (see §17): **Tier A** — the twelve
+   documented public ATS feeds (§5.1: Greenhouse, Lever, Ashby, Workable,
+   SmartRecruiters, Recruitee, BambooHR, Breezy, Manatal, Pinpoint, Rippling,
+   Teamtailor), default and unrestricted; **Tier B** — unofficial-but-public endpoints
    (currently Workday only), allowed solely under the §17 guardrails with per-company
    PR review. For both tiers: no authentication bypass, no session spoofing, no CAPTCHA
    solving, no robots.txt violations, no rate-limit or bot-detection evasion of any

@@ -13,11 +13,12 @@ work log. [docs/ROADMAP.md](docs/ROADMAP.md) is future scope (don't build it yet
 1. NEVER fetch from LinkedIn, JobStreet, Indeed, Kalibrr, Glassdoor, or any job
    board/aggregator. Their ToS prohibit it.
 2. Only public, unauthenticated endpoints the companies' own careers pages call:
-   Tier A = the nine documented ATS APIs in SPEC §5.1 (Greenhouse, Lever, Ashby,
-   Workable, SmartRecruiters, Recruitee, BambooHR, Breezy, Manatal); Tier B =
-   Workday, ONLY under the SPEC §17 guardrails (robots.txt check first, instant
-   permanent stop on any block, never evade). No auth bypass, no robots.txt
-   violations, no rate-limit or bot-detection evasion, ever, on any tier.
+   Tier A = the twelve documented ATS APIs in SPEC §5.1 (Greenhouse, Lever, Ashby,
+   Workable, SmartRecruiters, Recruitee, BambooHR, Breezy, Manatal, Pinpoint,
+   Rippling, Teamtailor); Tier B = Workday, ONLY under the SPEC §17 guardrails
+   (robots.txt check first, instant permanent stop on any block, never evade). No
+   auth bypass, no robots.txt violations, no rate-limit or bot-detection evasion,
+   ever, on any tier.
 3. Store facts only: company, title, locations, URL, dates, work setup, structured
    salary. NEVER store job-description text. NEVER store personal data (drop
    recruiter names/emails at normalization).
