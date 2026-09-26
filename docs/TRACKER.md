@@ -6,6 +6,33 @@
 
 ## ✅ Done
 
+- [x] 2026-09-26 — **Block-safety, cleanup, three new ATSs, registry round 10**
+      (stacked PRs #26–#30 on top of #23 → #25 → #24):
+  - [x] Block safety (#26): the first Workday block in a run halts the rest of the
+        Workday queue; CI commits `data/fetch-state.json` even when listings don't
+        change (a recorded block could otherwise be lost and re-requested); listings
+        of companies with no enabled board (`verified: false`, disabled, removed)
+        are retired instead of staying active forever; `disabled` entries need notes.
+  - [x] Cleanup (#27): one `fetchJsonBoard` helper for seven fetchers, one
+        `FETCHERS` map, enum lists single-sourced in `types.ts`, dead v2 migration
+        dropped, favicon 180KB → 8KB (static `icon.png`/`apple-icon.png`).
+  - [x] Categorizer round 4 (#28): support tiers (L1/Tier 2), graded role nouns,
+        plural markers, Assoc/Mgr, tellers/laborers, data entry → operations.
+        Level `unknown` 53.9% → 52.8%, function `other` 12.9% → 12.8%.
+  - [x] Pinpoint, Rippling and Teamtailor (RSS) fetchers (#29) — Tier A is twelve feeds.
+  - [x] Registry round 10 (#30): 218 → 316 entries — 56 Tier A on existing ATSs,
+        32 Workday tenants (per-tenant §17.2 evidence in each `notes` + the PR),
+        10 on the new ATSs; 4 empty Workable boards repointed (KMC, STAFFVIRTUAL,
+        Smartsourcing → Manatal; Support Services Group → Breezy). PH filter no
+        longer matches US namesakes ("Santa Rosa, CA").
+  - [x] Full local refresh on the stack top (not committed): **314 fetched, 0 failed,
+        0 blocks**, active listings 5,582 → **14,249** (+7,746 added, −105
+        deactivated). Most of the jump is #23's Manatal paging (TASQ 2,283, MR DIY
+        1,920) and the re-enabled Workday boards. Five Workday tenants hit the
+        1,000 cap unfaceted (Genpact, J&J, Maersk, Mastercard, PwC) — PH roles
+        beyond the cap are missed. 27 zero-PH boards remain (mostly PH-HQ boards
+        with no open roles today). Homepage HTML is now ~600KB gzipped.
+
 - [x] 2026-09-25 — **Pipeline reliability pass** (`fix/pipeline-reliability`):
   - [x] Transient errors can no longer become permanent blocks: Workday robots.txt
         5xx/timeouts/network are "retry next run"; only 401/403/422/429, an HTML
@@ -414,6 +441,17 @@ verify-registry`. Also recheck the live-but-0-PH boards listed below — several
 
 ## 🐞 Issues & blockers
 
+- 2026-09-26 — [open] UNIQLO PH (`fastretailing.wd3/store_staff_ph_Uniqlo`): only
+  7 of 23 postings pass the PH filter — store locations like "UNIQLO SM Makati
+  (FRPH)" have no keyword. Consider `frph` or mall names ("SM ") as PH signals.
+- 2026-09-26 — [open] Duplicate boards to revisit if the older one dies: TASQ
+  (`workable:tasq-work`, 277 PH, vs active Manatal) and Gardenia (Manatal, 18 PH,
+  vs active SmartRecruiters).
+- 2026-09-26 — [decision pending] Cruise lines on Pinpoint (Princess Cruises
+  `princesscruises` 47 PH, Holland America `hollandamericagroup` 12 PH) recruit
+  Filipinos for shipboard roles via PH manning agencies. Not added: the work is at
+  sea, not in PH. Maintainer's call.
+
 - 2026-09-25 — [resolved in code] On 2026-08-29 every wd3 Workday tenant returned
   HTTP 503 on robots.txt during a Workday maintenance window; the adapter recorded
   them as permanent `blocked` and they were then disabled (~900 listings lost).
@@ -494,6 +532,23 @@ verify-registry`. Also recheck the live-but-0-PH boards listed below — several
 All probed 2026-06-11 unless noted. Companies later verified under another slug/ATS
 are marked ➜✅. PH corporates (banks, conglomerates, airlines, food) are mostly on
 Workday/custom portals — none of the guessed SmartRecruiters identifiers existed.
+
+**Round 10 (2026-09-26).** Off the table: Takeda (`takeda.wd3/External`, robots
+HTTP 422), Fugro (`fugro.wd3/careers`, robots `Disallow: /Careers/`). Skipped on
+quality: SEEK (job-board company), TSMG (AI-data gig recruiter), The Flex and Curvion
+Blue (100+ countries per role), FGC+ on Rippling (identity unconfirmed). Stale
+SmartRecruiters boards (last PH post 2016–2023): Vonotec, Cloud Employee, ShipERP,
+SGMAGRNDST, Peraflo, Home Credit. Live, 0 PH: Workday — Thomson Reuters, Cigna,
+AstraZeneca, UOB, Colliers, HPE, Fiserv, Capital One (1 within the 1,000 cap);
+Greenhouse — Adyen, Samsara, Sezzle, Billtrust; Lever — Deputy, Nium; Ashby —
+Linear, Zapier, Ramp, OpenAI. Dead slugs: Greenhouse xero, envato, airwallex, nium,
+traveloka, zendesk, sprinklr, moneymax, securitybankbettercareers; Lever xero,
+employmenthero, seaoil, shopee, gojek; Ashby employmenthero, deputy, hugo;
+SmartRecruiters Publicis, CEVA, DB Schenker, ABB, Decathlon, TDCX, IBEX, VXI,
+Firstsource, Arcadis, Worley, Kuehne+Nagel, Puma, Uniqlo. Empty Workable boards:
+optibpo, cos, frosch-travel, outsource-digital, several "Philippines Inc" boards.
+Remaining new-ATS leads: Pinpoint `scorpiogroup` (~63 PH, identity unclear),
+Teamtailor `davidkennedyrecruitment` (~7), Rippling `fgcplus` (~23).
 
 **Round 9 (2026-09-25) — registry expansion.** Registry 175 → 218 (36 Tier A +
 7 Workday). See Done for the landed list.
@@ -727,13 +782,19 @@ not a real employer. Kalibrr — job-board company, fetching prohibited by rule 
 
 ## 📔 Decision log
 
+- 2026-09-26 — **One Workday block per run.** After any block signal the run sends
+  no more Workday requests (SPEC §17.1.2). A genuine platform-wide block is handled
+  correctly (we stop), and a misread incident costs one tenant, not seventeen.
+  Teamtailor moves from OUT to Tier A via its documented anonymous `jobs.rss` (the
+  REST API still needs a key and stays out). Citi and TELUS Digital stay disabled:
+  re-checked robots.txt 2026-09-26 — Citi `Disallow: /2/`, TELUS HTTP 403.
+
 - 2026-09-25 — **Transient ≠ blocked.** 5xx, timeouts, and network/DNS errors are
   never permanent blocks; disabling a registry source now needs maintainer sign-off
   in a PR with evidence of a genuine block (AGENTS.md, SPEC §17.1.7). Fetches that
   stop at a pagination cap are `partial` and never deactivate listings (SPEC §10.4).
   Refresh parallelizes across ATS hosts but stays sequential per host, with every
   Workday tenant in one queue (conservative reading of §17.1.3).
-
 - 2026-09-25 — **Workday block review + registry expansion** (maintainer-authorized
   one-time re-check: robots.txt + at most one jobs request per tenant, ≥2s apart,
   identifying UA, no evasion). Re-enabled 15 of the 17 disabled boards: the 12 wd3
