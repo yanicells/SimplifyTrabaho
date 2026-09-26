@@ -22,6 +22,16 @@
       "notes": "auto-verified 2026-06-11: 15 PH postings"
     },
     {
+      "name": "3M",
+      "ats": "workday",
+      "slug": "3m.wd1/Search",
+      "industry": "manufacturing",
+      "type": "direct",
+      "verified": true,
+      "added": "2026-09-26",
+      "notes": "§17.2 verified 2026-09-26: tenant/site 3m.wd1/Search; robots.txt HTTP 200, no rule disallows /wday/cxs/3m/Search/jobs; identity: 3M careers article https://www.3m.com/3M/en_US/careers-us/stay-connected/insights-for-candidates/full-story/?storyid=00d48a6b-b988-4b54-bc1c-c8cccaeca737 links this Workday board. Jobs-list sample facts: title Enterprise Labeling Analyst; location PH, Taguig; path /job/PH-Taguig/Enterprise-Labeling-Analyst_R01171287-1. Philippines facet Location_Country (e56f1daf83e04bacae794ba5c5593560) available and applied; 50 PH postings of 50 faceted (704 global)."
+    },
+    {
       "name": "Abbott",
       "ats": "workday",
       "slug": "abbott.wd5/abbottcareers",
@@ -202,6 +212,16 @@
       "notes": "verified 2026-09-26: 35 PH postings (Cebu, NCR; not the lever:aleph advertising group)"
     },
     {
+      "name": "Allegro MicroSystems",
+      "ats": "workday",
+      "slug": "allegromicro.wd5/AllegroCareers",
+      "industry": "manufacturing",
+      "type": "direct",
+      "verified": true,
+      "added": "2026-09-26",
+      "notes": "§17.2 verified 2026-09-26: tenant/site allegromicro.wd5/AllegroCareers; robots.txt HTTP 200, no rule disallows /wday/cxs/allegromicro/AllegroCareers/jobs; identity: official careers page https://www.allegromicro.com/en/about-allegro/careers links this Workday board. Jobs-list sample facts: title SOC Analyst; location Paranaque City, National Capital Region (Manila), Philippines; path /job/Paranaque-City-National-Capital-Region-Manila-Philippines/SOC-Analyst_R6773. Philippines facet Location_Country (e56f1daf83e04bacae794ba5c5593560) available; board below 500-posting facet threshold, so fetched 96 global and PH filter kept 53."
+    },
+    {
       "name": "Amadeus",
       "ats": "workday",
       "slug": "amadeus.wd502/jobs",
@@ -260,6 +280,16 @@
       "verified": true,
       "added": "2026-09-26",
       "notes": "auto-verified 2026-09-26: 11 PH postings"
+    },
+    {
+      "name": "Aphex",
+      "ats": "ashby",
+      "slug": "aphex",
+      "industry": "software",
+      "type": "direct",
+      "verified": true,
+      "added": "2026-09-26",
+      "notes": "verified 2026-09-26: 1 PH posting (2026-09-23); official aphex.co/careers embeds jobs.ashbyhq.com/Aphex"
     },
     {
       "name": "Apollo.io",
@@ -1033,6 +1063,36 @@
       "notes": "verified 2026-09-26: 27 PH postings (Metro Manila, remote PH)"
     },
     {
+      "name": "Extenteam",
+      "ats": "greenhouse",
+      "slug": "extenteam",
+      "industry": "outsourcing",
+      "type": "agency",
+      "verified": true,
+      "added": "2026-09-26",
+      "notes": "verified 2026-09-26: 21 PH postings (latest 2026-09-23); branded Extenteam Client Roles board on Greenhouse"
+    },
+    {
+      "name": "FedEx",
+      "ats": "workday",
+      "slug": "fedex.wd1/FXE_APAC_External",
+      "industry": "logistics",
+      "type": "direct",
+      "verified": true,
+      "added": "2026-09-26",
+      "notes": "§17.2 verified 2026-09-26: tenant/site fedex.wd1/FXE_APAC_External; robots.txt HTTP 200, no rule disallows /wday/cxs/fedex/FXE_APAC_External/jobs; identity: FedEx official careers notice https://www.fedex.com/content/dam/fedex/lac-latin-america/downloads/BR_PT_2020_10_web_pdf_NA_Aviso-sobre-oportunidades-de-emprego_home.pdf confirms fedex.wd1 tenant, and the FXE_APAC_External board identifies itself as FedEx Asia Pacific. Jobs-list sample facts: title ACE Graduate Trainee; location FXE_APAC/PHL/PHCRKRC/PH ANGELES CITY; path /job/FXE_APACPHLPHCRKRCPH-ANGELES-CITY/ACE-Graduate-Trainee_RC782255. Philippines facet Location_Country (e56f1daf83e04bacae794ba5c5593560) available; board below 500-posting facet threshold, so fetched 121 global and PH filter kept 7."
+    },
+    {
+      "name": "FGC+",
+      "ats": "rippling",
+      "slug": "fgcplus",
+      "industry": "outsourcing",
+      "type": "agency",
+      "verified": true,
+      "added": "2026-09-26",
+      "notes": "verified 2026-09-26: 23 PH postings; fgcplus.com/careers/talent-portal embeds Rippling board id fgcplus"
+    },
+    {
       "name": "First Circle",
       "ats": "workable",
       "slug": "first-circle",
@@ -1061,6 +1121,16 @@
       "verified": true,
       "added": "2026-09-26",
       "notes": "§17.2 verified 2026-09-26: robots clean (Allow:/FMC/); no block; 3 PH of 76 fetched (Manila)"
+    },
+    {
+      "name": "Foundry for Good",
+      "ats": "ashby",
+      "slug": "foundry-for-good",
+      "industry": "software",
+      "type": "direct",
+      "verified": true,
+      "added": "2026-09-26",
+      "notes": "verified 2026-09-26: 27 PH postings (latest 2026-09-24); careers.foundryforgood.com links its Ashby roles"
     },
     {
       "name": "FreeUp",
@@ -1753,6 +1823,16 @@
       "notes": "auto-verified 2026-07-19: 2 PH postings"
     },
     {
+      "name": "Lyra Health",
+      "ats": "lever",
+      "slug": "lyrahealth",
+      "industry": "healthtech",
+      "type": "direct",
+      "verified": true,
+      "added": "2026-09-26",
+      "notes": "verified 2026-09-26: 2 PH postings (latest 2026-08-21); branded Lyra Health Lever board"
+    },
+    {
       "name": "Maersk",
       "ats": "workday",
       "slug": "maersk.wd3/Maersk_Careers",
@@ -2071,6 +2151,16 @@
       "verified": true,
       "added": "2026-06-11",
       "notes": "auto-verified 2026-06-11: 3 PH postings 2026-09-26 recheck: live, 21 postings, 0 PH (kept; has hired in PH before)."
+    },
+    {
+      "name": "Otsuka Philippines",
+      "ats": "manatal",
+      "slug": "otsuka-philippines-pharmaceutical-inc-2",
+      "industry": "healthtech",
+      "type": "direct",
+      "verified": true,
+      "added": "2026-09-26",
+      "notes": "verified 2026-09-26: 2 PH postings; Otsuka (Philippines) Pharmaceutical, Inc. branded Manatal board"
     },
     {
       "name": "Our Assistants",
@@ -2503,6 +2593,26 @@
       "notes": "§17.2 verified 2026-09-26: robots clean (Allow:/ShellCareers/); no block; 1 PH of 148 fetched (Finance Centre BGC)"
     },
     {
+      "name": "ShopBack",
+      "ats": "lever",
+      "slug": "shopback-2",
+      "industry": "ecommerce",
+      "type": "direct",
+      "verified": true,
+      "added": "2026-09-26",
+      "notes": "verified 2026-09-26: 2 PH postings (latest 2026-08-06); official support.shopback.ph names Lever board as main job portal"
+    },
+    {
+      "name": "Short Story",
+      "ats": "ashby",
+      "slug": "ShortStory",
+      "industry": "retail",
+      "type": "direct",
+      "verified": true,
+      "added": "2026-09-26",
+      "notes": "verified 2026-09-26: 2 PH postings (latest 2026-05-28); my.shortstorybox.com/careers links Ashby board"
+    },
+    {
       "name": "Siegen HR Solutions",
       "ats": "manatal",
       "slug": "siegensolutions",
@@ -2814,6 +2924,16 @@
       "notes": "auto-verified 2026-07-06: 7 PH postings"
     },
     {
+      "name": "TP ICAP",
+      "ats": "workday",
+      "slug": "tp.wd107/TP-ICAP",
+      "industry": "financial-services",
+      "type": "direct",
+      "verified": true,
+      "added": "2026-09-26",
+      "notes": "§17.2 verified 2026-09-26: tenant/site tp.wd107/TP-ICAP; robots.txt HTTP 200, no rule disallows /wday/cxs/tp/TP-ICAP/jobs; identity: official opportunities page https://tpicap.com/tpicap/careers/opportunities links this Workday board. Jobs-list sample facts: title Trainee Broker; location Manila; path /job/Manila/Trainee-Broker_R5847. Philippines facet absent; fetched 113 global and PH filter kept 35."
+    },
+    {
       "name": "Traba",
       "ats": "ashby",
       "slug": "traba",
@@ -2932,6 +3052,16 @@
       "verified": true,
       "added": "2026-07-06",
       "notes": "auto-verified 2026-07-06: 66 PH postings"
+    },
+    {
+      "name": "UpGuard",
+      "ats": "ashby",
+      "slug": "upguard",
+      "industry": "software",
+      "type": "direct",
+      "verified": true,
+      "added": "2026-09-26",
+      "notes": "verified 2026-09-26: 1 PH posting (2026-09-16); upguard.com/careers links Ashby roles"
     },
     {
       "name": "UpSkill MNL",
