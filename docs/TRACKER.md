@@ -17,6 +17,10 @@
         and CI commits that file even when the refresh step fails or hits its new
         50-minute step timeout — before, a run that died after a block lost it and
         the next run re-requested the blocked tenant.
+  - [x] Level: "Senior Accounting Associate", "Senior/Lead Associate", "Lead
+        Associate", "Associate Account Director" were `entry`; "Associate General
+        Counsel" was `entry` (now `unknown`). 28 of 10,028 real titles change, all
+        away from a wrong `entry`; "Associate Product Manager" stays entry.
 
 - [x] 2026-09-27 — **Final pre-launch review** (stacked PRs on #34): no user-facing
       bugs or golden-rule breaks found. Three fixes:
