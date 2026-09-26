@@ -25,6 +25,7 @@ jobs:
           cache: pnpm
       - run: pnpm install --frozen-lockfile
       - name: Refresh listings
+        id: refresh
         run: |
           set -o pipefail
           pnpm refresh | tee refresh.log
@@ -34,6 +35,7 @@ jobs:
             grep -E "^(registry:|run summary:|zero-PH boards|  FAIL|  SKIP.*(BLOCKED|halted)|  TRACKER-ISSUE)" refresh.log || true
           } >> "$GITHUB_STEP_SUMMARY"
       - name: Validate generated site
+        id: validate
         run: |
           pnpm format:check
           pnpm typecheck
@@ -41,17 +43,29 @@ jobs:
           pnpm test
           pnpm --filter web build
       - name: Commit & push if data changed
+        # Runs even when validation failed: a recorded block MUST persist, or the
+        # next run would request the blocked tenant again (SPEC §17.1.2). The job
+        # still fails, and unvalidated listings/README are never published.
+        if: ${{ !cancelled() && steps.refresh.outcome == 'success' }}
+        env:
+          VALIDATED: ${{ steps.validate.outcome == 'success' }}
         run: |
-          # data/ includes fetch-state.json: a recorded block MUST persist, or the
-          # next run would request the blocked tenant again (SPEC §17.1.2).
-          if git diff --quiet -- data/ README.md; then
-            echo "data/ and README.md unchanged — nothing to commit."
+          if [ "$VALIDATED" = "true" ]; then
+            paths="data/ README.md"
+            message="data: daily refresh"
+          else
+            git checkout -- data/listings.json README.md
+            paths="data/fetch-state.json"
+            message="data: keep fetch state (validation failed)"
+          fi
+          if git diff --quiet -- $paths; then
+            echo "$paths unchanged — nothing to commit."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/ README.md
-          git commit -m "data: daily refresh"
+          git add $paths
+          git commit -m "$message"
           # main may have moved during the run; only generated files are committed.
           git pull --rebase
           git push
