@@ -178,13 +178,33 @@ implementation, and save one real sample per ATS as a test fixture):
 | Manatal         | `https://www.careers-page.com/api/v1.0/c/{slug}/jobs/`                          |
 | Pinpoint        | `https://{slug}.pinpointhq.com/postings.json`                                   |
 | Rippling        | `https://api.rippling.com/platform/api/ats/v1/board/{slug}/jobs`                |
+| Teamtailor      | `https://{slug}.teamtailor.com/jobs.rss?offset={n}&per_page=100` (RSS/XML)      |
 
 **Phase 9 probe verdicts:** Freshteam is **OUT** (no public feed; auth-gated machine
 paths and HTML-only public jobs page). BambooHR, Breezy, and Manatal are **IN** as
 public, unauthenticated JSON feeds. Personio is **IN but deferred** because its public
-feed is XML-based and currently has approximately zero PH employer coverage. Teamtailor,
-Jobvite, and Zoho Recruit are **OUT** because they require authorization, issued feed
-links, API keys, OAuth, or account-minted credentials.
+feed is XML-based and currently has approximately zero PH employer coverage. Jobvite and
+Zoho Recruit are **OUT** because they require authorization, issued feed links, API
+keys, OAuth, or account-minted credentials.
+
+**2026-09-26 additions:** Pinpoint, Rippling, and Teamtailor are **IN**. Teamtailor's
+REST API still needs an API key (the earlier OUT verdict was about that API), but every
+career site also publishes a documented, anonymous `jobs.rss` feed (Teamtailor support
+article "RSS feed: how-to guide") — that feed is what we use. Robots.txt verdicts: tenant
+hosts `{slug}.pinpointhq.com` and `{slug}.teamtailor.com` do not disallow `/postings.json`
+or `/jobs.rss`; `api.rippling.com` serves no robots.txt (404 → no restrictions). Unknown
+slugs return a real 404 on all three.
+
+- Pinpoint: `{ data: [...] }`; fields used are `title`, `url`, `location.{city,province,name}`,
+  `workplace_type`, `employment_type`, and `compensation` only when
+  `compensation_visible` is true. No published date. Items also carry JD HTML
+  (`description`, `key_responsibilities`, `benefits`, …) — never read.
+- Rippling: bare array of `{ uuid, name, url, workLocation.label }`, one row per job
+  location — rows are folded per `uuid`. No date, employment type, or salary. JD text
+  lives only on the per-job detail endpoint, which we never call.
+- Teamtailor: RSS items with `title`, `link`, `pubDate`, `remoteStatus`
+  (`fully`/`hybrid`/`onsite`/`none`) and `tt:locations`. `<description>` (JD HTML) is
+  stripped before any field is read. Default page size is 100; page with `offset`.
 
 **Workday is NOT Tier A** — it has its own rules in §17.
 
@@ -233,7 +253,7 @@ Each `Listing`:
 | `companyType`    | enum           | **Schema v3 (Phase 9).** `direct` \| `agency`, copied from the company's registry entry at normalization (SPEC §7/§11).                                                                                                                                                                                                                                     |
 | `metro`          | string[]       | **Schema v2 (Phase 8).** Normalized PH region tags derived from `locations`: `ncr`, `cebu`, `davao`, `clark-pampanga`, `calabarzon`, `iloilo`, `bacolod`, `baguio`, `cdo`, `remote-ph`, `other-ph`. Keyword map lives next to the PH filter (§8); extend the value list as real locations demand, spec update in the same commit.                           |
 | `url`            | string         | Official application URL on the company's ATS. The only outbound link.                                                                                                                                                                                                                                                                                      |
-| `source`         | string         | ATS name: `greenhouse`, `lever`, `ashby`, `workable`, `smartrecruiters`, `recruitee`, `bamboohr`, `breezy`, `manatal`, `pinpoint`, `rippling`, `workday` (Tier B, §17).                                                                                                                                                                                     |
+| `source`         | string         | ATS name: `greenhouse`, `lever`, `ashby`, `workable`, `smartrecruiters`, `recruitee`, `bamboohr`, `breezy`, `manatal`, `pinpoint`, `rippling`, `teamtailor`, `workday` (Tier B, §17).                                                                                                                                                                       |
 | `employmentType` | enum           | `full-time` \| `part-time` \| `contract` \| `internship` \| `unknown` — when the ATS provides it.                                                                                                                                                                                                                                                           |
 | `salary`         | string \| null | Only if published in the structured feed (e.g., Ashby compensation). Verbatim formatted range. Never inferred.                                                                                                                                                                                                                                              |
 | `datePosted`     | string         | ISO 8601 UTC. From the ATS published/created field when available; otherwise the date our pipeline first saw it. Never changes after first set.                                                                                                                                                                                                             |

@@ -13,6 +13,7 @@ import {
   normalizeRecruitee,
   normalizeRippling,
   normalizeSmartRecruiters,
+  normalizeTeamtailor,
   normalizeWorkable,
 } from "../src/normalize.js";
 import type { RegistryCompany } from "../src/types.js";
@@ -31,6 +32,7 @@ const breezySample = loadFixture("breezy-sample.json");
 const manatalSample = loadFixture("manatal-manatal.json");
 const pinpointSample = loadFixture("pinpoint-sample.json");
 const ripplingSample = loadFixture("rippling-maven-roofing.json");
+const teamtailorSample = readFileSync(join(fixturesDir, "teamtailor-sample.rss"), "utf8");
 
 function company(overrides: Partial<RegistryCompany>): RegistryCompany {
   return {
@@ -485,5 +487,45 @@ describe("normalizeRippling", () => {
 
   it("derives remote from the location label", () => {
     expect(postings[2]!.workSetup).toBe("remote");
+  });
+});
+
+describe("normalizeTeamtailor", () => {
+  const recruitGo = company({ name: "RecruitGo", ats: "teamtailor", slug: "recruitgo" });
+  const postings = normalizeTeamtailor(recruitGo, teamtailorSample);
+
+  it("maps title (entity-decoded), link, pubDate and structured location", () => {
+    expect(postings).toHaveLength(5);
+    expect(postings[0]!).toMatchObject({
+      company: "RecruitGo",
+      source: "teamtailor",
+      title: "AI Automation & Systems Engineer",
+      locations: ["Quezon City, Philippines"],
+      url: "https://recruitgo.teamtailor.com/jobs/8452563-ai-automation-systems-engineer",
+      workSetup: "remote", // remoteStatus "fully"
+      employmentType: "unknown",
+      salary: null,
+      publishedAt: "2026-09-25T06:37:47.000Z", // +0800 → UTC
+    });
+  });
+
+  it("maps remoteStatus hybrid/onsite, leaving 'none' to the text fallback", () => {
+    expect(postings.slice(1, 4).map((p) => p.workSetup)).toEqual([
+      "unknown",
+      "hybrid",
+      "onsite",
+    ]);
+  });
+
+  it("keeps every location of a multi-location job", () => {
+    expect(postings[4]!.locations).toEqual(["Pasig, Philippines", "Taguig, Philippines"]);
+  });
+
+  it("never lets job-description text through", () => {
+    expect(JSON.stringify(postings)).not.toContain("removed for fixture");
+    const raw = `<rss><channel><item><title>X</title><description><![CDATA[<link>https://evil</link> JD]]></description><link>https://ok</link></item></channel></rss>`;
+    const [posting] = normalizeTeamtailor(recruitGo, raw);
+    expect(posting!.url).toBe("https://ok");
+    expect(JSON.stringify(posting)).not.toContain("JD");
   });
 });

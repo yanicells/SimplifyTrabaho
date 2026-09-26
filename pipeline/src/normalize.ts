@@ -673,3 +673,81 @@ export function normalizeRippling(company: RegistryCompany, raw: unknown): Fetch
       }) satisfies FetchedPosting,
   );
 }
+
+const XML_ENTITIES: Record<string, string> = { lt: "<", gt: ">", quot: '"', apos: "'" };
+
+/** Decodes a text node: CDATA, named/numeric entities (`&amp;` last, so no double-decode). */
+function decodeXml(text: string): string {
+  const trimmed = text.trim();
+  const cdata = /^<!\[CDATA\[([\s\S]*)\]\]>$/.exec(trimmed);
+  if (cdata) return cdata[1]!.trim();
+  return trimmed
+    .replace(/&(#x[0-9a-f]+|#\d+|lt|gt|quot|apos);/gi, (match, entity: string) => {
+      if (entity[0] !== "#") return XML_ENTITIES[entity.toLowerCase()] ?? match;
+      const code =
+        entity[1] === "x" || entity[1] === "X"
+          ? parseInt(entity.slice(2), 16)
+          : Number(entity.slice(1));
+      return String.fromCodePoint(code);
+    })
+    .replace(/&amp;/g, "&");
+}
+
+/** Decoded text of the first `<tag>…</tag>` in `xml`; "" when absent or self-closing. */
+function xmlTag(xml: string, tag: string): string {
+  const match = new RegExp(`<${tag}(?:\\s[^>]*)?>([\\s\\S]*?)</${tag}>`).exec(xml);
+  return match ? decodeXml(match[1]!) : "";
+}
+
+function mapTeamtailorRemote(value: string): WorkSetup {
+  switch (value.toLowerCase()) {
+    case "fully":
+      return "remote";
+    case "hybrid":
+      return "hybrid";
+    case "onsite":
+      return "onsite";
+    default:
+      return "unknown"; // "none" / "temporary" / absent: not a clear work-setup fact
+  }
+}
+
+/**
+ * Teamtailor `jobs.rss` (an XML string) → postings. A minimal string parser is enough
+ * for the flat items Teamtailor emits. Each item's `<description>` (JD HTML) is cut
+ * out before any field is read, so it can never leak into a posting.
+ */
+export function normalizeTeamtailor(company: RegistryCompany, raw: unknown): FetchedPosting[] {
+  if (typeof raw !== "string" || !/<rss[\s>]/.test(raw) || !raw.includes("<channel>")) {
+    throw new Error(`teamtailor payload for ${company.slug} is not an RSS feed`);
+  }
+  const items = raw.match(/<item>[\s\S]*?<\/item>/g) ?? [];
+  return items.map((rawItem) => {
+    const item = rawItem.replace(/<description>[\s\S]*?<\/description>/g, "");
+    const locations = (item.match(/<tt:location>[\s\S]*?<\/tt:location>/g) ?? [])
+      .map((location) => {
+        const city = xmlTag(location, "tt:city");
+        const country = xmlTag(location, "tt:country");
+        return city && country
+          ? `${city}, ${country}`
+          : xmlTag(location, "tt:name") || country;
+      })
+      .filter(Boolean);
+    const title = xmlTag(item, "title");
+    const remote = mapTeamtailorRemote(xmlTag(item, "remoteStatus"));
+    return {
+      company: company.name,
+      source: "teamtailor",
+      title,
+      locations: [...new Set(locations)],
+      url: xmlTag(item, "link"),
+      workSetup:
+        remote !== "unknown" ? remote : workSetupFromText(`${title} ${locations.join(" ")}`),
+      employmentType: "unknown", // not in the RSS feed
+      salary: null,
+      publishedAt: toIsoUtc(xmlTag(item, "pubDate")),
+      industry: company.industry,
+      companyType: company.type,
+    } satisfies FetchedPosting;
+  });
+}

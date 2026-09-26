@@ -9,8 +9,14 @@ import { fetchPinpoint } from "../src/fetchers/pinpoint.js";
 import { fetchRecruitee } from "../src/fetchers/recruitee.js";
 import { fetchRippling } from "../src/fetchers/rippling.js";
 import { fetchSmartRecruiters } from "../src/fetchers/smartrecruiters.js";
+import { fetchTeamtailor } from "../src/fetchers/teamtailor.js";
 import { fetchWorkable } from "../src/fetchers/workable.js";
-import { USER_AGENT, groupByHost, politeJsonGet } from "../src/fetchers/http.js";
+import {
+  USER_AGENT,
+  groupByHost,
+  politeJsonGet,
+  politeTextGet,
+} from "../src/fetchers/http.js";
 import type { RegistryCompany } from "../src/types.js";
 
 const xendit: RegistryCompany = {
@@ -66,6 +72,7 @@ function fakeHttp(responses: Array<{ status: number; body?: unknown } | Error>) 
       status: next.status,
       ok: next.status >= 200 && next.status < 300,
       json: async () => next.body,
+      text: async () => String(next.body),
     };
   }) as unknown as typeof fetch;
   const sleep = async (ms: number) => {
@@ -97,6 +104,16 @@ describe("politeJsonGet timeout", () => {
     const http = fakeHttp([{ status: 200, body: {} }]);
     await politeJsonGet("https://x.example/list", { ...http, timeoutMs: 1234 });
     expect(http.calls[0]?.signal).toBeInstanceOf(AbortSignal);
+  });
+});
+
+describe("politeTextGet", () => {
+  it("returns the raw text body and asks for XML, with the same UA", async () => {
+    const http = fakeHttp([{ status: 200, body: "<rss></rss>" }]);
+    const outcome = await politeTextGet("https://x.example/jobs.rss", http);
+    expect(outcome).toEqual({ kind: "ok", body: "<rss></rss>" });
+    expect(http.calls[0]!.headers).toMatchObject({ "User-Agent": USER_AGENT });
+    expect(http.calls[0]!.headers["Accept"]).toContain("xml");
   });
 });
 
@@ -614,5 +631,49 @@ describe("fetchRippling", () => {
   it("reports a malformed payload as an http failure, not a crash", async () => {
     const http = fakeHttp([{ status: 200, body: { jobs: [] } }]);
     expect(await fetchRippling(maven, http)).toMatchObject({ ok: false, errorKind: "http" });
+  });
+});
+
+describe("fetchTeamtailor", () => {
+  const recruitGo = registryCompany({
+    name: "RecruitGo",
+    ats: "teamtailor",
+    slug: "recruitgo",
+  });
+  const rss = (items: number) =>
+    `<rss version="2.0"><channel><title>X</title>${Array.from(
+      { length: items },
+      (_, i) => `<item><title>Job ${i}</title><link>https://x.example/jobs/${i}</link></item>`,
+    ).join("")}</channel></rss>`;
+
+  it("pages with offset until a short page", async () => {
+    const http = fakeHttp([
+      { status: 200, body: rss(100) },
+      { status: 200, body: rss(41) },
+    ]);
+    const result = await fetchTeamtailor(recruitGo, http);
+    expect(http.calls.map((c) => c.url)).toEqual([
+      "https://recruitgo.teamtailor.com/jobs.rss?offset=0&per_page=100",
+      "https://recruitgo.teamtailor.com/jobs.rss?offset=100&per_page=100",
+    ]);
+    expect(result).toMatchObject({ ok: true });
+    if (result.ok) expect(result.postings).toHaveLength(141);
+    expect(result).not.toHaveProperty("partial");
+  });
+
+  it("reports dead-slug on 404 (unknown career site)", async () => {
+    const http = fakeHttp([{ status: 404, body: "<!DOCTYPE html>" }]);
+    expect(await fetchTeamtailor(recruitGo, http)).toMatchObject({
+      ok: false,
+      errorKind: "dead-slug",
+    });
+  });
+
+  it("reports a non-RSS payload as an http failure, not a crash", async () => {
+    const http = fakeHttp([{ status: 200, body: "<!DOCTYPE html><html></html>" }]);
+    expect(await fetchTeamtailor(recruitGo, http)).toMatchObject({
+      ok: false,
+      errorKind: "http",
+    });
   });
 });

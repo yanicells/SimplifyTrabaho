@@ -13,6 +13,7 @@ export const ATS_SOURCES = [
   "manatal",
   "pinpoint",
   "rippling",
+  "teamtailor",
   "workday",
 ] as const;
 export type AtsSource = (typeof ATS_SOURCES)[number];
