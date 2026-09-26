@@ -171,7 +171,7 @@ implementation, and save one real sample per ATS as a test fixture):
 | Lever           | `https://api.lever.co/v0/postings/{slug}?mode=json`                             |
 | Ashby           | `https://api.ashbyhq.com/posting-api/job-board/{slug}?includeCompensation=true` |
 | Workable        | `https://apply.workable.com/api/v1/widget/accounts/{slug}`                      |
-| SmartRecruiters | `https://api.smartrecruiters.com/v1/companies/{slug}/postings`                  |
+| SmartRecruiters | `https://api.smartrecruiters.com/v1/companies/{slug}/postings?country=ph`       |
 | Recruitee       | `https://{slug}.recruitee.com/api/offers/`                                      |
 | BambooHR        | `https://{slug}.bamboohr.com/careers/list`                                      |
 | Breezy          | `https://{slug}.breezy.hr/json`                                                 |
@@ -396,7 +396,9 @@ These tables WILL be imperfect. Requirements: (a) they live in one file
 4. Any existing **active** listing whose company _was fetched successfully this run_
    but which is absent from the current set → `active: false`, `dateUpdated` now.
    **Critical:** if a company's fetch FAILED this run, leave its listings untouched —
-   never mass-deactivate because of a transient error.
+   never mass-deactivate because of a transient error. A fetch that stopped early at
+   a pagination cap (`partial`) likewise proves nothing about absences: its listings
+   are upserted, but none are deactivated.
    A registry entry set to `disabled: true` after human/maintainer review is terminal,
    not a transient failure: if the company has no other enabled board, deactivate its
    listings without making another request.
@@ -596,6 +598,11 @@ Tier B: usable, but only under these rules.
    local runs work, Workday companies refresh only on the maintainer's manual runs.
    The merge layer (§10.4) already protects their listings from mass-deactivation
    on failed fetches. Never "fix" CI blocking with evasion (see rule 2).
+7. **Transient is not a block:** 5xx (including on robots.txt), timeouts, and
+   network/DNS errors mean "skip this run, retry next run" — never record a
+   permanent block or disable a source for them. Disabling a registry source needs
+   maintainer sign-off in a PR with evidence of a genuine block (rule 2 signals, or
+   a robots.txt disallow / 4xx other than 404).
 
 ### 17.2 Governance
 

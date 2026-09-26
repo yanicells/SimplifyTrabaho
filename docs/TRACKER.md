@@ -6,6 +6,19 @@
 
 ## ✅ Done
 
+- [x] 2026-09-25 — **Pipeline reliability pass** (`fix/pipeline-reliability`):
+  - [x] Transient errors can no longer become permanent blocks: Workday robots.txt
+        5xx/timeouts/network are "retry next run"; only 401/403/422/429, an HTML
+        challenge page, a robots disallow, or a robots 4xx other than 404 block.
+  - [x] Capped fetches (Manatal page cap, Workday 1,000 cap, SmartRecruiters short
+        page) return `partial`: listings upsert, nothing is deactivated.
+  - [x] Manatal pages until `next` is null (API serves 20/page; MR DIY ~2,100).
+  - [x] SmartRecruiters fetches `country=ph` only, with a `limit=1` unfiltered
+        probe to tell "0 PH jobs" from a dead slug.
+  - [x] robots.txt parser follows RFC 9309 groups and `*`/`$` patterns.
+  - [x] Refresh runs one sequential queue per ATS host in parallel (all Workday in
+        one queue); run summary lists zero-PH boards; CI rebases before push.
+
 - [x] 2026-08-29 — **Launch-readiness pass complete**:
   - [x] Added terminal registry lifecycle for blocked/retired sources. Seventeen
         Workday boards are now retained as provenance with `disabled: true`, never
@@ -389,6 +402,12 @@ verify-registry`. Also recheck the live-but-0-PH boards listed below — several
 
 ## 🐞 Issues & blockers
 
+- 2026-09-25 — [resolved in code] On 2026-08-29 every wd3 Workday tenant returned
+  HTTP 503 on robots.txt during a Workday maintenance window; the adapter recorded
+  them as permanent `blocked` and they were then disabled (~900 listings lost).
+  The adapter now treats robots 5xx as transient. Re-enabling the affected tenants
+  and clearing their `fetch-state.json` entries is handled separately.
+
 - 2026-07-19 — [resolved] Web build broke on `listings.json invalid:
   listings[87].title must be a non-empty string` — a Workday board stub for
   Accenture (empty title, board-root URL, no `externalPath`) had been merged
@@ -667,6 +686,13 @@ not a real employer. Kalibrr — job-board company, fetching prohibited by rule 
 <!-- Format: - CompanyName — slugs tried: a, b (ats names) — date — result/notes -->
 
 ## 📔 Decision log
+
+- 2026-09-25 — **Transient ≠ blocked.** 5xx, timeouts, and network/DNS errors are
+  never permanent blocks; disabling a registry source now needs maintainer sign-off
+  in a PR with evidence of a genuine block (AGENTS.md, SPEC §17.1.7). Fetches that
+  stop at a pagination cap are `partial` and never deactivate listings (SPEC §10.4).
+  Refresh parallelizes across ATS hosts but stays sequential per host, with every
+  Workday tenant in one queue (conservative reading of §17.1.3).
 
 - 2026-08-29 — **Launch-readiness pass.** Registry now supports terminal
   `disabled: true` sources: they remain auditable, receive no further requests,

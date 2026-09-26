@@ -2,8 +2,10 @@ import { normalizeManatal } from "../normalize.js";
 import type { FetchedPosting, FetchResult, RegistryCompany } from "../types.js";
 import { politeJsonGet, type HttpDeps } from "./http.js";
 
-const PAGE_SIZE = 100;
-const MAX_PAGES = 20; // 2,000 postings cap — no single PH client is anywhere near this
+const PAGE_SIZE = 100; // requested, but the API ignores it and serves 20 per page
+// Safety cap only (~10,000 postings at 20/page; MR DIY alone has ~2,100). Hitting it
+// returns a `partial` result so merge never deactivates the listings beyond it.
+const MAX_PAGES = 500;
 
 export function manatalUrl(slug: string): string {
   return `https://www.careers-page.com/api/v1.0/c/${encodeURIComponent(slug)}/jobs/?page_size=${PAGE_SIZE}&page=1`;
@@ -46,5 +48,5 @@ export async function fetchManatal(
     url = typeof next === "string" && next !== "" ? next : null;
     pages += 1;
   }
-  return { ok: true, postings };
+  return url ? { ok: true, postings, partial: true } : { ok: true, postings };
 }

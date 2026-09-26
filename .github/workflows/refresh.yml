@@ -31,7 +31,7 @@ jobs:
           {
             echo "## Refresh result"
             echo
-            grep -E "^(registry:|run summary:|  FAIL|  SKIP.*BLOCKED)" refresh.log || true
+            grep -E "^(registry:|run summary:|zero-PH boards|  FAIL|  SKIP.*BLOCKED)" refresh.log || true
           } >> "$GITHUB_STEP_SUMMARY"
       - name: Validate generated site
         run: |
@@ -50,4 +50,6 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data/ README.md
           git commit -m "data: daily refresh"
+          # main may have moved during the run; only generated files are committed.
+          git pull --rebase
           git push

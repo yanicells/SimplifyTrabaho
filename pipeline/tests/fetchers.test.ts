@@ -8,7 +8,7 @@ import { fetchManatal } from "../src/fetchers/manatal.js";
 import { fetchRecruitee } from "../src/fetchers/recruitee.js";
 import { fetchSmartRecruiters } from "../src/fetchers/smartrecruiters.js";
 import { fetchWorkable } from "../src/fetchers/workable.js";
-import { USER_AGENT, politeJsonGet } from "../src/fetchers/http.js";
+import { USER_AGENT, groupByHost, politeJsonGet } from "../src/fetchers/http.js";
 import type { RegistryCompany } from "../src/types.js";
 
 const xendit: RegistryCompany = {
@@ -95,6 +95,23 @@ describe("politeJsonGet timeout", () => {
     const http = fakeHttp([{ status: 200, body: {} }]);
     await politeJsonGet("https://x.example/list", { ...http, timeoutMs: 1234 });
     expect(http.calls[0]?.signal).toBeInstanceOf(AbortSignal);
+  });
+});
+
+describe("groupByHost", () => {
+  it("makes one sequential queue per ATS, all Workday tenants together, order kept", () => {
+    const boards = [
+      { ats: "greenhouse", slug: "a" },
+      { ats: "workday", slug: "globe.wd3/GLB_Careers" },
+      { ats: "greenhouse", slug: "b" },
+      { ats: "workday", slug: "accenture.wd103/AccentureCareers" },
+      { ats: "bamboohr", slug: "c" },
+    ];
+    expect(groupByHost(boards).map((group) => group.map((b) => b.slug))).toEqual([
+      ["a", "b"],
+      ["globe.wd3/GLB_Careers", "accenture.wd103/AccentureCareers"],
+      ["c"],
+    ]);
   });
 });
 
@@ -349,6 +366,23 @@ describe("fetchManatal", () => {
     expect(result.ok).toBe(true);
     if (result.ok) expect(result.postings).toHaveLength(0);
   });
+
+  it("marks the result partial when the safety page cap stops it early", async () => {
+    // `next` never goes null: the fetcher must stop at its cap and say so.
+    const http = fakeHttp([
+      {
+        status: 200,
+        body: {
+          count: 99_999,
+          next: "https://www.careers-page.com/api/v1.0/c/manatal/jobs/?page=2",
+          results: [{ hash: "A", position_name: "One", country: "Philippines" }],
+        },
+      },
+    ]);
+    const result = await fetchManatal(co, http);
+    expect(result).toMatchObject({ ok: true, partial: true });
+    expect(http.calls.length).toBeGreaterThan(20); // no longer capped at 400 postings
+  });
 });
 
 describe("fetchAshby", () => {
@@ -450,22 +484,32 @@ describe("fetchSmartRecruiters", () => {
     const http = fakeHttp([page(0, 100, 250), page(100, 100, 250), page(200, 50, 250)]);
     const result = await fetchSmartRecruiters(canva, http);
     expect(http.calls.map((c) => c.url)).toEqual([
-      "https://api.smartrecruiters.com/v1/companies/Canva/postings?limit=100&offset=0",
-      "https://api.smartrecruiters.com/v1/companies/Canva/postings?limit=100&offset=100",
-      "https://api.smartrecruiters.com/v1/companies/Canva/postings?limit=100&offset=200",
+      "https://api.smartrecruiters.com/v1/companies/Canva/postings?country=ph&limit=100&offset=0",
+      "https://api.smartrecruiters.com/v1/companies/Canva/postings?country=ph&limit=100&offset=100",
+      "https://api.smartrecruiters.com/v1/companies/Canva/postings?country=ph&limit=100&offset=200",
     ]);
     expect(result.ok).toBe(true);
     if (result.ok) expect(result.postings).toHaveLength(250);
+    expect(result).not.toHaveProperty("partial");
   });
 
+  const empty = { status: 200, body: { offset: 0, limit: 100, totalFound: 0, content: [] } };
+
   it("treats an empty company as a dead slug (SR returns 200 for unknown companies)", async () => {
-    const http = fakeHttp([
-      { status: 200, body: { offset: 0, limit: 100, totalFound: 0, content: [] } },
-    ]);
+    const http = fakeHttp([empty, empty]);
     expect(await fetchSmartRecruiters(canva, http)).toMatchObject({
       ok: false,
       errorKind: "dead-slug",
     });
+    expect(http.calls[1]?.url).toBe(
+      "https://api.smartrecruiters.com/v1/companies/Canva/postings?limit=1",
+    );
+  });
+
+  it("treats a live company with zero PH postings as a successful empty fetch", async () => {
+    const anyJob = { status: 200, body: { totalFound: 5312, content: [srPosting("1")] } };
+    const result = await fetchSmartRecruiters(canva, fakeHttp([empty, anyJob]));
+    expect(result).toEqual({ ok: true, postings: [] });
   });
 });
 
