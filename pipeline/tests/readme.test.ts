@@ -120,6 +120,7 @@ describe("generateReadme", () => {
     const many = Array.from({ length: 250 }, (_, i) =>
       listing({
         id: `id${i}`,
+        company: `Co ${i % 30}`,
         title: `Intern Role ${i}`,
         url: `https://example.com/jobs/${i}`,
         datePosted: new Date(Date.parse(NOW) - i * 60_000).toISOString(),
@@ -129,6 +130,16 @@ describe("generateReadme", () => {
     const rows = md.split("\n").filter((line) => line.includes("[Apply]("));
     expect(rows).toHaveLength(200);
     expect(rows[0]).toContain("Intern Role 0");
+  });
+
+  it("caps any one company at 10 featured rows", () => {
+    const bulk = Array.from({ length: 50 }, (_, i) =>
+      listing({ id: `b${i}`, company: "Accenture", url: `https://example.com/b/${i}` }),
+    );
+    const md = generateReadme({ ...base, listings: [...bulk, listing({ id: "k1" })] });
+    const rows = md.split("\n").filter((line) => line.includes("[Apply]("));
+    expect(rows.filter((r) => r.includes("Accenture"))).toHaveLength(10);
+    expect(rows).toHaveLength(11);
   });
 
   it("reports counts and the last-updated stamp", () => {

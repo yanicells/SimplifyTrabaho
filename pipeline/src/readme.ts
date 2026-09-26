@@ -9,6 +9,8 @@ const WEBSITE_URL = "https://simplifytrabaho.ycells.com";
 
 const FEATURED_WINDOW_DAYS = 30;
 const FEATURED_CAP = 200;
+/** One bulk hirer can't fill the table: the site still lists all of its roles. */
+const FEATURED_PER_COMPANY = 10;
 const DAY_MS = 86_400_000;
 
 export interface ReadmeInput {
@@ -46,8 +48,9 @@ export function generateReadme({
   const nowMs = Date.parse(now ?? updatedAt);
   const activeCount = listings.filter((l) => l.active).length;
 
-  // Interleave before capping so the 200 featured rows span many companies
-  // instead of one bulk poster's same-day block.
+  // Interleave and cap per company before the overall cap, so the 200 featured
+  // rows span many companies instead of one bulk poster's block.
+  const perCompany = new Map<string, number>();
   const featured = interleaveByCompany(
     listings
       .filter(
@@ -60,7 +63,13 @@ export function generateReadme({
       .sort((a, b) => b.datePosted.localeCompare(a.datePosted)),
     (l) => l.datePosted.slice(0, 10),
     (l) => l.company,
-  ).slice(0, FEATURED_CAP);
+  )
+    .filter((l) => {
+      const seen = (perCompany.get(l.company) ?? 0) + 1;
+      perCompany.set(l.company, seen);
+      return seen <= FEATURED_PER_COMPANY;
+    })
+    .slice(0, FEATURED_CAP);
 
   const rows = featured.map((l) =>
     [

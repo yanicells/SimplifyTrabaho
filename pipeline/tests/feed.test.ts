@@ -81,4 +81,27 @@ describe("interleaveByCompany", () => {
     expect(result).toHaveLength(rows.length);
     expect(new Set(result.map((r) => r.n)).size).toBe(rows.length);
   });
+
+  it("spills a bulk poster's extra roles into later days instead of a long run", () => {
+    // A busy day: Accenture posts 7, one other company posts 1; the next day has two.
+    const rows = [
+      ...[1, 2, 3, 4, 5, 6, 7].map((n) => row("Accenture", "2026-09-26", n)),
+      row("Beta", "2026-09-26", 8),
+      row("Cebu Co", "2026-09-25", 9),
+      row("Davao Inc", "2026-09-25", 10),
+    ];
+    expect(interleave(rows).map((r) => r.company)).toEqual([
+      "Accenture",
+      "Beta",
+      "Accenture",
+      "Accenture",
+      // day 2 slot: Accenture's 4th–6th roles mix with that day's postings
+      "Accenture",
+      "Cebu Co",
+      "Davao Inc",
+      "Accenture",
+      "Accenture",
+      "Accenture",
+    ]);
+  });
 });
