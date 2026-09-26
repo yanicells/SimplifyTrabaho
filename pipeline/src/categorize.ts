@@ -21,30 +21,43 @@ function normalizeTitle(title: string): string {
     .replace(/_/g, " ");
 }
 
-const INTERNSHIP = /\b(?:intern|internship|ojt|on-the-job|practicum|apprentice)\b/i;
+const INTERNSHIP = /\b(?:interns?|internships?|ojt|on-the-job|practicum|apprentice)\b/i;
 const ENTRY =
-  /\b(?:junior|jr\.?|entry|entry-level|fresh grad|new grad|graduate|trainee|cadet)\b/i;
-// "Associate Manager/Director" is a management rung, not entry.
+  /\b(?:junior|jr\.?|entry|entry-level|fresh grads?|new grads?|graduates?|trainees?|cadets?)\b/i;
+// "Associate Manager/Director" is a management rung, not entry. "Assoc" is the
+// common abbreviation ("Customer Service New Assoc", "Assoc Mgr").
 const ASSOCIATE =
-  /\bassociate\b(?!\s+(?:manager|manger|director|vice president|vp|partner|principal))/i;
-const SENIOR_ASSOCIATE = /\b(?:senior|sr\.?)\s+associate\b/i;
+  /\bassoc(?:iate)?\b(?!\.?\s+(?:manager|manger|mgr|director|vice president|vp|partner|principal))/i;
+const SENIOR_ASSOCIATE = /\b(?:senior|sr\.?)\s+assoc(?:iate)?\b/i;
 // "staff" only in the tech-ladder sense ("Staff Engineer"); "Head Office" is a place.
 const SENIOR =
-  /\b(?:senior|sr\.?|lead(?!\s+generation)|leader|principal|head(?!\s+office)|manager|director|vp|vice president|chief|supervisor|superintendent|in[- ]charge)\b|\bstaff(?=\s+(?:\w+\s+)?(?:engineer|scientist|developer|designer|architect))/i;
+  /\b(?:senior|sr\.?|lead(?!\s+generation)|leader|principal|head(?!\s+office)|manager|mgr|director|vp|vice president|chief|supervisor|superintendent|foreman|in[- ]charge)\b|\bstaff(?=\s+(?:\w+\s+)?(?:engineer|scientist|developer|designer|architect))/i;
 // "-Mid"/"(MID)" are level rungs in real BPO titles; "Mid Shift" is a schedule, not a level.
 const MID =
   /\b(?:mid-level|mid level|intermediate)\b|\bmid\b(?!\s*-?\s*shift|\s*(?:and|\/)\s*night)|\b(?:ii|iii)\b/i;
+// Support/SOC tiers ("L1 Support Engineer", "NOC Tier 2", "Level 3") and arabic grade
+// rungs after a role noun ("Accountant 1", "Network Engineer 2"). Tier 1 is entry,
+// tiers 2–3 are mid; "Tier 4"/"Batch 1" never match.
+const ROLE_NOUN = String.raw`(?:analyst|specialist|engineer|accountant|associate|developer|technician|representative)`;
+const TIER_MID = new RegExp(
+  String.raw`\b(?:l|tier|level)\s*-?\s*[23]\b|\b${ROLE_NOUN}\s+[23]\b`,
+  "i",
+);
+const TIER_ENTRY = new RegExp(
+  String.raw`\b(?:l|tier|level)\s*-?\s*1\b|\b${ROLE_NOUN}\s+1\b`,
+  "i",
+);
 // PH BPO frontline reps are entry-level by market convention. Checked AFTER the
 // senior/mid markers so "Senior CSR" stays senior and "CSR II" stays mid.
 const FRONTLINE_ENTRY =
-  /\b(?:csr|tsr|(?:customer (?:service|support)|technical support) representative|sales development representative|sdr)\b/i;
+  /\b(?:csr|tsr|(?:customer (?:service|support)|technical support) rep(?:resentative)?|sales development representative|sdr)\b/i;
 // A trailing roman "I" is the first rung of a graded ladder ("Analyst I", "Level I").
 // Case-sensitive and delimiter-anchored so "IT", "lI" typos, and prose never match.
 const ROMAN_I_ENTRY = /\bI\b(?=\s*(?:$|[-–—(|,]))/;
 // Frontline role nouns, same ordering rule as FRONTLINE_ENTRY ("Head Cashier" stays
 // senior). Agents only in the call-center sense — "AI Agents" is a product.
 const FRONTLINE_NOUN_ENTRY =
-  /\b(?:cashiers?|crew|clerks?|encoders?|fresher|(?:center|sales|support|desk|voice|chat|service|production) agents?)\b/i;
+  /\b(?:cashiers?|tellers?|crew|clerks?|encoders?|laborers?|labourers?|messengers?|fresher|(?:center|sales|support|desk|voice|chat|service|production) agents?)\b/i;
 
 export function categorizeLevel(rawTitle: string): Level {
   const title = normalizeTitle(rawTitle);
@@ -52,7 +65,8 @@ export function categorizeLevel(rawTitle: string): Level {
   if (ENTRY.test(title)) return "entry";
   if (ASSOCIATE.test(title) && !SENIOR_ASSOCIATE.test(title)) return "entry";
   if (SENIOR.test(title)) return "senior";
-  if (MID.test(title)) return "mid";
+  if (MID.test(title) || TIER_MID.test(title)) return "mid";
+  if (TIER_ENTRY.test(title)) return "entry";
   if (FRONTLINE_ENTRY.test(title)) return "entry";
   if (ROMAN_I_ENTRY.test(title)) return "entry";
   if (FRONTLINE_NOUN_ENTRY.test(title)) return "entry";
@@ -86,7 +100,7 @@ const FUNCTION_RULES: ReadonlyArray<readonly [JobFunction, RegExp]> = [
   ],
   [
     "data",
-    /\b(?:data|analytics|machine learning|ai|business intelligence|bi|mdm|master data|mis|qlik|microstrategy|etl|statistician|annotat(?:or|ion)|reports (?:analyst|specialist)|measurement (?:&|and) report)\b/i,
+    /\b(?:data(?!\s+entry)|analytics|machine learning|ai|business intelligence|bi|mdm|master data|mis|qlik|microstrategy|etl|statistician|annotat(?:or|ion)|reports (?:analyst|specialist)|measurement (?:&|and) report)\b/i,
   ],
   [
     "design",
@@ -111,11 +125,11 @@ const FUNCTION_RULES: ReadonlyArray<readonly [JobFunction, RegExp]> = [
   ],
   [
     "operations",
-    /\b(?:operations?|supply chain|logistics|forklift|inventory|(?:global|strategic) sourcing|source-to-contract|s2p|shipping|freight|fleet|transport|wfm|real time analyst|rta|stock piler|buyer|buying|continuous improvement|process excellence|operational excellence|business excellence|admin|administrative|administration (?:clerk|officer|assistant)|procurement|(?:virtual|executive|personal|office) assistant|va|workforce|warehouse|purchasing|dispatcher|dispatch|back[- ]office|service delivery|order (?:processing|management|fulfillment)|facilit(?:y|ies)|demand plan(?:ner|ning)|track and trace|driver|verifications?|service excellence|transactional quality)\b/i,
+    /\b(?:operations?|supply chain|logistics|forklift|inventory|(?:global|strategic) sourcing|source-to-contract|s2p|shipping|freight|fleet|transport|wfm|real time analyst|rta|stock piler|buyer|buying|continuous improvement|process excellence|operational excellence|business excellence|admin|administrative|administration (?:clerk|officer|assistant)|procurement|(?:virtual|executive|personal|office) assistant|va|workforce|warehouse|purchasing|dispatcher|dispatch|back[- ]office|service delivery|order (?:processing|management|fulfillment)|facilit(?:y|ies)|demand plan(?:ner|ning)|track and trace|driver|verifications?|data entry|encoders?|service excellence|transactional quality)\b/i,
   ],
   [
     "customer-support",
-    /\b(?:support|customer success|csr|tsr|customer service|customer experience|customer care|client su(?:ccess|pport)|client services?|client relations|customer specialist|contact center|complaints?|escalations?|resolution specialist|retention|service desk|help ?desk|call center|advocate)\b/i,
+    /\b(?:support|customer success|csr|tsr|customer service|customer experience|customer care|client su(?:ccess|pport)|client services?|client relations|customer specialist|contact center|complaints?|escalations?|resolution specialist|retention|service desk|help ?desk|call center|chat agents?|advocate)\b/i,
   ],
   [
     "legal",
