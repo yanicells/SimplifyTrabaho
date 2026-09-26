@@ -32,6 +32,26 @@
       "notes": "§17.2 wave-1 verified 2026-07-06: robots clean, PH country facet at source (locationCountry e56f1daf…), 672 PH postings"
     },
     {
+      "name": "Accor",
+      "ats": "smartrecruiters",
+      "slug": "AccorHotel",
+      "industry": "hospitality",
+      "type": "direct",
+      "verified": true,
+      "added": "2026-09-25",
+      "notes": "verified 2026-09-25: 85 PH postings (Makati hotels)"
+    },
+    {
+      "name": "aCommerce",
+      "ats": "greenhouse",
+      "slug": "acommerce",
+      "industry": "ecommerce",
+      "type": "direct",
+      "verified": true,
+      "added": "2026-09-25",
+      "notes": "verified 2026-09-25: 7 PH postings (Taguig)"
+    },
+    {
       "name": "AECOM",
       "ats": "smartrecruiters",
       "slug": "AECOM2",
@@ -42,6 +62,26 @@
       "notes": "auto-verified 2026-08-07: 106 PH postings"
     },
     {
+      "name": "AFRY",
+      "ats": "smartrecruiters",
+      "slug": "AFRY",
+      "industry": "energy",
+      "type": "direct",
+      "verified": true,
+      "added": "2026-09-25",
+      "notes": "verified 2026-09-25: 45 PH postings (Makati, Manila)"
+    },
+    {
+      "name": "Agoda",
+      "ats": "greenhouse",
+      "slug": "agoda",
+      "industry": "travel",
+      "type": "direct",
+      "verified": true,
+      "added": "2026-09-25",
+      "notes": "verified 2026-09-25: 4 PH postings (Makati)"
+    },
+    {
       "name": "AIA Philippines",
       "ats": "workday",
       "slug": "aia.wd3/External",
@@ -49,8 +89,17 @@
       "type": "direct",
       "verified": true,
       "added": "2026-07-06",
-      "disabled": true,
-      "notes": "DISABLED 2026-08-29 after review: robots.txt returned HTTP 503; permanent stop under §17.1.1, never re-probe. Originally §17.2 wave-3 verified 2026-07-06 with 219 postings / 212 PH — AIA Philippines (ex-Philam Life) + MediCard (PH-MPI) sites."
+      "notes": "RE-ENABLED 2026-09-25 after maintainer review: the 2026-08-29 disable was a one-off robots.txt HTTP 503, not a §17.1 block. Re-check: robots.txt 200 with Allow: /External/ and no rule covering /wday/cxs; one jobs request returned clean JSON (238 PH via locationCountry facet of 1,005). Originally §17.2 wave-3 verified 2026-07-06 with 219 postings / 212 PH — AIA Philippines (ex-Philam Life) + MediCard (PH-MPI) sites."
+    },
+    {
+      "name": "airSlate",
+      "ats": "lever",
+      "slug": "airslate",
+      "industry": "saas",
+      "type": "direct",
+      "verified": true,
+      "added": "2026-09-25",
+      "notes": "verified 2026-09-25: 2 PH postings (Manila)"
     },
     {
       "name": "AJAIA",
@@ -120,7 +169,7 @@
       "type": "agency",
       "verified": true,
       "added": "2026-06-11",
-      "notes": "auto-verified 2026-06-11: PH-headquartered, 0 open PH roles today"
+      "notes": "auto-verified 2026-06-11: PH-headquartered, 0 open PH roles today. 2026-09-25: Workable board live but empty; no board found on greenhouse/lever/ashby/recruitee/bamboohr/breezy/manatal under the obvious slug."
     },
     {
       "name": "Arch Global Services PH",
@@ -180,7 +229,7 @@
       "type": "direct",
       "verified": true,
       "added": "2026-06-11",
-      "notes": "auto-verified 2026-06-11: PH-headquartered, 0 open PH roles today"
+      "notes": "auto-verified 2026-06-11: PH-headquartered, 0 open PH roles today. 2026-09-25: Workable board live but empty; no board found on greenhouse/lever/ashby/recruitee/bamboohr/breezy/manatal under the obvious slug."
     },
     {
       "name": "Azeus Systems",
@@ -190,7 +239,7 @@
       "type": "direct",
       "verified": true,
       "added": "2026-06-11",
-      "notes": "auto-verified 2026-06-11: PH-headquartered, 0 open PH roles today"
+      "notes": "auto-verified 2026-06-11: PH-headquartered, 0 open PH roles today. 2026-09-25: board live with 1 non-PH posting; no other supported board found."
     },
     {
       "name": "Betr",
@@ -223,6 +272,16 @@
       "notes": "auto-verified 2026-07-06: 2 PH postings"
     },
     {
+      "name": "BJAK",
+      "ats": "ashby",
+      "slug": "bjakcareer",
+      "industry": "fintech",
+      "type": "direct",
+      "verified": true,
+      "added": "2026-09-25",
+      "notes": "verified 2026-09-25: 111 PH postings (81 unique titles; board posts each role across many countries)"
+    },
+    {
       "name": "Bosch",
       "ats": "smartrecruiters",
       "slug": "BoschGroup",
@@ -240,8 +299,7 @@
       "type": "direct",
       "verified": true,
       "added": "2026-07-06",
-      "disabled": true,
-      "notes": "DISABLED 2026-08-29 after review: jobs endpoint returned a non-JSON response (bot challenge); permanent stop under §17.1.2, never re-probe. Originally verified 2026-07-06 with 13 PH postings (Manila, Ayala Ave)."
+      "notes": "RE-ENABLED 2026-09-25 after maintainer review: the 2026-08-29 non-JSON response did not recur. Re-check: robots.txt 200 with Allow: /Careers/; one jobs request returned clean JSON (15 PH via Location_Country facet of 267). Originally verified 2026-07-06 with 13 PH postings (Manila, Ayala Ave)."
     },
     {
       "name": "BSA Solutions",
@@ -251,7 +309,7 @@
       "type": "agency",
       "verified": true,
       "added": "2026-06-11",
-      "notes": "auto-verified 2026-06-11: PH-headquartered, 0 open PH roles today"
+      "notes": "auto-verified 2026-06-11: PH-headquartered, 0 open PH roles today. 2026-09-25: Workable board live but empty; no board found on greenhouse/lever/ashby/recruitee/bamboohr/breezy/manatal under the obvious slug."
     },
     {
       "name": "Callbox",
@@ -261,7 +319,7 @@
       "type": "agency",
       "verified": true,
       "added": "2026-06-11",
-      "notes": "auto-verified 2026-06-11: PH-headquartered, 0 open PH roles today"
+      "notes": "auto-verified 2026-06-11: PH-headquartered, 0 open PH roles today. 2026-09-25: Workable board live but empty; no board found on greenhouse/lever/ashby/recruitee/bamboohr/breezy/manatal under the obvious slug."
     },
     {
       "name": "Canva",
@@ -272,6 +330,16 @@
       "verified": true,
       "added": "2026-08-05",
       "notes": "auto-verified 2026-08-05: 7 PH postings"
+    },
+    {
+      "name": "cbs APAC",
+      "ats": "recruitee",
+      "slug": "cbsapac",
+      "industry": "it-services",
+      "type": "direct",
+      "verified": true,
+      "added": "2026-09-25",
+      "notes": "verified 2026-09-25: 4 PH postings (Manila SAP consulting)"
     },
     {
       "name": "CI&T",
@@ -292,7 +360,17 @@
       "verified": true,
       "added": "2026-08-05",
       "disabled": true,
-      "notes": "DISABLED 2026-08-29 after review: robots.txt returned HTTP 503; permanent stop under §17.1.1, never re-probe. Originally §17.2 round-7 verified 2026-08-05 with 187 postings / 183 PH (identity: jobs.citi.com → citi.wd5/2)."
+      "notes": "DISABLED 2026-08-29 (robots.txt HTTP 503). Re-checked 2026-09-25 after maintainer review: robots.txt now returns 200 but contains \"Disallow: /2/\" — the careers site itself is disallowed for *, so it stays OFF (§17.1.1). Originally §17.2 round-7 verified 2026-08-05 with 187 postings / 183 PH (identity: jobs.citi.com → citi.wd5/2)."
+    },
+    {
+      "name": "ClickUp",
+      "ats": "ashby",
+      "slug": "clickup",
+      "industry": "saas",
+      "type": "direct",
+      "verified": true,
+      "added": "2026-09-25",
+      "notes": "verified 2026-09-25: 6 PH postings"
     },
     {
       "name": "Clipboard Health",
@@ -332,7 +410,7 @@
       "type": "agency",
       "verified": true,
       "added": "2026-06-11",
-      "notes": "auto-verified 2026-06-11: PH-headquartered, 0 open PH roles today"
+      "notes": "auto-verified 2026-06-11: PH-headquartered, 0 open PH roles today. 2026-09-25: Workable board empty; moved to a custom careers portal (no supported feed). Kept as provenance."
     },
     {
       "name": "Coda Payments",
@@ -372,8 +450,27 @@
       "type": "direct",
       "verified": true,
       "added": "2026-07-06",
-      "disabled": true,
-      "notes": "DISABLED 2026-08-29 after review: robots.txt returned HTTP 503; permanent stop under §17.1.1, never re-probe. Originally §17.2 wave-3 verified 2026-07-06 with 351 postings / 251 PH (QC EXXA Tower, Alabang, CDO, Ayala TechnoHub sites)."
+      "notes": "RE-ENABLED 2026-09-25 after maintainer review: the 2026-08-29 disable was a one-off robots.txt HTTP 503, not a §17.1 block. Re-check: robots.txt 200 with Allow: /external_global/ and no rule covering /wday/cxs; one jobs request returned clean JSON (354 PH via locationCountry facet of 1,633). Originally §17.2 wave-3 verified 2026-07-06 with 351 postings / 251 PH (QC EXXA Tower, Alabang, CDO, Ayala TechnoHub sites)."
+    },
+    {
+      "name": "Continental",
+      "ats": "smartrecruiters",
+      "slug": "Continental",
+      "industry": "automotive",
+      "type": "direct",
+      "verified": true,
+      "added": "2026-09-25",
+      "notes": "verified 2026-09-25: 11 PH postings (Taguig, Makati)"
+    },
+    {
+      "name": "Core-VA Solutions",
+      "ats": "workable",
+      "slug": "core-va-solutions",
+      "industry": "staffing",
+      "type": "agency",
+      "verified": true,
+      "added": "2026-09-25",
+      "notes": "verified 2026-09-25: 30 PH postings (5 roles posted across several PH cities)"
     },
     {
       "name": "CrewBloom",
@@ -393,7 +490,17 @@
       "type": "agency",
       "verified": true,
       "added": "2026-06-11",
-      "notes": "auto-verified 2026-06-11: PH-headquartered, 0 open PH roles today"
+      "notes": "auto-verified 2026-06-11: PH-headquartered, 0 open PH roles today. 2026-09-25: Workable board live but empty; no board found on greenhouse/lever/ashby/recruitee/bamboohr/breezy/manatal under the obvious slug."
+    },
+    {
+      "name": "Cygnific",
+      "ats": "recruitee",
+      "slug": "cygnific26",
+      "industry": "outsourcing",
+      "type": "direct",
+      "verified": true,
+      "added": "2026-09-25",
+      "notes": "verified 2026-09-25: 5 PH postings (Makati; Air France-KLM contact center)"
     },
     {
       "name": "Datacom",
@@ -433,8 +540,7 @@
       "type": "direct",
       "verified": true,
       "added": "2026-08-05",
-      "disabled": true,
-      "notes": "DISABLED 2026-08-29 after review: robots.txt returned HTTP 503; permanent stop under §17.1.1, never re-probe. Originally verified 2026-08-05 with 42 PH postings."
+      "notes": "RE-ENABLED 2026-09-25 after maintainer review: the 2026-08-29 disable was a one-off robots.txt HTTP 503 (Workday maintenance window), not a §17.1 block. Re-check: robots.txt 200 with Allow: /DBWebsite/ and no rule covering /wday/cxs; one jobs request returned clean JSON (48 PH via Country facet of 1,148). Originally verified 2026-08-05 with 42 PH postings."
     },
     {
       "name": "Dialpad",
@@ -478,13 +584,13 @@
     },
     {
       "name": "Eastvantage",
-      "ats": "workable",
+      "ats": "manatal",
       "slug": "eastvantage",
       "industry": "outsourcing",
       "type": "agency",
       "verified": true,
       "added": "2026-06-11",
-      "notes": "auto-verified 2026-06-11: PH-headquartered, 0 open PH roles today"
+      "notes": "auto-verified 2026-06-11: PH-headquartered, 0 open PH roles today. 2026-09-25: Workable board (eastvantage) empty; moved to manatal:eastvantage — 3 PH postings (most postings carry no location)."
     },
     {
       "name": "EastWest Bank",
@@ -504,7 +610,7 @@
       "type": "agency",
       "verified": true,
       "added": "2026-06-11",
-      "notes": "auto-verified 2026-06-11: PH-headquartered, 0 open PH roles today"
+      "notes": "auto-verified 2026-06-11: PH-headquartered, 0 open PH roles today. 2026-09-25: Workable board empty; moved to Zoho Recruit (auth-gated, not supported). Kept as provenance."
     },
     {
       "name": "Encora",
@@ -537,6 +643,16 @@
       "notes": "auto-verified 2026-07-02: 5 PH postings"
     },
     {
+      "name": "Esquire Financing",
+      "ats": "manatal",
+      "slug": "esquire",
+      "industry": "fintech",
+      "type": "direct",
+      "verified": true,
+      "added": "2026-09-25",
+      "notes": "verified 2026-09-25: 5 PH postings; identity: careers page titled Esquire Financing Inc, links esquire.com.ph"
+    },
+    {
       "name": "Etaily",
       "ats": "workable",
       "slug": "etaily",
@@ -544,7 +660,17 @@
       "type": "direct",
       "verified": true,
       "added": "2026-06-11",
-      "notes": "auto-verified 2026-06-11: PH-headquartered, 0 open PH roles today"
+      "notes": "auto-verified 2026-06-11: PH-headquartered, 0 open PH roles today. 2026-09-25: Workable board empty; moved to JazzHR (not a supported ATS). Kept as provenance."
+    },
+    {
+      "name": "Eucalyptus",
+      "ats": "greenhouse",
+      "slug": "eucalyptus",
+      "industry": "healthtech",
+      "type": "direct",
+      "verified": true,
+      "added": "2026-09-25",
+      "notes": "verified 2026-09-25: 33 PH postings (Manila hub)"
     },
     {
       "name": "Expedock",
@@ -634,8 +760,17 @@
       "type": "direct",
       "verified": true,
       "added": "2026-07-06",
-      "disabled": true,
-      "notes": "DISABLED 2026-08-29 after review: robots.txt returned HTTP 503; permanent stop under §17.1.1, never re-probe. Originally verified 2026-07-06 with 170 PH postings."
+      "notes": "RE-ENABLED 2026-09-25 after maintainer review: the 2026-08-29 disable was a one-off robots.txt HTTP 503 (Workday maintenance window), not a §17.1 block. Re-check: robots.txt 200 with Allow: /Mynt/ and no rule covering /wday/cxs; one jobs request returned clean JSON (160 postings, 17 of first 20 PH (no PH facet)). Originally verified 2026-07-06 with 170 PH postings."
+    },
+    {
+      "name": "Genpact",
+      "ats": "workday",
+      "slug": "genpact.wd108/External_Careers",
+      "industry": "outsourcing",
+      "type": "direct",
+      "verified": true,
+      "added": "2026-09-25",
+      "notes": "§17.2 verified 2026-09-25: robots clean (Allow:/External_Careers/); no block; 2,000+ postings with no country facet (≈42 PH across site-level location facets) — 1,000-cap + local PH filter (§17.1.4 fallback)"
     },
     {
       "name": "GitLab",
@@ -655,7 +790,7 @@
       "type": "agency",
       "verified": true,
       "added": "2026-06-11",
-      "notes": "auto-verified 2026-06-11: PH-headquartered, 0 open PH roles today"
+      "notes": "auto-verified 2026-06-11: PH-headquartered, 0 open PH roles today. 2026-09-25: Workable board live but empty; no board found on greenhouse/lever/ashby/recruitee/bamboohr/breezy/manatal under the obvious slug."
     },
     {
       "name": "Globe",
@@ -665,8 +800,7 @@
       "type": "direct",
       "verified": true,
       "added": "2026-07-06",
-      "disabled": true,
-      "notes": "DISABLED 2026-08-29 after review: robots.txt returned HTTP 503; permanent stop under §17.1.1, never re-probe. Originally verified 2026-07-06 with 104 PH postings."
+      "notes": "RE-ENABLED 2026-09-25 after maintainer review: the 2026-08-29 disable was a one-off robots.txt HTTP 503 (Workday maintenance window), not a §17.1 block. Re-check: robots.txt 200 with Allow: /GLB_Careers/ and no rule covering /wday/cxs; one jobs request returned clean JSON (358 PH via locationCountry facet of 374). Originally verified 2026-07-06 with 104 PH postings."
     },
     {
       "name": "GoTyme Bank",
@@ -687,6 +821,26 @@
       "verified": true,
       "added": "2026-07-06",
       "notes": "auto-verified 2026-07-06: 21 PH postings"
+    },
+    {
+      "name": "Grab",
+      "ats": "smartrecruiters",
+      "slug": "Grab",
+      "industry": "transport",
+      "type": "direct",
+      "verified": true,
+      "added": "2026-09-25",
+      "notes": "verified 2026-09-25: 19 PH postings (Pasig)"
+    },
+    {
+      "name": "H&M",
+      "ats": "smartrecruiters",
+      "slug": "HMGroup",
+      "industry": "retail",
+      "type": "direct",
+      "verified": true,
+      "added": "2026-09-25",
+      "notes": "verified 2026-09-25: 12 PH postings (PH stores)"
     },
     {
       "name": "HawodTech Solutions",
@@ -809,6 +963,16 @@
       "notes": "auto-verified 2026-06-11: 149 PH postings"
     },
     {
+      "name": "IKEA Philippines",
+      "ats": "smartrecruiters",
+      "slug": "IkanoRetail",
+      "industry": "retail",
+      "type": "direct",
+      "verified": true,
+      "added": "2026-09-25",
+      "notes": "verified 2026-09-25: 19 PH postings (Ikano Retail runs IKEA PH; Pasay, Cebu)"
+    },
+    {
       "name": "Infinit-O",
       "ats": "workable",
       "slug": "infinit-o",
@@ -816,7 +980,7 @@
       "type": "agency",
       "verified": true,
       "added": "2026-06-11",
-      "notes": "auto-verified 2026-06-11: PH-headquartered, 0 open PH roles today"
+      "notes": "auto-verified 2026-06-11: PH-headquartered, 0 open PH roles today. 2026-09-25: Workable board live but empty; no board found on greenhouse/lever/ashby/recruitee/bamboohr/breezy/manatal under the obvious slug."
     },
     {
       "name": "ING",
@@ -826,8 +990,7 @@
       "type": "direct",
       "verified": true,
       "added": "2026-08-07",
-      "disabled": true,
-      "notes": "DISABLED 2026-08-29 after review: robots.txt returned HTTP 503; permanent stop under §17.1.1, never re-probe. Originally verified 2026-08-07 with 170 PH postings."
+      "notes": "RE-ENABLED 2026-09-25 after maintainer review: the 2026-08-29 disable was a one-off robots.txt HTTP 503 (Workday maintenance window), not a §17.1 block. Re-check: robots.txt 200 with Allow: /ICSGBLCOR/ and no rule covering /wday/cxs; one jobs request returned clean JSON (728 postings, 6 of first 20 PH (no PH facet)). Originally verified 2026-08-07 with 170 PH postings."
     },
     {
       "name": "Instructure",
@@ -850,6 +1013,16 @@
       "notes": "auto-verified 2026-06-11: 134 PH postings"
     },
     {
+      "name": "ISS",
+      "ats": "workday",
+      "slug": "issgovernance.wd1/ISScareers",
+      "industry": "financial-services",
+      "type": "direct",
+      "verified": true,
+      "added": "2026-09-25",
+      "notes": "§17.2 verified 2026-09-25: robots clean (Allow:/ISScareers/ — slug uses the robots-listed case); no block; 83 postings, 9 of first 20 PH (Makati); Institutional Shareholder Services"
+    },
+    {
       "name": "ISTA Personnel Solutions",
       "ats": "workable",
       "slug": "ista-2",
@@ -870,6 +1043,16 @@
       "notes": "auto-verified 2026-06-11: PH-headquartered, 0 open PH roles today"
     },
     {
+      "name": "JLL",
+      "ats": "workday",
+      "slug": "jll.wd1/jllcareers",
+      "industry": "real-estate",
+      "type": "direct",
+      "verified": true,
+      "added": "2026-09-25",
+      "notes": "§17.2 verified 2026-09-25: robots clean (Allow:/jllcareers/); no block; 83 PH via locationCountry facet of 2,000+"
+    },
+    {
       "name": "Johnson & Johnson",
       "ats": "workday",
       "slug": "jj.wd5/JJ",
@@ -878,6 +1061,16 @@
       "verified": true,
       "added": "2026-08-07",
       "notes": "§17.2 round-8 verified 2026-08-07: robots clean (Allow:/JJ/); no block; 1000-cap / 52 PH (Taguig/Manila identity — jj.wd5/JJ)"
+    },
+    {
+      "name": "Karbon",
+      "ats": "greenhouse",
+      "slug": "karbon",
+      "industry": "saas",
+      "type": "direct",
+      "verified": true,
+      "added": "2026-09-25",
+      "notes": "verified 2026-09-25: 3 PH postings (Cebu, remote PH)"
     },
     {
       "name": "Kasa",
@@ -907,7 +1100,7 @@
       "type": "agency",
       "verified": true,
       "added": "2026-06-11",
-      "notes": "auto-verified 2026-06-11: PH-headquartered, 0 open PH roles today"
+      "notes": "auto-verified 2026-06-11: PH-headquartered, 0 open PH roles today. 2026-09-25: Workable board live but empty; no board found on greenhouse/lever/ashby/recruitee/bamboohr/breezy/manatal under the obvious slug."
     },
     {
       "name": "Kraken",
@@ -940,6 +1133,16 @@
       "notes": "auto-verified 2026-06-11: 13 PH postings"
     },
     {
+      "name": "LawAdvisor",
+      "ats": "recruitee",
+      "slug": "lawadvisor",
+      "industry": "saas",
+      "type": "direct",
+      "verified": true,
+      "added": "2026-09-25",
+      "notes": "verified 2026-09-25: 4 PH postings (Makati)"
+    },
+    {
       "name": "Lennor Metier",
       "ats": "smartrecruiters",
       "slug": "LennorMetier",
@@ -970,6 +1173,16 @@
       "notes": "auto-verified 2026-07-19: 3 PH postings"
     },
     {
+      "name": "Lomography",
+      "ats": "recruitee",
+      "slug": "lomography",
+      "industry": "retail",
+      "type": "direct",
+      "verified": true,
+      "added": "2026-09-25",
+      "notes": "verified 2026-09-25: 4 PH postings (Makati)"
+    },
+    {
       "name": "Lone Wolf Technologies",
       "ats": "lever",
       "slug": "lwolf",
@@ -987,8 +1200,7 @@
       "type": "direct",
       "verified": true,
       "added": "2026-07-06",
-      "disabled": true,
-      "notes": "DISABLED 2026-08-29 after review: robots.txt returned HTTP 503; permanent stop under §17.1.1, never re-probe. Originally verified 2026-07-06 with 33 PH postings."
+      "notes": "RE-ENABLED 2026-09-25 after maintainer review: the 2026-08-29 disable was a one-off robots.txt HTTP 503 (Workday maintenance window), not a §17.1 block. Re-check: robots.txt 200 with Allow: /Maersk_Careers/ and no rule covering /wday/cxs; one jobs request returned clean JSON (1,388 postings, no PH facet (cap + local PH filter)). Originally verified 2026-07-06 with 33 PH postings."
     },
     {
       "name": "Manila Recruitment",
@@ -1008,8 +1220,7 @@
       "type": "direct",
       "verified": true,
       "added": "2026-07-06",
-      "disabled": true,
-      "notes": "DISABLED 2026-08-29 after review: robots.txt returned HTTP 503; permanent stop under §17.1.1, never re-probe. Originally verified 2026-07-06 with 211 PH postings."
+      "notes": "RE-ENABLED 2026-09-25 after maintainer review: the 2026-08-29 disable was a one-off robots.txt HTTP 503 (Workday maintenance window), not a §17.1 block. Re-check: robots.txt 200 with Allow: /MFCJH_Jobs/ and no rule covering /wday/cxs; one jobs request returned clean JSON (196 PH via Location_Country facet of 727). Originally verified 2026-07-06 with 211 PH postings."
     },
     {
       "name": "Mastercard",
@@ -1032,6 +1243,16 @@
       "notes": "auto-verified 2026-06-11: 3 PH postings"
     },
     {
+      "name": "MiQ",
+      "ats": "greenhouse",
+      "slug": "miqdigital",
+      "industry": "adtech",
+      "type": "direct",
+      "verified": true,
+      "added": "2026-09-25",
+      "notes": "verified 2026-09-25: 11 PH postings (Manila)"
+    },
+    {
       "name": "Mondelez International",
       "ats": "workday",
       "slug": "mdlz.wd3/External",
@@ -1039,8 +1260,17 @@
       "type": "direct",
       "verified": true,
       "added": "2026-07-06",
-      "disabled": true,
-      "notes": "DISABLED 2026-08-29 after review: robots.txt returned HTTP 503; permanent stop under §17.1.1, never re-probe. Originally verified 2026-07-06 with 25 PH postings."
+      "notes": "RE-ENABLED 2026-09-25 after maintainer review: the 2026-08-29 disable was a one-off robots.txt HTTP 503 (Workday maintenance window), not a §17.1 block. Re-check: robots.txt 200 with Allow: /External/ and no rule covering /wday/cxs; one jobs request returned clean JSON (25 PH via locationCountry facet of 1,318). Originally verified 2026-07-06 with 25 PH postings."
+    },
+    {
+      "name": "MoneyHero Group",
+      "ats": "greenhouse",
+      "slug": "moneyherogroup",
+      "industry": "fintech",
+      "type": "direct",
+      "verified": true,
+      "added": "2026-09-25",
+      "notes": "verified 2026-09-25: 3 PH postings (Manila; Moneymax parent)"
     },
     {
       "name": "MR DIY Philippines",
@@ -1063,6 +1293,26 @@
       "notes": "auto-verified 2026-07-19: 14 PH postings"
     },
     {
+      "name": "NCR Voyix",
+      "ats": "workday",
+      "slug": "ncr.wd1/ext_apac",
+      "industry": "software",
+      "type": "direct",
+      "verified": true,
+      "added": "2026-09-25",
+      "notes": "§17.2 verified 2026-09-25: robots clean (Allow:/ext_apac/); no block; 53 PH via Location_Country facet of 108"
+    },
+    {
+      "name": "Neostella",
+      "ats": "workable",
+      "slug": "neostella",
+      "industry": "software",
+      "type": "direct",
+      "verified": true,
+      "added": "2026-09-25",
+      "notes": "verified 2026-09-25: 2 PH postings (Cebu City)"
+    },
+    {
       "name": "NeoWork",
       "ats": "workable",
       "slug": "neowork",
@@ -1073,6 +1323,16 @@
       "notes": "auto-verified 2026-06-11: 31 PH postings"
     },
     {
+      "name": "Netskope",
+      "ats": "greenhouse",
+      "slug": "netskope",
+      "industry": "saas",
+      "type": "direct",
+      "verified": true,
+      "added": "2026-09-25",
+      "notes": "verified 2026-09-25: 9 PH postings (Taguig)"
+    },
+    {
       "name": "NICE",
       "ats": "greenhouse",
       "slug": "nice",
@@ -1081,6 +1341,16 @@
       "verified": true,
       "added": "2026-06-11",
       "notes": "auto-verified 2026-06-11: 35 PH postings"
+    },
+    {
+      "name": "Nielsen",
+      "ats": "smartrecruiters",
+      "slug": "TheNielsenCompany",
+      "industry": "media",
+      "type": "direct",
+      "verified": true,
+      "added": "2026-09-25",
+      "notes": "verified 2026-09-25: 1 PH posting (Pasig)"
     },
     {
       "name": "Nimbyx Philippines",
@@ -1101,6 +1371,16 @@
       "verified": true,
       "added": "2026-06-11",
       "notes": "Regional; PH roles in Taguig, Calabarzon, Cagayan de Oro"
+    },
+    {
+      "name": "Okta",
+      "ats": "greenhouse",
+      "slug": "okta",
+      "industry": "saas",
+      "type": "direct",
+      "verified": true,
+      "added": "2026-09-25",
+      "notes": "verified 2026-09-25: 1 PH posting (Manila)"
     },
     {
       "name": "Oscilar",
@@ -1130,7 +1410,7 @@
       "type": "agency",
       "verified": true,
       "added": "2026-06-11",
-      "notes": "auto-verified 2026-06-11: PH-headquartered, 0 open PH roles today"
+      "notes": "auto-verified 2026-06-11: PH-headquartered, 0 open PH roles today. 2026-09-25: Workable board live but empty; no board found on greenhouse/lever/ashby/recruitee/bamboohr/breezy/manatal under the obvious slug."
     },
     {
       "name": "Outsourced",
@@ -1140,7 +1420,7 @@
       "type": "agency",
       "verified": true,
       "added": "2026-06-11",
-      "notes": "auto-verified 2026-06-11: PH-headquartered, 0 open PH roles today"
+      "notes": "auto-verified 2026-06-11: PH-headquartered, 0 open PH roles today. 2026-09-25: Workable board live but empty; no board found on greenhouse/lever/ashby/recruitee/bamboohr/breezy/manatal under the obvious slug."
     },
     {
       "name": "Paired",
@@ -1190,7 +1470,7 @@
       "type": "agency",
       "verified": true,
       "added": "2026-06-11",
-      "notes": "auto-verified 2026-06-11: PH-headquartered, 0 open PH roles today"
+      "notes": "auto-verified 2026-06-11: PH-headquartered, 0 open PH roles today. 2026-09-25: Workable board live but empty; no board found on greenhouse/lever/ashby/recruitee/bamboohr/breezy/manatal under the obvious slug."
     },
     {
       "name": "Pepper Money UK - Philippines Branch",
@@ -1250,8 +1530,7 @@
       "type": "direct",
       "verified": true,
       "added": "2026-07-06",
-      "disabled": true,
-      "notes": "DISABLED 2026-08-29 after review: robots.txt returned HTTP 503; permanent stop under §17.1.1, never re-probe. Originally verified 2026-07-06 with 34 PH postings."
+      "notes": "RE-ENABLED 2026-09-25 after maintainer review: the 2026-08-29 disable was a one-off robots.txt HTTP 503 (Workday maintenance window), not a §17.1 block. Re-check: robots.txt 200 with Allow: /prudential/ and no rule covering /wday/cxs; one jobs request returned clean JSON (46 PH via locationHierarchy1 facet of 508). Originally verified 2026-07-06 with 34 PH postings."
     },
     {
       "name": "PwC",
@@ -1261,8 +1540,7 @@
       "type": "direct",
       "verified": true,
       "added": "2026-08-05",
-      "disabled": true,
-      "notes": "DISABLED 2026-08-29 after review: robots.txt returned HTTP 503; permanent stop under §17.1.1, never re-probe. Originally verified 2026-08-05 with 1 PH posting."
+      "notes": "RE-ENABLED 2026-09-25 after maintainer review: the 2026-08-29 disable was a one-off robots.txt HTTP 503 (Workday maintenance window), not a §17.1 block. Re-check: robots.txt 200 with Allow: /Global_Experienced_Careers/ and no rule covering /wday/cxs; one jobs request returned clean JSON (4,033 postings, no PH facet (cap + local PH filter)). Originally verified 2026-08-05 with 1 PH posting."
     },
     {
       "name": "QBE",
@@ -1272,8 +1550,7 @@
       "type": "direct",
       "verified": true,
       "added": "2026-07-06",
-      "disabled": true,
-      "notes": "DISABLED 2026-08-29 after review: robots.txt returned HTTP 503; permanent stop under §17.1.1, never re-probe. Originally verified 2026-07-06 with 39 PH postings."
+      "notes": "RE-ENABLED 2026-09-25 after maintainer review: the 2026-08-29 disable was a one-off robots.txt HTTP 503 (Workday maintenance window), not a §17.1 block. Re-check: robots.txt 200 with Allow: /QBE-Careers/ and no rule covering /wday/cxs; one jobs request returned clean JSON (valid JSON but total 0 today (board empty)). Originally verified 2026-07-06 with 39 PH postings."
     },
     {
       "name": "QuickTeam",
@@ -1284,6 +1561,16 @@
       "verified": true,
       "added": "2026-06-11",
       "notes": "auto-verified 2026-06-11: 8 PH postings"
+    },
+    {
+      "name": "Radisson Hotel Group",
+      "ats": "smartrecruiters",
+      "slug": "RHG",
+      "industry": "hospitality",
+      "type": "direct",
+      "verified": true,
+      "added": "2026-09-25",
+      "notes": "verified 2026-09-25: 11 PH postings (Cebu, Quezon City)"
     },
     {
       "name": "Remote",
@@ -1313,7 +1600,7 @@
       "type": "agency",
       "verified": true,
       "added": "2026-06-11",
-      "notes": "auto-verified 2026-06-11: PH-headquartered, 0 open PH roles today"
+      "notes": "auto-verified 2026-06-11: PH-headquartered, 0 open PH roles today. 2026-09-25: Workable board live but empty; no board found on greenhouse/lever/ashby/recruitee/bamboohr/breezy/manatal under the obvious slug."
     },
     {
       "name": "ResultsCX",
@@ -1324,6 +1611,36 @@
       "verified": true,
       "added": "2026-06-11",
       "notes": "auto-verified 2026-06-11: 1 PH postings"
+    },
+    {
+      "name": "Retell AI",
+      "ats": "ashby",
+      "slug": "retell-ai",
+      "industry": "saas",
+      "type": "direct",
+      "verified": true,
+      "added": "2026-09-25",
+      "notes": "verified 2026-09-25: 1 PH posting (multi-country remote incl. Philippines)"
+    },
+    {
+      "name": "RingCentral",
+      "ats": "workday",
+      "slug": "ringcentral.wd1/RingCentral_Careers",
+      "industry": "saas",
+      "type": "direct",
+      "verified": true,
+      "added": "2026-09-25",
+      "notes": "§17.2 verified 2026-09-25: robots clean (Allow:/RingCentral_Careers/); no block; 82 postings, 5 of first 20 PH (Manila)"
+    },
+    {
+      "name": "RISE",
+      "ats": "lever",
+      "slug": "rise",
+      "industry": "telecom",
+      "type": "direct",
+      "verified": true,
+      "added": "2026-09-25",
+      "notes": "verified 2026-09-25: 23 PH postings; identity: board links to rise.ph (PH enterprise fiber ISP)"
     },
     {
       "name": "Rocket Partners",
@@ -1393,7 +1710,7 @@
       "type": "agency",
       "verified": true,
       "added": "2026-06-11",
-      "notes": "auto-verified 2026-06-11: PH-headquartered, 0 open PH roles today"
+      "notes": "auto-verified 2026-06-11: PH-headquartered, 0 open PH roles today. 2026-09-25: Workable board live but empty; no board found on greenhouse/lever/ashby/recruitee/bamboohr/breezy/manatal under the obvious slug."
     },
     {
       "name": "Snappr",
@@ -1407,23 +1724,23 @@
     },
     {
       "name": "Sourcefit",
-      "ats": "workable",
+      "ats": "breezy",
       "slug": "sourcefit",
       "industry": "outsourcing",
       "type": "agency",
       "verified": true,
       "added": "2026-06-11",
-      "notes": "auto-verified 2026-06-11: PH-headquartered, 0 open PH roles today"
+      "notes": "auto-verified 2026-06-11: PH-headquartered, 0 open PH roles today. 2026-09-25: Workable board (sourcefit) empty; moved to breezy:sourcefit — 76 PH postings."
     },
     {
       "name": "Sprout Solutions",
-      "ats": "workable",
-      "slug": "sprout-solutions",
+      "ats": "manatal",
+      "slug": "sprout-solutions-phil-inc",
       "industry": "hr-tech",
       "type": "direct",
       "verified": true,
       "added": "2026-06-11",
-      "notes": "auto-verified 2026-06-11: PH-headquartered, 0 open PH roles today"
+      "notes": "auto-verified 2026-06-11: PH-headquartered, 0 open PH roles today. 2026-09-25: Workable board (sprout-solutions) empty; moved to manatal:sprout-solutions-phil-inc — 33 PH postings."
     },
     {
       "name": "Staff4Me",
@@ -1443,7 +1760,7 @@
       "type": "agency",
       "verified": true,
       "added": "2026-06-11",
-      "notes": "auto-verified 2026-06-11: PH-headquartered, 0 open PH roles today"
+      "notes": "auto-verified 2026-06-11: PH-headquartered, 0 open PH roles today. 2026-09-25: Workable board live but empty; no board found on greenhouse/lever/ashby/recruitee/bamboohr/breezy/manatal under the obvious slug."
     },
     {
       "name": "Sun Life",
@@ -1453,8 +1770,7 @@
       "type": "direct",
       "verified": true,
       "added": "2026-07-06",
-      "disabled": true,
-      "notes": "DISABLED 2026-08-29 after review: robots.txt returned HTTP 503; permanent stop under §17.1.1, never re-probe. Originally verified 2026-07-06 with 56 PH postings."
+      "notes": "RE-ENABLED 2026-09-25 after maintainer review: the 2026-08-29 disable was a one-off robots.txt HTTP 503 (Workday maintenance window), not a §17.1 block. Re-check: robots.txt 200 with Allow: /Experienced-Jobs/ and no rule covering /wday/cxs; one jobs request returned clean JSON (87 PH via Location_Country facet of 285). Originally verified 2026-07-06 with 56 PH postings."
     },
     {
       "name": "Sunnies",
@@ -1474,7 +1790,7 @@
       "type": "agency",
       "verified": true,
       "added": "2026-07-19",
-      "notes": "auto-verified 2026-07-19: PH-headquartered, 0 open PH roles today"
+      "notes": "auto-verified 2026-07-19: PH-headquartered, 0 open PH roles today. 2026-09-25: Workable board live but empty; no board found on greenhouse/lever/ashby/recruitee/bamboohr/breezy/manatal under the obvious slug."
     },
     {
       "name": "SupportYourApp",
@@ -1487,6 +1803,16 @@
       "notes": "auto-verified 2026-06-11: 15 PH postings"
     },
     {
+      "name": "Sutherland",
+      "ats": "smartrecruiters",
+      "slug": "Sutherland",
+      "industry": "outsourcing",
+      "type": "direct",
+      "verified": true,
+      "added": "2026-09-25",
+      "notes": "verified 2026-09-25: 74 PH postings (Clark, Palayan)"
+    },
+    {
       "name": "SwissTank Media",
       "ats": "smartrecruiters",
       "slug": "SwissTankMedia",
@@ -1495,6 +1821,46 @@
       "verified": true,
       "added": "2026-06-11",
       "notes": "auto-verified 2026-06-11: 5 PH postings"
+    },
+    {
+      "name": "Synagie",
+      "ats": "smartrecruiters",
+      "slug": "SynagieInc",
+      "industry": "ecommerce",
+      "type": "direct",
+      "verified": true,
+      "added": "2026-09-25",
+      "notes": "verified 2026-09-25: 2 PH postings (Makati)"
+    },
+    {
+      "name": "Tala",
+      "ats": "lever",
+      "slug": "tala",
+      "industry": "fintech",
+      "type": "direct",
+      "verified": true,
+      "added": "2026-09-25",
+      "notes": "verified 2026-09-25: 1 PH posting"
+    },
+    {
+      "name": "Tarro",
+      "ats": "ashby",
+      "slug": "tarro",
+      "industry": "saas",
+      "type": "direct",
+      "verified": true,
+      "added": "2026-09-25",
+      "notes": "verified 2026-09-25: 14 PH postings (Manila, Dumaguete)"
+    },
+    {
+      "name": "TaskUs",
+      "ats": "workday",
+      "slug": "taskus.wd1/Careers",
+      "industry": "outsourcing",
+      "type": "direct",
+      "verified": true,
+      "added": "2026-09-25",
+      "notes": "§17.2 verified 2026-09-25: robots clean (Allow:/Careers/); no block; 147 PH via locationCountry facet of 447"
     },
     {
       "name": "TASQ Staffing Solutions",
@@ -1534,7 +1900,7 @@
       "type": "agency",
       "verified": true,
       "added": "2026-06-11",
-      "notes": "auto-verified 2026-06-11: PH-headquartered, 0 open PH roles today"
+      "notes": "auto-verified 2026-06-11: PH-headquartered, 0 open PH roles today. 2026-09-25: Workable board live but empty; no board found on greenhouse/lever/ashby/recruitee/bamboohr/breezy/manatal under the obvious slug."
     },
     {
       "name": "TELUS Digital",
@@ -1545,7 +1911,7 @@
       "verified": true,
       "added": "2026-07-06",
       "disabled": true,
-      "notes": "DISABLED 2026-08-29 after review: robots.txt began returning HTTP 403 on 2026-07-29; permanent stop under §17.1.1, never re-probe. Originally verified 2026-07-06 with 56 postings / 8 PH; tenant keeps the pre-rebrand telusinternational id."
+      "notes": "DISABLED 2026-08-29 after review: robots.txt began returning HTTP 403 on 2026-07-29; permanent stop under §17.1.1. Re-checked 2026-09-25 after maintainer review: robots.txt still HTTP 403 — stays disabled, no jobs request sent. Originally verified 2026-07-06 with 56 postings / 8 PH; tenant keeps the pre-rebrand telusinternational id."
     },
     {
       "name": "The Global Talent Co",
@@ -1635,8 +2001,17 @@
       "type": "direct",
       "verified": true,
       "added": "2026-07-06",
-      "disabled": true,
-      "notes": "DISABLED 2026-08-29 after review: robots.txt returned HTTP 503; permanent stop under §17.1.1, never re-probe. Originally verified 2026-07-06 with 16 PH postings."
+      "notes": "RE-ENABLED 2026-09-25 after maintainer review: the 2026-08-29 disable was a one-off robots.txt HTTP 503 (Workday maintenance window), not a §17.1 block. Re-check: robots.txt 200 with Allow: /Unilever_Experienced_Professionals/ and no rule covering /wday/cxs; one jobs request returned clean JSON (17 PH via locationCountry facet of 241). Originally verified 2026-07-06 with 16 PH postings."
+    },
+    {
+      "name": "Unisys",
+      "ats": "workday",
+      "slug": "unisys.wd5/External",
+      "industry": "it-services",
+      "type": "direct",
+      "verified": true,
+      "added": "2026-09-25",
+      "notes": "§17.2 verified 2026-09-25: robots clean (Allow:/External/); no block; 18 PH via locationCountry facet of 435"
     },
     {
       "name": "Universal Leaf Philippines",
@@ -1689,6 +2064,16 @@
       "notes": "auto-verified 2026-07-06: 381 PH postings"
     },
     {
+      "name": "Western Digital",
+      "ats": "smartrecruiters",
+      "slug": "WesternDigital",
+      "industry": "manufacturing",
+      "type": "direct",
+      "verified": true,
+      "added": "2026-09-25",
+      "notes": "verified 2026-09-25: 10 PH postings (Biñan, Laguna)"
+    },
+    {
       "name": "Wing Assistant",
       "ats": "lever",
       "slug": "getwingapp",
@@ -1699,6 +2084,16 @@
       "notes": "auto-verified 2026-06-11: 156 PH postings"
     },
     {
+      "name": "With Intelligence",
+      "ats": "workable",
+      "slug": "with-intelligence",
+      "industry": "media",
+      "type": "direct",
+      "verified": true,
+      "added": "2026-09-25",
+      "notes": "verified 2026-09-25: 1 PH posting (Cebu City)"
+    },
+    {
       "name": "WNS Global Services",
       "ats": "smartrecruiters",
       "slug": "WNSGlobalServices144",
@@ -1707,6 +2102,16 @@
       "verified": true,
       "added": "2026-06-11",
       "notes": "auto-verified 2026-06-11: 51 PH postings"
+    },
+    {
+      "name": "Workato",
+      "ats": "greenhouse",
+      "slug": "workato",
+      "industry": "saas",
+      "type": "direct",
+      "verified": true,
+      "added": "2026-09-25",
+      "notes": "verified 2026-09-25: 5 PH postings (Alabang, Makati)"
     },
     {
       "name": "Workstream",
@@ -1739,14 +2144,24 @@
       "notes": "auto-verified 2026-06-11: 18 PH postings"
     },
     {
+      "name": "XP Power",
+      "ats": "smartrecruiters",
+      "slug": "XPPower2",
+      "industry": "manufacturing",
+      "type": "direct",
+      "verified": true,
+      "added": "2026-09-25",
+      "notes": "verified 2026-09-25: 10 PH postings (Pasig)"
+    },
+    {
       "name": "Yempo",
-      "ats": "workable",
+      "ats": "bamboohr",
       "slug": "yempo",
       "industry": "outsourcing",
       "type": "agency",
       "verified": true,
       "added": "2026-06-11",
-      "notes": "auto-verified 2026-06-11: PH-headquartered, 0 open PH roles today"
+      "notes": "auto-verified 2026-06-11: PH-headquartered, 0 open PH roles today. 2026-09-25: Workable board (yempo) empty; moved to bamboohr:yempo — 21 PH postings."
     },
     {
       "name": "YouTrip",
@@ -1766,7 +2181,7 @@
       "type": "agency",
       "verified": true,
       "added": "2026-06-11",
-      "notes": "auto-verified 2026-06-11: PH-headquartered, 0 open PH roles today"
+      "notes": "auto-verified 2026-06-11: PH-headquartered, 0 open PH roles today. 2026-09-25: Workable board empty; moved to JazzHR (not a supported ATS). Kept as provenance."
     }
   ]
 }

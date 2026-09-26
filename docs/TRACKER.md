@@ -483,6 +483,34 @@ All probed 2026-06-11 unless noted. Companies later verified under another slug/
 are marked ➜✅. PH corporates (banks, conglomerates, airlines, food) are mostly on
 Workday/custom portals — none of the guessed SmartRecruiters identifiers existed.
 
+**Round 9 (2026-09-25) — registry expansion.** Registry 175 → 218 (36 Tier A +
+7 Workday). See Done for the landed list.
+
+Skipped / dry wells:
+- **Bestank Manufacturing** smartrecruiters:BestankManufacturingCorporation — real
+  PH manufacturer (Valenzuela), but the board is abandoned: all 725 postings were
+  released 2014–2017. Adding it would flood ~13% of the dataset with zombie roles.
+- **IT Accelerate** smartrecruiters:ITAccelerate — 9 PH postings, all from
+  2018–2022 (abandoned board).
+- Givebutter ashby:givebutter — live, 0 PH.
+- Live, 0 PH: ServiceNow sr, Experian sr, Thoughtworks gh, Wise gh, Crypto.com
+  lever:crypto. Dead guesses: Visa, Western Union, Foundever, Sitel, StarTek,
+  iQor, Qualfon, NTT DATA, Zendesk, Infor, Shangri-La, IHG, Nokia, McDonald's,
+  Equinix, Skechers, Wipro, Heineken, Teleperformance, Hilton, Wyndham, Bayer,
+  PepsiCo, AirAsia, Lazada, Shopee, foodpanda, Jollibee, Sanofi, Wolt, Ubiquity,
+  Macquarie, Allianz, Transcosmos (sr); grab, zendesk, remitly, appen, sprinklr,
+  crowdstrike, toptal, cryptocom, mayabank (gh); advance, atome, kredivo,
+  maya-philippines (lever); salmon, maya, rippling, paymongo (ashby).
+- Stale PH-HQ Workable boards (live, 0 jobs): other-ATS probes (greenhouse, lever,
+  ashby, recruitee, bamboohr, breezy, manatal, obvious slug) found Sourcefit
+  ➜✅ breezy:sourcefit, Yempo ➜✅ bamboohr:yempo, Eastvantage ➜✅
+  manatal:eastvantage, Sprout ➜✅ manatal:sprout-solutions-phil-inc. Nothing for
+  Arcanys, Autohub, BSA, Callbox, Cyberbacker (manatal live, 0 jobs), Global
+  Strategic, Infinit-O, KMC, Outsource Access, Outsourced, PenBrothers, Remote
+  Philippines, Smartsourcing, STAFFVIRTUAL, SSG (breezy:ssg live, 0 jobs, identity
+  unconfirmed), Telework PH. Etaily/ZigZag (JazzHR), Emapta (Zoho), Cloudstaff
+  (custom portal) are unreachable under our rules.
+
 **Round 8 (2026-08-07) — more GCC / multinational employers.** Registry 164 → 171.
 
 Landed (all ≥1 PH):
@@ -694,11 +722,27 @@ not a real employer. Kalibrr — job-board company, fetching prohibited by rule 
   Refresh parallelizes across ATS hosts but stays sequential per host, with every
   Workday tenant in one queue (conservative reading of §17.1.3).
 
+- 2026-09-25 — **Workday block review + registry expansion** (maintainer-authorized
+  one-time re-check: robots.txt + at most one jobs request per tenant, ≥2s apart,
+  identifying UA, no evasion). Re-enabled 15 of the 17 disabled boards: the 12 wd3
+  boards plus AIA and Concentrix had robots HTTP 503 once on 2026-08-29 (Workday
+  maintenance, not a §17.1 block) and now return 200 with an explicit `Allow:` for
+  their site; Broadridge's non-JSON response did not recur. All 15 returned clean
+  JSON. Their `blocked` entries were removed from `data/fetch-state.json`.
+  **Still disabled:** TELUS Digital (robots still HTTP 403 — no jobs request sent)
+  and **Citi** (robots now 200 but `Disallow: /2/` disallows the careers site
+  itself; the CXS path is not literally listed, which is why Round 7 accepted it
+  pending "maintainer confirm" — we read site-level disallow as a closed door).
+  Seven new Workday tenants were bundled into one PR with per-tenant §17.2
+  evidence (§17.2 says one PR per tenant — maintainer's call to bundle).
 - 2026-08-29 — **Launch-readiness pass.** Registry now supports terminal
   `disabled: true` sources: they remain auditable, receive no further requests,
-  and their listings are retired on refresh. Live review found 16 additional
-  Workday boards that had closed access (robots HTTP 503 or non-JSON challenge),
-  joining TELUS Digital for 17 disabled sources total. No retry, browser, cookie,
+  and their listings are retired on refresh. Live review disabled 16 additional
+  Workday boards after one run saw robots HTTP 503 (15) or a non-JSON response
+  (Broadridge), joining TELUS Digital for 17 disabled sources total. **Corrected
+  2026-09-25:** the 503s were a transient Workday maintenance window, not closed
+  access (a 503 is not a §17.1 block); 15 boards were re-enabled after review —
+  see the 2026-09-25 entry. No retry, browser, cookie,
   User-Agent, or IP workaround was attempted. Remaining 158 enabled feeds completed
   with zero failures. The same pass added bounded request timeouts, stronger daily
   publish gates, mobile accessibility fixes, GitHub feedback forms, privacy-minimal
