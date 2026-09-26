@@ -7,6 +7,7 @@ import { fetchLever } from "./lever.js";
 import { fetchManatal } from "./manatal.js";
 import { fetchPinpoint } from "./pinpoint.js";
 import { fetchRecruitee } from "./recruitee.js";
+import { fetchRippling } from "./rippling.js";
 import { fetchSmartRecruiters } from "./smartrecruiters.js";
 import { fetchWorkable } from "./workable.js";
 import { fetchWorkday } from "./workday.js";
@@ -24,6 +25,7 @@ export const FETCHERS: Record<AtsSource, (company: RegistryCompany) => Promise<F
     breezy: fetchBreezy,
     manatal: fetchManatal,
     pinpoint: fetchPinpoint,
+    rippling: fetchRippling,
     // Tier B (SPEC §17): verify-registry may probe it for §17.2 evidence, but new
     // Workday entries land only via a per-company PR, never direct to main.
     workday: fetchWorkday,

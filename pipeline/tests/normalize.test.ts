@@ -11,6 +11,7 @@ import {
   normalizeManatal,
   normalizePinpoint,
   normalizeRecruitee,
+  normalizeRippling,
   normalizeSmartRecruiters,
   normalizeWorkable,
 } from "../src/normalize.js";
@@ -29,6 +30,7 @@ const bambooKumu = loadFixture("bamboohr-kumu.json");
 const breezySample = loadFixture("breezy-sample.json");
 const manatalSample = loadFixture("manatal-manatal.json");
 const pinpointSample = loadFixture("pinpoint-sample.json");
+const ripplingSample = loadFixture("rippling-maven-roofing.json");
 
 function company(overrides: Partial<RegistryCompany>): RegistryCompany {
   return {
@@ -453,5 +455,35 @@ describe("normalizePinpoint", () => {
       data: [{ title: "X", description: "<p>JD text</p>", reporting_to: "Jane" }],
     };
     expect(JSON.stringify(normalizePinpoint(magic, raw))).not.toMatch(/JD text|Jane/);
+  });
+});
+
+describe("normalizeRippling", () => {
+  const maven = company({ name: "Maven Roofing", ats: "rippling", slug: "maven-roofing" });
+  const postings = normalizeRippling(maven, ripplingSample);
+
+  it("maps title, provided apply URL and location label", () => {
+    expect(postings[0]!).toEqual({
+      company: "Maven Roofing",
+      source: "rippling",
+      title: "Accounting Assistant, PH",
+      locations: ["Antipolo, Philippines"],
+      url: "https://ats.rippling.com/maven-roofing/jobs/65fc68d7-7c77-411a-b1bc-6de0c395bf9c",
+      workSetup: "unknown",
+      employmentType: "unknown",
+      salary: null,
+      publishedAt: null,
+      industry: "",
+      companyType: "direct",
+    });
+  });
+
+  it("folds per-location rows of one job into a single posting", () => {
+    expect(postings).toHaveLength(3);
+    expect(postings[1]!.locations).toEqual(["Fayetteville, NC", "Hampstead, NC"]);
+  });
+
+  it("derives remote from the location label", () => {
+    expect(postings[2]!.workSetup).toBe("remote");
   });
 });

@@ -7,6 +7,7 @@ import { fetchLever } from "../src/fetchers/lever.js";
 import { fetchManatal } from "../src/fetchers/manatal.js";
 import { fetchPinpoint } from "../src/fetchers/pinpoint.js";
 import { fetchRecruitee } from "../src/fetchers/recruitee.js";
+import { fetchRippling } from "../src/fetchers/rippling.js";
 import { fetchSmartRecruiters } from "../src/fetchers/smartrecruiters.js";
 import { fetchWorkable } from "../src/fetchers/workable.js";
 import { USER_AGENT, groupByHost, politeJsonGet } from "../src/fetchers/http.js";
@@ -573,5 +574,45 @@ describe("fetchPinpoint", () => {
   it("reports a malformed payload as an http failure, not a crash", async () => {
     const http = fakeHttp([{ status: 200, body: { postings: [] } }]);
     expect(await fetchPinpoint(magic, http)).toMatchObject({ ok: false, errorKind: "http" });
+  });
+});
+
+describe("fetchRippling", () => {
+  const maven = registryCompany({
+    name: "Maven Roofing",
+    ats: "rippling",
+    slug: "maven-roofing",
+  });
+
+  it("hits the documented board endpoint and normalizes", async () => {
+    const http = fakeHttp([
+      {
+        status: 200,
+        body: [{ uuid: "a", name: "Bookkeeper", url: "https://ats.rippling.com/x/jobs/a" }],
+      },
+    ]);
+    const result = await fetchRippling(maven, http);
+    expect(http.calls[0]!.url).toBe(
+      "https://api.rippling.com/platform/api/ats/v1/board/maven-roofing/jobs",
+    );
+    expect(result.ok).toBe(true);
+  });
+
+  it("reports dead-slug on 404 (unknown board)", async () => {
+    const http = fakeHttp([
+      {
+        status: 404,
+        body: { error_code: "RESOURCE_NOT_FOUND", message: "Job Board not found" },
+      },
+    ]);
+    expect(await fetchRippling(maven, http)).toMatchObject({
+      ok: false,
+      errorKind: "dead-slug",
+    });
+  });
+
+  it("reports a malformed payload as an http failure, not a crash", async () => {
+    const http = fakeHttp([{ status: 200, body: { jobs: [] } }]);
+    expect(await fetchRippling(maven, http)).toMatchObject({ ok: false, errorKind: "http" });
   });
 });

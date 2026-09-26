@@ -631,3 +631,45 @@ export function normalizePinpoint(company: RegistryCompany, raw: unknown): Fetch
     } satisfies FetchedPosting;
   });
 }
+
+interface RipplingJob {
+  uuid?: unknown;
+  name?: unknown;
+  url?: unknown;
+  workLocation?: { label?: unknown };
+}
+
+/**
+ * Rippling lists a multi-location job once per location (same uuid and url), so rows
+ * fold into one posting per uuid carrying all its locations, in first-seen order.
+ */
+export function normalizeRippling(company: RegistryCompany, raw: unknown): FetchedPosting[] {
+  if (!Array.isArray(raw)) {
+    throw new Error(`rippling payload for ${company.slug} is not a jobs array`);
+  }
+  const byId = new Map<string, { title: string; url: string; locations: string[] }>();
+  for (const job of raw as RipplingJob[]) {
+    const url = String(job.url ?? "");
+    const label = String(job.workLocation?.label ?? "").trim();
+    const key = String(job.uuid ?? url);
+    const entry = byId.get(key) ?? { title: String(job.name ?? ""), url, locations: [] };
+    if (label && !entry.locations.includes(label)) entry.locations.push(label);
+    byId.set(key, entry);
+  }
+  return [...byId.values()].map(
+    ({ title, url, locations }) =>
+      ({
+        company: company.name,
+        source: "rippling",
+        title,
+        locations,
+        url,
+        workSetup: workSetupFromText(`${title} ${locations.join(" ")}`),
+        employmentType: "unknown", // not in the public board feed
+        salary: null,
+        publishedAt: null, // not in the public board feed
+        industry: company.industry,
+        companyType: company.type,
+      }) satisfies FetchedPosting,
+  );
+}
