@@ -465,7 +465,9 @@ Requirements:
 - Reads listings at build time. **Ship only active listings to the client**, and only
   the fields the UI uses — the payload sent to browsers must stay lean even when the
   full dataset grows (split/trim at build; the 12 MB Simplify file is a cautionary
-  tale, not a target).
+  tale, not a target). The HTML inlines only the default view's first page and its
+  counts; the full trimmed list is a static `/jobs.json` (preloaded, fetched after
+  hydration), so first load stays small at any dataset size.
 - Header: name ("SimplifyTrabaho"), one-line pitch, GitHub link, last-updated stamp.
 - Filter bar: level, function, work setup, location (text contains), free-text search
   over company+title. All client-side. Default view on load: internships + entry-level
