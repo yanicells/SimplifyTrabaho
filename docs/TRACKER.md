@@ -6,6 +6,16 @@
 
 ## ✅ Done
 
+- [x] 2026-09-27 — **Final pre-launch review** (stacked PRs on #34): no user-facing
+      bugs or golden-rule breaks found. Three fixes:
+  - [x] Public source lists (footer, `llms.txt`, generated README) name all twelve
+        Tier-A feeds plus Workday; footer uses the dark logo mark.
+  - [x] CI commits `data/fetch-state.json` even when validation fails, so a
+        recorded Workday block can't be dropped and re-requested the next day.
+  - [x] `createRunFetcher` owns the one-block-per-run Workday stop for both
+        `pnpm refresh` and `verify-registry` (which previously kept probing
+        Workday candidates after a block).
+
 - [x] 2026-09-26 — **Launch-readiness pass 2** (stacked PRs #31 → #32 → #33 →
       #34 on #23 → #25 → #24 → #26 → #27 → #28 → #29 → #30):
   - [x] Lazy loading (#31): homepage HTML 585 KB → 21 KB gzipped (5.9 MB →
