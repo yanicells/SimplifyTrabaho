@@ -9,6 +9,7 @@ import {
   normalizeGreenhouse,
   normalizeLever,
   normalizeManatal,
+  normalizePinpoint,
   normalizeRecruitee,
   normalizeSmartRecruiters,
   normalizeWorkable,
@@ -27,6 +28,7 @@ const recruiteeRaw = loadFixture("recruitee-hostaway.json");
 const bambooKumu = loadFixture("bamboohr-kumu.json");
 const breezySample = loadFixture("breezy-sample.json");
 const manatalSample = loadFixture("manatal-manatal.json");
+const pinpointSample = loadFixture("pinpoint-sample.json");
 
 function company(overrides: Partial<RegistryCompany>): RegistryCompany {
   return {
@@ -411,5 +413,45 @@ describe("normalizeRecruitee", () => {
 
   it("never lets job-description text through", () => {
     expect(JSON.stringify(postings)).not.toContain("[truncated for fixture");
+  });
+});
+
+describe("normalizePinpoint", () => {
+  const magic = company({ name: "Magic", ats: "pinpoint", slug: "magic" });
+  const postings = normalizePinpoint(magic, pinpointSample);
+
+  it("maps fields, workplace type, employment type and visible compensation", () => {
+    expect(postings[0]!).toMatchObject({
+      company: "Magic",
+      source: "pinpoint",
+      title: "Virtual Assistant Team Lead - Philippines, Remote",
+      url: "https://magic.pinpointhq.com/en/postings/43ff2ef1-b780-4fb8-b123-2b3112b090c0",
+      workSetup: "remote",
+      employmentType: "full-time", // permanent_full_time
+      salary: "₱38,000 - ₱42,000 / month",
+      publishedAt: null,
+    });
+    expect(postings[1]!.employmentType).toBe("contract"); // freelance
+  });
+
+  it("builds locations without repeated parts or placeholder dots", () => {
+    expect(postings.map((p) => p.locations)).toEqual([
+      ["Taguig City, Metro Manila, Philippines"],
+      ["Taguig City, Metro Manila, Philippines"],
+      ["Remote Philippines (Bacolod)"],
+      ["Manila, Philippines - UPL"],
+      ["Persohotel (Mexico)"],
+    ]);
+  });
+
+  it("keeps salary null when compensation is hidden", () => {
+    expect(postings[3]!).toMatchObject({ salary: null, workSetup: "onsite" });
+  });
+
+  it("never reads job-description or reporting-line fields", () => {
+    const raw = {
+      data: [{ title: "X", description: "<p>JD text</p>", reporting_to: "Jane" }],
+    };
+    expect(JSON.stringify(normalizePinpoint(magic, raw))).not.toMatch(/JD text|Jane/);
   });
 });

@@ -5,6 +5,7 @@ import { fetchBreezy } from "../src/fetchers/breezy.js";
 import { fetchGreenhouse } from "../src/fetchers/greenhouse.js";
 import { fetchLever } from "../src/fetchers/lever.js";
 import { fetchManatal } from "../src/fetchers/manatal.js";
+import { fetchPinpoint } from "../src/fetchers/pinpoint.js";
 import { fetchRecruitee } from "../src/fetchers/recruitee.js";
 import { fetchSmartRecruiters } from "../src/fetchers/smartrecruiters.js";
 import { fetchWorkable } from "../src/fetchers/workable.js";
@@ -543,5 +544,34 @@ describe("fetchRecruitee", () => {
       ok: false,
       errorKind: "dead-slug",
     });
+  });
+});
+
+describe("fetchPinpoint", () => {
+  const magic = registryCompany({ name: "Magic", ats: "pinpoint", slug: "magic" });
+
+  it("hits {slug}.pinpointhq.com/postings.json and normalizes", async () => {
+    const http = fakeHttp([
+      {
+        status: 200,
+        body: { data: [{ title: "VA", url: "https://magic.pinpointhq.com/en/postings/x" }] },
+      },
+    ]);
+    const result = await fetchPinpoint(magic, http);
+    expect(http.calls[0]!.url).toBe("https://magic.pinpointhq.com/postings.json");
+    expect(result.ok).toBe(true);
+  });
+
+  it("reports dead-slug on 404 (unknown tenant)", async () => {
+    const http = fakeHttp([{ status: 404 }]);
+    expect(await fetchPinpoint(magic, http)).toMatchObject({
+      ok: false,
+      errorKind: "dead-slug",
+    });
+  });
+
+  it("reports a malformed payload as an http failure, not a crash", async () => {
+    const http = fakeHttp([{ status: 200, body: { postings: [] } }]);
+    expect(await fetchPinpoint(magic, http)).toMatchObject({ ok: false, errorKind: "http" });
   });
 });

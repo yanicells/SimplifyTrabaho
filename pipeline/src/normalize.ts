@@ -563,3 +563,71 @@ export function normalizeWorkday(
     } satisfies FetchedPosting;
   });
 }
+
+interface PinpointPosting {
+  title?: unknown;
+  url?: unknown;
+  workplace_type?: unknown;
+  employment_type?: unknown;
+  compensation?: unknown;
+  compensation_visible?: unknown;
+  location?: { name?: unknown; city?: unknown; province?: unknown };
+  // description / key_responsibilities / benefits / skills_knowledge_expertise (JD
+  // text) and reporting_to are intentionally NOT in this interface — never read them.
+}
+
+function mapPinpointEmployment(value: unknown): EmploymentType {
+  const type = String(value ?? "").toLowerCase();
+  if (type.includes("intern")) return "internship";
+  if (type.includes("part_time")) return "part-time";
+  if (type.includes("contract") || type.includes("freelance") || type.includes("temp"))
+    return "contract";
+  if (type.includes("full_time")) return "full-time";
+  return "unknown";
+}
+
+/**
+ * Pinpoint location → one string. `name` is the employer's own label ("Philippines",
+ * "Remote Philippines (Bacolod)", "Philippines - UPL"); city/province are prepended
+ * only when the label doesn't already contain them. Placeholders ("", ".", "-") drop.
+ */
+function pinpointLocation(location: PinpointPosting["location"]): string {
+  const clean = (value: unknown) => {
+    const text = String(value ?? "").trim();
+    return /^[.\-\s]*$/.test(text) ? "" : text;
+  };
+  const name = clean(location?.name);
+  const parts: string[] = [];
+  for (const part of [clean(location?.city), clean(location?.province)]) {
+    const seen = [name, ...parts].join(" ").toLowerCase();
+    if (part && !seen.includes(part.toLowerCase())) parts.push(part);
+  }
+  return [...parts, name].filter(Boolean).join(", ");
+}
+
+export function normalizePinpoint(company: RegistryCompany, raw: unknown): FetchedPosting[] {
+  const data = (raw as { data?: unknown })?.data;
+  if (!Array.isArray(data)) {
+    throw new Error(`pinpoint payload for ${company.slug} has no data array`);
+  }
+  return data.map((posting: PinpointPosting) => {
+    const location = pinpointLocation(posting.location);
+    const compensation =
+      posting.compensation_visible === true && typeof posting.compensation === "string"
+        ? posting.compensation.trim()
+        : "";
+    return {
+      company: company.name,
+      source: "pinpoint",
+      title: String(posting.title ?? ""),
+      locations: location ? [location] : [],
+      url: String(posting.url ?? ""),
+      workSetup: mapLeverWorkplace(posting.workplace_type),
+      employmentType: mapPinpointEmployment(posting.employment_type),
+      salary: compensation || null,
+      publishedAt: null, // postings.json carries no published date
+      industry: company.industry,
+      companyType: company.type,
+    } satisfies FetchedPosting;
+  });
+}

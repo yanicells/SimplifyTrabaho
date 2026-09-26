@@ -11,6 +11,7 @@ export const ATS_SOURCES = [
   "bamboohr",
   "breezy",
   "manatal",
+  "pinpoint",
   "workday",
 ] as const;
 export type AtsSource = (typeof ATS_SOURCES)[number];
