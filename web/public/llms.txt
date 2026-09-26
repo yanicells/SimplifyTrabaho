@@ -2,10 +2,12 @@
 
 > A free, open, automatically updated list of jobs at Philippine companies — all
 > roles and levels, with internships and entry-level roles featured. Data comes
-> only from public ATS APIs that companies intentionally publish (Greenhouse,
-> Lever, Ashby, Workable, SmartRecruiters, Recruitee, BambooHR, Breezy, Manatal).
-> Every listing links to the company's official application page. No job boards
-> are scraped. Refreshed once daily.
+> only from public ATS feeds that companies intentionally publish (Greenhouse,
+> Lever, Ashby, Workable, SmartRecruiters, Recruitee, BambooHR, Breezy, Manatal,
+> Pinpoint, Rippling, Teamtailor) and company-hosted Workday careers sites
+> (robots.txt-checked, dropped permanently on any block). Every listing links to
+> the company's official application page. No job boards are scraped. Refreshed
+> once daily.
 
 Facts stored per listing: company, role title, locations, work setup, level,
 function, industry, employer type (direct employer vs staffing/outsourcing
