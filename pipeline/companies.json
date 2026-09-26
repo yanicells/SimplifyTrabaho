@@ -92,6 +92,16 @@
       "notes": "RE-ENABLED 2026-09-25 after maintainer review: the 2026-08-29 disable was a one-off robots.txt HTTP 503, not a §17.1 block. Re-check: robots.txt 200 with Allow: /External/ and no rule covering /wday/cxs; one jobs request returned clean JSON (238 PH via locationCountry facet of 1,005). Originally §17.2 wave-3 verified 2026-07-06 with 219 postings / 212 PH — AIA Philippines (ex-Philam Life) + MediCard (PH-MPI) sites."
     },
     {
+      "name": "Airbnb",
+      "ats": "greenhouse",
+      "slug": "airbnb",
+      "industry": "travel",
+      "type": "direct",
+      "verified": true,
+      "added": "2026-09-26",
+      "notes": "verified 2026-09-26: 1 PH posting (Manila)"
+    },
+    {
       "name": "airSlate",
       "ats": "lever",
       "slug": "airslate",
@@ -100,6 +110,16 @@
       "verified": true,
       "added": "2026-09-25",
       "notes": "verified 2026-09-25: 2 PH postings (Manila)"
+    },
+    {
+      "name": "Airwallex",
+      "ats": "ashby",
+      "slug": "airwallex",
+      "industry": "fintech",
+      "type": "direct",
+      "verified": true,
+      "added": "2026-09-26",
+      "notes": "verified 2026-09-26: 1 PH posting (Manila)"
     },
     {
       "name": "AJAIA",
@@ -212,6 +232,16 @@
       "notes": "auto-verified 2026-06-11: 1 PH postings"
     },
     {
+      "name": "Aumovio",
+      "ats": "smartrecruiters",
+      "slug": "Aumovio",
+      "industry": "automotive",
+      "type": "direct",
+      "verified": true,
+      "added": "2026-09-26",
+      "notes": "verified 2026-09-26: 28 PH postings (Calamba, Taguig; Continental automotive spin-off)"
+    },
+    {
       "name": "Austal Philippines",
       "ats": "manatal",
       "slug": "austal-philippines",
@@ -232,6 +262,16 @@
       "notes": "auto-verified 2026-06-11: PH-headquartered, 0 open PH roles today. 2026-09-25: Workable board live but empty; no board found on greenhouse/lever/ashby/recruitee/bamboohr/breezy/manatal under the obvious slug."
     },
     {
+      "name": "Avaloq",
+      "ats": "smartrecruiters",
+      "slug": "Avaloq1",
+      "industry": "fintech",
+      "type": "direct",
+      "verified": true,
+      "added": "2026-09-26",
+      "notes": "verified 2026-09-26: 50 PH postings (Makati, AIA Tower)"
+    },
+    {
       "name": "Azeus Systems",
       "ats": "smartrecruiters",
       "slug": "AzeusSystemsPhilippinesLimited",
@@ -240,6 +280,16 @@
       "verified": true,
       "added": "2026-06-11",
       "notes": "auto-verified 2026-06-11: PH-headquartered, 0 open PH roles today. 2026-09-25: board live with 1 non-PH posting; no other supported board found."
+    },
+    {
+      "name": "Bentleys",
+      "ats": "greenhouse",
+      "slug": "bentleysph",
+      "industry": "accounting",
+      "type": "direct",
+      "verified": true,
+      "added": "2026-09-26",
+      "notes": "verified 2026-09-26: 1 PH posting (Makati)"
     },
     {
       "name": "Betr",
@@ -260,6 +310,16 @@
       "verified": true,
       "added": "2026-07-02",
       "notes": "auto-verified 2026-07-02: 8 PH postings"
+    },
+    {
+      "name": "Binance",
+      "ats": "lever",
+      "slug": "binance",
+      "industry": "fintech",
+      "type": "direct",
+      "verified": true,
+      "added": "2026-09-26",
+      "notes": "verified 2026-09-26: 6 PH postings (Manila)"
     },
     {
       "name": "Bizbloqs Management Solutions PH",
@@ -483,6 +543,16 @@
       "notes": "auto-verified 2026-06-11: 213 PH postings"
     },
     {
+      "name": "Cursor",
+      "ats": "ashby",
+      "slug": "cursor",
+      "industry": "saas",
+      "type": "direct",
+      "verified": true,
+      "added": "2026-09-26",
+      "notes": "verified 2026-09-26: 1 PH posting (Philippines)"
+    },
+    {
       "name": "Cyberbacker",
       "ats": "workable",
       "slug": "cyberbacker",
@@ -511,6 +581,36 @@
       "verified": true,
       "added": "2026-07-19",
       "notes": "auto-verified 2026-07-19: 5 PH postings"
+    },
+    {
+      "name": "Dedale Intelligence",
+      "ats": "ashby",
+      "slug": "dedale-intelligence",
+      "industry": "research",
+      "type": "direct",
+      "verified": true,
+      "added": "2026-09-26",
+      "notes": "verified 2026-09-26: 8 PH postings (Cebu, Davao)"
+    },
+    {
+      "name": "Deep Blue Company",
+      "ats": "smartrecruiters",
+      "slug": "DeepBlueCompany",
+      "industry": "real-estate",
+      "type": "direct",
+      "verified": true,
+      "added": "2026-09-26",
+      "notes": "verified 2026-09-26: 8 PH postings (Makati shared services of the Australian proptech group)"
+    },
+    {
+      "name": "Delinea",
+      "ats": "ashby",
+      "slug": "delinea",
+      "industry": "saas",
+      "type": "direct",
+      "verified": true,
+      "added": "2026-09-26",
+      "notes": "verified 2026-09-26: 1 PH posting (home office PH)"
     },
     {
       "name": "Delivery Hero",
@@ -603,6 +703,16 @@
       "notes": "auto-verified 2026-07-06: 193 PH postings"
     },
     {
+      "name": "Egis",
+      "ats": "smartrecruiters",
+      "slug": "EgisGroup",
+      "industry": "engineering",
+      "type": "direct",
+      "verified": true,
+      "added": "2026-09-26",
+      "notes": "verified 2026-09-26: 13 PH postings (Pasig, Manila)"
+    },
+    {
       "name": "Emapta",
       "ats": "workable",
       "slug": "emapta",
@@ -673,6 +783,36 @@
       "notes": "verified 2026-09-25: 33 PH postings (Manila hub)"
     },
     {
+      "name": "Evismart",
+      "ats": "greenhouse",
+      "slug": "evismart",
+      "industry": "healthtech",
+      "type": "direct",
+      "verified": true,
+      "added": "2026-09-26",
+      "notes": "verified 2026-09-26: 7 PH postings (BGC Taguig)"
+    },
+    {
+      "name": "Evolution",
+      "ats": "smartrecruiters",
+      "slug": "Evolution",
+      "industry": "gaming",
+      "type": "direct",
+      "verified": true,
+      "added": "2026-09-26",
+      "notes": "verified 2026-09-26: 3 PH postings (Cebu City live-casino studio)"
+    },
+    {
+      "name": "Expeditors",
+      "ats": "smartrecruiters",
+      "slug": "Expeditors",
+      "industry": "logistics",
+      "type": "direct",
+      "verified": true,
+      "added": "2026-09-26",
+      "notes": "verified 2026-09-26: 4 PH postings (Parañaque, Pampanga)"
+    },
+    {
       "name": "Expedock",
       "ats": "bamboohr",
       "slug": "expedock",
@@ -691,6 +831,16 @@
       "verified": true,
       "added": "2026-06-11",
       "notes": "auto-verified 2026-06-11: 19 PH postings"
+    },
+    {
+      "name": "First Focus",
+      "ats": "workable",
+      "slug": "first-focus",
+      "industry": "it-services",
+      "type": "direct",
+      "verified": true,
+      "added": "2026-09-26",
+      "notes": "verified 2026-09-26: 28 PH postings (Pasig, Muntinlupa)"
     },
     {
       "name": "FreeUp",
@@ -833,6 +983,16 @@
       "notes": "verified 2026-09-25: 19 PH postings (Pasig)"
     },
     {
+      "name": "GUS Education Philippines",
+      "ats": "manatal",
+      "slug": "gus-education-ph",
+      "industry": "education",
+      "type": "direct",
+      "verified": true,
+      "added": "2026-09-26",
+      "notes": "verified 2026-09-26: 6 PH postings (Quezon City)"
+    },
+    {
       "name": "H&M",
       "ats": "smartrecruiters",
       "slug": "HMGroup",
@@ -841,6 +1001,16 @@
       "verified": true,
       "added": "2026-09-25",
       "notes": "verified 2026-09-25: 12 PH postings (PH stores)"
+    },
+    {
+      "name": "Harbor",
+      "ats": "greenhouse",
+      "slug": "harborglobal",
+      "industry": "legal",
+      "type": "direct",
+      "verified": true,
+      "added": "2026-09-26",
+      "notes": "verified 2026-09-26: 2 PH postings (Makati office)"
     },
     {
       "name": "HawodTech Solutions",
@@ -913,6 +1083,16 @@
       "notes": "auto-verified 2026-06-11: 136 PH postings"
     },
     {
+      "name": "Hitachi Solutions",
+      "ats": "smartrecruiters",
+      "slug": "HitachiSolutions",
+      "industry": "it-services",
+      "type": "direct",
+      "verified": true,
+      "added": "2026-09-26",
+      "notes": "verified 2026-09-26: 3 PH postings (Taguig)"
+    },
+    {
       "name": "Hopper",
       "ats": "ashby",
       "slug": "hopper",
@@ -931,6 +1111,16 @@
       "verified": true,
       "added": "2026-06-11",
       "notes": "auto-verified 2026-06-11: 2 PH postings 2026-09-26 recheck: live, 8 postings, 0 PH (kept; has hired in PH before)."
+    },
+    {
+      "name": "hosting.com",
+      "ats": "workable",
+      "slug": "hosting-dot-c-om",
+      "industry": "saas",
+      "type": "direct",
+      "verified": true,
+      "added": "2026-09-26",
+      "notes": "verified 2026-09-26: 3 PH postings (Pasig)"
     },
     {
       "name": "HRTX",
@@ -993,6 +1183,16 @@
       "notes": "RE-ENABLED 2026-09-25 after maintainer review: the 2026-08-29 disable was a one-off robots.txt HTTP 503 (Workday maintenance window), not a §17.1 block. Re-check: robots.txt 200 with Allow: /ICSGBLCOR/ and no rule covering /wday/cxs; one jobs request returned clean JSON (728 postings, 6 of first 20 PH (no PH facet)). Originally verified 2026-08-07 with 170 PH postings."
     },
     {
+      "name": "Inizio Medical",
+      "ats": "greenhouse",
+      "slug": "iniziomedical",
+      "industry": "healthtech",
+      "type": "direct",
+      "verified": true,
+      "added": "2026-09-26",
+      "notes": "verified 2026-09-26: 8 PH postings (Manila, remote)"
+    },
+    {
       "name": "Instructure",
       "ats": "ashby",
       "slug": "instructure",
@@ -1001,6 +1201,16 @@
       "verified": true,
       "added": "2026-06-11",
       "notes": "auto-verified 2026-06-11: 2 PH postings"
+    },
+    {
+      "name": "iRely",
+      "ats": "greenhouse",
+      "slug": "irely",
+      "industry": "software",
+      "type": "direct",
+      "verified": true,
+      "added": "2026-09-26",
+      "notes": "verified 2026-09-26: 1 PH posting (Makati)"
     },
     {
       "name": "iScale Solutions",
@@ -1061,6 +1271,16 @@
       "verified": true,
       "added": "2026-08-07",
       "notes": "§17.2 round-8 verified 2026-08-07: robots clean (Allow:/JJ/); no block; 1000-cap / 52 PH (Taguig/Manila identity — jj.wd5/JJ)"
+    },
+    {
+      "name": "Jollibee Foods Corporation",
+      "ats": "manatal",
+      "slug": "jollibee-foods-corporation",
+      "industry": "food",
+      "type": "direct",
+      "verified": true,
+      "added": "2026-09-26",
+      "notes": "verified 2026-09-26: 247 PH postings (stores and offices nationwide; careers-page.com board titled Jollibee Foods Corporation)"
     },
     {
       "name": "Karbon",
@@ -1131,6 +1351,16 @@
       "verified": true,
       "added": "2026-06-11",
       "notes": "auto-verified 2026-06-11: 13 PH postings"
+    },
+    {
+      "name": "Lamudi",
+      "ats": "lever",
+      "slug": "lamudi",
+      "industry": "real-estate",
+      "type": "direct",
+      "verified": true,
+      "added": "2026-09-26",
+      "notes": "verified 2026-09-26: 8 PH postings (Manila)"
     },
     {
       "name": "LawAdvisor",
@@ -1253,6 +1483,16 @@
       "notes": "verified 2026-09-25: 11 PH postings (Manila)"
     },
     {
+      "name": "Miratech",
+      "ats": "smartrecruiters",
+      "slug": "Miratech1",
+      "industry": "it-services",
+      "type": "direct",
+      "verified": true,
+      "added": "2026-09-26",
+      "notes": "verified 2026-09-26: 1 PH posting (Philippines)"
+    },
+    {
       "name": "Mondelez International",
       "ats": "workday",
       "slug": "mdlz.wd3/External",
@@ -1333,6 +1573,16 @@
       "notes": "verified 2026-09-25: 9 PH postings (Taguig)"
     },
     {
+      "name": "New Era Technology",
+      "ats": "greenhouse",
+      "slug": "neweratech",
+      "industry": "it-services",
+      "type": "direct",
+      "verified": true,
+      "added": "2026-09-26",
+      "notes": "verified 2026-09-26: 7 PH postings (Manila, Cebu)"
+    },
+    {
       "name": "NICE",
       "ats": "greenhouse",
       "slug": "nice",
@@ -1373,6 +1623,16 @@
       "notes": "Regional; PH roles in Taguig, Calabarzon, Cagayan de Oro"
     },
     {
+      "name": "Niv Della Beauty Innovations",
+      "ats": "manatal",
+      "slug": "nivdella",
+      "industry": "consumer",
+      "type": "direct",
+      "verified": true,
+      "added": "2026-09-26",
+      "notes": "verified 2026-09-26: 10 PH postings (Makati)"
+    },
+    {
       "name": "Okta",
       "ats": "greenhouse",
       "slug": "okta",
@@ -1381,6 +1641,16 @@
       "verified": true,
       "added": "2026-09-25",
       "notes": "verified 2026-09-25: 1 PH posting (Manila)"
+    },
+    {
+      "name": "OLIVER",
+      "ats": "greenhouse",
+      "slug": "oliverseapac",
+      "industry": "advertising",
+      "type": "direct",
+      "verified": true,
+      "added": "2026-09-26",
+      "notes": "verified 2026-09-26: 9 PH postings (Manila; OLIVER APAC board)"
     },
     {
       "name": "Oscilar",
@@ -1441,6 +1711,16 @@
       "verified": true,
       "added": "2026-06-11",
       "notes": "auto-verified 2026-06-11: 4 PH postings"
+    },
+    {
+      "name": "PayJoy",
+      "ats": "lever",
+      "slug": "payjoy",
+      "industry": "fintech",
+      "type": "direct",
+      "verified": true,
+      "added": "2026-09-26",
+      "notes": "verified 2026-09-26: 11 PH postings (Taguig)"
     },
     {
       "name": "Payoneer",
@@ -1523,6 +1803,16 @@
       "notes": "§17.2 wave-1 verified 2026-07-06: robots clean, PH facet at source, 27 PH postings (Manila Net Park + Cabuyao plant)"
     },
     {
+      "name": "Propel Manila",
+      "ats": "manatal",
+      "slug": "propelmanila",
+      "industry": "advertising",
+      "type": "direct",
+      "verified": true,
+      "added": "2026-09-26",
+      "notes": "verified 2026-09-26: 13 PH postings (Taguig, Makati)"
+    },
+    {
       "name": "Pru Life UK",
       "ats": "workday",
       "slug": "prudential.wd3/prudential",
@@ -1601,6 +1891,26 @@
       "verified": true,
       "added": "2026-06-11",
       "notes": "auto-verified 2026-06-11: PH-headquartered, 0 open PH roles today. 2026-09-25: Workable board live but empty; no board found on greenhouse/lever/ashby/recruitee/bamboohr/breezy/manatal under the obvious slug."
+    },
+    {
+      "name": "Reolink",
+      "ats": "greenhouse",
+      "slug": "reolink",
+      "industry": "consumer",
+      "type": "direct",
+      "verified": true,
+      "added": "2026-09-26",
+      "notes": "verified 2026-09-26: 4 PH postings (Ortigas, Pasig)"
+    },
+    {
+      "name": "Restaurant Supply",
+      "ats": "greenhouse",
+      "slug": "restaurantsupply",
+      "industry": "ecommerce",
+      "type": "direct",
+      "verified": true,
+      "added": "2026-09-26",
+      "notes": "verified 2026-09-26: 7 PH postings (Metro Manila)"
     },
     {
       "name": "ResultsCX",
@@ -1701,6 +2011,16 @@
       "verified": true,
       "added": "2026-07-06",
       "notes": "auto-verified 2026-07-06: 167 PH postings"
+    },
+    {
+      "name": "Smartly",
+      "ats": "greenhouse",
+      "slug": "smartlyio",
+      "industry": "adtech",
+      "type": "direct",
+      "verified": true,
+      "added": "2026-09-26",
+      "notes": "verified 2026-09-26: 11 PH postings (Manila, remote PH)"
     },
     {
       "name": "Smartsourcing",
@@ -1903,6 +2223,16 @@
       "notes": "auto-verified 2026-06-11: PH-headquartered, 0 open PH roles today. 2026-09-25: Workable board live but empty; no board found on greenhouse/lever/ashby/recruitee/bamboohr/breezy/manatal under the obvious slug."
     },
     {
+      "name": "Telos Media",
+      "ats": "breezy",
+      "slug": "telos-media",
+      "industry": "media",
+      "type": "direct",
+      "verified": true,
+      "added": "2026-09-26",
+      "notes": "verified 2026-09-26: 4 PH postings (Manila)"
+    },
+    {
       "name": "TELUS Digital",
       "ats": "workday",
       "slug": "telusinternational.wd3/External",
@@ -1914,6 +2244,16 @@
       "notes": "DISABLED 2026-08-29 after review: robots.txt began returning HTTP 403 on 2026-07-29; permanent stop under §17.1.1. Re-checked 2026-09-25 after maintainer review: robots.txt still HTTP 403 — stays disabled, no jobs request sent. Originally verified 2026-07-06 with 56 postings / 8 PH; tenant keeps the pre-rebrand telusinternational id."
     },
     {
+      "name": "Testronic",
+      "ats": "workable",
+      "slug": "testronic",
+      "industry": "gaming",
+      "type": "direct",
+      "verified": true,
+      "added": "2026-09-26",
+      "notes": "verified 2026-09-26: 1 PH posting (Mandaluyong)"
+    },
+    {
       "name": "The Global Talent Co",
       "ats": "ashby",
       "slug": "the-global-talent-co",
@@ -1922,6 +2262,16 @@
       "verified": true,
       "added": "2026-07-19",
       "notes": "auto-verified 2026-07-19: 1 PH postings"
+    },
+    {
+      "name": "Thunes",
+      "ats": "greenhouse",
+      "slug": "thunes",
+      "industry": "fintech",
+      "type": "direct",
+      "verified": true,
+      "added": "2026-09-26",
+      "notes": "verified 2026-09-26: 8 PH postings (Manila)"
     },
     {
       "name": "TotalEnergies PH",
@@ -2114,6 +2464,16 @@
       "notes": "verified 2026-09-25: 5 PH postings (Alabang, Makati)"
     },
     {
+      "name": "Workforce Optimizer",
+      "ats": "workable",
+      "slug": "workforceoptimizer",
+      "industry": "saas",
+      "type": "direct",
+      "verified": true,
+      "added": "2026-09-26",
+      "notes": "verified 2026-09-26: 3 PH postings (Ortigas, Pasig)"
+    },
+    {
       "name": "Workstream",
       "ats": "greenhouse",
       "slug": "workstream",
@@ -2162,6 +2522,16 @@
       "verified": true,
       "added": "2026-06-11",
       "notes": "auto-verified 2026-06-11: PH-headquartered, 0 open PH roles today. 2026-09-25: Workable board (yempo) empty; moved to bamboohr:yempo — 21 PH postings."
+    },
+    {
+      "name": "Yext",
+      "ats": "greenhouse",
+      "slug": "yext",
+      "industry": "saas",
+      "type": "direct",
+      "verified": true,
+      "added": "2026-09-26",
+      "notes": "verified 2026-09-26: 2 PH postings (remote PH)"
     },
     {
       "name": "YouTrip",
