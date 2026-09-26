@@ -13,6 +13,10 @@
         (and tagged `ncr`/`calabarzon`). Same check picks Workday site facets, so a
         Delhi NCR site could have stamped Indian jobs Philippine. 0 of 868 real
         location strings change verdict.
+  - [x] A recorded Workday block is written to `data/fetch-state.json` at once,
+        and CI commits that file even when the refresh step fails or hits its new
+        50-minute step timeout — before, a run that died after a block lost it and
+        the next run re-requested the blocked tenant.
 
 - [x] 2026-09-27 — **Final pre-launch review** (stacked PRs on #34): no user-facing
       bugs or golden-rule breaks found. Three fixes:

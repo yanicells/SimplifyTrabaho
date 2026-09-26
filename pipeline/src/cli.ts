@@ -4,6 +4,7 @@ import { fileURLToPath } from "node:url";
 import { groupByHost } from "./fetchers/http.js";
 import { createRunFetcher } from "./fetchers/index.js";
 import { computeCoverage, formatCoverageReport } from "./coverage.js";
+import { loadFetchState, recordBlock, saveFetchState } from "./fetch-state.js";
 import { emptyListingsFile, parseListingsFile, parseRegistry } from "./files.js";
 import { filterPhilippines } from "./filter.js";
 import { buildListing, mergeListings } from "./merge.js";
@@ -23,25 +24,6 @@ const README_PATH = join(ROOT, "README.md");
 
 const DEAD_SLUG_ALERT_AFTER = 3;
 
-interface FetchState {
-  version: 1;
-  /** consecutive dead-slug counts keyed by "ats:slug" */
-  deadSlugStreaks: Record<string, number>;
-  /**
-   * Workday §17.1.2 permanent stops keyed by "ats:slug" → "date: reason".
-   * A blocked tenant is skipped on every future run until a human deletes the
-   * entry here (after reviewing why it was blocked). Never auto-cleared.
-   */
-  blocked?: Record<string, string>;
-}
-
-function loadFetchState(): FetchState {
-  if (!existsSync(FETCH_STATE_PATH)) return { version: 1, deadSlugStreaks: {}, blocked: {} };
-  const state = JSON.parse(readFileSync(FETCH_STATE_PATH, "utf8")) as FetchState;
-  state.blocked ??= {};
-  return state;
-}
-
 async function main(): Promise<number> {
   const now = new Date().toISOString();
   const registry = parseRegistry(JSON.parse(readFileSync(REGISTRY_PATH, "utf8")));
@@ -57,7 +39,7 @@ async function main(): Promise<number> {
   const inactiveCompanies = new Set(
     existing.listings.map((l) => l.company).filter((name) => !enabledCompanyNames.has(name)),
   );
-  const fetchState = loadFetchState();
+  const fetchState = loadFetchState(FETCH_STATE_PATH);
 
   console.log(`SimplifyTrabaho refresh — ${now}`);
   console.log(
@@ -108,8 +90,12 @@ async function main(): Promise<number> {
       okByName.set(company.name, false);
       failed += 1;
       if (result.errorKind === "blocked") {
-        fetchState.blocked ??= {};
-        fetchState.blocked[stateKey] = `${now.slice(0, 10)}: ${result.detail}`;
+        recordBlock(
+          FETCH_STATE_PATH,
+          fetchState,
+          stateKey,
+          `${now.slice(0, 10)}: ${result.detail}`,
+        );
         log(
           `  TRACKER-ISSUE: ${label} BLOCKED — recorded in fetch-state.json; ` +
             `mark the company blocked in TRACKER and do not retry (SPEC §17.1.2)`,
@@ -180,7 +166,7 @@ async function main(): Promise<number> {
     LISTINGS_PATH,
     JSON.stringify({ version: 3, updatedAt: now, listings }, null, 2) + "\n",
   );
-  writeFileSync(FETCH_STATE_PATH, JSON.stringify(fetchState, null, 2) + "\n");
+  saveFetchState(FETCH_STATE_PATH, fetchState);
 
   const companiesTracked = enabledCompanyNames.size;
   writeFileSync(README_PATH, generateReadme({ listings, companiesTracked, updatedAt: now }));

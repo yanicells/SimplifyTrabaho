@@ -26,6 +26,9 @@ jobs:
       - run: pnpm install --frozen-lockfile
       - name: Refresh listings
         id: refresh
+        # Below the job limit on purpose: a step timeout fails the step instead of
+        # cancelling the job, so the commit step below still saves a recorded block.
+        timeout-minutes: 50
         run: |
           set -o pipefail
           pnpm refresh | tee refresh.log
@@ -43,12 +46,14 @@ jobs:
           pnpm test
           pnpm --filter web build
       - name: Commit & push if data changed
-        # Runs even when validation failed: a recorded block MUST persist, or the
-        # next run would request the blocked tenant again (SPEC §17.1.2). The job
-        # still fails, and unvalidated listings/README are never published.
-        if: ${{ !cancelled() && steps.refresh.outcome == 'success' }}
+        # Runs even when the refresh or validation failed: the pipeline writes
+        # data/fetch-state.json the moment it records a block, and that block MUST
+        # persist, or the next run would request the blocked tenant again (SPEC
+        # §17.1.2). The job still fails, and unvalidated listings/README are never
+        # published.
+        if: ${{ !cancelled() }}
         env:
-          VALIDATED: ${{ steps.validate.outcome == 'success' }}
+          VALIDATED: ${{ steps.refresh.outcome == 'success' && steps.validate.outcome == 'success' }}
         run: |
           if [ "$VALIDATED" = "true" ]; then
             paths="data/ README.md"
