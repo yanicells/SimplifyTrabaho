@@ -21,8 +21,6 @@ const DATE_FORMAT = new Intl.DateTimeFormat("en-US", {
 
 export default function Home() {
   const { updatedAt, jobs } = loadJobs();
-  // Industry options for the filter, built at build time (30-ish short strings).
-  const industries = [...new Set(jobs.map((j) => j.industry).filter(Boolean))].sort();
 
   const graph = buildGraph({
     updatedAt,
@@ -91,7 +89,6 @@ export default function Home() {
         <main id="main-content" tabIndex={-1} className="scroll-mt-4 focus:outline-none">
           <JobBoard
             jobs={jobs}
-            industries={industries}
             updatedAt={updatedAt}
             updatedLabel={DATE_FORMAT.format(new Date(updatedAt))}
           />

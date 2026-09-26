@@ -2,7 +2,7 @@
 
 import { useMemo } from "react";
 import type { Job } from "@/lib/listings";
-import { industryLabel } from "@/components/job-board";
+import { industryLabel } from "@/lib/labels";
 
 export type CompanySort = "roles" | "name";
 

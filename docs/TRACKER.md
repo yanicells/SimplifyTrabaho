@@ -19,6 +19,18 @@
   - [x] Refresh runs one sequential queue per ATS host in parallel (all Workday in
         one queue); run summary lists zero-PH boards; CI rebases before push.
 
+- [x] 2026-09-25 — **Categorizer round 3 + search & filters redesign**:
+  - [x] Categorizer: titles folded (accents, styled unicode, `_`) before matching;
+        mined back-office/banking/tech/trades keywords; tech-platform + case-sensitive
+        `IT` fallback checked last. Active listings: function `other` 23.8% → 12.9%,
+        level `unknown` 58.8% → 53.9%. Stored data updates on the next daily refresh.
+  - [x] Filters: "Function" → **Field** (grouped multi-select dropdown with live
+        counts), four dropdowns in one row (Field · Work setup · Location · Employer),
+        industry dropdown + free-text location removed, "Remote (PH)" dropped from
+        Location, smart search (word-start, filler words, PH aliases), "+N roles
+        don't list a level · Show them" toggle (`nolevel=1`), sticky "Show N roles"
+        on phones.
+
 - [x] 2026-08-29 — **Launch-readiness pass complete**:
   - [x] Added terminal registry lifecycle for blocked/retired sources. Seventeen
         Workday boards are now retained as provenance with `disabled: true`, never
@@ -1088,3 +1100,16 @@ not a real employer. Kalibrr — job-board company, fetching prohibited by rule 
   runs under the §17.1.4 fallback (1,000-posting cap + local PH filter). PH
   roles beyond the cap can be missed on heavy days — accepted; revisit if the
   tenant grows a country facet.
+- 2026-09-25 — Categorizer round 3 judgment calls (all test-pinned): bare
+  "quality assurance" is NOT engineering (real QA titles here are BPO/bank/plant
+  QA); bare "sourcing" is NOT operations (agency "Sourcing Specialists" recruit);
+  "Business Architect" stays `other` (consulting); tech platforms (SAP, Oracle,
+  Java…) and `IT` are a last-resort fallback so a stated function wins ("IT Audit"
+  → finance); bare "staff" is no longer a senior marker; "Associate
+  Manager/Director" is senior, not entry. Level `unknown` stays ~54% — most titles
+  carry no level marker, and guessing would be worse.
+- 2026-09-25 — Filters: "Field" is a UI label only (data field and `fn` param stay
+  `function`); analytics keep `filter_changed { filter: "function" }` for
+  continuity, plus `no_level`. Industry filter and free-text location retired —
+  smart search covers both ("fintech", "cebu"); old `industry`/`loc`/
+  `metro=remote-ph` params are ignored.
