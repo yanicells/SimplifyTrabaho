@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:tt="https://teamtailor.com/locations">
+  <channel>
+    <title>RecruitGo</title>
+    <description>Current job openings</description>
+    <link>https://recruitgo.teamtailor.com/jobs</link>
+    <item>
+          <title>AI Automation &amp; Systems Engineer</title>
+          <description>[job description removed for fixture]</description>
+          <pubDate>Fri, 25 Sep 2026 14:37:47 +0800</pubDate>
+          <link>https://recruitgo.teamtailor.com/jobs/8452563-ai-automation-systems-engineer</link>
+          <remoteStatus>fully</remoteStatus>
+          <guid>c63ab001-d2ca-402a-b836-4e5296af0b9e</guid>
+          <tt:locations>
+            <tt:location>
+              <tt:name>Philippines</tt:name>
+              <tt:address>Eastwood Avenue</tt:address>
+              <tt:zip>1800</tt:zip>
+              <tt:city>Quezon City</tt:city>
+              <tt:country>Philippines</tt:country>
+            </tt:location>
+          </tt:locations>
+          <tt:department>RecruitGo</tt:department>
+          <tt:role/>
+        </item>
+    <item>
+          <title>Marketing Executive</title>
+          <description>[job description removed for fixture]</description>
+          <pubDate>Fri, 28 Aug 2026 13:28:42 +0800</pubDate>
+          <link>https://recruitgo.teamtailor.com/jobs/8282586-marketing-executive</link>
+          <remoteStatus>none</remoteStatus>
+          <guid>2d37d83d-52c7-42fa-8e22-59e657a8133f</guid>
+          <tt:locations>
+            <tt:location>
+              <tt:name>Indonesia</tt:name>
+              <tt:address/>
+              <tt:zip/>
+              <tt:city>Jakarta</tt:city>
+              <tt:country>Indonesia</tt:country>
+            </tt:location>
+          </tt:locations>
+          <tt:department>RecruitGo</tt:department>
+          <tt:role/>
+        </item>
+    <item>
+          <title>Bookkeeper - Accountant (Bali Indonesia)</title>
+          <description>[job description removed for fixture]</description>
+          <pubDate>Wed, 26 Aug 2026 13:10:59 +0800</pubDate>
+          <link>https://recruitgo.teamtailor.com/jobs/8269746-bookkeeper-accountant-bali-indonesia</link>
+          <remoteStatus>hybrid</remoteStatus>
+          <guid>c10e1929-6119-4a1b-b840-c760ef200f6f</guid>
+          <tt:locations>
+            <tt:location>
+              <tt:name>Bali, Indonesia</tt:name>
+              <tt:address/>
+              <tt:zip/>
+              <tt:city>Bali</tt:city>
+              <tt:country>Indonesia</tt:country>
+            </tt:location>
+          </tt:locations>
+          <tt:department>RecruitGo</tt:department>
+          <tt:role>Accountant Bookkeeper</tt:role>
+        </item>
+    <item>
+          <title>Senior Cloud Infrastructure Operations and DevOps Platform Lead</title>
+          <description>[job description removed for fixture]</description>
+          <pubDate>Mon, 17 Aug 2026 14:26:02 +0800</pubDate>
+          <link>https://recruitgo.teamtailor.com/jobs/8226343-senior-cloud-infrastructure-operations-and-devops-platform-lead</link>
+          <remoteStatus>onsite</remoteStatus>
+          <guid>9f21a5d8-26f1-49bb-96ed-68aa358bb800</guid>
+          <tt:locations>
+            <tt:location>
+              <tt:name>Metro Manila</tt:name>
+              <tt:address/>
+              <tt:zip/>
+              <tt:city>Quezon City</tt:city>
+              <tt:country>Philippines</tt:country>
+            </tt:location>
+          </tt:locations>
+          <tt:department>RecruitGo</tt:department>
+          <tt:role/>
+        </item>
+    <item>
+          <title>General Accountant</title>
+          <description>[job description removed for fixture]</description>
+          <pubDate>Thu, 02 Jul 2026 15:56:47 +0800</pubDate>
+          <link>https://satelliteoffice-1742766257.teamtailor.com/jobs/8005987-general-accountant</link>
+          <remoteStatus>hybrid</remoteStatus>
+          <guid>399370e2-9591-4ebb-9d74-8690a62391cb</guid>
+          <tt:locations>
+            <tt:location>
+              <tt:name>Jollibee Tower, Ortigas Center, Pasig City</tt:name>
+              <tt:address>Jollibee Tower</tt:address>
+              <tt:zip>1605</tt:zip>
+              <tt:city>Pasig</tt:city>
+              <tt:country>Philippines</tt:country>
+            </tt:location>
+            <tt:location>
+              <tt:name>Uptown Place, Bonifacio Global City, Taguig</tt:name>
+              <tt:address>Uptown Place Tower 2</tt:address>
+              <tt:zip/>
+              <tt:city>Taguig</tt:city>
+              <tt:country>Philippines</tt:country>
+            </tt:location>
+          </tt:locations>
+          <tt:department>Finance</tt:department>
+          <tt:role>Accountant</tt:role>
+        </item>
+  </channel>
+</rss>

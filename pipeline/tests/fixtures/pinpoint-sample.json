@@ -1,0 +1,198 @@
+{
+  "data": [
+    {
+      "id": "198098",
+      "compensation": "₱38,000 - ₱42,000 / month",
+      "compensation_minimum": 38000.0,
+      "compensation_maximum": 42000.0,
+      "compensation_currency": "PHP",
+      "compensation_frequency": "month",
+      "compensation_visible": true,
+      "deadline_at": null,
+      "employment_type": "permanent_full_time",
+      "employment_type_text": "Permanent - Full Time",
+      "title": "Virtual Assistant Team Lead - Philippines, Remote",
+      "url": "https://magic.pinpointhq.com/en/postings/43ff2ef1-b780-4fb8-b123-2b3112b090c0",
+      "path": "/en/postings/43ff2ef1-b780-4fb8-b123-2b3112b090c0",
+      "workplace_type": "remote",
+      "workplace_type_text": "Fully remote",
+      "job": {
+        "id": "216306",
+        "requisition_id": "MJR-0174",
+        "department": {
+          "id": "31291",
+          "name": "MEA Operations"
+        },
+        "division": {
+          "id": "7391",
+          "name": "In-House Roles"
+        },
+        "structure_custom_group_one": null
+      },
+      "location": {
+        "id": "24793",
+        "city": "Taguig City",
+        "name": "Philippines",
+        "postal_code": null,
+        "province": "Metro Manila",
+        "street_address": ""
+      }
+    },
+    {
+      "id": "300127",
+      "compensation": "$5.00 - $8.00 / hour",
+      "compensation_minimum": 5.0,
+      "compensation_maximum": 8.0,
+      "compensation_currency": "USD",
+      "compensation_frequency": "hour",
+      "compensation_visible": true,
+      "deadline_at": null,
+      "employment_type": "freelance",
+      "employment_type_text": "Freelance",
+      "title": "Technical Recruiter - Freelance, Remote",
+      "url": "https://magic.pinpointhq.com/en/postings/e20aa460-606f-45e1-b2d9-4fd0b2fcb07a",
+      "path": "/en/postings/e20aa460-606f-45e1-b2d9-4fd0b2fcb07a",
+      "workplace_type": "remote",
+      "workplace_type_text": "Fully remote",
+      "job": {
+        "id": "315199",
+        "requisition_id": "MJR-0579",
+        "department": {
+          "id": "44302",
+          "name": "Support & Leadership"
+        },
+        "division": {
+          "id": "7390",
+          "name": "Client Roles"
+        },
+        "structure_custom_group_one": null
+      },
+      "location": {
+        "id": "24793",
+        "city": "Taguig City",
+        "name": "Philippines",
+        "postal_code": null,
+        "province": "Metro Manila",
+        "street_address": ""
+      }
+    },
+    {
+      "id": "514831",
+      "compensation": "$800 - $1,200 / month",
+      "compensation_minimum": 800.0,
+      "compensation_maximum": 1200.0,
+      "compensation_currency": "USD",
+      "compensation_frequency": "month",
+      "compensation_visible": true,
+      "deadline_at": null,
+      "employment_type": "full_time",
+      "employment_type_text": "Full Time",
+      "title": "Junior Analytics Specialist",
+      "url": "https://spiralyze.pinpointhq.com/en/postings/6493fbef-7793-4f96-ba13-b93f82c7b6d3",
+      "path": "/en/postings/6493fbef-7793-4f96-ba13-b93f82c7b6d3",
+      "workplace_type": "remote",
+      "workplace_type_text": "Fully remote",
+      "job": {
+        "id": "455315",
+        "requisition_id": "",
+        "department": {
+          "id": "61062",
+          "name": "Analytics"
+        },
+        "division": {
+          "id": "9397",
+          "name": "Analytics"
+        },
+        "structure_custom_group_one": null
+      },
+      "location": {
+        "id": "71285",
+        "city": "Bacolod",
+        "name": "Remote Philippines (Bacolod)",
+        "postal_code": "",
+        "province": "Philippines",
+        "street_address": ""
+      }
+    },
+    {
+      "id": "44361",
+      "compensation": null,
+      "compensation_minimum": null,
+      "compensation_maximum": null,
+      "compensation_currency": null,
+      "compensation_frequency": null,
+      "compensation_visible": false,
+      "deadline_at": "2027-12-31T23:59:59-08:00",
+      "employment_type": "fixed_term_contract",
+      "employment_type_text": "Fixed Term Contract",
+      "title": "HAL - Demi Chef de Partie Pastry - UPL",
+      "url": "https://hollandamericagroup.pinpointhq.com/en/postings/48b5dc1b-de9d-4a26-9d6b-496f926747ee",
+      "path": "/en/postings/48b5dc1b-de9d-4a26-9d6b-496f926747ee",
+      "workplace_type": "onsite",
+      "workplace_type_text": "Onsite",
+      "job": {
+        "id": "46772",
+        "requisition_id": "SEA REQ-0401",
+        "department": {
+          "id": "12062",
+          "name": "Galley"
+        },
+        "division": {
+          "id": "208",
+          "name": "Hotel"
+        },
+        "structure_custom_group_one": {
+          "id": "1050",
+          "name": "Holland America Line",
+          "title": "Brand"
+        }
+      },
+      "location": {
+        "id": "6463",
+        "city": "Manila",
+        "name": "Philippines - UPL",
+        "postal_code": "",
+        "province": "",
+        "street_address": ""
+      }
+    },
+    {
+      "id": "268508",
+      "compensation": null,
+      "compensation_minimum": null,
+      "compensation_maximum": null,
+      "compensation_currency": null,
+      "compensation_frequency": null,
+      "compensation_visible": false,
+      "deadline_at": null,
+      "employment_type": "fixed_term_contract",
+      "employment_type_text": "Fixed Term Contract",
+      "title": "Rooms Division Supervisor - Persohotel",
+      "url": "https://princesscruises.pinpointhq.com/en/postings/9f0ba949-70c5-4382-9f5f-b5e84c00c4a8",
+      "path": "/en/postings/9f0ba949-70c5-4382-9f5f-b5e84c00c4a8",
+      "workplace_type": "onsite",
+      "workplace_type_text": "Onsite",
+      "job": {
+        "id": "295259",
+        "requisition_id": "SEA REQ-1060",
+        "department": {
+          "id": "49232",
+          "name": "Rooms Division"
+        },
+        "division": {
+          "id": "7602",
+          "name": "Hotel"
+        },
+        "structure_custom_group_one": null
+      },
+      "location": {
+        "id": "43329",
+        "city": ".",
+        "name": "Persohotel (Mexico)",
+        "postal_code": "",
+        "province": ".",
+        "street_address": ""
+      }
+    }
+  ]
+}

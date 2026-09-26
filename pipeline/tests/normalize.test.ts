@@ -9,8 +9,11 @@ import {
   normalizeGreenhouse,
   normalizeLever,
   normalizeManatal,
+  normalizePinpoint,
   normalizeRecruitee,
+  normalizeRippling,
   normalizeSmartRecruiters,
+  normalizeTeamtailor,
   normalizeWorkable,
 } from "../src/normalize.js";
 import type { RegistryCompany } from "../src/types.js";
@@ -27,6 +30,9 @@ const recruiteeRaw = loadFixture("recruitee-hostaway.json");
 const bambooKumu = loadFixture("bamboohr-kumu.json");
 const breezySample = loadFixture("breezy-sample.json");
 const manatalSample = loadFixture("manatal-manatal.json");
+const pinpointSample = loadFixture("pinpoint-sample.json");
+const ripplingSample = loadFixture("rippling-maven-roofing.json");
+const teamtailorSample = readFileSync(join(fixturesDir, "teamtailor-sample.rss"), "utf8");
 
 function company(overrides: Partial<RegistryCompany>): RegistryCompany {
   return {
@@ -411,5 +417,115 @@ describe("normalizeRecruitee", () => {
 
   it("never lets job-description text through", () => {
     expect(JSON.stringify(postings)).not.toContain("[truncated for fixture");
+  });
+});
+
+describe("normalizePinpoint", () => {
+  const magic = company({ name: "Magic", ats: "pinpoint", slug: "magic" });
+  const postings = normalizePinpoint(magic, pinpointSample);
+
+  it("maps fields, workplace type, employment type and visible compensation", () => {
+    expect(postings[0]!).toMatchObject({
+      company: "Magic",
+      source: "pinpoint",
+      title: "Virtual Assistant Team Lead - Philippines, Remote",
+      url: "https://magic.pinpointhq.com/en/postings/43ff2ef1-b780-4fb8-b123-2b3112b090c0",
+      workSetup: "remote",
+      employmentType: "full-time", // permanent_full_time
+      salary: "₱38,000 - ₱42,000 / month",
+      publishedAt: null,
+    });
+    expect(postings[1]!.employmentType).toBe("contract"); // freelance
+  });
+
+  it("builds locations without repeated parts or placeholder dots", () => {
+    expect(postings.map((p) => p.locations)).toEqual([
+      ["Taguig City, Metro Manila, Philippines"],
+      ["Taguig City, Metro Manila, Philippines"],
+      ["Remote Philippines (Bacolod)"],
+      ["Manila, Philippines - UPL"],
+      ["Persohotel (Mexico)"],
+    ]);
+  });
+
+  it("keeps salary null when compensation is hidden", () => {
+    expect(postings[3]!).toMatchObject({ salary: null, workSetup: "onsite" });
+  });
+
+  it("never reads job-description or reporting-line fields", () => {
+    const raw = {
+      data: [{ title: "X", description: "<p>JD text</p>", reporting_to: "Jane" }],
+    };
+    expect(JSON.stringify(normalizePinpoint(magic, raw))).not.toMatch(/JD text|Jane/);
+  });
+});
+
+describe("normalizeRippling", () => {
+  const maven = company({ name: "Maven Roofing", ats: "rippling", slug: "maven-roofing" });
+  const postings = normalizeRippling(maven, ripplingSample);
+
+  it("maps title, provided apply URL and location label", () => {
+    expect(postings[0]!).toEqual({
+      company: "Maven Roofing",
+      source: "rippling",
+      title: "Accounting Assistant, PH",
+      locations: ["Antipolo, Philippines"],
+      url: "https://ats.rippling.com/maven-roofing/jobs/65fc68d7-7c77-411a-b1bc-6de0c395bf9c",
+      workSetup: "unknown",
+      employmentType: "unknown",
+      salary: null,
+      publishedAt: null,
+      industry: "",
+      companyType: "direct",
+    });
+  });
+
+  it("folds per-location rows of one job into a single posting", () => {
+    expect(postings).toHaveLength(3);
+    expect(postings[1]!.locations).toEqual(["Fayetteville, NC", "Hampstead, NC"]);
+  });
+
+  it("derives remote from the location label", () => {
+    expect(postings[2]!.workSetup).toBe("remote");
+  });
+});
+
+describe("normalizeTeamtailor", () => {
+  const recruitGo = company({ name: "RecruitGo", ats: "teamtailor", slug: "recruitgo" });
+  const postings = normalizeTeamtailor(recruitGo, teamtailorSample);
+
+  it("maps title (entity-decoded), link, pubDate and structured location", () => {
+    expect(postings).toHaveLength(5);
+    expect(postings[0]!).toMatchObject({
+      company: "RecruitGo",
+      source: "teamtailor",
+      title: "AI Automation & Systems Engineer",
+      locations: ["Quezon City, Philippines"],
+      url: "https://recruitgo.teamtailor.com/jobs/8452563-ai-automation-systems-engineer",
+      workSetup: "remote", // remoteStatus "fully"
+      employmentType: "unknown",
+      salary: null,
+      publishedAt: "2026-09-25T06:37:47.000Z", // +0800 → UTC
+    });
+  });
+
+  it("maps remoteStatus hybrid/onsite, leaving 'none' to the text fallback", () => {
+    expect(postings.slice(1, 4).map((p) => p.workSetup)).toEqual([
+      "unknown",
+      "hybrid",
+      "onsite",
+    ]);
+  });
+
+  it("keeps every location of a multi-location job", () => {
+    expect(postings[4]!.locations).toEqual(["Pasig, Philippines", "Taguig, Philippines"]);
+  });
+
+  it("never lets job-description text through", () => {
+    expect(JSON.stringify(postings)).not.toContain("removed for fixture");
+    const raw = `<rss><channel><item><title>X</title><description><![CDATA[<link>https://evil</link> JD]]></description><link>https://ok</link></item></channel></rss>`;
+    const [posting] = normalizeTeamtailor(recruitGo, raw);
+    expect(posting!.url).toBe("https://ok");
+    expect(JSON.stringify(posting)).not.toContain("JD");
   });
 });

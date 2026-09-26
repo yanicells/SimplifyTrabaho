@@ -1,0 +1,54 @@
+[
+  {
+    "uuid": "65fc68d7-7c77-411a-b1bc-6de0c395bf9c",
+    "name": "Accounting Assistant, PH",
+    "department": {
+      "id": "RevOps",
+      "label": "RevOps"
+    },
+    "url": "https://ats.rippling.com/maven-roofing/jobs/65fc68d7-7c77-411a-b1bc-6de0c395bf9c",
+    "workLocation": {
+      "label": "Antipolo, Philippines",
+      "id": "Antipolo, Philippines"
+    }
+  },
+  {
+    "uuid": "dca9a9dc-ad3a-4b39-b789-1be764aea5f4",
+    "name": "Copy of Roofing Crew",
+    "department": {
+      "id": "Production",
+      "label": "Production"
+    },
+    "url": "https://ats.rippling.com/maven-roofing/jobs/dca9a9dc-ad3a-4b39-b789-1be764aea5f4",
+    "workLocation": {
+      "label": "Fayetteville, NC",
+      "id": "Fayetteville, NC"
+    }
+  },
+  {
+    "uuid": "dca9a9dc-ad3a-4b39-b789-1be764aea5f4",
+    "name": "Copy of Roofing Crew",
+    "department": {
+      "id": "Production",
+      "label": "Production"
+    },
+    "url": "https://ats.rippling.com/maven-roofing/jobs/dca9a9dc-ad3a-4b39-b789-1be764aea5f4",
+    "workLocation": {
+      "label": "Hampstead, NC",
+      "id": "Hampstead, NC"
+    }
+  },
+  {
+    "uuid": "94da8c43-21d0-492c-9928-35631528f150",
+    "name": "Outside Sales Representative - Wilmington ",
+    "department": {
+      "id": "Sales",
+      "label": "Sales"
+    },
+    "url": "https://ats.rippling.com/maven-roofing/jobs/94da8c43-21d0-492c-9928-35631528f150",
+    "workLocation": {
+      "label": "Remote (Wilmington, North Carolina, US)",
+      "id": "Remote (Wilmington, North Carolina, US)"
+    }
+  }
+]

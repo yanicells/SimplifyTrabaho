@@ -563,3 +563,191 @@ export function normalizeWorkday(
     } satisfies FetchedPosting;
   });
 }
+
+interface PinpointPosting {
+  title?: unknown;
+  url?: unknown;
+  workplace_type?: unknown;
+  employment_type?: unknown;
+  compensation?: unknown;
+  compensation_visible?: unknown;
+  location?: { name?: unknown; city?: unknown; province?: unknown };
+  // description / key_responsibilities / benefits / skills_knowledge_expertise (JD
+  // text) and reporting_to are intentionally NOT in this interface — never read them.
+}
+
+function mapPinpointEmployment(value: unknown): EmploymentType {
+  const type = String(value ?? "").toLowerCase();
+  if (type.includes("intern")) return "internship";
+  if (type.includes("part_time")) return "part-time";
+  if (type.includes("contract") || type.includes("freelance") || type.includes("temp"))
+    return "contract";
+  if (type.includes("full_time")) return "full-time";
+  return "unknown";
+}
+
+/**
+ * Pinpoint location → one string. `name` is the employer's own label ("Philippines",
+ * "Remote Philippines (Bacolod)", "Philippines - UPL"); city/province are prepended
+ * only when the label doesn't already contain them. Placeholders ("", ".", "-") drop.
+ */
+function pinpointLocation(location: PinpointPosting["location"]): string {
+  const clean = (value: unknown) => {
+    const text = String(value ?? "").trim();
+    return /^[.\-\s]*$/.test(text) ? "" : text;
+  };
+  const name = clean(location?.name);
+  const parts: string[] = [];
+  for (const part of [clean(location?.city), clean(location?.province)]) {
+    const seen = [name, ...parts].join(" ").toLowerCase();
+    if (part && !seen.includes(part.toLowerCase())) parts.push(part);
+  }
+  return [...parts, name].filter(Boolean).join(", ");
+}
+
+export function normalizePinpoint(company: RegistryCompany, raw: unknown): FetchedPosting[] {
+  const data = (raw as { data?: unknown })?.data;
+  if (!Array.isArray(data)) {
+    throw new Error(`pinpoint payload for ${company.slug} has no data array`);
+  }
+  return data.map((posting: PinpointPosting) => {
+    const location = pinpointLocation(posting.location);
+    const compensation =
+      posting.compensation_visible === true && typeof posting.compensation === "string"
+        ? posting.compensation.trim()
+        : "";
+    return {
+      company: company.name,
+      source: "pinpoint",
+      title: String(posting.title ?? ""),
+      locations: location ? [location] : [],
+      url: String(posting.url ?? ""),
+      workSetup: mapLeverWorkplace(posting.workplace_type),
+      employmentType: mapPinpointEmployment(posting.employment_type),
+      salary: compensation || null,
+      publishedAt: null, // postings.json carries no published date
+      industry: company.industry,
+      companyType: company.type,
+    } satisfies FetchedPosting;
+  });
+}
+
+interface RipplingJob {
+  uuid?: unknown;
+  name?: unknown;
+  url?: unknown;
+  workLocation?: { label?: unknown };
+}
+
+/**
+ * Rippling lists a multi-location job once per location (same uuid and url), so rows
+ * fold into one posting per uuid carrying all its locations, in first-seen order.
+ */
+export function normalizeRippling(company: RegistryCompany, raw: unknown): FetchedPosting[] {
+  if (!Array.isArray(raw)) {
+    throw new Error(`rippling payload for ${company.slug} is not a jobs array`);
+  }
+  const byId = new Map<string, { title: string; url: string; locations: string[] }>();
+  for (const job of raw as RipplingJob[]) {
+    const url = String(job.url ?? "");
+    const label = String(job.workLocation?.label ?? "").trim();
+    const key = String(job.uuid ?? url);
+    const entry = byId.get(key) ?? { title: String(job.name ?? ""), url, locations: [] };
+    if (label && !entry.locations.includes(label)) entry.locations.push(label);
+    byId.set(key, entry);
+  }
+  return [...byId.values()].map(
+    ({ title, url, locations }) =>
+      ({
+        company: company.name,
+        source: "rippling",
+        title,
+        locations,
+        url,
+        workSetup: workSetupFromText(`${title} ${locations.join(" ")}`),
+        employmentType: "unknown", // not in the public board feed
+        salary: null,
+        publishedAt: null, // not in the public board feed
+        industry: company.industry,
+        companyType: company.type,
+      }) satisfies FetchedPosting,
+  );
+}
+
+const XML_ENTITIES: Record<string, string> = { lt: "<", gt: ">", quot: '"', apos: "'" };
+
+/** Decodes a text node: CDATA, named/numeric entities (`&amp;` last, so no double-decode). */
+function decodeXml(text: string): string {
+  const trimmed = text.trim();
+  const cdata = /^<!\[CDATA\[([\s\S]*)\]\]>$/.exec(trimmed);
+  if (cdata) return cdata[1]!.trim();
+  return trimmed
+    .replace(/&(#x[0-9a-f]+|#\d+|lt|gt|quot|apos);/gi, (match, entity: string) => {
+      if (entity[0] !== "#") return XML_ENTITIES[entity.toLowerCase()] ?? match;
+      const code =
+        entity[1] === "x" || entity[1] === "X"
+          ? parseInt(entity.slice(2), 16)
+          : Number(entity.slice(1));
+      return String.fromCodePoint(code);
+    })
+    .replace(/&amp;/g, "&");
+}
+
+/** Decoded text of the first `<tag>…</tag>` in `xml`; "" when absent or self-closing. */
+function xmlTag(xml: string, tag: string): string {
+  const match = new RegExp(`<${tag}(?:\\s[^>]*)?>([\\s\\S]*?)</${tag}>`).exec(xml);
+  return match ? decodeXml(match[1]!) : "";
+}
+
+function mapTeamtailorRemote(value: string): WorkSetup {
+  switch (value.toLowerCase()) {
+    case "fully":
+      return "remote";
+    case "hybrid":
+      return "hybrid";
+    case "onsite":
+      return "onsite";
+    default:
+      return "unknown"; // "none" / "temporary" / absent: not a clear work-setup fact
+  }
+}
+
+/**
+ * Teamtailor `jobs.rss` (an XML string) → postings. A minimal string parser is enough
+ * for the flat items Teamtailor emits. Each item's `<description>` (JD HTML) is cut
+ * out before any field is read, so it can never leak into a posting.
+ */
+export function normalizeTeamtailor(company: RegistryCompany, raw: unknown): FetchedPosting[] {
+  if (typeof raw !== "string" || !/<rss[\s>]/.test(raw) || !raw.includes("<channel>")) {
+    throw new Error(`teamtailor payload for ${company.slug} is not an RSS feed`);
+  }
+  const items = raw.match(/<item>[\s\S]*?<\/item>/g) ?? [];
+  return items.map((rawItem) => {
+    const item = rawItem.replace(/<description>[\s\S]*?<\/description>/g, "");
+    const locations = (item.match(/<tt:location>[\s\S]*?<\/tt:location>/g) ?? [])
+      .map((location) => {
+        const city = xmlTag(location, "tt:city");
+        const country = xmlTag(location, "tt:country");
+        return city && country
+          ? `${city}, ${country}`
+          : xmlTag(location, "tt:name") || country;
+      })
+      .filter(Boolean);
+    const title = xmlTag(item, "title");
+    const remote = mapTeamtailorRemote(xmlTag(item, "remoteStatus"));
+    return {
+      company: company.name,
+      source: "teamtailor",
+      title,
+      locations: [...new Set(locations)],
+      url: xmlTag(item, "link"),
+      workSetup:
+        remote !== "unknown" ? remote : workSetupFromText(`${title} ${locations.join(" ")}`),
+      employmentType: "unknown", // not in the RSS feed
+      salary: null,
+      publishedAt: toIsoUtc(xmlTag(item, "pubDate")),
+      industry: company.industry,
+      companyType: company.type,
+    } satisfies FetchedPosting;
+  });
+}

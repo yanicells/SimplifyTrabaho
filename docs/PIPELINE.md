@@ -26,8 +26,9 @@ will see the request go out. No key, no login, no terms to click through.
 That endpoint is the entire data source. The pipeline calls the same URL the company's
 own page calls, reads the same JSON, and stores a subset of it.
 
-Ten systems are supported right now. Company counts below are a snapshot of the
-registry on 2026-07-21, not a live figure:
+Thirteen systems are supported right now. Company counts below are a snapshot of the
+registry on 2026-07-21, not a live figure; Pinpoint, Rippling, and Teamtailor were added
+on 2026-09-26 and have no registry entries in that snapshot:
 
 | ATS             | Companies |
 | --------------- | --------- |
@@ -42,9 +43,11 @@ registry on 2026-07-21, not a live figure:
 | Recruitee       | 2         |
 | BambooHR        | 2         |
 
-The first nine work the same way: one documented JSON endpoint per company, keyed by
+Twelve of them work the same way: one documented public feed per company, keyed by
 whatever slug the company registered (`boards-api.greenhouse.io/v1/boards/<slug>/jobs`,
-and so on). Workday is the odd one out and gets stricter handling, described below.
+and so on). All are JSON except Teamtailor, whose public feed is RSS
+(`<slug>.teamtailor.com/jobs.rss`). Workday is the odd one out and gets stricter
+handling, described below.
 
 ## The rules that shape everything else
 
@@ -245,6 +248,6 @@ Add an entry to `pipeline/companies.json` with the ATS, the slug, the industry t
 the employer type, then confirm the endpoint returns live JSON before setting
 `verified: true`. The pipeline skips anything unverified.
 
-Companies on the nine documented APIs can go straight in. Workday companies come in by
+Companies on the twelve documented feeds can go straight in. Workday companies come in by
 pull request only, with the robots.txt evidence attached, because that path deserves a
 second pair of eyes.

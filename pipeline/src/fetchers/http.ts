@@ -36,7 +36,25 @@ export type HttpOutcome =
   | { kind: "http"; status: number }
   | { kind: "network"; message: string };
 
-export async function politeJsonGet(url: string, deps: HttpDeps = {}): Promise<HttpOutcome> {
+const ACCEPT = {
+  json: "application/json",
+  text: "application/rss+xml, application/xml;q=0.9, text/xml;q=0.8",
+} as const;
+
+export function politeJsonGet(url: string, deps: HttpDeps = {}): Promise<HttpOutcome> {
+  return politeGet(url, deps, "json");
+}
+
+/** Same politeness/backoff as politeJsonGet, but the body is the raw text (XML feeds). */
+export function politeTextGet(url: string, deps: HttpDeps = {}): Promise<HttpOutcome> {
+  return politeGet(url, deps, "text");
+}
+
+async function politeGet(
+  url: string,
+  deps: HttpDeps,
+  as: keyof typeof ACCEPT,
+): Promise<HttpOutcome> {
   const fetchFn = deps.fetchFn ?? fetch;
   const sleep = deps.sleep ?? realSleep;
   const timeoutMs = deps.timeoutMs ?? DEFAULT_TIMEOUT_MS;
@@ -46,7 +64,7 @@ export async function politeJsonGet(url: string, deps: HttpDeps = {}): Promise<H
     await sleep(POLITENESS_GAP_MS);
     try {
       const response = await fetchFn(url, {
-        headers: { "User-Agent": USER_AGENT, Accept: "application/json" },
+        headers: { "User-Agent": USER_AGENT, Accept: ACCEPT[as] },
         signal: requestSignal(timeoutMs),
         ...(deps.redirectIsNotFound ? { redirect: "manual" as const } : {}),
       });
@@ -58,7 +76,12 @@ export async function politeJsonGet(url: string, deps: HttpDeps = {}): Promise<H
       ) {
         return { kind: "not-found" };
       }
-      if (response.ok) return { kind: "ok", body: await response.json() };
+      if (response.ok) {
+        return {
+          kind: "ok",
+          body: as === "json" ? await response.json() : await response.text(),
+        };
+      }
       last = { kind: "http", status: response.status };
       const retryable = response.status === 429 || response.status >= 500;
       if (!retryable) return last;
