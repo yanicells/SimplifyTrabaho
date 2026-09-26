@@ -17,18 +17,18 @@ The build ships only active listings with only the fields the UI renders
 
 `public/social/simplifytrabaho-icon.png` is the header/navbar icon, including the
 small yellow accent marks. `public/social/simplifytrabaho-mark.png` is the
-centered, spark-free mark used by the footer, favicon, Apple icon, and PWA
-manifest. The footer keeps the white mark tile against the black band so its
-black artwork remains legible beside the white footer copy. The full
-`public/social/simplifytrabaho-square.png` lockup remains available for social
-profiles and square shares. The checked-in
+centered, spark-free mark used by the Apple icon, PWA manifest, and JSON-LD logo.
+The browser-tab icon (`app/icon.png`) is the same briefcase in white on a black
+rounded tile, so it stays legible in dark tab bars. The footer uses
+`public/footer-logo.png`, the black-background mark that blends into the black
+band. The full `public/social/simplifytrabaho-square.png` lockup remains available
+for social profiles and square shares. The checked-in
 `public/social/simplifytrabaho-og.png` is the 1200×630 link-preview image used by
 Messenger, Facebook, WhatsApp, LinkedIn, Slack, and X.
 
-The header and footer serve the dedicated 192px derivatives
-`simplifytrabaho-icon-192.png` and `simplifytrabaho-mark-192.png`. Keep the larger
-source files for social/PWA generation; serving them directly at 56–64px wastes
-hundreds of kilobytes on the initial mobile view.
+The header serves the dedicated 192px derivative `simplifytrabaho-icon-192.png`.
+Keep the larger source files for social/PWA generation; serving them directly at
+56–64px wastes hundreds of kilobytes on the initial mobile view.
 
 ## `vercel.json` — why it exists
 
