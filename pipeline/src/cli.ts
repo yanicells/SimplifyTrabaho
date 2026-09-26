@@ -2,7 +2,7 @@ import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { groupByHost } from "./fetchers/http.js";
-import { FETCHERS } from "./fetchers/index.js";
+import { createRunFetcher } from "./fetchers/index.js";
 import { computeCoverage, formatCoverageReport } from "./coverage.js";
 import { emptyListingsFile, parseListingsFile, parseRegistry } from "./files.js";
 import { filterPhilippines } from "./filter.js";
@@ -70,9 +70,8 @@ async function main(): Promise<number> {
   const zeroPhBoards: string[] = [];
   let succeeded = 0;
   let failed = 0;
-  // Set by the first Workday block this run. Blocks are permanent, so a burst of them
-  // (e.g. a platform-wide incident misread as blocks) must cost one tenant, not all.
-  let workdayHalted = false;
+  // Stops all Workday requests for the rest of the run after the first block.
+  const fetchBoard = createRunFetcher();
 
   // Fetches one board; all of its log lines go through `log` so they print as one block.
   const fetchOne = async (company: RegistryCompany, log: (line: string) => void) => {
@@ -87,13 +86,13 @@ async function main(): Promise<number> {
       failed += 1;
       return;
     }
-    if (company.ats === "workday" && workdayHalted) {
+    const result = await fetchBoard(company);
+    if (result === null) {
       log(`  SKIP  ${label} — Workday halted for this run after a block`);
       okByName.set(company.name, false);
       failed += 1;
       return;
     }
-    const result = await FETCHERS[company.ats](company);
     if (result.ok) {
       const cap = result.partial ? " (partial: stopped at pagination cap)" : "";
       log(`  OK    ${label} — ${result.postings.length} postings${cap}`);
@@ -109,7 +108,6 @@ async function main(): Promise<number> {
       okByName.set(company.name, false);
       failed += 1;
       if (result.errorKind === "blocked") {
-        workdayHalted = true;
         fetchState.blocked ??= {};
         fetchState.blocked[stateKey] = `${now.slice(0, 10)}: ${result.detail}`;
         log(

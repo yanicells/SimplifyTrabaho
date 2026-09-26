@@ -32,3 +32,21 @@ export const FETCHERS: Record<AtsSource, (company: RegistryCompany) => Promise<F
     // Workday entries land only via a per-company PR, never direct to main.
     workday: fetchWorkday,
   };
+
+/**
+ * One run's fetch function with the SPEC §17.1.2 run-level stop: after the first
+ * Workday block, every later Workday call returns `null` without sending a request.
+ * Blocks are permanent, so a burst of them (a platform-wide incident misread as
+ * blocks) must cost one tenant, not all. Used by `pnpm refresh` and verify-registry.
+ */
+export function createRunFetcher(
+  fetchers: Record<AtsSource, (company: RegistryCompany) => Promise<FetchResult>> = FETCHERS,
+): (company: RegistryCompany) => Promise<FetchResult | null> {
+  let workdayHalted = false;
+  return async (company) => {
+    if (company.ats === "workday" && workdayHalted) return null;
+    const result = await fetchers[company.ats](company);
+    if (!result.ok && result.errorKind === "blocked") workdayHalted = true;
+    return result;
+  };
+}

@@ -1,7 +1,7 @@
 import { readFileSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
-import { FETCHERS } from "./fetchers/index.js";
+import { createRunFetcher } from "./fetchers/index.js";
 import { mergeRegistryCompanies, parseRegistry } from "./files.js";
 import { filterPhilippines } from "./filter.js";
 import type { AtsSource, CompanyType, RegistryCompany } from "./types.js";
@@ -39,6 +39,8 @@ async function main(): Promise<void> {
 
   const additions: RegistryCompany[] = [];
   const failures: string[] = [];
+  // Same run-level stop as `pnpm refresh`: no Workday probe after a block (§17.1.2).
+  const fetchBoard = createRunFetcher();
 
   for (const candidate of candidates) {
     const tried: string[] = [];
@@ -53,7 +55,6 @@ async function main(): Promise<void> {
         tried.length = 0;
         break;
       }
-      tried.push(`${attempt.slug} (${attempt.ats})`);
       const probe: RegistryCompany = {
         name: candidate.name,
         ats: attempt.ats,
@@ -63,9 +64,22 @@ async function main(): Promise<void> {
         verified: false,
         added: today,
       };
-      const result = await FETCHERS[attempt.ats](probe);
+      const result = await fetchBoard(probe);
+      if (result === null) {
+        console.log(
+          `  SKIP  ${candidate.name} — ${key}: Workday halted for this run after a block`,
+        );
+        continue;
+      }
+      tried.push(`${attempt.slug} (${attempt.ats})`);
       if (!result.ok) {
         console.log(`  MISS  ${candidate.name} — ${key}: ${result.errorKind}`);
+        if (result.errorKind === "blocked") {
+          console.log(
+            `  BLOCKED  ${key} — ${result.detail}. No more Workday probes this run; ` +
+              `do not add or re-probe this tenant (SPEC §17.1.2)`,
+          );
+        }
         continue;
       }
       const phCount = filterPhilippines(result.postings).kept.length;

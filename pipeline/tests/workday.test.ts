@@ -1,11 +1,12 @@
 import { describe, expect, it } from "vitest";
+import { createRunFetcher, FETCHERS } from "../src/fetchers/index.js";
 import {
   fetchWorkday,
   parseWorkdaySlug,
   robotsAllowsJobsPath,
 } from "../src/fetchers/workday.js";
 import { normalizeWorkday } from "../src/normalize.js";
-import type { RegistryCompany } from "../src/types.js";
+import type { FetchResult, RegistryCompany } from "../src/types.js";
 
 // Workday is Tier B (SPEC §17): every guardrail here is a legal requirement,
 // not a nicety. robots.txt gate, instant permanent stop on any block, ≥2s
@@ -212,6 +213,30 @@ describe("fetchWorkday — stop on block, never retry (guardrail §17.1.2)", () 
     expect(result.ok).toBe(false);
     if (!result.ok) expect(result.errorKind).toBe("http");
     expect(http.calls).toHaveLength(2);
+  });
+});
+
+describe("createRunFetcher — one Workday block per run (guardrail §17.1.2)", () => {
+  it("sends no Workday request after a block; other ATSs keep going", async () => {
+    const calls: string[] = [];
+    const answer =
+      (result: FetchResult) =>
+      async (company: RegistryCompany): Promise<FetchResult> => {
+        calls.push(company.slug);
+        return result;
+      };
+    const fetchBoard = createRunFetcher({
+      ...FETCHERS,
+      workday: answer({ ok: false, errorKind: "blocked", detail: "HTTP 403" }),
+      greenhouse: answer({ ok: true, postings: [] }),
+    });
+    const other = { ...COMPANY, slug: "acme.wd1/Careers" };
+    const tierA = { ...COMPANY, ats: "greenhouse" as const, slug: "acme" };
+
+    expect(await fetchBoard(COMPANY)).toMatchObject({ errorKind: "blocked" });
+    expect(await fetchBoard(other)).toBeNull();
+    expect(await fetchBoard(tierA)).toMatchObject({ ok: true });
+    expect(calls).toEqual([COMPANY.slug, "acme"]);
   });
 });
 
