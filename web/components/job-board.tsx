@@ -1,6 +1,7 @@
 "use client";
 
 import {
+  startTransition,
   useDeferredValue,
   useEffect,
   useLayoutEffect,
@@ -25,7 +26,8 @@ import {
   METRO_LABELS,
   SETUP_LABELS,
 } from "@/lib/labels";
-import { buildSearchKey, matchesQuery, parseQuery } from "@/lib/search";
+import { filterJobs, PAGE_SIZE, type FilterResult } from "@/lib/filter-jobs";
+import { buildSearchKey } from "@/lib/search";
 import { readStorage, removeStorage, writeStorage } from "@/lib/storage";
 import {
   emptyTracker,
@@ -44,7 +46,6 @@ import { FilterSelect } from "@/components/filter-select";
 import { timeAgo } from "@/lib/time";
 import { REPORT_LISTING_URL } from "@/lib/site";
 
-const PAGE_SIZE = 60;
 const NEW_WINDOW_MS = 3 * 24 * 60 * 60 * 1000;
 const URL_SYNC_DEBOUNCE_MS = 200;
 
@@ -108,11 +109,15 @@ function BookmarkIcon({ filled }: { filled: boolean }) {
 }
 
 export function JobBoard({
-  jobs,
+  initialJobs,
+  defaultCounts,
   updatedAt,
   updatedLabel,
 }: {
-  jobs: Job[];
+  /** The default view's first page — all the static HTML carries. */
+  initialJobs: Job[];
+  /** Default-view counts from the build, shown until the full list arrives. */
+  defaultCounts: { roles: number; companies: number; fields: FilterResult["fieldCounts"] };
   updatedAt: string;
   /** Pre-formatted (UTC-pinned) refresh date — the board is the only place it shows. */
   updatedLabel: string;
@@ -124,6 +129,21 @@ export function JobBoard({
   const [view, setView] = useState<"board" | "tracked" | "companies">("board");
   const [companySort, setCompanySort] = useState<CompanySort>("roles");
   const [copyStatus, setCopyStatus] = useState<"idle" | "copied" | "failed">("idle");
+  // Every active job, fetched after hydration (page.tsx preloads it). Until it
+  // lands the board runs on the first page; anything that needs the whole list
+  // (a non-default filter, the directory) shows a loading line instead.
+  const [allJobs, setAllJobs] = useState<Job[] | null>(null);
+  const [loadFailed, setLoadFailed] = useState(false);
+  useEffect(() => {
+    fetch("/jobs.json")
+      .then((res) => {
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        return res.json() as Promise<Job[]>;
+      })
+      .then((jobs) => startTransition(() => setAllJobs(jobs)))
+      .catch(() => setLoadFailed(true));
+  }, []);
+  const jobs = allJobs ?? initialJobs;
 
   // Static export renders the featured default. On hydration, a pasted URL wins;
   // otherwise the last-used filters come back from localStorage (Phase 11
@@ -214,62 +234,39 @@ export function JobBoard({
 
   // Built once per dataset, so a keystroke only runs substring checks.
   const searchKeys = useMemo(() => jobs.map(buildSearchKey), [jobs]);
-  const liveUrls = useMemo(() => new Set(jobs.map((j) => j.url)), [jobs]);
+  const liveUrls = useMemo(
+    () => (allJobs ? new Set(allJobs.map((j) => j.url)) : null),
+    [allJobs],
+  );
   const trackedUrls = useMemo(() => new Set(tracker.jobs.map((j) => j.url)), [tracker]);
 
   const { levels, noLevel, fns, setup, metro, type: employerType, company } = filters;
   const levelSet = useMemo(() => new Set<string>(levels), [levels]);
-  const fnSet = useMemo(() => new Set<string>(fns), [fns]);
 
-  // One pass yields the rows plus two side counts for the panel: per-field
-  // counts against every OTHER filter (so picking a field never zeroes its
-  // siblings), and the no-level roles an active level filter is hiding.
-  const { filtered, fieldCounts, noLevelCount } = useMemo(() => {
-    const terms = parseQuery(deferredQuery);
-    const counts: Partial<Record<Job["function"], number>> = {};
-    let unleveled = 0;
-    const out: Job[] = [];
-    for (let i = 0; i < jobs.length; i++) {
-      const job = jobs[i];
-      if (setup !== "all" && job.workSetup !== setup) continue;
-      if (metro !== "all" && !job.metro.includes(metro)) continue;
-      if (employerType !== "all" && job.companyType !== employerType) continue;
-      if (company !== "" && job.company !== company) continue;
-      if (terms.length > 0 && !matchesQuery(searchKeys[i], terms)) continue;
-      const fnOk = fnSet.size === 0 || fnSet.has(job.function);
-      if (levelSet.size > 0 && job.level === "unknown" && fnOk) unleveled++;
-      const levelOk =
-        levelSet.size === 0 || levelSet.has(job.level) || (noLevel && job.level === "unknown");
-      if (!levelOk) continue;
-      counts[job.function] = (counts[job.function] ?? 0) + 1;
-      if (fnOk) out.push(job);
-    }
-    return { filtered: out, fieldCounts: counts, noLevelCount: unleveled };
-  }, [
-    jobs,
-    searchKeys,
-    levelSet,
-    noLevel,
-    fnSet,
-    setup,
-    metro,
-    employerType,
-    company,
-    deferredQuery,
-  ]);
-
-  // Field dropdown columns: busiest first within each, "Other" pinned last.
-  const fieldGroups = useMemo(
+  const { filtered, fieldCounts, noLevelCount } = useMemo(
     () =>
-      FIELD_GROUPS.map((group) => ({
-        label: group.label,
-        options: group.fields
-          .map((fn) => ({ value: fn, label: FIELD_LABELS[fn], count: fieldCounts[fn] ?? 0 }))
-          .sort((a, b) =>
-            a.value === "other" ? 1 : b.value === "other" ? -1 : b.count - a.count,
-          ),
-      })),
-    [fieldCounts],
+      filterJobs(jobs, searchKeys, {
+        levels,
+        noLevel,
+        fns,
+        setup,
+        metro,
+        type: employerType,
+        company,
+        query: deferredQuery,
+      }),
+    [
+      jobs,
+      searchKeys,
+      levels,
+      noLevel,
+      fns,
+      setup,
+      metro,
+      employerType,
+      company,
+      deferredQuery,
+    ],
   );
 
   /** Companies represented in the current result set — the count next to it. */
@@ -279,6 +276,43 @@ export function JobBoard({
   );
 
   const isDefaultView = filtersToSearch(filters) === "";
+  // Before the full list lands, only the default board is answerable (the
+  // build's counts + the first page); everything else waits.
+  const partial = allJobs === null;
+  const pending = partial && (!isDefaultView || view === "companies");
+  const roleCount = partial ? defaultCounts.roles : filtered.length;
+  const companyCount = partial ? defaultCounts.companies : shownCompanies;
+  const loadStatus = loadFailed
+    ? "Couldn't load all roles — refresh to try again."
+    : "Loading roles…";
+  const shownFieldCounts = partial
+    ? pending
+      ? undefined
+      : defaultCounts.fields
+    : fieldCounts;
+
+  // Field dropdown columns: busiest first within each, "Other" pinned last.
+  const fieldGroups = useMemo(
+    () =>
+      FIELD_GROUPS.map((group) => ({
+        label: group.label,
+        options: group.fields
+          .map((fn) => ({
+            value: fn,
+            label: FIELD_LABELS[fn],
+            count: shownFieldCounts && (shownFieldCounts[fn] ?? 0),
+          }))
+          .sort((a, b) =>
+            a.value === "other"
+              ? 1
+              : b.value === "other"
+                ? -1
+                : (b.count ?? 0) - (a.count ?? 0),
+          ),
+      })),
+    [shownFieldCounts],
+  );
+
   const advancedCount =
     (fns.length > 0 ? 1 : 0) +
     (setup !== "all" ? 1 : 0) +
@@ -306,7 +340,7 @@ export function JobBoard({
 
   const shown = filtered.slice(0, visible);
   const updatedMs = Date.parse(updatedAt);
-  const hasMore = filtered.length > visible;
+  const hasMore = !partial && filtered.length > visible;
 
   // Infinite scroll: grow the visible window when the sentinel nears the
   // viewport. Recreated per page so a sentinel that stays inside rootMargin
@@ -556,8 +590,14 @@ export function JobBoard({
                 onClick={() => setPanelOpen(false)}
                 className="h-11 w-full rounded-full bg-ink text-sm font-medium text-paper transition-opacity hover:opacity-80 focus:outline-none focus-visible:ring-2 focus-visible:ring-ink focus-visible:ring-offset-2"
               >
-                Show {filtered.length.toLocaleString("en-US")}{" "}
-                {filtered.length === 1 ? "role" : "roles"}
+                {pending ? (
+                  "Show roles"
+                ) : (
+                  <>
+                    Show {roleCount.toLocaleString("en-US")}{" "}
+                    {roleCount === 1 ? "role" : "roles"}
+                  </>
+                )}
               </button>
             </div>
           </div>
@@ -567,19 +607,25 @@ export function JobBoard({
       {view === "companies" ? (
         <div className="mt-4">
           <h2 className="sr-only">Companies hiring</h2>
-          <CompanyDirectory
-            jobs={jobs}
-            query={deferredQuery}
-            sort={companySort}
-            onClearQuery={() => patch({ query: "" })}
-            onSelect={(name) => {
-              // Clean slate: every open role at the picked company, all levels.
-              // Dropping the query matters — it was a company-name search.
-              setFilters({ ...defaultFilters(), company: name });
-              setVisible(PAGE_SIZE);
-              setView("board");
-            }}
-          />
+          {pending ? (
+            <p role="status" className="py-16 text-center text-sm text-faint">
+              {loadStatus}
+            </p>
+          ) : (
+            <CompanyDirectory
+              jobs={jobs}
+              query={deferredQuery}
+              sort={companySort}
+              onClearQuery={() => patch({ query: "" })}
+              onSelect={(name) => {
+                // Clean slate: every open role at the picked company, all levels.
+                // Dropping the query matters — it was a company-name search.
+                setFilters({ ...defaultFilters(), company: name });
+                setVisible(PAGE_SIZE);
+                setView("board");
+              }}
+            />
+          )}
         </div>
       ) : view === "tracked" ? (
         <div className="mt-4">
@@ -628,16 +674,22 @@ export function JobBoard({
             }`}
           >
             <p aria-live="polite" className="text-sm text-faint">
-              <span className="font-semibold tabular-nums text-ink">
-                {filtered.length.toLocaleString("en-US")}
-              </span>{" "}
-              {filtered.length === 1 ? "role" : "roles"} ·{" "}
-              <span className="font-semibold tabular-nums text-ink">{shownCompanies}</span>{" "}
-              {shownCompanies === 1 ? "company" : "companies"}
+              {pending ? (
+                loadStatus
+              ) : (
+                <>
+                  <span className="font-semibold tabular-nums text-ink">
+                    {roleCount.toLocaleString("en-US")}
+                  </span>{" "}
+                  {roleCount === 1 ? "role" : "roles"} ·{" "}
+                  <span className="font-semibold tabular-nums text-ink">{companyCount}</span>{" "}
+                  {companyCount === 1 ? "company" : "companies"}
+                </>
+              )}
             </p>
             {/* Most listings don't state a level, so a level filter hides them;
                 this quiet toggle lets people opt back in. */}
-            {levels.length > 0 && noLevelCount > 0 && (
+            {!pending && levels.length > 0 && noLevelCount > 0 && (
               <p className="order-last w-full text-sm text-faint">
                 {noLevel
                   ? `Including ${noLevelCount.toLocaleString("en-US")} ${noLevelCount === 1 ? "role that doesn't" : "roles that don't"} list a level`
@@ -704,7 +756,7 @@ export function JobBoard({
             Dates come from the official feed when published; otherwise they show when
             SimplifyTrabaho first found the role.
           </p>
-          {shown.length === 0 ? (
+          {pending ? null : shown.length === 0 ? (
             <div className="py-16 text-center">
               <p className="font-display text-lg font-bold">
                 Walang nahanap — no roles match.
@@ -812,6 +864,12 @@ export function JobBoard({
                 );
               })}
             </ul>
+          )}
+
+          {partial && loadFailed && !pending && (
+            <p role="status" className="mt-6 text-center text-sm text-faint">
+              {loadStatus}
+            </p>
           )}
 
           {/* Infinite-scroll sentinel — button doubles as the fallback */}
