@@ -701,3 +701,22 @@ describe("categorize", () => {
     });
   });
 });
+
+describe("mined explicit title markers", () => {
+  it("reads numeric grades after abbreviated Rep without guessing ungraded levels", () => {
+    expect(categorizeLevel("Client Services Rep 1")).toBe("entry");
+    expect(categorizeLevel("Client Service Rep 3, IQVIA Digital")).toBe("mid");
+    expect(categorizeLevel("Client Services Rep")).toBe("unknown");
+    expect(categorizeLevel("Data Engineer")).toBe("unknown");
+  });
+
+  it("maps specific healthcare, goods-flow and cloud-architecture titles", () => {
+    expect(categorizeFunction("Phlebotomy Team Leader")).toBe("healthcare");
+    expect(categorizeFunction("Phlebotomist (Pasay)")).toBe("healthcare");
+    expect(categorizeFunction("Clinic Assistant")).toBe("healthcare");
+    expect(categorizeFunction("Goods Flow Assistant (PT)")).toBe("operations");
+    expect(categorizeFunction("Cloud Architect")).toBe("engineering");
+    expect(categorizeFunction("Project Manager")).toBe("other");
+    expect(categorizeFunction("Business Architect")).toBe("other");
+  });
+});

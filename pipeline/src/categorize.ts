@@ -38,7 +38,7 @@ const MID =
 // Support/SOC tiers ("L1 Support Engineer", "NOC Tier 2", "Level 3") and arabic grade
 // rungs after a role noun ("Accountant 1", "Network Engineer 2"). Tier 1 is entry,
 // tiers 2–3 are mid; "Tier 4"/"Batch 1" never match.
-const ROLE_NOUN = String.raw`(?:analyst|specialist|engineer|accountant|associate|developer|technician|representative)`;
+const ROLE_NOUN = String.raw`(?:analyst|specialist|engineer|accountant|associate|developer|technician|representative|rep)`;
 const TIER_MID = new RegExp(
   String.raw`\b(?:l|tier|level)\s*-?\s*[23]\b|\b${ROLE_NOUN}\s+[23]\b`,
   "i",
@@ -125,7 +125,7 @@ const FUNCTION_RULES: ReadonlyArray<readonly [JobFunction, RegExp]> = [
   ],
   [
     "operations",
-    /\b(?:operations?|supply chain|logistics|forklift|inventory|(?:global|strategic) sourcing|source-to-contract|s2p|shipping|freight|fleet|transport|wfm|real time analyst|rta|stock piler|buyer|buying|continuous improvement|process excellence|operational excellence|business excellence|admin|administrative|administration (?:clerk|officer|assistant)|procurement|(?:virtual|executive|personal|office) assistant|va|workforce|warehouse|purchasing|dispatcher|dispatch|back[- ]office|service delivery|order (?:processing|management|fulfillment)|facilit(?:y|ies)|demand plan(?:ner|ning)|track and trace|driver|verifications?|data entry|encoders?|service excellence|transactional quality)\b/i,
+    /\b(?:operations?|supply chain|logistics|forklift|inventory|goods flow|(?:global|strategic) sourcing|source-to-contract|s2p|shipping|freight|fleet|transport|wfm|real time analyst|rta|stock piler|buyer|buying|continuous improvement|process excellence|operational excellence|business excellence|admin|administrative|administration (?:clerk|officer|assistant)|procurement|(?:virtual|executive|personal|office) assistant|va|workforce|warehouse|purchasing|dispatcher|dispatch|back[- ]office|service delivery|order (?:processing|management|fulfillment)|facilit(?:y|ies)|demand plan(?:ner|ning)|track and trace|driver|verifications?|data entry|encoders?|service excellence|transactional quality)\b/i,
   ],
   [
     "customer-support",
@@ -139,7 +139,7 @@ const FUNCTION_RULES: ReadonlyArray<readonly [JobFunction, RegExp]> = [
   [
     "healthcare",
     // "Healthcare Account" is BPO-speak for the client's industry, not the role.
-    /\b(?:nurse|nursing|doctor|physician|medical|clinical|clinician|pharmac(?:y|ists?)|pharma|radiologic|echo technologist|optometrist|psychologist|health information|rns?|dental|dentist|caregiver|midwife|med ?tech|utilization review|prior authorization|patient|telehealth|therapist|therapy|veterinar(?:y|ians?)|nclex|usrn|phrn|us rn|dietitian|care coordinat(?:or|ion))\b|\bhealthcare\b(?!\s+account)/i,
+    /\b(?:nurse|nursing|doctor|physician|medical|clinical|clinician|clinic assistant|phlebotom(?:y|ist)|pharmac(?:y|ists?)|pharma|radiologic|echo technologist|optometrist|psychologist|health information|rns?|dental|dentist|caregiver|midwife|med ?tech|utilization review|prior authorization|patient|telehealth|therapist|therapy|veterinar(?:y|ians?)|nclex|usrn|phrn|us rn|dietitian|care coordinat(?:or|ion))\b|\bhealthcare\b(?!\s+account)/i,
   ],
   [
     "education",
@@ -169,7 +169,7 @@ const FUNCTION_RULES: ReadonlyArray<readonly [JobFunction, RegExp]> = [
   ["engineering", /\bIT\b(?!\s+BPO)/],
   [
     "engineering",
-    /\b(?:sap|abap|oracle|netsuite|peoplesoft|servicenow|mainframe|cobol|linux|java|python|node\.?js|asp\.net|kafka|mongodb|citrix|azure|aws|amazon web services|office ?365|0365|sql|dba|tosca|boomi|scrum master|programm(?:er|ing)|tester|noc|secops|(?:application|mobile|systems?|software|web) development|information technology|chief technology officer|head of technology|technology (?:lead|architect)|technical (?:lead|leader|writer)|(?:network|cloud|it) infrastructure|infrastructure service|head of infrastructure|(?:security|solutions?|technical|identity|database|enterprise|spring boot|servicenow) architects?|solution architecture)\b|(?<!safety and |physical )\bsecurity\b(?!\s+(?:guard|contract))/i,
+    /\b(?:sap|abap|oracle|netsuite|peoplesoft|servicenow|mainframe|cobol|linux|java|python|node\.?js|asp\.net|kafka|mongodb|citrix|azure|aws|amazon web services|office ?365|0365|sql|dba|tosca|boomi|scrum master|programm(?:er|ing)|tester|noc|secops|(?:application|mobile|systems?|software|web) development|information technology|chief technology officer|head of technology|technology (?:lead|architect)|technical (?:lead|leader|writer)|(?:network|cloud|it) infrastructure|infrastructure service|head of infrastructure|(?:security|solutions?|technical|identity|database|enterprise|cloud|spring boot|servicenow) architects?|solution architecture)\b|(?<!safety and |physical )\bsecurity\b(?!\s+(?:guard|contract))/i,
   ],
 ];
 
