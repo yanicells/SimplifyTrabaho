@@ -108,10 +108,10 @@ built for the PH market.
 ## How this works (and why it's legal)
 
 Every listing is fetched from a careers feed the employer publishes themselves: the
-public ATS endpoints their own careers pages call (Greenhouse, Lever, Ashby, Workable,
-SmartRecruiters, Recruitee, BambooHR, Breezy, Manatal), plus company-hosted Workday
-sites, which are checked against the host's robots.txt first and dropped permanently
-on any block. No job board is ever scraped.
+public ATS feeds their own careers pages call (Greenhouse, Lever, Ashby, Workable,
+SmartRecruiters, Recruitee, BambooHR, Breezy, Manatal, Pinpoint, Rippling, Teamtailor),
+plus company-hosted Workday sites, which are checked against the host's robots.txt
+first and dropped permanently on any block. No job board is ever scraped.
 
 We keep facts only: company, role title, location, work setup, dates, and the link.
 Job description text is never copied, recruiter names and emails are dropped, and

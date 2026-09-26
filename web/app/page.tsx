@@ -114,7 +114,7 @@ export default function Home() {
           <div className="flex items-center gap-3">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="/social/simplifytrabaho-mark-192.png"
+              src="/social/simplifytrabaho-mark-dark-192.png"
               width="192"
               height="192"
               alt=""
@@ -125,10 +125,10 @@ export default function Home() {
           </div>
           <p className="mt-3 max-w-xl text-sm leading-relaxed text-paper/70">
             Every listing comes straight from the company&apos;s official careers feed — public
-            APIs that companies intentionally publish (Greenhouse, Lever, Ashby, Workable,
-            SmartRecruiters, Recruitee, BambooHR, Breezy, Manatal) and company Workday careers
-            sites. We store facts only and always send you to the official application page. No
-            accounts, no cookies, no middlemen.
+            feeds that companies intentionally publish (Greenhouse, Lever, Ashby, Workable,
+            SmartRecruiters, Recruitee, BambooHR, Breezy, Manatal, Pinpoint, Rippling,
+            Teamtailor) and company Workday careers sites. We store facts only and always send
+            you to the official application page. No accounts, no cookies, no middlemen.
           </p>
           <p className="mt-5 flex flex-wrap gap-x-4 gap-y-2 text-sm text-paper/70">
             <a
