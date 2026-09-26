@@ -114,7 +114,7 @@ export default function Home() {
           <div className="flex items-center gap-3">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="/social/simplifytrabaho-mark-192.png"
+              src="/social/simplifytrabaho-mark-dark-192.png"
               width="192"
               height="192"
               alt=""
