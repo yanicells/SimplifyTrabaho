@@ -2,16 +2,9 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { preload } from "react-dom";
 import { JobBoard } from "@/components/job-board";
-import { BrowseLinks, Breadcrumb, Faq } from "@/components/seo-sections";
 import { SiteShell } from "@/components/site-shell";
 import { PAGE_SIZE, filterJobs } from "@/lib/filter-jobs";
-import {
-  fillTemplate,
-  landingFilters,
-  landingStats,
-  publishedLandings,
-  type Landing,
-} from "@/lib/landings";
+import { fillTemplate, landingFilters, landingStats, publishedLandings } from "@/lib/landings";
 import { loadJobs } from "@/lib/listings";
 import { OG_IMAGE } from "@/lib/site";
 import { buildLandingGraph } from "@/lib/structured-data";
@@ -64,23 +57,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-function filledFaq(landing: Landing, fill: (text: string) => string) {
-  return landing.faq.map((item) => ({ q: fill(item.q), a: fill(item.a) }));
-}
-
 export default async function LandingPage({ params }: Props) {
-  const { updatedAt, jobs, landings, landing, stats, fill } = resolve((await params).slug);
+  const { updatedAt, jobs, landing, stats, fill } = resolve((await params).slug);
   preload("/jobs.json", { as: "fetch", crossOrigin: "anonymous" });
 
   const filters = landingFilters(landing);
-  const faq = filledFaq(landing, fill);
   const graph = buildLandingGraph({
     slug: landing.slug,
     label: landing.label,
     title: fill(landing.title),
     description: fill(landing.description),
     updatedAt,
-    faq,
   });
 
   return (
@@ -89,17 +76,7 @@ export default async function LandingPage({ params }: Props) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(graph) }}
       />
-      <SiteShell
-        title={landing.h1}
-        intro={fill(landing.intro)}
-        breadcrumb={<Breadcrumb label={landing.label} />}
-        after={
-          <>
-            <BrowseLinks landings={landings} current={landing.slug} />
-            <Faq items={faq} />
-          </>
-        }
-      >
+      <SiteShell title={landing.h1} intro={fill(landing.intro)}>
         <JobBoard
           initialJobs={stats.jobs.slice(0, PAGE_SIZE)}
           defaultCounts={{

@@ -1,28 +1,19 @@
 import Link from "next/link";
-import {
-  REPORT_BUG_URL,
-  REPORT_LISTING_URL,
-  REPO_URL,
-  SUGGEST_COMPANY_URL,
-} from "@/lib/site";
+import { REPORT_BUG_URL, REPORT_LISTING_URL, REPO_URL, SUGGEST_COMPANY_URL } from "@/lib/site";
 
 /**
  * Page frame shared by the home page and every landing page: skip link, brand
  * header with the page's H1 and intro, the board (`children`, inside <main>),
- * any SEO sections (`after`), and the black footer band.
+ * and the black footer band.
  */
 export function SiteShell({
   title,
   intro,
-  breadcrumb,
   children,
-  after,
 }: {
   title: string;
   intro: string;
-  breadcrumb?: React.ReactNode;
   children: React.ReactNode;
-  after?: React.ReactNode;
 }) {
   return (
     <>
@@ -67,11 +58,7 @@ export function SiteShell({
             </a>
           </div>
 
-          {breadcrumb}
-
-          <h1
-            className={`${breadcrumb ? "mt-3" : "mt-8"} max-w-2xl text-balance font-display text-4xl font-bold leading-[1.1] sm:text-5xl`}
-          >
+          <h1 className="mt-8 max-w-2xl text-balance font-display text-4xl font-bold leading-[1.1] sm:text-5xl">
             {title}
           </h1>
 
@@ -80,12 +67,9 @@ export function SiteShell({
           </p>
         </header>
 
-
         <main id="main-content" tabIndex={-1} className="scroll-mt-4 focus:outline-none">
           {children}
         </main>
-
-        {after}
       </div>
 
       {/* Footer — the page's single polarity flip (DESIGN.md black band) */}

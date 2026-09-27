@@ -22,7 +22,7 @@ describe("LANDINGS", () => {
   it("leaves no unfilled placeholders", () => {
     const stats = { count: 1234, companies: 56 };
     for (const l of LANDINGS) {
-      const texts = [l.title, l.description, l.intro, ...l.faq.flatMap((f) => [f.q, f.a])];
+      const texts = [l.title, l.description, l.intro];
       for (const text of texts) {
         expect(fillTemplate(text, stats, "2026-09-27T00:00:00Z")).not.toMatch(/[{}]/);
       }
@@ -33,7 +33,11 @@ describe("LANDINGS", () => {
 describe("fillTemplate", () => {
   it("formats counts and takes the year from the refresh date", () => {
     expect(
-      fillTemplate("{count} at {companies} ({year})", { count: 1234, companies: 5 }, "2027-01-02T00:00:00Z"),
+      fillTemplate(
+        "{count} at {companies} ({year})",
+        { count: 1234, companies: 5 },
+        "2027-01-02T00:00:00Z",
+      ),
     ).toBe("1,234 at 5 (2027)");
   });
 });
