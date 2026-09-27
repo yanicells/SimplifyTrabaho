@@ -7,13 +7,14 @@ export const REPORT_LISTING_URL = `${REPO_URL}/issues/new?template=report-listin
 export const SUGGEST_COMPANY_URL = `${REPO_URL}/issues/new?template=add-company.yml`;
 export const REPORT_BUG_URL = `${REPO_URL}/issues/new?template=bug-report.yml`;
 
-// Concise and descriptive: brand first (SPEC naming convention), then the two
-// intents people actually search for. Search results truncate to device width,
-// so there is no guaranteed character cutoff.
-export const SITE_TITLE = "SimplifyTrabaho — jobs & internships at Philippine companies";
+// Brand first (SPEC naming convention), then the phrases people actually type:
+// "jobs philippines", "internships", "OJT". Search results truncate to device
+// width, so the keywords sit early.
+export const SITE_TITLE = "SimplifyTrabaho — Jobs, Internships & OJT in the Philippines";
 
-// A short, readable summary with the site's freshness and official-link
-// differentiators. Shared by the meta description, the OG/Twitter cards, and
-// the JSON-LD, so they can't disagree.
+// What Google shows under the title, so it carries the search intents people
+// type (OJT, fresh grad, work from home, Manila/Cebu, IT) in plain sentences.
+// Shared by the meta description, the OG/Twitter cards, and the JSON-LD, so
+// they can't disagree.
 export const SITE_DESCRIPTION =
-  "Free, open job directory checked daily: roles at Philippine companies, including internships and entry-level work. Every listing links to the official application page.";
+  "Find jobs, internships, OJT, and fresh graduate roles at companies hiring in the Philippines — work from home, Metro Manila, Makati, BGC, Cebu, and more. IT, accounting, customer service, and every other field. Free, checked daily, with official apply links.";

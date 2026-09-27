@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
+import { ALL_KEYWORDS } from "@/lib/seo-keywords";
 import { REPO_URL, SITE_DESCRIPTION, SITE_TITLE, SITE_URL } from "@/lib/site";
 import "./globals.css";
 
@@ -24,20 +25,7 @@ export const metadata: Metadata = {
   authors: [{ name: "SimplifyTrabaho contributors", url: REPO_URL }],
   creator: "SimplifyTrabaho",
   publisher: "SimplifyTrabaho",
-  keywords: [
-    "jobs Philippines",
-    "internships Philippines",
-    "entry level jobs Philippines",
-    "fresh graduate jobs Philippines",
-    "OJT",
-    "trabaho",
-    "careers Philippines",
-    "hiring Philippines",
-    "remote jobs Philippines",
-    "work from home Philippines",
-    "Metro Manila jobs",
-    "job openings Philippines",
-  ],
+  keywords: ALL_KEYWORDS,
   // Salary strings ("₱25,000 - ₱35,000") otherwise get auto-linked as phone
   // numbers by iOS Safari, which mangles the copy crawlers and users see.
   formatDetection: { telephone: false, address: false, email: false },

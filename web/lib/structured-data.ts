@@ -20,6 +20,12 @@
 // by adding JobPosting.
 // ---------------------------------------------------------------------------
 
+import {
+  ENTRY_LEVEL_KEYWORDS,
+  GENERAL_KEYWORDS,
+  INTERNSHIP_KEYWORDS,
+  WORK_SETUP_KEYWORDS,
+} from "./seo-keywords";
 import { REPO_URL, SITE_URL } from "./site";
 
 const DATA_URL =
@@ -97,7 +103,7 @@ export function buildGraph({
         "@id": WEBSITE_ID,
         url: SITE_URL,
         name: "SimplifyTrabaho",
-        alternateName: "Simplify Trabaho",
+        alternateName: ["Simplify Trabaho", "SimplifyTrabaho PH", "Simplify Jobs Philippines"],
         description,
         inLanguage: "en-PH",
         publisher: { "@id": ORGANIZATION_ID },
@@ -149,14 +155,14 @@ export function buildGraph({
         publisher: { "@id": ORGANIZATION_ID },
         dateModified: updatedAt,
         inLanguage: "en-PH",
+        // The first few phrases of each intent — the full list is for the meta tag.
         keywords: [
-          "jobs",
-          "Philippines",
-          "internships",
-          "entry level",
-          "hiring",
           "labor market",
           "job postings",
+          ...GENERAL_KEYWORDS.slice(0, 5),
+          ...INTERNSHIP_KEYWORDS.slice(0, 5),
+          ...ENTRY_LEVEL_KEYWORDS.slice(0, 5),
+          ...WORK_SETUP_KEYWORDS.slice(0, 5),
         ],
         measurementTechnique:
           "Daily collection from public, unauthenticated ATS APIs published by each company",

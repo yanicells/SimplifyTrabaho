@@ -493,6 +493,10 @@ verify-registry`. Also recheck the live-but-0-PH boards listed below — several
 - [x] 2026-08-08 — Brand/share assets: Messenger-compatible 1200×630 preview and
       square social image now live under `web/public/social/`; metadata points at
       the wide card and the same briefcase mark powers the generated icon routes.
+- [x] 2026-09-27 — Keyword pass (metadata only, no UI change): search-intent
+      `<title>` and description, ~150 PH search phrases (OJT, fresh grad, WFH,
+      cities, fields, Taglish) centralized in `web/lib/seo-keywords.ts` and fed
+      to the keywords meta tag + Dataset JSON-LD
 - [ ] Newsletter bridge evaluation (e.g., Buttondown over RSS) — recommend, don't build
 - [ ] Launch/distribution posts (r/phcareers, FB groups, university orgs) — **maintainer**
 
