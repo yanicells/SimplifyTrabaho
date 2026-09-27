@@ -493,6 +493,12 @@ verify-registry`. Also recheck the live-but-0-PH boards listed below — several
 - [x] 2026-08-08 — Brand/share assets: Messenger-compatible 1200×630 preview and
       square social image now live under `web/public/social/`; metadata points at
       the wide card and the same briefcase mark powers the generated icon routes.
+- [x] 2026-09-27 — Keyword landing pages: 23 static pages (`/internships`,
+      `/entry-level-jobs`, `/remote-jobs`, `/jobs-in-cebu`, `/it-jobs`, …) — the
+      board opened on a fixed filter with its own title, H1, live-count intro,
+      FAQ (+ FAQPage/BreadcrumbList JSON-LD), and a crawlable "Browse jobs" link
+      hub on every page. Home gets a keyword H1, counts in the intro, and a FAQ.
+      All in the sitemap. Defined in `web/lib/landings.ts`.
 - [ ] Newsletter bridge evaluation (e.g., Buttondown over RSS) — recommend, don't build
 - [ ] Launch/distribution posts (r/phcareers, FB groups, university orgs) — **maintainer**
 
@@ -874,6 +880,13 @@ not a real employer. Kalibrr — job-board company, fetching prohibited by rule 
 
 ## 📔 Decision log
 
+- 2026-09-27 — **Keyword landing pages:** one URL per search intent
+  ("internships philippines", "jobs in cebu", "work from home jobs") instead of
+  relying on `?query` views, which canonicalize to `/` and can't rank. Pages with
+  fewer than 20 live openings aren't generated (thin content), so a city or
+  field drops out and comes back on its own. A landing's preset view keeps a
+  clean URL and isn't written to saved filters, so it never follows a visitor
+  home. Still no JobPosting markup (see `structured-data.ts`).
 - 2026-09-26 — **Lazy-load split (#31):** keep the first page inline and fetch
   static `/jobs.json` after hydration for the full list. Verified filter counts
   match the old build at 14,250 active listings.

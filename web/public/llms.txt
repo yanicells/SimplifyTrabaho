@@ -23,3 +23,15 @@ URL. Job-description text is never stored.
 ## Site
 
 - [Job board](https://simplifytrabaho.ycells.com/): filter by level, function, work setup, metro, industry, employer type; shareable URLs use query params (q, level, fn, setup, metro, industry, type, loc)
+
+## Landing pages
+
+Each is the job board opened on one filter, with live counts:
+
+- [Internships & OJT](https://simplifytrabaho.ycells.com/internships)
+- [Entry-level & fresh graduate jobs](https://simplifytrabaho.ycells.com/entry-level-jobs)
+- [Remote & work from home jobs](https://simplifytrabaho.ycells.com/remote-jobs)
+- [Jobs in Metro Manila](https://simplifytrabaho.ycells.com/jobs-in-metro-manila)
+- [Jobs in Cebu](https://simplifytrabaho.ycells.com/jobs-in-cebu)
+- [IT & software jobs](https://simplifytrabaho.ycells.com/it-jobs)
+- More cities and fields are listed in [the sitemap](https://simplifytrabaho.ycells.com/sitemap.xml)
