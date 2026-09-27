@@ -1,14 +1,15 @@
 import type { MetadataRoute } from "next";
+import { publishedLandings } from "@/lib/landings";
 import { loadJobs } from "@/lib/listings";
 import { SITE_URL } from "@/lib/site";
 
 export const dynamic = "force-static";
 
-// One-page site: the canonical URL is the featured view. Filtered views are
-// query-param variants of the same document (canonical points here), so they
-// don't get sitemap entries.
+// The home page plus every published keyword landing page. Filtered views are
+// query-param variants of those documents (their canonical points back), so
+// they don't get sitemap entries.
 export default function sitemap(): MetadataRoute.Sitemap {
-  const { updatedAt } = loadJobs();
+  const { updatedAt, jobs } = loadJobs();
   return [
     {
       // Bare SITE_URL, no trailing slash — that is the exact string Next emits
@@ -21,5 +22,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "daily",
       priority: 1,
     },
+    ...publishedLandings(jobs).map((l) => ({
+      url: `${SITE_URL}/${l.slug}`,
+      lastModified: updatedAt,
+      changeFrequency: "daily" as const,
+      priority: 0.8,
+    })),
   ];
 }

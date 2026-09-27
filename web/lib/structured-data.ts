@@ -184,3 +184,68 @@ export function buildGraph({
     ],
   };
 }
+
+export interface FaqEntry {
+  q: string;
+  a: string;
+}
+
+/** FAQPage for a page's visible FAQ — the text must match what's rendered. */
+export function faqNode(pageUrl: string, items: FaqEntry[]): object {
+  return {
+    "@type": "FAQPage",
+    "@id": `${pageUrl}#faq`,
+    url: pageUrl,
+    mainEntity: items.map((item) => ({
+      "@type": "Question",
+      name: item.q,
+      acceptedAnswer: { "@type": "Answer", text: item.a },
+    })),
+  };
+}
+
+export interface LandingGraphInput {
+  /** Path without leading slash, e.g. "internships". */
+  slug: string;
+  /** Breadcrumb label. */
+  label: string;
+  title: string;
+  description: string;
+  updatedAt: string;
+  faq: FaqEntry[];
+}
+
+/**
+ * A landing page's graph: its own CollectionPage, a breadcrumb back to the home
+ * page, and its FAQ. It references the home page's WebSite/Organization by @id
+ * rather than repeating them.
+ */
+export function buildLandingGraph(input: LandingGraphInput): object {
+  const url = `${SITE_URL}/${input.slug}`;
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "CollectionPage",
+        "@id": `${url}#webpage`,
+        url,
+        name: input.title,
+        description: input.description,
+        isPartOf: { "@id": WEBSITE_ID },
+        publisher: { "@id": ORGANIZATION_ID },
+        breadcrumb: { "@id": `${url}#breadcrumb` },
+        inLanguage: "en-PH",
+        dateModified: input.updatedAt,
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": `${url}#breadcrumb`,
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "All jobs", item: SITE_URL },
+          { "@type": "ListItem", position: 2, name: input.label, item: url },
+        ],
+      },
+      faqNode(url, input.faq),
+    ],
+  };
+}
