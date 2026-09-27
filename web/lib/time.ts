@@ -13,3 +13,11 @@ export function timeAgo(posted: string, reference: string): string {
   if (days < 365) return `${Math.floor(days / 30)}mo ago`;
   return `${Math.floor(days / 365)}y ago`;
 }
+
+/** "Sep 27, 2026" — UTC-pinned so the build machine's timezone can't shift the stamp. */
+export const DATE_FORMAT = new Intl.DateTimeFormat("en-US", {
+  month: "short",
+  day: "numeric",
+  year: "numeric",
+  timeZone: "UTC",
+});
