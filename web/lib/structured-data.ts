@@ -20,6 +20,12 @@
 // by adding JobPosting.
 // ---------------------------------------------------------------------------
 
+import {
+  ENTRY_LEVEL_KEYWORDS,
+  GENERAL_KEYWORDS,
+  INTERNSHIP_KEYWORDS,
+  WORK_SETUP_KEYWORDS,
+} from "./seo-keywords";
 import { REPO_URL, SITE_URL } from "./site";
 
 const DATA_URL =
@@ -97,7 +103,7 @@ export function buildGraph({
         "@id": WEBSITE_ID,
         url: SITE_URL,
         name: "SimplifyTrabaho",
-        alternateName: "Simplify Trabaho",
+        alternateName: ["Simplify Trabaho", "SimplifyTrabaho PH", "Simplify Jobs Philippines"],
         description,
         inLanguage: "en-PH",
         publisher: { "@id": ORGANIZATION_ID },
@@ -149,14 +155,14 @@ export function buildGraph({
         publisher: { "@id": ORGANIZATION_ID },
         dateModified: updatedAt,
         inLanguage: "en-PH",
+        // The first few phrases of each intent — the full list is for the meta tag.
         keywords: [
-          "jobs",
-          "Philippines",
-          "internships",
-          "entry level",
-          "hiring",
           "labor market",
           "job postings",
+          ...GENERAL_KEYWORDS.slice(0, 5),
+          ...INTERNSHIP_KEYWORDS.slice(0, 5),
+          ...ENTRY_LEVEL_KEYWORDS.slice(0, 5),
+          ...WORK_SETUP_KEYWORDS.slice(0, 5),
         ],
         measurementTechnique:
           "Daily collection from public, unauthenticated ATS APIs published by each company",
@@ -179,50 +185,6 @@ export function buildGraph({
             encodingFormat: "application/rss+xml",
             contentUrl: `${SITE_URL}/feed.xml`,
           },
-        ],
-      },
-    ],
-  };
-}
-
-export interface LandingGraphInput {
-  /** Path without leading slash, e.g. "internships". */
-  slug: string;
-  /** Breadcrumb label. */
-  label: string;
-  title: string;
-  description: string;
-  updatedAt: string;
-}
-
-/**
- * A landing page's graph: its own CollectionPage, a breadcrumb back to the home
- * page. It references the home page's WebSite/Organization by @id
- * rather than repeating them.
- */
-export function buildLandingGraph(input: LandingGraphInput): object {
-  const url = `${SITE_URL}/${input.slug}`;
-  return {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "CollectionPage",
-        "@id": `${url}#webpage`,
-        url,
-        name: input.title,
-        description: input.description,
-        isPartOf: { "@id": WEBSITE_ID },
-        publisher: { "@id": ORGANIZATION_ID },
-        breadcrumb: { "@id": `${url}#breadcrumb` },
-        inLanguage: "en-PH",
-        dateModified: input.updatedAt,
-      },
-      {
-        "@type": "BreadcrumbList",
-        "@id": `${url}#breadcrumb`,
-        itemListElement: [
-          { "@type": "ListItem", position: 1, name: "All jobs", item: SITE_URL },
-          { "@type": "ListItem", position: 2, name: input.label, item: url },
         ],
       },
     ],

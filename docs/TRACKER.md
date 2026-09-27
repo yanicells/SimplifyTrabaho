@@ -493,12 +493,10 @@ verify-registry`. Also recheck the live-but-0-PH boards listed below — several
 - [x] 2026-08-08 — Brand/share assets: Messenger-compatible 1200×630 preview and
       square social image now live under `web/public/social/`; metadata points at
       the wide card and the same briefcase mark powers the generated icon routes.
-- [x] 2026-09-27 — Keyword landing pages: 23 static pages (`/internships`,
-      `/entry-level-jobs`, `/remote-jobs`, `/jobs-in-cebu`, `/it-jobs`, …) — the
-      board opened on a fixed filter with its own title, meta description, H1,
-      live-count intro, and CollectionPage/BreadcrumbList JSON-LD. Discovered via
-      the sitemap. Home gets a search-intent `<title>`/description only; its
-      visible copy is unchanged. Defined in `web/lib/landings.ts`.
+- [x] 2026-09-27 — Keyword pass (metadata only, no UI change): search-intent
+      `<title>` and description, ~150 PH search phrases (OJT, fresh grad, WFH,
+      cities, fields, Taglish) centralized in `web/lib/seo-keywords.ts` and fed
+      to the keywords meta tag + Dataset JSON-LD
 - [ ] Newsletter bridge evaluation (e.g., Buttondown over RSS) — recommend, don't build
 - [ ] Launch/distribution posts (r/phcareers, FB groups, university orgs) — **maintainer**
 
@@ -880,14 +878,6 @@ not a real employer. Kalibrr — job-board company, fetching prohibited by rule 
 
 ## 📔 Decision log
 
-- 2026-09-27 — **Keyword landing pages:** one URL per search intent
-  ("internships philippines", "jobs in cebu", "work from home jobs") instead of
-  relying on `?query` views, which canonicalize to `/` and can't rank. Pages with
-  fewer than 20 live openings aren't generated (thin content), so a city or
-  field drops out and comes back on its own. A landing's preset view keeps a
-  clean URL and isn't written to saved filters, so it never follows a visitor
-  home. No visible FAQ or link hub (maintainer: SEO stays out of the UI), so
-  no FAQPage markup either. Still no JobPosting markup (see `structured-data.ts`).
 - 2026-09-26 — **Lazy-load split (#31):** keep the first page inline and fetch
   static `/jobs.json` after hydration for the full list. Verified filter counts
   match the old build at 14,250 active listings.

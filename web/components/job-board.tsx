@@ -113,23 +113,16 @@ export function JobBoard({
   defaultCounts,
   updatedAt,
   updatedLabel,
-  preset,
 }: {
-  /** The starting view's first page — all the static HTML carries. */
+  /** The default view's first page — all the static HTML carries. */
   initialJobs: Job[];
   /** Default-view counts from the build, shown until the full list arrives. */
   defaultCounts: { roles: number; companies: number; fields: FilterResult["fieldCounts"] };
   updatedAt: string;
   /** Pre-formatted (UTC-pinned) refresh date — the board is the only place it shows. */
   updatedLabel: string;
-  /** A landing page's fixed starting view (e.g. /internships). Replaces the
-      all-roles default: the URL stays clean on it, Reset returns to it, and
-      saved filters from other visits don't override it. */
-  preset?: Filters;
 }) {
-  const baseline = preset ?? defaultFilters();
-  const baselineSearch = filtersToSearch(baseline);
-  const [filters, setFilters] = useState<Filters>(baseline);
+  const [filters, setFilters] = useState<Filters>(defaultFilters);
   const [visible, setVisible] = useState(PAGE_SIZE);
   const [panelOpen, setPanelOpen] = useState(false);
   const [tracker, setTracker] = useState<TrackerState>(emptyTracker);
@@ -163,7 +156,7 @@ export function JobBoard({
   useBrowserLayoutEffect(() => {
     const fromUrl = filtersFromSearch(window.location.search);
     const applied =
-      filtersToSearch(fromUrl) !== "" || preset
+      filtersToSearch(fromUrl) !== ""
         ? fromUrl
         : filtersFromSearch(readStorage(FILTERS_STORAGE_KEY) ?? "");
     if (filtersToSearch(applied) !== "") {
@@ -189,19 +182,13 @@ export function JobBoard({
     if (urlTimer.current !== undefined) clearTimeout(urlTimer.current);
     urlTimer.current = setTimeout(() => {
       const search = filtersToSearch(filters);
-      const clean = search === baselineSearch;
-      const url = window.location.pathname + (clean ? "" : `?${search}`);
+      const url = window.location.pathname + (search === "" ? "" : `?${search}`);
       history.replaceState(null, "", url);
-      // A landing page's own view isn't a preference — don't carry it home.
-      if (clean) {
-        if (!preset) removeStorage(FILTERS_STORAGE_KEY);
-        return;
-      }
       if (search === "") removeStorage(FILTERS_STORAGE_KEY);
       else writeStorage(FILTERS_STORAGE_KEY, search);
     }, URL_SYNC_DEBOUNCE_MS);
     return () => clearTimeout(urlTimer.current);
-  }, [filters, baselineSearch, preset]);
+  }, [filters]);
 
   function patch(partial: Partial<Filters>, trackedFilter?: string) {
     setFilters((prev) => ({ ...prev, ...partial }));
@@ -288,7 +275,7 @@ export function JobBoard({
     [filtered],
   );
 
-  const isDefaultView = filtersToSearch(filters) === baselineSearch;
+  const isDefaultView = filtersToSearch(filters) === "";
   // Before the full list lands, only the default board is answerable (the
   // build's counts + the first page); everything else waits.
   const partial = allJobs === null;
@@ -346,7 +333,7 @@ export function JobBoard({
   }
 
   function reset() {
-    setFilters(baseline);
+    setFilters(defaultFilters());
     setVisible(PAGE_SIZE);
     removeStorage(FILTERS_STORAGE_KEY);
   }

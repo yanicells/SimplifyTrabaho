@@ -1,7 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
-import { OG_IMAGE, REPO_URL, SITE_DESCRIPTION, SITE_TITLE, SITE_URL } from "@/lib/site";
+import { ALL_KEYWORDS } from "@/lib/seo-keywords";
+import { REPO_URL, SITE_DESCRIPTION, SITE_TITLE, SITE_URL } from "@/lib/site";
 import "./globals.css";
 
 const inter = Inter({
@@ -24,20 +25,7 @@ export const metadata: Metadata = {
   authors: [{ name: "SimplifyTrabaho contributors", url: REPO_URL }],
   creator: "SimplifyTrabaho",
   publisher: "SimplifyTrabaho",
-  keywords: [
-    "jobs Philippines",
-    "internships Philippines",
-    "OJT Philippines",
-    "entry level jobs Philippines",
-    "fresh graduate jobs Philippines",
-    "work from home jobs Philippines",
-    "remote jobs Philippines",
-    "jobs in Metro Manila",
-    "jobs in Cebu",
-    "IT jobs Philippines",
-    "hiring now Philippines",
-    "trabaho",
-  ],
+  keywords: ALL_KEYWORDS,
   // Salary strings ("₱25,000 - ₱35,000") otherwise get auto-linked as phone
   // numbers by iOS Safari, which mangles the copy crawlers and users see.
   formatDetection: { telephone: false, address: false, email: false },
@@ -63,13 +51,20 @@ export const metadata: Metadata = {
     siteName: "SimplifyTrabaho",
     locale: "en_PH",
     type: "website",
-    images: [OG_IMAGE],
+    images: [
+      {
+        url: "/social/simplifytrabaho-og.png",
+        width: 1200,
+        height: 630,
+        alt: "SimplifyTrabaho smiling briefcase logo",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: TITLE,
     description: DESCRIPTION,
-    images: [OG_IMAGE.url],
+    images: ["/social/simplifytrabaho-og.png"],
   },
   robots: {
     index: true,
