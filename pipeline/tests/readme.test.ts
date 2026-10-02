@@ -63,7 +63,7 @@ describe("generateReadme", () => {
     expect(md).toMatch(/appreciated but not required/);
   });
 
-  it("renders featured internships and entry-level rows with relative dates", () => {
+  it("renders featured internships and entry-level rows with posted dates", () => {
     const md = generateReadme({
       ...base,
       listings: [
@@ -79,9 +79,9 @@ describe("generateReadme", () => {
     });
     expect(md).toContain("Software Engineering Intern");
     expect(md).toContain("[Apply](https://example.com/jobs/1)");
-    expect(md).toContain("3d ago");
+    expect(md).toContain("Jun 8");
     expect(md).toContain("Junior Accountant");
-    expect(md).toContain("1d ago");
+    expect(md).toContain("Jun 10");
   });
 
   it("features only active internship/entry roles from the last 30 days", () => {
@@ -132,6 +132,14 @@ describe("generateReadme", () => {
     expect(rows[0]).toContain("Intern Role 0");
   });
 
+  it("formats large counts with thousands separators", () => {
+    const many = Array.from({ length: 1234 }, (_, i) =>
+      listing({ id: `n${i}`, level: "senior" }),
+    );
+    const md = generateReadme({ ...base, listings: many });
+    expect(md).toContain("1,234 active listings");
+  });
+
   it("caps any one company at 10 featured rows", () => {
     const bulk = Array.from({ length: 50 }, (_, i) =>
       listing({ id: `b${i}`, company: "Accenture", url: `https://example.com/b/${i}` }),
@@ -147,8 +155,7 @@ describe("generateReadme", () => {
       ...base,
       listings: [listing(), listing({ id: "z9", active: false })],
     });
-    expect(md).toMatch(/1 active listing/);
-    expect(md).toMatch(/2 companies tracked/);
+    expect(md).toMatch(/1 active listing from 2 companies/);
     expect(md).toContain("2026-06-11");
   });
 });
