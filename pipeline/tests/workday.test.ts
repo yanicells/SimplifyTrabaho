@@ -526,6 +526,17 @@ describe("normalizeWorkday", () => {
     ]);
   });
 
+  it("drops blank and zero placeholder segments from the location", () => {
+    const postings = normalizeWorkday(COMPANY, [
+      { ...JOB, locationsText: "QUEZON CITY, , PHILIPPINES" },
+      { ...JOB, locationsText: "TAGUIG CITY, 00" },
+    ]);
+    expect(postings.map((p) => p.locations)).toEqual([
+      ["QUEZON CITY, PHILIPPINES"],
+      ["TAGUIG CITY"],
+    ]);
+  });
+
   it("tolerates missing optional fields", () => {
     const postings = normalizeWorkday(COMPANY, [
       { title: "Analyst", externalPath: "/job/x/Analyst_1" },

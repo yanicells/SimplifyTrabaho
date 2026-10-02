@@ -30,10 +30,13 @@ const ENTRY =
 // Manager" stays entry on purpose: manager must follow directly.
 const ASSOCIATE =
   /\bassoc(?:iate)?\b(?!\.?\s+(?:manager|manger|mgr|(?:\w+\s+)?director|vice president|vp|partner|principal|(?:general\s+)?counsel))/i;
-// A senior/lead rung before the associate noun, up to two words apart ("Senior
-// Accounting Associate", "Senior/Lead Associate"). "Lead Generation" is a task.
+// A senior/lead rung before the associate noun, up to three words apart ("Senior
+// Accounting Associate", "Senior/Lead Associate", "Sr Reference File Maintainer
+// Assoc"). "Lead Generation" is a task.
 const SENIOR_ASSOCIATE =
-  /\b(?:senior|sr\.?|lead(?!\s+gen))(?:[\s/]+[\w&.-]+){0,2}?[\s/]+assoc(?:iate)?\b/i;
+  /\b(?:senior|sr\.?|lead(?!\s+gen))(?:[\s/]+[\w&.-]+){0,3}?[\s/]+assoc(?:iate)?\b/i;
+// A team lead is a leadership rung even when "Jr." prefixes it ("Jr. TAC Team Lead").
+const TEAM_LEAD = /\bteam\s+lead(?:er)?\b/i;
 // "staff" only in the tech-ladder sense ("Staff Engineer"); "Head Office" is a place.
 const SENIOR =
   /\b(?:senior|sr\.?|lead(?!\s+generation)|leader|principal|head(?!\s+office)|manager|mgr|director|vp|vice president|chief|supervisor|superintendent|foreman|in[- ]charge)\b|\bstaff(?=\s+(?:\w+\s+)?(?:engineer|scientist|developer|designer|architect))/i;
@@ -67,6 +70,7 @@ const FRONTLINE_NOUN_ENTRY =
 export function categorizeLevel(rawTitle: string): Level {
   const title = normalizeTitle(rawTitle);
   if (INTERNSHIP.test(title)) return "internship";
+  if (TEAM_LEAD.test(title)) return "senior";
   if (ENTRY.test(title)) return "entry";
   if (ASSOCIATE.test(title) && !SENIOR_ASSOCIATE.test(title)) return "entry";
   if (SENIOR.test(title)) return "senior";
