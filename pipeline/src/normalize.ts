@@ -11,6 +11,18 @@ function toIsoUtc(value: string | number | null | undefined): string | null {
   return Number.isNaN(date.getTime()) ? null : date.toISOString();
 }
 
+/**
+ * Drops blank and all-zero placeholder segments from a comma-joined location
+ * ("QUEZON CITY, , PHILIPPINES", "TAGUIG CITY, 00", "…, 5th Avenue,").
+ */
+function cleanLocation(text: string): string {
+  return text
+    .split(",")
+    .map((s) => s.trim())
+    .filter((s) => s !== "" && !/^0+$/.test(s))
+    .join(", ");
+}
+
 /** Keyword fallback for ATSs without a structured remote/hybrid field. */
 function workSetupFromText(text: string): WorkSetup {
   if (/\bremote\b/i.test(text)) return "remote";
@@ -356,12 +368,7 @@ export function normalizeSmartRecruiters(
   }
   return content.map((posting: SmartRecruitersPosting) => {
     const location = posting.location ?? {};
-    // fullLocation can contain empty segments ("Manila, , Philippines") — clean them
-    const full = String(location.fullLocation ?? "")
-      .split(",")
-      .map((s) => s.trim())
-      .filter(Boolean)
-      .join(", ");
+    const full = cleanLocation(String(location.fullLocation ?? ""));
     const fallback = [
       String(location.city ?? "").trim(),
       String(location.country ?? "")
@@ -542,7 +549,7 @@ export function normalizeWorkday(
   return jobs.map((raw) => {
     const job = raw as WorkdayJob;
     const title = String(job.title ?? "");
-    const locationsText = String(job.locationsText ?? "").trim();
+    const locationsText = cleanLocation(String(job.locationsText ?? ""));
     // Under the PH facet, text that isn't a PH place ("" or "3 Locations") still
     // means a PH role: the facet itself is the location fact.
     const locations = options.assumePhilippines

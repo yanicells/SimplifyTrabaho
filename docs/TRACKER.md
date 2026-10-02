@@ -6,6 +6,19 @@
 
 ## ✅ Done
 
+- [x] 2026-10-02 — **README cleanup + data fixes:**
+  - [x] README: stats line moved to the top (with thousands separators), "Posted"
+        shows the date ("Sep 27") instead of "today" on every row, Work Setup
+        column dropped (mostly "—" for Workday rows), legal-claim heading renamed
+        "Where the listings come from", intro and sourcing copy tightened.
+  - [x] Workday locations drop blank and all-zero segments ("QUEZON CITY, ,
+        PHILIPPINES", "TAGUIG CITY, 00"); shares the cleanup with SmartRecruiters.
+        Existing rows fix themselves on the next refresh.
+  - [x] Level: "Team Lead" beats a "Jr." prefix (senior); the senior-associate
+        rung allows three words between ("Sr Reference File Maintainer Assoc").
+        `recategorize` also backfilled ~615 inactive rows drifted from earlier
+        rule changes.
+
 - [x] 2026-09-27 — **Launch audit, second opinion** (stacked on #37):
   - [x] PH filter no longer keeps other countries' namesakes: "Gurugram, Delhi
         NCR, India", "Ottawa, National Capital Region, Canada", "Manila, Arkansas",

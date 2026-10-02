@@ -45,8 +45,14 @@ describe("categorizeLevel", () => {
     expect(categorizeLevel("AU Senior Adviser Associate (018-1345)")).toBe("senior");
     expect(categorizeLevel("Workforce Management Senior/Lead Associate")).toBe("senior");
     expect(categorizeLevel("Lead Associate - Operations (Quezon City)")).toBe("senior");
+    expect(categorizeLevel("Sr Reference File Maintainer Assoc")).toBe("senior");
     // Lead generation is a task, not a rung.
     expect(categorizeLevel("Lead Generation Associate")).toBe("entry");
+  });
+
+  it("treats a team lead as senior even with a junior prefix", () => {
+    expect(categorizeLevel("Jr. TAC Team Lead, Frontline")).toBe("senior");
+    expect(categorizeLevel("Junior Team Leader - Collections")).toBe("senior");
   });
 
   it("detects senior level", () => {
