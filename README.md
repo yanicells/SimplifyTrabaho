@@ -11,7 +11,7 @@ A free, auto-updated list of jobs at Philippine companies, covering all roles an
 Internships and entry-level roles are featured below. It's the PH counterpart of
 [SimplifyJobs/Summer2026-Internships](https://github.com/SimplifyJobs/Summer2026-Internships).
 
-**15,292 active listings from 327 companies** · updated 2026-10-03 00:48 UTC · [Browse and filter everything at simplifytrabaho.ycells.com](https://simplifytrabaho.ycells.com) · [How the listings get here](docs/PIPELINE.md)
+**15,284 active listings from 327 companies** · updated 2026-10-04 00:13 UTC · [Browse and filter everything at simplifytrabaho.ycells.com](https://simplifytrabaho.ycells.com) · [How the listings get here](docs/PIPELINE.md)
 
 ## Where the listings come from
 
@@ -27,6 +27,7 @@ company's own application page. The data refreshes once a day.
 
 | Company | Role | Location | Apply | Posted |
 | --- | --- | --- | --- | --- |
+| **Jollibee Foods Corporation** | Management Trainee - Naga Magsaysay, Camarines Sur | Naga, Bicol, Philippines | [Apply](https://www.careers-page.com/jollibee-foods-corporation/job/5W85WV53) | Oct 4 |
 | **Abbott** | Sales Administrator I | Philippines - Taguig City | [Apply](https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/Philippines---Taguig-City/Sales-Administrator-I_31163747) | Oct 3 |
 | **JLL** | Product Specialist Associate | Makati, Philippines | [Apply](https://jll.wd1.myworkdayjobs.com/en-US/jllcareers/job/Makati-Philippines/Product-Specialist-Associate_REQ503822) | Oct 3 |
 | **RELX** | Data Research Specialist I | PHL-RE Shared Services-Manila | [Apply](https://relx.wd3.myworkdayjobs.com/en-US/relx/job/PHL-RE-Shared-Services-Manila/Data-Research-Specialist-I_R119402) | Oct 3 |
@@ -226,7 +227,6 @@ company's own application page. The data refreshes once a day.
 | **IQVIA** | Client Services Rep 1 | Taguig City, Philippines | [Apply](https://iqvia.wd1.myworkdayjobs.com/en-US/IQVIA/job/Taguig-City-Philippines/Client-Services-Rep-1_R1492019) | Sep 27 |
 | **ISS** | General Ledger Accountant - Associate | Makati City, Philippines | [Apply](https://issgovernance.wd1.myworkdayjobs.com/en-US/ISScareers/job/Makati-City-Philippines/General-Ledger-Accountant---Associate_JR_10180-1) | Sep 27 |
 | **Jollibee Foods Corporation** | Management Trainee - Muntinlupa | Muntinlupa, NCR, Philippines | [Apply](https://www.careers-page.com/jollibee-foods-corporation/job/L8X76Y43) | Sep 27 |
-| **Manulife** | Bank Customer Service Representative - Quezon City | Quezon City | [Apply](https://manulife.wd3.myworkdayjobs.com/en-US/MFCJH_Jobs/job/Quezon-City/Bank-Customer-Service-Representative---Quezon-City_JR26091372) | Sep 27 |
 
 ---
 

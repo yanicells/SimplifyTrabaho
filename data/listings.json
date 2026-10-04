@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "updatedAt": "2026-10-03T00:48:20.643Z",
+  "updatedAt": "2026-10-04T00:13:01.221Z",
   "listings": [
     {
       "id": "16e8a85575e0",
@@ -5289,8 +5289,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-09-29T01:20:27.171Z",
-      "dateUpdated": "2026-09-29T01:20:27.171Z",
-      "active": true
+      "dateUpdated": "2026-10-04T00:13:01.221Z",
+      "active": false
     },
     {
       "id": "5be4972e71a6",
@@ -5496,8 +5496,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-09-29T01:20:27.171Z",
-      "dateUpdated": "2026-09-29T01:20:27.171Z",
-      "active": true
+      "dateUpdated": "2026-10-04T00:13:01.221Z",
+      "active": false
     },
     {
       "id": "88dd24012cfb",
@@ -6301,8 +6301,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-09-26T00:14:09.579Z",
-      "dateUpdated": "2026-09-26T00:14:09.579Z",
-      "active": true
+      "dateUpdated": "2026-10-04T00:13:01.221Z",
+      "active": false
     },
     {
       "id": "100616dfd0a0",
@@ -7612,8 +7612,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-09-26T00:14:09.579Z",
-      "dateUpdated": "2026-09-26T00:14:09.579Z",
-      "active": true
+      "dateUpdated": "2026-10-04T00:13:01.221Z",
+      "active": false
     },
     {
       "id": "aebf2d2fe826",
@@ -8463,8 +8463,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-09-26T00:14:09.579Z",
-      "dateUpdated": "2026-09-26T00:14:09.579Z",
-      "active": true
+      "dateUpdated": "2026-10-04T00:13:01.221Z",
+      "active": false
     },
     {
       "id": "fa1d9bed20d3",
@@ -8923,8 +8923,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-09-25T00:07:11.254Z",
-      "dateUpdated": "2026-09-25T00:07:11.254Z",
-      "active": true
+      "dateUpdated": "2026-10-04T00:13:01.221Z",
+      "active": false
     },
     {
       "id": "4b9b59d923ce",
@@ -9176,8 +9176,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-09-25T00:07:11.254Z",
-      "dateUpdated": "2026-09-25T00:07:11.254Z",
-      "active": true
+      "dateUpdated": "2026-10-04T00:13:01.221Z",
+      "active": false
     },
     {
       "id": "6ee6e4c5addc",
@@ -61676,8 +61676,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-09-27T00:00:17.413Z",
-      "dateUpdated": "2026-09-27T00:00:17.413Z",
-      "active": true
+      "dateUpdated": "2026-10-04T00:13:01.221Z",
+      "active": false
     },
     {
       "id": "4e0e8382ab5f",
@@ -61705,7 +61705,7 @@
     {
       "id": "4fb95528511d",
       "company": "Allegro MicroSystems",
-      "title": "Senior Hardware, Hardware Engineering",
+      "title": "Senior Engineer, Hardware Engineering",
       "locations": [
         "Alabang, Muntinlupa City, Philippines"
       ],
@@ -61722,7 +61722,7 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-09-27T00:00:17.413Z",
-      "dateUpdated": "2026-09-27T00:00:17.413Z",
+      "dateUpdated": "2026-10-04T00:13:01.221Z",
       "active": true
     },
     {
@@ -62619,8 +62619,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-09-27T00:00:17.413Z",
-      "dateUpdated": "2026-09-27T00:00:17.413Z",
-      "active": true
+      "dateUpdated": "2026-10-04T00:13:01.221Z",
+      "active": false
     },
     {
       "id": "edf61f6ffe1b",
@@ -107895,8 +107895,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-09-30T00:51:00.884Z",
-      "dateUpdated": "2026-09-30T00:51:00.884Z",
-      "active": true
+      "dateUpdated": "2026-10-04T00:13:01.221Z",
+      "active": false
     },
     {
       "id": "f8779fb5123c",
@@ -172224,8 +172224,8 @@
       "employmentType": "part-time",
       "salary": null,
       "datePosted": "2026-09-25T07:34:20.537Z",
-      "dateUpdated": "2026-09-27T00:00:17.413Z",
-      "active": true
+      "dateUpdated": "2026-10-04T00:13:01.221Z",
+      "active": false
     },
     {
       "id": "595964315cab",
@@ -191569,8 +191569,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-09-27T00:00:17.413Z",
-      "dateUpdated": "2026-09-27T00:00:17.413Z",
-      "active": true
+      "dateUpdated": "2026-10-04T00:13:01.221Z",
+      "active": false
     },
     {
       "id": "dba61fce90f0",
@@ -211718,6 +211718,29 @@
       "active": true
     },
     {
+      "id": "b030fcad2c78",
+      "company": "IKEA Philippines",
+      "title": "IKEA Food, Assistant Kitchen Production Manager, IKEA Pasay City",
+      "locations": [
+        "Pasay City, NCR, Philippines"
+      ],
+      "workSetup": "onsite",
+      "level": "senior",
+      "function": "hospitality",
+      "industry": "retail",
+      "companyType": "direct",
+      "metro": [
+        "ncr"
+      ],
+      "url": "https://jobs.smartrecruiters.com/IkanoRetail/744000153324469",
+      "source": "smartrecruiters",
+      "employmentType": "full-time",
+      "salary": null,
+      "datePosted": "2026-10-03T08:02:04.456Z",
+      "dateUpdated": "2026-10-04T00:13:01.221Z",
+      "active": true
+    },
+    {
       "id": "338b115ff5f2",
       "company": "IKEA Philippines",
       "title": "Goods Flow Assistant (PT)",
@@ -219669,6 +219692,29 @@
       "datePosted": "2026-04-16T06:14:13.595Z",
       "dateUpdated": "2026-06-17T23:16:09.762Z",
       "active": false
+    },
+    {
+      "id": "dd7d85b4a9c4",
+      "company": "IQVIA",
+      "title": "Manager, Research Consulting",
+      "locations": [
+        "Makati City, Philippines"
+      ],
+      "workSetup": "unknown",
+      "level": "senior",
+      "function": "other",
+      "industry": "healthtech",
+      "companyType": "direct",
+      "metro": [
+        "ncr"
+      ],
+      "url": "https://iqvia.wd1.myworkdayjobs.com/en-US/IQVIA/job/Makati-City-Philippines/Manager--Research-Consulting_R1565642",
+      "source": "workday",
+      "employmentType": "unknown",
+      "salary": null,
+      "datePosted": "2026-10-04T00:13:01.221Z",
+      "dateUpdated": "2026-10-04T00:13:01.221Z",
+      "active": true
     },
     {
       "id": "62f2f9a70cb1",
@@ -232202,8 +232248,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-09-29T01:20:27.171Z",
-      "dateUpdated": "2026-09-29T01:20:27.171Z",
-      "active": true
+      "dateUpdated": "2026-10-04T00:13:01.221Z",
+      "active": false
     },
     {
       "id": "a6649a4f2dac",
@@ -238504,6 +238550,29 @@
       "active": false
     },
     {
+      "id": "fb0d63e7c787",
+      "company": "Jollibee Foods Corporation",
+      "title": "Management Trainee - Naga Magsaysay, Camarines Sur",
+      "locations": [
+        "Naga, Bicol, Philippines"
+      ],
+      "workSetup": "unknown",
+      "level": "entry",
+      "function": "other",
+      "industry": "food",
+      "companyType": "direct",
+      "metro": [
+        "other-ph"
+      ],
+      "url": "https://www.careers-page.com/jollibee-foods-corporation/job/5W85WV53",
+      "source": "manatal",
+      "employmentType": "unknown",
+      "salary": null,
+      "datePosted": "2026-10-04T00:13:01.221Z",
+      "dateUpdated": "2026-10-04T00:13:01.221Z",
+      "active": true
+    },
+    {
       "id": "766904bb4f70",
       "company": "Jollibee Foods Corporation",
       "title": "Management Trainee - Abad Santos, Manila",
@@ -240064,8 +240133,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-09-27T00:00:17.413Z",
-      "dateUpdated": "2026-09-27T00:00:17.413Z",
-      "active": true
+      "dateUpdated": "2026-10-04T00:13:01.221Z",
+      "active": false
     },
     {
       "id": "43eb1716c675",
@@ -249635,7 +249704,7 @@
       "company": "Lyra Health",
       "title": "Financial Consultant - Philippines",
       "locations": [
-        "Philippines"
+        "Metro Manila"
       ],
       "workSetup": "hybrid",
       "level": "unknown",
@@ -249643,14 +249712,14 @@
       "industry": "healthtech",
       "companyType": "direct",
       "metro": [
-        "other-ph"
+        "ncr"
       ],
       "url": "https://jobs.lever.co/lyrahealth/59520eed-e473-4c70-aedb-88007e7ffd58",
       "source": "lever",
       "employmentType": "contract",
       "salary": null,
       "datePosted": "2026-09-29T00:11:53.578Z",
-      "dateUpdated": "2026-09-29T01:20:27.171Z",
+      "dateUpdated": "2026-10-04T00:13:01.221Z",
       "active": true
     },
     {
@@ -250388,8 +250457,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-09-27T00:00:17.413Z",
-      "dateUpdated": "2026-09-27T00:00:17.413Z",
-      "active": true
+      "dateUpdated": "2026-10-04T00:13:01.221Z",
+      "active": false
     },
     {
       "id": "6ab15c8c3f35",
@@ -331676,6 +331745,121 @@
       "active": true
     },
     {
+      "id": "5be4c46cb169",
+      "company": "Octal Philippines",
+      "title": "Client Success Manager",
+      "locations": [
+        "Makati City, Philippines"
+      ],
+      "workSetup": "unknown",
+      "level": "senior",
+      "function": "customer-support",
+      "industry": "it-services",
+      "companyType": "agency",
+      "metro": [
+        "ncr"
+      ],
+      "url": "https://apply.workable.com/j/0657244A92",
+      "source": "workable",
+      "employmentType": "full-time",
+      "salary": null,
+      "datePosted": "2026-10-03T00:00:00.000Z",
+      "dateUpdated": "2026-10-04T00:13:01.221Z",
+      "active": true
+    },
+    {
+      "id": "85dbe54503ee",
+      "company": "Octal Philippines",
+      "title": "Application Support ( 2 TO 3 YEARS )",
+      "locations": [
+        "Makati City, Philippines"
+      ],
+      "workSetup": "unknown",
+      "level": "unknown",
+      "function": "customer-support",
+      "industry": "it-services",
+      "companyType": "agency",
+      "metro": [
+        "ncr"
+      ],
+      "url": "https://apply.workable.com/j/5D9FC0E8F1",
+      "source": "workable",
+      "employmentType": "full-time",
+      "salary": null,
+      "datePosted": "2026-10-03T00:00:00.000Z",
+      "dateUpdated": "2026-10-04T00:13:01.221Z",
+      "active": true
+    },
+    {
+      "id": "bcff71a8cb20",
+      "company": "Octal Philippines",
+      "title": "Jr. Digital Marketing Specialist",
+      "locations": [
+        "Makati City, Philippines"
+      ],
+      "workSetup": "unknown",
+      "level": "entry",
+      "function": "marketing",
+      "industry": "it-services",
+      "companyType": "agency",
+      "metro": [
+        "ncr"
+      ],
+      "url": "https://apply.workable.com/j/318A43F08B",
+      "source": "workable",
+      "employmentType": "full-time",
+      "salary": null,
+      "datePosted": "2026-10-03T00:00:00.000Z",
+      "dateUpdated": "2026-10-04T00:13:01.221Z",
+      "active": true
+    },
+    {
+      "id": "c44451f158b7",
+      "company": "Octal Philippines",
+      "title": "Network Engineer (SR. LEVEL)",
+      "locations": [
+        "Makati City, Philippines"
+      ],
+      "workSetup": "unknown",
+      "level": "senior",
+      "function": "engineering",
+      "industry": "it-services",
+      "companyType": "agency",
+      "metro": [
+        "ncr"
+      ],
+      "url": "https://apply.workable.com/j/A834720998",
+      "source": "workable",
+      "employmentType": "full-time",
+      "salary": null,
+      "datePosted": "2026-10-03T00:00:00.000Z",
+      "dateUpdated": "2026-10-04T00:13:01.221Z",
+      "active": true
+    },
+    {
+      "id": "f7390e95f168",
+      "company": "Octal Philippines",
+      "title": "Software Design Engineer ( C++ Developer )",
+      "locations": [
+        "Taguig City, Philippines"
+      ],
+      "workSetup": "unknown",
+      "level": "unknown",
+      "function": "engineering",
+      "industry": "it-services",
+      "companyType": "agency",
+      "metro": [
+        "ncr"
+      ],
+      "url": "https://apply.workable.com/j/D85EA4AB3E",
+      "source": "workable",
+      "employmentType": "full-time",
+      "salary": null,
+      "datePosted": "2026-10-03T00:00:00.000Z",
+      "dateUpdated": "2026-10-04T00:13:01.221Z",
+      "active": true
+    },
+    {
       "id": "04b8f632840d",
       "company": "Octal Philippines",
       "title": "System Integration Engineer",
@@ -331787,8 +331971,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-10-01T00:00:00.000Z",
-      "dateUpdated": "2026-10-02T01:11:03.632Z",
-      "active": true
+      "dateUpdated": "2026-10-04T00:13:01.221Z",
+      "active": false
     },
     {
       "id": "ee1ebcfcaff1",
@@ -331833,8 +332017,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-09-29T00:00:00.000Z",
-      "dateUpdated": "2026-09-30T00:51:00.884Z",
-      "active": true
+      "dateUpdated": "2026-10-04T00:13:01.221Z",
+      "active": false
     },
     {
       "id": "98d2608a9f7e",
@@ -332109,8 +332293,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-09-22T00:00:00.000Z",
-      "dateUpdated": "2026-09-27T00:00:17.413Z",
-      "active": true
+      "dateUpdated": "2026-10-04T00:13:01.221Z",
+      "active": false
     },
     {
       "id": "dfa5dd614712",
@@ -387772,6 +387956,29 @@
       "active": true
     },
     {
+      "id": "e1e382a03b14",
+      "company": "SGS",
+      "title": "RBS Admin Assistant (with Invoice, SAP and Logistic experience)",
+      "locations": [
+        "Muntinlupa, NCR, Philippines"
+      ],
+      "workSetup": "onsite",
+      "level": "unknown",
+      "function": "operations",
+      "industry": "testing-certification",
+      "companyType": "direct",
+      "metro": [
+        "ncr"
+      ],
+      "url": "https://jobs.smartrecruiters.com/SGS/744000153321529",
+      "source": "smartrecruiters",
+      "employmentType": "full-time",
+      "salary": null,
+      "datePosted": "2026-10-03T02:07:37.942Z",
+      "dateUpdated": "2026-10-04T00:13:01.221Z",
+      "active": true
+    },
+    {
       "id": "00776196ab1d",
       "company": "SGS",
       "title": " Senior Business Analyst ",
@@ -387929,8 +388136,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-09-30T01:47:48.400Z",
-      "dateUpdated": "2026-10-01T00:53:54.224Z",
-      "active": true
+      "dateUpdated": "2026-10-04T00:13:01.221Z",
+      "active": false
     },
     {
       "id": "2db9219909cb",
@@ -415987,6 +416194,29 @@
       "active": true
     },
     {
+      "id": "c88930e1c14d",
+      "company": "TaskUs",
+      "title": "Teammate Pampanga WFH Q4 2026",
+      "locations": [
+        "Angeles, Pampanga, Philippines"
+      ],
+      "workSetup": "unknown",
+      "level": "unknown",
+      "function": "other",
+      "industry": "outsourcing",
+      "companyType": "direct",
+      "metro": [
+        "clark-pampanga"
+      ],
+      "url": "https://taskus.wd1.myworkdayjobs.com/en-US/Careers/job/Angeles-Pampanga-Philippines/Teammate-Pampanga-WFH-Q4-2026_R_2609_12347",
+      "source": "workday",
+      "employmentType": "unknown",
+      "salary": null,
+      "datePosted": "2026-10-04T00:13:01.221Z",
+      "dateUpdated": "2026-10-04T00:13:01.221Z",
+      "active": true
+    },
+    {
       "id": "41da9d89b7f2",
       "company": "TaskUs",
       "title": "Learning Experience Leader (Technical Trainer)",
@@ -424034,8 +424264,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-09-27T00:00:17.413Z",
-      "dateUpdated": "2026-10-03T00:48:20.643Z",
-      "active": false
+      "dateUpdated": "2026-10-04T00:13:01.221Z",
+      "active": true
     },
     {
       "id": "17f98cc5b8c5",
@@ -425368,8 +425598,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-09-27T00:00:17.413Z",
-      "dateUpdated": "2026-10-03T00:48:20.643Z",
-      "active": false
+      "dateUpdated": "2026-10-04T00:13:01.221Z",
+      "active": true
     },
     {
       "id": "202681d28545",
@@ -425690,8 +425920,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-09-27T00:00:17.413Z",
-      "dateUpdated": "2026-10-03T00:48:20.643Z",
-      "active": false
+      "dateUpdated": "2026-10-04T00:13:01.221Z",
+      "active": true
     },
     {
       "id": "223087523863",
@@ -429692,8 +429922,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-09-27T00:00:17.413Z",
-      "dateUpdated": "2026-09-30T00:51:00.884Z",
-      "active": true
+      "dateUpdated": "2026-10-04T00:13:01.221Z",
+      "active": false
     },
     {
       "id": "38324d1e2e05",
@@ -429715,8 +429945,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-09-27T00:00:17.413Z",
-      "dateUpdated": "2026-10-02T01:11:03.632Z",
-      "active": false
+      "dateUpdated": "2026-10-04T00:13:01.221Z",
+      "active": true
     },
     {
       "id": "385a4a6fef85",
@@ -429853,8 +430083,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-09-27T00:00:17.413Z",
-      "dateUpdated": "2026-10-03T00:48:20.643Z",
-      "active": true
+      "dateUpdated": "2026-10-04T00:13:01.221Z",
+      "active": false
     },
     {
       "id": "38e3142ad569",
@@ -433303,8 +433533,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-09-27T00:00:17.413Z",
-      "dateUpdated": "2026-10-02T01:11:03.632Z",
-      "active": false
+      "dateUpdated": "2026-10-04T00:13:01.221Z",
+      "active": true
     },
     {
       "id": "500a0fe65a82",
@@ -433970,8 +434200,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-09-27T00:00:17.413Z",
-      "dateUpdated": "2026-10-02T01:11:03.632Z",
-      "active": true
+      "dateUpdated": "2026-10-04T00:13:01.221Z",
+      "active": false
     },
     {
       "id": "53bf9a4da0c9",
@@ -434522,8 +434752,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-09-27T00:00:17.413Z",
-      "dateUpdated": "2026-10-03T00:48:20.643Z",
-      "active": false
+      "dateUpdated": "2026-10-04T00:13:01.221Z",
+      "active": true
     },
     {
       "id": "56179a694815",
@@ -441652,8 +441882,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-09-27T00:00:17.413Z",
-      "dateUpdated": "2026-10-01T00:53:54.224Z",
-      "active": true
+      "dateUpdated": "2026-10-04T00:13:01.221Z",
+      "active": false
     },
     {
       "id": "7f5b7cd6acba",
@@ -443653,8 +443883,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-09-27T00:00:17.413Z",
-      "dateUpdated": "2026-10-03T00:48:20.643Z",
-      "active": false
+      "dateUpdated": "2026-10-04T00:13:01.221Z",
+      "active": true
     },
     {
       "id": "89a44b325213",
@@ -444688,8 +444918,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-09-27T00:00:17.413Z",
-      "dateUpdated": "2026-10-03T00:48:20.643Z",
-      "active": false
+      "dateUpdated": "2026-10-04T00:13:01.221Z",
+      "active": true
     },
     {
       "id": "8eb764cdecb6",
@@ -444895,8 +445125,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-09-27T00:00:17.413Z",
-      "dateUpdated": "2026-09-27T00:00:17.413Z",
-      "active": true
+      "dateUpdated": "2026-10-04T00:13:01.221Z",
+      "active": false
     },
     {
       "id": "8f7119195a93",
@@ -445700,8 +445930,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-09-27T00:00:17.413Z",
-      "dateUpdated": "2026-10-03T00:48:20.643Z",
-      "active": false
+      "dateUpdated": "2026-10-04T00:13:01.221Z",
+      "active": true
     },
     {
       "id": "94c96b3233d8",
@@ -450024,8 +450254,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-09-27T00:00:17.413Z",
-      "dateUpdated": "2026-09-30T00:51:00.884Z",
-      "active": true
+      "dateUpdated": "2026-10-04T00:13:01.221Z",
+      "active": false
     },
     {
       "id": "ad638c620803",
@@ -450438,8 +450668,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-09-27T00:00:17.413Z",
-      "dateUpdated": "2026-10-03T00:48:20.643Z",
-      "active": false
+      "dateUpdated": "2026-10-04T00:13:01.221Z",
+      "active": true
     },
     {
       "id": "aff4eddd2a78",
@@ -452094,8 +452324,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-09-27T00:00:17.413Z",
-      "dateUpdated": "2026-10-02T01:11:03.632Z",
-      "active": true
+      "dateUpdated": "2026-10-04T00:13:01.221Z",
+      "active": false
     },
     {
       "id": "b94892ee5b52",
@@ -452278,8 +452508,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-09-27T00:00:17.413Z",
-      "dateUpdated": "2026-10-03T00:48:20.643Z",
-      "active": false
+      "dateUpdated": "2026-10-04T00:13:01.221Z",
+      "active": true
     },
     {
       "id": "bb041299af0d",
@@ -462651,8 +462881,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-09-27T00:00:17.413Z",
-      "dateUpdated": "2026-10-02T01:11:03.632Z",
-      "active": true
+      "dateUpdated": "2026-10-04T00:13:01.221Z",
+      "active": false
     },
     {
       "id": "fa93ec53ca76",
@@ -463318,8 +463548,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-09-27T00:00:17.413Z",
-      "dateUpdated": "2026-10-03T00:48:20.643Z",
-      "active": true
+      "dateUpdated": "2026-10-04T00:13:01.221Z",
+      "active": false
     },
     {
       "id": "ff65fe10a837",
@@ -473303,6 +473533,29 @@
       "salary": null,
       "datePosted": "2017-08-16T05:31:38.000Z",
       "dateUpdated": "2026-06-11T01:21:12.918Z",
+      "active": true
+    },
+    {
+      "id": "85b90b540e20",
+      "company": "Toyota Motor Philippines",
+      "title": "Vehicle Logistics Safety & Quality Engineer",
+      "locations": [
+        "Batangas City, Batangas, Philippines"
+      ],
+      "workSetup": "unknown",
+      "level": "unknown",
+      "function": "engineering",
+      "industry": "automotive",
+      "companyType": "direct",
+      "metro": [
+        "calabarzon"
+      ],
+      "url": "https://www.careers-page.com/toyota-motor-philippines-corporation/job/W387XV86",
+      "source": "manatal",
+      "employmentType": "unknown",
+      "salary": null,
+      "datePosted": "2026-10-04T00:13:01.221Z",
+      "dateUpdated": "2026-10-04T00:13:01.221Z",
       "active": true
     },
     {
@@ -487813,8 +488066,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-09-29T01:20:27.171Z",
-      "dateUpdated": "2026-10-02T01:11:03.632Z",
-      "active": true
+      "dateUpdated": "2026-10-04T00:13:01.221Z",
+      "active": false
     },
     {
       "id": "e79b780cf24f",
@@ -487836,8 +488089,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-09-29T01:20:27.171Z",
-      "dateUpdated": "2026-10-03T00:48:20.643Z",
-      "active": false
+      "dateUpdated": "2026-10-04T00:13:01.221Z",
+      "active": true
     },
     {
       "id": "5ac378cee73f",
@@ -488963,8 +489216,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-09-27T00:00:17.413Z",
-      "dateUpdated": "2026-10-02T01:11:03.632Z",
-      "active": false
+      "dateUpdated": "2026-10-04T00:13:01.221Z",
+      "active": true
     },
     {
       "id": "32310aae60db",
@@ -489354,8 +489607,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-09-27T00:00:17.413Z",
-      "dateUpdated": "2026-09-30T00:51:00.884Z",
-      "active": true
+      "dateUpdated": "2026-10-04T00:13:01.221Z",
+      "active": false
     },
     {
       "id": "41e32e509f7e",
@@ -490757,8 +491010,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-09-27T00:00:17.413Z",
-      "dateUpdated": "2026-10-03T00:48:20.643Z",
-      "active": true
+      "dateUpdated": "2026-10-04T00:13:01.221Z",
+      "active": false
     },
     {
       "id": "86fb7f43e7a8",
@@ -490780,8 +491033,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-09-27T00:00:17.413Z",
-      "dateUpdated": "2026-10-02T01:11:03.632Z",
-      "active": false
+      "dateUpdated": "2026-10-04T00:13:01.221Z",
+      "active": true
     },
     {
       "id": "8797edf1dd56",
@@ -491792,8 +492045,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-09-27T00:00:17.413Z",
-      "dateUpdated": "2026-10-03T00:48:20.643Z",
-      "active": true
+      "dateUpdated": "2026-10-04T00:13:01.221Z",
+      "active": false
     },
     {
       "id": "ba1fac737bd2",
@@ -496829,8 +497082,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-10-02T01:11:03.632Z",
-      "dateUpdated": "2026-10-02T01:11:03.632Z",
-      "active": true
+      "dateUpdated": "2026-10-04T00:13:01.221Z",
+      "active": false
     },
     {
       "id": "68f15ecfe8a6",
