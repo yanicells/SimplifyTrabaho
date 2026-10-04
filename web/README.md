@@ -56,3 +56,44 @@ payload URLs out of search results while leaving them crawlable so bots can see
 the directive. `robots.txt` must not disallow them, because a blocked URL can
 still be indexed without its content. This also marks `/llms.txt` as noindex,
 but does not prevent agents from fetching it.
+
+## `/jobs.json` rate limit
+
+`/jobs.json` is the public feed of every active job (~5.5 MB raw, CORS `*`). The
+homepage fetches it once per load. `firewall/jobs-json-rate-limit.json` holds a
+Vercel WAF rule for it:
+
+- matches the path `/jobs.json` exactly; no other page or asset is counted
+- fixed 60-second window, 30 requests per client IP
+- request 31+ in a window gets a plain HTTP `429` (no challenge page), until the
+  window resets
+
+`vercel.json` can't express this: its `mitigate` field accepts only `challenge`
+and `deny`. WAF rules live in the Vercel project's firewall config, not in the
+deployment, so **this file does nothing until a maintainer applies it**. From `web/`,
+as a project admin or member:
+
+```
+pnpm dlx vercel@latest link
+pnpm dlx vercel@latest firewall rules add --json "$(cat firewall/jobs-json-rate-limit.json)" --yes
+pnpm dlx vercel@latest firewall diff
+pnpm dlx vercel@latest firewall publish --yes
+```
+
+You can create the same rule from the dashboard instead (Firewall → Configure →
+New Rule): Request Path equals `/jobs.json`, Rate Limit with Fixed Window, 60s,
+30 requests, key IP, action Default (429). Hobby allows one rate-limit rule per
+project. To change the limit, edit the file and the test, then run
+`firewall rules edit "Rate limit /jobs.json"`.
+
+Check it after publishing. The first 30 requests return `200`, then `429`:
+
+```
+for i in $(seq 1 32); do curl -s -o /dev/null -w "%{http_code} " https://simplifytrabaho.ycells.com/jobs.json; done
+```
+
+Known limits. Counters are per Vercel region. Many users can share one IP on
+carrier-grade NAT or a campus network; if they hit the limit, raise it. The `429`
+response may not carry the CORS header, so a cross-origin browser client sees a
+CORS error, not a status code. The same data is in `data/listings.json` on GitHub,
+and this rule can't limit that.

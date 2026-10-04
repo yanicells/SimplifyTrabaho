@@ -6,6 +6,15 @@
 
 ## ✅ Done
 
+- [x] 2026-10-04 — **`/jobs.json` rate limit, code side** (host activation pending,
+      see the launch checklist):
+  - [x] `web/firewall/jobs-json-rate-limit.json` is a Vercel WAF rule: path equals
+        `/jobs.json`, fixed 60s window, 30 requests per client IP, excess gets
+        HTTP 429. Checked against the official Vercel OpenAPI firewall rule schema.
+  - [x] `web/lib/firewall-rule.test.ts` fails if the feed path the homepage
+        fetches drifts away from the rule's path, or if the limit changes.
+  - [x] Apply/verify steps in `web/README.md`.
+
 - [x] 2026-10-02 — **README cleanup + data fixes:**
   - [x] README: stats line moved to the top (with thousands separators), "Posted"
         shows the date ("Sep 27") instead of "today" on every row, Work Setup
@@ -329,6 +338,10 @@ maintainer)
    events appear in Vercel Analytics.
 5. [ ] Publish launch posts to selected communities; tailor each post and follow
    community self-promotion rules.
+6. [ ] Apply the `/jobs.json` rate-limit rule (30/min per IP, 429). It is NOT
+   live until a project admin runs `vercel firewall rules add --json ...` and
+   `vercel firewall publish` (or creates it in the dashboard). Steps and a curl
+   check are in `web/README.md`.
 
 Registry growth is continuous (SPEC §7.1): web-search the six ATS-hosted domains for
 PH city strings → add slugs to `pipeline/candidates.json` → `pnpm --filter pipeline
@@ -891,6 +904,13 @@ not a real employer. Kalibrr — job-board company, fetching prohibited by rule 
 
 ## 📔 Decision log
 
+- 2026-10-04 — **`/jobs.json` rate limit uses the Vercel WAF, not code.** The
+  site is a static export with no server to count requests, and `vercel.json`
+  `mitigate` only supports `challenge`/`deny`. The WAF rate-limit rule
+  (all plans) sees every incoming request, so it covers CDN-cached hits. The rule is
+  checked in as JSON and applied with the Vercel CLI. It returns a plain 429, not
+  a challenge, because this is a machine-readable feed. 30/min per IP is
+  generous: the homepage makes one request per load.
 - 2026-09-26 — **Lazy-load split (#31):** keep the first page inline and fetch
   static `/jobs.json` after hydration for the full list. Verified filter counts
   match the old build at 14,250 active listings.
