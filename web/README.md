@@ -70,27 +70,73 @@ Vercel WAF rule for it:
 
 `vercel.json` can't express this: its `mitigate` field accepts only `challenge`
 and `deny`. WAF rules live in the Vercel project's firewall config, not in the
-deployment, so **this file does nothing until a maintainer applies it**. From `web/`,
-as a project admin or member:
+deployment, so **this file does nothing until a maintainer applies it**.
+
+`firewall publish` makes **every** staged draft change live, not just this rule.
+Run the steps below one checkpoint at a time, from `web/`, as a project admin or
+member. Do not paste them as one batch.
+
+**1. Link and preflight.**
 
 ```
 pnpm dlx vercel@latest link
-pnpm dlx vercel@latest firewall rules add --json "$(cat firewall/jobs-json-rate-limit.json)" --yes
 pnpm dlx vercel@latest firewall diff
-pnpm dlx vercel@latest firewall publish --yes
+```
+
+STOP if `diff` shows any pending change. It belongs to someone else: don't
+publish it and don't `firewall discard` it. Ask its owner to publish or discard
+first.
+
+**2. Stage the rule.**
+
+```
+pnpm dlx vercel@latest firewall rules add --json "$(cat firewall/jobs-json-rate-limit.json)"
+pnpm dlx vercel@latest firewall diff
+```
+
+STOP unless the diff contains exactly one change: the new `Rate limit /jobs.json`
+rule. If it contains anything else, don't publish.
+
+**3. Publish.** Answer the confirmation prompt yourself; don't pass `--yes`.
+
+```
+pnpm dlx vercel@latest firewall publish
 ```
 
 You can create the same rule from the dashboard instead (Firewall → Configure →
 New Rule): Request Path equals `/jobs.json`, Rate Limit with Fixed Window, 60s,
 30 requests, key IP, action Default (429). Hobby allows one rate-limit rule per
 project. To change the limit, edit the file and the test, then run
-`firewall rules edit "Rate limit /jobs.json"`.
+`firewall rules edit "Rate limit /jobs.json"` (it stages a draft too, so repeat
+the preflight and diff checkpoints).
 
-Check it after publishing. The first 30 requests return `200`, then `429`:
+**4. Verify.** Exact counts are not guaranteed: the window is fixed, so a burst can
+straddle a window boundary, counters are per Vercel region, and your IP may
+already have traffic in the current window. Use a small bounded burst of `HEAD`
+requests (headers only, no 5 MB downloads) with timestamps, and look for any
+`429` once the burst exceeds 30 in a few seconds:
 
 ```
-for i in $(seq 1 32); do curl -s -o /dev/null -w "%{http_code} " https://simplifytrabaho.ycells.com/jobs.json; done
+for i in $(seq 1 40); do
+  printf '%s ' "$(date +%T)"
+  curl -sI --connect-timeout 5 --max-time 10 -o /dev/null -w '%{http_code}\n' \
+    https://simplifytrabaho.ycells.com/jobs.json
+done
 ```
+
+Then confirm the rule itself acted: `pnpm dlx vercel@latest firewall overview`
+(or Firewall → Activity in the dashboard) should list `Rate limit /jobs.json` with
+rate-limited requests.
+
+Two host behaviors are **not yet verified**; check them during activation and
+record the result in `docs/TRACKER.md`:
+
+- `/jobs%2Ejson` (percent-encoded dot) serves the same feed. Request it
+  repeatedly and check it shares the `/jobs.json` counter, i.e. the rule matches
+  it too.
+- A `429` may lack `Access-Control-Allow-Origin`. Check with
+  `curl -si -H 'Origin: https://example.com' https://simplifytrabaho.ycells.com/jobs.json | head`
+  right after a `429`.
 
 Known limits. Counters are per Vercel region. Many users can share one IP on
 carrier-grade NAT or a campus network; if they hit the limit, raise it. The `429`

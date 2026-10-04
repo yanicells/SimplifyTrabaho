@@ -340,8 +340,10 @@ maintainer)
    community self-promotion rules.
 6. [ ] Apply the `/jobs.json` rate-limit rule (30/min per IP, 429). It is NOT
    live until a project admin runs `vercel firewall rules add --json ...` and
-   `vercel firewall publish` (or creates it in the dashboard). Steps and a curl
-   check are in `web/README.md`.
+   `vercel firewall publish` (or creates it in the dashboard). Steps (draft diff
+   checkpoints before and after staging, interactive publish) and a bounded HEAD
+   check are in `web/README.md`. Still unverified on the host: `/jobs%2Ejson`
+   sharing the counter, and CORS headers on a 429.
 
 Registry growth is continuous (SPEC §7.1): web-search the six ATS-hosted domains for
 PH city strings → add slugs to `pipeline/candidates.json` → `pnpm --filter pipeline
