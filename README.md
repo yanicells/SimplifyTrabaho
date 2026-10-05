@@ -11,7 +11,7 @@ A free, auto-updated list of jobs at Philippine companies, covering all roles an
 Internships and entry-level roles are featured below. It's the PH counterpart of
 [SimplifyJobs/Summer2026-Internships](https://github.com/SimplifyJobs/Summer2026-Internships).
 
-**15,284 active listings from 327 companies** · updated 2026-10-04 00:13 UTC · [Browse and filter everything at simplifytrabaho.ycells.com](https://simplifytrabaho.ycells.com) · [How the listings get here](docs/PIPELINE.md)
+**15,256 active listings from 327 companies** · updated 2026-10-05 00:18 UTC · [Browse and filter everything at simplifytrabaho.ycells.com](https://simplifytrabaho.ycells.com) · [How the listings get here](docs/PIPELINE.md)
 
 ## Where the listings come from
 
@@ -27,7 +27,15 @@ company's own application page. The data refreshes once a day.
 
 | Company | Role | Location | Apply | Posted |
 | --- | --- | --- | --- | --- |
+| **Analog Devices** | Associate Engineer, Test Engineering - Product Development | Philippines, Cavite (jp) | [Apply](https://analogdevices.wd1.myworkdayjobs.com/en-US/External/job/Philippines-Cavite-jp/Associate-Engineer--Test-Engineering---Product-Development_R265163) | Oct 5 |
+| **Jollibee Foods Corporation** | Management Trainee - Anonas Kamias, Quezon City | Quezon City, Metro Manila, Philippines | [Apply](https://www.careers-page.com/jollibee-foods-corporation/job/5W85W563) | Oct 5 |
+| **Wells Fargo** | Customer Service Associate Licensed | TAGUIG CITY | [Apply](https://wf.wd1.myworkdayjobs.com/en-US/WellsFargoJobs/job/TAGUIG-CITY-00/Customer-Service-Associate-Licensed_R-569232) | Oct 5 |
+| **Analog Devices** | Associate Engineer, Test Engineering - Product Development | Philippines, Cavite (jp) | [Apply](https://analogdevices.wd1.myworkdayjobs.com/en-US/External/job/Philippines-Cavite-jp/Associate-Engineer--Test-Engineering---Product-Development_R265162) | Oct 5 |
+| **Wells Fargo** | Customer Service Associate Licensed | TAGUIG CITY | [Apply](https://wf.wd1.myworkdayjobs.com/en-US/WellsFargoJobs/job/TAGUIG-CITY-00/Customer-Service-Associate-Licensed_R-569253) | Oct 5 |
+| **Analog Devices** | Associate Engineer, Test Engineering - Product Development | Philippines, Cavite (jp) | [Apply](https://analogdevices.wd1.myworkdayjobs.com/en-US/External/job/Philippines-Cavite-jp/Associate-Engineer--Test-Engineering---Product-Development_R265161) | Oct 5 |
 | **Jollibee Foods Corporation** | Management Trainee - Naga Magsaysay, Camarines Sur | Naga, Bicol, Philippines | [Apply](https://www.careers-page.com/jollibee-foods-corporation/job/5W85WV53) | Oct 4 |
+| **Angkas** | Customer Experience Associate | Cavite, Philippines | [Apply](https://apply.workable.com/j/E803C3A471) | Oct 4 |
+| **Angkas** | Customer Experience Associate | Biñan, Philippines | [Apply](https://apply.workable.com/j/7376DEC24A) | Oct 4 |
 | **Abbott** | Sales Administrator I | Philippines - Taguig City | [Apply](https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/Philippines---Taguig-City/Sales-Administrator-I_31163747) | Oct 3 |
 | **JLL** | Product Specialist Associate | Makati, Philippines | [Apply](https://jll.wd1.myworkdayjobs.com/en-US/jllcareers/job/Makati-Philippines/Product-Specialist-Associate_REQ503822) | Oct 3 |
 | **RELX** | Data Research Specialist I | PHL-RE Shared Services-Manila | [Apply](https://relx.wd3.myworkdayjobs.com/en-US/relx/job/PHL-RE-Shared-Services-Manila/Data-Research-Specialist-I_R119402) | Oct 3 |
@@ -85,16 +93,13 @@ company's own application page. The data refreshes once a day.
 | **Regal Rexnord** | Junior Automation Developer | Pasig, Manila, Philippines | [Apply](https://regalrexnord.wd1.myworkdayjobs.com/en-US/Careers/job/Pasig-Manila-Philippines/Master-Data-Coordinator-III_R26_05064) | Sep 30 |
 | **Angkas** | Customer Experience Associate | Makati City, Philippines | [Apply](https://apply.workable.com/j/4015C4160B) | Sep 30 |
 | **GoTyme Bank** | Marketing Operations Intern | Quezon City, Philippines | [Apply](https://apply.workable.com/j/E6B6568658) | Sep 30 |
-| **Analog Devices** | Associate Engineer, Equipment Engineering | Philippines, Cavite, GTC | [Apply](https://analogdevices.wd1.myworkdayjobs.com/en-US/External/job/Philippines-Cavite-GTC/Associate-Engineer--Equipment-Engineering_R265990) | Oct 1 |
 | **RELX** | Web Development Analyst I | Manila | [Apply](https://relx.wd3.myworkdayjobs.com/en-US/relx/job/Manila/Web-Development-Analyst-I_R118344-1) | Sep 30 |
 | **Fresh Prints** | Sales Development Representative | The Philippines (Remote) | [Apply](https://job-boards.greenhouse.io/freshprints/jobs/6211791004) | Sep 30 |
 | **Accenture** | DE033483-Customer Service Associate | Philippines | [Apply](https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Quezon/DE033483-Customer-Service-Associate_CXO-133369-S78898-1) | Sep 30 |
 | **ING** | Accounting and Reporting Expert I | Manila (One Ayala Tower 2) | [Apply](https://ing.wd3.myworkdayjobs.com/en-US/ICSGBLCOR/job/Manila-One-Ayala-Tower-2/Accounting-and-Reporting-Expert-I_REQ-10122254) | Sep 30 |
-| **Analog Devices** | Associate Test Development Engineer for Test Enablement Group | Philippines, Cavite (jp) | [Apply](https://analogdevices.wd1.myworkdayjobs.com/en-US/External/job/Philippines-Cavite-jp/Associate-Test-Development-Engineer-for-Test-Enablement-Group_R266618) | Oct 1 |
 | **RELX** | Student Movement Coordinator I | Manila | [Apply](https://relx.wd3.myworkdayjobs.com/en-US/relx/job/Manila/Student-Movement-Coordinator-I_R119062) | Sep 30 |
 | **Accenture** | DE033483-Customer Service Associate | Philippines | [Apply](https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Quezon/DE033483-Customer-Service-Associate_CXO-133369-S78901-1) | Sep 30 |
 | **Accenture** | DE033483-Customer Service Associate | Philippines | [Apply](https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Quezon/DE033483-Customer-Service-Associate_CXO-133369-S78896-1) | Sep 30 |
-| **Analog Devices** | Associate Engineer, Equipment Engineering | Philippines, Cavite, GTC | [Apply](https://analogdevices.wd1.myworkdayjobs.com/en-US/External/job/Philippines-Cavite-GTC/Associate-Engineer--Equipment-Engineering_R265260) | Sep 30 |
 | **AECOM** | Specialist I, P&T, Time | City of Taguig, BONIFACIO STOPOVER, Philippines | [Apply](https://jobs.smartrecruiters.com/AECOM2/744000152442576) | Sep 29 |
 | **Fresh Prints** | HR & Talent Acquisition Associate (Full Time, Remote) | India, Philippines | [Apply](https://job-boards.greenhouse.io/freshprints/jobs/6210521004) | Sep 29 |
 | **Aprio** | Aprio PH - Human Resources Associate | Clark, Pampanga | [Apply](https://jobs.lever.co/Aprio/249a7f74-1f5b-432f-95fc-c40f67ff8718) | Sep 29 |
@@ -159,7 +164,7 @@ company's own application page. The data refreshes once a day.
 | **Regal Rexnord** | AR Coordinator I | Pasig, Manila, Philippines | [Apply](https://regalrexnord.wd1.myworkdayjobs.com/en-US/Careers/job/Pasig-Manila-Philippines/AR-Coordinator-I_R26_00008) | Sep 27 |
 | **Spiralyze** | Junior Analytics Specialist | Remote Philippines (Los Baños) | [Apply](https://spiralyze.pinpointhq.com/en/postings/375ac990-88bb-4559-9597-349801d10a7c) | Sep 27 |
 | **Sprout Solutions** | Junior Front-End Developer | Mandaluyong, NCR, Philippines | [Apply](https://www.careers-page.com/sprout-solutions-phil-inc/job/LRYW446X) | Sep 27 |
-| **Sun Life** | GRS Client Care Representative I | Taguig City, National Capital Region (Manila) | [Apply](https://sunlife.wd3.myworkdayjobs.com/en-US/Experienced-Jobs/job/Taguig-City-National-Capital-Region-Manila/GRS-Client-Care-Representative-I_JR00127219-1) | Sep 27 |
+| **Sun Life** | Associate 3 (NBO Sales Service Associate Sequoia) | Taguig City, National Capital Region (Manila) | [Apply](https://sunlife.wd3.myworkdayjobs.com/en-US/Experienced-Jobs/job/Taguig-City-National-Capital-Region-Manila/Associate-3--NBO-Sales-Service-Associate-Sequoia-_JR00127973) | Sep 27 |
 | **TaskUs** | IT Service Desk Intern | Imus, Cavite, Philippines | [Apply](https://taskus.wd1.myworkdayjobs.com/en-US/Careers/job/Imus-Cavite-Philippines/IT-Service-Desk-Intern_R_2608_10582) | Sep 27 |
 | **TP ICAP** | Trade Services Associate/Analyst | Manila | [Apply](https://tp.wd107.myworkdayjobs.com/en-US/TP-ICAP/job/Manila/Trade-Services-Associate-Analyst_R5832) | Sep 27 |
 | **TSYS** | Sales Associate - Manila | QUEZON CITY, PHILIPPINES | [Apply](https://tsys.wd1.myworkdayjobs.com/en-US/TSYS/job/QUEZON-CITY--PHILIPPINES/Sales-Executive-1_R0073781) | Sep 27 |
@@ -191,7 +196,7 @@ company's own application page. The data refreshes once a day.
 | **Regal Rexnord** | AR Analyst I | Pasig, Manila, Philippines | [Apply](https://regalrexnord.wd1.myworkdayjobs.com/en-US/Careers/job/Pasig-Manila-Philippines/AR-Analyst-I_R26_02442) | Sep 27 |
 | **Spiralyze** | Junior Analytics Specialist | Remote Philippines (Cebu) | [Apply](https://spiralyze.pinpointhq.com/en/postings/53814fa9-441a-4843-864a-e6cbf6d63d07) | Sep 27 |
 | **Sprout Solutions** | Learning and Development Associate | Taguig, NCR, Philippines | [Apply](https://www.careers-page.com/sprout-solutions-phil-inc/job/L937V49Y) | Sep 27 |
-| **Sun Life** | Associate 3 (NBO Sales Service Associate Sequoia) | Taguig City, National Capital Region (Manila) | [Apply](https://sunlife.wd3.myworkdayjobs.com/en-US/Experienced-Jobs/job/Taguig-City-National-Capital-Region-Manila/Associate-3--NBO-Sales-Service-Associate-Sequoia-_JR00127973) | Sep 27 |
+| **Sun Life** | Sales Service Associate (Baobab NBO) | Manila, National Capital Region (Manila) | [Apply](https://sunlife.wd3.myworkdayjobs.com/en-US/Experienced-Jobs/job/Manila-National-Capital-Region-Manila/Sales-Service-Associate--Baobab-NBO-_JR00128188) | Sep 27 |
 | **TaskUs** | Job Posting Title IT Support OJT-1 | Angeles, Pampanga, Philippines | [Apply](https://taskus.wd1.myworkdayjobs.com/en-US/Careers/job/Angeles-Pampanga-Philippines/Job-Posting-Title-IT-Support-OJT-1_R_2609_12252) | Sep 27 |
 | **TP ICAP** | Trainee Broker | Manila | [Apply](https://tp.wd107.myworkdayjobs.com/en-US/TP-ICAP/job/Manila/Trainee-Broker_R5847) | Sep 27 |
 | **TSYS** | Customer Service Representative 1 - Spanish | QUEZON CITY, PHILIPPINES | [Apply](https://tsys.wd1.myworkdayjobs.com/en-US/TSYS/job/QUEZON-CITY--PHILIPPINES/Customer-Service-Representative-1_R0072093) | Sep 27 |
@@ -215,18 +220,13 @@ company's own application page. The data refreshes once a day.
 | **Regal Rexnord** | Rebate Analyst I | Pasig, Manila, Philippines | [Apply](https://regalrexnord.wd1.myworkdayjobs.com/en-US/Careers/job/Pasig-Manila-Philippines/FP-A-Analyst-I_R26_01214) | Sep 27 |
 | **Spiralyze** | Junior Analytics Specialist | Iloilo City, Remote Philippines (Iloilo) | [Apply](https://spiralyze.pinpointhq.com/en/postings/7e17139c-383b-41a0-a583-b31343999157) | Sep 27 |
 | **Sprout Solutions** | Sales Operations Associate | Taguig, NCR, Philippines | [Apply](https://www.careers-page.com/sprout-solutions-phil-inc/job/RXX84R) | Sep 27 |
-| **Sun Life** | Sales Service Associate (Baobab NBO) | Manila, National Capital Region (Manila) | [Apply](https://sunlife.wd3.myworkdayjobs.com/en-US/Experienced-Jobs/job/Manila-National-Capital-Region-Manila/Sales-Service-Associate--Baobab-NBO-_JR00128188) | Sep 27 |
+| **Sun Life** | Associate (Butuan CSC) | Philippines | [Apply](https://sunlife.wd3.myworkdayjobs.com/en-US/Experienced-Jobs/job/Butuan-Agusan-del-Norte/Associate--Butuan-CSC-_JR00126225-2) | Sep 27 |
 | **TaskUs** | IT Support OJT ( Student Trainee )-2 | Batangas, Batangas, Philippines | [Apply](https://taskus.wd1.myworkdayjobs.com/en-US/Careers/job/Batangas-Batangas-Philippines/IT-Support-OJT---Student-Trainee---2_R_2608_11100) | Sep 27 |
 | **TSYS** | Customer Service Representative 1 | QUEZON CITY, PHILIPPINES | [Apply](https://tsys.wd1.myworkdayjobs.com/en-US/TSYS/job/QUEZON-CITY--PHILIPPINES/Customer-Service-Representative-1_R0070713) | Sep 27 |
 | **Wells Fargo** | Customer Service Representative | TAGUIG CITY | [Apply](https://wf.wd1.myworkdayjobs.com/en-US/WellsFargoJobs/job/TAGUIG-CITY-00/Customer-Service-Representative_R-577147) | Sep 27 |
 | **3M** | Customer Service Representative - Japanese Speaker | PH, Taguig | [Apply](https://3m.wd1.myworkdayjobs.com/en-US/Search/job/PH-Taguig/Customer-Service-Analyst---Japanese-Speaker_R01166338) | Sep 27 |
 | **Amadeus** | Customer Support Representative (Travel) \| Spanish Bilingual | Manila, Metro Manila | [Apply](https://amadeus.wd502.myworkdayjobs.com/en-US/jobs/job/Manila-Metro-Manila/Customer-Support-Representative--Travel----Spanish-Bilingual_R35234) | Sep 27 |
 | **Concentrix** | Associate, Operations Reporting | PHL Makati City - SLC | [Apply](https://cnx.wd1.myworkdayjobs.com/en-US/external_global/job/PHL-Makati-City---SLC/Associate--Operations-Reporting_R1756347) | Sep 27 |
-| **Genpact** | Associate - Consumer Banking 5A | 1901-G-Php: Ihub, Alabang, Philippines | [Apply](https://genpact.wd108.myworkdayjobs.com/en-US/External_Careers/job/1901-G-Php-Ihub-Alabang-Philippines/Associate---Consumer-Banking-5A_JR10025475) | Sep 27 |
-| **Globe** | Inventory Planning Associate | Philippines | [Apply](https://globe.wd3.myworkdayjobs.com/en-US/GLB_Careers/job/Tacloban-Globe/Inventory-Planning-Associate_R0000020970) | Sep 27 |
-| **IQVIA** | Client Services Rep 1 | Taguig City, Philippines | [Apply](https://iqvia.wd1.myworkdayjobs.com/en-US/IQVIA/job/Taguig-City-Philippines/Client-Services-Rep-1_R1492019) | Sep 27 |
-| **ISS** | General Ledger Accountant - Associate | Makati City, Philippines | [Apply](https://issgovernance.wd1.myworkdayjobs.com/en-US/ISScareers/job/Makati-City-Philippines/General-Ledger-Accountant---Associate_JR_10180-1) | Sep 27 |
-| **Jollibee Foods Corporation** | Management Trainee - Muntinlupa | Muntinlupa, NCR, Philippines | [Apply](https://www.careers-page.com/jollibee-foods-corporation/job/L8X76Y43) | Sep 27 |
 
 ---
 
