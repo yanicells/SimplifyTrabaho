@@ -11,7 +11,7 @@ A free, auto-updated list of jobs at Philippine companies, covering all roles an
 Internships and entry-level roles are featured below. It's the PH counterpart of
 [SimplifyJobs/Summer2026-Internships](https://github.com/SimplifyJobs/Summer2026-Internships).
 
-**15,075 active listings from 327 companies** · updated 2026-10-18 23:46 UTC · [Browse and filter everything at simplifytrabaho.ycells.com](https://simplifytrabaho.ycells.com) · [How the listings get here](docs/PIPELINE.md)
+**14,874 active listings from 327 companies** · updated 2026-10-20 00:47 UTC · [Browse and filter everything at simplifytrabaho.ycells.com](https://simplifytrabaho.ycells.com) · [How the listings get here](docs/PIPELINE.md)
 
 ## Where the listings come from
 
@@ -27,7 +27,22 @@ company's own application page. The data refreshes once a day.
 
 | Company | Role | Location | Apply | Posted |
 | --- | --- | --- | --- | --- |
-| **Pilmico** | Territory Business Manager-Flour (OPEN TO FRESH GRADS!!) | Tacloban, Leyte and Samar, Philippines | [Apply](https://jobs.smartrecruiters.com/PilmicoFoodsCorporation/744000156199279) | Oct 18 |
+| **Axos** | Jr. QA Engineer | Manila, Philippines | [Apply](https://axos.wd5.myworkdayjobs.com/en-US/Axos/job/Manila-Philippines/Jr-QA-Engineer_JR5678) | Oct 20 |
+| **Concentrix** | Accountant I | PHL NCR QC Work-at-Home | [Apply](https://cnx.wd1.myworkdayjobs.com/en-US/external_global/job/PHL-NCR-QC-Work-at-Home/Accountant-I_R1760965-1) | Oct 20 |
+| **ISS** | Junior Data Analyst - Global Proxy Distribution (GPD) | Makati City, Philippines | [Apply](https://issgovernance.wd1.myworkdayjobs.com/en-US/ISScareers/job/Makati-City-Philippines/Junior-Data-Analyst---Global-Proxy-Distribution--GPD-_JR_10510) | Oct 20 |
+| **Johnson & Johnson** | Accountant 1, Global Intercompany | Taguig, National Capital Region (Manila), Philippines | [Apply](https://jj.wd5.myworkdayjobs.com/en-US/JJ/job/Taguig-National-Capital-Region-Manila-Philippines/Accountant-1--Global-Intercompany_R-103530) | Oct 20 |
+| **RELX** | Visual Designer I | Manila | [Apply](https://relx.wd3.myworkdayjobs.com/en-US/relx/job/Manila/Visual-Designer-I_R119848) | Oct 20 |
+| **Unisys** | Tech Svc Desk - L1 | Citynet - Mandaluyong City | [Apply](https://unisys.wd5.myworkdayjobs.com/en-US/External/job/Citynet---Mandaluyong-City/Tech-Svc-Desk---L1_REQ576582) | Oct 20 |
+| **Wells Fargo** | Associate Private Wealth Portfolio Specialist | TAGUIG CITY | [Apply](https://wf.wd1.myworkdayjobs.com/en-US/WellsFargoJobs/job/TAGUIG-CITY-00/Associate-Private-Wealth-Portfolio-Specialist_R-580313) | Oct 20 |
+| **Wells Fargo** | Finance & Accounting Associate | Taguig City, Philippines | [Apply](https://wf.wd1.myworkdayjobs.com/en-US/WellsFargoJobs/job/Taguig-City-Philippines/Finance---Accounting-Associate_R-577878-1) | Oct 20 |
+| **Wells Fargo** | Associate Operations Processor | TAGUIG CITY | [Apply](https://wf.wd1.myworkdayjobs.com/en-US/WellsFargoJobs/job/TAGUIG-CITY-00/Associate-Operations-Processor_R-560266) | Oct 20 |
+| **Pilmico** | Territory Business Manager (OPEN TO FRESH GRADS!!) | SOCCSKSARGEN, N/A, Philippines | [Apply](https://jobs.smartrecruiters.com/PilmicoFoodsCorporation/744000156234289) | Oct 19 |
+| **SGS** | RBS Administrative Assistant (w/ invoicing/SAP/Data Entry) | Muntinlupa, NCR, Philippines | [Apply](https://jobs.smartrecruiters.com/SGS/744000156230554) | Oct 19 |
+| **Western Digital** | Intern - Data Analytics | Biñan City, LAGUNA, Philippines | [Apply](https://jobs.smartrecruiters.com/WesternDigital/744000156226285) | Oct 19 |
+| **Accor** | Royal Service Agent | Makati City, NCR, Philippines | [Apply](https://jobs.smartrecruiters.com/AccorHotel/744000156221369) | Oct 19 |
+| **Ninja Van** | Talent Acquisition Intern | Taguig, Philippines | [Apply](https://jobs.lever.co/ninjavan/4a3a4f89-d08a-4f26-bfbb-9a0f79ec00d0) | Oct 19 |
+| **SGS** | RBS Admin Assistant (w/ Invoice, SAP, Data Entry or Logistic experience) | Muntinlupa, NCR, Philippines | [Apply](https://jobs.smartrecruiters.com/SGS/744000156200809) | Oct 19 |
+| **Western Digital** | Intern - Manufacturing Engineer | Biñan City, LAGUNA, Philippines | [Apply](https://jobs.smartrecruiters.com/WesternDigital/744000156226349) | Oct 19 |
 | **Amadeus** | Customer Support Associate (Travel) | Taguig, Metro Manila | [Apply](https://amadeus.wd502.myworkdayjobs.com/en-US/jobs/job/Taguig-Metro-Manila/Customer-Support-Associate--Travel-_R38222) | Oct 17 |
 | **Jollibee Foods Corporation** | Management Trainee - Santiago, Isabela | Santiago, Isabela, Philippines | [Apply](https://www.careers-page.com/jollibee-foods-corporation/job/L8X76YW3) | Oct 17 |
 | **Wells Fargo** | Customer Service Representative | TAGUIG CITY | [Apply](https://wf.wd1.myworkdayjobs.com/en-US/WellsFargoJobs/job/TAGUIG-CITY-00/Customer-Service-Representative_R-577479) | Oct 17 |
@@ -37,7 +52,6 @@ company's own application page. The data refreshes once a day.
 | **FedEx** | Clearance Agent-Assoc | FXE_APAC/PHL/PHCRKRC/PH ANGELES CITY | [Apply](https://fedex.wd1.myworkdayjobs.com/en-US/FXE_APAC_External/job/FXE_APACPHLPHCRKRCPH-ANGELES-CITY/Clearance-Agent-Assoc_RC786685) | Oct 17 |
 | **NCR Voyix** | L1 Support | CEBU CITY, PHL | [Apply](https://ncr.wd1.myworkdayjobs.com/en-US/ext_apac/job/CEBU-CITY-PHL/L1-Support_R0158847) | Oct 17 |
 | **Procter & Gamble** | Order-To-Cash Finance Associate (Bahasa Speaker) | MANILA NET PARK OFFICE | [Apply](https://pg.wd5.myworkdayjobs.com/en-US/1000/job/MANILA-NET-PARK-OFFICE/Order-To-Cash-Finance-Associate--Bahasa-Speaker-_R000161178) | Oct 17 |
-| **RELX** | Data Analyst I | Manila | [Apply](https://relx.wd3.myworkdayjobs.com/en-US/relx/job/Manila/Data-Analyst-I_R119625) | Oct 17 |
 | **Unisys** | Civil Registry Associate | Philippines | [Apply](https://unisys.wd5.myworkdayjobs.com/en-US/External/job/PSA-Isabela/Civil-Registry-Associate_REQ576323) | Oct 17 |
 | **Wells Fargo** | Associate Operations Processor | TAGUIG CITY | [Apply](https://wf.wd1.myworkdayjobs.com/en-US/WellsFargoJobs/job/TAGUIG-CITY-00/Associate-Operations-Processor_R-579930) | Oct 17 |
 | **Turnitin** | Tax Associate (Philippines Remote) | Manila, NCR, Philippines | [Apply](https://jobs.smartrecruiters.com/TurnitinLLC/744000156071950) | Oct 16 |
@@ -48,7 +62,6 @@ company's own application page. The data refreshes once a day.
 | **Aprio** | Aprio PH - Associate, Assurance Services | Makati City, Metro Manila; Clark, Pampanga | [Apply](https://jobs.lever.co/Aprio/15a9a0eb-b9a9-4104-8b5f-4a265383f6be) | Oct 16 |
 | **Genpact** | Associate - F&A - I2C 5A | 1901-G-Php: Vector 2, Alabang, Philippines | [Apply](https://genpact.wd108.myworkdayjobs.com/en-US/External_Careers/job/1901-G-Php-Vector-2-Alabang-Philippines/Associate---F-A---I2C-5A_JR10029254) | Oct 15 |
 | **Maersk** | Associate Controller, ATR | PH - Manila | [Apply](https://maersk.wd3.myworkdayjobs.com/en-US/Maersk_Careers/job/PH---Manila/Associate-Controller--ATR_R198892) | Oct 15 |
-| **NCR Voyix** | Technical Support Level 1 | CEBU CITY, PHL | [Apply](https://ncr.wd1.myworkdayjobs.com/en-US/ext_apac/job/CEBU-CITY-PHL/Technical-Support-Level-1_R0158891) | Oct 15 |
 | **S&P Global** | Representative I, Relationship Management | Philippines | [Apply](https://spgi.wd5.myworkdayjobs.com/en-US/SPGI_Careers/job/Islamabad-PK/Representative-I--Relationship-Management_332189-1) | Oct 15 |
 | **TP ICAP** | Global Payroll Associate | Manila | [Apply](https://tp.wd107.myworkdayjobs.com/en-US/TP-ICAP/job/Manila/Payroll-Associate_R5916) | Oct 15 |
 | **Wells Fargo** | Customer Service Representative | TAGUIG CITY | [Apply](https://wf.wd1.myworkdayjobs.com/en-US/WellsFargoJobs/job/TAGUIG-CITY-00/Customer-Service-Representative_R-578909-1) | Oct 15 |
@@ -60,17 +73,18 @@ company's own application page. The data refreshes once a day.
 | **Analog Devices** | Associate Engineer, Product Engineering (Mfg.) | Philippines, Cavite, GTC | [Apply](https://analogdevices.wd1.myworkdayjobs.com/en-US/External/job/Philippines-Cavite-GTC/Associate-Engineer--Product-Engineering--Mfg-_R265153-1) | Oct 15 |
 | **GCash** | GCash Jr. Product Manager | NCR - WGC | [Apply](https://globe.wd3.myworkdayjobs.com/en-US/Mynt/job/NCR---WGC/GCash-Jr-Product-Manager_R0000021801) | Oct 15 |
 | **Globe** | AI Engineer Intern - EDS | Philippines | [Apply](https://globe.wd3.myworkdayjobs.com/en-US/GLB_Careers/job/19F-The-Globe-Tower/AI-Engineer-Intern---EDS_R0000021961) | Oct 15 |
+| **NCR Voyix** | L1 Support | CEBU CITY, PHL | [Apply](https://ncr.wd1.myworkdayjobs.com/en-US/ext_apac/job/CEBU-CITY-PHL/L1-Support_JR2610104-1) | Oct 15 |
 | **RELX** | Accounting Analyst I | Manila | [Apply](https://relx.wd3.myworkdayjobs.com/en-US/relx/job/Manila/Accounting-Analyst-I_R119616) | Oct 15 |
 | **Unisys** | Civil Registry Associate | Philippines | [Apply](https://unisys.wd5.myworkdayjobs.com/en-US/External/job/PSA-Aurora/Civil-Registry-Associate_REQ576324) | Oct 15 |
-| **NCR Voyix** | L1 Support | CEBU CITY, PHL | [Apply](https://ncr.wd1.myworkdayjobs.com/en-US/ext_apac/job/CEBU-CITY-PHL/L1-Support_JR2610104-1) | Oct 15 |
+| **Wells Fargo** | Customer Service Representative - Business Service | Taguig City, Philippines | [Apply](https://wf.wd1.myworkdayjobs.com/en-US/WellsFargoJobs/job/Taguig-City-Philippines/Customer-Service-Representative---Business-Service_R-558446) | Oct 15 |
 | **Aprio** | Aprio PH - Sales Tax Associate | Makati City, Metro Manila; Clark, Pampanga | [Apply](https://jobs.lever.co/Aprio/35799147-8afe-4dbf-aae0-2f7642b8051e) | Oct 15 |
 | **Analog Devices** | Associate PM, Project / Program Management (Admin) | Philippines, Cavite, GTC | [Apply](https://analogdevices.wd1.myworkdayjobs.com/en-US/External/job/Philippines-Cavite-GTC/Associate-PM--Project---Program-Management--Admin-_R266513) | Oct 15 |
+| **NCR Voyix** | L1 Support | CEBU CITY, PHL | [Apply](https://ncr.wd1.myworkdayjobs.com/en-US/ext_apac/job/CEBU-CITY-PHL/L1-Support_JR2610106) | Oct 15 |
 | **RELX** | Accounting Analyst I | Manila | [Apply](https://relx.wd3.myworkdayjobs.com/en-US/relx/job/Manila/Accounting-Analyst-I_R119733) | Oct 15 |
 | **Unisys** | Civil Registry Associate | Cabanatuan City, Philippines | [Apply](https://unisys.wd5.myworkdayjobs.com/en-US/External/job/Cabanatuan-City-Philippines/Civil-Registry-Associate_REQ576294) | Oct 15 |
-| **NCR Voyix** | L1 Support | CEBU CITY, PHL | [Apply](https://ncr.wd1.myworkdayjobs.com/en-US/ext_apac/job/CEBU-CITY-PHL/L1-Support_JR2610106) | Oct 15 |
-| **Unisys** | Associate Tech Service Desk | Citynet - Mandaluyong City | [Apply](https://unisys.wd5.myworkdayjobs.com/en-US/External/job/Citynet---Mandaluyong-City/Associate-Tech-Service-Desk_REQ576216) | Oct 15 |
 | **NCR Voyix** | L1 Support | CEBU CITY, PHL | [Apply](https://ncr.wd1.myworkdayjobs.com/en-US/ext_apac/job/CEBU-CITY-PHL/L1-Support_JR2610107) | Oct 15 |
-| **Pilmico** | Territory Business Manager (OPEN TO FRESH GRADS!!) | SOCCSKSARGEN, N/A, Philippines | [Apply](https://jobs.smartrecruiters.com/PilmicoFoodsCorporation/744000155626209) | Oct 14 |
+| **Unisys** | Associate Tech Service Desk | Citynet - Mandaluyong City | [Apply](https://unisys.wd5.myworkdayjobs.com/en-US/External/job/Citynet---Mandaluyong-City/Associate-Tech-Service-Desk_REQ576216) | Oct 15 |
+| **NCR Voyix** | L1 Support | CEBU CITY, PHL | [Apply](https://ncr.wd1.myworkdayjobs.com/en-US/ext_apac/job/CEBU-CITY-PHL/L1-Support_JR2610105-1) | Oct 15 |
 | **SGS** | Customer Service Junior (Pharma and Sales experience) | Muntinlupa, NCR, Philippines | [Apply](https://jobs.smartrecruiters.com/SGS/744000155408819) | Oct 14 |
 | **Accenture** | DE033867-Recruiting Associate | Philippines | [Apply](https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Mandaluyong/DE033867-Recruiting-Associate_CXO-133673-S80771-1) | Oct 14 |
 | **Analog Devices** | Associate Specialist, New Product Logistics | Philippines, Cavite, GTC | [Apply](https://analogdevices.wd1.myworkdayjobs.com/en-US/External/job/Philippines-Cavite-GTC/Associate-Specialist--New-Product-Logistics_R267217) | Oct 14 |
@@ -79,34 +93,27 @@ company's own application page. The data refreshes once a day.
 | **ISS** | Junior Data Analyst, Global Meeting Services - Americas | Makati City, Philippines | [Apply](https://issgovernance.wd1.myworkdayjobs.com/en-US/ISScareers/job/Makati-City-Philippines/Junior-Data-Analyst--Global-Meeting-Services---Americas_JR_10458) | Oct 14 |
 | **RELX** | Audit & Risk Mgmt Analyst I | Manila | [Apply](https://relx.wd3.myworkdayjobs.com/en-US/relx/job/Manila/Audit---Risk-Mgmt-Analyst-I_R119469) | Oct 14 |
 | **Angkas** | Field Admin Associate | Makati City, Philippines | [Apply](https://apply.workable.com/j/85D56F0001) | Oct 14 |
-| **NCR Voyix** | L1 Support | CEBU CITY, PHL | [Apply](https://ncr.wd1.myworkdayjobs.com/en-US/ext_apac/job/CEBU-CITY-PHL/L1-Support_JR2610105-1) | Oct 15 |
 | **Concentrix** | Associate, Operations Reporting | PHL Bacolod City - Two Sanparq | [Apply](https://cnx.wd1.myworkdayjobs.com/en-US/external_global/job/PHL-Bacolod-City---Two-Sanparq/Associate--Operations-Reporting_R1770881) | Oct 14 |
 | **Pilmico** | Meat Production Crew - Butcher | Concepcion, Central Luzon, Philippines | [Apply](https://jobs.smartrecruiters.com/PilmicoFoodsCorporation/744000155180031) | Oct 13 |
-| **Analog Devices** | Associate Planner, Production Planning | Philippines, Cavite (jp) | [Apply](https://analogdevices.wd1.myworkdayjobs.com/en-US/External/job/Philippines-Cavite-jp/Associate-Planner--Production-Planning_R265678) | Oct 13 |
 | **Genpact** | Associate - Customer Care - Voice 5A | 1901-G-Php: Plaza, Alabang, Philippines | [Apply](https://genpact.wd108.myworkdayjobs.com/en-US/External_Careers/job/1901-G-Php-Plaza-Alabang-Philippines/Associate---Customer-Care---Voice-5A_JR10025206-1) | Oct 13 |
 | **Jollibee Foods Corporation** | Management Trainee - Mahabang Parang Angono, Rizal | Angono, Rizal, Philippines | [Apply](https://www.careers-page.com/jollibee-foods-corporation/job/8XRY936V) | Oct 13 |
 | **PwC** | Finance Associate | Pasig - 4th Floor JMT Corporate Condominium | [Apply](https://pwc.wd3.myworkdayjobs.com/en-US/Global_Experienced_Careers/job/Pasig---4th-Floor-JMT-Corporate-Condominium/Finance-Associate_766599WD) | Oct 13 |
 | **RELX** | Technical Support Representative I | Philippines | [Apply](https://relx.wd3.myworkdayjobs.com/en-US/relx/job/Manila/Technical-Support-Representative-I_R116016) | Oct 13 |
-| **Unisys** | Civil Registry Associate | Philippines | [Apply](https://unisys.wd5.myworkdayjobs.com/en-US/External/job/PSA-Abra/Civil-Registry-Associate_REQ576326) | Oct 13 |
+| **Unisys** | Civil Registry Associate | Cabanatuan City, Philippines | [Apply](https://unisys.wd5.myworkdayjobs.com/en-US/External/job/Cabanatuan-City-Philippines/Civil-Registry-Associate_REQ576303) | Oct 13 |
 | **Wells Fargo** | Customer Service Representative | Taguig City, Philippines | [Apply](https://wf.wd1.myworkdayjobs.com/en-US/WellsFargoJobs/job/Taguig-City-Philippines/Customer-Service-Representative_R-581160) | Oct 13 |
 | **Angkas** | Driver Operations Associate | Cebu City, Philippines | [Apply](https://apply.workable.com/j/957F37FD8A) | Oct 13 |
 | **Jollibee Foods Corporation** | Management Trainee - Getha, Tarlac | Tarlac City, Central Luzon, Philippines | [Apply](https://www.careers-page.com/jollibee-foods-corporation/job/5W7V9YX3) | Oct 13 |
-| **Unisys** | Civil Registry Associate | Cabanatuan City, Philippines | [Apply](https://unisys.wd5.myworkdayjobs.com/en-US/External/job/Cabanatuan-City-Philippines/Civil-Registry-Associate_REQ576303) | Oct 13 |
+| **Unisys** | Civil Registry Associate | San Pablo, Philippines | [Apply](https://unisys.wd5.myworkdayjobs.com/en-US/External/job/San-Pablo-Philippines/Civil-Registry-Associate_REQ576272) | Oct 13 |
 | **Wells Fargo** | Customer Service Representative - Fresh Graduates | Taguig City, Philippines | [Apply](https://wf.wd1.myworkdayjobs.com/en-US/WellsFargoJobs/job/Taguig-City-Philippines/Customer-Service-Representative---Fresh-Graduates_R-581192) | Oct 13 |
 | **Jollibee Foods Corporation** | Management Trainee - Malolos, Bulacan | Malolos, Bulacan, Philippines | [Apply](https://www.careers-page.com/jollibee-foods-corporation/job/3W756RYV) | Oct 13 |
-| **Unisys** | Civil Registry Associate | San Pablo, Philippines | [Apply](https://unisys.wd5.myworkdayjobs.com/en-US/External/job/San-Pablo-Philippines/Civil-Registry-Associate_REQ576272) | Oct 13 |
-| **Wells Fargo** | Customer Service Representative (Phone Banker) | Taguig City, Philippines | [Apply](https://wf.wd1.myworkdayjobs.com/en-US/WellsFargoJobs/job/Taguig-City-Philippines/Customer-Service-Representative--Phone-Banker-_R-581157) | Oct 13 |
 | **Unisys** | Civil Registry Associate | Baguio City, Philippines | [Apply](https://unisys.wd5.myworkdayjobs.com/en-US/External/job/Baguio-City-Philippines/Civil-Registry-Associate_REQ576291) | Oct 13 |
-| **Wells Fargo** | Customer Service Representative - Financial Services | Taguig City, Philippines | [Apply](https://wf.wd1.myworkdayjobs.com/en-US/WellsFargoJobs/job/Taguig-City-Philippines/Customer-Service-Representative---Financial-Services_R-581159) | Oct 13 |
+| **Wells Fargo** | Customer Service Representative (Phone Banker) | Taguig City, Philippines | [Apply](https://wf.wd1.myworkdayjobs.com/en-US/WellsFargoJobs/job/Taguig-City-Philippines/Customer-Service-Representative--Phone-Banker-_R-581157) | Oct 13 |
 | **AECOM** | Specialist I, P&T, Payroll (Middle East) | City of Taguig, BONIFACIO STOPOVER, Philippines | [Apply](https://jobs.smartrecruiters.com/AECOM2/744000155059060) | Oct 12 |
 | **IKEA Philippines** | Cashier (Part-Time), IKEA Pasay City | Pasay City, NCR, Philippines | [Apply](https://jobs.smartrecruiters.com/IkanoRetail/744000154913696) | Oct 12 |
 | **3M** | Customer Service Representative (Italian) | PH, Taguig | [Apply](https://3m.wd1.myworkdayjobs.com/en-US/Search/job/PH-Taguig/Customer-Service-Representative--Italian-_R01172304) | Oct 12 |
 | **Jollibee Foods Corporation** | Management Trainee - Marikina Bayan | Marikina, NCR, Philippines | [Apply](https://www.careers-page.com/jollibee-foods-corporation/job/638WXRXW) | Oct 12 |
-| **Wells Fargo** | Customer Service Representative - Fresh Graduates | Taguig City, Philippines | [Apply](https://wf.wd1.myworkdayjobs.com/en-US/WellsFargoJobs/job/Taguig-City-Philippines/Customer-Service-Representative---Fresh-Graduates_R-581158) | Oct 13 |
 | **AECOM** | Analyst I, R2R, Intercompany | City of Taguig, BONIFACIO STOPOVER, Philippines | [Apply](https://jobs.smartrecruiters.com/AECOM2/744000154926799) | Oct 12 |
 | **3M** | Customer Service Representative (Dutch) | PH, Taguig | [Apply](https://3m.wd1.myworkdayjobs.com/en-US/Search/job/PH-Taguig/Customer-Service-Representative--Dutch-_R01172308) | Oct 12 |
-| **Wells Fargo** | Associate Fraud & Claims Operations Representative | Taguig City, Philippines | [Apply](https://wf.wd1.myworkdayjobs.com/en-US/WellsFargoJobs/job/Taguig-City-Philippines/Associate-Fraud---Claims-Operations-Representative_R-581182) | Oct 13 |
-| **Wells Fargo** | Customer Service Representative | Taguig City, Philippines | [Apply](https://wf.wd1.myworkdayjobs.com/en-US/WellsFargoJobs/job/Taguig-City-Philippines/Customer-Service-Representative_R-581153-3) | Oct 13 |
 | **3M** | Customer Service Representative | PH, Taguig | [Apply](https://3m.wd1.myworkdayjobs.com/en-US/Search/job/PH-Taguig/Customer-Service-Representative_R01172301) | Oct 10 |
 | **Analog Devices** | Finance Intern | Philippines, Cavite (jp) | [Apply](https://analogdevices.wd1.myworkdayjobs.com/en-US/External/job/Philippines-Cavite-jp/Finance-Intern_R265632) | Oct 10 |
 | **Concentrix** | Technical I, Global Service Desk | PHL Makati City - SLC | [Apply](https://cnx.wd1.myworkdayjobs.com/en-US/external_global/job/PHL-Makati-City---SLC/Technical-I--Global-Service-Desk_R1765913) | Oct 10 |
@@ -152,6 +159,7 @@ company's own application page. The data refreshes once a day.
 | **Abbott** | Technical Support Associate | Philippines - Taguig City | [Apply](https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/Philippines---Taguig-City/Technical-Support-Associate_31164042) | Oct 7 |
 | **Accenture** | Customer Service New Assoc - Ilocos | Philippines | [Apply](https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/San-Nicolas/Customer-Service-New-Assoc---Ilocos_R00362417) | Oct 7 |
 | **Manulife** | Financial Sales Associate | Philippines | [Apply](https://manulife.wd3.myworkdayjobs.com/en-US/MFCJH_Jobs/job/Antipolo-Manulife-Chinabank-Life-Assuance-Corporation-MCBL/Financial-Sales-Associate_JR26100054-1) | Oct 7 |
+| **NCR Voyix** | Manual Tester I | CEBU CITY, PHL | [Apply](https://ncr.wd1.myworkdayjobs.com/en-US/ext_apac/job/CEBU-CITY-PHL/Manual-Tester-I_R0158709-2) | Oct 7 |
 | **Pax8** | ServiceNow Developer I | Philippines | [Apply](https://pax8inc.wd12.myworkdayjobs.com/en-US/Pax8Careers/job/Philippines/ServiceNow-Developer-I_R-102388) | Oct 7 |
 | **RELX** | Technical Support Representative I | Philippines | [Apply](https://relx.wd3.myworkdayjobs.com/en-US/relx/job/Manila/Technical-Customer-Support-Coordinator-I_R119050) | Oct 7 |
 | **Abbott** | Technical Support Associate | Philippines - Taguig City | [Apply](https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/Philippines---Taguig-City/Technical-Support-Associate_31164043) | Oct 7 |
@@ -196,6 +204,7 @@ company's own application page. The data refreshes once a day.
 | **RingCentral** | Sales Development Representative - AU Market | Manila, Philippines | [Apply](https://ringcentral.wd1.myworkdayjobs.com/en-US/RingCentral_Careers/job/Manila-Philippines/Sales-Development-Representative---AU-Market_R078623) | Oct 2 |
 | **Analog Devices** | Associate Analyst, Supply Chain Planning | Philippines, Cavite, GTC | [Apply](https://analogdevices.wd1.myworkdayjobs.com/en-US/External/job/Philippines-Cavite-GTC/Associate-Analyst--Supply-Chain-Planning_R266568) | Oct 2 |
 | **Analog Devices** | Associate Engineer, Failure Analysis Engineering | Philippines, Cavite, GTC | [Apply](https://analogdevices.wd1.myworkdayjobs.com/en-US/External/job/Philippines-Cavite-GTC/Associate-Engineer--Failure-Analysis-Engineering_R265983) | Oct 2 |
+| **Analog Devices** | Associate Engineer, Failure Analysis Engineering | Philippines, Cavite, GTC | [Apply](https://analogdevices.wd1.myworkdayjobs.com/en-US/External/job/Philippines-Cavite-GTC/Associate-Engineer--Failure-Analysis-Engineering_R265951) | Oct 2 |
 | **HelloFresh** | [HELLOCONNECT] People Shared Services Associate | Manila, Manila, Philippines | [Apply](https://careers.hellofresh.com/global/en/job/8245412?gh_jid=8245412) | Oct 1 |
 | **FWD Insurance** | Associate Communications Manager | Philippines - BGC Taguig | [Apply](https://fwd.wd3.myworkdayjobs.com/en-US/FWDcareersite/job/Philippines---BGC-Taguig/Associate-Communications-Manager_JR-0026701) | Oct 1 |
 | **ISS** | Junior Analyst - Mutual Fund Fee & Expense (Open to Fresh Graduates) | Makati City, Philippines | [Apply](https://issgovernance.wd1.myworkdayjobs.com/en-US/ISScareers/job/Makati-City-Philippines/Junior-Analyst---Mutual-Fund-Fee---Expense--Open-to-Fresh-Graduates-_JR_10039) | Oct 1 |
@@ -218,15 +227,6 @@ company's own application page. The data refreshes once a day.
 | **Aprio** | Aprio PH - Human Resources Associate | Clark, Pampanga | [Apply](https://jobs.lever.co/Aprio/249a7f74-1f5b-432f-95fc-c40f67ff8718) | Sep 29 |
 | **Pilmico** | Sales Support (Pooling - Open for Fresh Graduates!) | Concepcion, Central Luzon, Philippines | [Apply](https://jobs.smartrecruiters.com/PilmicoFoodsCorporation/744000152318389) | Sep 29 |
 | **SGS** | I-Procurement Purchase Assistant (with Oracle I-proc exp) | Muntinlupa, NCR, Philippines | [Apply](https://jobs.smartrecruiters.com/SGS/744000152316849) | Sep 29 |
-| **Allegro MicroSystems** | Site MPE Intern | Paranaque City, National Capital Region (Manila), Philippines | [Apply](https://allegromicro.wd5.myworkdayjobs.com/en-US/AllegroCareers/job/Paranaque-City-National-Capital-Region-Manila-Philippines/Site-MPE-Intern_R6810) | Sep 29 |
-| **Austal Philippines** | Junior Mechanical Engineer | Balamban, Cebu, Philippines | [Apply](https://www.careers-page.com/austal-philippines/job/3W84R56V) | Sep 29 |
-| **Cushman & Wakefield** | Junior People Services Advisor, North America | Taguig, Philippines | [Apply](https://cw.wd1.myworkdayjobs.com/en-US/External/job/Taguig-Philippines/Junior-People-Services-Advisor--North-America_R338321) | Sep 29 |
-| **ING** | CPS Learning Admin Junior Specialist | Manila (One Ayala Tower 2) | [Apply](https://ing.wd3.myworkdayjobs.com/en-US/ICSGBLCOR/job/Manila-One-Ayala-Tower-2/CPS-Learning-Admin-Junior-Specialist_REQ-10121173-1) | Sep 29 |
-| **IQVIA** | Client Services Rep 1 | Taguig City, Philippines | [Apply](https://iqvia.wd1.myworkdayjobs.com/en-US/IQVIA/job/Taguig-City-Philippines/Client-Services-Rep-1_R1570754) | Sep 29 |
-| **MR DIY Philippines** | Store Cashier - Tipolo Mandaue Cebu-FS | Mandaue City, Cebu, Philippines | [Apply](https://www.careers-page.com/mr-diy-philippines/job/Y68Y3V65) | Sep 29 |
-| **Accenture** | DE033483-Customer Service Associate | Philippines | [Apply](https://accenture.wd103.myworkdayjobs.com/en-US/AccentureCareers/job/Quezon/DE033483-Customer-Service-Associate_CXO-133369-S78903-1) | Sep 30 |
-| **Aprio** | Aprio PH - Human Resources Associate | Makati City, Metro Manila | [Apply](https://jobs.lever.co/Aprio/52476a96-1218-4386-b2cb-13f51d195d27) | Sep 29 |
-| **IQVIA** | Database Support Analyst 1 | Taguig City, Philippines | [Apply](https://iqvia.wd1.myworkdayjobs.com/en-US/IQVIA/job/Taguig-City-Philippines/Database-Support-Analyst-1_R1570675) | Sep 29 |
 
 ---
 
