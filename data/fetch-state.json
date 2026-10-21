@@ -1,10 +1,11 @@
 {
   "version": 1,
   "deadSlugStreaks": {
-    "greenhouse:remotecom": 5
+    "greenhouse:remotecom": 6
   },
   "blocked": {
     "workday:telusinternational.wd3/External": "2026-07-29: robots.txt returned HTTP 403 — treating as a block (§17.1.1)",
-    "workday:salesforce.wd12/External_Career_Site": "2026-10-18: HTTP 429 — permanent stop (§17.1.2)"
+    "workday:salesforce.wd12/External_Career_Site": "2026-10-18: HTTP 429 — permanent stop (§17.1.2)",
+    "workday:accenture.wd103/AccentureCareers": "2026-10-21: HTTP 429 — permanent stop (§17.1.2)"
   }
 }
