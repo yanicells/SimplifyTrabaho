@@ -11,7 +11,7 @@ A free, auto-updated list of jobs at Philippine companies, covering all roles an
 Internships and entry-level roles are featured below. It's the PH counterpart of
 [SimplifyJobs/Summer2026-Internships](https://github.com/SimplifyJobs/Summer2026-Internships).
 
-**14,913 active listings from 327 companies** · updated 2026-10-24 23:50 UTC · [Browse and filter everything at simplifytrabaho.ycells.com](https://simplifytrabaho.ycells.com) · [How the listings get here](docs/PIPELINE.md)
+**14,907 active listings from 327 companies** · updated 2026-10-25 23:40 UTC · [Browse and filter everything at simplifytrabaho.ycells.com](https://simplifytrabaho.ycells.com) · [How the listings get here](docs/PIPELINE.md)
 
 ## Where the listings come from
 
@@ -27,6 +27,8 @@ company's own application page. The data refreshes once a day.
 
 | Company | Role | Location | Apply | Posted |
 | --- | --- | --- | --- | --- |
+| **SGS** | Payroll Associate | Makati, NCR, Philippines | [Apply](https://jobs.smartrecruiters.com/SGS/744000157681909) | Oct 25 |
+| **IKEA Philippines** | Sales Associate (Part-Time), IKEA Pasay City | Pasay City, NCR, Philippines | [Apply](https://jobs.smartrecruiters.com/IkanoRetail/744000157637452) | Oct 25 |
 | **Analog Devices** | Associate Engineer, Product Engineering (Mfg.) | Philippines, Cavite (jp) | [Apply](https://analogdevices.wd1.myworkdayjobs.com/en-US/External/job/Philippines-Cavite-jp/Associate-Engineer--Product-Engineering--Mfg-_R267150) | Oct 24 |
 | **NCR Voyix** | L1 Support | CEBU CITY, PHL | [Apply](https://ncr.wd1.myworkdayjobs.com/en-US/ext_apac/job/CEBU-CITY-PHL/L1-Support_JR2610113) | Oct 24 |
 | **Unisys** | Civil Registry Associate | San Pablo, Philippines | [Apply](https://unisys.wd5.myworkdayjobs.com/en-US/External/job/San-Pablo-Philippines/Civil-Registry-Associate_REQ576271) | Oct 24 |
@@ -84,7 +86,6 @@ company's own application page. The data refreshes once a day.
 | **Lalamove** | Sales Associate (Automotive) | Parañaque, Metro Manila | [Apply](https://jobs.lever.co/lalamove/84b51706-a458-4dd6-b0c8-42a459292805) | Oct 20 |
 | **Delivery Hero** | Associate, AP Service Delivery (Direct) | Taguig, Philippines | [Apply](https://jobs.smartrecruiters.com/DeliveryHero/744000156455939) | Oct 20 |
 | **Axos** | Jr. QA Engineer | Manila, Philippines | [Apply](https://axos.wd5.myworkdayjobs.com/en-US/Axos/job/Manila-Philippines/Jr-QA-Engineer_JR5678) | Oct 20 |
-| **Concentrix** | Accountant I | PHL NCR QC Work-at-Home | [Apply](https://cnx.wd1.myworkdayjobs.com/en-US/external_global/job/PHL-NCR-QC-Work-at-Home/Accountant-I_R1760965-1) | Oct 20 |
 | **ISS** | Junior Data Analyst, Global Proxy Distribution - Asia Pacific | Makati City, Philippines | [Apply](https://issgovernance.wd1.myworkdayjobs.com/en-US/ISScareers/job/Makati-City-Philippines/Junior-Data-Analyst---Global-Proxy-Distribution--GPD-_JR_10510) | Oct 20 |
 | **Johnson & Johnson** | Accountant 1, Global Intercompany | Taguig, National Capital Region (Manila), Philippines | [Apply](https://jj.wd5.myworkdayjobs.com/en-US/JJ/job/Taguig-National-Capital-Region-Manila-Philippines/Accountant-1--Global-Intercompany_R-103530) | Oct 20 |
 | **RELX** | Visual Designer I | Manila | [Apply](https://relx.wd3.myworkdayjobs.com/en-US/relx/job/Manila/Visual-Designer-I_R119848) | Oct 20 |
@@ -151,7 +152,6 @@ company's own application page. The data refreshes once a day.
 | **Wells Fargo** | Customer Service Representative (Phone Banker) | Taguig City, Philippines | [Apply](https://wf.wd1.myworkdayjobs.com/en-US/WellsFargoJobs/job/Taguig-City-Philippines/Customer-Service-Representative--Phone-Banker-_R-581157) | Oct 13 |
 | **Wells Fargo** | Customer Service Representative - Financial Services | Taguig City, Philippines | [Apply](https://wf.wd1.myworkdayjobs.com/en-US/WellsFargoJobs/job/Taguig-City-Philippines/Customer-Service-Representative---Financial-Services_R-581159) | Oct 13 |
 | **AECOM** | Specialist I, P&T, Payroll (Middle East) | City of Taguig, BONIFACIO STOPOVER, Philippines | [Apply](https://jobs.smartrecruiters.com/AECOM2/744000155059060) | Oct 12 |
-| **IKEA Philippines** | Cashier (Part-Time), IKEA Pasay City | Pasay City, NCR, Philippines | [Apply](https://jobs.smartrecruiters.com/IkanoRetail/744000154913696) | Oct 12 |
 | **3M** | Customer Service Representative (Italian) | PH, Taguig | [Apply](https://3m.wd1.myworkdayjobs.com/en-US/Search/job/PH-Taguig/Customer-Service-Representative--Italian-_R01172304) | Oct 12 |
 | **Jollibee Foods Corporation** | Management Trainee - Marikina Bayan | Marikina, NCR, Philippines | [Apply](https://www.careers-page.com/jollibee-foods-corporation/job/638WXRXW) | Oct 12 |
 | **Wells Fargo** | Customer Service Representative - Fresh Graduates | Taguig City, Philippines | [Apply](https://wf.wd1.myworkdayjobs.com/en-US/WellsFargoJobs/job/Taguig-City-Philippines/Customer-Service-Representative---Fresh-Graduates_R-581158) | Oct 13 |
