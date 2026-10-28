@@ -1,7 +1,8 @@
 {
   "version": 1,
   "deadSlugStreaks": {
-    "greenhouse:remotecom": 12
+    "greenhouse:remotecom": 13,
+    "ashby:va4u": 1
   },
   "blocked": {
     "workday:telusinternational.wd3/External": "2026-07-29: robots.txt returned HTTP 403 — treating as a block (§17.1.1)",
