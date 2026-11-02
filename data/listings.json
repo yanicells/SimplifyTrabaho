@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "updatedAt": "2026-11-01T00:32:09.366Z",
+  "updatedAt": "2026-11-02T01:06:09.692Z",
   "listings": [
     {
       "id": "16e8a85575e0",
@@ -1058,6 +1058,29 @@
       "salary": null,
       "datePosted": "2024-05-16T18:59:11.000Z",
       "dateUpdated": "2026-09-15T00:03:49.352Z",
+      "active": true
+    },
+    {
+      "id": "4beae24cee85",
+      "company": "3M",
+      "title": "Global Logistics Team Leader",
+      "locations": [
+        "PH, Taguig"
+      ],
+      "workSetup": "unknown",
+      "level": "senior",
+      "function": "operations",
+      "industry": "manufacturing",
+      "companyType": "direct",
+      "metro": [
+        "ncr"
+      ],
+      "url": "https://3m.wd1.myworkdayjobs.com/en-US/Search/job/PH-Taguig/Global-Logistics-Team-Leader_R01172299",
+      "source": "workday",
+      "employmentType": "unknown",
+      "salary": null,
+      "datePosted": "2026-11-02T01:06:09.692Z",
+      "dateUpdated": "2026-11-02T01:06:09.692Z",
       "active": true
     },
     {
@@ -61466,8 +61489,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-07-30T22:55:18.949Z",
-      "dateUpdated": "2026-09-27T00:00:17.413Z",
-      "active": true
+      "dateUpdated": "2026-11-02T01:06:09.692Z",
+      "active": false
     },
     {
       "id": "9bcaccc4046b",
@@ -62708,8 +62731,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-07-06T14:19:26.364Z",
-      "dateUpdated": "2026-09-27T00:00:17.413Z",
-      "active": true
+      "dateUpdated": "2026-11-02T01:06:09.692Z",
+      "active": false
     },
     {
       "id": "280836bdfa58",
@@ -72744,8 +72767,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-10-15T00:10:41.955Z",
-      "dateUpdated": "2026-10-15T00:10:41.955Z",
-      "active": true
+      "dateUpdated": "2026-11-02T01:06:09.692Z",
+      "active": false
     },
     {
       "id": "b237887ebbd9",
@@ -147174,8 +147197,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-10-06T00:00:00.000Z",
-      "dateUpdated": "2026-10-25T23:40:02.981Z",
-      "active": false
+      "dateUpdated": "2026-11-02T01:06:09.692Z",
+      "active": true
     },
     {
       "id": "e98ad306e912",
@@ -227060,8 +227083,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-10-30T00:00:00.000Z",
-      "dateUpdated": "2026-10-31T01:11:29.452Z",
-      "active": true
+      "dateUpdated": "2026-11-02T01:06:09.692Z",
+      "active": false
     },
     {
       "id": "e292f0dfa1cf",
@@ -227129,8 +227152,8 @@
       "employmentType": "contract",
       "salary": null,
       "datePosted": "2026-10-29T00:00:00.000Z",
-      "dateUpdated": "2026-10-30T01:25:01.971Z",
-      "active": true
+      "dateUpdated": "2026-11-02T01:06:09.692Z",
+      "active": false
     },
     {
       "id": "539e7dd03c84",
@@ -242819,6 +242842,29 @@
       "active": false
     },
     {
+      "id": "ae81849494c2",
+      "company": "IKEA Philippines",
+      "title": "IKEA Food Assistant (Restaurant), Part-Time, Pasay City",
+      "locations": [
+        "Pasay City, NCR, Philippines"
+      ],
+      "workSetup": "onsite",
+      "level": "unknown",
+      "function": "hospitality",
+      "industry": "retail",
+      "companyType": "direct",
+      "metro": [
+        "ncr"
+      ],
+      "url": "https://jobs.smartrecruiters.com/IkanoRetail/744000158907336",
+      "source": "smartrecruiters",
+      "employmentType": "part-time",
+      "salary": null,
+      "datePosted": "2026-11-01T00:35:11.093Z",
+      "dateUpdated": "2026-11-02T01:06:09.692Z",
+      "active": true
+    },
+    {
       "id": "7c3c0f387e96",
       "company": "IKEA Philippines",
       "title": "Finance Specialist (Accounts Receivable) (6 months contract)",
@@ -243827,8 +243873,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-10-29T01:21:29.067Z",
-      "dateUpdated": "2026-10-29T01:21:29.067Z",
-      "active": true
+      "dateUpdated": "2026-11-02T01:06:09.692Z",
+      "active": false
     },
     {
       "id": "e9f82928e655",
@@ -246081,8 +246127,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-09-27T00:00:17.413Z",
-      "dateUpdated": "2026-09-27T00:00:17.413Z",
-      "active": true
+      "dateUpdated": "2026-11-02T01:06:09.692Z",
+      "active": false
     },
     {
       "id": "48f3eb0b2e64",
@@ -263490,8 +263536,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-10-09T00:00:00.000Z",
-      "dateUpdated": "2026-10-10T01:22:56.884Z",
-      "active": true
+      "dateUpdated": "2026-11-02T01:06:09.692Z",
+      "active": false
     },
     {
       "id": "d38ec4d63982",
@@ -264663,8 +264709,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-09-10T00:00:00.000Z",
-      "dateUpdated": "2026-10-13T02:45:31.607Z",
-      "active": true
+      "dateUpdated": "2026-11-02T01:06:09.692Z",
+      "active": false
     },
     {
       "id": "03b1bd460cac",
@@ -269677,8 +269723,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-10-03T00:48:20.643Z",
-      "dateUpdated": "2026-10-03T00:48:20.643Z",
-      "active": true
+      "dateUpdated": "2026-11-02T01:06:09.692Z",
+      "active": false
     },
     {
       "id": "495ac15e2982",
@@ -269700,8 +269746,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-10-03T00:48:20.643Z",
-      "dateUpdated": "2026-10-03T00:48:20.643Z",
-      "active": true
+      "dateUpdated": "2026-11-02T01:06:09.692Z",
+      "active": false
     },
     {
       "id": "8d14b5131e66",
@@ -269907,8 +269953,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-10-02T01:11:03.632Z",
-      "dateUpdated": "2026-10-02T01:11:03.632Z",
-      "active": true
+      "dateUpdated": "2026-11-02T01:06:09.692Z",
+      "active": false
     },
     {
       "id": "765985a16dea",
@@ -271494,8 +271540,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-09-27T00:00:17.413Z",
-      "dateUpdated": "2026-10-27T00:58:48.665Z",
-      "active": true
+      "dateUpdated": "2026-11-02T01:06:09.692Z",
+      "active": false
     },
     {
       "id": "7ffc99332894",
@@ -276736,8 +276782,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-08-11T22:30:36.743Z",
-      "dateUpdated": "2026-10-23T00:14:21.467Z",
-      "active": true
+      "dateUpdated": "2026-11-02T01:06:09.692Z",
+      "active": false
     },
     {
       "id": "38a89333e609",
@@ -305805,8 +305851,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-10-06T01:58:17.971Z",
-      "dateUpdated": "2026-10-06T01:58:17.971Z",
-      "active": true
+      "dateUpdated": "2026-11-02T01:06:09.692Z",
+      "active": false
     },
     {
       "id": "b723e5eb56b2",
@@ -315074,8 +315120,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-07-06T06:26:42.064Z",
-      "dateUpdated": "2026-09-30T00:51:00.884Z",
-      "active": true
+      "dateUpdated": "2026-11-02T01:06:09.692Z",
+      "active": false
     },
     {
       "id": "50783454a6c4",
@@ -381665,6 +381711,29 @@
       "active": true
     },
     {
+      "id": "43b6ab097264",
+      "company": "Octal Philippines",
+      "title": "Senior Team Lead - SaaS Support",
+      "locations": [
+        "Manila City, Philippines"
+      ],
+      "workSetup": "unknown",
+      "level": "senior",
+      "function": "customer-support",
+      "industry": "it-services",
+      "companyType": "agency",
+      "metro": [
+        "ncr"
+      ],
+      "url": "https://apply.workable.com/j/0B151BA895",
+      "source": "workable",
+      "employmentType": "full-time",
+      "salary": null,
+      "datePosted": "2026-11-01T00:00:00.000Z",
+      "dateUpdated": "2026-11-02T01:06:09.692Z",
+      "active": true
+    },
+    {
       "id": "22c038eb6699",
       "company": "Octal Philippines",
       "title": "IT Project Manager",
@@ -443683,6 +443752,29 @@
       "active": false
     },
     {
+      "id": "39de57cdb036",
+      "company": "Satellite Office",
+      "title": "Support Engineer (L2) - ERP (for HRIS/Payroll)",
+      "locations": [
+        "Pasig, Philippines"
+      ],
+      "workSetup": "onsite",
+      "level": "mid",
+      "function": "engineering",
+      "industry": "outsourcing",
+      "companyType": "agency",
+      "metro": [
+        "ncr"
+      ],
+      "url": "https://satelliteoffice-1742766257.teamtailor.com/jobs/8647604-support-engineer-l2-erp-for-hris-payroll",
+      "source": "teamtailor",
+      "employmentType": "unknown",
+      "salary": null,
+      "datePosted": "2026-11-02T00:58:34.000Z",
+      "dateUpdated": "2026-11-02T01:06:09.692Z",
+      "active": true
+    },
+    {
       "id": "67e0b5a1e76b",
       "company": "Satellite Office",
       "title": "L1 Service Desk Agent",
@@ -446071,8 +446163,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-09-18T06:22:32.000Z",
-      "dateUpdated": "2026-09-27T00:00:17.413Z",
-      "active": true
+      "dateUpdated": "2026-11-02T01:06:09.692Z",
+      "active": false
     },
     {
       "id": "d3fc76d85aa6",
@@ -478413,8 +478505,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-09-16T05:15:05.249Z",
-      "dateUpdated": "2026-10-12T00:48:27.944Z",
-      "active": false
+      "dateUpdated": "2026-11-02T01:06:09.692Z",
+      "active": true
     },
     {
       "id": "9edacd731a38",
@@ -545707,8 +545799,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-10-03T00:48:20.643Z",
-      "dateUpdated": "2026-10-03T00:48:20.643Z",
-      "active": true
+      "dateUpdated": "2026-11-02T01:06:09.692Z",
+      "active": false
     },
     {
       "id": "b7314cfaac33",
@@ -545983,8 +546075,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-09-27T00:00:17.413Z",
-      "dateUpdated": "2026-10-03T00:48:20.643Z",
-      "active": true
+      "dateUpdated": "2026-11-02T01:06:09.692Z",
+      "active": false
     },
     {
       "id": "2e39b498ac26",
@@ -546604,8 +546696,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-09-27T00:00:17.413Z",
-      "dateUpdated": "2026-10-03T00:48:20.643Z",
-      "active": true
+      "dateUpdated": "2026-11-02T01:06:09.692Z",
+      "active": false
     },
     {
       "id": "abd02e83e6e0",
@@ -546788,8 +546880,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-09-27T00:00:17.413Z",
-      "dateUpdated": "2026-10-03T00:48:20.643Z",
-      "active": true
+      "dateUpdated": "2026-11-02T01:06:09.692Z",
+      "active": false
     },
     {
       "id": "d6c8b330d154",
@@ -547915,8 +548007,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-10-30T00:00:00.000Z",
-      "dateUpdated": "2026-10-31T01:11:29.452Z",
-      "active": true
+      "dateUpdated": "2026-11-02T01:06:09.692Z",
+      "active": false
     },
     {
       "id": "d6dbd0e4aa92",
@@ -553205,8 +553297,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-10-20T00:47:05.828Z",
-      "dateUpdated": "2026-10-20T00:47:05.828Z",
-      "active": true
+      "dateUpdated": "2026-11-02T01:06:09.692Z",
+      "active": false
     },
     {
       "id": "3c24711de1a7",
@@ -567796,8 +567888,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-05-08T00:00:00.000Z",
-      "dateUpdated": "2026-10-28T00:48:46.221Z",
-      "active": true
+      "dateUpdated": "2026-11-02T01:06:09.692Z",
+      "active": false
     },
     {
       "id": "d8d3905bfac7",
