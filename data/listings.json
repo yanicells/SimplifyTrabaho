@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "updatedAt": "2026-11-06T01:53:34.890Z",
+  "updatedAt": "2026-11-07T01:24:50.908Z",
   "listings": [
     {
       "id": "16e8a85575e0",
@@ -1701,8 +1701,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-10-28T00:48:46.221Z",
-      "dateUpdated": "2026-10-28T00:48:46.221Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "ccb6d9013a77",
@@ -2391,8 +2391,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-10-10T01:22:56.884Z",
-      "dateUpdated": "2026-10-10T01:22:56.884Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "530dab94424a",
@@ -3817,8 +3817,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-09-27T00:00:17.413Z",
-      "dateUpdated": "2026-09-27T00:00:17.413Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "ca41776ad31a",
@@ -4185,8 +4185,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-10-31T01:11:29.452Z",
-      "dateUpdated": "2026-10-31T01:11:29.452Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "1356d6c66a13",
@@ -4599,8 +4599,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-10-03T00:48:20.643Z",
-      "dateUpdated": "2026-10-03T00:48:20.643Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "f97543b79eb2",
@@ -5358,8 +5358,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-09-27T00:00:17.413Z",
-      "dateUpdated": "2026-09-27T00:00:17.413Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "8bbea0678246",
@@ -50093,8 +50093,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-08-03T09:03:39.441Z",
-      "dateUpdated": "2026-09-27T00:00:17.413Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "7858edb81b95",
@@ -50116,8 +50116,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-08-03T08:00:53.706Z",
-      "dateUpdated": "2026-09-27T00:00:17.413Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "942682373ccc",
@@ -50729,6 +50729,443 @@
       "active": true
     },
     {
+      "id": "83d6caf6be6e",
+      "company": "AECOM",
+      "title": "R2A Sr. Specialist – FP&A and Reporting",
+      "locations": [
+        "Taguig, NCR, Philippines"
+      ],
+      "workSetup": "hybrid",
+      "level": "senior",
+      "function": "finance",
+      "industry": "it-services",
+      "companyType": "direct",
+      "metro": [
+        "ncr"
+      ],
+      "url": "https://jobs.smartrecruiters.com/AECOM2/744000160248009",
+      "source": "smartrecruiters",
+      "employmentType": "full-time",
+      "salary": null,
+      "datePosted": "2026-11-06T16:04:20.651Z",
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": true
+    },
+    {
+      "id": "3f960a5185ab",
+      "company": "AECOM",
+      "title": "Senior Specialist, P&T, Payroll (ANZ)",
+      "locations": [
+        "Taguig, NCR, Philippines"
+      ],
+      "workSetup": "hybrid",
+      "level": "senior",
+      "function": "finance",
+      "industry": "it-services",
+      "companyType": "direct",
+      "metro": [
+        "ncr"
+      ],
+      "url": "https://jobs.smartrecruiters.com/AECOM2/744000160246560",
+      "source": "smartrecruiters",
+      "employmentType": "full-time",
+      "salary": null,
+      "datePosted": "2026-11-06T16:01:29.645Z",
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": true
+    },
+    {
+      "id": "608b62dafa6b",
+      "company": "AECOM",
+      "title": "Coordinator II, P&T, Time",
+      "locations": [
+        "Taguig, NCR, Philippines"
+      ],
+      "workSetup": "hybrid",
+      "level": "mid",
+      "function": "other",
+      "industry": "it-services",
+      "companyType": "direct",
+      "metro": [
+        "ncr"
+      ],
+      "url": "https://jobs.smartrecruiters.com/AECOM2/744000160245590",
+      "source": "smartrecruiters",
+      "employmentType": "full-time",
+      "salary": null,
+      "datePosted": "2026-11-06T15:57:52.200Z",
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": true
+    },
+    {
+      "id": "06de16d793d0",
+      "company": "AECOM",
+      "title": "Specialist I, P&T, Payroll (ANZ)",
+      "locations": [
+        "Taguig, NCR, Philippines"
+      ],
+      "workSetup": "hybrid",
+      "level": "entry",
+      "function": "finance",
+      "industry": "it-services",
+      "companyType": "direct",
+      "metro": [
+        "ncr"
+      ],
+      "url": "https://jobs.smartrecruiters.com/AECOM2/744000160244829",
+      "source": "smartrecruiters",
+      "employmentType": "full-time",
+      "salary": null,
+      "datePosted": "2026-11-06T15:51:03.011Z",
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": true
+    },
+    {
+      "id": "1379f69de3b4",
+      "company": "AECOM",
+      "title": "Analyst I, R2R, Intercompany",
+      "locations": [
+        "Taguig, NCR, Philippines"
+      ],
+      "workSetup": "hybrid",
+      "level": "entry",
+      "function": "finance",
+      "industry": "it-services",
+      "companyType": "direct",
+      "metro": [
+        "ncr"
+      ],
+      "url": "https://jobs.smartrecruiters.com/AECOM2/744000160203119",
+      "source": "smartrecruiters",
+      "employmentType": "full-time",
+      "salary": null,
+      "datePosted": "2026-11-06T13:32:44.284Z",
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": true
+    },
+    {
+      "id": "10041c4533ca",
+      "company": "AECOM",
+      "title": "Coordinator II, HR Services, Contact Center",
+      "locations": [
+        "City of Taguig, BONIFACIO STOPOVER, Philippines"
+      ],
+      "workSetup": "hybrid",
+      "level": "mid",
+      "function": "hr",
+      "industry": "it-services",
+      "companyType": "direct",
+      "metro": [
+        "ncr"
+      ],
+      "url": "https://jobs.smartrecruiters.com/AECOM2/744000160190538",
+      "source": "smartrecruiters",
+      "employmentType": "contract",
+      "salary": null,
+      "datePosted": "2026-11-06T12:41:22.782Z",
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": true
+    },
+    {
+      "id": "98736546d71b",
+      "company": "AECOM",
+      "title": "Civil Engineering II - Waste Water Modeller",
+      "locations": [
+        "Taguig, NCR, Philippines"
+      ],
+      "workSetup": "hybrid",
+      "level": "mid",
+      "function": "construction",
+      "industry": "it-services",
+      "companyType": "direct",
+      "metro": [
+        "ncr"
+      ],
+      "url": "https://jobs.smartrecruiters.com/AECOM2/744000160158859",
+      "source": "smartrecruiters",
+      "employmentType": "full-time",
+      "salary": null,
+      "datePosted": "2026-11-06T09:59:20.542Z",
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": true
+    },
+    {
+      "id": "73f11e5dfcde",
+      "company": "AECOM",
+      "title": "Civil Engineering II - Transportation Engineer",
+      "locations": [
+        "Taguig, NCR, Philippines"
+      ],
+      "workSetup": "hybrid",
+      "level": "mid",
+      "function": "construction",
+      "industry": "it-services",
+      "companyType": "direct",
+      "metro": [
+        "ncr"
+      ],
+      "url": "https://jobs.smartrecruiters.com/AECOM2/744000160154480",
+      "source": "smartrecruiters",
+      "employmentType": "full-time",
+      "salary": null,
+      "datePosted": "2026-11-06T09:43:15.817Z",
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": true
+    },
+    {
+      "id": "516d811d3802",
+      "company": "AECOM",
+      "title": "Analyst Project Controller - Cost",
+      "locations": [
+        "Taguig City, Philippines"
+      ],
+      "workSetup": "hybrid",
+      "level": "unknown",
+      "function": "finance",
+      "industry": "it-services",
+      "companyType": "direct",
+      "metro": [
+        "ncr"
+      ],
+      "url": "https://jobs.smartrecruiters.com/AECOM2/744000160141689",
+      "source": "smartrecruiters",
+      "employmentType": "full-time",
+      "salary": null,
+      "datePosted": "2026-11-06T08:45:54.775Z",
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": true
+    },
+    {
+      "id": "ddf29fc9acb0",
+      "company": "AECOM",
+      "title": "Specialist II, HR Services, HR Contact Center",
+      "locations": [
+        "Taguig, NCR, Philippines"
+      ],
+      "workSetup": "hybrid",
+      "level": "mid",
+      "function": "hr",
+      "industry": "it-services",
+      "companyType": "direct",
+      "metro": [
+        "ncr"
+      ],
+      "url": "https://jobs.smartrecruiters.com/AECOM2/744000160135270",
+      "source": "smartrecruiters",
+      "employmentType": "full-time",
+      "salary": null,
+      "datePosted": "2026-11-06T08:20:06.543Z",
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": true
+    },
+    {
+      "id": "8ecade53b385",
+      "company": "AECOM",
+      "title": "Auditor II",
+      "locations": [
+        "Taguig, NCR, Philippines"
+      ],
+      "workSetup": "hybrid",
+      "level": "mid",
+      "function": "finance",
+      "industry": "it-services",
+      "companyType": "direct",
+      "metro": [
+        "ncr"
+      ],
+      "url": "https://jobs.smartrecruiters.com/AECOM2/744000160134349",
+      "source": "smartrecruiters",
+      "employmentType": "full-time",
+      "salary": null,
+      "datePosted": "2026-11-06T08:15:03.388Z",
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": true
+    },
+    {
+      "id": "ecd5ef29e797",
+      "company": "AECOM",
+      "title": "Bids and Proposals Specialist (New Zealand)",
+      "locations": [
+        "Taguig, NCR, Philippines"
+      ],
+      "workSetup": "hybrid",
+      "level": "unknown",
+      "function": "sales",
+      "industry": "it-services",
+      "companyType": "direct",
+      "metro": [
+        "ncr"
+      ],
+      "url": "https://jobs.smartrecruiters.com/AECOM2/744000160133639",
+      "source": "smartrecruiters",
+      "employmentType": "full-time",
+      "salary": null,
+      "datePosted": "2026-11-06T08:11:00.285Z",
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": true
+    },
+    {
+      "id": "e28101c55805",
+      "company": "AECOM",
+      "title": "Accountant II, Project Accounting (East)",
+      "locations": [
+        "Taguig, NCR, Philippines"
+      ],
+      "workSetup": "hybrid",
+      "level": "mid",
+      "function": "finance",
+      "industry": "it-services",
+      "companyType": "direct",
+      "metro": [
+        "ncr"
+      ],
+      "url": "https://jobs.smartrecruiters.com/AECOM2/744000160132929",
+      "source": "smartrecruiters",
+      "employmentType": "full-time",
+      "salary": null,
+      "datePosted": "2026-11-06T08:08:39.282Z",
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": true
+    },
+    {
+      "id": "cba071b5e031",
+      "company": "AECOM",
+      "title": "Accountant II, Project Accounting (Night Shift)",
+      "locations": [
+        "Taguig, NCR, Philippines"
+      ],
+      "workSetup": "hybrid",
+      "level": "mid",
+      "function": "finance",
+      "industry": "it-services",
+      "companyType": "direct",
+      "metro": [
+        "ncr"
+      ],
+      "url": "https://jobs.smartrecruiters.com/AECOM2/744000160132769",
+      "source": "smartrecruiters",
+      "employmentType": "full-time",
+      "salary": null,
+      "datePosted": "2026-11-06T08:07:47.918Z",
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": true
+    },
+    {
+      "id": "1d8a0b0e149a",
+      "company": "AECOM",
+      "title": "Sales Operations & Reporting Analyst",
+      "locations": [
+        "Taguig, NCR, Philippines"
+      ],
+      "workSetup": "hybrid",
+      "level": "unknown",
+      "function": "sales",
+      "industry": "it-services",
+      "companyType": "direct",
+      "metro": [
+        "ncr"
+      ],
+      "url": "https://jobs.smartrecruiters.com/AECOM2/744000160130134",
+      "source": "smartrecruiters",
+      "employmentType": "full-time",
+      "salary": null,
+      "datePosted": "2026-11-06T08:05:17.232Z",
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": true
+    },
+    {
+      "id": "a5c8baceb946",
+      "company": "AECOM",
+      "title": "Sales & Pursuit Intelligence Specialist",
+      "locations": [
+        "Taguig, NCR, Philippines"
+      ],
+      "workSetup": "hybrid",
+      "level": "unknown",
+      "function": "sales",
+      "industry": "it-services",
+      "companyType": "direct",
+      "metro": [
+        "ncr"
+      ],
+      "url": "https://jobs.smartrecruiters.com/AECOM2/744000160132119",
+      "source": "smartrecruiters",
+      "employmentType": "full-time",
+      "salary": null,
+      "datePosted": "2026-11-06T08:04:06.869Z",
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": true
+    },
+    {
+      "id": "17e81b769d59",
+      "company": "AECOM",
+      "title": "Specialist I, P&T, Payroll (SEA)",
+      "locations": [
+        "Taguig, NCR, Philippines"
+      ],
+      "workSetup": "hybrid",
+      "level": "entry",
+      "function": "finance",
+      "industry": "it-services",
+      "companyType": "direct",
+      "metro": [
+        "ncr"
+      ],
+      "url": "https://jobs.smartrecruiters.com/AECOM2/744000160128540",
+      "source": "smartrecruiters",
+      "employmentType": "full-time",
+      "salary": null,
+      "datePosted": "2026-11-06T07:36:26.149Z",
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": true
+    },
+    {
+      "id": "7f3af26131a9",
+      "company": "AECOM",
+      "title": "Marketing Specialist",
+      "locations": [
+        "Taguig, NCR, Philippines"
+      ],
+      "workSetup": "hybrid",
+      "level": "unknown",
+      "function": "marketing",
+      "industry": "it-services",
+      "companyType": "direct",
+      "metro": [
+        "ncr"
+      ],
+      "url": "https://jobs.smartrecruiters.com/AECOM2/744000160128899",
+      "source": "smartrecruiters",
+      "employmentType": "full-time",
+      "salary": null,
+      "datePosted": "2026-11-06T07:33:54.619Z",
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": true
+    },
+    {
+      "id": "71fc1741c211",
+      "company": "AECOM",
+      "title": "R2R Manager - Intercompany",
+      "locations": [
+        "Taguig, NCR, Philippines"
+      ],
+      "workSetup": "hybrid",
+      "level": "senior",
+      "function": "finance",
+      "industry": "it-services",
+      "companyType": "direct",
+      "metro": [
+        "ncr"
+      ],
+      "url": "https://jobs.smartrecruiters.com/AECOM2/744000160055065",
+      "source": "smartrecruiters",
+      "employmentType": "full-time",
+      "salary": null,
+      "datePosted": "2026-11-06T02:27:07.171Z",
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": true
+    },
+    {
       "id": "f4ebb11da798",
       "company": "AECOM",
       "title": "Bids and Proposals Specialist (Morning Shift)",
@@ -50794,8 +51231,8 @@
       "employmentType": "contract",
       "salary": null,
       "datePosted": "2026-11-05T11:58:51.136Z",
-      "dateUpdated": "2026-11-06T01:53:34.890Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "c1916e032b7f",
@@ -50817,8 +51254,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-11-05T10:50:32.024Z",
-      "dateUpdated": "2026-11-06T01:53:34.890Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "f0cc2f61fab4",
@@ -50840,8 +51277,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-11-05T10:16:56.305Z",
-      "dateUpdated": "2026-11-06T01:53:34.890Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "50afe124d62a",
@@ -50863,8 +51300,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-11-05T10:15:30.714Z",
-      "dateUpdated": "2026-11-06T01:53:34.890Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "1ef7748bc3e4",
@@ -50978,8 +51415,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-11-03T13:53:52.908Z",
-      "dateUpdated": "2026-11-04T01:44:56.854Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "bcc3a2450825",
@@ -51024,8 +51461,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-10-30T15:22:24.488Z",
-      "dateUpdated": "2026-10-31T01:11:29.452Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "7e53d44d2e90",
@@ -51254,8 +51691,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-10-28T03:39:04.683Z",
-      "dateUpdated": "2026-10-29T01:21:29.067Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "b94bed5983cb",
@@ -51553,8 +51990,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-10-26T09:39:52.415Z",
-      "dateUpdated": "2026-10-27T00:58:48.665Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "27afb9b1f709",
@@ -51714,8 +52151,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-10-20T17:23:49.593Z",
-      "dateUpdated": "2026-10-21T00:13:19.826Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "2d76c1ba3241",
@@ -51898,8 +52335,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-10-12T16:50:30.222Z",
-      "dateUpdated": "2026-10-13T02:45:31.607Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "cd19da21cd25",
@@ -51967,8 +52404,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-10-12T15:39:41.089Z",
-      "dateUpdated": "2026-10-13T02:45:31.607Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "792213a39458",
@@ -52013,8 +52450,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-10-12T06:20:23.972Z",
-      "dateUpdated": "2026-10-13T02:45:31.607Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "0e897cfa2206",
@@ -52128,8 +52565,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-10-07T07:02:12.495Z",
-      "dateUpdated": "2026-10-08T01:25:25.291Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "2d67784baeaf",
@@ -52174,8 +52611,8 @@
       "employmentType": "contract",
       "salary": null,
       "datePosted": "2026-10-02T11:23:01.155Z",
-      "dateUpdated": "2026-10-03T00:48:20.643Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "5f14bec1eae1",
@@ -52197,8 +52634,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-10-02T11:20:37.055Z",
-      "dateUpdated": "2026-10-03T00:48:20.643Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "3bbe9474d27d",
@@ -52312,8 +52749,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-09-29T13:44:50.529Z",
-      "dateUpdated": "2026-09-30T00:51:00.884Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "7deb5aed435c",
@@ -52335,8 +52772,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-09-29T11:36:07.204Z",
-      "dateUpdated": "2026-09-30T00:51:00.884Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "b3d6e0c5ea8f",
@@ -52542,8 +52979,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-09-22T01:21:16.105Z",
-      "dateUpdated": "2026-10-11T00:34:07.975Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "64f7d418e543",
@@ -53416,8 +53853,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-08-27T10:16:32.096Z",
-      "dateUpdated": "2026-10-10T01:22:56.884Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "207515777cc7",
@@ -55624,8 +56061,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-06-23T07:34:44.159Z",
-      "dateUpdated": "2026-08-08T22:16:41.075Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "49ade071eb62",
@@ -55670,8 +56107,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-06-18T13:31:43.598Z",
-      "dateUpdated": "2026-10-10T01:22:56.884Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "3205fbc7f8d8",
@@ -57855,8 +58292,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-10-29T01:21:29.067Z",
-      "dateUpdated": "2026-10-29T01:21:29.067Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "5d122e9cf226",
@@ -60201,8 +60638,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-09-27T00:00:17.413Z",
-      "dateUpdated": "2026-09-27T00:00:17.413Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "a51338b1e390",
@@ -60293,8 +60730,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-09-27T00:00:17.413Z",
-      "dateUpdated": "2026-09-27T00:00:17.413Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "bf9b9c514ef0",
@@ -61443,8 +61880,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-08-17T22:12:43.595Z",
-      "dateUpdated": "2026-10-31T01:11:29.452Z",
-      "active": false
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": true
     },
     {
       "id": "6121da9d2592",
@@ -61909,13 +62346,13 @@
     {
       "id": "ef2af6c20e2e",
       "company": "AIA Philippines",
-      "title": "CS Product Development, Marketing & Business Development Consultant",
+      "title": "CS Products & Propositions Consultant",
       "locations": [
         "Makati, PH-AIA Philippines"
       ],
       "workSetup": "unknown",
       "level": "unknown",
-      "function": "marketing",
+      "function": "other",
       "industry": "insurance",
       "companyType": "direct",
       "metro": [
@@ -61926,8 +62363,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-08-14T22:11:36.865Z",
-      "dateUpdated": "2026-10-31T01:11:29.452Z",
-      "active": false
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": true
     },
     {
       "id": "0515e4700278",
@@ -62133,8 +62570,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-08-07T01:27:26.533Z",
-      "dateUpdated": "2026-10-31T01:11:29.452Z",
-      "active": false
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": true
     },
     {
       "id": "dd7ebe536d74",
@@ -63973,8 +64410,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-07-06T14:19:26.364Z",
-      "dateUpdated": "2026-10-31T01:11:29.452Z",
-      "active": false
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": true
     },
     {
       "id": "30bad2efc098",
@@ -65606,8 +66043,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-07-06T14:19:26.364Z",
-      "dateUpdated": "2026-10-30T01:25:01.971Z",
-      "active": false
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": true
     },
     {
       "id": "8210d755a8a0",
@@ -67584,8 +68021,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-07-06T14:19:26.364Z",
-      "dateUpdated": "2026-10-31T01:11:29.452Z",
-      "active": false
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": true
     },
     {
       "id": "dcf9606fde08",
@@ -67728,12 +68165,12 @@
     {
       "id": "e55ee5251511",
       "company": "AIA Philippines",
-      "title": "Investment Consultant",
+      "title": "Investment Principal",
       "locations": [
         "Makati, PH-AIA Philippines"
       ],
       "workSetup": "unknown",
-      "level": "unknown",
+      "level": "senior",
       "function": "finance",
       "industry": "insurance",
       "companyType": "direct",
@@ -67745,8 +68182,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-07-06T14:19:26.364Z",
-      "dateUpdated": "2026-10-31T01:11:29.452Z",
-      "active": false
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": true
     },
     {
       "id": "e582e9f55b1d",
@@ -69821,8 +70258,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-10-23T08:34:20.866Z",
-      "dateUpdated": "2026-10-24T00:07:32.505Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "e7f635da059d",
@@ -71456,8 +71893,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-09-29T01:20:27.171Z",
-      "dateUpdated": "2026-09-29T01:20:27.171Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "fca07d66a499",
@@ -72702,6 +73139,29 @@
       "active": true
     },
     {
+      "id": "54bb2716359a",
+      "company": "Amadeus",
+      "title": "IT Service Request Analyst (Airline IT Support)",
+      "locations": [
+        "Taguig, Metro Manila"
+      ],
+      "workSetup": "unknown",
+      "level": "unknown",
+      "function": "customer-support",
+      "industry": "travel",
+      "companyType": "direct",
+      "metro": [
+        "ncr"
+      ],
+      "url": "https://amadeus.wd502.myworkdayjobs.com/en-US/jobs/job/Taguig-Metro-Manila/IT-Service-Request-Analyst--Airline-IT-Support-_R37950",
+      "source": "workday",
+      "employmentType": "unknown",
+      "salary": null,
+      "datePosted": "2026-11-07T01:24:50.908Z",
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": true
+    },
+    {
       "id": "c9a341308965",
       "company": "Amadeus",
       "title": "Senior Software Development Engineer (Mobile/Web Development)",
@@ -73829,6 +74289,52 @@
       "active": true
     },
     {
+      "id": "6fb00dc743d0",
+      "company": "Amplify",
+      "title": "Human Resources Business Partner ",
+      "locations": [
+        "Makati City, Philippines"
+      ],
+      "workSetup": "unknown",
+      "level": "unknown",
+      "function": "hr",
+      "industry": "advertising",
+      "companyType": "direct",
+      "metro": [
+        "ncr"
+      ],
+      "url": "https://ats.rippling.com/thisisamplify/jobs/9babb8d4-43e9-4c5f-a760-9e81f11d3a1e",
+      "source": "rippling",
+      "employmentType": "unknown",
+      "salary": null,
+      "datePosted": "2026-11-07T01:24:50.908Z",
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": true
+    },
+    {
+      "id": "fe0b0fe3dcfc",
+      "company": "Amplify",
+      "title": "Payroll & HR Compliance Specialist ",
+      "locations": [
+        "Makati City, Philippines"
+      ],
+      "workSetup": "unknown",
+      "level": "unknown",
+      "function": "finance",
+      "industry": "advertising",
+      "companyType": "direct",
+      "metro": [
+        "ncr"
+      ],
+      "url": "https://ats.rippling.com/thisisamplify/jobs/80121aa9-f55f-4558-b345-3aff6aaa1062",
+      "source": "rippling",
+      "employmentType": "unknown",
+      "salary": null,
+      "datePosted": "2026-11-07T01:24:50.908Z",
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": true
+    },
+    {
       "id": "5b12924433c9",
       "company": "Amplify",
       "title": "Talent Coordinator ",
@@ -74034,6 +74540,75 @@
       "datePosted": "2026-09-27T00:00:17.413Z",
       "dateUpdated": "2026-10-28T00:48:46.221Z",
       "active": false
+    },
+    {
+      "id": "18f031c85a74",
+      "company": "Analog Devices",
+      "title": "Associate PM, Project / Program Management (Admin)",
+      "locations": [
+        "Philippines, Cavite, GTC"
+      ],
+      "workSetup": "unknown",
+      "level": "entry",
+      "function": "operations",
+      "industry": "manufacturing",
+      "companyType": "direct",
+      "metro": [
+        "calabarzon"
+      ],
+      "url": "https://analogdevices.wd1.myworkdayjobs.com/en-US/External/job/Philippines-Cavite-GTC/Associate-PM--Project---Program-Management--Admin-_R268476-1",
+      "source": "workday",
+      "employmentType": "unknown",
+      "salary": null,
+      "datePosted": "2026-11-07T01:24:50.908Z",
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": true
+    },
+    {
+      "id": "2b7d22f05d85",
+      "company": "Analog Devices",
+      "title": "Associate Engineer, Product Engineering (Mfg.)",
+      "locations": [
+        "Philippines, Cavite, GTC"
+      ],
+      "workSetup": "unknown",
+      "level": "entry",
+      "function": "engineering",
+      "industry": "manufacturing",
+      "companyType": "direct",
+      "metro": [
+        "calabarzon"
+      ],
+      "url": "https://analogdevices.wd1.myworkdayjobs.com/en-US/External/job/Philippines-Cavite-GTC/Associate-Engineer--Product-Engineering--Mfg-_R268422",
+      "source": "workday",
+      "employmentType": "unknown",
+      "salary": null,
+      "datePosted": "2026-11-07T01:24:50.908Z",
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": true
+    },
+    {
+      "id": "9bca4c9a230e",
+      "company": "Analog Devices",
+      "title": "Associate Planner, Production Planning",
+      "locations": [
+        "Philippines, Cavite, GTC"
+      ],
+      "workSetup": "unknown",
+      "level": "entry",
+      "function": "other",
+      "industry": "manufacturing",
+      "companyType": "direct",
+      "metro": [
+        "calabarzon"
+      ],
+      "url": "https://analogdevices.wd1.myworkdayjobs.com/en-US/External/job/Philippines-Cavite-GTC/Associate-Planner--Production-Planning_R268441",
+      "source": "workday",
+      "employmentType": "unknown",
+      "salary": null,
+      "datePosted": "2026-11-07T01:24:50.908Z",
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": true
     },
     {
       "id": "ddda74d3f3b0",
@@ -78383,9 +78958,32 @@
       "active": true
     },
     {
+      "id": "f3da4487109b",
+      "company": "Anavah Talent",
+      "title": "Guest Experience Representative - 2026010",
+      "locations": [
+        "Digos, Philippines"
+      ],
+      "workSetup": "remote",
+      "level": "unknown",
+      "function": "other",
+      "industry": "recruitment",
+      "companyType": "agency",
+      "metro": [
+        "other-ph"
+      ],
+      "url": "https://apply.workable.com/j/7316F02D43",
+      "source": "workable",
+      "employmentType": "full-time",
+      "salary": null,
+      "datePosted": "2026-11-06T00:00:00.000Z",
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": true
+    },
+    {
       "id": "45b85ed7c7e3",
       "company": "Anavah Talent",
-      "title": "Client Account Manager",
+      "title": "Client Account Manager - 2026009",
       "locations": [
         "Laguna, Philippines"
       ],
@@ -78402,13 +79000,13 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-10-15T00:00:00.000Z",
-      "dateUpdated": "2026-10-15T23:57:23.136Z",
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
       "active": true
     },
     {
       "id": "ceff0beb26af",
       "company": "Anavah Talent",
-      "title": "Technical Support & Operations Specialist",
+      "title": "Technical Support & Operations Specialist - 2026006",
       "locations": [
         "Cebu City, Philippines"
       ],
@@ -78425,7 +79023,7 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-10-01T00:00:00.000Z",
-      "dateUpdated": "2026-10-02T01:11:03.632Z",
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
       "active": true
     },
     {
@@ -78588,6 +79186,29 @@
       "datePosted": "2026-08-27T00:00:00.000Z",
       "dateUpdated": "2026-10-06T01:58:17.971Z",
       "active": false
+    },
+    {
+      "id": "7a799f949e19",
+      "company": "Angkas",
+      "title": "Admin and Onboarding Associate - Lipa",
+      "locations": [
+        "Lipa City, Philippines"
+      ],
+      "workSetup": "unknown",
+      "level": "entry",
+      "function": "operations",
+      "industry": "transport",
+      "companyType": "direct",
+      "metro": [
+        "calabarzon"
+      ],
+      "url": "https://apply.workable.com/j/BF83D0FD8D",
+      "source": "workable",
+      "employmentType": "contract",
+      "salary": null,
+      "datePosted": "2026-11-06T00:00:00.000Z",
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": true
     },
     {
       "id": "38f94fcb6467",
@@ -82730,6 +83351,29 @@
       "active": false
     },
     {
+      "id": "5b74feac6ef9",
+      "company": "Aphex",
+      "title": "Senior QA Engineer",
+      "locations": [
+        "Philippines"
+      ],
+      "workSetup": "remote",
+      "level": "senior",
+      "function": "engineering",
+      "industry": "software",
+      "companyType": "direct",
+      "metro": [
+        "other-ph"
+      ],
+      "url": "https://jobs.ashbyhq.com/Aphex/89de1b53-7afe-4cbb-8b52-f5ef9c602f53",
+      "source": "ashby",
+      "employmentType": "full-time",
+      "salary": null,
+      "datePosted": "2026-09-23T03:28:59.951Z",
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": true
+    },
+    {
       "id": "c12da5e74849",
       "company": "Aphex",
       "title": "Senior QA Engineer",
@@ -82749,8 +83393,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-09-23T03:28:59.951Z",
-      "dateUpdated": "2026-09-27T00:00:17.413Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "3ec8cf2656f3",
@@ -89356,6 +90000,33 @@
       "active": true
     },
     {
+      "id": "3131fa366d89",
+      "company": "Ashby",
+      "title": "Manager, Product Support - APAC",
+      "locations": [
+        "Australia",
+        "Singapore",
+        "South Korea",
+        "Philippines",
+        "Japan"
+      ],
+      "workSetup": "remote",
+      "level": "senior",
+      "function": "customer-support",
+      "industry": "hr-tech",
+      "companyType": "direct",
+      "metro": [
+        "other-ph"
+      ],
+      "url": "https://jobs.ashbyhq.com/Ashby/95aecf44-abba-4d06-8fea-7987b6ea9db5",
+      "source": "ashby",
+      "employmentType": "full-time",
+      "salary": "SGD 161,000 - SGD 211,000",
+      "datePosted": "2026-08-07T19:48:36.937Z",
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": true
+    },
+    {
       "id": "cb9f449c3214",
       "company": "Ashby",
       "title": "Manager, Product Support - APAC",
@@ -89379,7 +90050,34 @@
       "employmentType": "full-time",
       "salary": "SGD 161,000 - SGD 211,000",
       "datePosted": "2026-08-07T19:48:36.937Z",
-      "dateUpdated": "2026-09-29T01:20:27.171Z",
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
+    },
+    {
+      "id": "4988620b083a",
+      "company": "Ashby",
+      "title": "Founding Customer Success Manager - APAC",
+      "locations": [
+        "Australia",
+        "Singapore",
+        "South Korea",
+        "Philippines",
+        "Japan"
+      ],
+      "workSetup": "remote",
+      "level": "senior",
+      "function": "customer-support",
+      "industry": "hr-tech",
+      "companyType": "direct",
+      "metro": [
+        "other-ph"
+      ],
+      "url": "https://jobs.ashbyhq.com/Ashby/893cd08a-929c-4077-b39c-64bc34f347ea",
+      "source": "ashby",
+      "employmentType": "full-time",
+      "salary": "A$135,000 - A$189,000",
+      "datePosted": "2026-07-21T12:38:25.967Z",
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
       "active": true
     },
     {
@@ -89406,8 +90104,8 @@
       "employmentType": "full-time",
       "salary": "A$135,000 - A$189,000",
       "datePosted": "2026-06-05T20:22:03.445Z",
-      "dateUpdated": "2026-08-27T02:22:28.809Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "a3903f152580",
@@ -89432,7 +90130,33 @@
       "employmentType": "full-time",
       "salary": "SGD 80,000 - SGD 96,000",
       "datePosted": "2026-02-20T17:24:56.798Z",
-      "dateUpdated": "2026-06-24T22:58:23.343Z",
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
+    },
+    {
+      "id": "e2de3993d3a7",
+      "company": "Ashby",
+      "title": "Product Support Specialist - APAC",
+      "locations": [
+        "Singapore",
+        "South Korea",
+        "Philippines",
+        "Japan"
+      ],
+      "workSetup": "remote",
+      "level": "unknown",
+      "function": "customer-support",
+      "industry": "hr-tech",
+      "companyType": "direct",
+      "metro": [
+        "other-ph"
+      ],
+      "url": "https://jobs.ashbyhq.com/Ashby/033ce772-ed08-4a59-bb52-4ff0eaac9bcd",
+      "source": "ashby",
+      "employmentType": "full-time",
+      "salary": "SGD 80,000 - SGD 96,000",
+      "datePosted": "2026-02-20T17:24:56.798Z",
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
       "active": true
     },
     {
@@ -94574,8 +95298,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-10-02T01:11:03.632Z",
-      "dateUpdated": "2026-10-08T01:25:25.291Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "35bc2027eda1",
@@ -105524,8 +106248,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-09-27T00:00:17.413Z",
-      "dateUpdated": "2026-09-27T00:00:17.413Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "5c36b3b4d045",
@@ -107575,6 +108299,29 @@
       "active": false
     },
     {
+      "id": "556109e1a322",
+      "company": "Cardinal Health",
+      "title": "Representative, Customer Service | Front Office",
+      "locations": [
+        "Philippines-Bonifacio Global City-Taguig"
+      ],
+      "workSetup": "unknown",
+      "level": "unknown",
+      "function": "customer-support",
+      "industry": "healthtech",
+      "companyType": "direct",
+      "metro": [
+        "ncr"
+      ],
+      "url": "https://cardinalhealth.wd1.myworkdayjobs.com/en-US/EXT/job/Philippines-Bonifacio-Global-City-Taguig/Representative--Customer-Service---Front-Office_20190342",
+      "source": "workday",
+      "employmentType": "unknown",
+      "salary": null,
+      "datePosted": "2026-11-07T01:24:50.908Z",
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": true
+    },
+    {
       "id": "0e2a850a9548",
       "company": "Cardinal Health",
       "title": "Consultant, Continuous Process Improvement – Data Analytics",
@@ -107709,8 +108456,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-10-29T01:21:29.067Z",
-      "dateUpdated": "2026-10-29T01:21:29.067Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "1553abf38157",
@@ -107962,8 +108709,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-10-15T23:57:23.136Z",
-      "dateUpdated": "2026-10-15T23:57:23.136Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "cb4c64d4a005",
@@ -108491,8 +109238,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-09-27T00:00:17.413Z",
-      "dateUpdated": "2026-09-27T00:00:17.413Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "24944930db76",
@@ -109530,6 +110277,29 @@
       "active": true
     },
     {
+      "id": "b6773cf32b8c",
+      "company": "Cartrack",
+      "title": "Senior Collections Specialist",
+      "locations": [
+        "Makati, Philippines"
+      ],
+      "workSetup": "unknown",
+      "level": "senior",
+      "function": "finance",
+      "industry": "logistics-tech",
+      "companyType": "direct",
+      "metro": [
+        "ncr"
+      ],
+      "url": "https://cartrackasiacareerpage.teamtailor.com/jobs/8676718-senior-collections-specialist",
+      "source": "teamtailor",
+      "employmentType": "unknown",
+      "salary": null,
+      "datePosted": "2026-11-06T04:06:42.000Z",
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": true
+    },
+    {
       "id": "45ed5d45276c",
       "company": "Cartrack",
       "title": "Corporate Sales- Bukidnon",
@@ -110080,8 +110850,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-09-10T00:28:29.000Z",
-      "dateUpdated": "2026-10-13T02:45:31.607Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "927dbacf629a",
@@ -110149,8 +110919,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-09-02T00:42:11.000Z",
-      "dateUpdated": "2026-09-27T00:00:17.413Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "568418ec84cf",
@@ -111745,6 +112515,75 @@
       "active": true
     },
     {
+      "id": "21ca162d7c84",
+      "company": "Chevron",
+      "title": "Accounting Analyst",
+      "locations": [
+        "Ayala, Makati City, Philippines"
+      ],
+      "workSetup": "unknown",
+      "level": "unknown",
+      "function": "finance",
+      "industry": "energy",
+      "companyType": "direct",
+      "metro": [
+        "ncr"
+      ],
+      "url": "https://chevron.wd5.myworkdayjobs.com/en-US/jobs/job/Ayala-Makati-City-Philippines/Accounting-Analyst_R000074944",
+      "source": "workday",
+      "employmentType": "full-time",
+      "salary": null,
+      "datePosted": "2026-11-07T01:24:50.908Z",
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": true
+    },
+    {
+      "id": "749e3854a392",
+      "company": "Chevron",
+      "title": "Accounting Analyst (Project Support)",
+      "locations": [
+        "Ayala, Makati City, Philippines"
+      ],
+      "workSetup": "unknown",
+      "level": "unknown",
+      "function": "finance",
+      "industry": "energy",
+      "companyType": "direct",
+      "metro": [
+        "ncr"
+      ],
+      "url": "https://chevron.wd5.myworkdayjobs.com/en-US/jobs/job/Ayala-Makati-City-Philippines/Accounting-Analyst--Project-Support-_R000074945",
+      "source": "workday",
+      "employmentType": "full-time",
+      "salary": null,
+      "datePosted": "2026-11-07T01:24:50.908Z",
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": true
+    },
+    {
+      "id": "f2260679d46a",
+      "company": "Chevron",
+      "title": "Data Engineer – SAP Master Data Governance (MDG)",
+      "locations": [
+        "Ayala, Makati City, Philippines"
+      ],
+      "workSetup": "unknown",
+      "level": "unknown",
+      "function": "engineering",
+      "industry": "energy",
+      "companyType": "direct",
+      "metro": [
+        "ncr"
+      ],
+      "url": "https://chevron.wd5.myworkdayjobs.com/en-US/jobs/job/Ayala-Makati-City-Philippines/Data-Engineer---SAP-Master-Data-Governance--MDG-_R000074889",
+      "source": "workday",
+      "employmentType": "full-time",
+      "salary": null,
+      "datePosted": "2026-11-07T01:24:50.908Z",
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": true
+    },
+    {
       "id": "a5fc2033604b",
       "company": "Chevron",
       "title": "Power Platform Software Engineer",
@@ -112023,7 +112862,7 @@
     {
       "id": "49b78869a510",
       "company": "Chevron",
-      "title": "IT System Support Analyst - SAP Finance Digital Core",
+      "title": "SAP S/4HANA Finance (FICO) Functional Consultant",
       "locations": [
         "Ayala, Makati City, Philippines"
       ],
@@ -112040,8 +112879,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-10-20T00:47:05.828Z",
-      "dateUpdated": "2026-11-03T03:07:56.194Z",
-      "active": false
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": true
     },
     {
       "id": "16747d95a453",
@@ -122697,8 +123536,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-06-29T12:40:20.742Z",
-      "dateUpdated": "2026-09-27T00:00:17.413Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "abc150c39c6a",
@@ -122743,8 +123582,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-06-24T02:35:24.835Z",
-      "dateUpdated": "2026-06-29T22:45:23.998Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "6de0fc678938",
@@ -122813,8 +123652,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-06-19T03:22:17.367Z",
-      "dateUpdated": "2026-09-25T00:07:11.254Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "269bb69a5a69",
@@ -124033,8 +124872,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-04-06T01:44:01.191Z",
-      "dateUpdated": "2026-06-11T01:21:12.918Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "45e074be62ed",
@@ -125372,6 +126211,52 @@
       "active": true
     },
     {
+      "id": "3eb24864b9a2",
+      "company": "Concentrix",
+      "title": "Associate, Operations Reporting",
+      "locations": [
+        "Philippines"
+      ],
+      "workSetup": "unknown",
+      "level": "entry",
+      "function": "operations",
+      "industry": "outsourcing",
+      "companyType": "direct",
+      "metro": [
+        "other-ph"
+      ],
+      "url": "https://cnx.wd1.myworkdayjobs.com/en-US/external_global/job/PHL-Baguio-City---TechnoHub-B/Associate--Operations-Reporting_R1760891",
+      "source": "workday",
+      "employmentType": "unknown",
+      "salary": null,
+      "datePosted": "2026-11-07T01:24:50.908Z",
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": true
+    },
+    {
+      "id": "9c0cd027791e",
+      "company": "Concentrix",
+      "title": "Specialist I, Governance, Risk & Compliance",
+      "locations": [
+        "PHL Cebu City - The Link"
+      ],
+      "workSetup": "unknown",
+      "level": "entry",
+      "function": "finance",
+      "industry": "outsourcing",
+      "companyType": "direct",
+      "metro": [
+        "cebu"
+      ],
+      "url": "https://cnx.wd1.myworkdayjobs.com/en-US/external_global/job/PHL-Cebu-City---The-Link/Specialist-I--Governance--Risk---Compliance_R1779420",
+      "source": "workday",
+      "employmentType": "unknown",
+      "salary": null,
+      "datePosted": "2026-11-07T01:24:50.908Z",
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": true
+    },
+    {
       "id": "0344ce330a3d",
       "company": "Concentrix",
       "title": "Quality Manager",
@@ -125598,8 +126483,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-11-06T01:53:34.890Z",
-      "dateUpdated": "2026-11-06T01:53:34.890Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "6f489a148773",
@@ -126127,8 +127012,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-10-30T01:25:01.971Z",
-      "dateUpdated": "2026-10-30T01:25:01.971Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "1e47b7cf96b3",
@@ -126173,8 +127058,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-10-30T01:25:01.971Z",
-      "dateUpdated": "2026-10-30T01:25:01.971Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "3584d108d36b",
@@ -126242,8 +127127,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-10-30T01:25:01.971Z",
-      "dateUpdated": "2026-10-30T01:25:01.971Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "c70f648c7bd5",
@@ -127093,8 +127978,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-10-28T00:48:46.221Z",
-      "dateUpdated": "2026-10-28T00:48:46.221Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "a453a5089ceb",
@@ -127530,8 +128415,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-10-22T00:17:41.314Z",
-      "dateUpdated": "2026-11-05T01:53:02.507Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "cfc91f0d8310",
@@ -127553,8 +128438,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-10-22T00:17:41.314Z",
-      "dateUpdated": "2026-11-05T01:53:02.507Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "d9dc1a3c66e4",
@@ -127806,8 +128691,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-10-17T00:01:44.588Z",
-      "dateUpdated": "2026-10-17T00:01:44.588Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "6867cbb60a5a",
@@ -128128,8 +129013,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-10-14T00:43:16.969Z",
-      "dateUpdated": "2026-10-28T00:48:46.221Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "a933b1097950",
@@ -128266,8 +129151,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-10-13T02:45:31.607Z",
-      "dateUpdated": "2026-10-29T01:21:29.067Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "9a6d50b1f448",
@@ -128542,8 +129427,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-10-09T01:32:23.694Z",
-      "dateUpdated": "2026-10-09T01:32:23.694Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "9bf1a0ab70da",
@@ -132613,8 +133498,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-08-29T03:24:59.145Z",
-      "dateUpdated": "2026-10-28T00:48:46.221Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "b838f9bce6d7",
@@ -141748,6 +142633,29 @@
       "active": true
     },
     {
+      "id": "35e243122ba2",
+      "company": "CrewBloom",
+      "title": "Full-Cycle Recruiter (US Hiring)",
+      "locations": [
+        "Philippines"
+      ],
+      "workSetup": "remote",
+      "level": "unknown",
+      "function": "hr",
+      "industry": "staffing",
+      "companyType": "agency",
+      "metro": [
+        "other-ph"
+      ],
+      "url": "https://apply.workable.com/j/D374CB7E0E",
+      "source": "workable",
+      "employmentType": "full-time",
+      "salary": null,
+      "datePosted": "2026-11-06T00:00:00.000Z",
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": true
+    },
+    {
       "id": "fd115924eca4",
       "company": "CrewBloom",
       "title": "Revenue Operations Analyst",
@@ -141817,8 +142725,8 @@
       "employmentType": "part-time",
       "salary": null,
       "datePosted": "2026-11-03T00:00:00.000Z",
-      "dateUpdated": "2026-11-04T01:44:56.854Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "2917536d22dd",
@@ -141958,8 +142866,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-10-26T00:00:00.000Z",
-      "dateUpdated": "2026-10-27T00:58:48.665Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "de624243f353",
@@ -148259,6 +149167,29 @@
       "active": false
     },
     {
+      "id": "98529cc5e48e",
+      "company": "Cushman & Wakefield",
+      "title": "Finance Supervisor, ANZ",
+      "locations": [
+        "Taguig, Philippines"
+      ],
+      "workSetup": "unknown",
+      "level": "senior",
+      "function": "finance",
+      "industry": "real-estate",
+      "companyType": "direct",
+      "metro": [
+        "ncr"
+      ],
+      "url": "https://cw.wd1.myworkdayjobs.com/en-US/External/job/Taguig-Philippines/Finance-Supervisor--ANZ_R343060",
+      "source": "workday",
+      "employmentType": "unknown",
+      "salary": null,
+      "datePosted": "2026-11-07T01:24:50.908Z",
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": true
+    },
+    {
       "id": "d643ea6fd323",
       "company": "Cushman & Wakefield",
       "title": "HR Labor Relations Advisor (night shift)",
@@ -151688,6 +152619,75 @@
       "active": true
     },
     {
+      "id": "b1d75eb20d42",
+      "company": "Delivery Hero",
+      "title": "Team Assistant (Executive Services/Executive Support)",
+      "locations": [
+        "Taguig, NCR, Philippines"
+      ],
+      "workSetup": "onsite",
+      "level": "unknown",
+      "function": "customer-support",
+      "industry": "delivery",
+      "companyType": "direct",
+      "metro": [
+        "ncr"
+      ],
+      "url": "https://jobs.smartrecruiters.com/DeliveryHero/744000160164849",
+      "source": "smartrecruiters",
+      "employmentType": "full-time",
+      "salary": null,
+      "datePosted": "2026-11-06T10:28:58.319Z",
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": true
+    },
+    {
+      "id": "7235f0ed5382",
+      "company": "Delivery Hero",
+      "title": "Manager, People Systems & Analytics",
+      "locations": [
+        "Taguig, Philippines"
+      ],
+      "workSetup": "onsite",
+      "level": "senior",
+      "function": "data",
+      "industry": "delivery",
+      "companyType": "direct",
+      "metro": [
+        "ncr"
+      ],
+      "url": "https://jobs.smartrecruiters.com/DeliveryHero/744000160158354",
+      "source": "smartrecruiters",
+      "employmentType": "full-time",
+      "salary": null,
+      "datePosted": "2026-11-06T10:04:45.219Z",
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": true
+    },
+    {
+      "id": "6f1ad6c0fe86",
+      "company": "Delivery Hero",
+      "title": "Associate, Demand Planning",
+      "locations": [
+        "Taguig, Philippines"
+      ],
+      "workSetup": "hybrid",
+      "level": "entry",
+      "function": "operations",
+      "industry": "delivery",
+      "companyType": "direct",
+      "metro": [
+        "ncr"
+      ],
+      "url": "https://jobs.smartrecruiters.com/DeliveryHero/744000160157650",
+      "source": "smartrecruiters",
+      "employmentType": "full-time",
+      "salary": null,
+      "datePosted": "2026-11-06T09:59:18.522Z",
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": true
+    },
+    {
       "id": "013d54b78459",
       "company": "Delivery Hero",
       "title": "Specialist, Demand Planning",
@@ -151707,8 +152707,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-11-05T09:29:35.329Z",
-      "dateUpdated": "2026-11-06T01:53:34.890Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "f2b222a7889f",
@@ -151799,8 +152799,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-10-22T12:01:15.071Z",
-      "dateUpdated": "2026-10-23T00:14:21.467Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "7fa39cd6e996",
@@ -151822,8 +152822,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-10-22T12:00:47.930Z",
-      "dateUpdated": "2026-10-23T00:14:21.467Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "2bc1003f1930",
@@ -152811,8 +153811,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-09-07T18:56:57.443Z",
-      "dateUpdated": "2026-10-10T01:22:56.884Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "1bc98a1480da",
@@ -155069,6 +156069,29 @@
       "active": false
     },
     {
+      "id": "b6802070424a",
+      "company": "Deutsche Bank",
+      "title": "Investment Banking - Operations Expert, FIC Middle Office - Associate",
+      "locations": [
+        "Manila Net Quad Center"
+      ],
+      "workSetup": "unknown",
+      "level": "entry",
+      "function": "finance",
+      "industry": "financial-services",
+      "companyType": "direct",
+      "metro": [
+        "ncr"
+      ],
+      "url": "https://db.wd3.myworkdayjobs.com/en-US/DBWebsite/job/Manila-Net-Quad-Center/Investment-Banking---Operations-Expert--FIC-Middle-Office---Associate_R0455813-1",
+      "source": "workday",
+      "employmentType": "unknown",
+      "salary": null,
+      "datePosted": "2026-11-07T01:24:50.908Z",
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": true
+    },
+    {
       "id": "9a2bf5e24549",
       "company": "Deutsche Bank",
       "title": "Investment Banking - Operations Expert, FIC Middle Office - Analyst / Sr. Analyst",
@@ -155387,8 +156410,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-10-08T01:25:25.291Z",
-      "dateUpdated": "2026-10-27T00:58:48.665Z",
-      "active": false
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": true
     },
     {
       "id": "c2613803e66a",
@@ -159343,8 +160366,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-09-08T23:44:28.700Z",
-      "dateUpdated": "2026-09-08T23:44:28.700Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "45817e7f90d0",
@@ -160010,8 +161033,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-08-03T22:50:48.003Z",
-      "dateUpdated": "2026-09-27T00:00:17.413Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "266e23eb0c53",
@@ -162086,7 +163109,7 @@
     {
       "id": "58181f9cf46a",
       "company": "EastWest Bank",
-      "title": "Sales Manager - Cash Management (Binondo)",
+      "title": "Sales Manager - Cash Management (Cebu | Binondo)",
       "locations": [
         "Makati, Metro Manila, Philippines"
       ],
@@ -162103,7 +163126,7 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-07-06T02:05:52.623Z",
-      "dateUpdated": "2026-09-29T01:20:27.171Z",
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
       "active": true
     },
     {
@@ -166845,6 +167868,29 @@
       "active": false
     },
     {
+      "id": "f70a4c88d2bf",
+      "company": "Eucalyptus",
+      "title": "UGC Producer",
+      "locations": [
+        "Manila, Manila, Philippines"
+      ],
+      "workSetup": "unknown",
+      "level": "unknown",
+      "function": "design",
+      "industry": "healthtech",
+      "companyType": "direct",
+      "metro": [
+        "ncr"
+      ],
+      "url": "https://job-boards.greenhouse.io/eucalyptus/jobs/4751740005",
+      "source": "greenhouse",
+      "employmentType": "unknown",
+      "salary": null,
+      "datePosted": "2026-11-06T06:22:26.000Z",
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": true
+    },
+    {
       "id": "8f2169456827",
       "company": "Eucalyptus",
       "title": "Platform & Systems Specialist ",
@@ -167146,7 +168192,7 @@
     {
       "id": "daab2e049982",
       "company": "Eucalyptus",
-      "title": "Quality Specialist - Contact Center, AU/UK Support",
+      "title": "Quality Specialist - Medical Support (Day Shift)",
       "locations": [
         "Manila, Manila, Philippines"
       ],
@@ -167163,8 +168209,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-09-16T09:32:01.000Z",
-      "dateUpdated": "2026-10-21T00:13:19.826Z",
-      "active": false
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": true
     },
     {
       "id": "c2e937ff9faa",
@@ -167186,8 +168232,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-09-16T09:22:16.000Z",
-      "dateUpdated": "2026-10-21T00:13:19.826Z",
-      "active": false
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": true
     },
     {
       "id": "944560946ca0",
@@ -170805,6 +171851,29 @@
       "active": false
     },
     {
+      "id": "1f3df746fc75",
+      "company": "Extenteam",
+      "title": "Project Coordinator (Ph)",
+      "locations": [
+        "Philippines"
+      ],
+      "workSetup": "unknown",
+      "level": "unknown",
+      "function": "other",
+      "industry": "outsourcing",
+      "companyType": "agency",
+      "metro": [
+        "other-ph"
+      ],
+      "url": "https://job-boards.greenhouse.io/extenteam/jobs/5474450008",
+      "source": "greenhouse",
+      "employmentType": "unknown",
+      "salary": null,
+      "datePosted": "2026-11-06T12:30:48.000Z",
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": true
+    },
+    {
       "id": "c39245a20747",
       "company": "Extenteam",
       "title": "Debt Accountant",
@@ -171610,6 +172679,75 @@
       "active": true
     },
     {
+      "id": "24b3bede17cf",
+      "company": "FedEx",
+      "title": "Clearance Agent",
+      "locations": [
+        "FXE_APAC/PHL/PHCRKIP/Philippines Angeles City"
+      ],
+      "workSetup": "unknown",
+      "level": "unknown",
+      "function": "other",
+      "industry": "logistics",
+      "companyType": "direct",
+      "metro": [
+        "clark-pampanga"
+      ],
+      "url": "https://fedex.wd1.myworkdayjobs.com/en-US/FXE_APAC_External/job/FXE_APACPHLPHCRKIPPhilippines-Angeles-City/Clearance-Agent_RC780523",
+      "source": "workday",
+      "employmentType": "unknown",
+      "salary": null,
+      "datePosted": "2026-11-07T01:24:50.908Z",
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": true
+    },
+    {
+      "id": "270f07e8a2ac",
+      "company": "FedEx",
+      "title": "Clearance Rep",
+      "locations": [
+        "FXE_APAC/PHL/PHCRKIP/Philippines Angeles City"
+      ],
+      "workSetup": "unknown",
+      "level": "unknown",
+      "function": "other",
+      "industry": "logistics",
+      "companyType": "direct",
+      "metro": [
+        "clark-pampanga"
+      ],
+      "url": "https://fedex.wd1.myworkdayjobs.com/en-US/FXE_APAC_External/job/FXE_APACPHLPHCRKIPPhilippines-Angeles-City/Clearance-Rep_RC789324",
+      "source": "workday",
+      "employmentType": "unknown",
+      "salary": null,
+      "datePosted": "2026-11-07T01:24:50.908Z",
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": true
+    },
+    {
+      "id": "c8da9ee6056b",
+      "company": "FedEx",
+      "title": "Clearance Agent-Lead",
+      "locations": [
+        "FXE_APAC/PHL/PHCRKIP/Philippines Angeles City"
+      ],
+      "workSetup": "unknown",
+      "level": "senior",
+      "function": "other",
+      "industry": "logistics",
+      "companyType": "direct",
+      "metro": [
+        "clark-pampanga"
+      ],
+      "url": "https://fedex.wd1.myworkdayjobs.com/en-US/FXE_APAC_External/job/FXE_APACPHLPHCRKIPPhilippines-Angeles-City/Clearance-Agent-Lead_RC789328",
+      "source": "workday",
+      "employmentType": "unknown",
+      "salary": null,
+      "datePosted": "2026-11-07T01:24:50.908Z",
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": true
+    },
+    {
       "id": "53ad137b1ee9",
       "company": "FedEx",
       "title": "Clearance Agent Associate",
@@ -171652,8 +172790,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-11-05T01:53:02.507Z",
-      "dateUpdated": "2026-11-05T01:53:02.507Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "3cb979ec5736",
@@ -172254,6 +173392,75 @@
       "active": false
     },
     {
+      "id": "97bfd25390e4",
+      "company": "FGC+",
+      "title": "Operations Team Leader",
+      "locations": [
+        "Bacolod City, Philippines"
+      ],
+      "workSetup": "unknown",
+      "level": "senior",
+      "function": "operations",
+      "industry": "outsourcing",
+      "companyType": "agency",
+      "metro": [
+        "bacolod"
+      ],
+      "url": "https://ats.rippling.com/fgcplus/jobs/1af6aaf6-e844-4b4b-a49e-93b29cd6cd67",
+      "source": "rippling",
+      "employmentType": "unknown",
+      "salary": null,
+      "datePosted": "2026-11-07T01:24:50.908Z",
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": true
+    },
+    {
+      "id": "c3d91e623b6c",
+      "company": "FGC+",
+      "title": "Research Analyst",
+      "locations": [
+        "Bacolod City, Philippines"
+      ],
+      "workSetup": "unknown",
+      "level": "unknown",
+      "function": "other",
+      "industry": "outsourcing",
+      "companyType": "agency",
+      "metro": [
+        "bacolod"
+      ],
+      "url": "https://ats.rippling.com/fgcplus/jobs/a4eba5fd-3929-4c7d-8c30-5eb46ff71d90",
+      "source": "rippling",
+      "employmentType": "unknown",
+      "salary": null,
+      "datePosted": "2026-11-07T01:24:50.908Z",
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": true
+    },
+    {
+      "id": "d6a753d4fcd5",
+      "company": "FGC+",
+      "title": "QA Tester - Website and Mobile Applications (For Pooling)",
+      "locations": [
+        "Bacolod City, Philippines"
+      ],
+      "workSetup": "unknown",
+      "level": "unknown",
+      "function": "engineering",
+      "industry": "outsourcing",
+      "companyType": "agency",
+      "metro": [
+        "bacolod"
+      ],
+      "url": "https://ats.rippling.com/fgcplus/jobs/4db8ce28-c134-4052-9fe2-ea5e6c63829f",
+      "source": "rippling",
+      "employmentType": "unknown",
+      "salary": null,
+      "datePosted": "2026-11-07T01:24:50.908Z",
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": true
+    },
+    {
       "id": "dece13606a24",
       "company": "FGC+",
       "title": "Operations Manager",
@@ -172388,8 +173595,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-10-23T00:14:21.467Z",
-      "dateUpdated": "2026-10-23T00:14:21.467Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "a9ac7aabc32f",
@@ -173056,6 +174263,29 @@
       "salary": null,
       "datePosted": "2026-09-27T00:00:17.413Z",
       "dateUpdated": "2026-09-27T00:00:17.413Z",
+      "active": true
+    },
+    {
+      "id": "6ffeaad0b11f",
+      "company": "First Circle",
+      "title": "Risk Operations Support (Night Shift & Weekends)",
+      "locations": [
+        "Taguig, Philippines"
+      ],
+      "workSetup": "unknown",
+      "level": "unknown",
+      "function": "finance",
+      "industry": "fintech",
+      "companyType": "direct",
+      "metro": [
+        "ncr"
+      ],
+      "url": "https://apply.workable.com/j/8FF232331B",
+      "source": "workable",
+      "employmentType": "full-time",
+      "salary": null,
+      "datePosted": "2026-11-06T00:00:00.000Z",
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
       "active": true
     },
     {
@@ -177310,8 +178540,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-07-20T20:09:06.000Z",
-      "dateUpdated": "2026-10-07T01:05:59.190Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "2a5cfce0be27",
@@ -185085,8 +186315,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-07-06T06:10:09.418Z",
-      "dateUpdated": "2026-09-27T00:00:17.413Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "a5d2160330c1",
@@ -186584,6 +187814,29 @@
       "active": true
     },
     {
+      "id": "5bf77965ff78",
+      "company": "General Motors",
+      "title": "Transformation Manager",
+      "locations": [
+        "Taguig City, National Capital Region (Manila), Philippines"
+      ],
+      "workSetup": "unknown",
+      "level": "senior",
+      "function": "other",
+      "industry": "automotive",
+      "companyType": "direct",
+      "metro": [
+        "ncr"
+      ],
+      "url": "https://generalmotors.wd5.myworkdayjobs.com/en-US/Careers_GM/job/Taguig-City-National-Capital-Region-Manila-Philippines/Transformation-Manager_JR-202623477",
+      "source": "workday",
+      "employmentType": "unknown",
+      "salary": null,
+      "datePosted": "2026-11-07T01:24:50.908Z",
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": true
+    },
+    {
       "id": "daafcc92cd6d",
       "company": "General Motors",
       "title": "Pricing Analyst",
@@ -186879,8 +188132,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-10-28T00:48:46.221Z",
-      "dateUpdated": "2026-10-28T00:48:46.221Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "0e7b86f53827",
@@ -187155,8 +188408,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-11-05T01:53:02.507Z",
-      "dateUpdated": "2026-11-05T01:53:02.507Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "2117a8d78ac1",
@@ -187983,8 +189236,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-10-08T01:25:25.291Z",
-      "dateUpdated": "2026-10-08T01:25:25.291Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "85e39a7c2353",
@@ -194632,8 +195885,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-09-27T00:00:17.413Z",
-      "dateUpdated": "2026-09-27T00:00:17.413Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "bda4c3dfc8b9",
@@ -199899,8 +201152,8 @@
       "employmentType": "contract",
       "salary": null,
       "datePosted": "2026-08-14T00:00:00.000Z",
-      "dateUpdated": "2026-09-16T23:57:28.623Z",
-      "active": false
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": true
     },
     {
       "id": "4412f97adfbe",
@@ -201743,6 +202996,29 @@
       "active": true
     },
     {
+      "id": "5114e19e5eb3",
+      "company": "Grab",
+      "title": "Assistant Manager, Driver Operations",
+      "locations": [
+        "Cagayan de Oro, Philippines"
+      ],
+      "workSetup": "onsite",
+      "level": "senior",
+      "function": "operations",
+      "industry": "transport",
+      "companyType": "direct",
+      "metro": [
+        "cdo"
+      ],
+      "url": "https://jobs.smartrecruiters.com/Grab/744000160118419",
+      "source": "smartrecruiters",
+      "employmentType": "full-time",
+      "salary": null,
+      "datePosted": "2026-11-06T05:41:52.515Z",
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": true
+    },
+    {
       "id": "e9e066a1aaf6",
       "company": "Grab",
       "title": "Assistant Manager, Lending Commercial",
@@ -202847,6 +204123,29 @@
       "active": true
     },
     {
+      "id": "100f6c002650",
+      "company": "GUS Education Philippines",
+      "title": "Finance and Treasury Assistant",
+      "locations": [
+        "Quezon City, Metro Manila, Philippines"
+      ],
+      "workSetup": "unknown",
+      "level": "unknown",
+      "function": "finance",
+      "industry": "education",
+      "companyType": "direct",
+      "metro": [
+        "ncr"
+      ],
+      "url": "https://www.careers-page.com/gus-education-ph/job/V67Y574R",
+      "source": "manatal",
+      "employmentType": "unknown",
+      "salary": null,
+      "datePosted": "2026-11-07T01:24:50.908Z",
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": true
+    },
+    {
       "id": "0f78c0661e74",
       "company": "GUS Education Philippines",
       "title": "Junior Project Coordinator (Content Production)",
@@ -202918,7 +204217,7 @@
     {
       "id": "b986afa40611",
       "company": "GUS Education Philippines",
-      "title": "Student Interviewer",
+      "title": "Agent Applicant Interviewer",
       "locations": [
         "Quezon City, Metro Manila, Philippines"
       ],
@@ -202935,7 +204234,7 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-10-24T23:50:58.843Z",
-      "dateUpdated": "2026-10-24T23:50:58.843Z",
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
       "active": true
     },
     {
@@ -203330,6 +204629,29 @@
       "active": false
     },
     {
+      "id": "8d74c2584f52",
+      "company": "H&M",
+      "title": "Part-Time Sales Advisor (SM Aura Premier)",
+      "locations": [
+        "Taguig, Philippines"
+      ],
+      "workSetup": "onsite",
+      "level": "unknown",
+      "function": "sales",
+      "industry": "retail",
+      "companyType": "direct",
+      "metro": [
+        "ncr"
+      ],
+      "url": "https://jobs.smartrecruiters.com/HMGroup/744000160147244",
+      "source": "smartrecruiters",
+      "employmentType": "part-time",
+      "salary": null,
+      "datePosted": "2026-11-06T09:12:02.299Z",
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": true
+    },
+    {
       "id": "3cad28226c24",
       "company": "H&M",
       "title": "Part-time Sales Advisor (H&M Ayala Vertis North)  ",
@@ -203533,8 +204855,8 @@
       "employmentType": "part-time",
       "salary": null,
       "datePosted": "2026-10-24T09:44:56.472Z",
-      "dateUpdated": "2026-10-24T23:50:58.843Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "7c99a40c34d2",
@@ -214299,8 +215621,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-10-19T11:28:56.312Z",
-      "dateUpdated": "2026-10-20T00:47:05.828Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "2d3d8cc72c99",
@@ -218246,8 +219568,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-10-02T00:00:00.000Z",
-      "dateUpdated": "2026-10-03T00:48:20.643Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "43ce5343fb59",
@@ -218315,8 +219637,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-10-01T00:00:00.000Z",
-      "dateUpdated": "2026-10-03T00:48:20.643Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "93596678aaab",
@@ -221414,8 +222736,8 @@
       "employmentType": "contract",
       "salary": null,
       "datePosted": "2026-10-12T00:00:00.000Z",
-      "dateUpdated": "2026-10-13T02:45:31.607Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "3384c27e200a",
@@ -221506,8 +222828,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-09-29T00:00:00.000Z",
-      "dateUpdated": "2026-09-30T00:51:00.884Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "25bfd205d73e",
@@ -221529,8 +222851,8 @@
       "employmentType": "part-time",
       "salary": null,
       "datePosted": "2026-09-28T00:00:00.000Z",
-      "dateUpdated": "2026-09-29T01:20:27.171Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "3b22b65aaaa1",
@@ -221690,8 +223012,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-09-23T00:00:00.000Z",
-      "dateUpdated": "2026-09-24T00:05:43.233Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "b1cdedb5569d",
@@ -221874,8 +223196,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-08-24T00:00:00.000Z",
-      "dateUpdated": "2026-08-24T22:14:15.948Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "964b3a6fbd42",
@@ -221897,8 +223219,8 @@
       "employmentType": "part-time",
       "salary": null,
       "datePosted": "2026-08-22T00:00:00.000Z",
-      "dateUpdated": "2026-08-22T22:10:19.217Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "2eaf611c77dc",
@@ -221920,8 +223242,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-08-21T00:00:00.000Z",
-      "dateUpdated": "2026-08-21T22:12:10.606Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "53e569665860",
@@ -222104,8 +223426,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-07-14T00:00:00.000Z",
-      "dateUpdated": "2026-07-14T22:45:09.251Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "63767b11ee37",
@@ -222403,8 +223725,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-07-02T00:00:00.000Z",
-      "dateUpdated": "2026-07-06T01:40:26.175Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "20d63ff35a34",
@@ -222610,8 +223932,8 @@
       "employmentType": "part-time",
       "salary": null,
       "datePosted": "2026-06-03T00:00:00.000Z",
-      "dateUpdated": "2026-06-11T12:33:52.706Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "12bb3c8e33e4",
@@ -222679,8 +224001,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-05-28T00:00:00.000Z",
-      "dateUpdated": "2026-06-11T01:34:15.640Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "ebbfb77a2a09",
@@ -222748,8 +224070,8 @@
       "employmentType": "part-time",
       "salary": null,
       "datePosted": "2026-05-19T00:00:00.000Z",
-      "dateUpdated": "2026-06-11T01:34:15.640Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "874e44583955",
@@ -222794,8 +224116,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-05-15T00:00:00.000Z",
-      "dateUpdated": "2026-06-11T01:34:15.640Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "125d3b7c1a0b",
@@ -222909,8 +224231,8 @@
       "employmentType": "part-time",
       "salary": null,
       "datePosted": "2026-04-17T00:00:00.000Z",
-      "dateUpdated": "2026-06-16T23:17:20.340Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "2c13cb9c967f",
@@ -222932,8 +224254,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-04-17T00:00:00.000Z",
-      "dateUpdated": "2026-06-11T01:34:15.640Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "5ec41b5bb54c",
@@ -222955,8 +224277,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-04-17T00:00:00.000Z",
-      "dateUpdated": "2026-06-11T12:33:52.706Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "507182caa678",
@@ -223024,8 +224346,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-04-03T00:00:00.000Z",
-      "dateUpdated": "2026-06-11T01:34:15.640Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "0290be6e3371",
@@ -223093,8 +224415,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-03-27T00:00:00.000Z",
-      "dateUpdated": "2026-06-11T01:34:15.640Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "d75412eb669a",
@@ -223116,8 +224438,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-03-18T00:00:00.000Z",
-      "dateUpdated": "2026-06-11T12:33:52.706Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "1d9ad336cf6c",
@@ -223185,8 +224507,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-03-02T00:00:00.000Z",
-      "dateUpdated": "2026-06-11T01:34:15.640Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "68363ea487e8",
@@ -223231,8 +224553,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-02-26T00:00:00.000Z",
-      "dateUpdated": "2026-06-11T01:34:15.640Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "2f5a2378ddc8",
@@ -223277,8 +224599,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2025-12-22T00:00:00.000Z",
-      "dateUpdated": "2026-06-11T01:34:15.640Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "ac5bfadb8e51",
@@ -223300,8 +224622,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2025-12-18T00:00:00.000Z",
-      "dateUpdated": "2026-06-11T01:34:15.640Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "8601498939ae",
@@ -223369,8 +224691,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2025-10-10T00:00:00.000Z",
-      "dateUpdated": "2026-06-11T12:33:52.706Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "c5deacac8d83",
@@ -223394,6 +224716,29 @@
       "datePosted": "2025-10-06T00:00:00.000Z",
       "dateUpdated": "2026-07-27T22:49:41.043Z",
       "active": false
+    },
+    {
+      "id": "52d20139a51d",
+      "company": "HireHawk",
+      "title": "Sales Manager Client Acquisition (Remote) | Philippines",
+      "locations": [
+        "Philippines"
+      ],
+      "workSetup": "remote",
+      "level": "senior",
+      "function": "sales",
+      "industry": "staffing",
+      "companyType": "agency",
+      "metro": [
+        "other-ph"
+      ],
+      "url": "https://apply.workable.com/j/B393C8EEF7",
+      "source": "workable",
+      "employmentType": "full-time",
+      "salary": null,
+      "datePosted": "2026-11-06T00:00:00.000Z",
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": true
     },
     {
       "id": "388cb5570fd9",
@@ -223599,8 +224944,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-10-20T00:00:00.000Z",
-      "dateUpdated": "2026-10-21T00:13:19.826Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "910554b41e75",
@@ -225857,6 +227202,29 @@
       "salary": null,
       "datePosted": "2026-06-05T20:09:13.035Z",
       "dateUpdated": "2026-10-15T00:10:41.955Z",
+      "active": true
+    },
+    {
+      "id": "e09bd8e33776",
+      "company": "Hostaway",
+      "title": "Partner Success Manager - 100% Remote - Philippines",
+      "locations": [
+        "Manila, Philippines"
+      ],
+      "workSetup": "remote",
+      "level": "senior",
+      "function": "sales",
+      "industry": "saas",
+      "companyType": "direct",
+      "metro": [
+        "ncr"
+      ],
+      "url": "https://careers.hostaway.com/o/partner-success-manager-100-remote-philippines-3",
+      "source": "recruitee",
+      "employmentType": "full-time",
+      "salary": null,
+      "datePosted": "2026-11-06T16:23:53.000Z",
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
       "active": true
     },
     {
@@ -232318,6 +233686,29 @@
       "active": false
     },
     {
+      "id": "0efa441a9df0",
+      "company": "Hunt St",
+      "title": "Payroll & Bookkeeping (027 - 1475)",
+      "locations": [
+        "Philippines"
+      ],
+      "workSetup": "remote",
+      "level": "unknown",
+      "function": "finance",
+      "industry": "staffing",
+      "companyType": "agency",
+      "metro": [
+        "other-ph"
+      ],
+      "url": "https://apply.workable.com/j/64E480442F",
+      "source": "workable",
+      "employmentType": "part-time",
+      "salary": null,
+      "datePosted": "2026-11-06T00:00:00.000Z",
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": true
+    },
+    {
       "id": "4f439e294ffe",
       "company": "Hunt St",
       "title": "Senior Accountant (008-01476)",
@@ -232338,6 +233729,52 @@
       "salary": null,
       "datePosted": "2026-11-06T00:00:00.000Z",
       "dateUpdated": "2026-11-06T01:53:34.890Z",
+      "active": true
+    },
+    {
+      "id": "62b80e2c56ef",
+      "company": "Hunt St",
+      "title": "Sales & Operations Manager - Commercial Supply & Install (012-948)",
+      "locations": [
+        "Philippines"
+      ],
+      "workSetup": "remote",
+      "level": "senior",
+      "function": "sales",
+      "industry": "staffing",
+      "companyType": "agency",
+      "metro": [
+        "other-ph"
+      ],
+      "url": "https://apply.workable.com/j/6D8251934D",
+      "source": "workable",
+      "employmentType": "full-time",
+      "salary": null,
+      "datePosted": "2026-11-06T00:00:00.000Z",
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": true
+    },
+    {
+      "id": "e0cea5e9bfd5",
+      "company": "Hunt St",
+      "title": "Service delivery/Care Coordinator",
+      "locations": [
+        "Philippines"
+      ],
+      "workSetup": "remote",
+      "level": "unknown",
+      "function": "operations",
+      "industry": "staffing",
+      "companyType": "agency",
+      "metro": [
+        "other-ph"
+      ],
+      "url": "https://apply.workable.com/j/A60F11EE82",
+      "source": "workable",
+      "employmentType": "full-time",
+      "salary": null,
+      "datePosted": "2026-11-06T00:00:00.000Z",
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
       "active": true
     },
     {
@@ -240801,8 +242238,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-07-27T00:00:00.000Z",
-      "dateUpdated": "2026-08-28T05:51:44.987Z",
-      "active": false
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": true
     },
     {
       "id": "e7b6dcdd37d8",
@@ -241077,8 +242514,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-07-24T00:00:00.000Z",
-      "dateUpdated": "2026-08-28T05:51:44.987Z",
-      "active": false
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": true
     },
     {
       "id": "4c6cabef5ac7",
@@ -249200,6 +250637,29 @@
       "active": false
     },
     {
+      "id": "d74f1fee249b",
+      "company": "ING",
+      "title": "DevOps Engineer",
+      "locations": [
+        "Manila (One Ayala Tower 2)"
+      ],
+      "workSetup": "unknown",
+      "level": "unknown",
+      "function": "engineering",
+      "industry": "financial-services",
+      "companyType": "direct",
+      "metro": [
+        "ncr"
+      ],
+      "url": "https://ing.wd3.myworkdayjobs.com/en-US/ICSGBLCOR/job/Manila-One-Ayala-Tower-2/DevOps-Engineer_REQ-10124200-1",
+      "source": "workday",
+      "employmentType": "full-time",
+      "salary": null,
+      "datePosted": "2026-11-07T01:24:50.908Z",
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": true
+    },
+    {
       "id": "bae8dc29a337",
       "company": "ING",
       "title": "BE Fiducre Accounting CLM III",
@@ -250461,8 +251921,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-10-08T01:25:25.291Z",
-      "dateUpdated": "2026-10-08T01:25:25.291Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "babd65070d5d",
@@ -251105,8 +252565,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-10-01T00:53:54.224Z",
-      "dateUpdated": "2026-10-01T00:53:54.224Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "bd2d02b3e7a1",
@@ -257361,8 +258821,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-08-08T22:16:41.075Z",
-      "dateUpdated": "2026-09-27T00:00:17.413Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "f95e8881c57b",
@@ -258191,6 +259651,29 @@
       "active": false
     },
     {
+      "id": "8e466952be74",
+      "company": "IQVIA",
+      "title": "Fair Market Value (FMV) Analyst",
+      "locations": [
+        "Taguig City, Philippines"
+      ],
+      "workSetup": "unknown",
+      "level": "unknown",
+      "function": "other",
+      "industry": "healthtech",
+      "companyType": "direct",
+      "metro": [
+        "ncr"
+      ],
+      "url": "https://iqvia.wd1.myworkdayjobs.com/en-US/IQVIA/job/Taguig-City-Philippines/Fair-Market-Value--FMV--Analyst_R1575511",
+      "source": "workday",
+      "employmentType": "unknown",
+      "salary": null,
+      "datePosted": "2026-11-07T01:24:50.908Z",
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": true
+    },
+    {
       "id": "a26b3566d6f2",
       "company": "IQVIA",
       "title": "Sr Production Assoc",
@@ -258256,8 +259739,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-11-05T01:53:02.507Z",
-      "dateUpdated": "2026-11-05T01:53:02.507Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "ceb4cfa81990",
@@ -258302,8 +259785,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-11-04T01:44:56.854Z",
-      "dateUpdated": "2026-11-04T01:44:56.854Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "644f2625f2f0",
@@ -258900,8 +260383,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-10-09T01:32:23.694Z",
-      "dateUpdated": "2026-10-09T01:32:23.694Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "74de30527a9b",
@@ -259061,8 +260544,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-10-06T01:58:17.971Z",
-      "dateUpdated": "2026-10-06T01:58:17.971Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "3c914b4291ab",
@@ -259153,8 +260636,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-10-06T01:58:17.971Z",
-      "dateUpdated": "2026-10-06T01:58:17.971Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "dd7d85b4a9c4",
@@ -259429,8 +260912,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-09-29T01:20:27.171Z",
-      "dateUpdated": "2026-11-05T01:53:02.507Z",
-      "active": false
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": true
     },
     {
       "id": "cc393efc987f",
@@ -264144,8 +265627,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-09-27T00:00:17.413Z",
-      "dateUpdated": "2026-09-27T00:00:17.413Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "cb82c5d684d3",
@@ -268633,6 +270116,98 @@
       "active": false
     },
     {
+      "id": "9ab7962d775e",
+      "company": "iSupport Worldwide",
+      "title": "Property Management Assistant",
+      "locations": [
+        "Pasig, Philippines"
+      ],
+      "workSetup": "unknown",
+      "level": "unknown",
+      "function": "construction",
+      "industry": "outsourcing",
+      "companyType": "agency",
+      "metro": [
+        "ncr"
+      ],
+      "url": "https://apply.workable.com/j/508E3BD8AB",
+      "source": "workable",
+      "employmentType": "full-time",
+      "salary": null,
+      "datePosted": "2026-11-06T00:00:00.000Z",
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": true
+    },
+    {
+      "id": "a00a30ca6277",
+      "company": "iSupport Worldwide",
+      "title": "Business Development Representative",
+      "locations": [
+        "Pasig, Philippines"
+      ],
+      "workSetup": "unknown",
+      "level": "unknown",
+      "function": "sales",
+      "industry": "outsourcing",
+      "companyType": "agency",
+      "metro": [
+        "ncr"
+      ],
+      "url": "https://apply.workable.com/j/72978E7884",
+      "source": "workable",
+      "employmentType": "full-time",
+      "salary": null,
+      "datePosted": "2026-11-06T00:00:00.000Z",
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": true
+    },
+    {
+      "id": "c2fac0a99810",
+      "company": "iSupport Worldwide",
+      "title": "Subscription Manager",
+      "locations": [
+        "Philippines"
+      ],
+      "workSetup": "remote",
+      "level": "senior",
+      "function": "other",
+      "industry": "outsourcing",
+      "companyType": "agency",
+      "metro": [
+        "other-ph"
+      ],
+      "url": "https://apply.workable.com/j/C4F86F069E",
+      "source": "workable",
+      "employmentType": "full-time",
+      "salary": null,
+      "datePosted": "2026-11-06T00:00:00.000Z",
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": true
+    },
+    {
+      "id": "ed47685fdc45",
+      "company": "iSupport Worldwide",
+      "title": "Electronic Data Quality Analyst",
+      "locations": [
+        "Pasig, Philippines"
+      ],
+      "workSetup": "unknown",
+      "level": "unknown",
+      "function": "data",
+      "industry": "outsourcing",
+      "companyType": "agency",
+      "metro": [
+        "ncr"
+      ],
+      "url": "https://apply.workable.com/j/0D4CC662E7",
+      "source": "workable",
+      "employmentType": "full-time",
+      "salary": null,
+      "datePosted": "2026-11-06T00:00:00.000Z",
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": true
+    },
+    {
       "id": "eff5c0eb9c34",
       "company": "iSupport Worldwide",
       "title": "AI Engineer - Agentic AI & Cloud Infrastructure",
@@ -269595,8 +271170,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-10-13T00:00:00.000Z",
-      "dateUpdated": "2026-10-13T02:45:31.607Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "f3c06a64614c",
@@ -269733,8 +271308,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-10-09T00:00:00.000Z",
-      "dateUpdated": "2026-10-10T01:22:56.884Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "9401d8a9f7b8",
@@ -270653,8 +272228,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-09-17T00:00:00.000Z",
-      "dateUpdated": "2026-10-07T01:05:59.190Z",
-      "active": false
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": true
     },
     {
       "id": "43fcd7869bbb",
@@ -273072,6 +274647,52 @@
       "active": false
     },
     {
+      "id": "0258643f914d",
+      "company": "JLL",
+      "title": "Coordinator - Learning & Development",
+      "locations": [
+        "Taguig, Philippines"
+      ],
+      "workSetup": "unknown",
+      "level": "unknown",
+      "function": "hr",
+      "industry": "real-estate",
+      "companyType": "direct",
+      "metro": [
+        "ncr"
+      ],
+      "url": "https://jll.wd1.myworkdayjobs.com/en-US/jllcareers/job/Taguig-Philippines/Coordinator---Learning---Development_REQ547055",
+      "source": "workday",
+      "employmentType": "unknown",
+      "salary": null,
+      "datePosted": "2026-11-07T01:24:50.908Z",
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": true
+    },
+    {
+      "id": "54d1fdcc36cc",
+      "company": "JLL",
+      "title": "Coordinator - Learning & Development",
+      "locations": [
+        "Taguig, Philippines"
+      ],
+      "workSetup": "unknown",
+      "level": "unknown",
+      "function": "hr",
+      "industry": "real-estate",
+      "companyType": "direct",
+      "metro": [
+        "ncr"
+      ],
+      "url": "https://jll.wd1.myworkdayjobs.com/en-US/jllcareers/job/Taguig-Philippines/Coordinator---Learning---Development_REQ547050-1",
+      "source": "workday",
+      "employmentType": "unknown",
+      "salary": null,
+      "datePosted": "2026-11-07T01:24:50.908Z",
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": true
+    },
+    {
       "id": "421d78264a9c",
       "company": "JLL",
       "title": "Senior Analyst - Hotels Support",
@@ -273574,8 +275195,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-10-24T00:07:32.505Z",
-      "dateUpdated": "2026-10-24T00:07:32.505Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "741be5050248",
@@ -275690,8 +277311,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-10-07T01:05:59.190Z",
-      "dateUpdated": "2026-10-07T01:05:59.190Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "5bcfc7d05192",
@@ -278795,8 +280416,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-09-27T00:00:17.413Z",
-      "dateUpdated": "2026-10-07T01:05:59.190Z",
-      "active": false
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": true
     },
     {
       "id": "f3a4722e1230",
@@ -278960,6 +280581,52 @@
       "active": false
     },
     {
+      "id": "008df4b48502",
+      "company": "Johnson & Johnson",
+      "title": "Senior Analyst – Global Payroll Vendor Governance and Financial Management",
+      "locations": [
+        "Philippines"
+      ],
+      "workSetup": "unknown",
+      "level": "senior",
+      "function": "finance",
+      "industry": "healthtech",
+      "companyType": "direct",
+      "metro": [
+        "other-ph"
+      ],
+      "url": "https://jj.wd5.myworkdayjobs.com/en-US/JJ/job/Taguig-National-Capital-Region-Manila-Philippines/Senior-Analyst---Global-Payroll-Vendor-Governance-and-Financial-Management_R-109633",
+      "source": "workday",
+      "employmentType": "full-time",
+      "salary": null,
+      "datePosted": "2026-11-07T01:24:50.908Z",
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": true
+    },
+    {
+      "id": "28ae7a8d3fd2",
+      "company": "Johnson & Johnson",
+      "title": "Senior Analyst – Global Payroll Vendor Governance and Financial Management",
+      "locations": [
+        "Philippines"
+      ],
+      "workSetup": "unknown",
+      "level": "senior",
+      "function": "finance",
+      "industry": "healthtech",
+      "companyType": "direct",
+      "metro": [
+        "other-ph"
+      ],
+      "url": "https://jj.wd5.myworkdayjobs.com/en-US/JJ/job/Bogot-Distrito-Capital-Colombia/Senior-Analyst---Global-Payroll-Vendor-Governance-and-Financial-Management_R-108379",
+      "source": "workday",
+      "employmentType": "full-time",
+      "salary": null,
+      "datePosted": "2026-11-07T01:24:50.908Z",
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": true
+    },
+    {
       "id": "016bf96e198e",
       "company": "Johnson & Johnson",
       "title": "Government Affairs & Policy Lead",
@@ -279071,8 +280738,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-11-05T01:53:02.507Z",
-      "dateUpdated": "2026-11-05T01:53:02.507Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "af09f97e50dd",
@@ -280635,8 +282302,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-10-08T01:25:25.291Z",
-      "dateUpdated": "2026-11-05T01:53:02.507Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "8c7b0a633afe",
@@ -280704,8 +282371,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-10-08T01:25:25.291Z",
-      "dateUpdated": "2026-11-06T01:53:34.890Z",
-      "active": false
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": true
     },
     {
       "id": "f1cde64445d8",
@@ -291993,8 +293660,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-11-02T21:50:36.000Z",
-      "dateUpdated": "2026-11-04T01:44:56.854Z",
-      "active": false
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": true
     },
     {
       "id": "7847f222acbd",
@@ -297648,8 +299315,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-01-13T10:14:01.876Z",
-      "dateUpdated": "2026-08-20T22:15:10.222Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "2b4b60f0555c",
@@ -297815,6 +299482,75 @@
       "active": true
     },
     {
+      "id": "3b5cf0f0b8dc",
+      "company": "Maersk",
+      "title": "Ocean Customer Experience Team Lead – MEX",
+      "locations": [
+        "Philippines, Pasig, 1600"
+      ],
+      "workSetup": "unknown",
+      "level": "senior",
+      "function": "customer-support",
+      "industry": "logistics",
+      "companyType": "direct",
+      "metro": [
+        "ncr"
+      ],
+      "url": "https://maersk.wd3.myworkdayjobs.com/en-US/Maersk_Careers/job/Philippines-Pasig-1600/Ocean-Customer-Experience-Team-Lead---MEX_R202939",
+      "source": "workday",
+      "employmentType": "full-time",
+      "salary": null,
+      "datePosted": "2026-11-07T01:24:50.908Z",
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": true
+    },
+    {
+      "id": "d78dad8d7914",
+      "company": "Maersk",
+      "title": "Ocean Customer Experience Specialist WSA - Spanish",
+      "locations": [
+        "PH - Manila"
+      ],
+      "workSetup": "unknown",
+      "level": "unknown",
+      "function": "customer-support",
+      "industry": "logistics",
+      "companyType": "direct",
+      "metro": [
+        "ncr"
+      ],
+      "url": "https://maersk.wd3.myworkdayjobs.com/en-US/Maersk_Careers/job/PH---Manila/Ocean-Customer-Experience-Specialist-WSA---Spanish_R201985",
+      "source": "workday",
+      "employmentType": "full-time",
+      "salary": null,
+      "datePosted": "2026-11-07T01:24:50.908Z",
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": true
+    },
+    {
+      "id": "e697e199282d",
+      "company": "Maersk",
+      "title": "Lead Logistics Customer Experience Team Leader - SEA",
+      "locations": [
+        "Philippines, Pasig, 1600"
+      ],
+      "workSetup": "unknown",
+      "level": "senior",
+      "function": "operations",
+      "industry": "logistics",
+      "companyType": "direct",
+      "metro": [
+        "ncr"
+      ],
+      "url": "https://maersk.wd3.myworkdayjobs.com/en-US/Maersk_Careers/job/Philippines-Pasig-1600/Lead-Logistics-Customer-Experience-Team-Leader---SEA_R202916",
+      "source": "workday",
+      "employmentType": "full-time",
+      "salary": null,
+      "datePosted": "2026-11-07T01:24:50.908Z",
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": true
+    },
+    {
       "id": "24a1972d458b",
       "company": "Maersk",
       "title": "Disputes Voice Coordinator - Spanish",
@@ -297972,8 +299708,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-10-31T01:11:29.452Z",
-      "dateUpdated": "2026-10-31T01:11:29.452Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "f3a1ca132ca2",
@@ -298116,7 +299852,7 @@
     {
       "id": "c2746d19f57b",
       "company": "Maersk",
-      "title": "Team Leader OTCS",
+      "title": "Disputes Team Leader",
       "locations": [
         "Philippines, Pasig, 1600"
       ],
@@ -298133,7 +299869,7 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-10-28T00:48:46.221Z",
-      "dateUpdated": "2026-10-28T00:48:46.221Z",
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
       "active": true
     },
     {
@@ -298616,8 +300352,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-10-09T01:32:23.694Z",
-      "dateUpdated": "2026-10-09T01:32:23.694Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "628f999c8a83",
@@ -298685,8 +300421,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-10-07T01:05:59.190Z",
-      "dateUpdated": "2026-10-07T01:05:59.190Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "320aa72323ef",
@@ -299122,8 +300858,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-09-27T00:00:17.413Z",
-      "dateUpdated": "2026-09-27T00:00:17.413Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "17934ffef54b",
@@ -301261,8 +302997,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-07-13T22:43:36.854Z",
-      "dateUpdated": "2026-09-27T00:00:17.413Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "1c34108ed86f",
@@ -302251,6 +303987,29 @@
       "salary": null,
       "datePosted": "2026-07-06T14:19:26.364Z",
       "dateUpdated": "2026-09-27T00:00:17.413Z",
+      "active": true
+    },
+    {
+      "id": "b58d3db801d1",
+      "company": "Magic",
+      "title": "Client Account Specialist",
+      "locations": [
+        "Taguig City, Metro Manila, Philippines"
+      ],
+      "workSetup": "remote",
+      "level": "unknown",
+      "function": "other",
+      "industry": "outsourcing",
+      "companyType": "agency",
+      "metro": [
+        "ncr"
+      ],
+      "url": "https://magic.pinpointhq.com/en/postings/7156fe29-c5d7-4df5-b923-3a340b8cfa99",
+      "source": "pinpoint",
+      "employmentType": "full-time",
+      "salary": "₱38,000 / month",
+      "datePosted": "2026-11-07T01:24:50.908Z",
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
       "active": true
     },
     {
@@ -304301,6 +306060,98 @@
       "active": false
     },
     {
+      "id": "2e572175761a",
+      "company": "Manila Recruitment",
+      "title": "Senior Business Development Manager - #35389",
+      "locations": [
+        "Manila, Philippines"
+      ],
+      "workSetup": "unknown",
+      "level": "senior",
+      "function": "sales",
+      "industry": "recruitment",
+      "companyType": "agency",
+      "metro": [
+        "ncr"
+      ],
+      "url": "https://apply.workable.com/j/A5D2F6158E",
+      "source": "workable",
+      "employmentType": "full-time",
+      "salary": null,
+      "datePosted": "2026-11-06T00:00:00.000Z",
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": true
+    },
+    {
+      "id": "a8277aff9658",
+      "company": "Manila Recruitment",
+      "title": "Cold Caller (Work-from-home) - #35393",
+      "locations": [
+        "Manila, Philippines"
+      ],
+      "workSetup": "remote",
+      "level": "unknown",
+      "function": "sales",
+      "industry": "recruitment",
+      "companyType": "agency",
+      "metro": [
+        "ncr"
+      ],
+      "url": "https://apply.workable.com/j/06DD5F43FF",
+      "source": "workable",
+      "employmentType": "full-time",
+      "salary": null,
+      "datePosted": "2026-11-06T00:00:00.000Z",
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": true
+    },
+    {
+      "id": "e30510819db5",
+      "company": "Manila Recruitment",
+      "title": "Key Account Executive - #35392",
+      "locations": [
+        "Pasay City, Philippines"
+      ],
+      "workSetup": "unknown",
+      "level": "unknown",
+      "function": "sales",
+      "industry": "recruitment",
+      "companyType": "agency",
+      "metro": [
+        "ncr"
+      ],
+      "url": "https://apply.workable.com/j/3EB0DAF31D",
+      "source": "workable",
+      "employmentType": "full-time",
+      "salary": null,
+      "datePosted": "2026-11-06T00:00:00.000Z",
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": true
+    },
+    {
+      "id": "e4daf8621584",
+      "company": "Manila Recruitment",
+      "title": "Revit Specialist (BIM) - Onsite - #35376",
+      "locations": [
+        "Ortigas Center, Philippines"
+      ],
+      "workSetup": "unknown",
+      "level": "unknown",
+      "function": "construction",
+      "industry": "recruitment",
+      "companyType": "agency",
+      "metro": [
+        "ncr"
+      ],
+      "url": "https://apply.workable.com/j/A3D088F649",
+      "source": "workable",
+      "employmentType": "unknown",
+      "salary": null,
+      "datePosted": "2026-11-06T00:00:00.000Z",
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": true
+    },
+    {
       "id": "d5700b47dcc4",
       "company": "Manila Recruitment",
       "title": "Market Research Analyst | Remote - #35361",
@@ -305240,8 +307091,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-10-06T00:00:00.000Z",
-      "dateUpdated": "2026-10-07T01:05:59.190Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "28deb838f050",
@@ -306735,8 +308586,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-08-28T00:00:00.000Z",
-      "dateUpdated": "2026-08-28T05:51:44.987Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "3796cdb032a0",
@@ -308391,8 +310242,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-07-08T00:00:00.000Z",
-      "dateUpdated": "2026-09-24T00:05:43.233Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "39cbcbcc1524",
@@ -311523,6 +313374,98 @@
       "active": true
     },
     {
+      "id": "1c9059c8fc76",
+      "company": "Manulife",
+      "title": "Manager,  Experience Solutions, Global HR",
+      "locations": [
+        "Quezon City"
+      ],
+      "workSetup": "unknown",
+      "level": "senior",
+      "function": "hr",
+      "industry": "insurance",
+      "companyType": "direct",
+      "metro": [
+        "ncr"
+      ],
+      "url": "https://manulife.wd3.myworkdayjobs.com/en-US/MFCJH_Jobs/job/Quezon-City/Manager---Experience-Solutions--Global-HR_JR26101635",
+      "source": "workday",
+      "employmentType": "unknown",
+      "salary": null,
+      "datePosted": "2026-11-07T01:24:50.908Z",
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": true
+    },
+    {
+      "id": "c2090b474527",
+      "company": "Manulife",
+      "title": "Fund Change Jr. Business Advisor",
+      "locations": [
+        "Philippines"
+      ],
+      "workSetup": "unknown",
+      "level": "entry",
+      "function": "other",
+      "industry": "insurance",
+      "companyType": "direct",
+      "metro": [
+        "other-ph"
+      ],
+      "url": "https://manulife.wd3.myworkdayjobs.com/en-US/MFCJH_Jobs/job/Quezon-City/Fund-Change-Jr-Business-Advisor_JR26080932-1",
+      "source": "workday",
+      "employmentType": "unknown",
+      "salary": null,
+      "datePosted": "2026-11-07T01:24:50.908Z",
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": true
+    },
+    {
+      "id": "d97f95369901",
+      "company": "Manulife",
+      "title": "Member Set-up Administrator III",
+      "locations": [
+        "Quezon City"
+      ],
+      "workSetup": "unknown",
+      "level": "mid",
+      "function": "other",
+      "industry": "insurance",
+      "companyType": "direct",
+      "metro": [
+        "ncr"
+      ],
+      "url": "https://manulife.wd3.myworkdayjobs.com/en-US/MFCJH_Jobs/job/Quezon-City/Member-Set-up-Administrator-III_JR26101607",
+      "source": "workday",
+      "employmentType": "unknown",
+      "salary": null,
+      "datePosted": "2026-11-07T01:24:50.908Z",
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": true
+    },
+    {
+      "id": "f62f93348044",
+      "company": "Manulife",
+      "title": "Manager, Information Risk Management",
+      "locations": [
+        "Quezon City"
+      ],
+      "workSetup": "unknown",
+      "level": "senior",
+      "function": "finance",
+      "industry": "insurance",
+      "companyType": "direct",
+      "metro": [
+        "ncr"
+      ],
+      "url": "https://manulife.wd3.myworkdayjobs.com/en-US/MFCJH_Jobs/job/Quezon-City/Manager--IRM--IRO_JR26101591",
+      "source": "workday",
+      "employmentType": "unknown",
+      "salary": null,
+      "datePosted": "2026-11-07T01:24:50.908Z",
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": true
+    },
+    {
       "id": "0a4ff606ac99",
       "company": "Manulife",
       "title": "Corporate Account Specialist",
@@ -312393,8 +314336,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-10-24T00:07:32.505Z",
-      "dateUpdated": "2026-10-24T00:07:32.505Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "49955c910916",
@@ -312485,8 +314428,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-10-24T00:07:32.505Z",
-      "dateUpdated": "2026-10-24T00:07:32.505Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "aff69371cffe",
@@ -313037,8 +314980,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-10-12T00:48:27.944Z",
-      "dateUpdated": "2026-10-12T00:48:27.944Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "3115e2eff29a",
@@ -313221,8 +315164,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-10-09T01:32:23.694Z",
-      "dateUpdated": "2026-10-09T01:32:23.694Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "eaf2d5a4dfc0",
@@ -313382,8 +315325,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-10-07T01:05:59.190Z",
-      "dateUpdated": "2026-11-04T01:44:56.854Z",
-      "active": false
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": true
     },
     {
       "id": "3e53ce3a7dd0",
@@ -313451,8 +315394,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-10-07T01:05:59.190Z",
-      "dateUpdated": "2026-10-15T23:57:23.136Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "e721c8d4247d",
@@ -327508,6 +329451,29 @@
       "active": false
     },
     {
+      "id": "a81c1d4bb639",
+      "company": "Medtronic",
+      "title": "Payroll  Support",
+      "locations": [
+        "Taguig City, National Capital Region, Philippines"
+      ],
+      "workSetup": "unknown",
+      "level": "unknown",
+      "function": "finance",
+      "industry": "healthtech",
+      "companyType": "direct",
+      "metro": [
+        "ncr"
+      ],
+      "url": "https://medtronic.wd1.myworkdayjobs.com/en-US/MedtronicCareers/job/Taguig-City-National-Capital-Region-Philippines/Payroll--Support_R75336-1",
+      "source": "workday",
+      "employmentType": "unknown",
+      "salary": null,
+      "datePosted": "2026-11-07T01:24:50.908Z",
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": true
+    },
+    {
       "id": "7d066213f3c1",
       "company": "Medtronic",
       "title": "Associate Regulatory    Affairs Specialist",
@@ -328355,8 +330321,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-09-27T00:00:17.413Z",
-      "dateUpdated": "2026-09-27T00:00:17.413Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "c54ca45a96f0",
@@ -378840,8 +380806,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-10-03T00:48:20.643Z",
-      "dateUpdated": "2026-10-03T00:48:20.643Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "a7aad1c51853",
@@ -380496,8 +382462,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-09-14T02:35:19.010Z",
-      "dateUpdated": "2026-09-27T00:00:17.413Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "bf5c5d14bd2b",
@@ -381324,8 +383290,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-07-20T02:08:52.432Z",
-      "dateUpdated": "2026-09-27T00:00:17.413Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "310fb852d32e",
@@ -382269,6 +384235,29 @@
       "datePosted": "2026-09-27T00:00:17.413Z",
       "dateUpdated": "2026-10-02T01:11:03.632Z",
       "active": false
+    },
+    {
+      "id": "5de233bfe5a0",
+      "company": "NCR Voyix",
+      "title": "HR Shared Services Associate (I)",
+      "locations": [
+        "CEBU CITY, PHL"
+      ],
+      "workSetup": "unknown",
+      "level": "entry",
+      "function": "hr",
+      "industry": "software",
+      "companyType": "direct",
+      "metro": [
+        "cebu"
+      ],
+      "url": "https://ncr.wd1.myworkdayjobs.com/en-US/ext_apac/job/CEBU-CITY-PHL/HR-Shared-Services-Associate--I-_R0159165-1",
+      "source": "workday",
+      "employmentType": "unknown",
+      "salary": null,
+      "datePosted": "2026-11-07T01:24:50.908Z",
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": true
     },
     {
       "id": "3cb81da8211b",
@@ -383348,8 +385337,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-10-15T00:10:41.955Z",
-      "dateUpdated": "2026-10-30T01:25:01.971Z",
-      "active": false
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": true
     },
     {
       "id": "6924737d093f",
@@ -383417,8 +385406,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-10-15T00:10:41.955Z",
-      "dateUpdated": "2026-10-30T01:25:01.971Z",
-      "active": false
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": true
     },
     {
       "id": "0fed1b930b32",
@@ -385008,6 +386997,29 @@
       "active": false
     },
     {
+      "id": "3e19a5ee37b9",
+      "company": "NeoWork",
+      "title": "Senior Graphic Designer",
+      "locations": [
+        "Philippines"
+      ],
+      "workSetup": "remote",
+      "level": "senior",
+      "function": "design",
+      "industry": "outsourcing",
+      "companyType": "agency",
+      "metro": [
+        "other-ph"
+      ],
+      "url": "https://apply.workable.com/j/F06284F47F",
+      "source": "workable",
+      "employmentType": "full-time",
+      "salary": null,
+      "datePosted": "2026-11-06T00:00:00.000Z",
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": true
+    },
+    {
       "id": "e5ac69b676af",
       "company": "NeoWork",
       "title": "Medical Doctor (MD) - Client Medical Educator",
@@ -385033,7 +387045,7 @@
     {
       "id": "62623fbd40bd",
       "company": "NeoWork",
-      "title": "Credentialing Specialist - Philippines",
+      "title": "Credentialing & Licensing Coordinator - Philippines",
       "locations": [
         "Philippines"
       ],
@@ -385050,7 +387062,7 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-10-29T00:00:00.000Z",
-      "dateUpdated": "2026-10-30T01:25:01.971Z",
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
       "active": true
     },
     {
@@ -387398,8 +389410,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-10-16T08:18:49.000Z",
-      "dateUpdated": "2026-10-17T00:01:44.588Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "d41515bfd257",
@@ -389330,8 +391342,8 @@
       "employmentType": "internship",
       "salary": null,
       "datePosted": "2026-10-16T06:24:10.572Z",
-      "dateUpdated": "2026-10-17T00:01:44.588Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "8402763ae636",
@@ -389744,8 +391756,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-08-06T02:16:34.181Z",
-      "dateUpdated": "2026-08-07T01:27:26.533Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "e6610bbf3630",
@@ -390415,6 +392427,29 @@
       "active": true
     },
     {
+      "id": "49f68af0f4e9",
+      "company": "Octal Philippines",
+      "title": "IT Project Manager",
+      "locations": [
+        "Taguig City, Philippines"
+      ],
+      "workSetup": "unknown",
+      "level": "senior",
+      "function": "engineering",
+      "industry": "it-services",
+      "companyType": "agency",
+      "metro": [
+        "ncr"
+      ],
+      "url": "https://apply.workable.com/j/197BEAB9D0",
+      "source": "workable",
+      "employmentType": "full-time",
+      "salary": null,
+      "datePosted": "2026-11-06T00:00:00.000Z",
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": true
+    },
+    {
       "id": "3cbd71965e58",
       "company": "Octal Philippines",
       "title": "Senior Team Lead - SaaS Support",
@@ -390526,8 +392561,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-10-31T00:00:00.000Z",
-      "dateUpdated": "2026-11-01T00:32:09.366Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "39ac785fddad",
@@ -394781,8 +396816,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-10-03T00:48:20.643Z",
-      "dateUpdated": "2026-10-03T00:48:20.643Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "9a0e9d4da5fd",
@@ -400792,6 +402827,29 @@
       "active": true
     },
     {
+      "id": "15de8a1b931a",
+      "company": "Pepper Money UK - Philippines Branch",
+      "title": "Senior Financial Accountant",
+      "locations": [
+        "Taguig, Metro Manila, Philippines"
+      ],
+      "workSetup": "unknown",
+      "level": "senior",
+      "function": "finance",
+      "industry": "financial-services",
+      "companyType": "direct",
+      "metro": [
+        "ncr"
+      ],
+      "url": "https://www.careers-page.com/pmb-uk-philippine-branch/job/8XR7W33R",
+      "source": "manatal",
+      "employmentType": "unknown",
+      "salary": null,
+      "datePosted": "2026-11-07T01:24:50.908Z",
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": true
+    },
+    {
       "id": "8c88ca95e97f",
       "company": "Pepper Money UK - Philippines Branch",
       "title": "Cyber Security Lead",
@@ -401915,8 +403973,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-08-08T22:16:41.075Z",
-      "dateUpdated": "2026-10-17T00:01:44.588Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "7077cfcd8e2e",
@@ -405366,6 +407424,29 @@
       "salary": null,
       "datePosted": "2026-07-19T22:40:23.603Z",
       "dateUpdated": "2026-07-19T22:40:23.603Z",
+      "active": true
+    },
+    {
+      "id": "8096bf48d8d6",
+      "company": "Pilmico",
+      "title": "Associate Animal Nutritionist - Gamefowl",
+      "locations": [
+        "Iligan, Lanao Del Norte, Philippines"
+      ],
+      "workSetup": "onsite",
+      "level": "entry",
+      "function": "other",
+      "industry": "food",
+      "companyType": "direct",
+      "metro": [
+        "other-ph"
+      ],
+      "url": "https://jobs.smartrecruiters.com/PilmicoFoodsCorporation/744000160089447",
+      "source": "smartrecruiters",
+      "employmentType": "full-time",
+      "salary": null,
+      "datePosted": "2026-11-06T03:13:00.284Z",
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
       "active": true
     },
     {
@@ -408861,8 +410942,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-09-23T09:27:25.513Z",
-      "dateUpdated": "2026-09-24T00:05:43.233Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "13ae4b442593",
@@ -420825,6 +422906,29 @@
       "active": false
     },
     {
+      "id": "039efeafcc44",
+      "company": "Procter & Gamble",
+      "title": "Senior Accounting Specialist",
+      "locations": [
+        "MANILA SIX/NEO OFFICE"
+      ],
+      "workSetup": "unknown",
+      "level": "senior",
+      "function": "finance",
+      "industry": "consumer",
+      "companyType": "direct",
+      "metro": [
+        "ncr"
+      ],
+      "url": "https://pg.wd5.myworkdayjobs.com/en-US/1000/job/MANILA-SIXNEO-OFFICE/Senior-Accounting-Specialist_R000162463",
+      "source": "workday",
+      "employmentType": "unknown",
+      "salary": null,
+      "datePosted": "2026-11-07T01:24:50.908Z",
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": true
+    },
+    {
       "id": "67214065622d",
       "company": "Procter & Gamble",
       "title": "Order-To-Cash Finance Associate (Bahasa Speaker)",
@@ -422777,6 +424881,75 @@
       "salary": null,
       "datePosted": "2026-09-27T00:00:17.413Z",
       "dateUpdated": "2026-09-27T00:00:17.413Z",
+      "active": true
+    },
+    {
+      "id": "120a97743db5",
+      "company": "Pru Life UK",
+      "title": "Assistant Manager - Activation and Productivity (Activation Officer)",
+      "locations": [
+        "Metro Manila"
+      ],
+      "workSetup": "unknown",
+      "level": "senior",
+      "function": "other",
+      "industry": "insurance",
+      "companyType": "direct",
+      "metro": [
+        "ncr"
+      ],
+      "url": "https://prudential.wd3.myworkdayjobs.com/en-US/prudential/job/Metro-Manila/Assistant-Manager---Activation-and-Productivity--Activation-Officer-_26100463",
+      "source": "workday",
+      "employmentType": "unknown",
+      "salary": null,
+      "datePosted": "2026-11-07T01:24:50.908Z",
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": true
+    },
+    {
+      "id": "244620ca3732",
+      "company": "Pru Life UK",
+      "title": "Sales Senior Manager",
+      "locations": [
+        "Metro Manila"
+      ],
+      "workSetup": "unknown",
+      "level": "senior",
+      "function": "sales",
+      "industry": "insurance",
+      "companyType": "direct",
+      "metro": [
+        "ncr"
+      ],
+      "url": "https://prudential.wd3.myworkdayjobs.com/en-US/prudential/job/Metro-Manila/Sales-Senior-Manager_26100461",
+      "source": "workday",
+      "employmentType": "unknown",
+      "salary": null,
+      "datePosted": "2026-11-07T01:24:50.908Z",
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": true
+    },
+    {
+      "id": "3b6490f8dfdd",
+      "company": "Pru Life UK",
+      "title": "Sales Support Specialist",
+      "locations": [
+        "Metro Manila"
+      ],
+      "workSetup": "unknown",
+      "level": "unknown",
+      "function": "sales",
+      "industry": "insurance",
+      "companyType": "direct",
+      "metro": [
+        "ncr"
+      ],
+      "url": "https://prudential.wd3.myworkdayjobs.com/en-US/prudential/job/Metro-Manila/Sales-Support-Specialist_26100464",
+      "source": "workday",
+      "employmentType": "unknown",
+      "salary": null,
+      "datePosted": "2026-11-07T01:24:50.908Z",
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
       "active": true
     },
     {
@@ -432486,6 +434659,29 @@
       "active": true
     },
     {
+      "id": "475c0e2ee9e0",
+      "company": "Q2 HR Solutions",
+      "title": "Data Analyst",
+      "locations": [
+        "Pasig City, Metro Manila, Philippines"
+      ],
+      "workSetup": "unknown",
+      "level": "unknown",
+      "function": "data",
+      "industry": "recruitment",
+      "companyType": "agency",
+      "metro": [
+        "ncr"
+      ],
+      "url": "https://www.careers-page.com/q2hrsolutions/job/93V453YY",
+      "source": "manatal",
+      "employmentType": "unknown",
+      "salary": null,
+      "datePosted": "2026-11-07T01:24:50.908Z",
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": true
+    },
+    {
       "id": "53a6e7e7a160",
       "company": "Q2 HR Solutions",
       "title": "Learning and Development & HR Operations Associate",
@@ -440053,6 +442249,29 @@
       "active": false
     },
     {
+      "id": "b4847de2d2f9",
+      "company": "QuickTeam",
+      "title": "Outbound Appointment Setter - US Healthcare (B2B)",
+      "locations": [
+        "Philippines"
+      ],
+      "workSetup": "remote",
+      "level": "unknown",
+      "function": "sales",
+      "industry": "staffing",
+      "companyType": "agency",
+      "metro": [
+        "other-ph"
+      ],
+      "url": "https://apply.workable.com/j/AF64F4A906",
+      "source": "workable",
+      "employmentType": "unknown",
+      "salary": null,
+      "datePosted": "2026-11-06T00:00:00.000Z",
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": true
+    },
+    {
       "id": "0ec26ba39e2f",
       "company": "QuickTeam",
       "title": "Medical VA Patient Scheduler (Spanish Bilingual, eClinicalWorks)",
@@ -440740,6 +442959,29 @@
       "salary": null,
       "datePosted": "2026-05-28T10:15:51.068Z",
       "dateUpdated": "2026-09-27T00:00:17.413Z",
+      "active": true
+    },
+    {
+      "id": "1637962b16b5",
+      "company": "RecruitGo",
+      "title": "SEO Specialist",
+      "locations": [
+        "Quezon City, Philippines"
+      ],
+      "workSetup": "remote",
+      "level": "unknown",
+      "function": "marketing",
+      "industry": "staffing",
+      "companyType": "agency",
+      "metro": [
+        "ncr"
+      ],
+      "url": "https://recruitgo.teamtailor.com/jobs/8677159-seo-specialist",
+      "source": "teamtailor",
+      "employmentType": "unknown",
+      "salary": null,
+      "datePosted": "2026-11-06T06:41:43.000Z",
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
       "active": true
     },
     {
@@ -441751,8 +443993,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-05-28T06:26:48.000Z",
-      "dateUpdated": "2026-09-27T00:00:17.413Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "6ec0376a13f4",
@@ -442836,6 +445078,52 @@
       "active": true
     },
     {
+      "id": "5fe3ae82a49f",
+      "company": "RELX",
+      "title": "Operations Generalist",
+      "locations": [
+        "Manila"
+      ],
+      "workSetup": "unknown",
+      "level": "unknown",
+      "function": "operations",
+      "industry": "media",
+      "companyType": "direct",
+      "metro": [
+        "ncr"
+      ],
+      "url": "https://relx.wd3.myworkdayjobs.com/en-US/relx/job/Manila/Operations-Generalist_R120535",
+      "source": "workday",
+      "employmentType": "unknown",
+      "salary": null,
+      "datePosted": "2026-11-07T01:24:50.908Z",
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": true
+    },
+    {
+      "id": "84dc686077d7",
+      "company": "RELX",
+      "title": "Fulfillment Analyst I",
+      "locations": [
+        "Manila"
+      ],
+      "workSetup": "unknown",
+      "level": "entry",
+      "function": "other",
+      "industry": "media",
+      "companyType": "direct",
+      "metro": [
+        "ncr"
+      ],
+      "url": "https://relx.wd3.myworkdayjobs.com/en-US/relx/job/Manila/Fulfillment-Analyst-I_R119504",
+      "source": "workday",
+      "employmentType": "unknown",
+      "salary": null,
+      "datePosted": "2026-11-07T01:24:50.908Z",
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": true
+    },
+    {
       "id": "128a89013ba1",
       "company": "RELX",
       "title": "Customer Solutions Specialist",
@@ -442970,8 +445258,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-11-05T01:53:02.507Z",
-      "dateUpdated": "2026-11-05T01:53:02.507Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "39e66204a62b",
@@ -443384,8 +445672,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-10-31T01:11:29.452Z",
-      "dateUpdated": "2026-10-31T01:11:29.452Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "f55e71d2818b",
@@ -444304,8 +446592,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-10-13T02:45:31.607Z",
-      "dateUpdated": "2026-10-13T02:45:31.607Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "29ad38ef1ac0",
@@ -447892,8 +450180,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-09-27T00:00:17.413Z",
-      "dateUpdated": "2026-09-27T00:00:17.413Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "fbf3aabbcb94",
@@ -448375,8 +450663,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-11-05T01:53:02.507Z",
-      "dateUpdated": "2026-11-05T01:53:02.507Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "b740be8263a1",
@@ -448513,8 +450801,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-09-29T01:20:27.171Z",
-      "dateUpdated": "2026-09-29T01:20:27.171Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "eaa0bf23b7ed",
@@ -449985,8 +452273,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-09-22T12:07:27.000Z",
-      "dateUpdated": "2026-09-27T00:00:17.413Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "4eab2f228d81",
@@ -450154,9 +452442,9 @@
       "url": "https://jobs.ashbyhq.com/retell-ai/358f4a48-14ad-4c58-b051-2b48a0159e47",
       "source": "ashby",
       "employmentType": "contract",
-      "salary": "$5,250 per month",
+      "salary": "$5,250 – $7,500 per month",
       "datePosted": "2026-10-20T20:50:00.941Z",
-      "dateUpdated": "2026-10-24T00:07:32.505Z",
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
       "active": true
     },
     {
@@ -450186,9 +452474,9 @@
       "url": "https://jobs.ashbyhq.com/retell-ai/4786e37a-e790-4d16-a7c7-70c174fe5405",
       "source": "ashby",
       "employmentType": "contract",
-      "salary": "$4.2K per month",
+      "salary": "$5,250 – $7,500 per month",
       "datePosted": "2026-10-05T18:23:23.793Z",
-      "dateUpdated": "2026-10-24T00:07:32.505Z",
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
       "active": true
     },
     {
@@ -451417,8 +453705,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-10-07T07:00:08.853Z",
-      "dateUpdated": "2026-10-08T01:25:25.291Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "52a548df83c2",
@@ -451854,8 +454142,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2022-05-31T03:23:31.954Z",
-      "dateUpdated": "2026-10-08T01:25:25.291Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "3544afed9985",
@@ -452261,8 +454549,8 @@
       "employmentType": "contract",
       "salary": null,
       "datePosted": "2026-10-21T16:23:38.224Z",
-      "dateUpdated": "2026-10-23T00:14:21.467Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "64073f1fac1c",
@@ -452917,8 +455205,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-09-27T00:00:17.413Z",
-      "dateUpdated": "2026-10-15T23:57:23.136Z",
-      "active": false
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": true
     },
     {
       "id": "cfaa4a6507e4",
@@ -453493,6 +455781,29 @@
       "salary": null,
       "datePosted": "2026-08-08T22:16:41.075Z",
       "dateUpdated": "2026-08-08T22:16:41.075Z",
+      "active": true
+    },
+    {
+      "id": "e8ecab33371f",
+      "company": "Samsung",
+      "title": "Business Development Manager (Display Solutions)",
+      "locations": [
+        "Science Hub Tower 4, Manila, Philippines"
+      ],
+      "workSetup": "unknown",
+      "level": "senior",
+      "function": "sales",
+      "industry": "software",
+      "companyType": "direct",
+      "metro": [
+        "ncr"
+      ],
+      "url": "https://sec.wd3.myworkdayjobs.com/en-US/Samsung_Careers/job/Science-Hub-Tower-4-Manila-Philippines/Business-Development-Manager--Display-Solutions-_R121982",
+      "source": "workday",
+      "employmentType": "unknown",
+      "salary": null,
+      "datePosted": "2026-11-07T01:24:50.908Z",
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
       "active": true
     },
     {
@@ -454412,8 +456723,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-10-26T00:22:32.000Z",
-      "dateUpdated": "2026-10-27T00:58:48.665Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "121c437d14fc",
@@ -455424,8 +457735,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-10-09T06:00:57.000Z",
-      "dateUpdated": "2026-10-10T01:22:56.884Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "79adfb8b3694",
@@ -455838,8 +458149,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-09-30T23:35:19.000Z",
-      "dateUpdated": "2026-10-01T00:53:54.224Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "2c42de4803b3",
@@ -456091,8 +458402,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-09-24T03:23:48.000Z",
-      "dateUpdated": "2026-09-27T00:00:17.413Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "c54546c64f75",
@@ -456390,8 +458701,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-09-18T10:37:08.000Z",
-      "dateUpdated": "2026-10-21T00:13:19.826Z",
-      "active": false
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": true
     },
     {
       "id": "823d21c4a445",
@@ -457218,8 +459529,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-09-08T05:59:16.000Z",
-      "dateUpdated": "2026-11-06T01:53:34.890Z",
-      "active": false
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": true
     },
     {
       "id": "389037451e46",
@@ -459306,6 +461617,29 @@
       "active": true
     },
     {
+      "id": "8a95a17401e0",
+      "company": "SGS",
+      "title": "Junior Application and SQL Developer",
+      "locations": [
+        "Muntinlupa, NCR, Philippines"
+      ],
+      "workSetup": "onsite",
+      "level": "entry",
+      "function": "engineering",
+      "industry": "testing-certification",
+      "companyType": "direct",
+      "metro": [
+        "ncr"
+      ],
+      "url": "https://jobs.smartrecruiters.com/SGS/744000160136986",
+      "source": "smartrecruiters",
+      "employmentType": "full-time",
+      "salary": null,
+      "datePosted": "2026-11-06T08:29:23.986Z",
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": true
+    },
+    {
       "id": "973e3532a680",
       "company": "SGS",
       "title": "Oracle EBS Application Solution Engineer - FIS",
@@ -459486,8 +461820,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-11-04T01:38:32.181Z",
-      "dateUpdated": "2026-11-04T01:44:56.854Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "c899138e8de3",
@@ -459624,8 +461958,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-11-03T01:44:04.146Z",
-      "dateUpdated": "2026-11-03T03:07:56.194Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "f3e05b48e0b6",
@@ -471446,8 +473780,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-10-24T00:07:32.505Z",
-      "dateUpdated": "2026-10-24T00:07:32.505Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "b9a035e0474d",
@@ -475912,6 +478246,29 @@
       "active": true
     },
     {
+      "id": "ca8957e68eb8",
+      "company": "Smartly",
+      "title": "CTV Account Delivery Manager",
+      "locations": [
+        "Philippines"
+      ],
+      "workSetup": "unknown",
+      "level": "senior",
+      "function": "other",
+      "industry": "adtech",
+      "companyType": "direct",
+      "metro": [
+        "other-ph"
+      ],
+      "url": "https://job-boards.greenhouse.io/smartlyio/jobs/6220233004",
+      "source": "greenhouse",
+      "employmentType": "unknown",
+      "salary": null,
+      "datePosted": "2026-11-06T08:07:34.000Z",
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": true
+    },
+    {
       "id": "1e315b47b04e",
       "company": "Smartly",
       "title": "IT Support Specialist - APAC",
@@ -476529,8 +478886,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-10-03T00:48:20.643Z",
-      "dateUpdated": "2026-10-03T00:48:20.643Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "6b9d225d9ae6",
@@ -476782,8 +479139,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-09-27T00:00:17.413Z",
-      "dateUpdated": "2026-09-27T00:00:17.413Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "9a2a7281c184",
@@ -476897,8 +479254,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-09-27T00:00:17.413Z",
-      "dateUpdated": "2026-10-30T01:25:01.971Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "c5564eba4925",
@@ -477427,6 +479784,75 @@
       "salary": null,
       "datePosted": "2023-11-24T06:25:23.037Z",
       "dateUpdated": "2026-08-29T07:36:04.043Z",
+      "active": true
+    },
+    {
+      "id": "99c2e14b8ccc",
+      "company": "Sourcefit",
+      "title": "Talent Acquisition Associate",
+      "locations": [
+        "Quezon City, NCR"
+      ],
+      "workSetup": "remote",
+      "level": "entry",
+      "function": "hr",
+      "industry": "outsourcing",
+      "companyType": "agency",
+      "metro": [
+        "ncr"
+      ],
+      "url": "https://sourcefit.breezy.hr/p/409377e931da-talent-acquisition-associate",
+      "source": "breezy",
+      "employmentType": "full-time",
+      "salary": null,
+      "datePosted": "2026-11-06T10:45:44.613Z",
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": true
+    },
+    {
+      "id": "1a0fff82a5da",
+      "company": "Sourcefit",
+      "title": "Project Coordinator – 71567",
+      "locations": [
+        "Bridgetowne Quezon City, PH"
+      ],
+      "workSetup": "unknown",
+      "level": "unknown",
+      "function": "other",
+      "industry": "outsourcing",
+      "companyType": "agency",
+      "metro": [
+        "ncr"
+      ],
+      "url": "https://sourcefit.breezy.hr/p/eb9fabea4009-project-coordinator-71567",
+      "source": "breezy",
+      "employmentType": "full-time",
+      "salary": null,
+      "datePosted": "2026-11-06T08:27:11.234Z",
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": true
+    },
+    {
+      "id": "4b545a26c7fa",
+      "company": "Sourcefit",
+      "title": "IT Associate",
+      "locations": [
+        "Eastwood Quezon City, PH"
+      ],
+      "workSetup": "unknown",
+      "level": "entry",
+      "function": "engineering",
+      "industry": "outsourcing",
+      "companyType": "agency",
+      "metro": [
+        "ncr"
+      ],
+      "url": "https://sourcefit.breezy.hr/p/3792981665b2-it-associate",
+      "source": "breezy",
+      "employmentType": "full-time",
+      "salary": null,
+      "datePosted": "2026-11-06T06:23:05.127Z",
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
       "active": true
     },
     {
@@ -478875,8 +481301,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-10-12T05:07:38.737Z",
-      "dateUpdated": "2026-10-13T02:45:31.607Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "b33c58c7796b",
@@ -480163,8 +482589,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-09-15T05:31:57.123Z",
-      "dateUpdated": "2026-09-27T00:00:17.413Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "04e821de612a",
@@ -480899,8 +483325,8 @@
       "employmentType": "full-time",
       "salary": "₱30,000 – ₱39,000 / month",
       "datePosted": "2026-07-22T03:27:20.706Z",
-      "dateUpdated": "2026-09-27T00:00:17.413Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "85d63b639d04",
@@ -486317,8 +488743,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-09-27T00:00:17.413Z",
-      "dateUpdated": "2026-10-22T00:17:41.314Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "cfd3ee4a1c24",
@@ -489859,8 +492285,8 @@
       "employmentType": "contract",
       "salary": null,
       "datePosted": "2026-10-28T00:00:00.000Z",
-      "dateUpdated": "2026-10-31T01:11:29.452Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "a04a0a821aab",
@@ -490551,6 +492977,52 @@
       "datePosted": "2026-04-16T00:00:00.000Z",
       "dateUpdated": "2026-06-17T23:16:09.762Z",
       "active": false
+    },
+    {
+      "id": "d753625009ca",
+      "company": "Sutherland",
+      "title": "USRN Subject Matter Expert (SME) - Clinical Claims Operations | 200k SOB",
+      "locations": [
+        "Taguig, NCR, Philippines"
+      ],
+      "workSetup": "onsite",
+      "level": "unknown",
+      "function": "operations",
+      "industry": "outsourcing",
+      "companyType": "direct",
+      "metro": [
+        "ncr"
+      ],
+      "url": "https://jobs.smartrecruiters.com/Sutherland/744000160245321",
+      "source": "smartrecruiters",
+      "employmentType": "full-time",
+      "salary": null,
+      "datePosted": "2026-11-06T15:52:30.561Z",
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": true
+    },
+    {
+      "id": "f3f04a1b6587",
+      "company": "Sutherland",
+      "title": "Team Manager | AO Clinical Claims (Pooling)",
+      "locations": [
+        "Taguig, NCR, Philippines"
+      ],
+      "workSetup": "onsite",
+      "level": "senior",
+      "function": "healthcare",
+      "industry": "outsourcing",
+      "companyType": "direct",
+      "metro": [
+        "ncr"
+      ],
+      "url": "https://jobs.smartrecruiters.com/Sutherland/744000160232532",
+      "source": "smartrecruiters",
+      "employmentType": "full-time",
+      "salary": null,
+      "datePosted": "2026-11-06T15:12:32.242Z",
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": true
     },
     {
       "id": "e5f1a11d018f",
@@ -491814,8 +494286,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-09-28T11:56:47.654Z",
-      "dateUpdated": "2026-09-29T01:20:27.171Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "c7513264c9e7",
@@ -556904,6 +559376,29 @@
       "active": true
     },
     {
+      "id": "b0eda1a7e129",
+      "company": "TSYS",
+      "title": "Client Application Support 1",
+      "locations": [
+        "QUEZON CITY, PHILIPPINES"
+      ],
+      "workSetup": "unknown",
+      "level": "unknown",
+      "function": "customer-support",
+      "industry": "fintech",
+      "companyType": "direct",
+      "metro": [
+        "ncr"
+      ],
+      "url": "https://tsys.wd1.myworkdayjobs.com/en-US/TSYS/job/QUEZON-CITY--PHILIPPINES/Client-Application-Support-1_R0075577",
+      "source": "workday",
+      "employmentType": "full-time",
+      "salary": null,
+      "datePosted": "2026-11-07T01:24:50.908Z",
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": true
+    },
+    {
       "id": "1084e094fd7f",
       "company": "TSYS",
       "title": "Sales Officer",
@@ -557130,8 +559625,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-10-15T23:57:23.136Z",
-      "dateUpdated": "2026-10-15T23:57:23.136Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "b1597c22f139",
@@ -557268,8 +559763,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-10-08T01:25:25.291Z",
-      "dateUpdated": "2026-10-08T01:25:25.291Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "6b69187f1980",
@@ -557567,8 +560062,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-09-27T00:00:17.413Z",
-      "dateUpdated": "2026-10-03T00:48:20.643Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "0c47a1449ee3",
@@ -557912,8 +560407,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-09-27T00:00:17.413Z",
-      "dateUpdated": "2026-10-09T01:32:23.694Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "566d3b6846db",
@@ -558832,8 +561327,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-10-23T10:55:35.582Z",
-      "dateUpdated": "2026-10-24T00:07:32.505Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "c20cd51c4184",
@@ -560074,8 +562569,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-10-21T00:00:00.000Z",
-      "dateUpdated": "2026-10-22T00:17:41.314Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "9c6f1e384cd5",
@@ -560718,8 +563213,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-09-28T00:00:00.000Z",
-      "dateUpdated": "2026-09-29T01:20:27.171Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "f256b4c24611",
@@ -560764,8 +563259,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-09-22T00:00:00.000Z",
-      "dateUpdated": "2026-09-22T23:54:08.731Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "5dc29bf2741e",
@@ -564862,6 +567357,75 @@
       "active": true
     },
     {
+      "id": "0d4312f4468a",
+      "company": "Unilever",
+      "title": "Foods GA FP&A Budget Control Lead",
+      "locations": [
+        "Philippines"
+      ],
+      "workSetup": "unknown",
+      "level": "senior",
+      "function": "finance",
+      "industry": "consumer",
+      "companyType": "direct",
+      "metro": [
+        "other-ph"
+      ],
+      "url": "https://unilever.wd3.myworkdayjobs.com/en-US/Unilever_Experienced_Professionals/job/Bonifacio-Stopover-Corporate-Center/Foods-GA-FP-A-Budget-Control-Lead_R-1191240-1",
+      "source": "workday",
+      "employmentType": "unknown",
+      "salary": null,
+      "datePosted": "2026-11-07T01:24:50.908Z",
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": true
+    },
+    {
+      "id": "9b5632f2649e",
+      "company": "Unilever",
+      "title": "Foods GA Risk & Control Assistant Manager",
+      "locations": [
+        "Philippines"
+      ],
+      "workSetup": "unknown",
+      "level": "senior",
+      "function": "finance",
+      "industry": "consumer",
+      "companyType": "direct",
+      "metro": [
+        "other-ph"
+      ],
+      "url": "https://unilever.wd3.myworkdayjobs.com/en-US/Unilever_Experienced_Professionals/job/Bonifacio-Stopover-Corporate-Center/Foods-GA-Risk---Control-Assistant-Manager_R-1191256",
+      "source": "workday",
+      "employmentType": "unknown",
+      "salary": null,
+      "datePosted": "2026-11-07T01:24:50.908Z",
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": true
+    },
+    {
+      "id": "d3f29850736f",
+      "company": "Unilever",
+      "title": "Foods PH Finance Operations (Treasury) Assistant Manager",
+      "locations": [
+        "Philippines"
+      ],
+      "workSetup": "unknown",
+      "level": "senior",
+      "function": "finance",
+      "industry": "consumer",
+      "companyType": "direct",
+      "metro": [
+        "other-ph"
+      ],
+      "url": "https://unilever.wd3.myworkdayjobs.com/en-US/Unilever_Experienced_Professionals/job/Bonifacio-Stopover-Corporate-Center/Foods-PH-Finance-Operations--Treasury--Assistant-Manager_R-1191270",
+      "source": "workday",
+      "employmentType": "unknown",
+      "salary": null,
+      "datePosted": "2026-11-07T01:24:50.908Z",
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": true
+    },
+    {
       "id": "a0b404d311f1",
       "company": "Unilever",
       "title": "Focused Improvement Engineer",
@@ -565457,8 +568021,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-10-02T01:11:03.632Z",
-      "dateUpdated": "2026-11-06T01:53:34.890Z",
-      "active": false
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": true
     },
     {
       "id": "053339366507",
@@ -567586,6 +570150,52 @@
       "active": true
     },
     {
+      "id": "563a98919ad2",
+      "company": "Unisys",
+      "title": "Civil Registry Associate",
+      "locations": [
+        "Cabanatuan City, Philippines"
+      ],
+      "workSetup": "unknown",
+      "level": "entry",
+      "function": "other",
+      "industry": "it-services",
+      "companyType": "direct",
+      "metro": [
+        "other-ph"
+      ],
+      "url": "https://unisys.wd5.myworkdayjobs.com/en-US/External/job/Cabanatuan-City-Philippines/Civil-Registry-Associate_REQ576930",
+      "source": "workday",
+      "employmentType": "unknown",
+      "salary": null,
+      "datePosted": "2026-11-07T01:24:50.908Z",
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": true
+    },
+    {
+      "id": "5ffab6e02edf",
+      "company": "Unisys",
+      "title": "Civil Registry Associate",
+      "locations": [
+        "San Pablo, Philippines"
+      ],
+      "workSetup": "unknown",
+      "level": "entry",
+      "function": "other",
+      "industry": "it-services",
+      "companyType": "direct",
+      "metro": [
+        "calabarzon"
+      ],
+      "url": "https://unisys.wd5.myworkdayjobs.com/en-US/External/job/San-Pablo-Philippines/Civil-Registry-Associate_REQ576929",
+      "source": "workday",
+      "employmentType": "unknown",
+      "salary": null,
+      "datePosted": "2026-11-07T01:24:50.908Z",
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": true
+    },
+    {
       "id": "19e52060cf54",
       "company": "Unisys",
       "title": "Coordinator Data Proc Spt",
@@ -567766,8 +570376,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-11-04T01:44:56.854Z",
-      "dateUpdated": "2026-11-04T01:44:56.854Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "8ca90be3151a",
@@ -567881,8 +570491,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-10-27T00:58:48.665Z",
-      "dateUpdated": "2026-10-27T00:58:48.665Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "823ab5655d52",
@@ -568065,8 +570675,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-10-15T00:10:41.955Z",
-      "dateUpdated": "2026-10-15T00:10:41.955Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "843f7a719715",
@@ -568203,8 +570813,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-10-13T02:45:31.607Z",
-      "dateUpdated": "2026-10-13T02:45:31.607Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "4d6ad5874337",
@@ -580259,6 +582869,98 @@
       "active": true
     },
     {
+      "id": "3d1cf5c31b85",
+      "company": "Wells Fargo",
+      "title": "Quality Assurance Administrator",
+      "locations": [
+        "Taguig City, Philippines"
+      ],
+      "workSetup": "unknown",
+      "level": "unknown",
+      "function": "other",
+      "industry": "financial-services",
+      "companyType": "direct",
+      "metro": [
+        "ncr"
+      ],
+      "url": "https://wf.wd1.myworkdayjobs.com/en-US/WellsFargoJobs/job/Taguig-City-Philippines/Quality-Assurance-Administrator_R-584576",
+      "source": "workday",
+      "employmentType": "unknown",
+      "salary": null,
+      "datePosted": "2026-11-07T01:24:50.908Z",
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": true
+    },
+    {
+      "id": "86bf6b9cbfb0",
+      "company": "Wells Fargo",
+      "title": "Customer Service Representative, GPL- Dual Verification (Back-Office Support)",
+      "locations": [
+        "TAGUIG CITY"
+      ],
+      "workSetup": "unknown",
+      "level": "entry",
+      "function": "operations",
+      "industry": "financial-services",
+      "companyType": "direct",
+      "metro": [
+        "ncr"
+      ],
+      "url": "https://wf.wd1.myworkdayjobs.com/en-US/WellsFargoJobs/job/TAGUIG-CITY-00/Customer-Service-Representative--GPL--Dual-Verification--Back-Office-Support-_R-584809",
+      "source": "workday",
+      "employmentType": "unknown",
+      "salary": null,
+      "datePosted": "2026-11-07T01:24:50.908Z",
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": true
+    },
+    {
+      "id": "ad41b04f6473",
+      "company": "Wells Fargo",
+      "title": "Securities Operations Associate for Tax Operations",
+      "locations": [
+        "TAGUIG CITY"
+      ],
+      "workSetup": "unknown",
+      "level": "entry",
+      "function": "finance",
+      "industry": "financial-services",
+      "companyType": "direct",
+      "metro": [
+        "ncr"
+      ],
+      "url": "https://wf.wd1.myworkdayjobs.com/en-US/WellsFargoJobs/job/TAGUIG-CITY-00/Securities-Operations-Associate-for-Tax-Operations_R-578620",
+      "source": "workday",
+      "employmentType": "unknown",
+      "salary": null,
+      "datePosted": "2026-11-07T01:24:50.908Z",
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": true
+    },
+    {
+      "id": "fa5289e6726b",
+      "company": "Wells Fargo",
+      "title": "Customer Service Representative - Global Payments & Liquidity, NSG Customer Outreach",
+      "locations": [
+        "TAGUIG CITY"
+      ],
+      "workSetup": "unknown",
+      "level": "entry",
+      "function": "finance",
+      "industry": "financial-services",
+      "companyType": "direct",
+      "metro": [
+        "ncr"
+      ],
+      "url": "https://wf.wd1.myworkdayjobs.com/en-US/WellsFargoJobs/job/TAGUIG-CITY-00/Customer-Service-Representative---Global-Payments---Liquidity--NSG-Customer-Outreach_R-584687",
+      "source": "workday",
+      "employmentType": "unknown",
+      "salary": null,
+      "datePosted": "2026-11-07T01:24:50.908Z",
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": true
+    },
+    {
       "id": "8aac592a7a1f",
       "company": "Wells Fargo",
       "title": "Marketing Operations & Automation Specialist",
@@ -580393,8 +583095,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-10-30T01:25:01.971Z",
-      "dateUpdated": "2026-10-30T01:25:01.971Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "aec355c6b722",
@@ -580600,8 +583302,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-10-28T00:48:46.221Z",
-      "dateUpdated": "2026-10-28T00:48:46.221Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "f29163bfaf95",
@@ -580715,8 +583417,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-10-22T00:17:41.314Z",
-      "dateUpdated": "2026-10-22T00:17:41.314Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "75086368ceb9",
@@ -581796,8 +584498,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-10-02T01:11:03.632Z",
-      "dateUpdated": "2026-10-30T01:25:01.971Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "68f15ecfe8a6",
@@ -582187,8 +584889,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-09-27T00:00:17.413Z",
-      "dateUpdated": "2026-11-03T03:07:56.194Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "1fb2da9feddf",
@@ -582279,8 +584981,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-09-27T00:00:17.413Z",
-      "dateUpdated": "2026-10-10T01:22:56.884Z",
-      "active": false
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": true
     },
     {
       "id": "2d1d8a77378a",
@@ -583061,8 +585763,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-09-27T00:00:17.413Z",
-      "dateUpdated": "2026-11-06T01:53:34.890Z",
-      "active": false
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": true
     },
     {
       "id": "98c3149734d5",
@@ -584381,8 +587083,8 @@
       "employmentType": "unknown",
       "salary": "2.25–2.25 USD per hour wage",
       "datePosted": "2025-03-19T19:21:51.128Z",
-      "dateUpdated": "2026-10-22T00:17:41.314Z",
-      "active": false
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": true
     },
     {
       "id": "45a92623ec64",
@@ -596364,8 +599066,8 @@
       "employmentType": "unknown",
       "salary": "45000–50000 PHP per month",
       "datePosted": "2026-10-05T17:25:24.687Z",
-      "dateUpdated": "2026-10-06T01:58:17.971Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "59c69099a42b",
@@ -599239,8 +601941,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-06-18T17:25:55.083Z",
-      "dateUpdated": "2026-09-25T00:07:11.254Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "af678210cb16",
@@ -601125,8 +603827,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-02-05T14:22:45.572Z",
-      "dateUpdated": "2026-09-22T00:21:14.262Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "10de953091b1",
@@ -607579,6 +610281,29 @@
       "active": false
     },
     {
+      "id": "7cc53ff00437",
+      "company": "XP Power",
+      "title": "Senior Electronics/Electrical Engineer - Component",
+      "locations": [
+        "Pasig City, Metro Manila Philippines, Philippines"
+      ],
+      "workSetup": "hybrid",
+      "level": "senior",
+      "function": "engineering",
+      "industry": "manufacturing",
+      "companyType": "direct",
+      "metro": [
+        "ncr"
+      ],
+      "url": "https://jobs.smartrecruiters.com/XPPower2/744000160156757",
+      "source": "smartrecruiters",
+      "employmentType": "full-time",
+      "salary": null,
+      "datePosted": "2026-11-06T09:51:40.145Z",
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": true
+    },
+    {
       "id": "76d321a0c753",
       "company": "XP Power",
       "title": "Senior Mechanical Design Engineer",
@@ -608495,8 +611220,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-09-27T00:00:17.413Z",
-      "dateUpdated": "2026-09-27T00:00:17.413Z",
-      "active": true
+      "dateUpdated": "2026-11-07T01:24:50.908Z",
+      "active": false
     },
     {
       "id": "f65c1d9fecbc",
