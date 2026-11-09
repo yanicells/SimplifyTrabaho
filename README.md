@@ -11,7 +11,7 @@ A free, auto-updated list of jobs at Philippine companies, covering all roles an
 Internships and entry-level roles are featured below. It's the PH counterpart of
 [SimplifyJobs/Summer2026-Internships](https://github.com/SimplifyJobs/Summer2026-Internships).
 
-**14,905 active listings from 327 companies** · updated 2026-11-08 00:57 UTC · [Browse and filter everything at simplifytrabaho.ycells.com](https://simplifytrabaho.ycells.com) · [How the listings get here](docs/PIPELINE.md)
+**14,894 active listings from 327 companies** · updated 2026-11-09 01:17 UTC · [Browse and filter everything at simplifytrabaho.ycells.com](https://simplifytrabaho.ycells.com) · [How the listings get here](docs/PIPELINE.md)
 
 ## Where the listings come from
 
@@ -27,6 +27,7 @@ company's own application page. The data refreshes once a day.
 
 | Company | Role | Location | Apply | Posted |
 | --- | --- | --- | --- | --- |
+| **Analog Devices** | Associate Test Engineer - Product Development | Philippines, Cavite, GTC | [Apply](https://analogdevices.wd1.myworkdayjobs.com/en-US/External/job/Philippines-Cavite-GTC/Associate-Test-Engineer---Product-Development_R266527) | Nov 9 |
 | **3M** | Customer Service Representative (French Speaker) | PH, Taguig | [Apply](https://3m.wd1.myworkdayjobs.com/en-US/Search/job/PH-Taguig/Customer-Service-Representative--French-Speaker-_R01173443) | Nov 8 |
 | **MR DIY Philippines** | Store Cashier - SM Center Pulilan 2 (SMP2) | Pulilan, Bulacan, Philippines | [Apply](https://www.careers-page.com/mr-diy-philippines/job/V674WX76) | Nov 8 |
 | **3M** | Customer Service Representative (German) | PH, Taguig | [Apply](https://3m.wd1.myworkdayjobs.com/en-US/Search/job/PH-Taguig/Customer-Service-Representative--German-_R01173444) | Nov 8 |
@@ -61,7 +62,6 @@ company's own application page. The data refreshes once a day.
 | **NCR Voyix** | Service Desk L1 Agent | CEBU CITY, PHL | [Apply](https://ncr.wd1.myworkdayjobs.com/en-US/ext_apac/job/CEBU-CITY-PHL/Service-Desk-L1-Agent_R0159061) | Nov 6 |
 | **AECOM** | Specialist I, P&T, Payroll (SEA) | Taguig, NCR, Philippines | [Apply](https://jobs.smartrecruiters.com/AECOM2/744000160128540) | Nov 6 |
 | **Cushman & Wakefield** | Junior Talent Acquisition Coordinator, North America | Taguig, Philippines | [Apply](https://cw.wd1.myworkdayjobs.com/en-US/External/job/Taguig-Philippines/Junior-Talent-Acquisition-Coordinator--North-America_R341466-1) | Nov 5 |
-| **FedEx** | Clearance Agent Associate | FXE_APAC/PHL/PHCRKRC/PH ANGELES CITY | [Apply](https://fedex.wd1.myworkdayjobs.com/en-US/FXE_APAC_External/job/FXE_APACPHLPHCRKRCPH-ANGELES-CITY/Clearance-Agent-Associate_RC786733-1) | Nov 5 |
 | **Genpact** | Associate - Insurance - Life 5A | 1901-G-Php: G/F 5132 Bld, Alabang, Philippines | [Apply](https://genpact.wd108.myworkdayjobs.com/en-US/External_Careers/job/1901-G-Php-GF-5132-Bld-Alabang-Philippines/Associate---Insurance---Life-5A_JR10030668) | Nov 5 |
 | **Johnson & Johnson** | Procurement Invoice Associate (Day Shift) | Taguig, National Capital Region (Manila), Philippines | [Apply](https://jj.wd5.myworkdayjobs.com/en-US/JJ/job/Taguig-National-Capital-Region-Manila-Philippines/Procurement-Invoice-Associate--Day-Shift-_R-109025) | Nov 5 |
 | **Manulife** | Financial Sales Associate | Pasig City | [Apply](https://manulife.wd3.myworkdayjobs.com/en-US/MFCJH_Jobs/job/Pasig-City/Financial-Sales-Associate_JR26101205) | Nov 5 |
@@ -132,8 +132,6 @@ company's own application page. The data refreshes once a day.
 | **AIA Philippines** | Tax Associate / Analyst | Makati, PH-MPI | [Apply](https://aia.wd3.myworkdayjobs.com/en-US/External/job/Makati-PH-MPI/Tax-Associate---Analyst_JR-70675-1) | Oct 30 |
 | **Jollibee Foods Corporation** | Management Trainee -  Calamba, Laguna | Calamba, Laguna, Philippines | [Apply](https://www.careers-page.com/jollibee-foods-corporation/job/5W7Y8443) | Oct 30 |
 | **Ninja Van** | Finance Intern | Taguig, Philippines | [Apply](https://jobs.lever.co/ninjavan/564b8dba-0507-40e7-b5aa-7d39ab1b7d95) | Oct 29 |
-| **Lightspeed Commerce** | Junior Accountant (Permanent work from home) | Manila | [Apply](https://jobs.ashbyhq.com/lightspeedhq/6c5f1dff-0e44-414e-a070-588ad30b7d94) | Oct 29 |
-| **Axos** | Jr. Site Reliability Engineer | Manila, Philippines | [Apply](https://axos.wd5.myworkdayjobs.com/en-US/Axos/job/Manila-Philippines/Jr-Site-Reliability-Engineer_JR5713) | Oct 29 |
 | **Concentrix** | Technical I, IT Operations (TCF) | PHL Quezon City - Eton | [Apply](https://cnx.wd1.myworkdayjobs.com/en-US/external_global/job/PHL-Quezon-City---Eton/Technical-I--IT-Operations--TCF-_R1772158-1) | Oct 29 |
 | **General Motors** | Finance & Accounting Intern (Mid Shift) | Taguig City, National Capital Region (Manila), Philippines | [Apply](https://generalmotors.wd5.myworkdayjobs.com/en-US/Careers_GM/job/Taguig-City-National-Capital-Region-Manila-Philippines/FInance---Accounting-Intern--Mid-Shift-_JR-202622953) | Oct 29 |
 | **Genpact** | Associate - Customer Care - Voice 5A | 1901-G-Php: Ihub, Alabang, Philippines | [Apply](https://genpact.wd108.myworkdayjobs.com/en-US/External_Careers/job/1901-G-Php-Ihub-Alabang-Philippines/Associate---Customer-Care---Voice-5A_JR10031978) | Oct 29 |
@@ -200,7 +198,6 @@ company's own application page. The data refreshes once a day.
 | **SGS** | Payroll Associate | Makati, NCR, Philippines | [Apply](https://jobs.smartrecruiters.com/SGS/744000157681909) | Oct 25 |
 | **Analog Devices** | Associate Engineer, Product Engineering (Mfg.) | Philippines, Cavite (jp) | [Apply](https://analogdevices.wd1.myworkdayjobs.com/en-US/External/job/Philippines-Cavite-jp/Associate-Engineer--Product-Engineering--Mfg-_R267150) | Oct 24 |
 | **Analog Devices** | Associate Engineer, Product Engineering (Mfg.) | Philippines, Cavite (jp) | [Apply](https://analogdevices.wd1.myworkdayjobs.com/en-US/External/job/Philippines-Cavite-jp/Engineer--Product-Engineering--Mfg-_R263877) | Oct 24 |
-| **Analog Devices** | Associate Engineer, Product Engineering (Mfg.) | Philippines, Cavite (jp) | [Apply](https://analogdevices.wd1.myworkdayjobs.com/en-US/External/job/Philippines-Cavite-jp/Associate-Engineer--Product-Engineering--Mfg-_R267192-1) | Oct 24 |
 | **Bernhard Schulte Shipmanagement** | Accounting Intern | Manila, Philippines | [Apply](https://bsm.teamtailor.com/jobs/8607858-accounting-intern) | Oct 23 |
 | **Western Digital** | Intern - Manufacturing Engineer | Biñan City, LAGUNA, Philippines | [Apply](https://jobs.smartrecruiters.com/WesternDigital/744000157382288) | Oct 23 |
 | **Reolink** | Customer Service Representative (CSR) | Room 3702 The Orient Square, F. Ortigas Jr. Rd, Ortigas Center, Pasig, 1600 Metro Manila, Philippines | [Apply](https://job-boards.greenhouse.io/reolink/jobs/4464803009) | Oct 23 |
@@ -225,8 +222,11 @@ company's own application page. The data refreshes once a day.
 | **Xendit** | FinOps Recons Associate | Bangkok, Thailand; India; Jakarta, Indonesia; Kuala Lumpur, Malaysia; Manila, Philippines | [Apply](https://job-boards.greenhouse.io/xendit/jobs/8034310003) | Oct 20 |
 | **Lalamove** | Sales Associate (Automotive) | Parañaque, Metro Manila | [Apply](https://jobs.lever.co/lalamove/84b51706-a458-4dd6-b0c8-42a459292805) | Oct 20 |
 | **Delivery Hero** | Associate, AP Service Delivery (Direct) | Taguig, Philippines | [Apply](https://jobs.smartrecruiters.com/DeliveryHero/744000156455939) | Oct 20 |
-| **Axos** | Jr. QA Engineer | Manila, Philippines | [Apply](https://axos.wd5.myworkdayjobs.com/en-US/Axos/job/Manila-Philippines/Jr-QA-Engineer_JR5678) | Oct 20 |
 | **ISS** | Junior Data Analyst, Global Proxy Distribution - Asia Pacific | Makati City, Philippines | [Apply](https://issgovernance.wd1.myworkdayjobs.com/en-US/ISScareers/job/Makati-City-Philippines/Junior-Data-Analyst---Global-Proxy-Distribution--GPD-_JR_10510) | Oct 20 |
+| **Johnson & Johnson** | Accountant 1, Global Intercompany | Taguig, National Capital Region (Manila), Philippines | [Apply](https://jj.wd5.myworkdayjobs.com/en-US/JJ/job/Taguig-National-Capital-Region-Manila-Philippines/Accountant-1--Global-Intercompany_R-103530) | Oct 20 |
+| **Wells Fargo** | Associate Private Wealth Portfolio Specialist | TAGUIG CITY | [Apply](https://wf.wd1.myworkdayjobs.com/en-US/WellsFargoJobs/job/TAGUIG-CITY-00/Associate-Private-Wealth-Portfolio-Specialist_R-580313) | Oct 20 |
+| **Angkas** | Junior Data Engineer | Makati City, Philippines | [Apply](https://apply.workable.com/j/71488EDF14) | Oct 20 |
+| **Ninja Van** | Talent Acquisition Intern | Taguig, Philippines | [Apply](https://jobs.lever.co/ninjavan/4a3a4f89-d08a-4f26-bfbb-9a0f79ec00d0) | Oct 19 |
 
 ---
 
