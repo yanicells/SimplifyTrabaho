@@ -11,7 +11,7 @@ A free, auto-updated list of jobs at Philippine companies, covering all roles an
 Internships and entry-level roles are featured below. It's the PH counterpart of
 [SimplifyJobs/Summer2026-Internships](https://github.com/SimplifyJobs/Summer2026-Internships).
 
-**14,634 active listings from 327 companies** · updated 2026-11-14 01:53 UTC · [Browse and filter everything at simplifytrabaho.ycells.com](https://simplifytrabaho.ycells.com) · [How the listings get here](docs/PIPELINE.md)
+**14,621 active listings from 327 companies** · updated 2026-11-15 01:25 UTC · [Browse and filter everything at simplifytrabaho.ycells.com](https://simplifytrabaho.ycells.com) · [How the listings get here](docs/PIPELINE.md)
 
 ## Where the listings come from
 
@@ -27,6 +27,13 @@ company's own application page. The data refreshes once a day.
 
 | Company | Role | Location | Apply | Posted |
 | --- | --- | --- | --- | --- |
+| **General Motors** | Finance & Accounting Intern | Taguig City, National Capital Region (Manila), Philippines | [Apply](https://generalmotors.wd5.myworkdayjobs.com/en-US/Careers_GM/job/Taguig-City-National-Capital-Region-Manila-Philippines/Finance---Accounting-Intern_JR-202623988) | Nov 15 |
+| **IQVIA** | Client Services Rep 1 - Logistic Planner | Taguig City, Philippines | [Apply](https://iqvia.wd1.myworkdayjobs.com/en-US/IQVIA/job/Taguig-City-Philippines/Client-Services-Rep-1---Logistic-Planner_R1579638) | Nov 15 |
+| **Johnson & Johnson** | Accountant 1, Global Intercompany | Taguig, National Capital Region (Manila), Philippines | [Apply](https://jj.wd5.myworkdayjobs.com/en-US/JJ/job/Taguig-National-Capital-Region-Manila-Philippines/Accountant-1--Global-Intercompany_R-109257) | Nov 15 |
+| **Jollibee Foods Corporation** | Management Trainee - Greenmeadows, Quezon City | Quezon City, Metro Manila, Philippines | [Apply](https://www.careers-page.com/jollibee-foods-corporation/job/6386W6V5) | Nov 15 |
+| **S&P Global** | Associate Commercial Manager | Metro Manila, PH | [Apply](https://spgi.wd5.myworkdayjobs.com/en-US/SPGI_Careers/job/Metro-Manila-PH/Associate-Commercial-Manager_332777-1) | Nov 15 |
+| **IQVIA** | Client Services Rep 1 - FCR (Evergreen) | Taguig City, Philippines | [Apply](https://iqvia.wd1.myworkdayjobs.com/en-US/IQVIA/job/Taguig-City-Philippines/Client-Services-Rep-1---FCR--Evergreen-_R1579645) | Nov 15 |
+| **Jollibee Foods Corporation** | Management Trainee - Mangatarem, Pangasinan | Mangatarem, Pangasinan, Philippines | [Apply](https://www.careers-page.com/jollibee-foods-corporation/job/8XR5Y53V) | Nov 15 |
 | **Aggreko** | Junior Travel Coordinator | Manila | [Apply](https://aggreko.wd3.myworkdayjobs.com/en-US/Aggreko_Careers_1/job/Manila/Junior-Travel-Coordinator_JR22351) | Nov 14 |
 | **FWD Insurance** | New Business Associate | Philippines - BGC Taguig | [Apply](https://fwd.wd3.myworkdayjobs.com/en-US/FWDcareersite/job/Philippines---BGC-Taguig/New-Business-Associate_JR-0028612) | Nov 14 |
 | **Globe** | Inventory Planning Associate | Philippines | [Apply](https://globe.wd3.myworkdayjobs.com/en-US/GLB_Careers/job/SM-Bacoor/Inventory-Planning-Associate_R0000021578) | Nov 14 |
@@ -70,7 +77,6 @@ company's own application page. The data refreshes once a day.
 | **IQVIA** | Reference File Maintainer Assoc | Taguig City, Philippines | [Apply](https://iqvia.wd1.myworkdayjobs.com/en-US/IQVIA/job/Taguig-City-Philippines/Reference-File-Maintainer-Assoc_R1578928) | Nov 10 |
 | **Maersk** | Accounting Associate | Philippines, Pasig, 1600 | [Apply](https://maersk.wd3.myworkdayjobs.com/en-US/Maersk_Careers/job/Philippines-Pasig-1600/Accounting-Associate_R201959) | Nov 10 |
 | **MR DIY Philippines** | Store Cashier - Calauag Quezon (ZCLQ) | Calauag, Quezon, Philippines | [Apply](https://www.careers-page.com/mr-diy-philippines/job/3W73W9VW) | Nov 10 |
-| **Pfizer** | Associate, ESOQ Regulatory Operations | Philippines - Makati City | [Apply](https://pfizer.wd1.myworkdayjobs.com/en-US/PfizerCareers/job/Philippines---Makati-City/Associate--ESOQ-Regulatory-Operations_4967594) | Nov 10 |
 | **Procter & Gamble** | [P&G Leadership Camp] May/June 2027 Start Date Finance and Accounting Internship | Taguig City | [Apply](https://pg.wd5.myworkdayjobs.com/en-US/1000/job/Taguig-City/XMLNAME--P-G-Leadership-Camp--May-June-2027-Start-Date-Finance-and-Accounting-Internship_R000162186) | Nov 10 |
 | **TSYS** | Associate Sales Operations | QUEZON CITY, PHILIPPINES | [Apply](https://tsys.wd1.myworkdayjobs.com/en-US/TSYS/job/QUEZON-CITY--PHILIPPINES/Associate-Sales-Operations_R0077014) | Nov 10 |
 | **Analog Devices** | Associate Analyst - BE Manufacturing Analytics and Automation | Philippines, Cavite (jp) | [Apply](https://analogdevices.wd1.myworkdayjobs.com/en-US/External/job/Philippines-Cavite-jp/Associate-Analyst---BE-Manufacturing-Analytics-and-Automation_R266163) | Nov 10 |
@@ -212,21 +218,15 @@ company's own application page. The data refreshes once a day.
 | **Abbott** | Technical Support Associate | Philippines - Taguig City | [Apply](https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/Philippines---Taguig-City/Technical-Support-Associate_31165726) | Oct 27 |
 | **Chevron** | Customer Service Representative - Mandarin | Ayala, Makati City, Philippines | [Apply](https://chevron.wd5.myworkdayjobs.com/en-US/jobs/job/Ayala-Makati-City-Philippines/Customer-Service-Representative---Mandarin_R000074674) | Oct 27 |
 | **Concentrix** | Software Engineer I (TCF) | PHL Quezon City - EXXA Tower, 8th Floor | [Apply](https://cnx.wd1.myworkdayjobs.com/en-US/external_global/job/PHL-Quezon-City---EXXA-Tower-8th-Floor/Software-Engineer-I--TCF-_R1773784) | Oct 27 |
-| **Jollibee Foods Corporation** | Management Trainee - Bayombong, Nueva Vizcaya | Bambang, Nueva Vizcaya, Philippines | [Apply](https://www.careers-page.com/jollibee-foods-corporation/job/W3963X56) | Oct 27 |
 | **Manulife** | Customer Service Representative - Quezon City | Quezon City | [Apply](https://manulife.wd3.myworkdayjobs.com/en-US/MFCJH_Jobs/job/Quezon-City/Customer-Service-Representative---Quezon-City_JR26101438) | Oct 27 |
 | **Angkas** | Field Admin Associate | Makati City, Philippines | [Apply](https://apply.workable.com/j/FB86A9D898) | Oct 27 |
 | **SGS** | Student Intern - Business Assurance | Makati City, NCR, Philippines | [Apply](https://jobs.smartrecruiters.com/SGS/744000157927629) | Oct 27 |
-| **Jollibee Foods Corporation** | Management Trainee - Buendia Bautista, Makati | Makati, NCR, Philippines | [Apply](https://www.careers-page.com/jollibee-foods-corporation/job/V673W5RR) | Oct 27 |
 | **Manulife** | Customer Service Representative - Cebu | Philippines | [Apply](https://manulife.wd3.myworkdayjobs.com/en-US/MFCJH_Jobs/job/Lapu-Lapu-City/Customer-Service-Representative---Cebu_JR26101440) | Oct 27 |
 | **Fresh Prints** | Netsuite Associate (Full Time, Remote) | India, Philippines | [Apply](https://job-boards.greenhouse.io/freshprints/jobs/6233628004) | Oct 26 |
 | **SGS** | Customer Service Jr. (Pharma) | Muntinlupa, NCR, Philippines | [Apply](https://jobs.smartrecruiters.com/SGS/744000157719019) | Oct 26 |
 | **Pilmico** | Production Associate | Iligan City, Lanao del Norte, Philippines | [Apply](https://jobs.smartrecruiters.com/PilmicoFoodsCorporation/744000157718263) | Oct 26 |
 | **SGS** | Sales Development Representative (Sales Force) | Muntinlupa, NCR, Philippines | [Apply](https://jobs.smartrecruiters.com/SGS/744000157697410) | Oct 26 |
 | **SGS** | Payroll Associate | Makati, NCR, Philippines | [Apply](https://jobs.smartrecruiters.com/SGS/744000157681909) | Oct 25 |
-| **Bernhard Schulte Shipmanagement** | Accounting Intern | Manila, Philippines | [Apply](https://bsm.teamtailor.com/jobs/8607858-accounting-intern) | Oct 23 |
-| **Western Digital** | Intern - Manufacturing Engineer | Biñan City, LAGUNA, Philippines | [Apply](https://jobs.smartrecruiters.com/WesternDigital/744000157382288) | Oct 23 |
-| **Reolink** | Customer Service Representative (CSR) | The Orient Square, F. Ortigas Jr. Rd, Ortigas Center, Pasig, 1600 Metro Manila, Philippines | [Apply](https://job-boards.greenhouse.io/reolink/jobs/4464803009) | Oct 23 |
-| **CloudEats** | Inventory Associate | Pasay City, Metro Manila, Philippines | [Apply](https://www.careers-page.com/cloudeats/job/QYY8YW85) | Oct 23 |
 
 ---
 
