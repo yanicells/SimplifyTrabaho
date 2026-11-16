@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "updatedAt": "2026-11-15T01:25:25.729Z",
+  "updatedAt": "2026-11-16T01:28:25.852Z",
   "listings": [
     {
       "id": "16e8a85575e0",
@@ -75780,8 +75780,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-10-15T00:10:41.955Z",
-      "dateUpdated": "2026-10-15T00:10:41.955Z",
-      "active": true
+      "dateUpdated": "2026-11-16T01:28:25.852Z",
+      "active": false
     },
     {
       "id": "520bfc39cf33",
@@ -87819,8 +87819,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-06-26T08:41:16.588Z",
-      "dateUpdated": "2026-08-27T02:22:28.809Z",
-      "active": true
+      "dateUpdated": "2026-11-16T01:28:25.852Z",
+      "active": false
     },
     {
       "id": "3e37305e7a3a",
@@ -103724,8 +103724,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-09-04T23:32:01.820Z",
-      "dateUpdated": "2026-11-05T01:53:02.507Z",
-      "active": true
+      "dateUpdated": "2026-11-16T01:28:25.852Z",
+      "active": false
     },
     {
       "id": "6084070a45ac",
@@ -210991,8 +210991,8 @@
       "employmentType": "part-time",
       "salary": null,
       "datePosted": "2026-10-19T09:54:32.454Z",
-      "dateUpdated": "2026-10-20T00:47:05.828Z",
-      "active": true
+      "dateUpdated": "2026-11-16T01:28:25.852Z",
+      "active": false
     },
     {
       "id": "4ac164fa59c2",
@@ -240247,6 +240247,52 @@
       "active": false
     },
     {
+      "id": "20b7d87979cf",
+      "company": "Hunt St",
+      "title": "Strategy & Business Consultant (014-1484)",
+      "locations": [
+        "Philippines"
+      ],
+      "workSetup": "remote",
+      "level": "unknown",
+      "function": "other",
+      "industry": "staffing",
+      "companyType": "agency",
+      "metro": [
+        "other-ph"
+      ],
+      "url": "https://apply.workable.com/j/5A8325C3E0",
+      "source": "workable",
+      "employmentType": "full-time",
+      "salary": null,
+      "datePosted": "2026-11-16T00:00:00.000Z",
+      "dateUpdated": "2026-11-16T01:28:25.852Z",
+      "active": true
+    },
+    {
+      "id": "7ad0879196ab",
+      "company": "Hunt St",
+      "title": "AI Automation Specialist (027 - 1511)",
+      "locations": [
+        "Philippines"
+      ],
+      "workSetup": "remote",
+      "level": "unknown",
+      "function": "data",
+      "industry": "staffing",
+      "companyType": "agency",
+      "metro": [
+        "other-ph"
+      ],
+      "url": "https://apply.workable.com/j/2489A5D646",
+      "source": "workable",
+      "employmentType": "full-time",
+      "salary": null,
+      "datePosted": "2026-11-16T00:00:00.000Z",
+      "dateUpdated": "2026-11-16T01:28:25.852Z",
+      "active": true
+    },
+    {
       "id": "0d6c41a1e8e7",
       "company": "Hunt St",
       "title": "Marketing and Sales Assistant (Part-Time) (0010-1488)",
@@ -241209,8 +241255,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-10-26T00:00:00.000Z",
-      "dateUpdated": "2026-11-13T02:15:20.350Z",
-      "active": false
+      "dateUpdated": "2026-11-16T01:28:25.852Z",
+      "active": true
     },
     {
       "id": "b7c936356932",
@@ -241439,8 +241485,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-10-22T00:00:00.000Z",
-      "dateUpdated": "2026-10-23T00:14:21.467Z",
-      "active": true
+      "dateUpdated": "2026-11-16T01:28:25.852Z",
+      "active": false
     },
     {
       "id": "57429035dd69",
@@ -242842,8 +242888,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-10-07T00:00:00.000Z",
-      "dateUpdated": "2026-10-08T01:25:25.291Z",
-      "active": true
+      "dateUpdated": "2026-11-16T01:28:25.852Z",
+      "active": false
     },
     {
       "id": "9cc80647f910",
@@ -256669,6 +256715,29 @@
       "active": false
     },
     {
+      "id": "87af290b0572",
+      "company": "IKEA Philippines",
+      "title": "IKEA Food Assistant (Kitchen), Part-Time, Pasay City",
+      "locations": [
+        "Pasay City, NCR, Philippines"
+      ],
+      "workSetup": "onsite",
+      "level": "unknown",
+      "function": "hospitality",
+      "industry": "retail",
+      "companyType": "direct",
+      "metro": [
+        "ncr"
+      ],
+      "url": "https://jobs.smartrecruiters.com/IkanoRetail/744000161667239",
+      "source": "smartrecruiters",
+      "employmentType": "part-time",
+      "salary": null,
+      "datePosted": "2026-11-15T02:52:27.327Z",
+      "dateUpdated": "2026-11-16T01:28:25.852Z",
+      "active": true
+    },
+    {
       "id": "711a638ea17a",
       "company": "IKEA Philippines",
       "title": "IKEA Food Assistant (Kitchen), Part-Time, Pasay City",
@@ -265957,8 +266026,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-11-03T13:06:53.000Z",
-      "dateUpdated": "2026-11-04T01:44:56.854Z",
-      "active": true
+      "dateUpdated": "2026-11-16T01:28:25.852Z",
+      "active": false
     },
     {
       "id": "91238ca1581b",
@@ -266003,8 +266072,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-10-16T09:07:44.000Z",
-      "dateUpdated": "2026-10-17T00:01:44.588Z",
-      "active": true
+      "dateUpdated": "2026-11-16T01:28:25.852Z",
+      "active": false
     },
     {
       "id": "83cedc7b98e0",
@@ -391461,8 +391530,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-10-22T01:18:24.403Z",
-      "dateUpdated": "2026-10-23T00:14:21.467Z",
-      "active": true
+      "dateUpdated": "2026-11-16T01:28:25.852Z",
+      "active": false
     },
     {
       "id": "ede395e094dc",
@@ -462403,6 +462472,29 @@
       "active": false
     },
     {
+      "id": "ee2f4b7344f6",
+      "company": "Remote Employee PH",
+      "title": "Financial Operations and Accounting Manager",
+      "locations": [
+        "San Fernando, Pampanga, Philippines"
+      ],
+      "workSetup": "unknown",
+      "level": "senior",
+      "function": "finance",
+      "industry": "outsourcing",
+      "companyType": "agency",
+      "metro": [
+        "clark-pampanga"
+      ],
+      "url": "https://www.careers-page.com/remote-employee-ph/job/8XR5X7VV",
+      "source": "manatal",
+      "employmentType": "unknown",
+      "salary": null,
+      "datePosted": "2026-11-16T01:28:25.852Z",
+      "dateUpdated": "2026-11-16T01:28:25.852Z",
+      "active": true
+    },
+    {
       "id": "2d19b14fb61e",
       "company": "Remote Employee PH",
       "title": "Video Production Project Manager",
@@ -470897,8 +470989,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-09-22T23:56:08.000Z",
-      "dateUpdated": "2026-09-27T00:00:17.413Z",
-      "active": true
+      "dateUpdated": "2026-11-16T01:28:25.852Z",
+      "active": false
     },
     {
       "id": "9a5127d5b188",
@@ -491431,6 +491523,29 @@
       "active": true
     },
     {
+      "id": "7e9c2798f571",
+      "company": "Smartsourcing",
+      "title": "Sales Development Representative",
+      "locations": [
+        "Cebu City, Cebu, Philippines"
+      ],
+      "workSetup": "unknown",
+      "level": "entry",
+      "function": "sales",
+      "industry": "outsourcing",
+      "companyType": "agency",
+      "metro": [
+        "cebu"
+      ],
+      "url": "https://www.careers-page.com/smartsourcing-bpo/job/RYW9YR66",
+      "source": "manatal",
+      "employmentType": "unknown",
+      "salary": null,
+      "datePosted": "2026-11-16T01:28:25.852Z",
+      "dateUpdated": "2026-11-16T01:28:25.852Z",
+      "active": true
+    },
+    {
       "id": "006b12079043",
       "company": "Smartsourcing",
       "title": "Accounts Payable and Fleet Administration Officer",
@@ -491542,8 +491657,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-10-27T00:58:48.665Z",
-      "dateUpdated": "2026-10-27T00:58:48.665Z",
-      "active": true
+      "dateUpdated": "2026-11-16T01:28:25.852Z",
+      "active": false
     },
     {
       "id": "f34288e61d7b",
@@ -491887,8 +492002,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-09-27T00:00:17.413Z",
-      "dateUpdated": "2026-10-01T00:53:54.224Z",
-      "active": true
+      "dateUpdated": "2026-11-16T01:28:25.852Z",
+      "active": false
     },
     {
       "id": "28271bd4eb90",
@@ -505129,6 +505244,29 @@
       "active": true
     },
     {
+      "id": "328920d988c4",
+      "company": "Support Services Group Philippines",
+      "title": "CEBU International CSR | Voice | Financial - Credit, Debit Card, Payments",
+      "locations": [
+        "Cebu City, PH"
+      ],
+      "workSetup": "unknown",
+      "level": "entry",
+      "function": "finance",
+      "industry": "outsourcing",
+      "companyType": "agency",
+      "metro": [
+        "cebu"
+      ],
+      "url": "https://ssg-corp.breezy.hr/p/8e4588003f73-cebu-international-csr-voice-financial-credit-debit-card-payments",
+      "source": "breezy",
+      "employmentType": "full-time",
+      "salary": null,
+      "datePosted": "2026-11-15T15:55:46.679Z",
+      "dateUpdated": "2026-11-16T01:28:25.852Z",
+      "active": true
+    },
+    {
       "id": "d0865ec772e1",
       "company": "Support Services Group Philippines",
       "title": "MANILA Local Account | Voice | Telco B2B Collections",
@@ -505263,8 +505401,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-09-28T08:14:03.670Z",
-      "dateUpdated": "2026-11-12T02:35:09.876Z",
-      "active": true
+      "dateUpdated": "2026-11-16T01:28:25.852Z",
+      "active": false
     },
     {
       "id": "193bf477e3b3",
@@ -570514,6 +570652,29 @@
       "active": false
     },
     {
+      "id": "ef490dc5eefc",
+      "company": "Treantly",
+      "title": "U.S. HR Recruiter",
+      "locations": [
+        "Philippines"
+      ],
+      "workSetup": "remote",
+      "level": "unknown",
+      "function": "hr",
+      "industry": "staffing",
+      "companyType": "agency",
+      "metro": [
+        "other-ph"
+      ],
+      "url": "https://apply.workable.com/j/26A01DF5E0",
+      "source": "workable",
+      "employmentType": "full-time",
+      "salary": null,
+      "datePosted": "2026-11-15T00:00:00.000Z",
+      "dateUpdated": "2026-11-16T01:28:25.852Z",
+      "active": true
+    },
+    {
       "id": "fe2cc4600de9",
       "company": "Treantly",
       "title": "T3/L3 Senior SOC Analyst",
@@ -575893,6 +576054,29 @@
       "salary": null,
       "datePosted": "2026-02-10T01:11:46.287Z",
       "dateUpdated": "2026-07-19T22:40:23.603Z",
+      "active": true
+    },
+    {
+      "id": "4960f116c26c",
+      "company": "Twoconnect",
+      "title": "Complaints Officer (Insurance / Financial Exp) - Dayshift / Onsite",
+      "locations": [
+        "Pasig, Philippines"
+      ],
+      "workSetup": "remote",
+      "level": "unknown",
+      "function": "finance",
+      "industry": "outsourcing",
+      "companyType": "agency",
+      "metro": [
+        "ncr"
+      ],
+      "url": "https://apply.workable.com/j/C6C5395468",
+      "source": "workable",
+      "employmentType": "full-time",
+      "salary": null,
+      "datePosted": "2026-11-15T00:00:00.000Z",
+      "dateUpdated": "2026-11-16T01:28:25.852Z",
       "active": true
     },
     {
@@ -594234,8 +594418,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-11-03T00:00:00.000Z",
-      "dateUpdated": "2026-11-04T01:44:56.854Z",
-      "active": true
+      "dateUpdated": "2026-11-16T01:28:25.852Z",
+      "active": false
     },
     {
       "id": "56843ed2d995",
@@ -594763,8 +594947,8 @@
       "employmentType": "full-time",
       "salary": null,
       "datePosted": "2026-08-11T00:00:00.000Z",
-      "dateUpdated": "2026-09-27T00:00:17.413Z",
-      "active": true
+      "dateUpdated": "2026-11-16T01:28:25.852Z",
+      "active": false
     },
     {
       "id": "bd6c4196f549",
@@ -596143,8 +596327,8 @@
       "employmentType": "unknown",
       "salary": null,
       "datePosted": "2026-07-23T00:00:00.000Z",
-      "dateUpdated": "2026-10-21T00:13:19.826Z",
-      "active": true
+      "dateUpdated": "2026-11-16T01:28:25.852Z",
+      "active": false
     },
     {
       "id": "305e6bdf79d1",
