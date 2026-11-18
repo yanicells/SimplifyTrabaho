@@ -11,7 +11,7 @@ A free, auto-updated list of jobs at Philippine companies, covering all roles an
 Internships and entry-level roles are featured below. It's the PH counterpart of
 [SimplifyJobs/Summer2026-Internships](https://github.com/SimplifyJobs/Summer2026-Internships).
 
-**14,566 active listings from 327 companies** · updated 2026-11-17 04:14 UTC · [Browse and filter everything at simplifytrabaho.ycells.com](https://simplifytrabaho.ycells.com) · [How the listings get here](docs/PIPELINE.md)
+**14,543 active listings from 327 companies** · updated 2026-11-18 03:13 UTC · [Browse and filter everything at simplifytrabaho.ycells.com](https://simplifytrabaho.ycells.com) · [How the listings get here](docs/PIPELINE.md)
 
 ## Where the listings come from
 
@@ -27,6 +27,8 @@ company's own application page. The data refreshes once a day.
 
 | Company | Role | Location | Apply | Posted |
 | --- | --- | --- | --- | --- |
+| **MR DIY Philippines** | Store Cashier - NuCiti Central Batangas City | Batangas City, Batangas, Philippines | [Apply](https://www.careers-page.com/mr-diy-philippines/job/RYW9W8XX) | Nov 18 |
+| **MR DIY Philippines** | Store Cashier - San Marcelino Zambales Arcade (SMAR) | San Marcelino, Zambales, Philippines | [Apply](https://www.careers-page.com/mr-diy-philippines/job/5W787575) | Nov 18 |
 | **Auctane** | Associate Implementation Manager | Manila, Philippines | [Apply](https://job-boards.greenhouse.io/auctane/jobs/8045098003) | Nov 16 |
 | **Pilmico** | Warehouse Associate | Concepcion, Central Luzon, Philippines | [Apply](https://jobs.smartrecruiters.com/PilmicoFoodsCorporation/744000161728659) | Nov 16 |
 | **General Motors** | Finance & Accounting Intern | Taguig City, National Capital Region (Manila), Philippines | [Apply](https://generalmotors.wd5.myworkdayjobs.com/en-US/Careers_GM/job/Taguig-City-National-Capital-Region-Manila-Philippines/Finance---Accounting-Intern_JR-202623988) | Nov 15 |
@@ -147,7 +149,6 @@ company's own application page. The data refreshes once a day.
 | **RELX** | Legal Editor I | Philippines | [Apply](https://relx.wd3.myworkdayjobs.com/en-US/relx/job/Iloilo/Legal-Editor-I_R120446-1) | Nov 5 |
 | **Genpact** | Associate - Customer Care - Non - Voice 5A | 1901-G-Php: G/F 5132 Bld, Alabang, Philippines | [Apply](https://genpact.wd108.myworkdayjobs.com/en-US/External_Careers/job/1901-G-Php-GF-5132-Bld-Alabang-Philippines/Associate---Customer-Care---Non---Voice-5A_JR10028939) | Nov 5 |
 | **RELX** | Command Center Engineer I | Manila | [Apply](https://relx.wd3.myworkdayjobs.com/en-US/relx/job/Manila/Command-Center-Engineer-I_R120340) | Nov 5 |
-| **Coinbase** | Payments Risk Specialist I | Manila, Philippines | [Apply](https://www.coinbase.com/careers/positions/8337152?gh_jid=8337152) | Nov 4 |
 | **Pilmico** | Territory Business Manager (OPEN TO FRESH GRADS!!) | SOCCSKSARGEN, N/A, Philippines | [Apply](https://jobs.smartrecruiters.com/PilmicoFoodsCorporation/744000159588600) | Nov 4 |
 | **Accor** | Junior Sous Chef - Baker | Makati City, NCR, Philippines | [Apply](https://jobs.smartrecruiters.com/AccorHotel/744000159568481) | Nov 4 |
 | **Aprio** | Aprio PH - Associate, Tax Professional Practices Group | Clark, Pampanga; Makati City, Metro Manila | [Apply](https://jobs.lever.co/Aprio/2d0c2daf-fa57-4fdc-ba5e-1c1f01ed18c9) | Nov 4 |
@@ -210,8 +211,6 @@ company's own application page. The data refreshes once a day.
 | **Workforce Optimizer** | Junior Quality Assurance Engineer | Pasig, Philippines | [Apply](https://apply.workable.com/j/4C233371CC) | Oct 28 |
 | **MR DIY Philippines** | Store Cashier - San Fernando Bukidnon-FS | San Fernando, Bukidnon, Philippines | [Apply](https://www.careers-page.com/mr-diy-philippines/job/V67346WR) | Oct 29 |
 | **Accor** | Fairmont Gold Admin Intern | Makati City, NCR, Philippines | [Apply](https://jobs.smartrecruiters.com/AccorHotel/744000158216229) | Oct 28 |
-| **MR DIY Philippines** | Store Cashier - Gaisano Capital Real Tacloban (GCRT) | Tacloban, Leyte, Philippines | [Apply](https://www.careers-page.com/mr-diy-philippines/job/4R7V6XR7) | Oct 29 |
-| **MR DIY Philippines** | Store Cashier - Malabon Market | Malabon, Metro Manila, Philippines | [Apply](https://www.careers-page.com/mr-diy-philippines/job/RYWV7886) | Oct 29 |
 | **AECOM** | Project Controls Analyst I | City of Taguig, Philippines | [Apply](https://jobs.smartrecruiters.com/AECOM2/744000158073450) | Oct 27 |
 | **Lalamove** | Driver Operations Associate - Driver Assistance | Parañaque, Metro Manila | [Apply](https://jobs.lever.co/lalamove/04aca009-ffe1-4a66-939d-d7d07deaa760) | Oct 27 |
 | **SGS** | OJT for Human Resources | Makati City, NCR, Philippines | [Apply](https://jobs.smartrecruiters.com/SGS/744000157960929) | Oct 27 |
@@ -227,6 +226,7 @@ company's own application page. The data refreshes once a day.
 | **Pilmico** | Production Associate | Iligan City, Lanao del Norte, Philippines | [Apply](https://jobs.smartrecruiters.com/PilmicoFoodsCorporation/744000157718263) | Oct 26 |
 | **SGS** | Sales Development Representative (Sales Force) | Muntinlupa, NCR, Philippines | [Apply](https://jobs.smartrecruiters.com/SGS/744000157697410) | Oct 26 |
 | **SGS** | Payroll Associate | Makati, NCR, Philippines | [Apply](https://jobs.smartrecruiters.com/SGS/744000157681909) | Oct 25 |
+| **Bernhard Schulte Shipmanagement** | Accounting Intern | Manila, Philippines | [Apply](https://bsm.teamtailor.com/jobs/8607858-accounting-intern) | Oct 23 |
 
 ---
 

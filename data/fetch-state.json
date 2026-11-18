@@ -1,13 +1,14 @@
 {
   "version": 1,
   "deadSlugStreaks": {
-    "ashby:va4u": 21
+    "ashby:va4u": 22
   },
   "blocked": {
     "workday:telusinternational.wd3/External": "2026-07-29: robots.txt returned HTTP 403 — treating as a block (§17.1.1)",
     "workday:salesforce.wd12/External_Career_Site": "2026-10-18: HTTP 429 — permanent stop (§17.1.2)",
     "workday:accenture.wd103/AccentureCareers": "2026-10-21: HTTP 429 — permanent stop (§17.1.2)",
     "workday:3m.wd1/Search": "2026-11-16: robots.txt returned HTTP 429 — treating as a block (§17.1.1)",
-    "workday:abbott.wd5/abbottcareers": "2026-11-17: robots.txt returned HTTP 429 — treating as a block (§17.1.1)"
+    "workday:abbott.wd5/abbottcareers": "2026-11-17: robots.txt returned HTTP 429 — treating as a block (§17.1.1)",
+    "workday:acciona.wd3/ACCIONA_Employment_Channel": "2026-11-18: robots.txt returned HTTP 429 — treating as a block (§17.1.1)"
   }
 }
