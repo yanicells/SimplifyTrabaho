@@ -11,7 +11,7 @@ A free, auto-updated list of jobs at Philippine companies, covering all roles an
 Internships and entry-level roles are featured below. It's the PH counterpart of
 [SimplifyJobs/Summer2026-Internships](https://github.com/SimplifyJobs/Summer2026-Internships).
 
-**14,556 active listings from 327 companies** · updated 2026-11-19 02:52 UTC · [Browse and filter everything at simplifytrabaho.ycells.com](https://simplifytrabaho.ycells.com) · [How the listings get here](docs/PIPELINE.md)
+**14,549 active listings from 327 companies** · updated 2026-11-20 02:44 UTC · [Browse and filter everything at simplifytrabaho.ycells.com](https://simplifytrabaho.ycells.com) · [How the listings get here](docs/PIPELINE.md)
 
 ## Where the listings come from
 
@@ -27,10 +27,18 @@ company's own application page. The data refreshes once a day.
 
 | Company | Role | Location | Apply | Posted |
 | --- | --- | --- | --- | --- |
+| **Jollibee Foods Corporation** | Management Trainee - Petron NLEX Plaridel, Bulacan | Plaridel, Bulacan, Philippines | [Apply](https://www.careers-page.com/jollibee-foods-corporation/job/6386YW7R) | Nov 20 |
+| **MR DIY Philippines** | Store Cashier - | Santo Niño, South Cotabato, Philippines | [Apply](https://www.careers-page.com/mr-diy-philippines/job/Y6789X55) | Nov 20 |
+| **Bosch** | Customer Service Associate (German Automotive Account) - Level 1 I Urgent Hiring! | Tauig, Philippines | [Apply](https://jobs.smartrecruiters.com/BoschGroup/744000162624309) | Nov 20 |
+| **Pilmico** | Territory Business Manager-Flour (OPEN TO FRESH GRADS!!) | Tacloban, Leyte and Samar, Philippines | [Apply](https://jobs.smartrecruiters.com/PilmicoFoodsCorporation/744000162621249) | Nov 20 |
+| **Jollibee Foods Corporation** | Management Trainee - Moonwalk, Parañaque | Parañaque, Metro Manila, Philippines | [Apply](https://www.careers-page.com/jollibee-foods-corporation/job/RYW9365X) | Nov 20 |
+| **Jollibee Foods Corporation** | Management Trainee - Tigaon, Camarines Sur | Tigaon, Camarines Sur, Philippines | [Apply](https://www.careers-page.com/jollibee-foods-corporation/job/X978W5XR) | Nov 20 |
+| **Western Digital** | Intern - Manufacturing Engineer | Biñan City, LAGUNA, Philippines | [Apply](https://jobs.smartrecruiters.com/WesternDigital/744000162620259) | Nov 19 |
+| **Workstream** | Business Outreach Associate | Manila, Philippines | [Apply](https://job-boards.greenhouse.io/workstream/jobs/6266001004) | Nov 19 |
 | **Jollibee Foods Corporation** | Management Trainee - Santiago, Isabela | Ilagan, Isabela, Philippines | [Apply](https://www.careers-page.com/jollibee-foods-corporation/job/L63V436R) | Nov 19 |
 | **MR DIY Philippines** | Store Cashier - Bulakan Gateway Center | Bulakan, Bulacan, Philippines | [Apply](https://www.careers-page.com/mr-diy-philippines/job/8XR5RWWR) | Nov 19 |
 | **SGS** | Data Analyst (Sales Support - exp. with quotations, proposals, data entry) | Alabang, Muntinlupa, Philippines | [Apply](https://jobs.smartrecruiters.com/SGS/744000162426450) | Nov 19 |
-| **Pilmico** | Territory Business Manager-Flour (OPEN TO FRESH GRADS!!) | Tacloban, Leyte and Samar, Philippines | [Apply](https://jobs.smartrecruiters.com/PilmicoFoodsCorporation/744000162412409) | Nov 19 |
+| **Western Digital** | Intern - Data Analytics | Biñan City, LAGUNA, Philippines | [Apply](https://jobs.smartrecruiters.com/WesternDigital/744000162620199) | Nov 19 |
 | **MR DIY Philippines** | Store Cashier - Porac Pampanga Arcade (PORP) | Porac, Pampanga, Philippines | [Apply](https://www.careers-page.com/mr-diy-philippines/job/RYW9XW3X) | Nov 19 |
 | **MR DIY Philippines** | Store Cashier - Florida Blanca Pampanga Arcade (FBPA) | Floridablanca, Pampanga, Philippines | [Apply](https://www.careers-page.com/mr-diy-philippines/job/V678979R) | Nov 19 |
 | **MR DIY Philippines** | Store Cashier - Gaisano Grand Jai Alai (GGJA) | Cebu City, Cebu, Philippines | [Apply](https://www.careers-page.com/mr-diy-philippines/job/3W734498) | Nov 19 |
@@ -88,7 +96,6 @@ company's own application page. The data refreshes once a day.
 | **Genpact** | ALABANG CUSTOMER SERVICE REPRESENTATIVE | Muntinlupa City JP | [Apply](https://genpact.wd108.myworkdayjobs.com/en-US/External_Careers/job/Muntinlupa-City-JP/ALABANG-CUSTOMER-SERVICE-REPRESENTATIVE_JR10035162) | Nov 10 |
 | **IQVIA** | Reference File Maintainer Assoc | Taguig City, Philippines | [Apply](https://iqvia.wd1.myworkdayjobs.com/en-US/IQVIA/job/Taguig-City-Philippines/Reference-File-Maintainer-Assoc_R1578928) | Nov 10 |
 | **Maersk** | Accounting Associate | Philippines, Pasig, 1600 | [Apply](https://maersk.wd3.myworkdayjobs.com/en-US/Maersk_Careers/job/Philippines-Pasig-1600/Accounting-Associate_R201959) | Nov 10 |
-| **MR DIY Philippines** | Store Cashier - Calauag Quezon (ZCLQ) | Calauag, Quezon, Philippines | [Apply](https://www.careers-page.com/mr-diy-philippines/job/3W73W9VW) | Nov 10 |
 | **Procter & Gamble** | [P&G Leadership Camp] May/June 2027 Start Date Finance and Accounting Internship | Taguig City | [Apply](https://pg.wd5.myworkdayjobs.com/en-US/1000/job/Taguig-City/XMLNAME--P-G-Leadership-Camp--May-June-2027-Start-Date-Finance-and-Accounting-Internship_R000162186) | Nov 10 |
 | **TSYS** | Associate Sales Operations | QUEZON CITY, PHILIPPINES | [Apply](https://tsys.wd1.myworkdayjobs.com/en-US/TSYS/job/QUEZON-CITY--PHILIPPINES/Associate-Sales-Operations_R0077014) | Nov 10 |
 | **Analog Devices** | Associate Analyst - BE Manufacturing Analytics and Automation | Philippines, Cavite (jp) | [Apply](https://analogdevices.wd1.myworkdayjobs.com/en-US/External/job/Philippines-Cavite-jp/Associate-Analyst---BE-Manufacturing-Analytics-and-Automation_R266163) | Nov 10 |
@@ -186,18 +193,15 @@ company's own application page. The data refreshes once a day.
 | **Concentrix** | Associate, Facilities | PHL Muntinlupa - Alabang 2 | [Apply](https://cnx.wd1.myworkdayjobs.com/en-US/external_global/job/PHL-Muntinlupa---Alabang-2/Associate--Facilities_R1759737-1) | Oct 30 |
 | **Deutsche Bank** | Investment Banking - Reference Data Analyst (Reference Data & SSI Ops EMEA) - Associate | Manila Net Quad Center | [Apply](https://db.wd3.myworkdayjobs.com/en-US/DBWebsite/job/Manila-Net-Quad-Center/Investment-Banking---Reference-Data-Analyst--Reference-Data---SSI-Ops-EMEA----Associate_R0454282-1) | Oct 30 |
 | **ISS** | Junior Analyst - MarketPro Annuity (Open to Fresh Graduates) | Makati City, Philippines | [Apply](https://issgovernance.wd1.myworkdayjobs.com/en-US/ISScareers/job/Makati-City-Philippines/Junior-Data-Analyst---MarketPro-Annuity_JR_10464) | Oct 30 |
-| **Jollibee Foods Corporation** | Management Trainee - Muñoz, Quezon City | Quezon City, Metro Manila, Philippines | [Apply](https://www.careers-page.com/jollibee-foods-corporation/job/RYWV46WX) | Oct 30 |
 | **Toyota Motor Philippines** | Brand Management Associate | Makati City, Metro Manila, Philippines | [Apply](https://www.careers-page.com/toyota-motor-philippines-corporation/job/7X7459R3) | Oct 30 |
 | **Wells Fargo** | Associate Commercial Loan Servicing Representative | TAGUIG CITY | [Apply](https://wf.wd1.myworkdayjobs.com/en-US/WellsFargoJobs/job/TAGUIG-CITY-00/Associate-Commercial-Loan-Servicing-Representative_R-575971) | Oct 30 |
 | **Aprio** | Aprio PH - Associate, CAAS \| Back Office Solutions | Makati City, Metro Manila | [Apply](https://jobs.lever.co/Aprio/2dc327ce-877e-40e0-9658-a5cd96a2d663) | Oct 30 |
 | **AIA Philippines** | Tax Associate / Analyst | Makati, PH-MPI | [Apply](https://aia.wd3.myworkdayjobs.com/en-US/External/job/Makati-PH-MPI/Tax-Associate---Analyst_JR-70675-1) | Oct 30 |
-| **Jollibee Foods Corporation** | Management Trainee -  Calamba, Laguna | Calamba, Laguna, Philippines | [Apply](https://www.careers-page.com/jollibee-foods-corporation/job/5W7Y8443) | Oct 30 |
 | **Ninja Van** | Finance Intern | Taguig, Philippines | [Apply](https://jobs.lever.co/ninjavan/564b8dba-0507-40e7-b5aa-7d39ab1b7d95) | Oct 29 |
 | **Concentrix** | Accountant I | PHL NCR QC Work-at-Home | [Apply](https://cnx.wd1.myworkdayjobs.com/en-US/external_global/job/PHL-NCR-QC-Work-at-Home/Accountant-I_R1774729) | Oct 29 |
 | **General Motors** | Finance & Accounting Intern (Mid Shift) | Taguig City, National Capital Region (Manila), Philippines | [Apply](https://generalmotors.wd5.myworkdayjobs.com/en-US/Careers_GM/job/Taguig-City-National-Capital-Region-Manila-Philippines/FInance---Accounting-Intern--Mid-Shift-_JR-202622953) | Oct 29 |
 | **Genpact** | Associate - Customer Care - Voice 5A | 1901-G-Php: Ihub, Alabang, Philippines | [Apply](https://genpact.wd108.myworkdayjobs.com/en-US/External_Careers/job/1901-G-Php-Ihub-Alabang-Philippines/Associate---Customer-Care---Voice-5A_JR10031978) | Oct 29 |
 | **Johnson & Johnson** | Global Intercompany Accountant 1 (Morning) | Taguig, National Capital Region (Manila), Philippines | [Apply](https://jj.wd5.myworkdayjobs.com/en-US/JJ/job/Taguig-National-Capital-Region-Manila-Philippines/Global-Intercompany-Accountant-1--Morning-_R-106617) | Oct 29 |
-| **Jollibee Foods Corporation** | Management Trainee - Highway 2000, Taytay, Rizal | Taytay, Rizal, Philippines | [Apply](https://www.careers-page.com/jollibee-foods-corporation/job/3W7R3W6W) | Oct 29 |
 | **Ninja Van** | Business Development Intern | Taguig, Philippines | [Apply](https://jobs.lever.co/ninjavan/d9ac11be-4eec-4bf8-8504-cd5c6f48af68) | Oct 29 |
 | **Genpact** | Associate - Customer Care - Voice 5A | 1901-G-Php: Ihub, Alabang, Philippines | [Apply](https://genpact.wd108.myworkdayjobs.com/en-US/External_Careers/job/1901-G-Php-Ihub-Alabang-Philippines/Associate---Customer-Care---Voice-5A_JR10031976) | Oct 29 |
 | **Johnson & Johnson** | Global Intercompany, Accountant 1 (Mid Shift) | Taguig, National Capital Region (Manila), Philippines | [Apply](https://jj.wd5.myworkdayjobs.com/en-US/JJ/job/Taguig-National-Capital-Region-Manila-Philippines/Global-Intercompany--Accountant-1--Mid-Shift-_R-106381) | Oct 29 |
@@ -223,10 +227,6 @@ company's own application page. The data refreshes once a day.
 | **Manulife** | Customer Service Representative - Cebu | Philippines | [Apply](https://manulife.wd3.myworkdayjobs.com/en-US/MFCJH_Jobs/job/Lapu-Lapu-City/Customer-Service-Representative---Cebu_JR26101440) | Oct 27 |
 | **Fresh Prints** | Netsuite Associate (Full Time, Remote) | India, Philippines | [Apply](https://job-boards.greenhouse.io/freshprints/jobs/6233628004) | Oct 26 |
 | **SGS** | Customer Service Jr. (Pharma) | Muntinlupa, NCR, Philippines | [Apply](https://jobs.smartrecruiters.com/SGS/744000157719019) | Oct 26 |
-| **Pilmico** | Production Associate | Iligan City, Lanao del Norte, Philippines | [Apply](https://jobs.smartrecruiters.com/PilmicoFoodsCorporation/744000157718263) | Oct 26 |
-| **SGS** | Sales Development Representative (Sales Force) | Muntinlupa, NCR, Philippines | [Apply](https://jobs.smartrecruiters.com/SGS/744000157697410) | Oct 26 |
-| **SGS** | Payroll Associate | Makati, NCR, Philippines | [Apply](https://jobs.smartrecruiters.com/SGS/744000157681909) | Oct 25 |
-| **Bernhard Schulte Shipmanagement** | Accounting Intern | Manila, Philippines | [Apply](https://bsm.teamtailor.com/jobs/8607858-accounting-intern) | Oct 23 |
 
 ---
 
