@@ -11,7 +11,7 @@ A free, auto-updated list of jobs at Philippine companies, covering all roles an
 Internships and entry-level roles are featured below. It's the PH counterpart of
 [SimplifyJobs/Summer2026-Internships](https://github.com/SimplifyJobs/Summer2026-Internships).
 
-**14,549 active listings from 327 companies** · updated 2026-11-20 02:44 UTC · [Browse and filter everything at simplifytrabaho.ycells.com](https://simplifytrabaho.ycells.com) · [How the listings get here](docs/PIPELINE.md)
+**14,540 active listings from 327 companies** · updated 2026-11-21 02:54 UTC · [Browse and filter everything at simplifytrabaho.ycells.com](https://simplifytrabaho.ycells.com) · [How the listings get here](docs/PIPELINE.md)
 
 ## Where the listings come from
 
@@ -27,28 +27,30 @@ company's own application page. The data refreshes once a day.
 
 | Company | Role | Location | Apply | Posted |
 | --- | --- | --- | --- | --- |
+| **Jollibee Foods Corporation** | Management Trainee - Labo, Camarines Norte | Labo, Camarines Norte, Philippines | [Apply](https://www.careers-page.com/jollibee-foods-corporation/job/X978XR63) | Nov 21 |
+| **MR DIY Philippines** | Store Cashier - 7S Guindulman Arcade Bohol (7SGA) | Guindulman, Bohol, Philippines | [Apply](https://www.careers-page.com/mr-diy-philippines/job/W39874R6) | Nov 21 |
+| **MR DIY Philippines** | Store Cashier - La Nueva Arcade Punta Princesa (LNVA) | Cebu City, Cebu, Philippines | [Apply](https://www.careers-page.com/mr-diy-philippines/job/63867R75) | Nov 21 |
+| **MR DIY Philippines** | Store Cashier - Santisimo Rosario Naval Biliran (ZSTR) | Naval, Biliran, Philippines | [Apply](https://www.careers-page.com/mr-diy-philippines/job/7X75RWXX) | Nov 21 |
+| **MR DIY Philippines** | Store Cashier - Rosario Batangas Arcade (RSBA) | Rosario, Batangas, Philippines | [Apply](https://www.careers-page.com/mr-diy-philippines/job/63867RWR) | Nov 21 |
+| **AECOM** | Specialist I, P&T, Payroll (Middle East) | Taguig, NCR, Philippines | [Apply](https://jobs.smartrecruiters.com/AECOM2/744000162697059) | Nov 20 |
+| **Accor** | COMMIS I (Hot, Cold, Pastry) | Manila, NCR, Philippines | [Apply](https://jobs.smartrecruiters.com/AccorHotel/744000162683959) | Nov 20 |
 | **Jollibee Foods Corporation** | Management Trainee - Petron NLEX Plaridel, Bulacan | Plaridel, Bulacan, Philippines | [Apply](https://www.careers-page.com/jollibee-foods-corporation/job/6386YW7R) | Nov 20 |
-| **MR DIY Philippines** | Store Cashier - | Santo Niño, South Cotabato, Philippines | [Apply](https://www.careers-page.com/mr-diy-philippines/job/Y6789X55) | Nov 20 |
 | **Bosch** | Customer Service Associate (German Automotive Account) - Level 1 I Urgent Hiring! | Tauig, Philippines | [Apply](https://jobs.smartrecruiters.com/BoschGroup/744000162624309) | Nov 20 |
 | **Pilmico** | Territory Business Manager-Flour (OPEN TO FRESH GRADS!!) | Tacloban, Leyte and Samar, Philippines | [Apply](https://jobs.smartrecruiters.com/PilmicoFoodsCorporation/744000162621249) | Nov 20 |
+| **MR DIY Philippines** | Store Cashier - J&F Mall Baybay (JFMB) | Baybay, Leyte, Philippines | [Apply](https://www.careers-page.com/mr-diy-philippines/job/3W78X68V) | Nov 21 |
 | **Jollibee Foods Corporation** | Management Trainee - Moonwalk, Parañaque | Parañaque, Metro Manila, Philippines | [Apply](https://www.careers-page.com/jollibee-foods-corporation/job/RYW9365X) | Nov 20 |
+| **MR DIY Philippines** | Store Cashier - Damulog Bukidnon | Damulog, Bukidnon, Philippines | [Apply](https://www.careers-page.com/mr-diy-philippines/job/4R743885) | Nov 21 |
 | **Jollibee Foods Corporation** | Management Trainee - Tigaon, Camarines Sur | Tigaon, Camarines Sur, Philippines | [Apply](https://www.careers-page.com/jollibee-foods-corporation/job/X978W5XR) | Nov 20 |
+| **MR DIY Philippines** | Store Cashier - Cogeo Town Plaza | Antipolo City, Rizal, Philippines | [Apply](https://www.careers-page.com/mr-diy-philippines/job/W3987539) | Nov 21 |
 | **Western Digital** | Intern - Manufacturing Engineer | Biñan City, LAGUNA, Philippines | [Apply](https://jobs.smartrecruiters.com/WesternDigital/744000162620259) | Nov 19 |
 | **Workstream** | Business Outreach Associate | Manila, Philippines | [Apply](https://job-boards.greenhouse.io/workstream/jobs/6266001004) | Nov 19 |
 | **Jollibee Foods Corporation** | Management Trainee - Santiago, Isabela | Ilagan, Isabela, Philippines | [Apply](https://www.careers-page.com/jollibee-foods-corporation/job/L63V436R) | Nov 19 |
-| **MR DIY Philippines** | Store Cashier - Bulakan Gateway Center | Bulakan, Bulacan, Philippines | [Apply](https://www.careers-page.com/mr-diy-philippines/job/8XR5RWWR) | Nov 19 |
 | **SGS** | Data Analyst (Sales Support - exp. with quotations, proposals, data entry) | Alabang, Muntinlupa, Philippines | [Apply](https://jobs.smartrecruiters.com/SGS/744000162426450) | Nov 19 |
+| **MR DIY Philippines** | Store Cashier - | Santo Niño, South Cotabato, Philippines | [Apply](https://www.careers-page.com/mr-diy-philippines/job/Y6789X55) | Nov 20 |
 | **Western Digital** | Intern - Data Analytics | Biñan City, LAGUNA, Philippines | [Apply](https://jobs.smartrecruiters.com/WesternDigital/744000162620199) | Nov 19 |
+| **MR DIY Philippines** | Store Cashier - Bulakan Gateway Center | Bulakan, Bulacan, Philippines | [Apply](https://www.careers-page.com/mr-diy-philippines/job/8XR5RWWR) | Nov 19 |
 | **MR DIY Philippines** | Store Cashier - Porac Pampanga Arcade (PORP) | Porac, Pampanga, Philippines | [Apply](https://www.careers-page.com/mr-diy-philippines/job/RYW9XW3X) | Nov 19 |
-| **MR DIY Philippines** | Store Cashier - Florida Blanca Pampanga Arcade (FBPA) | Floridablanca, Pampanga, Philippines | [Apply](https://www.careers-page.com/mr-diy-philippines/job/V678979R) | Nov 19 |
-| **MR DIY Philippines** | Store Cashier - Gaisano Grand Jai Alai (GGJA) | Cebu City, Cebu, Philippines | [Apply](https://www.careers-page.com/mr-diy-philippines/job/3W734498) | Nov 19 |
-| **MR DIY Philippines** | Store Cashier - Mariana Place Arcade Bulacan | Bulakan, Bulacan, Philippines | [Apply](https://www.careers-page.com/mr-diy-philippines/job/Y6784V3V) | Nov 19 |
-| **MR DIY Philippines** | Store Cashier - First Gen Plaza Sto. Tomas | Santo Tomas, Batangas, Philippines | [Apply](https://www.careers-page.com/mr-diy-philippines/job/3W78956W) | Nov 19 |
-| **MR DIY Philippines** | Store Cashier - Nova Tierra Square (NVTS) | Davao City, Davao del Sur, Philippines | [Apply](https://www.careers-page.com/mr-diy-philippines/job/X97835YR) | Nov 19 |
 | **Auctane** | Associate Implementation Manager | Manila, Philippines | [Apply](https://job-boards.greenhouse.io/auctane/jobs/8045098003) | Nov 16 |
-| **Pilmico** | Warehouse Associate | Concepcion, Central Luzon, Philippines | [Apply](https://jobs.smartrecruiters.com/PilmicoFoodsCorporation/744000161728659) | Nov 16 |
-| **MR DIY Philippines** | Store Cashier - NuCiti Central Batangas City | Batangas City, Batangas, Philippines | [Apply](https://www.careers-page.com/mr-diy-philippines/job/RYW9W8XX) | Nov 18 |
-| **MR DIY Philippines** | Store Cashier - San Marcelino Zambales Arcade (SMAR) | San Marcelino, Zambales, Philippines | [Apply](https://www.careers-page.com/mr-diy-philippines/job/5W787575) | Nov 18 |
 | **General Motors** | Finance & Accounting Intern | Taguig City, National Capital Region (Manila), Philippines | [Apply](https://generalmotors.wd5.myworkdayjobs.com/en-US/Careers_GM/job/Taguig-City-National-Capital-Region-Manila-Philippines/Finance---Accounting-Intern_JR-202623988) | Nov 15 |
 | **IQVIA** | Client Services Rep 1 - Logistic Planner | Taguig City, Philippines | [Apply](https://iqvia.wd1.myworkdayjobs.com/en-US/IQVIA/job/Taguig-City-Philippines/Client-Services-Rep-1---Logistic-Planner_R1579638) | Nov 15 |
 | **Johnson & Johnson** | Accountant 1, Global Intercompany | Taguig, National Capital Region (Manila), Philippines | [Apply](https://jj.wd5.myworkdayjobs.com/en-US/JJ/job/Taguig-National-Capital-Region-Manila-Philippines/Accountant-1--Global-Intercompany_R-109257) | Nov 15 |
@@ -139,7 +141,6 @@ company's own application page. The data refreshes once a day.
 | **Analog Devices** | Associate Engineer, Process Sustaining Engineering | Philippines, Cavite, GTC | [Apply](https://analogdevices.wd1.myworkdayjobs.com/en-US/External/job/Philippines-Cavite-GTC/Associate-Engineer--Process-Sustaining-Engineering_R268444) | Nov 6 |
 | **Genpact** | Associate - Customer Care - Voice 5A | 1901-G-Php: Plaza, Alabang, Philippines | [Apply](https://genpact.wd108.myworkdayjobs.com/en-US/External_Careers/job/1901-G-Php-Plaza-Alabang-Philippines/Associate---Customer-Care---Voice-5A_JR10033200) | Nov 6 |
 | **GUS Education Philippines** | Junior Project Coordinator (Content Production) | Quezon City, Metro Manila, Philippines | [Apply](https://www.careers-page.com/gus-education-ph/job/5W7RXVY3) | Nov 6 |
-| **Jollibee Foods Corporation** | Management Trainee - Urdaneta, Pangasinan | Urdaneta City, Pangasinan, Philippines | [Apply](https://www.careers-page.com/jollibee-foods-corporation/job/RYW73V66) | Nov 6 |
 | **NCR Voyix** | Service Desk L1 Agent | CEBU CITY, PHL | [Apply](https://ncr.wd1.myworkdayjobs.com/en-US/ext_apac/job/CEBU-CITY-PHL/Service-Desk-L1-Agent_R0159056) | Nov 6 |
 | **RELX** | Workforce Analyst I | PHL-RE Shared Services-Manila | [Apply](https://relx.wd3.myworkdayjobs.com/en-US/relx/job/PHL-RE-Shared-Services-Manila/Workforce-Analyst-I_R120520) | Nov 6 |
 | **Angkas** | Admin and Onboarding Associate - Lipa | Lipa City, Philippines | [Apply](https://apply.workable.com/j/BF83D0FD8D) | Nov 6 |
@@ -214,7 +215,6 @@ company's own application page. The data refreshes once a day.
 | **Medtronic** | Quality & Analytics Associate Specialist – HR Shared Services | Taguig City, National Capital Region, Philippines | [Apply](https://medtronic.wd1.myworkdayjobs.com/en-US/MedtronicCareers/job/Taguig-City-National-Capital-Region-Philippines/Associate-HR-Shared-Services-Specialist_R78641) | Oct 28 |
 | **Wells Fargo** | Customer Service Representative (Spanish Bilingual) | Taguig City, Philippines | [Apply](https://wf.wd1.myworkdayjobs.com/en-US/WellsFargoJobs/job/Taguig-City-Philippines/Customer-Service-Representative--Spanish-Bilingual-_R-584031) | Oct 28 |
 | **Workforce Optimizer** | Junior Quality Assurance Engineer | Pasig, Philippines | [Apply](https://apply.workable.com/j/4C233371CC) | Oct 28 |
-| **Accor** | Fairmont Gold Admin Intern | Makati City, NCR, Philippines | [Apply](https://jobs.smartrecruiters.com/AccorHotel/744000158216229) | Oct 28 |
 | **AECOM** | Project Controls Analyst I | City of Taguig, Philippines | [Apply](https://jobs.smartrecruiters.com/AECOM2/744000158073450) | Oct 27 |
 | **Lalamove** | Driver Operations Associate - Driver Assistance | Parañaque, Metro Manila | [Apply](https://jobs.lever.co/lalamove/04aca009-ffe1-4a66-939d-d7d07deaa760) | Oct 27 |
 | **SGS** | OJT for Human Resources | Makati City, NCR, Philippines | [Apply](https://jobs.smartrecruiters.com/SGS/744000157960929) | Oct 27 |

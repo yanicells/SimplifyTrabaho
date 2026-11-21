@@ -1,8 +1,8 @@
 {
   "version": 1,
   "deadSlugStreaks": {
-    "ashby:va4u": 24,
-    "workable:staff4me": 1
+    "ashby:va4u": 25,
+    "workable:staff4me": 2
   },
   "blocked": {
     "workday:telusinternational.wd3/External": "2026-07-29: robots.txt returned HTTP 403 — treating as a block (§17.1.1)",
@@ -12,6 +12,7 @@
     "workday:abbott.wd5/abbottcareers": "2026-11-17: robots.txt returned HTTP 429 — treating as a block (§17.1.1)",
     "workday:acciona.wd3/ACCIONA_Employment_Channel": "2026-11-18: robots.txt returned HTTP 429 — treating as a block (§17.1.1)",
     "workday:aggreko.wd3/Aggreko_Careers_1": "2026-11-19: robots.txt returned HTTP 429 — treating as a block (§17.1.1)",
-    "workday:aia.wd3/External": "2026-11-20: robots.txt returned HTTP 429 — treating as a block (§17.1.1)"
+    "workday:aia.wd3/External": "2026-11-20: robots.txt returned HTTP 429 — treating as a block (§17.1.1)",
+    "workday:aig.wd1/aig": "2026-11-21: robots.txt returned HTTP 429 — treating as a block (§17.1.1)"
   }
 }
