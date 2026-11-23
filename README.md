@@ -11,7 +11,7 @@ A free, auto-updated list of jobs at Philippine companies, covering all roles an
 Internships and entry-level roles are featured below. It's the PH counterpart of
 [SimplifyJobs/Summer2026-Internships](https://github.com/SimplifyJobs/Summer2026-Internships).
 
-**14,536 active listings from 327 companies** · updated 2026-11-22 01:45 UTC · [Browse and filter everything at simplifytrabaho.ycells.com](https://simplifytrabaho.ycells.com) · [How the listings get here](docs/PIPELINE.md)
+**14,532 active listings from 327 companies** · updated 2026-11-23 02:03 UTC · [Browse and filter everything at simplifytrabaho.ycells.com](https://simplifytrabaho.ycells.com) · [How the listings get here](docs/PIPELINE.md)
 
 ## Where the listings come from
 
@@ -27,6 +27,8 @@ company's own application page. The data refreshes once a day.
 
 | Company | Role | Location | Apply | Posted |
 | --- | --- | --- | --- | --- |
+| **Pilmico** | Territory Business Manager-Flour (OPEN TO FRESH GRADS!!) | Tacloban, Leyte and Samar, Philippines | [Apply](https://jobs.smartrecruiters.com/PilmicoFoodsCorporation/744000163106489) | Nov 23 |
+| **IKEA Philippines** | Sales Associate (Part-Time), IKEA Pasay City | Pasay City, NCR, Philippines | [Apply](https://jobs.smartrecruiters.com/IkanoRetail/744000163005898) | Nov 22 |
 | **Jollibee Foods Corporation** | Management Trainee - Labo, Camarines Norte | Labo, Camarines Norte, Philippines | [Apply](https://www.careers-page.com/jollibee-foods-corporation/job/X978XR63) | Nov 21 |
 | **MR DIY Philippines** | Store Cashier - 7S Guindulman Arcade Bohol (7SGA) | Guindulman, Bohol, Philippines | [Apply](https://www.careers-page.com/mr-diy-philippines/job/W39874R6) | Nov 21 |
 | **MR DIY Philippines** | Store Cashier - La Nueva Arcade Punta Princesa (LNVA) | Cebu City, Cebu, Philippines | [Apply](https://www.careers-page.com/mr-diy-philippines/job/63867R75) | Nov 21 |
@@ -36,7 +38,6 @@ company's own application page. The data refreshes once a day.
 | **Accor** | COMMIS I (Hot, Cold, Pastry) | Manila, NCR, Philippines | [Apply](https://jobs.smartrecruiters.com/AccorHotel/744000162683959) | Nov 20 |
 | **Jollibee Foods Corporation** | Management Trainee - Petron NLEX Plaridel, Bulacan | Plaridel, Bulacan, Philippines | [Apply](https://www.careers-page.com/jollibee-foods-corporation/job/6386YW7R) | Nov 20 |
 | **Bosch** | Customer Service Associate (German Automotive Account) - Level 1 I Urgent Hiring! | Tauig, Philippines | [Apply](https://jobs.smartrecruiters.com/BoschGroup/744000162624309) | Nov 20 |
-| **Pilmico** | Territory Business Manager-Flour (OPEN TO FRESH GRADS!!) | Tacloban, Leyte and Samar, Philippines | [Apply](https://jobs.smartrecruiters.com/PilmicoFoodsCorporation/744000162621249) | Nov 20 |
 | **MR DIY Philippines** | Store Cashier - J&F Mall Baybay (JFMB) | Baybay, Leyte, Philippines | [Apply](https://www.careers-page.com/mr-diy-philippines/job/3W78X68V) | Nov 21 |
 | **Jollibee Foods Corporation** | Management Trainee - Moonwalk, Parañaque | Parañaque, Metro Manila, Philippines | [Apply](https://www.careers-page.com/jollibee-foods-corporation/job/RYW9365X) | Nov 20 |
 | **MR DIY Philippines** | Store Cashier - Damulog Bukidnon | Damulog, Bukidnon, Philippines | [Apply](https://www.careers-page.com/mr-diy-philippines/job/4R743885) | Nov 21 |
@@ -226,7 +227,6 @@ company's own application page. The data refreshes once a day.
 | **SGS** | Student Intern - Business Assurance | Makati City, NCR, Philippines | [Apply](https://jobs.smartrecruiters.com/SGS/744000157927629) | Oct 27 |
 | **Manulife** | Customer Service Representative - Cebu | Philippines | [Apply](https://manulife.wd3.myworkdayjobs.com/en-US/MFCJH_Jobs/job/Lapu-Lapu-City/Customer-Service-Representative---Cebu_JR26101440) | Oct 27 |
 | **Fresh Prints** | Netsuite Associate (Full Time, Remote) | India, Philippines | [Apply](https://job-boards.greenhouse.io/freshprints/jobs/6233628004) | Oct 26 |
-| **SGS** | Customer Service Jr. (Pharma) | Muntinlupa, NCR, Philippines | [Apply](https://jobs.smartrecruiters.com/SGS/744000157719019) | Oct 26 |
 
 ---
 
