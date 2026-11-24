@@ -11,7 +11,7 @@ A free, auto-updated list of jobs at Philippine companies, covering all roles an
 Internships and entry-level roles are featured below. It's the PH counterpart of
 [SimplifyJobs/Summer2026-Internships](https://github.com/SimplifyJobs/Summer2026-Internships).
 
-**14,532 active listings from 327 companies** · updated 2026-11-23 02:03 UTC · [Browse and filter everything at simplifytrabaho.ycells.com](https://simplifytrabaho.ycells.com) · [How the listings get here](docs/PIPELINE.md)
+**14,523 active listings from 327 companies** · updated 2026-11-24 05:40 UTC · [Browse and filter everything at simplifytrabaho.ycells.com](https://simplifytrabaho.ycells.com) · [How the listings get here](docs/PIPELINE.md)
 
 ## Where the listings come from
 
@@ -27,7 +27,15 @@ company's own application page. The data refreshes once a day.
 
 | Company | Role | Location | Apply | Posted |
 | --- | --- | --- | --- | --- |
-| **Pilmico** | Territory Business Manager-Flour (OPEN TO FRESH GRADS!!) | Tacloban, Leyte and Samar, Philippines | [Apply](https://jobs.smartrecruiters.com/PilmicoFoodsCorporation/744000163106489) | Nov 23 |
+| **BillEase** | Customer Service Representative | Manila, Metro Manila, Philippines | [Apply](https://www.careers-page.com/billease/job/W399545W) | Nov 24 |
+| **Esquire Financing** | Direct Sales Associate | Davao City, Davao del Sur, Philippines | [Apply](https://www.careers-page.com/esquire/job/V677Y7WR) | Nov 24 |
+| **Pilmico** | Territory Business Manager-Flour (OPEN TO FRESH GRADS!!) | Tacloban, Leyte and Samar, Philippines | [Apply](https://jobs.smartrecruiters.com/PilmicoFoodsCorporation/744000163382999) | Nov 24 |
+| **Esquire Financing** | Collections Associate (Early Stage) | Taguig, Metro Manila, Philippines | [Apply](https://www.careers-page.com/esquire/job/7X77W595) | Nov 24 |
+| **Esquire Financing** | Collections Associate (Negative Bucket) | Taguig, Metro Manila, Philippines | [Apply](https://www.careers-page.com/esquire/job/8XRR75WR) | Nov 24 |
+| **Esquire Financing** | Direct Sales Associate | Cebu City, Cebu, Philippines | [Apply](https://www.careers-page.com/esquire/job/V677Y76R) | Nov 24 |
+| **Kasa** | Leasing Sales Agent (International - Philippines) | Remote (Philippines) | [Apply](https://job-boards.greenhouse.io/kasa/jobs/8209171003) | Nov 23 |
+| **Lalamove** | Driver Operations Associate - Driver Assistance | Quezon City, Metro Manila | [Apply](https://jobs.lever.co/lalamove/bf44f80e-f99f-4eef-a3e7-a33d8b759984) | Nov 23 |
+| **Lalamove** | Driver Operations Associate (Offline Presence) | Angeles, Pampanga | [Apply](https://jobs.lever.co/lalamove/ff987dbc-f85a-40b8-a1b1-1cb7cd1f809a) | Nov 23 |
 | **IKEA Philippines** | Sales Associate (Part-Time), IKEA Pasay City | Pasay City, NCR, Philippines | [Apply](https://jobs.smartrecruiters.com/IkanoRetail/744000163005898) | Nov 22 |
 | **Jollibee Foods Corporation** | Management Trainee - Labo, Camarines Norte | Labo, Camarines Norte, Philippines | [Apply](https://www.careers-page.com/jollibee-foods-corporation/job/X978XR63) | Nov 21 |
 | **MR DIY Philippines** | Store Cashier - 7S Guindulman Arcade Bohol (7SGA) | Guindulman, Bohol, Philippines | [Apply](https://www.careers-page.com/mr-diy-philippines/job/W39874R6) | Nov 21 |
@@ -155,7 +163,6 @@ company's own application page. The data refreshes once a day.
 | **RELX** | Legal Editor I | Philippines | [Apply](https://relx.wd3.myworkdayjobs.com/en-US/relx/job/Iloilo/Legal-Editor-I_R120445-1) | Nov 5 |
 | **TSYS** | Accountant I | QUEZON CITY, PHILIPPINES | [Apply](https://tsys.wd1.myworkdayjobs.com/en-US/TSYS/job/QUEZON-CITY--PHILIPPINES/Accountant-I_R0075241) | Nov 5 |
 | **Wells Fargo** | Customer Service Representative - Global Payments & Liquidity, NSG | TAGUIG CITY | [Apply](https://wf.wd1.myworkdayjobs.com/en-US/WellsFargoJobs/job/TAGUIG-CITY-00/Customer-Service-Representative---Global-Payments---Liquidity--NSG_R-584696) | Nov 5 |
-| **Workstreet** | GRC Engineer I | Remote (Philippines) | [Apply](https://ats.rippling.com/workstreet/jobs/8e60f8a0-365c-436c-98c5-71d53dbb3095) | Nov 5 |
 | **Genpact** | Associate - Customer Care - Voice 5A | 1901-G-Php: G/F 5132 Bld, Alabang, Philippines | [Apply](https://genpact.wd108.myworkdayjobs.com/en-US/External_Careers/job/1901-G-Php-GF-5132-Bld-Alabang-Philippines/Associate---Customer-Care---Voice-5A_JR10028848) | Nov 5 |
 | **Johnson & Johnson** | Procurement Invoice Associate (Night Shift) | Taguig, National Capital Region (Manila), Philippines | [Apply](https://jj.wd5.myworkdayjobs.com/en-US/JJ/job/Taguig-National-Capital-Region-Manila-Philippines/Procurement-Invoice-Associate--Night-Shift-_R-109020) | Nov 5 |
 | **Manulife** | Financial Sales Associate | Pasig City | [Apply](https://manulife.wd3.myworkdayjobs.com/en-US/MFCJH_Jobs/job/Pasig-City/Financial-Sales-Associate_JR26110175-1) | Nov 5 |
@@ -220,13 +227,6 @@ company's own application page. The data refreshes once a day.
 | **Lalamove** | Driver Operations Associate - Driver Assistance | Parañaque, Metro Manila | [Apply](https://jobs.lever.co/lalamove/04aca009-ffe1-4a66-939d-d7d07deaa760) | Oct 27 |
 | **SGS** | OJT for Human Resources | Makati City, NCR, Philippines | [Apply](https://jobs.smartrecruiters.com/SGS/744000157960929) | Oct 27 |
 | **Abbott** | Technical Support Associate | Philippines - Taguig City | [Apply](https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/Philippines---Taguig-City/Technical-Support-Associate_31165726) | Oct 27 |
-| **Chevron** | Customer Service Representative - Mandarin | Ayala, Makati City, Philippines | [Apply](https://chevron.wd5.myworkdayjobs.com/en-US/jobs/job/Ayala-Makati-City-Philippines/Customer-Service-Representative---Mandarin_R000074674) | Oct 27 |
-| **Concentrix** | Software Engineer I (TCF) | PHL Quezon City - EXXA Tower, 8th Floor | [Apply](https://cnx.wd1.myworkdayjobs.com/en-US/external_global/job/PHL-Quezon-City---EXXA-Tower-8th-Floor/Software-Engineer-I--TCF-_R1773784) | Oct 27 |
-| **Manulife** | Customer Service Representative - Quezon City | Quezon City | [Apply](https://manulife.wd3.myworkdayjobs.com/en-US/MFCJH_Jobs/job/Quezon-City/Customer-Service-Representative---Quezon-City_JR26101438) | Oct 27 |
-| **Angkas** | Field Admin Associate | Makati City, Philippines | [Apply](https://apply.workable.com/j/FB86A9D898) | Oct 27 |
-| **SGS** | Student Intern - Business Assurance | Makati City, NCR, Philippines | [Apply](https://jobs.smartrecruiters.com/SGS/744000157927629) | Oct 27 |
-| **Manulife** | Customer Service Representative - Cebu | Philippines | [Apply](https://manulife.wd3.myworkdayjobs.com/en-US/MFCJH_Jobs/job/Lapu-Lapu-City/Customer-Service-Representative---Cebu_JR26101440) | Oct 27 |
-| **Fresh Prints** | Netsuite Associate (Full Time, Remote) | India, Philippines | [Apply](https://job-boards.greenhouse.io/freshprints/jobs/6233628004) | Oct 26 |
 
 ---
 
