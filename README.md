@@ -11,7 +11,7 @@ A free, auto-updated list of jobs at Philippine companies, covering all roles an
 Internships and entry-level roles are featured below. It's the PH counterpart of
 [SimplifyJobs/Summer2026-Internships](https://github.com/SimplifyJobs/Summer2026-Internships).
 
-**14,522 active listings from 327 companies** · updated 2026-11-25 04:40 UTC · [Browse and filter everything at simplifytrabaho.ycells.com](https://simplifytrabaho.ycells.com) · [How the listings get here](docs/PIPELINE.md)
+**14,479 active listings from 327 companies** · updated 2026-11-26 03:50 UTC · [Browse and filter everything at simplifytrabaho.ycells.com](https://simplifytrabaho.ycells.com) · [How the listings get here](docs/PIPELINE.md)
 
 ## Where the listings come from
 
@@ -27,10 +27,12 @@ company's own application page. The data refreshes once a day.
 
 | Company | Role | Location | Apply | Posted |
 | --- | --- | --- | --- | --- |
+| **Universal Leaf Philippines** | PAD Associate | Cagayan Valley, Philippines | [Apply](https://www.careers-page.com/universal-leaf/job/RYWW9R7R) | Nov 26 |
+| **Pilmico** | Territory Business Manager-Flour (OPEN TO FRESH GRADS!!) | Tacloban, Leyte and Samar, Philippines | [Apply](https://jobs.smartrecruiters.com/PilmicoFoodsCorporation/744000163776220) | Nov 26 |
+| **Palmetto** | Tech Support Specialist I (Spanish Bilingual) | Remote - Philippines | [Apply](https://job-boards.greenhouse.io/palmettocleantech/jobs/5492143008) | Nov 25 |
 | **Expeditors** | Tax Compliance Associate | Paranaque, NCR, Philippines | [Apply](https://jobs.smartrecruiters.com/Expeditors/744000163603609) | Nov 25 |
 | **SGS** | Junior Application and SQL Developer | Muntinlupa, NCR, Philippines | [Apply](https://jobs.smartrecruiters.com/SGS/744000163603059) | Nov 25 |
 | **Reolink** | Technical Support Representative | The Orient Square, F. Ortigas Jr. Rd, Ortigas Center, Pasig, 1600 Metro Manila, Philippines | [Apply](https://job-boards.greenhouse.io/reolink/jobs/4520146009) | Nov 25 |
-| **Pilmico** | Territory Business Manager-Flour (OPEN TO FRESH GRADS!!) | Tacloban, Leyte and Samar, Philippines | [Apply](https://jobs.smartrecruiters.com/PilmicoFoodsCorporation/744000163565191) | Nov 25 |
 | **First Circle** | HR Operations Intern | Taguig, Philippines | [Apply](https://apply.workable.com/j/EB682F5CA2) | Nov 25 |
 | **Reolink** | Technical Support Representative | The Orient Square, F. Ortigas Jr. Rd, Ortigas Center, Pasig, 1600 Metro Manila, Philippines | [Apply](https://job-boards.greenhouse.io/reolink/jobs/4520144009) | Nov 25 |
 | **HelloFresh** | Junior Analytics Engineer | Manila, Manila, Philippines | [Apply](https://careers.hellofresh.com/global/en/job/8413409?gh_jid=8413409) | Nov 24 |
@@ -185,14 +187,13 @@ company's own application page. The data refreshes once a day.
 | **NCR Voyix** | L1 Support | CEBU CITY, PHL | [Apply](https://ncr.wd1.myworkdayjobs.com/en-US/ext_apac/job/CEBU-CITY-PHL/L1-Support_R0159057) | Nov 4 |
 | **Unisys** | Civil Registry Associate | Philippines | [Apply](https://unisys.wd5.myworkdayjobs.com/en-US/External/job/PSA-Tarlac/Civil-Registry-Associate_REQ576721) | Nov 4 |
 | **Wells Fargo** | Customer Service Representative, Global Payments & Liquidity - Technical Support | Philippines | [Apply](https://wf.wd1.myworkdayjobs.com/en-US/WellsFargoJobs/job/TAGUIG-CITY-00/Customer-Service-Representative--Global-Payments---Liquidity---Technical-Support_R-583524-1) | Nov 4 |
-| **Angkas** | Customer Experience Associate | Makati City, Philippines | [Apply](https://apply.workable.com/j/CC21D2A31C) | Nov 4 |
+| **Angkas** | Onboarding Associate - Lipa | Lipa City, Philippines | [Apply](https://apply.workable.com/j/A61357C199) | Nov 4 |
 | **RELX** | Telesales Rep I | Philippines | [Apply](https://relx.wd3.myworkdayjobs.com/en-US/relx/job/Manila/Telesales-Rep-I_R120637) | Nov 4 |
 | **NCR Voyix** | L1 Support | CEBU CITY, PHL | [Apply](https://ncr.wd1.myworkdayjobs.com/en-US/ext_apac/job/CEBU-CITY-PHL/L1-Support_R0159065) | Nov 4 |
 | **Unisys** | Tech Svc Desk - L1 | Citynet - Mandaluyong City | [Apply](https://unisys.wd5.myworkdayjobs.com/en-US/External/job/Citynet---Mandaluyong-City/Tech-Svc-Desk---L1_REQ576849) | Nov 4 |
-| **Angkas** | Onboarding Associate - Lipa | Lipa City, Philippines | [Apply](https://apply.workable.com/j/A61357C199) | Nov 4 |
+| **Angkas** | Onboarding Associate | Makati City, Philippines | [Apply](https://apply.workable.com/j/CC58324BEE) | Nov 4 |
 | **NCR Voyix** | L1 Support | CEBU CITY, PHL | [Apply](https://ncr.wd1.myworkdayjobs.com/en-US/ext_apac/job/CEBU-CITY-PHL/Service-Desk-Agent-L1_R0159076) | Nov 4 |
 | **Unisys** | Civil Registry Associate | Cabanatuan City, Philippines | [Apply](https://unisys.wd5.myworkdayjobs.com/en-US/External/job/Cabanatuan-City-Philippines/Civil-Registry-Associate_REQ576723) | Nov 4 |
-| **Angkas** | Onboarding Associate | Makati City, Philippines | [Apply](https://apply.workable.com/j/CC58324BEE) | Nov 4 |
 | **NCR Voyix** | L1 Support | CEBU CITY, PHL | [Apply](https://ncr.wd1.myworkdayjobs.com/en-US/ext_apac/job/CEBU-CITY-PHL/L1-Support_R0159074-2) | Nov 4 |
 | **Lalamove** | Driver Operations Associate - Offline Presence | Angeles, Pampanga | [Apply](https://jobs.lever.co/lalamove/c7b2dbb0-9965-48db-b83c-12498918393c) | Nov 3 |
 | **Aprio** | Aprio PH -  Associate, Audit | Makati City, Metro Manila | [Apply](https://jobs.lever.co/Aprio/031366f4-1193-4705-be75-74c43b22f59f) | Nov 3 |
@@ -201,7 +202,7 @@ company's own application page. The data refreshes once a day.
 | **NCR Voyix** | L1 Support | CEBU CITY, PHL | [Apply](https://ncr.wd1.myworkdayjobs.com/en-US/ext_apac/job/CEBU-CITY-PHL/L1-Support_R0159063) | Nov 4 |
 | **NCR Voyix** | L1 Support | CEBU CITY, PHL | [Apply](https://ncr.wd1.myworkdayjobs.com/en-US/ext_apac/job/CEBU-CITY-PHL/L1-Support_R0159055-1) | Nov 4 |
 | **NCR Voyix** | L1 Support | CEBU CITY, PHL | [Apply](https://ncr.wd1.myworkdayjobs.com/en-US/ext_apac/job/CEBU-CITY-PHL/L1-Support_R0159054) | Nov 4 |
-| **Fresh Prints** | Customer Support Associate | Philippines (Remote) | [Apply](https://job-boards.greenhouse.io/freshprints/jobs/6239834004) | Nov 2 |
+| **Fresh Prints** | Customer Support Associate (Pooling) | Philippines (Remote) | [Apply](https://job-boards.greenhouse.io/freshprints/jobs/6239834004) | Nov 2 |
 | **Abbott** | Technical Support Associate (Mandarin-Bilingual) | Philippines - Taguig City | [Apply](https://abbott.wd5.myworkdayjobs.com/en-US/abbottcareers/job/Philippines---Taguig-City/Technical-Support-Associate--Mandarin-Bilingual-_31166389) | Oct 31 |
 | **Regal Rexnord** | Trade Compliance Analyst I | Pasig, Manila, Philippines | [Apply](https://regalrexnord.wd1.myworkdayjobs.com/en-US/Careers/job/Pasig-Manila-Philippines/Trade-Compliance-Analyst-I_R26_05696) | Oct 31 |
 | **Aprio** | Aprio PH - Associate, Audit | Makati City, Metro Manila; Clark, Pampanga | [Apply](https://jobs.lever.co/Aprio/2b8bcc2a-cb53-4bdf-b782-3ffce355afb0) | Oct 30 |
@@ -226,7 +227,6 @@ company's own application page. The data refreshes once a day.
 | **Lalamove** | Sales Associate - Automotive | Parañaque, Metro Manila | [Apply](https://jobs.lever.co/lalamove/130faadf-6e10-4568-ad05-fdce1cdf1f61) | Oct 28 |
 | **Chevron** | Chevron Internship – Information Technology \| Q1 2027 | Ayala, Makati City, Philippines | [Apply](https://chevron.wd5.myworkdayjobs.com/en-US/jobs/job/Ayala-Makati-City-Philippines/Chevron-Internship---Information-Technology---Q1-2027_R000074729) | Oct 28 |
 | **IQVIA** | Associate Account Manager | Taguig City, Philippines | [Apply](https://iqvia.wd1.myworkdayjobs.com/en-US/IQVIA/job/Taguig-City-Philippines/Associate-Account-Manager_R1571264) | Oct 28 |
-| **Johnson & Johnson** | Accountant 1, Global Intercompany | Taguig, National Capital Region (Manila), Philippines | [Apply](https://jj.wd5.myworkdayjobs.com/en-US/JJ/job/Taguig-National-Capital-Region-Manila-Philippines/Accountant-1--Global-Intercompany_R-105829-1) | Oct 28 |
 
 ---
 
