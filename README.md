@@ -11,7 +11,7 @@ A free, auto-updated list of jobs at Philippine companies, covering all roles an
 Internships and entry-level roles are featured below. It's the PH counterpart of
 [SimplifyJobs/Summer2026-Internships](https://github.com/SimplifyJobs/Summer2026-Internships).
 
-**14,479 active listings from 327 companies** · updated 2026-11-26 03:50 UTC · [Browse and filter everything at simplifytrabaho.ycells.com](https://simplifytrabaho.ycells.com) · [How the listings get here](docs/PIPELINE.md)
+**14,456 active listings from 327 companies** · updated 2026-11-27 03:51 UTC · [Browse and filter everything at simplifytrabaho.ycells.com](https://simplifytrabaho.ycells.com) · [How the listings get here](docs/PIPELINE.md)
 
 ## Where the listings come from
 
@@ -27,8 +27,17 @@ company's own application page. The data refreshes once a day.
 
 | Company | Role | Location | Apply | Posted |
 | --- | --- | --- | --- | --- |
+| **Jollibee Foods Corporation** | Management Trainee, Taguig City_Testing | Taguig, Metro Manila, Philippines | [Apply](https://www.careers-page.com/jollibee-foods-corporation/job/W399Y7WW) | Nov 27 |
+| **MR DIY Philippines** | Store Cashier - Siaton Negros Oriental (ZSTN) | Siaton, Negros Oriental, Philippines | [Apply](https://www.careers-page.com/mr-diy-philippines/job/3W7795W8) | Nov 27 |
+| **Lalamove** | Driver Operations Associate - Onboarding | Parañaque, Metro Manila | [Apply](https://jobs.lever.co/lalamove/1be73eed-0f0f-444d-a465-d62dbe19a7d5) | Nov 27 |
+| **Cygnific** | Junior ICT Support Officer | Makati, Philippines | [Apply](https://cygnific26.recruitee.com/o/junior-ict-support-officer) | Nov 27 |
+| **Lightspeed Commerce** | Sales Development Representative (Permanent work from home) | Manila | [Apply](https://jobs.ashbyhq.com/lightspeedhq/04b6eb83-e5e7-4604-9fa8-a574e1990e7d) | Nov 27 |
+| **MR DIY Philippines** | Store Cashier - Capistrano CDO (CAPI) | Cagayan de Oro City, Misamis Oriental, Philippines | [Apply](https://www.careers-page.com/mr-diy-philippines/job/63884WV5) | Nov 27 |
+| **Aprio** | Aprio PH - Associate, CAAS \| Back Office Solutions | Clark, Pampanga; Makati City, Metro Manila | [Apply](https://jobs.lever.co/Aprio/cd0482f6-a482-4f56-abad-c6dc2fe40b4c) | Nov 26 |
 | **Universal Leaf Philippines** | PAD Associate | Cagayan Valley, Philippines | [Apply](https://www.careers-page.com/universal-leaf/job/RYWW9R7R) | Nov 26 |
-| **Pilmico** | Territory Business Manager-Flour (OPEN TO FRESH GRADS!!) | Tacloban, Leyte and Samar, Philippines | [Apply](https://jobs.smartrecruiters.com/PilmicoFoodsCorporation/744000163776220) | Nov 26 |
+| **Angkas** | Procurement Associate | Makati City, Philippines | [Apply](https://apply.workable.com/j/CCC0C687CC) | Nov 26 |
+| **Angkas** | Procurement Associate (Fixed-Term) | Makati City, Philippines | [Apply](https://apply.workable.com/j/571ED2C703) | Nov 26 |
+| **Angkas** | Customer Experience Associate | Makati City, Philippines | [Apply](https://apply.workable.com/j/344142AC50) | Nov 26 |
 | **Palmetto** | Tech Support Specialist I (Spanish Bilingual) | Remote - Philippines | [Apply](https://job-boards.greenhouse.io/palmettocleantech/jobs/5492143008) | Nov 25 |
 | **Expeditors** | Tax Compliance Associate | Paranaque, NCR, Philippines | [Apply](https://jobs.smartrecruiters.com/Expeditors/744000163603609) | Nov 25 |
 | **SGS** | Junior Application and SQL Developer | Muntinlupa, NCR, Philippines | [Apply](https://jobs.smartrecruiters.com/SGS/744000163603059) | Nov 25 |
@@ -67,8 +76,6 @@ company's own application page. The data refreshes once a day.
 | **SGS** | Data Analyst (Sales Support - exp. with quotations, proposals, data entry) | Alabang, Muntinlupa, Philippines | [Apply](https://jobs.smartrecruiters.com/SGS/744000162426450) | Nov 19 |
 | **MR DIY Philippines** | Store Cashier - | Santo Niño, South Cotabato, Philippines | [Apply](https://www.careers-page.com/mr-diy-philippines/job/Y6789X55) | Nov 20 |
 | **Western Digital** | Intern - Data Analytics | Biñan City, LAGUNA, Philippines | [Apply](https://jobs.smartrecruiters.com/WesternDigital/744000162620199) | Nov 19 |
-| **MR DIY Philippines** | Store Cashier - Bulakan Gateway Center | Bulakan, Bulacan, Philippines | [Apply](https://www.careers-page.com/mr-diy-philippines/job/8XR5RWWR) | Nov 19 |
-| **MR DIY Philippines** | Store Cashier - Porac Pampanga Arcade (PORP) | Porac, Pampanga, Philippines | [Apply](https://www.careers-page.com/mr-diy-philippines/job/RYW9XW3X) | Nov 19 |
 | **Auctane** | Associate Implementation Manager | Manila, Philippines | [Apply](https://job-boards.greenhouse.io/auctane/jobs/8045098003) | Nov 16 |
 | **General Motors** | Finance & Accounting Intern | Taguig City, National Capital Region (Manila), Philippines | [Apply](https://generalmotors.wd5.myworkdayjobs.com/en-US/Careers_GM/job/Taguig-City-National-Capital-Region-Manila-Philippines/Finance---Accounting-Intern_JR-202623988) | Nov 15 |
 | **IQVIA** | Client Services Rep 1 - Logistic Planner | Taguig City, Philippines | [Apply](https://iqvia.wd1.myworkdayjobs.com/en-US/IQVIA/job/Taguig-City-Philippines/Client-Services-Rep-1---Logistic-Planner_R1579638) | Nov 15 |
@@ -101,7 +108,6 @@ company's own application page. The data refreshes once a day.
 | **AECOM** | Executive Assistant I, Corporate Services | Taguig City, Philippines | [Apply](https://jobs.smartrecruiters.com/AECOM2/744000161240289) | Nov 12 |
 | **Ninja Van** | People Development and Engagement Intern | Taguig, Philippines | [Apply](https://jobs.lever.co/ninjavan/896c3ce8-a0fc-42c3-a0de-60d8e938f3c2) | Nov 12 |
 | **Analog Devices** | Associate Engineer, Reliability Hardware and System Engineering (Burn-in Engineering) | Philippines, Cavite (jp) | [Apply](https://analogdevices.wd1.myworkdayjobs.com/en-US/External/job/Philippines-Cavite-jp/Associate-Engineer--Reliability-Hardware-and-System-Engineering--Burn-in-Engineering-_R268716) | Nov 12 |
-| **Jollibee Foods Corporation** | Management Trainee - San Ildefonso, Bulacan | Baliuag, Bulacan, Philippines | [Apply](https://www.careers-page.com/jollibee-foods-corporation/job/7X7V7963) | Nov 12 |
 | **RELX** | Legal Editor I | Philippines | [Apply](https://relx.wd3.myworkdayjobs.com/en-US/relx/job/Iloilo/Legal-Editor-I_R120444-1) | Nov 12 |
 | **Analog Devices** | Engineer Student Intern | Philippines, Cavite, GTC | [Apply](https://analogdevices.wd1.myworkdayjobs.com/en-US/External/job/Philippines-Cavite-GTC/Engineer-Student-Intern_R268314) | Nov 12 |
 | **RELX** | Accounts P/R Coordinator I | Manila | [Apply](https://relx.wd3.myworkdayjobs.com/en-US/relx/job/Manila/Accounts-P-R-Coordinator-I_R120440) | Nov 12 |
@@ -215,18 +221,12 @@ company's own application page. The data refreshes once a day.
 | **Wells Fargo** | Associate Commercial Loan Servicing Representative | TAGUIG CITY | [Apply](https://wf.wd1.myworkdayjobs.com/en-US/WellsFargoJobs/job/TAGUIG-CITY-00/Associate-Commercial-Loan-Servicing-Representative_R-575971) | Oct 30 |
 | **Aprio** | Aprio PH - Associate, CAAS \| Back Office Solutions | Makati City, Metro Manila | [Apply](https://jobs.lever.co/Aprio/2dc327ce-877e-40e0-9658-a5cd96a2d663) | Oct 30 |
 | **AIA Philippines** | Tax Associate / Analyst | Makati, PH-MPI | [Apply](https://aia.wd3.myworkdayjobs.com/en-US/External/job/Makati-PH-MPI/Tax-Associate---Analyst_JR-70675-1) | Oct 30 |
-| **Ninja Van** | Finance Intern | Taguig, Philippines | [Apply](https://jobs.lever.co/ninjavan/564b8dba-0507-40e7-b5aa-7d39ab1b7d95) | Oct 29 |
+| **Ninja Van** | Business Development Intern | Taguig, Philippines | [Apply](https://jobs.lever.co/ninjavan/d9ac11be-4eec-4bf8-8504-cd5c6f48af68) | Oct 29 |
 | **Concentrix** | Accountant I | PHL NCR QC Work-at-Home | [Apply](https://cnx.wd1.myworkdayjobs.com/en-US/external_global/job/PHL-NCR-QC-Work-at-Home/Accountant-I_R1774729) | Oct 29 |
 | **General Motors** | Finance & Accounting Intern (Mid Shift) | Taguig City, National Capital Region (Manila), Philippines | [Apply](https://generalmotors.wd5.myworkdayjobs.com/en-US/Careers_GM/job/Taguig-City-National-Capital-Region-Manila-Philippines/FInance---Accounting-Intern--Mid-Shift-_JR-202622953) | Oct 29 |
 | **Genpact** | Associate - Customer Care - Voice 5A | 1901-G-Php: Ihub, Alabang, Philippines | [Apply](https://genpact.wd108.myworkdayjobs.com/en-US/External_Careers/job/1901-G-Php-Ihub-Alabang-Philippines/Associate---Customer-Care---Voice-5A_JR10031978) | Oct 29 |
 | **Johnson & Johnson** | Global Intercompany Accountant 1 (Morning) | Taguig, National Capital Region (Manila), Philippines | [Apply](https://jj.wd5.myworkdayjobs.com/en-US/JJ/job/Taguig-National-Capital-Region-Manila-Philippines/Global-Intercompany-Accountant-1--Morning-_R-106617) | Oct 29 |
-| **Ninja Van** | Business Development Intern | Taguig, Philippines | [Apply](https://jobs.lever.co/ninjavan/d9ac11be-4eec-4bf8-8504-cd5c6f48af68) | Oct 29 |
 | **Genpact** | Associate - Customer Care - Voice 5A | 1901-G-Php: Ihub, Alabang, Philippines | [Apply](https://genpact.wd108.myworkdayjobs.com/en-US/External_Careers/job/1901-G-Php-Ihub-Alabang-Philippines/Associate---Customer-Care---Voice-5A_JR10031976) | Oct 29 |
-| **Johnson & Johnson** | Global Intercompany, Accountant 1 (Mid Shift) | Taguig, National Capital Region (Manila), Philippines | [Apply](https://jj.wd5.myworkdayjobs.com/en-US/JJ/job/Taguig-National-Capital-Region-Manila-Philippines/Global-Intercompany--Accountant-1--Mid-Shift-_R-106381) | Oct 29 |
-| **Accor** | Spa Intern | Makati City, NCR, Philippines | [Apply](https://jobs.smartrecruiters.com/AccorHotel/744000158238134) | Oct 28 |
-| **Lalamove** | Sales Associate - Automotive | Parañaque, Metro Manila | [Apply](https://jobs.lever.co/lalamove/130faadf-6e10-4568-ad05-fdce1cdf1f61) | Oct 28 |
-| **Chevron** | Chevron Internship – Information Technology \| Q1 2027 | Ayala, Makati City, Philippines | [Apply](https://chevron.wd5.myworkdayjobs.com/en-US/jobs/job/Ayala-Makati-City-Philippines/Chevron-Internship---Information-Technology---Q1-2027_R000074729) | Oct 28 |
-| **IQVIA** | Associate Account Manager | Taguig City, Philippines | [Apply](https://iqvia.wd1.myworkdayjobs.com/en-US/IQVIA/job/Taguig-City-Philippines/Associate-Account-Manager_R1571264) | Oct 28 |
 
 ---
 
